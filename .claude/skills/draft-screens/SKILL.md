@@ -20,19 +20,6 @@
 | ia-writing-rules.md | `.claude/rules/ia-writing-rules.md` | flow_type·shared page 규칙 |
 | context-ia-example.tsv | `.claude/contexts/context-ia-example.tsv` | 컬럼 구조·값 형식 레퍼런스 |
 
-### T4S_기능내역서.tsv 컬럼 구조 (참조용)
-
-> `context_{module_id}.md`에서 이미 추출된 화면 목록을 쓰되, 레거시 ID 보완 시 직접 참조
-
-| 컬럼 | 용도 |
-|------|------|
-| `module` / `channel` | 모듈·채널 필터 키 |
-| `screen_id_new` | 레거시 화면 ID (legacy_screen_id 매핑) |
-| `screen_name` | 화면명 |
-| `기능그룹_1Depth` ~ `기능그룹_5Depth` | 화면 **내부** UI 컴포넌트 계층 → description 참고 |
-| `IA_1Depth` ~ `IA_4Depth` | 앱 **탐색 계층** → depth1~3 구성 참고 (161행만 채워져 있음) |
-| `비고` | QA 노트 — 무시 |
-
 ---
 
 ## 아웃풋
@@ -101,7 +88,7 @@
 
 ### shared_pages 식별 기준
 
-- 같은 화면(본인인증 CP, 배송지 BS 등)이 3개 이상 UC에서 반복되면 공유 페이지로 추출
+- 같은 화면(본인인증 CP, 배송지 BS 등)이 2개 이상 UC에서 반복되면 공유 페이지로 추출
 - `owner_uc`: 해당 UC 중 가장 먼저 나오는(depth 순서) UC
 - `ref_ucs`: 나머지 참조 UC 목록
 
