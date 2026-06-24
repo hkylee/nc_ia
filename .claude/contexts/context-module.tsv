@@ -1,0 +1,7 @@
+module_id	module_name	module_name_en	depth1	ref-policy	ref-ia	description
+MBR	로그인/회원	Member	로그인	회원가입탈퇴_policy_spec.json; 회원정보조회변경_policy_spec.json; 회원가입_policy_spec.json	NC_IA_MBR.tsv	회원가입·T-ID 로그인·소셜 로그인·계정 찾기·휴면 해제·탈퇴 전 과정
+PRD	상품	Product	상품	상품목록_policy_spec.json; 상품상세담기_policy_spec.json; 상품서비스혜택이용공유_policy_spec.json	(미생성)	상품 목록·상세 조회·담기·공유. DSP-PRDL(상품목록) + DSP-PRDD(상품상세) 통합
+MY	마이	My	마이	나의가입정보_policy_spec.json; 나의데이터통화_policy_spec.json; 멤버십카드관리_policy_spec.json; 멤버십혜택T플러스포인트_policy_spec.json; 설정_policy_spec.json	NC_IA_MY.tsv	마이 홈·나의가입정보·요금·혜택·멤버십·회선관리·설정
+ORD	주문/장바구니	Order	장바구니	카트장바구니_policy_spec.json; 주문계약가입_policy_spec.json; 주문상태사후관리_policy_spec.json; 선물주문_policy_spec.json; 해지환불취소_policy_spec.json	NC_IA_ORD.tsv	장바구니·주문/가입·배송·교환/반품·선물주문·해지/환불
+SCH	AI 검색	Search	AI 검색	AI검색_policy_spec.json	NC_IA_SCH.tsv	AI 검색 질의·결과·비교추천·오타보정·상담전환
+DSP	홈/전시	Display	홈	전시관리기능_policy_spec.json; 이벤트미션프로그램_policy_spec.json; 추천_policy_spec.json	NC_IA_DSP.tsv	앱 홈·쇼핑·바코드·메뉴·배너·추천·이벤트·전시 관리
