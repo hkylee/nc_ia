@@ -1,0 +1,38 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PG-001-0	홈			PG	앱 런치 진입점. 고객 상태·보유 여정 기반 전시 구성. 미로그인 시 가치 프리뷰(혜택·구독·미션 요약) 노출			✅	✅	TW-DSP-MAIN-MOPC-001-PG-001; TW-DSP-MAIN-MOPC-001-PG-002; TD-DSP-MAIN-MOPC-01-PG-001; TD-DSP-MAIN-MOPC-10-PG-001; TM-DSP-MAIN-PC-59-PG-001; TU-DSP-MAIN-MO-02-PG-001-1; TU-DSP-MAIN-MO-02-PG-001-2	TW, TD, TM, TU	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PG-002-0	홈	혜택 탭		PG	T멤버십 혜택 통합 탭. 보유 등급·포인트·쿠폰 요약 카드 노출. 미로그인 시 혜택 프리뷰			✅	✅	TM-DSP-MAIN-MO-01-PG-001; TM-DSP-MAIN-MO-01-PG-070	TM	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PG-003-0	홈	구독 탭		PG	구독 상품(T우주 등) 통합 탭. 이용 중 구독·추천 구독 노출. 미로그인 시 구독 가치 프리뷰			✅	✅	TM-DSP-MAIN-MO-01-PG-054	TM	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PG-004-0	홈	미션 탭		PG	출석체크·미션·이벤트 진입 탭. 미로그인 시 잠금 상태 안내 노출			✅	✅	TM-DSP-MAIN-MO-01-PG-055; TM-DSP-MSN-MO-01-PG-060	TM	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PU-001-0	홈	바코드		PU	T멤버십·결제 바코드 스캔. 미로그인 시 로그인 요구. 전체메뉴 및 퀵메뉴에서 진입	로그인		✅	✅	TM-DSP-MAIN-MO-01-PU-013; TM-DSP-BEN-MO-14-PU-472; TM-DSP-BEN-MO-14-PU-645; TM-DSP-BEN-MO-14-PU-129; TM-DSP-MAIN-MO-01-PG-111	TM	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PU-002-0	홈	전체메뉴		PU	전체 서비스 탐색 드로어. 개인화 바로가기·최근 이용 항목 포함. 로그인 상태에 따라 MY 영역 노출 분기			✅	✅	TD-DSP-MAIN-MOPC-10-AIP-002	TD	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-BS-001-0	홈	전체메뉴	바로가기 편집	BS	전체메뉴 내 개인 바로가기 항목 추가·삭제·순서 변경. 변경 즉시 홈 퀵메뉴 반영			✅	✅	TW-DSP-MAIN-MOPC-001-PU-001	TW	●
+앱-DSP	US-DSP-CUS-001	고객 여정 기반 전시 확인 및 업무 이동	NOVA-DSP-PG-005-0	홈	배너 전체보기		PG	홈 배너 전체 목록. 개인화 배너 피드. 딥링크 랜딩 포함			✅	✅	TM-DSP-BNR-MO-01-PG-011; TM-DSP-BNR-MO-01-PU-056; TM-DSP-BNR-MO-14-PU-026	TM	●
+앱-DSP	US-DSP-CUS-002	개인화 전시·퀵메뉴 제어	NOVA-DSP-BS-002-0	홈	퀵메뉴 편집		BS	홈 상단 퀵메뉴(바로가기) 구성 편집. 기본 추천·최근 이용·보유 상태 기반 후보 제공			✅	✅	TM-DSP-MAIN-MO-01-BS-005	TM	●
+앱-DSP	US-DSP-CUS-002	개인화 전시·퀵메뉴 제어	NOVA-DSP-BS-003-0	홈	개인화 설정		BS	홈 전시 개인화 숨김·관심없음 설정. 노출 이유 확인. 일정 기간 비노출 설정			✅	✅			
+앱-EVT	US-EVT-CUS-001	이벤트·미션 탐색 및 참여 여부 판단	NOVA-EVT-PG-001-0	홈	이벤트		PG	이벤트·기획전 목록. 진행 중·마감 임박·참여 완료 상태 표시. 딥링크·푸시 직접 진입 가능	푸시 알림		✅	✅	TD-DSP-EVT-MOPC-06-PG-001	TD	●
+앱-EVT	US-EVT-CUS-001	이벤트·미션 탐색 및 참여 여부 판단	NOVA-EVT-PG-002-0	홈	이벤트	이벤트 상세	PG	이벤트 참여·쿠폰 발급·응모. 로그인 후 진입. 딥링크·SNS 공유 직접 진입 가능	푸시 알림		✅	✅	TM-DSP-EVT-MO-01-PG-035; TD-DSP-EVT-MOPC-06-PG-002; TM-DSP-EVT-MO-14-PG-129	TM, TD	●
+앱-EVT	US-EVT-CUS-002	이벤트 참여·응모 완료	NOVA-EVT-CP-001-0	홈	이벤트	이벤트 상세	CP	쿠폰 발급 완료 얼럿. 발급 쿠폰 확인(쿠폰함 이동) 또는 계속 이용 선택		기본	✅	✅	TM-DSP-CPN-MO-14-CP-027; TM-DSP-CPN-MO-14-CP-029; TM-DSP-CPN-MO-14-CP-030; TM-DSP-EVT-MO-14-CP-034; TM-DSP-CPN-MO-20-LP-030	TM	●
+앱-EVT	US-EVT-CUS-002	이벤트 참여·응모 완료	NOVA-EVT-CP-002-0	홈	이벤트	이벤트 상세	CP	응모 불가 안내 얼럿(기간 종료·조건 미충족·중복 참여 등). 사유별 메시지 분기		예외 1	✅	✅	TM-DSP-EVT-MO-14-CP-058; TM-DSP-EVT-MO-14-CP-059; TM-DSP-EVT-MO-14-CP-060; TM-DSP-EVT-MO-14-CP-061; TM-DSP-EVT-MO-14-CP-062; TM-DSP-EVT-MO-14-CP-063; TM-DSP-EVT-MO-14-CP-067	TM	●
+앱-EVT	US-EVT-CUS-003	미션 진행·이어하기	NOVA-EVT-PG-003-0	홈	미션 탭	출석체크	PG	일일 출석체크 및 연속 출석 보상 확인. 로그인 후 이용. 비로그인 시 미션 탭에서 진입 차단			✅	✅	TM-DSP-MSN-MO-02-PG-001	TM	●
+앱-EVT	US-EVT-CUS-003	미션 진행·이어하기	NOVA-EVT-PG-004-0	홈	미션 탭	미션 상세	PG	개별 미션 참여·진행 상태 확인. 스탬프·보상·응모 기회 표시			✅	✅	TM-DSP-MSN-MO-02-PG-016; TM-DSP-MSN-MO-02-PG-009; TM-DSP-MSN-MO-02-PG-020	TM	●
+앱-EVT	US-EVT-CUS-004	결과·보상 수령 및 이력 확인	NOVA-EVT-CP-003-0	홈	미션 탭	미션 상세	CP	보상 수령 완료 팝업(즉시 보상·누적 보상 분기). 쿠폰함 또는 포인트 이동 CTA		기본	✅	✅	TM-DSP-MSN-MO-02-TP-003; TM-DSP-MSN-MO-02-TP-004; TM-DSP-MSN-MO-02-TP-011; TM-DSP-MSN-MO-02-TP-022	TM	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-PG-001-0	쇼핑			PG	통합 상품 탐색 진입점. 요금제·단말·구독·액세서리·인터넷TV 카테고리 진입. 홈 전체메뉴 및 GNB 하단탭에서 진입	홈		✅	✅	TW-DSP-PRDL-MOPC-014-PG-003; TW-DSP-PRDL-MO-014-PG-002; TW-DSP-PRDL-MOPC-44-PG-007; TD-DSP-PRDL-MOPC-02-PG-001	TW, TD	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-PG-002-0	쇼핑	요금제 목록		PG	요금제 전체 목록. 데이터·음성·혜택·가격 조건 필터·정렬. 고객 가입 조건 기반 가능 여부 표시			✅	✅	TW-DSP-PRDL-MOPC-014-PG-003; TW-DSP-PRDL-MO-014-PG-002; (기능내역서 미기재)	TW	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-BS-001-0	쇼핑	요금제 목록	필터·정렬	BS	요금제 필터(데이터량·가격·혜택·약정 등) 및 정렬 조건 설정			✅	✅	TW-DSP-PRDL-MOPC-012-BS-005; TW-DSP-PRDL-MOPC-017-BS-001; TW-DSP-PRDL-MO-014-BS-004	TW	●
+앱-PRD	US-PRD-CUS-002	상품 후보 비교·저장 및 가입 가능성 확인	NOVA-PRD-PU-001-0	쇼핑	요금제 목록	요금제 비교	PU	최대 3개 요금제 조건 비교. 데이터·음성·혜택·가격 항목별 비교 표 노출			✅	✅	TW-DSP-RCM-MOPC-016-PU-002; TW-DSP-RCM-MOPC-014-CP-001	TW	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-PG-003-0	쇼핑	단말 목록		PG	휴대폰·태블릿·웨어러블 목록. 제조사·가격·지원금 필터. AI 추천 기반 정렬 옵션			✅	✅	TD-DSP-PRDL-MOPC-02-PG-001; TD-DSP-PRDL-MOPC-02-PG-005; TD-DSP-PRDL-MO-36-PG-001; TD-DSP-PRDL-MO-36-PG-010	TD	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-BS-002-0	쇼핑	단말 목록	필터·정렬	BS	단말 필터(제조사·OS·가격대·색상 등) 및 정렬 조건 설정			✅	✅	TW-DSP-PRDL-MOPC-012-BS-005; TW-DSP-PRDL-MOPC-017-BS-001; TU-DSP-PRDL-MO-04-BS-001	TW, TU	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-BS-003-0	쇼핑	단말 목록	AI 추천 동의	BS	AI 기반 단말 추천을 위한 개인정보 수집·이용 동의(선택). 동의 거부 시 기본 정렬로 유지			✅	✅	TD-DSP-PRDL-MO-36-BS-005	TD	●
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-PG-004-0	쇼핑	구독 목록		PG	T우주 등 구독 상품 목록. 혜택·가격·구성 조건 필터. 현재 구독 상태 표시			✅	✅			
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-PG-005-0	쇼핑	액세서리 목록		PG	액세서리·주변기기 목록. 카테고리 탭 구성. 단말 상세에서 연결 가능			✅	✅			
+앱-PRD	US-PRD-CUS-001	상품 후보 탐색 및 조건 선별	NOVA-PRD-PG-006-0	쇼핑	인터넷·TV 목록		PG	인터넷·B tv 상품 목록. 요금 계산기·결합할인 시뮬레이션 포함			✅	✅	TD-DSP-MAIN-MOPC-03-PG-001	TD	●
+앱-PRD	US-PRD-CUS-003	목록 결과 없음·오류 복구	NOVA-PRD-PG-007-0	쇼핑	검색 결과 없음		PG	필터·검색 조건 미충족 시 빈 결과 화면. 조건 완화 유도 및 대체 경로(AI검색·추천) 안내		예외 1	✅	✅	TW-DSP-PRDL-MO-014-PG-005	TW	●
+앱-PDD	US-PDD-CUS-001	상품 가치 탐색과 이해	NOVA-PDD-PG-001-0	쇼핑	상품상세		PG	요금제·단말·구독 공통 상품상세. 핵심 요약·미디어·스펙·혜택·가격·주의사항 구성. 딥링크 직접 진입 가능	요금제 목록; 단말 목록; 구독 목록; AI검색		✅	✅	TD-DSP-PRDD-MOPC-18-PG-001; TD-DSP-PRDD-MOPC-42-PG-021; TD-DSP-PRDD-MOPC-42-PG-025; TW-DSP-PRDD-MOPC-46-PG-031; TW-DSP-PRDD-MOPC-46-PG-038; TD-DSP-PRDD-MO-39-PG-016	TD, TW	●
+앱-PDD	US-PDD-CUS-003	상품 구성 선택과 담기 준비	NOVA-PDD-BS-001-0	쇼핑	상품상세	옵션 선택	BS	색상·용량·약정·할부 등 구매 옵션 선택. 선택 즉시 예상 비용 갱신			✅	✅	TD-DSP-PRDD-MO-32-BS-008	TD	●
+앱-PDD	US-PDD-CUS-001	상품 가치 탐색과 이해	NOVA-PDD-BS-002-0	쇼핑	상품상세	할인 방법 안내	BS	공시지원금·선택약정 할인 방법 비교 안내 바텀시트. 기능내역서 TD-DSP-PRDL-MO-02-LP-003 통합			✅	✅	TD-DSP-PRDL-MO-02-LP-003; TD-DSP-PRDL-MO-02-LP-004	TD	●
+앱-PDD	US-PDD-CUS-002	상품 조건 비교와 맞춤 판단	NOVA-PDD-BS-003-0	쇼핑	상품상세	가입 조건 안내	BS	고객 회선·요금제 조건 기반 가입 가능 여부 안내. 제한 사유 및 대체 상품 안내			✅	✅	TD-DSP-PRDD-MO-18-BS-017	TD	●
+앱-PDD	US-PDD-CUS-001	상품 가치 탐색과 이해	NOVA-PDD-PU-001-0	쇼핑	상품상세	필요 서류 제출 안내	PU	0플랜 히어로 등 특수 상품 필요서류 안내 팝업. 기능내역서 TW-DSP-PRDD-MOPC-008-PU-001 대응			✅	✅	TW-DSP-PRDD-MOPC-008-PU-001	TW	●
+앱-PDD	US-PDD-CUS-003	상품 구성 선택과 담기 준비	NOVA-PDD-PG-002-0	쇼핑	상품상세	입고 알림 신청	PG	품절 단말 입고 알림 신청. 휴대폰 번호 입력 및 약관 동의 포함. 기능내역서 TD-DSP-PRDD-MO-39-PG-029 대응			✅	✅	TD-DSP-PRDD-MO-39-PG-029	TD	●
+앱-PDD	US-PDD-CUS-003	상품 구성 선택과 담기 준비	NOVA-PDD-PG-003-0	쇼핑	상품상세	입고 알림 신청 완료	PG	입고 알림 신청 완료 확인 화면. 기능내역서 TD-DSP-PRDD-MO-39-PG-030 대응	입고 알림 신청		✅	✅	TD-DSP-PRDD-MO-39-PG-030	TD	●
+앱-PDD	US-PDD-CUS-004	상품 담기 여정 완성	NOVA-PDD-BS-004-0	쇼핑	상품상세	담기 완료	BS	장바구니 담기 완료 바텀시트. 장바구니 이동 또는 계속 쇼핑 선택	옵션 선택		✅	✅	TU-DSP-PRDD-MO-07-BS-004	TU	●
+앱-PDD	US-PDD-CUS-005	담기 실패 복구와 상담 전환	NOVA-PDD-CP-001-0	쇼핑	상품상세	담기 불가 안내	CP	담기 불가 사유 안내 얼럿(중복 상품·조합 충돌·재고 소진 등). 상담 전환 또는 대체 상품 안내		예외 1	✅	✅	TD-DSP-PRDD-MO-18-BS-032; TD-DSP-PRDD-MO-39-PU-018	TD	●
