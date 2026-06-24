@@ -1,0 +1,273 @@
+{
+  "generated_at": "2026-05-15T20:16:09",
+  "base_url": "https://ncstudio.onrender.com",
+  "remote_policy_count": 81,
+  "local_policy_count_before": 146,
+  "remote_only_count": 9,
+  "remote_only": [
+    "NC_상품상세담기_정책서_간소화_v0.17.html",
+    "NC_상품상세담기_정책서_간소화_v0.16.html",
+    "NC_상품상세담기_정책서_간소화_v0.15.html",
+    "NC_상품상세담기_정책서_간소화_v0.14.html",
+    "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+    "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+    "NC_상품상세담기_정책서_간소화_v0.13.html",
+    "NC_상품상세담기_정책서_간소화_v0.12.html",
+    "NC_청구및수납관리_정책서_간소화_v0.12.html"
+  ],
+  "staging_dir": "reports/render_sync/render_output_20260515_201553",
+  "downloaded": [
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.8.html",
+      "status": "downloaded",
+      "bytes": 331518,
+      "name": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.8_spec.json",
+      "status": "downloaded",
+      "bytes": 257981,
+      "name": "NC_상품상세담기_정책서_간소화_v0.17_spec.json",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.8_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.17_전체업무흐름도.bpmn",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.8_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.17_전체업무흐름도_viewer.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.7.html",
+      "status": "downloaded",
+      "bytes": 492513,
+      "name": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.7_spec.json",
+      "status": "downloaded",
+      "bytes": 257981,
+      "name": "NC_상품상세담기_정책서_간소화_v0.16_spec.json",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.7_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.16_전체업무흐름도.bpmn",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.7_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.16_전체업무흐름도_viewer.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.6.html",
+      "status": "downloaded",
+      "bytes": 245717,
+      "name": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.6_spec.json",
+      "status": "downloaded",
+      "bytes": 257991,
+      "name": "NC_상품상세담기_정책서_간소화_v0.15_spec.json",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.6_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.15_전체업무흐름도.bpmn",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.6_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.15_전체업무흐름도_viewer.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.5.html",
+      "status": "downloaded",
+      "bytes": 246786,
+      "name": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.5_spec.json",
+      "status": "downloaded",
+      "bytes": 257991,
+      "name": "NC_상품상세담기_정책서_간소화_v0.14_spec.json",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.5_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.14_전체업무흐름도.bpmn",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.5_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.14_전체업무흐름도_viewer.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html"
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4.html",
+      "status": "downloaded",
+      "bytes": 169511,
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4_spec.json",
+      "status": "downloaded",
+      "bytes": 104375,
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13_spec.json",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13_전체업무흐름도.bpmn",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html"
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13_전체업무흐름도_viewer.html",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html"
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3.html",
+      "status": "downloaded",
+      "bytes": 169313,
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_spec.json",
+      "status": "downloaded",
+      "bytes": 104375,
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12_spec.json",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html"
+    },
+    {
+      "path": "/output/NC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EA%B3%B5%ED%86%B5%ED%92%88%EC%A7%88%EC%A0%81%EC%9D%91%ED%98%95_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4.html",
+      "status": "downloaded",
+      "bytes": 246028,
+      "name": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4_spec.json",
+      "status": "downloaded",
+      "bytes": 257970,
+      "name": "NC_상품상세담기_정책서_간소화_v0.13_spec.json",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.13_전체업무흐름도.bpmn",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.4_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.13_전체업무흐름도_viewer.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3.html",
+      "status": "downloaded",
+      "bytes": 245265,
+      "name": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_spec.json",
+      "status": "downloaded",
+      "bytes": 257993,
+      "name": "NC_상품상세담기_정책서_간소화_v0.12_spec.json",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html"
+    },
+    {
+      "path": "/output/NC_%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%EB%8B%B4%EA%B8%B0_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_상품상세담기_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html"
+    },
+    {
+      "path": "/output/NC_%EC%B2%AD%EA%B5%AC%EB%B0%8F%EC%88%98%EB%82%A9%EA%B4%80%EB%A6%AC_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3.html",
+      "status": "downloaded",
+      "bytes": 180977,
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%B2%AD%EA%B5%AC%EB%B0%8F%EC%88%98%EB%82%A9%EA%B4%80%EB%A6%AC_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_spec.json",
+      "status": "downloaded",
+      "bytes": 275425,
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12_spec.json",
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "copied_to_output": true
+    },
+    {
+      "path": "/output/NC_%EC%B2%AD%EA%B5%AC%EB%B0%8F%EC%88%98%EB%82%A9%EA%B4%80%EB%A6%AC_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84.bpmn",
+      "status": "missing",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html"
+    },
+    {
+      "path": "/output/NC_%EC%B2%AD%EA%B5%AC%EB%B0%8F%EC%88%98%EB%82%A9%EA%B4%80%EB%A6%AC_%EC%A0%95%EC%B1%85%EC%84%9C_%EA%B0%84%EC%86%8C%ED%99%94_v0.3_%EC%A0%84%EC%B2%B4%EC%97%85%EB%AC%B4%ED%9D%90%EB%A6%84%EB%8F%84_viewer.html",
+      "status": "missing",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html"
+    }
+  ]
+}

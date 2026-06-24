@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="결제 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_PAY_CUS_001" name="US-PAY-CUS-001 결제 조건과 금액 확인">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_AMT_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_AMT_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_AMT_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_AMT_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CUS_002" name="US-PAY-CUS-002 결제수단 선택과 인증">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_MTD_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_MTD_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_MTD_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_MTD_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CUS_003" name="US-PAY-CUS-003 할인·포인트·프로모션 적용">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_DCN_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_DCN_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_DCN_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_DCN_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_DCN_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CUS_004" name="US-PAY-CUS-004 결제 승인과 완료 확인">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_APR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_APR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_APR_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_APR_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CUS_005" name="US-PAY-CUS-005 결제 실패 복구와 중복 방지">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_REC_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_REC_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_REC_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_REC_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_005</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CUS_006" name="US-PAY-CUS-006 정기결제와 청구정보 관리">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_006</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CUS_007" name="US-PAY-CUS-007 결제 증빙과 발급정보 관리">
+        <bpmn:flowNodeRef>Start_US_PAY_CUS_007</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_PRF_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_PRF_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CUS_007</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_OPR_001" name="US-PAY-OPR-001 결제·혜택 기준 운영">
+        <bpmn:flowNodeRef>Start_US_PAY_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_OPR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_OPR_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_OPR_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_OPR_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_OPR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PAY_CS_001" name="US-PAY-CS-001 결제 실패 상담 지원">
+        <bpmn:flowNodeRef>Start_US_PAY_CS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_CS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PAY_CS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PAY_CS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_PAY_CUS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_AMT_001" name="PR-PAY-AMT-001 결제 단계 진입과 유형 확인">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_AMT_002" name="PR-PAY-AMT-002 상품금액·할인·최종금액 구성">
+      <bpmn:incoming>Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_AMT_003" name="PR-PAY-AMT-003 분리 결제와 0원 결제 판정">
+      <bpmn:incoming>Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_AMT_004" name="PR-PAY-AMT-004 금액 변동 재확인">
+      <bpmn:incoming>Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001" sourceRef="Start_US_PAY_CUS_001" targetRef="Task_PR_PAY_AMT_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002" sourceRef="Task_PR_PAY_AMT_001" targetRef="Task_PR_PAY_AMT_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003" sourceRef="Task_PR_PAY_AMT_002" targetRef="Task_PR_PAY_AMT_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004" sourceRef="Task_PR_PAY_AMT_003" targetRef="Task_PR_PAY_AMT_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001" sourceRef="Task_PR_PAY_AMT_004" targetRef="End_US_PAY_CUS_001"/>
+    <bpmn:startEvent id="Start_US_PAY_CUS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_MTD_001" name="PR-PAY-MTD-001 결제수단 후보와 제한 사유 확인">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_MTD_002" name="PR-PAY-MTD-002 결제수단 등록·삭제·기본 설정">
+      <bpmn:incoming>Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_MTD_003" name="PR-PAY-MTD-003 입력 최소화와 카드 OCR 등록">
+      <bpmn:incoming>Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_MTD_004" name="PR-PAY-MTD-004 추가 인증과 거래 바인딩">
+      <bpmn:incoming>Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001" sourceRef="Start_US_PAY_CUS_002" targetRef="Task_PR_PAY_MTD_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002" sourceRef="Task_PR_PAY_MTD_001" targetRef="Task_PR_PAY_MTD_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003" sourceRef="Task_PR_PAY_MTD_002" targetRef="Task_PR_PAY_MTD_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004" sourceRef="Task_PR_PAY_MTD_003" targetRef="Task_PR_PAY_MTD_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002" sourceRef="Task_PR_PAY_MTD_004" targetRef="End_US_PAY_CUS_002"/>
+    <bpmn:startEvent id="Start_US_PAY_CUS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_DCN_001" name="PR-PAY-DCN-001 사용 가능 혜택 조회">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_DCN_002" name="PR-PAY-DCN-002 쿠폰·포인트·할인 조합 선택">
+      <bpmn:incoming>Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_DCN_003" name="PR-PAY-DCN-003 우선순위·중복·배타 검증">
+      <bpmn:incoming>Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_DCN_004" name="PR-PAY-DCN-004 결제수단 프로모션 반영">
+      <bpmn:incoming>Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_DCN_005" name="PR-PAY-DCN-005 적용 전후 금액 확정">
+      <bpmn:incoming>Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001" sourceRef="Start_US_PAY_CUS_003" targetRef="Task_PR_PAY_DCN_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002" sourceRef="Task_PR_PAY_DCN_001" targetRef="Task_PR_PAY_DCN_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003" sourceRef="Task_PR_PAY_DCN_002" targetRef="Task_PR_PAY_DCN_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004" sourceRef="Task_PR_PAY_DCN_003" targetRef="Task_PR_PAY_DCN_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005" sourceRef="Task_PR_PAY_DCN_004" targetRef="Task_PR_PAY_DCN_005"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003" sourceRef="Task_PR_PAY_DCN_005" targetRef="End_US_PAY_CUS_003"/>
+    <bpmn:startEvent id="Start_US_PAY_CUS_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_APR_001" name="PR-PAY-APR-001 결제 전 최종 확인">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_APR_002" name="PR-PAY-APR-002 결제 요청 제출과 중복 차단">
+      <bpmn:incoming>Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_APR_003" name="PR-PAY-APR-003 외부 간편결제 전환과 복귀">
+      <bpmn:incoming>Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_APR_004" name="PR-PAY-APR-004 처리 중 상태와 성공 결과 안내">
+      <bpmn:incoming>Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001" sourceRef="Start_US_PAY_CUS_004" targetRef="Task_PR_PAY_APR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002" sourceRef="Task_PR_PAY_APR_001" targetRef="Task_PR_PAY_APR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003" sourceRef="Task_PR_PAY_APR_002" targetRef="Task_PR_PAY_APR_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004" sourceRef="Task_PR_PAY_APR_003" targetRef="Task_PR_PAY_APR_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004" sourceRef="Task_PR_PAY_APR_004" targetRef="End_US_PAY_CUS_004"/>
+    <bpmn:startEvent id="Start_US_PAY_CUS_005" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_REC_001" name="PR-PAY-REC-001 실패 사유 분류">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_REC_002" name="PR-PAY-REC-002 기존 주문서 복귀와 이어하기">
+      <bpmn:incoming>Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_REC_003" name="PR-PAY-REC-003 재시도·수단 변경·할인 재적용">
+      <bpmn:incoming>Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_REC_004" name="PR-PAY-REC-004 취소·환불·상태 복구 정합성 확인">
+      <bpmn:incoming>Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_005" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001" sourceRef="Start_US_PAY_CUS_005" targetRef="Task_PR_PAY_REC_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002" sourceRef="Task_PR_PAY_REC_001" targetRef="Task_PR_PAY_REC_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003" sourceRef="Task_PR_PAY_REC_002" targetRef="Task_PR_PAY_REC_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004" sourceRef="Task_PR_PAY_REC_003" targetRef="Task_PR_PAY_REC_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005" sourceRef="Task_PR_PAY_REC_004" targetRef="End_US_PAY_CUS_005"/>
+    <bpmn:startEvent id="Start_US_PAY_CUS_006" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_RECUR_001" name="PR-PAY-RECUR-001 정기결제 대표·예비 수단 관리">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_RECUR_002" name="PR-PAY-RECUR-002 갱신 실패 사전 알림과 복구">
+      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_RECUR_003" name="PR-PAY-RECUR-003 청구·납부·단말할부금 방식 선택">
+      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_RECUR_004" name="PR-PAY-RECUR-004 선불형 정기결제 조건 확인">
+      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_006" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001" sourceRef="Start_US_PAY_CUS_006" targetRef="Task_PR_PAY_RECUR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002" sourceRef="Task_PR_PAY_RECUR_001" targetRef="Task_PR_PAY_RECUR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003" sourceRef="Task_PR_PAY_RECUR_002" targetRef="Task_PR_PAY_RECUR_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004" sourceRef="Task_PR_PAY_RECUR_003" targetRef="Task_PR_PAY_RECUR_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006" sourceRef="Task_PR_PAY_RECUR_004" targetRef="End_US_PAY_CUS_006"/>
+    <bpmn:startEvent id="Start_US_PAY_CUS_007" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_PRF_001" name="PR-PAY-PRF-001 영수증·거래내역·확인서 조회">
+      <bpmn:incoming>Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_PRF_002" name="PR-PAY-PRF-002 현금영수증·세금계산서 발급정보 관리">
+      <bpmn:incoming>Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CUS_007" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001" sourceRef="Start_US_PAY_CUS_007" targetRef="Task_PR_PAY_PRF_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002" sourceRef="Task_PR_PAY_PRF_001" targetRef="Task_PR_PAY_PRF_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007" sourceRef="Task_PR_PAY_PRF_002" targetRef="End_US_PAY_CUS_007"/>
+    <bpmn:startEvent id="Start_US_PAY_OPR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_OPR_001" name="PR-PAY-OPR-001 결제수단 노출·우선순위 관리">
+      <bpmn:incoming>Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_OPR_002" name="PR-PAY-OPR-002 프로모션·제휴카드 기준 관리">
+      <bpmn:incoming>Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_OPR_003" name="PR-PAY-OPR-003 할인·포인트 예외 기준 관리">
+      <bpmn:incoming>Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_OPR_004" name="PR-PAY-OPR-004 검수·승인·예약 배포">
+      <bpmn:incoming>Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_OPR_005" name="PR-PAY-OPR-005 실패·갱신·보정 모니터링">
+      <bpmn:incoming>Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_OPR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001" sourceRef="Start_US_PAY_OPR_001" targetRef="Task_PR_PAY_OPR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002" sourceRef="Task_PR_PAY_OPR_001" targetRef="Task_PR_PAY_OPR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003" sourceRef="Task_PR_PAY_OPR_002" targetRef="Task_PR_PAY_OPR_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004" sourceRef="Task_PR_PAY_OPR_003" targetRef="Task_PR_PAY_OPR_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005" sourceRef="Task_PR_PAY_OPR_004" targetRef="Task_PR_PAY_OPR_005"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001" sourceRef="Task_PR_PAY_OPR_005" targetRef="End_US_PAY_OPR_001"/>
+    <bpmn:startEvent id="Start_US_PAY_CS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PAY_CS_001" name="PR-PAY-CS-001 결제 실패 문맥 확인">
+      <bpmn:incoming>Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PAY_CS_002" name="PR-PAY-CS-002 대체 결제와 복구 안내">
+      <bpmn:incoming>Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PAY_CS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001" sourceRef="Start_US_PAY_CS_001" targetRef="Task_PR_PAY_CS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002" sourceRef="Task_PR_PAY_CS_001" targetRef="Task_PR_PAY_CS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001" sourceRef="Task_PR_PAY_CS_002" targetRef="End_US_PAY_CS_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_001_di" bpmnElement="Lane_US_PAY_CUS_001">
+        <dc:Bounds x="40" y="25" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_001_di" bpmnElement="Start_US_PAY_CUS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_AMT_001_di" bpmnElement="Task_PR_PAY_AMT_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_AMT_002_di" bpmnElement="Task_PR_PAY_AMT_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_AMT_003_di" bpmnElement="Task_PR_PAY_AMT_003">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_AMT_004_di" bpmnElement="Task_PR_PAY_AMT_004">
+        <dc:Bounds x="900" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_001_di" bpmnElement="End_US_PAY_CUS_001">
+        <dc:Bounds x="1120" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_002_di" bpmnElement="Lane_US_PAY_CUS_002">
+        <dc:Bounds x="40" y="195" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_002_di" bpmnElement="Start_US_PAY_CUS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_MTD_001_di" bpmnElement="Task_PR_PAY_MTD_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_MTD_002_di" bpmnElement="Task_PR_PAY_MTD_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_MTD_003_di" bpmnElement="Task_PR_PAY_MTD_003">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_MTD_004_di" bpmnElement="Task_PR_PAY_MTD_004">
+        <dc:Bounds x="900" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_002_di" bpmnElement="End_US_PAY_CUS_002">
+        <dc:Bounds x="1120" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_003_di" bpmnElement="Lane_US_PAY_CUS_003">
+        <dc:Bounds x="40" y="365" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_003_di" bpmnElement="Start_US_PAY_CUS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_DCN_001_di" bpmnElement="Task_PR_PAY_DCN_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_DCN_002_di" bpmnElement="Task_PR_PAY_DCN_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_DCN_003_di" bpmnElement="Task_PR_PAY_DCN_003">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_DCN_004_di" bpmnElement="Task_PR_PAY_DCN_004">
+        <dc:Bounds x="900" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_DCN_005_di" bpmnElement="Task_PR_PAY_DCN_005">
+        <dc:Bounds x="1120" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_003_di" bpmnElement="End_US_PAY_CUS_003">
+        <dc:Bounds x="1340" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_004_di" bpmnElement="Lane_US_PAY_CUS_004">
+        <dc:Bounds x="40" y="535" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_004_di" bpmnElement="Start_US_PAY_CUS_004">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_APR_001_di" bpmnElement="Task_PR_PAY_APR_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_APR_002_di" bpmnElement="Task_PR_PAY_APR_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_APR_003_di" bpmnElement="Task_PR_PAY_APR_003">
+        <dc:Bounds x="680" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_APR_004_di" bpmnElement="Task_PR_PAY_APR_004">
+        <dc:Bounds x="900" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_004_di" bpmnElement="End_US_PAY_CUS_004">
+        <dc:Bounds x="1120" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_005_di" bpmnElement="Lane_US_PAY_CUS_005">
+        <dc:Bounds x="40" y="705" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_005_di" bpmnElement="Start_US_PAY_CUS_005">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_REC_001_di" bpmnElement="Task_PR_PAY_REC_001">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_REC_002_di" bpmnElement="Task_PR_PAY_REC_002">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_REC_003_di" bpmnElement="Task_PR_PAY_REC_003">
+        <dc:Bounds x="680" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_REC_004_di" bpmnElement="Task_PR_PAY_REC_004">
+        <dc:Bounds x="900" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_005_di" bpmnElement="End_US_PAY_CUS_005">
+        <dc:Bounds x="1120" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_006_di" bpmnElement="Lane_US_PAY_CUS_006">
+        <dc:Bounds x="40" y="875" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_006_di" bpmnElement="Start_US_PAY_CUS_006">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_RECUR_001_di" bpmnElement="Task_PR_PAY_RECUR_001">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_RECUR_002_di" bpmnElement="Task_PR_PAY_RECUR_002">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_RECUR_003_di" bpmnElement="Task_PR_PAY_RECUR_003">
+        <dc:Bounds x="680" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_RECUR_004_di" bpmnElement="Task_PR_PAY_RECUR_004">
+        <dc:Bounds x="900" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_006_di" bpmnElement="End_US_PAY_CUS_006">
+        <dc:Bounds x="1120" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CUS_007_di" bpmnElement="Lane_US_PAY_CUS_007">
+        <dc:Bounds x="40" y="1045" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CUS_007_di" bpmnElement="Start_US_PAY_CUS_007">
+        <dc:Bounds x="112" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_PRF_001_di" bpmnElement="Task_PR_PAY_PRF_001">
+        <dc:Bounds x="240" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_PRF_002_di" bpmnElement="Task_PR_PAY_PRF_002">
+        <dc:Bounds x="460" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CUS_007_di" bpmnElement="End_US_PAY_CUS_007">
+        <dc:Bounds x="680" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_OPR_001_di" bpmnElement="Lane_US_PAY_OPR_001">
+        <dc:Bounds x="40" y="1215" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_OPR_001_di" bpmnElement="Start_US_PAY_OPR_001">
+        <dc:Bounds x="112" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_OPR_001_di" bpmnElement="Task_PR_PAY_OPR_001">
+        <dc:Bounds x="240" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_OPR_002_di" bpmnElement="Task_PR_PAY_OPR_002">
+        <dc:Bounds x="460" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_OPR_003_di" bpmnElement="Task_PR_PAY_OPR_003">
+        <dc:Bounds x="680" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_OPR_004_di" bpmnElement="Task_PR_PAY_OPR_004">
+        <dc:Bounds x="900" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_OPR_005_di" bpmnElement="Task_PR_PAY_OPR_005">
+        <dc:Bounds x="1120" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_OPR_001_di" bpmnElement="End_US_PAY_OPR_001">
+        <dc:Bounds x="1340" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PAY_CS_001_di" bpmnElement="Lane_US_PAY_CS_001">
+        <dc:Bounds x="40" y="1385" width="1580" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PAY_CS_001_di" bpmnElement="Start_US_PAY_CS_001">
+        <dc:Bounds x="112" y="1412" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_CS_001_di" bpmnElement="Task_PR_PAY_CS_001">
+        <dc:Bounds x="240" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PAY_CS_002_di" bpmnElement="Task_PR_PAY_CS_002">
+        <dc:Bounds x="460" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PAY_CS_001_di" bpmnElement="End_US_PAY_CS_001">
+        <dc:Bounds x="680" y="1412" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001_di" bpmnElement="Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002_di" bpmnElement="Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003_di" bpmnElement="Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004_di" bpmnElement="Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001_di" bpmnElement="Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001">
+        <di:waypoint x="1070" y="70"/>
+        <di:waypoint x="1120" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001_di" bpmnElement="Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002_di" bpmnElement="Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003_di" bpmnElement="Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004_di" bpmnElement="Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002_di" bpmnElement="Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002">
+        <di:waypoint x="1070" y="240"/>
+        <di:waypoint x="1120" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001_di" bpmnElement="Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002_di" bpmnElement="Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003_di" bpmnElement="Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004_di" bpmnElement="Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005_di" bpmnElement="Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005">
+        <di:waypoint x="1070" y="410"/>
+        <di:waypoint x="1120" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003_di" bpmnElement="Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003">
+        <di:waypoint x="1290" y="410"/>
+        <di:waypoint x="1340" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001_di" bpmnElement="Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002_di" bpmnElement="Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003_di" bpmnElement="Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004_di" bpmnElement="Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004">
+        <di:waypoint x="850" y="580"/>
+        <di:waypoint x="900" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004_di" bpmnElement="Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004">
+        <di:waypoint x="1070" y="580"/>
+        <di:waypoint x="1120" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001_di" bpmnElement="Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002_di" bpmnElement="Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003_di" bpmnElement="Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004_di" bpmnElement="Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004">
+        <di:waypoint x="850" y="750"/>
+        <di:waypoint x="900" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005_di" bpmnElement="Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005">
+        <di:waypoint x="1070" y="750"/>
+        <di:waypoint x="1120" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001_di" bpmnElement="Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002_di" bpmnElement="Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003_di" bpmnElement="Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004_di" bpmnElement="Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004">
+        <di:waypoint x="850" y="920"/>
+        <di:waypoint x="900" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006_di" bpmnElement="Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006">
+        <di:waypoint x="1070" y="920"/>
+        <di:waypoint x="1120" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001_di" bpmnElement="Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001">
+        <di:waypoint x="148" y="1090"/>
+        <di:waypoint x="240" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002_di" bpmnElement="Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002">
+        <di:waypoint x="410" y="1090"/>
+        <di:waypoint x="460" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007_di" bpmnElement="Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007">
+        <di:waypoint x="630" y="1090"/>
+        <di:waypoint x="680" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001_di" bpmnElement="Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001">
+        <di:waypoint x="148" y="1260"/>
+        <di:waypoint x="240" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002_di" bpmnElement="Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002">
+        <di:waypoint x="410" y="1260"/>
+        <di:waypoint x="460" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003_di" bpmnElement="Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003">
+        <di:waypoint x="630" y="1260"/>
+        <di:waypoint x="680" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004_di" bpmnElement="Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004">
+        <di:waypoint x="850" y="1260"/>
+        <di:waypoint x="900" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005_di" bpmnElement="Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005">
+        <di:waypoint x="1070" y="1260"/>
+        <di:waypoint x="1120" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001_di" bpmnElement="Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001">
+        <di:waypoint x="1290" y="1260"/>
+        <di:waypoint x="1340" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001_di" bpmnElement="Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001">
+        <di:waypoint x="148" y="1430"/>
+        <di:waypoint x="240" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002_di" bpmnElement="Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002">
+        <di:waypoint x="410" y="1430"/>
+        <di:waypoint x="460" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001_di" bpmnElement="Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001">
+        <di:waypoint x="630" y="1430"/>
+        <di:waypoint x="680" y="1430"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

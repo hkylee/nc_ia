@@ -1,0 +1,6838 @@
+{
+  "meta": {
+    "policy_id": "POL-LCM",
+    "module_id": "PM-21",
+    "topic": "회선변경관리",
+    "business_code": "LCM",
+    "title": "회선 변경/관리 정책서",
+    "document_type": "간소화 버전",
+    "status": "작성중",
+    "document_status": "작성중",
+    "version": "v0.10",
+    "author": "Codex",
+    "date": "2026-05-09",
+    "created_at": "2026-05-09",
+    "authoring_basis": "PM-21 관련 상세 요구사항명과 상세 요구사항 설명 71건, 34개 작성 지향점, TK/채널 방향성, AGENTS 작성 기준을 바탕으로 재구성했다.",
+    "usecase_diagram": {
+      "type": "text",
+      "lines": [
+        "[고객] → (회선 변경 업무 진입과 처리 경로 결정)",
+        "[고객] → (일시정지·정지해제 예약과 즉시 처리)",
+        "[고객] → (분실·도난 긴급 차단과 복구 진행)",
+        "[고객] → (회선 해지·해지예약과 영향 확인)",
+        "[고객] → (계약자 변경·양도와 구성원 권한 관리)",
+        "[고객] → (해외·특수 상황에서 비대면 변경 처리)",
+        "[고객] → (회선 변경 신청 이력과 복구 행동 관리)",
+        "[대리 권한자] → (대리·보호자·사망자 회선 변경 권한 증빙)",
+        "[회선 운영자] → (예외 승인·예약 충돌·안내 기준 운영)",
+        "[상담사] → (회선 변경 문맥 기반 상담 지원)",
+        "[채널 업무 시스템] → (회선 상태·권한·영향 산정)",
+        "[회선 연계 시스템] → (회선 상태 변경·원장 반영·이력 회신)",
+        "[고객] → (일시정지·정지해제 예약과 즉시 처리) include: 영향도 시뮬레이션, BSS 상태 반영",
+        "[고객] → (회선 해지·해지예약과 영향 확인) include: 약정·위약금 산정, 전자서명, 서류 제출",
+        "[대리 권한자] → (대리·보호자·사망자 회선 변경 권한 증빙) include: 증빙 검증, 운영 검토",
+        "[상담사] → (회선 변경 문맥 기반 상담 지원) include: 접수번호 조회, 실패 사유 안내",
+        "[회선 운영자] → (예외 승인·예약 충돌·안내 기준 운영) include: 승인, 반려, 보완 요청, SLA 모니터링"
+      ]
+    },
+    "updated_at": "2026-05-15",
+    "requirements_count": 71,
+    "topic_slug": "회선변경관리",
+    "template_label": "간소화",
+    "version_spec_file": "NC_회선변경관리_정책서_간소화_v0.10_spec.json",
+    "version_spec_saved_at": "2026-05-11T20:09:44",
+    "version_spec_reason": "backfill_existing_output",
+    "version_spec_source": "회선변경관리_policy_spec.json",
+    "template_type": "simple"
+  },
+  "history": [
+    {
+      "version": "v0.10",
+      "change": "Codex 기반 초안 작성",
+      "date": "2026-05-10",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.11",
+      "change": "품질 검수 및 구조 보완 반영",
+      "date": "2026-05-11",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.10",
+      "change": "bpmn.io viewer 산출물 생성 및 문서 재렌더링",
+      "date": "2026-05-15",
+      "author": "Codex"
+    }
+  ],
+  "overview": {
+    "scope": [
+      "본 정책서는 통합채널에서 고객이 보유 회선의 변경, 정지, 정지해제, 분실·도난 차단, 해지·해지예약, 계약자 변경과 구성원 권한 관리를 셀프로 처리하기 위한 기준을 정의한다.",
+      "대상 채널은 앱·웹 FO이며, 고객이 직접 처리할 수 없는 대리·사망·해외·서류 필요 업무는 운영 검토 또는 상담 전환 경로까지 포함한다.",
+      "BSS와 연계 시스템이 수행하는 회선 상태 조회, 권한 판정, 영향도 산정, 원장 반영, 상태 변경, 이력 저장, 결과 회신은 정책 판단 기준에 포함한다.",
+      "화면 UI 상세, API 필드, DB 컬럼, 상담 스크립트 원문, 외부기관 내부 절차는 제외하되 고객 처리 가능 여부와 후속 행동에 영향을 주는 기준은 정책 항목으로 남긴다.",
+      "상품 가입, 결제, 배송, 환불, 혜택 사용 자체의 상세 기준은 인접 정책서에서 다루며 본 문서는 회선 변경과 관리가 해당 업무에 미치는 영향 기준만 정의한다.",
+      "포함 범위는 회선 선택, 권한 확인, 일시정지·해제, 분실·도난 차단, 해지·예약, 계약자 변경, 특수상황 증빙, 신청 이력과 복구 행동이다.",
+      "제외 범위는 상품 가입, 결제, 배송, 환불, 혜택 사용의 상세 실행 기준이며, 본 문서는 해당 업무가 회선 변경에 주는 영향과 제한 기준만 다룬다.",
+      "핵심 정책 질문은 누가 어떤 회선을 변경할 수 있는지, 언제 셀프 처리가 제한되는지, 어떤 증빙과 이력이 필요한지, BSS 원장 반영 실패 시 어떻게 복구하는지다.",
+      "FO는 회선 선택과 고객 안내를 담당하고, BSS는 회선 상태·명의·약정·결합 원장 판정과 반영을 담당하며, 외부 인증·서류 검증은 회선 연계 시스템 회신 기준으로 관리한다.",
+      "상세 요구사항 71건은 회선 권한, 상태 전이, 프로세스, 기능, 정책 또는 정책 항목 중 하나 이상에 매핑한다.",
+      "회선 변경은 정지, 해지, 대표 회선, 결합, 납부, 혜택 표시와 연결되므로 BSS 반영 지연이나 장애가 발생하면 채널 간 상태 불일치, 중복 신청, 잘못된 고객 안내로 확대될 수 있다.",
+      "동일 고객·동일 회선·동일 업무의 반복 요청은 기존 접수번호와 처리 상태를 우선 안내하고, BSS 회신 전 중복 반영이 발생하지 않도록 멱등 기준을 적용한다."
+    ],
+    "principles": [
+      {
+        "name": "회선 권한 분리",
+        "description": "계정 로그인 성공과 특정 회선 변경 권한을 별도로 판단하고, 권한이 없는 회선은 조회 범위와 변경 행위를 제한한다."
+      },
+      {
+        "name": "영향도 사전 고지",
+        "description": "정지, 해지, 계약자 변경, 분실 차단 전에 요금, 약정, 결합, 혜택, 수신 방법, 후속 서비스 영향이 고객에게 먼저 제시되어야 한다."
+      },
+      {
+        "name": "셀프 처리 우선",
+        "description": "고객이 앱·웹에서 완료할 수 있는 회선 관리 업무는 상담 전환보다 셀프 처리 경로를 우선 제공하되, 법적·권한·증빙 예외는 명확히 전환한다."
+      },
+      {
+        "name": "BSS 상태 일관성",
+        "description": "FO 표시 상태, BSS 회선 상태, 예약 상태, 신청 이력은 동일 기준으로 관리하고 불일치 시 고객에게 보류 사유와 다음 행동을 안내한다."
+      },
+      {
+        "name": "긴급 차단 우선",
+        "description": "분실·도난 상황은 고객 피해 방지를 위해 인증과 권한을 충족하는 범위에서 차단 요청을 우선 처리하고 후속 복구 경로를 함께 제시한다."
+      },
+      {
+        "name": "증빙 최소화와 추적성",
+        "description": "대리·사망·해외·특수 상황은 필요한 증빙만 요구하고 OCR, 전자서명, 접수번호, 이력 저장으로 후속 검증과 감사가 가능해야 한다."
+      }
+    ]
+  },
+  "terms": [
+    {
+      "id": "TM-LCM-001",
+      "name": "대표 회선",
+      "description": "동일 고객 또는 그룹의 여러 회선 중 조회·알림·결합 영향 산정의 기준으로 삼는 회선이다. 대표 회선 변경은 가족·결합·혜택 표시 기준에 영향을 주므로 변경 이력을 저장한다."
+    },
+    {
+      "id": "TM-LCM-002",
+      "name": "회선 변경 권한",
+      "description": "고객, 법정대리인, 위임받은 대리인, 운영자가 특정 회선의 정지·해지·명의 변경·분실 차단을 요청할 수 있는지 판단하는 기준이다."
+    },
+    {
+      "id": "TM-LCM-003",
+      "name": "처리 가능 여부",
+      "description": "회선 상태, 명의, 납부, 결합, 약정, 진행 중 예약, 증빙 상태를 종합해 앱·웹 셀프 처리가 가능한지 판정한 결과다."
+    },
+    {
+      "id": "TM-LCM-004",
+      "name": "일시정지",
+      "description": "고객 요청이나 분실·도난 등 사유로 회선 이용을 일정 기간 제한하는 상태다. 기간, 요금, 수신 가능 여부, 해제 조건을 함께 관리한다."
+    },
+    {
+      "id": "TM-LCM-005",
+      "name": "정지해제",
+      "description": "정지 중 회선을 정상 이용 가능한 상태로 되돌리는 처리다. 미납, 본인확인, 예약 충돌, BSS 반영 결과에 따라 즉시 처리 또는 보류로 나뉜다."
+    },
+    {
+      "id": "TM-LCM-006",
+      "name": "분실·도난 차단",
+      "description": "단말 또는 유심 분실로 인한 피해를 줄이기 위해 회선 이용, 로밍, 금융 연계, 후속 서비스를 제한하거나 안내하는 긴급 처리다."
+    },
+    {
+      "id": "TM-LCM-007",
+      "name": "해지 예약",
+      "description": "고객이 지정한 처리 시점에 회선 해지를 실행하도록 등록한 신청이다. 예약 전 약정, 위약금, 결합, 할부, 번호이동 영향을 고지한다."
+    },
+    {
+      "id": "TM-LCM-008",
+      "name": "계약자 변경",
+      "description": "회선의 계약 책임 주체를 다른 고객 또는 법인으로 변경하는 업무다. 권한, 보증, 미납, 결합, 약정 승계 기준을 충족해야 한다."
+    },
+    {
+      "id": "TM-LCM-009",
+      "name": "구성원 권한",
+      "description": "가족·그룹·결합 관계에서 구성원이 회선 정보를 조회하거나 변경 요청할 수 있는 범위다. 구성원 유형과 대표 회선 기준으로 판정한다."
+    },
+    {
+      "id": "TM-LCM-010",
+      "name": "특수 상황 처리",
+      "description": "사망, 해외 체류, 거동 불편, 미성년 보호자, 대리 신청처럼 일반 셀프 처리 기준으로 완료하기 어려운 회선 변경 업무다."
+    },
+    {
+      "id": "TM-LCM-011",
+      "name": "전자서명",
+      "description": "서류 제출 또는 계약 변경 신청을 고객이 온라인에서 확인·동의했다는 증적이다. 서명 주체, 시간, 신청 대상, 문서 버전을 이력으로 저장한다."
+    },
+    {
+      "id": "TM-LCM-012",
+      "name": "접수번호",
+      "description": "정지, 해지, 분실, 서류 제출, 운영 검토 신청을 추적하기 위해 부여하는 식별자다. 고객 조회와 상담 전환 시 동일 번호를 사용한다."
+    },
+    {
+      "id": "TM-LCM-013",
+      "name": "영향도 시뮬레이션",
+      "description": "변경 전 고객에게 위약금, 할인 소멸, 결합 해지, 수신 제한, 후속 서비스 영향을 산정해 보여주는 사전 안내 결과다."
+    },
+    {
+      "id": "TM-LCM-014",
+      "name": "운영 검토",
+      "description": "자동 판정만으로 완료할 수 없는 예외·증빙·충돌 신청을 운영자가 확인해 승인, 반려, 보완 요청 중 하나로 확정하는 절차다."
+    },
+    {
+      "id": "TM-LCM-015",
+      "name": "BSS 원장 반영",
+      "description": "고객 회선의 실제 상태, 약정, 결합, 정지, 해지, 명의 정보가 BSS 기준 데이터에 변경 저장되는 처리다."
+    }
+  ],
+  "actors": [
+    {
+      "id": "ACT-LCM-001",
+      "name": "고객",
+      "description": "본인 또는 본인이 관리 권한을 가진 회선의 변경, 정지, 해지, 분실 신고, 신청 이력 확인을 수행하는 주체다."
+    },
+    {
+      "id": "ACT-LCM-002",
+      "name": "대리 권한자",
+      "description": "법정대리인, 위임 대리인, 보호자 등 본인 외 회선 변경을 증빙 기반으로 요청할 수 있는 책임 주체다. 권한 범위는 업무별 증빙과 고객 상태 기준으로 제한한다."
+    },
+    {
+      "id": "ACT-LCM-003",
+      "name": "상담사",
+      "description": "셀프 처리 불가 또는 고객 문의 상황에서 회선 상태, 접수번호, 제한 사유를 확인하고 후속 경로를 안내하는 주체다."
+    },
+    {
+      "id": "ACT-LCM-004",
+      "name": "회선 운영자",
+      "description": "예외 승인, 반려, 예약 충돌, 실패 모니터링, 안내 기준 관리와 운영 보정을 수행하는 주체다."
+    },
+    {
+      "id": "ACT-LCM-005",
+      "name": "채널 업무 시스템",
+      "description": "FO에서 회선 선택, 권한 판정, 신청 접수, 영향도 안내, 문서 수집, 결과 표시를 제공하는 시스템 액터다."
+    },
+    {
+      "id": "ACT-LCM-006",
+      "name": "회선 연계 시스템",
+      "description": "회선 상태, 명의, 납부, 약정, 결합, 원장 반영, 외부 인증·서류 검증 결과를 제공하고 처리 결과를 회신하는 시스템 액터다."
+    }
+  ],
+  "usecases": [
+    {
+      "id": "US-LCM-CUS-001",
+      "actor": "고객",
+      "name": "회선 변경 업무 진입과 처리 경로 결정",
+      "description": "고객이 보유 또는 관리 가능한 회선의 현재 상태와 권한을 기준으로 정지, 해지, 분실, 계약자 변경, 특수 처리 중 가능한 업무 경로를 결정한다. 완료 상태는 변경 가능, 제한, 추가 인증·증빙 필요 중 하나로 확정된다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CUS-002",
+      "actor": "고객",
+      "name": "일시정지·정지해제 예약과 즉시 처리",
+      "description": "고객이 회선 일시정지, 정지해제, 예약 해제, 다회선 해제를 요청하고 영향도와 결과를 확인한다. 완료 상태는 정지 중, 정상 이용, 예약 등록, 보류 중 하나로 확정된다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CUS-003",
+      "actor": "고객",
+      "name": "분실·도난 긴급 차단과 복구 진행",
+      "description": "고객이 분실·도난 신고, 회선 차단, 접수번호 조회, 후속 서비스 연결, 신고 취소 또는 복구를 진행한다. 완료 상태는 차단 완료, 복구 가능, 후속 조치 필요 중 하나로 확정된다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CUS-004",
+      "actor": "고객",
+      "name": "회선 해지·해지예약과 영향 확인",
+      "description": "고객이 해지 가능 회선, 위약금·할부·결합·혜택 영향, 서류·전자서명 조건을 확인하고 해지 또는 예약을 신청한다. 완료 상태는 해지 예약, 처리 완료, 철회 가능, 보완 필요 중 하나로 확정된다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CUS-005",
+      "actor": "고객",
+      "name": "계약자 변경·양도와 구성원 권한 관리",
+      "description": "고객이 계약자 변경, 양도, 대표 회선, 가족·결합 구성원 권한 변경을 신청하고 권한 갱신 결과를 확인한다. 완료 상태는 변경 접수, 승인 완료, 반려, 보완 필요 중 하나로 확정된다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CUS-006",
+      "actor": "고객",
+      "name": "해외·특수 상황에서 비대면 변경 처리",
+      "description": "고객이 해외 체류, 사망자 회선, 대리 신청, 거동 불편 등 특수 상황의 비대면 처리 경로를 선택하고 증빙 제출과 운영 검토 결과를 확인한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CUS-007",
+      "actor": "고객",
+      "name": "회선 변경 신청 이력과 복구 행동 관리",
+      "description": "고객이 정지, 해지, 분실, 계약자 변경, 서류 제출 신청의 진행 상태를 확인하고 실패·반려·보완 필요 상태에 맞는 복구 행동을 선택한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-REP-001",
+      "actor": "대리 권한자",
+      "name": "대리·보호자·사망자 회선 변경 권한 증빙",
+      "description": "대리 권한자가 위임, 가족관계, 사망, 보호자 권한 증빙을 제출하고 처리 가능 범위를 확인한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-OPR-001",
+      "actor": "회선 운영자",
+      "name": "예외 승인·예약 충돌·안내 기준 운영",
+      "description": "운영자가 자동 판정 실패, 서류 보완, 예약 충돌, BSS 반영 실패, 사유별 안내문을 관리하고 승인 또는 반려 기준을 확정한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-CSR-001",
+      "actor": "상담사",
+      "name": "회선 변경 문맥 기반 상담 지원",
+      "description": "상담사가 고객 회선 상태, 접수번호, 실패 사유, 셀프 처리 경로를 확인하고 고객에게 다음 행동을 안내한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-LCM-SYS-001",
+      "actor": "채널 업무 시스템",
+      "name": "회선 상태·권한·영향 산정",
+      "description": "채널 업무 시스템이 고객 인증 결과, 회선 상태, 권한, 약정, 결합, 분실, 해지 영향도를 산정해 고객 화면과 후속 처리에 제공한다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-LCM-BSS-001",
+      "actor": "회선 연계 시스템",
+      "name": "회선 상태 변경·원장 반영·이력 회신",
+      "description": "회선 연계 시스템이 정지, 해지, 명의 변경, 결합 영향, 원장 반영, 외부 검증 결과를 처리하고 회신한다.",
+      "process_target": "N"
+    }
+  ],
+  "states": [
+    {
+      "id": "ST-LCM-001",
+      "name": "회선 선택 전",
+      "description": "고객이 변경 대상 회선을 아직 선택하지 않은 상태다.",
+      "next_action": "관리 가능한 회선을 선택하고 권한 확인으로 이동한다."
+    },
+    {
+      "id": "ST-LCM-002",
+      "name": "회선 권한 확인 중",
+      "description": "선택한 회선의 명의, 대리 권한, 대표 회선, 구성원 권한을 확인하는 상태다.",
+      "next_action": "권한이 충족되면 처리 가능 여부를 판정하고, 미충족이면 제한 사유를 안내한다."
+    },
+    {
+      "id": "ST-LCM-003",
+      "name": "처리 가능",
+      "description": "회선 상태와 권한 기준을 충족해 고객이 다음 변경 절차로 진행할 수 있는 상태다.",
+      "next_action": "영향 확인 또는 인증·증빙 단계로 이동한다."
+    },
+    {
+      "id": "ST-LCM-004",
+      "name": "처리 제한",
+      "description": "미납, 명의 불일치, 법인/특수 회선, 진행 중 예약, 권한 부족 등으로 셀프 처리가 제한된 상태다.",
+      "next_action": "제한 사유와 상담 또는 운영 검토 경로를 안내한다."
+    },
+    {
+      "id": "ST-LCM-005",
+      "name": "영향 확인 필요",
+      "description": "정지, 해지, 양도, 대표 회선 변경으로 요금, 약정, 결합, 혜택, 수신 방법 영향 확인이 필요한 상태다.",
+      "next_action": "고객이 영향도를 확인하고 계속 진행 또는 철회를 선택한다."
+    },
+    {
+      "id": "ST-LCM-006",
+      "name": "인증·증빙 필요",
+      "description": "본인확인, 대리 권한, 사망, 해외, 서류, 전자서명 등 추가 요건이 필요한 상태다.",
+      "next_action": "필수 인증과 서류를 제출하거나 상담 전환을 선택한다."
+    },
+    {
+      "id": "ST-LCM-007",
+      "name": "신청 접수",
+      "description": "고객 또는 대리인이 회선 변경 요청을 접수한 상태다.",
+      "next_action": "BSS 반영, 운영 검토, 예약 등록 중 하나로 분기한다."
+    },
+    {
+      "id": "ST-LCM-008",
+      "name": "예약 등록",
+      "description": "해지, 정지, 정지해제 또는 평일 자동 처리 예약이 등록된 상태다.",
+      "next_action": "예약 시점 도래 전 변경 또는 취소 가능 여부를 안내한다."
+    },
+    {
+      "id": "ST-LCM-009",
+      "name": "처리 중",
+      "description": "BSS 또는 연계 시스템이 상태 변경, 원장 반영, 서류 검증을 수행하는 상태다.",
+      "next_action": "성공 시 완료로 전환하고 실패 시 보류 또는 재시도 경로를 제시한다."
+    },
+    {
+      "id": "ST-LCM-010",
+      "name": "일시정지 중",
+      "description": "회선 이용이 정책 기준에 따라 제한된 상태다.",
+      "next_action": "정지해제 조건과 요금·수신 영향, 조기 해제 가능 여부를 안내한다."
+    },
+    {
+      "id": "ST-LCM-011",
+      "name": "분실 차단 중",
+      "description": "분실·도난으로 회선 또는 유심 사용이 제한된 상태다.",
+      "next_action": "복구, 신고 취소, 보험, 임대폰, 금융·로밍 차단 후속 경로를 안내한다."
+    },
+    {
+      "id": "ST-LCM-012",
+      "name": "해지 예약",
+      "description": "고객이 지정한 시점 또는 평일 자동 처리 기준으로 해지가 예약된 상태다.",
+      "next_action": "예약 취소 가능 기한과 최종 영향도를 안내한다."
+    },
+    {
+      "id": "ST-LCM-013",
+      "name": "운영 판정 대기",
+      "description": "자동 판정으로 완료할 수 없어 운영자가 예외 승인, 반려, 보완을 결정해야 하는 상태다.",
+      "next_action": "운영 확인 SLA와 보완 필요 자료를 고객에게 안내한다."
+    },
+    {
+      "id": "ST-LCM-014",
+      "name": "반려·보완 필요",
+      "description": "서류 누락, 권한 불일치, 제한 조건으로 요청이 반려되거나 보완이 필요한 상태다.",
+      "next_action": "보완 항목과 재접수 기한을 안내한다."
+    },
+    {
+      "id": "ST-LCM-015",
+      "name": "처리 완료",
+      "description": "회선 상태 변경, 권한 갱신, 해지, 정지해제, 분실 복구가 완료된 상태다.",
+      "next_action": "결과, 접수번호, 후속 조치, 이력 확인 경로를 제공한다."
+    },
+    {
+      "id": "ST-LCM-016",
+      "name": "복구 가능",
+      "description": "실패 또는 제한 후 고객이 추가 인증, 납부, 서류 보완, 예약 취소로 다시 진행할 수 있는 상태다.",
+      "next_action": "복구 조건과 재시도 가능 횟수를 안내한다."
+    },
+    {
+      "id": "ST-LCM-017",
+      "name": "복구 불가/종료",
+      "description": "정책상 철회 또는 복구가 불가하거나 회선이 종료된 상태다.",
+      "next_action": "최종 사유와 대체 처리 경로를 안내한다."
+    }
+  ],
+  "state_codes": [
+    {
+      "id": "ST-LCM-001",
+      "name": "회선 선택 전",
+      "description": "고객이 변경 대상 회선을 아직 선택하지 않은 상태다.",
+      "next_action": "관리 가능한 회선을 선택하고 권한 확인으로 이동한다."
+    },
+    {
+      "id": "ST-LCM-002",
+      "name": "회선 권한 확인 중",
+      "description": "선택한 회선의 명의, 대리 권한, 대표 회선, 구성원 권한을 확인하는 상태다.",
+      "next_action": "권한이 충족되면 처리 가능 여부를 판정하고, 미충족이면 제한 사유를 안내한다."
+    },
+    {
+      "id": "ST-LCM-003",
+      "name": "처리 가능",
+      "description": "회선 상태와 권한 기준을 충족해 고객이 다음 변경 절차로 진행할 수 있는 상태다.",
+      "next_action": "영향 확인 또는 인증·증빙 단계로 이동한다."
+    },
+    {
+      "id": "ST-LCM-004",
+      "name": "처리 제한",
+      "description": "미납, 명의 불일치, 법인/특수 회선, 진행 중 예약, 권한 부족 등으로 셀프 처리가 제한된 상태다.",
+      "next_action": "제한 사유와 상담 또는 운영 검토 경로를 안내한다."
+    },
+    {
+      "id": "ST-LCM-005",
+      "name": "영향 확인 필요",
+      "description": "정지, 해지, 양도, 대표 회선 변경으로 요금, 약정, 결합, 혜택, 수신 방법 영향 확인이 필요한 상태다.",
+      "next_action": "고객이 영향도를 확인하고 계속 진행 또는 철회를 선택한다."
+    },
+    {
+      "id": "ST-LCM-006",
+      "name": "인증·증빙 필요",
+      "description": "본인확인, 대리 권한, 사망, 해외, 서류, 전자서명 등 추가 요건이 필요한 상태다.",
+      "next_action": "필수 인증과 서류를 제출하거나 상담 전환을 선택한다."
+    },
+    {
+      "id": "ST-LCM-007",
+      "name": "신청 접수",
+      "description": "고객 또는 대리인이 회선 변경 요청을 접수한 상태다.",
+      "next_action": "BSS 반영, 운영 검토, 예약 등록 중 하나로 분기한다."
+    },
+    {
+      "id": "ST-LCM-008",
+      "name": "예약 등록",
+      "description": "해지, 정지, 정지해제 또는 평일 자동 처리 예약이 등록된 상태다.",
+      "next_action": "예약 시점 도래 전 변경 또는 취소 가능 여부를 안내한다."
+    },
+    {
+      "id": "ST-LCM-009",
+      "name": "처리 중",
+      "description": "BSS 또는 연계 시스템이 상태 변경, 원장 반영, 서류 검증을 수행하는 상태다.",
+      "next_action": "성공 시 완료로 전환하고 실패 시 보류 또는 재시도 경로를 제시한다."
+    },
+    {
+      "id": "ST-LCM-010",
+      "name": "일시정지 중",
+      "description": "회선 이용이 정책 기준에 따라 제한된 상태다.",
+      "next_action": "정지해제 조건과 요금·수신 영향, 조기 해제 가능 여부를 안내한다."
+    },
+    {
+      "id": "ST-LCM-011",
+      "name": "분실 차단 중",
+      "description": "분실·도난으로 회선 또는 유심 사용이 제한된 상태다.",
+      "next_action": "복구, 신고 취소, 보험, 임대폰, 금융·로밍 차단 후속 경로를 안내한다."
+    },
+    {
+      "id": "ST-LCM-012",
+      "name": "해지 예약",
+      "description": "고객이 지정한 시점 또는 평일 자동 처리 기준으로 해지가 예약된 상태다.",
+      "next_action": "예약 취소 가능 기한과 최종 영향도를 안내한다."
+    },
+    {
+      "id": "ST-LCM-013",
+      "name": "운영 판정 대기",
+      "description": "자동 판정으로 완료할 수 없어 운영자가 예외 승인, 반려, 보완을 결정해야 하는 상태다.",
+      "next_action": "운영 확인 SLA와 보완 필요 자료를 고객에게 안내한다."
+    },
+    {
+      "id": "ST-LCM-014",
+      "name": "반려·보완 필요",
+      "description": "서류 누락, 권한 불일치, 제한 조건으로 요청이 반려되거나 보완이 필요한 상태다.",
+      "next_action": "보완 항목과 재접수 기한을 안내한다."
+    },
+    {
+      "id": "ST-LCM-015",
+      "name": "처리 완료",
+      "description": "회선 상태 변경, 권한 갱신, 해지, 정지해제, 분실 복구가 완료된 상태다.",
+      "next_action": "결과, 접수번호, 후속 조치, 이력 확인 경로를 제공한다."
+    },
+    {
+      "id": "ST-LCM-016",
+      "name": "복구 가능",
+      "description": "실패 또는 제한 후 고객이 추가 인증, 납부, 서류 보완, 예약 취소로 다시 진행할 수 있는 상태다.",
+      "next_action": "복구 조건과 재시도 가능 횟수를 안내한다."
+    },
+    {
+      "id": "ST-LCM-017",
+      "name": "복구 불가/종료",
+      "description": "정책상 철회 또는 복구가 불가하거나 회선이 종료된 상태다.",
+      "next_action": "최종 사유와 대체 처리 경로를 안내한다."
+    }
+  ],
+  "state_transitions": [
+    {
+      "current_state": "ST-LCM-001",
+      "event": "회선 변경 업무 진입과 처리 경로 결정",
+      "next_state": "ST-LCM-002",
+      "rule": "선택한 회선의 명의, 권한, 대표 회선 여부를 조회한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-001"
+      ],
+      "criteria": "선택한 회선의 명의, 권한, 대표 회선 여부를 조회한다."
+    },
+    {
+      "current_state": "ST-LCM-002",
+      "event": "회선 상태·권한·영향 산정",
+      "next_state": "ST-LCM-003",
+      "rule": "권한과 상태가 충족되면 변경 가능 상태로 확정한다.",
+      "usecase_ids": [
+        "US-LCM-SYS-001"
+      ],
+      "criteria": "권한과 상태가 충족되면 변경 가능 상태로 확정한다."
+    },
+    {
+      "current_state": "ST-LCM-002",
+      "event": "권한 또는 상태 제한 발견",
+      "next_state": "ST-LCM-004",
+      "rule": "권한 부족, 미납, 법인/특수 회선, 진행 중 예약 사유를 안내한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-001"
+      ],
+      "criteria": "권한 부족, 미납, 법인/특수 회선, 진행 중 예약 사유를 안내한다."
+    },
+    {
+      "current_state": "ST-LCM-003",
+      "event": "정지·해지·양도 영향 확인 시작",
+      "next_state": "ST-LCM-005",
+      "rule": "고객에게 비용, 혜택, 결합, 수신 영향 요약을 제공한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-002",
+        "US-LCM-CUS-004",
+        "US-LCM-CUS-005"
+      ],
+      "criteria": "고객에게 비용, 혜택, 결합, 수신 영향 요약을 제공한다."
+    },
+    {
+      "current_state": "ST-LCM-005",
+      "event": "영향 확인 후 계속 진행",
+      "next_state": "ST-LCM-006",
+      "rule": "본인확인, 전자서명, 서류 필요 여부를 판정한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-004",
+        "US-LCM-CUS-005"
+      ],
+      "criteria": "본인확인, 전자서명, 서류 필요 여부를 판정한다."
+    },
+    {
+      "current_state": "ST-LCM-006",
+      "event": "인증·증빙 충족",
+      "next_state": "ST-LCM-007",
+      "rule": "접수번호를 생성하고 신청을 접수한다.",
+      "usecase_ids": [
+        "US-LCM-REP-001",
+        "US-LCM-CUS-006"
+      ],
+      "criteria": "접수번호를 생성하고 신청을 접수한다."
+    },
+    {
+      "current_state": "ST-LCM-006",
+      "event": "증빙 누락 또는 권한 불일치",
+      "next_state": "ST-LCM-014",
+      "rule": "보완 대상 문서와 재제출 기한을 안내한다.",
+      "usecase_ids": [
+        "US-LCM-REP-001"
+      ],
+      "criteria": "보완 대상 문서와 재제출 기한을 안내한다."
+    },
+    {
+      "current_state": "ST-LCM-007",
+      "event": "정지 예약 선택",
+      "next_state": "ST-LCM-008",
+      "rule": "예약 시점, 자동 해제, 취소 가능 조건을 저장한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-002"
+      ],
+      "criteria": "예약 시점, 자동 해제, 취소 가능 조건을 저장한다."
+    },
+    {
+      "current_state": "ST-LCM-007",
+      "event": "즉시 정지 또는 정지해제 요청",
+      "next_state": "ST-LCM-009",
+      "rule": "BSS 반영 요청과 회신 대기 상태로 전환한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-002",
+        "US-LCM-BSS-001"
+      ],
+      "criteria": "BSS 반영 요청과 회신 대기 상태로 전환한다."
+    },
+    {
+      "current_state": "ST-LCM-009",
+      "event": "일시정지 반영 성공",
+      "next_state": "ST-LCM-010",
+      "rule": "회선 이용 제한 상태와 정지해제 경로를 안내한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-002",
+        "US-LCM-BSS-001"
+      ],
+      "criteria": "회선 이용 제한 상태와 정지해제 경로를 안내한다."
+    },
+    {
+      "current_state": "ST-LCM-009",
+      "event": "정지해제 반영 성공",
+      "next_state": "ST-LCM-015",
+      "rule": "정상 이용 가능 결과와 요금 반영 기준을 안내한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-002",
+        "US-LCM-BSS-001"
+      ],
+      "criteria": "정상 이용 가능 결과와 요금 반영 기준을 안내한다."
+    },
+    {
+      "current_state": "ST-LCM-007",
+      "event": "분실·도난 긴급 차단 요청",
+      "next_state": "ST-LCM-011",
+      "rule": "분실 차단을 우선 적용하고 후속 서비스 경로를 제시한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-003"
+      ],
+      "criteria": "분실 차단을 우선 적용하고 후속 서비스 경로를 제시한다."
+    },
+    {
+      "current_state": "ST-LCM-011",
+      "event": "분실 신고 취소 또는 복구 조건 충족",
+      "next_state": "ST-LCM-016",
+      "rule": "재인증과 후속 복구 가능 조건을 안내한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-003"
+      ],
+      "criteria": "재인증과 후속 복구 가능 조건을 안내한다."
+    },
+    {
+      "current_state": "ST-LCM-016",
+      "event": "복구 처리 완료",
+      "next_state": "ST-LCM-015",
+      "rule": "차단 해제, 유심/PUK, 보험·임대폰 후속 결과를 제공한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-003"
+      ],
+      "criteria": "차단 해제, 유심/PUK, 보험·임대폰 후속 결과를 제공한다."
+    },
+    {
+      "current_state": "ST-LCM-007",
+      "event": "해지 예약 신청",
+      "next_state": "ST-LCM-012",
+      "rule": "예약 시점과 철회 가능 조건을 저장한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-004"
+      ],
+      "criteria": "예약 시점과 철회 가능 조건을 저장한다."
+    },
+    {
+      "current_state": "ST-LCM-012",
+      "event": "해지 예약 시점 도래",
+      "next_state": "ST-LCM-009",
+      "rule": "BSS 해지 반영과 원장 변경을 요청한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-004",
+        "US-LCM-BSS-001"
+      ],
+      "criteria": "BSS 해지 반영과 원장 변경을 요청한다."
+    },
+    {
+      "current_state": "ST-LCM-009",
+      "event": "BSS 반영 실패 또는 예약 충돌",
+      "next_state": "ST-LCM-013",
+      "rule": "운영 검토와 재처리 대상 이력을 생성한다.",
+      "usecase_ids": [
+        "US-LCM-OPR-001"
+      ],
+      "criteria": "운영 검토와 재처리 대상 이력을 생성한다."
+    },
+    {
+      "current_state": "ST-LCM-013",
+      "event": "운영 승인",
+      "next_state": "ST-LCM-009",
+      "rule": "승인 사유와 재처리 기준을 저장하고 BSS 반영을 재시도한다.",
+      "usecase_ids": [
+        "US-LCM-OPR-001"
+      ],
+      "criteria": "승인 사유와 재처리 기준을 저장하고 BSS 반영을 재시도한다."
+    },
+    {
+      "current_state": "ST-LCM-013",
+      "event": "운영 반려",
+      "next_state": "ST-LCM-014",
+      "rule": "반려 사유와 고객 보완 또는 종료 경로를 안내한다.",
+      "usecase_ids": [
+        "US-LCM-OPR-001"
+      ],
+      "criteria": "반려 사유와 고객 보완 또는 종료 경로를 안내한다."
+    },
+    {
+      "current_state": "ST-LCM-014",
+      "event": "보완 제출",
+      "next_state": "ST-LCM-006",
+      "rule": "보완 자료의 진위와 유효기간을 다시 확인한다.",
+      "usecase_ids": [
+        "US-LCM-REP-001",
+        "US-LCM-CUS-006"
+      ],
+      "criteria": "보완 자료의 진위와 유효기간을 다시 확인한다."
+    },
+    {
+      "current_state": "ST-LCM-015",
+      "event": "신청 내역 확인",
+      "next_state": "ST-LCM-015",
+      "rule": "접수번호, 결과, 후속 체크리스트, 상담 전환 경로를 제공한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-007",
+        "US-LCM-CSR-001"
+      ],
+      "criteria": "접수번호, 결과, 후속 체크리스트, 상담 전환 경로를 제공한다."
+    },
+    {
+      "current_state": "ST-LCM-004",
+      "event": "복구 불가 사유 확정",
+      "next_state": "ST-LCM-017",
+      "rule": "정책상 셀프 처리 불가 사유와 대체 경로를 최종 안내한다.",
+      "usecase_ids": [
+        "US-LCM-CUS-001"
+      ],
+      "criteria": "정책상 셀프 처리 불가 사유와 대체 경로를 최종 안내한다."
+    }
+  ],
+  "processes": [
+    {
+      "id": "PR-LCM-SEL-001",
+      "usecase_id": "US-LCM-CUS-001",
+      "name": "회선 선택과 권한 식별",
+      "description": "고객이 관리 가능한 회선 목록에서 변경 대상 회선을 선택하고 명의, 대표 회선, 구성원 권한을 식별한다.",
+      "related_functions": [
+        "FN-LCM-SEL-001"
+      ],
+      "related_policies": [
+        "PG-LCM-SCOPE-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SEL-002",
+      "usecase_id": "US-LCM-CUS-001",
+      "name": "현재 상태와 진행 중 신청 확인",
+      "description": "선택 회선의 정상, 정지, 분실, 해지 예약, 진행 중 신청 여부를 확인한다.",
+      "related_functions": [
+        "FN-LCM-SEL-002"
+      ],
+      "related_policies": [
+        "PG-LCM-ELIG-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SEL-003",
+      "usecase_id": "US-LCM-CUS-001",
+      "name": "처리 가능 조건과 제한 사유 판정",
+      "description": "권한, 납부, 약정, 결합, 법인/특수 회선 조건을 종합해 셀프 처리 가능 여부를 확정한다.",
+      "related_functions": [
+        "FN-LCM-SEL-003"
+      ],
+      "related_policies": [
+        "PG-LCM-ELIG-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SEL-004",
+      "usecase_id": "US-LCM-CUS-001",
+      "name": "영향 요약과 대체 경로 제시",
+      "description": "처리 제한 또는 영향이 있는 경우 고객이 이해할 수 있는 요약, 상담 전환, 운영 검토 경로를 제시한다.",
+      "related_functions": [
+        "FN-LCM-SEL-004"
+      ],
+      "related_policies": [
+        "PG-LCM-IMPACT-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SUS-001",
+      "usecase_id": "US-LCM-CUS-002",
+      "name": "정지 유형·기간·예약 조건 구성",
+      "description": "고객이 일시정지, 분실 정지, 정지해제, 예약 해제, 다회선 해제 유형과 기간을 선택한다.",
+      "related_functions": [
+        "FN-LCM-SUS-001"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-IDEMPOTENCY-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SUS-002",
+      "usecase_id": "US-LCM-CUS-002",
+      "name": "정지 영향·요금·수신 방법 확인",
+      "description": "정지 기간의 과금, 수신 가능 여부, 문자 수신 방법, 미납·정지해제 조건을 고지한다.",
+      "related_functions": [
+        "FN-LCM-SUS-002"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SUS-003",
+      "usecase_id": "US-LCM-CUS-002",
+      "name": "정지·해제 신청 접수와 BSS 반영",
+      "description": "정지 또는 해제 요청을 접수하고 BSS 회선 상태 반영 결과를 확인한다.",
+      "related_functions": [
+        "FN-LCM-SUS-003"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SUS-004",
+      "usecase_id": "US-LCM-CUS-002",
+      "name": "예약·조기해제·다회선 결과 확인",
+      "description": "예약 등록, 예약 취소, 조기 해제, 다회선 일괄 해제 결과를 고객과 이력에 반영한다.",
+      "related_functions": [
+        "FN-LCM-SUS-004"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-LOS-001",
+      "usecase_id": "US-LCM-CUS-003",
+      "name": "분실·도난 상황 식별과 긴급 차단 선택",
+      "description": "고객이 분실, 도난, 워치·태블릿 분실, 유심 분실 상황을 선택하고 긴급 차단 범위를 정한다.",
+      "related_functions": [
+        "FN-LCM-LOS-001"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSS-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-LOS-002",
+      "usecase_id": "US-LCM-CUS-003",
+      "name": "접수번호·분실 이력 자동 연결",
+      "description": "기존 분실 접수번호와 신청 이력을 자동 조회하고 중복 신고 여부를 판정한다.",
+      "related_functions": [
+        "FN-LCM-LOS-002"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSS-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-LOS-003",
+      "usecase_id": "US-LCM-CUS-003",
+      "name": "후속 서비스·보험·임대폰·금융 차단 안내",
+      "description": "위치조회, 보험, 보상센터, 임대폰, 금융·로밍 차단, 유심 잠금 해제 경로를 연결한다.",
+      "related_functions": [
+        "FN-LCM-LOS-003"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSSREC-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-LOS-004",
+      "usecase_id": "US-LCM-CUS-003",
+      "name": "분실 신고 취소와 복구 처리",
+      "description": "분실 신고 취소, 정지해제, PUK 조회, 유심 잠금 해제 결과를 BSS와 고객 이력에 반영한다.",
+      "related_functions": [
+        "FN-LCM-LOS-004"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSSREC-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-TRM-001",
+      "usecase_id": "US-LCM-CUS-004",
+      "name": "해지 가능 회선·명의·서류 조건 확인",
+      "description": "고객이 해지 가능 회선, 명의, 번호이동, 사망자 또는 대리 신청 여부와 필수 서류를 확인한다.",
+      "related_functions": [
+        "FN-LCM-TRM-001"
+      ],
+      "related_policies": [
+        "PG-LCM-TERMINATION-001",
+        "PG-LCM-DOCUMENT-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-TRM-002",
+      "usecase_id": "US-LCM-CUS-004",
+      "name": "위약금·할부·결합·혜택 영향 산정",
+      "description": "해지 전 약정 잔여일수, 위약금, 할부 잔액, 결합·가족 할인, 혜택 소멸 영향을 산정한다.",
+      "related_functions": [
+        "FN-LCM-TRM-002"
+      ],
+      "related_policies": [
+        "PG-LCM-TERMINATION-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-TRM-003",
+      "usecase_id": "US-LCM-CUS-004",
+      "name": "전자서명·서류 제출·해지 예약 접수",
+      "description": "전자서명, 서류 업로드, OCR 누락 점검 후 즉시 해지 또는 예약 해지를 접수한다.",
+      "related_functions": [
+        "FN-LCM-TRM-003"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-TERMINATION-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-TRM-004",
+      "usecase_id": "US-LCM-CUS-004",
+      "name": "해지 철회·예약 처리·완료 결과 확인",
+      "description": "예약 취소 가능 기간, 평일 자동 처리, 해지 완료, 타사 해지 미완료 후속 처리를 확인한다.",
+      "related_functions": [
+        "FN-LCM-TRM-004"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-CHG-001",
+      "usecase_id": "US-LCM-CUS-005",
+      "name": "계약자 변경·양도 대상과 보증 조건 확인",
+      "description": "계약자 변경, 양도, 임대상품 교체 대상 회선과 보증, 미납, 약정 승계 조건을 확인한다.",
+      "related_functions": [
+        "FN-LCM-CHG-001"
+      ],
+      "related_policies": [
+        "PG-LCM-TRANSFER-001",
+        "PG-LCM-ELIG-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-CHG-002",
+      "usecase_id": "US-LCM-CUS-005",
+      "name": "구성원 정보 입력과 자격 검증",
+      "description": "구성원 정보 입력 후 고객 유형, 가족관계, 권한, 동의, 증빙 조건을 검증한다.",
+      "related_functions": [
+        "FN-LCM-CHG-002"
+      ],
+      "related_policies": [
+        "PG-LCM-GROUP-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-CHG-003",
+      "usecase_id": "US-LCM-CUS-005",
+      "name": "대표 회선·가족·결합 영향 확인",
+      "description": "대표 회선 변경, 가족/결합 그룹 탈퇴, 할인 영향, 구성원 권한 변화를 사전 안내한다.",
+      "related_functions": [
+        "FN-LCM-CHG-003"
+      ],
+      "related_policies": [
+        "PG-LCM-GROUP-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-CHG-004",
+      "usecase_id": "US-LCM-CUS-005",
+      "name": "변경 요청 접수와 권한 갱신 결과 확인",
+      "description": "계약자 변경 또는 구성원 권한 변경 요청을 접수하고 BSS 권한·원장 갱신 결과를 확인한다.",
+      "related_functions": [
+        "FN-LCM-CHG-004"
+      ],
+      "related_policies": [
+        "PG-LCM-TRANSFER-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SPC-001",
+      "usecase_id": "US-LCM-CUS-006",
+      "name": "해외·사망·대리·거동불편 상황 선택",
+      "description": "고객 또는 대리인이 해외 체류, 귀국 전 정지해제, 사망자 회선, 거동 불편, 특수 해지 상황을 선택한다.",
+      "related_functions": [
+        "FN-LCM-SPC-001"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-SCOPE-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SPC-002",
+      "usecase_id": "US-LCM-CUS-006",
+      "name": "상황별 인증·증빙·OCR 입력 보조",
+      "description": "상황별 필수 서류, 전자서명, OCR 인식, 해외 접속 인증, 서류 누락 사전 점검을 지원한다.",
+      "related_functions": [
+        "FN-LCM-SPC-002"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SPC-003",
+      "usecase_id": "US-LCM-CUS-006",
+      "name": "비대면 신청 접수와 운영 검토 연결",
+      "description": "비대면 신청을 접수하고 자동 처리 불가 조건은 운영 검토와 SLA 기준으로 연결한다.",
+      "related_functions": [
+        "FN-LCM-SPC-003"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-SPC-004",
+      "usecase_id": "US-LCM-CUS-006",
+      "name": "해외 접속·귀국 예약·타사 해지 후속 처리",
+      "description": "해외 접속 인증, 귀국 전용 정지해제 예약, 번호이동 후 타사 해지 미완료 상태를 안내한다.",
+      "related_functions": [
+        "FN-LCM-SPC-004"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-HIS-001",
+      "usecase_id": "US-LCM-CUS-007",
+      "name": "변경 신청 내역·상태 조회",
+      "description": "고객이 접수번호 기준으로 정지, 해지, 분실, 명의 변경, 서류 제출 상태를 조회한다.",
+      "related_functions": [
+        "FN-LCM-HIS-001"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-HIS-002",
+      "usecase_id": "US-LCM-CUS-007",
+      "name": "실패·반려·보류 사유와 다음 행동 확인",
+      "description": "실패, 보류, 반려, 제한 상태의 사유와 재시도, 보완, 상담 전환 기준을 확인한다.",
+      "related_functions": [
+        "FN-LCM-HIS-002"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-HIS-003",
+      "usecase_id": "US-LCM-CUS-007",
+      "name": "후속 체크리스트와 고객 고지 확인",
+      "description": "처리 완료 후 요금, 결합, 보험, 유심, PUK, 임대폰, 해지 증빙 등 후속 조치 체크리스트를 확인한다.",
+      "related_functions": [
+        "FN-LCM-HIS-003"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-LOSSREC-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-REP-001",
+      "usecase_id": "US-LCM-REP-001",
+      "name": "대리·보호자·사망자 권한 유형 선택",
+      "description": "법정대리인 또는 대리인이 신청 유형과 권한 관계를 선택한다.",
+      "related_functions": [
+        "FN-LCM-REP-001"
+      ],
+      "related_policies": [
+        "PG-LCM-AUTH-001",
+        "PG-LCM-SPECIAL-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-REP-002",
+      "usecase_id": "US-LCM-REP-001",
+      "name": "위임·가족·사망 증빙 제출과 진위 확인",
+      "description": "위임장, 가족관계, 사망, 보호자 증빙을 제출하고 필수·선택 여부와 유효기간을 확인한다.",
+      "related_functions": [
+        "FN-LCM-REP-002"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-PRIVACY-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-REP-003",
+      "usecase_id": "US-LCM-REP-001",
+      "name": "승인 결과와 처리 가능 범위 확인",
+      "description": "권한 승인 결과에 따라 처리 가능한 회선, 업무, 기간, 제한 사유를 안내한다.",
+      "related_functions": [
+        "FN-LCM-REP-003"
+      ],
+      "related_policies": [
+        "PG-LCM-AUTH-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-OPR-001",
+      "usecase_id": "US-LCM-OPR-001",
+      "name": "예외 승인·반려·보류 처리",
+      "description": "운영자가 자동 처리 불가 신청의 증빙, 사유, 고객 영향도를 검토해 승인, 반려, 보류를 확정한다.",
+      "related_functions": [
+        "FN-LCM-OPR-001"
+      ],
+      "related_policies": [
+        "PG-LCM-OPERATION-001",
+        "PG-LCM-DOCUMENT-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-OPR-002",
+      "usecase_id": "US-LCM-OPR-001",
+      "name": "예약 충돌·실패·SLA 초과 모니터링",
+      "description": "예약 해지, 정지해제, BSS 반영 실패, SLA 초과 건을 모니터링하고 재처리 대상을 분류한다.",
+      "related_functions": [
+        "FN-LCM-OPR-002"
+      ],
+      "related_policies": [
+        "PG-LCM-IDEMPOTENCY-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-OPR-003",
+      "usecase_id": "US-LCM-OPR-001",
+      "name": "사유별 안내문·fallback 정책 관리",
+      "description": "운영자가 사유별 고객 안내문, 상담 전환 조건, fallback 문구와 변경 이력을 관리한다.",
+      "related_functions": [
+        "FN-LCM-OPR-003"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-CSR-001",
+      "usecase_id": "US-LCM-CSR-001",
+      "name": "고객 회선·신청·인증 문맥 확인",
+      "description": "상담사가 고객 회선 상태, 접수번호, 인증 결과, 제한 사유를 확인해 셀프 처리와 동일한 기준으로 안내한다.",
+      "related_functions": [
+        "FN-LCM-CSR-001"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "id": "PR-LCM-CSR-002",
+      "usecase_id": "US-LCM-CSR-001",
+      "name": "상담 전환 후 처리 경로 안내",
+      "description": "상담사가 고객에게 보완 자료, 예약 취소, 운영 검토, 대체 처리 경로와 예상 시간을 안내한다.",
+      "related_functions": [
+        "FN-LCM-CSR-002"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    }
+  ],
+  "process_details": [
+    {
+      "process_id": "PR-LCM-SEL-001",
+      "entry_condition": "회선 선택과 권한 식별이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "회선 선택과 권한 식별 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SEL-001"
+      ],
+      "related_policies": [
+        "PG-LCM-SCOPE-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SEL-002",
+      "entry_condition": "현재 상태와 진행 중 신청 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "현재 상태와 진행 중 신청 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SEL-002"
+      ],
+      "related_policies": [
+        "PG-LCM-ELIG-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SEL-003",
+      "entry_condition": "처리 가능 조건과 제한 사유 판정이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "처리 가능 조건과 제한 사유 판정 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SEL-003"
+      ],
+      "related_policies": [
+        "PG-LCM-ELIG-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SEL-004",
+      "entry_condition": "영향 요약과 대체 경로 제시이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "영향 요약과 대체 경로 제시 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SEL-004"
+      ],
+      "related_policies": [
+        "PG-LCM-IMPACT-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SUS-001",
+      "entry_condition": "정지 유형·기간·예약 조건 구성이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "정지 유형·기간·예약 조건 구성 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SUS-001"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-IDEMPOTENCY-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SUS-002",
+      "entry_condition": "정지 영향·요금·수신 방법 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "정지 영향·요금·수신 방법 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SUS-002"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SUS-003",
+      "entry_condition": "정지·해제 신청 접수와 BSS 반영이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "정지·해제 신청 접수와 BSS 반영 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SUS-003"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SUS-004",
+      "entry_condition": "예약·조기해제·다회선 결과 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "예약·조기해제·다회선 결과 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SUS-004"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-LOS-001",
+      "entry_condition": "분실·도난 상황 식별과 긴급 차단 선택이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "분실·도난 상황 식별과 긴급 차단 선택 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-LOS-001"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSS-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-LOS-002",
+      "entry_condition": "접수번호·분실 이력 자동 연결이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "접수번호·분실 이력 자동 연결 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-LOS-002"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSS-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-LOS-003",
+      "entry_condition": "후속 서비스·보험·임대폰·금융 차단 안내이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "후속 서비스·보험·임대폰·금융 차단 안내 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-LOS-003"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSSREC-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-LOS-004",
+      "entry_condition": "분실 신고 취소와 복구 처리이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "분실 신고 취소와 복구 처리 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-LOS-004"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSSREC-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-TRM-001",
+      "entry_condition": "해지 가능 회선·명의·서류 조건 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "해지 가능 회선·명의·서류 조건 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-TRM-001"
+      ],
+      "related_policies": [
+        "PG-LCM-TERMINATION-001",
+        "PG-LCM-DOCUMENT-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-TRM-002",
+      "entry_condition": "위약금·할부·결합·혜택 영향 산정이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "위약금·할부·결합·혜택 영향 산정 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-TRM-002"
+      ],
+      "related_policies": [
+        "PG-LCM-TERMINATION-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-TRM-003",
+      "entry_condition": "전자서명·서류 제출·해지 예약 접수이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "전자서명·서류 제출·해지 예약 접수 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-TRM-003"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-TERMINATION-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-TRM-004",
+      "entry_condition": "해지 철회·예약 처리·완료 결과 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "해지 철회·예약 처리·완료 결과 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-TRM-004"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-CHG-001",
+      "entry_condition": "계약자 변경·양도 대상과 보증 조건 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "계약자 변경·양도 대상과 보증 조건 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-CHG-001"
+      ],
+      "related_policies": [
+        "PG-LCM-TRANSFER-001",
+        "PG-LCM-ELIG-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-CHG-002",
+      "entry_condition": "구성원 정보 입력과 자격 검증이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "구성원 정보 입력과 자격 검증 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-CHG-002"
+      ],
+      "related_policies": [
+        "PG-LCM-GROUP-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-CHG-003",
+      "entry_condition": "대표 회선·가족·결합 영향 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "대표 회선·가족·결합 영향 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-CHG-003"
+      ],
+      "related_policies": [
+        "PG-LCM-GROUP-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-CHG-004",
+      "entry_condition": "변경 요청 접수와 권한 갱신 결과 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "변경 요청 접수와 권한 갱신 결과 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-CHG-004"
+      ],
+      "related_policies": [
+        "PG-LCM-TRANSFER-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SPC-001",
+      "entry_condition": "해외·사망·대리·거동불편 상황 선택이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "해외·사망·대리·거동불편 상황 선택 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SPC-001"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-SCOPE-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SPC-002",
+      "entry_condition": "상황별 인증·증빙·OCR 입력 보조이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "상황별 인증·증빙·OCR 입력 보조 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SPC-002"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SPC-003",
+      "entry_condition": "비대면 신청 접수와 운영 검토 연결이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "비대면 신청 접수와 운영 검토 연결 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SPC-003"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-SPC-004",
+      "entry_condition": "해외 접속·귀국 예약·타사 해지 후속 처리이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "해외 접속·귀국 예약·타사 해지 후속 처리 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-SPC-004"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-HIS-001",
+      "entry_condition": "변경 신청 내역·상태 조회이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "변경 신청 내역·상태 조회 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-HIS-001"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-HIS-002",
+      "entry_condition": "실패·반려·보류 사유와 다음 행동 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "실패·반려·보류 사유와 다음 행동 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-HIS-002"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-HIS-003",
+      "entry_condition": "후속 체크리스트와 고객 고지 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "후속 체크리스트와 고객 고지 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-HIS-003"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-LOSSREC-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-REP-001",
+      "entry_condition": "대리·보호자·사망자 권한 유형 선택이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "대리·보호자·사망자 권한 유형 선택 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-REP-001"
+      ],
+      "related_policies": [
+        "PG-LCM-AUTH-001",
+        "PG-LCM-SPECIAL-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-REP-002",
+      "entry_condition": "위임·가족·사망 증빙 제출과 진위 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "위임·가족·사망 증빙 제출과 진위 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-REP-002"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-PRIVACY-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-REP-003",
+      "entry_condition": "승인 결과와 처리 가능 범위 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "승인 결과와 처리 가능 범위 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-REP-003"
+      ],
+      "related_policies": [
+        "PG-LCM-AUTH-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-OPR-001",
+      "entry_condition": "예외 승인·반려·보류 처리이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "예외 승인·반려·보류 처리 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-OPR-001"
+      ],
+      "related_policies": [
+        "PG-LCM-OPERATION-001",
+        "PG-LCM-DOCUMENT-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-OPR-002",
+      "entry_condition": "예약 충돌·실패·SLA 초과 모니터링이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "예약 충돌·실패·SLA 초과 모니터링 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-OPR-002"
+      ],
+      "related_policies": [
+        "PG-LCM-IDEMPOTENCY-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-OPR-003",
+      "entry_condition": "사유별 안내문·fallback 정책 관리이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "사유별 안내문·fallback 정책 관리 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-OPR-003"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-CSR-001",
+      "entry_condition": "고객 회선·신청·인증 문맥 확인이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "고객 회선·신청·인증 문맥 확인 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-CSR-001"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "process_id": "PR-LCM-CSR-002",
+      "entry_condition": "상담 전환 후 처리 경로 안내이 필요한 회선 변경 업무가 시작된 경우",
+      "steps": [
+        "대상 정보 확인",
+        "조건 및 권한 판정",
+        "고객 영향도 또는 처리 결과 구성",
+        "BSS·이력 반영"
+      ],
+      "exit_condition": "상담 전환 후 처리 경로 안내 결과가 확정되어 고객 화면과 신청 이력에 반영된 경우",
+      "exception_flow": [
+        "권한 불일치 시 제한 사유 안내",
+        "연계 실패 시 운영 검토 전환",
+        "중복 요청 시 기존 접수번호 안내"
+      ],
+      "related_functions": [
+        "FN-LCM-CSR-002"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "id": "FN-LCM-SEL-001",
+      "process_id": "PR-LCM-SEL-001",
+      "process_ids": [
+        "PR-LCM-SEL-001"
+      ],
+      "name": "회선 선택·권한 식별 기능",
+      "description": "고객이 관리 가능한 회선 목록에서 변경 대상 회선을 선택하고 명의, 대표 회선, 구성원 권한을 식별하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SEL-002",
+      "process_id": "PR-LCM-SEL-002",
+      "process_ids": [
+        "PR-LCM-SEL-002"
+      ],
+      "name": "현재 상태·진행 중 신청 확인 기능",
+      "description": "선택 회선의 정상, 정지, 분실, 해지 예약, 진행 중 신청 여부를 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SEL-003",
+      "process_id": "PR-LCM-SEL-003",
+      "process_ids": [
+        "PR-LCM-SEL-003"
+      ],
+      "name": "처리 가능 조건·제한 사유 판정 기능",
+      "description": "권한, 납부, 약정, 결합, 법인/특수 회선 조건을 종합해 셀프 처리 가능 여부를 확정하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SEL-004",
+      "process_id": "PR-LCM-SEL-004",
+      "process_ids": [
+        "PR-LCM-SEL-004"
+      ],
+      "name": "영향 요약·대체 경로 제시 기능",
+      "description": "처리 제한 또는 영향이 있는 경우 고객이 이해할 수 있는 요약, 상담 전환, 운영 검토 경로를 제시하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SUS-001",
+      "process_id": "PR-LCM-SUS-001",
+      "process_ids": [
+        "PR-LCM-SUS-001"
+      ],
+      "name": "정지 유형·기간·예약 조건 구성 기능",
+      "description": "고객이 일시정지, 분실 정지, 정지해제, 예약 해제, 다회선 해제 유형과 기간을 선택하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SUS-002",
+      "process_id": "PR-LCM-SUS-002",
+      "process_ids": [
+        "PR-LCM-SUS-002"
+      ],
+      "name": "정지 영향·요금·수신 방법 확인 기능",
+      "description": "정지 기간의 과금, 수신 가능 여부, 문자 수신 방법, 미납·정지해제 조건을 고지하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SUS-003",
+      "process_id": "PR-LCM-SUS-003",
+      "process_ids": [
+        "PR-LCM-SUS-003"
+      ],
+      "name": "정지·해제 신청 접수·BSS 반영 기능",
+      "description": "정지 또는 해제 요청을 접수하고 BSS 회선 상태 반영 결과를 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SUS-004",
+      "process_id": "PR-LCM-SUS-004",
+      "process_ids": [
+        "PR-LCM-SUS-004"
+      ],
+      "name": "예약·조기해제·다회선 결·확인 기능",
+      "description": "예약 등록, 예약 취소, 조기 해제, 다회선 일괄 해제 결과를 고객과 이력에 반영하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-LOS-001",
+      "process_id": "PR-LCM-LOS-001",
+      "process_ids": [
+        "PR-LCM-LOS-001"
+      ],
+      "name": "분실·도난 상황 식별·긴급 차단 선택 기능",
+      "description": "고객이 분실, 도난, 워치·태블릿 분실, 유심 분실 상황을 선택하고 긴급 차단 범위를 정하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-LOS-002",
+      "process_id": "PR-LCM-LOS-002",
+      "process_ids": [
+        "PR-LCM-LOS-002"
+      ],
+      "name": "접수번호·분실 이력 자동 연결 기능",
+      "description": "기존 분실 접수번호와 신청 이력을 자동 조회하고 중복 신고 여부를 판정하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-LOS-003",
+      "process_id": "PR-LCM-LOS-003",
+      "process_ids": [
+        "PR-LCM-LOS-003"
+      ],
+      "name": "후속 서비스·보험·임대폰·금융 차단 안내 기능",
+      "description": "위치조회, 보험, 보상센터, 임대폰, 금융·로밍 차단, 유심 잠금 해제 경로를 연결하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-LOS-004",
+      "process_id": "PR-LCM-LOS-004",
+      "process_ids": [
+        "PR-LCM-LOS-004"
+      ],
+      "name": "분실 신고 취소·복구 처리 기능",
+      "description": "분실 신고 취소, 정지해제, PUK 조회, 유심 잠금 해제 결과를 BSS와 고객 이력에 반영하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-TRM-001",
+      "process_id": "PR-LCM-TRM-001",
+      "process_ids": [
+        "PR-LCM-TRM-001"
+      ],
+      "name": "해지 가능 회선·명의·서류 조건 확인 기능",
+      "description": "고객이 해지 가능 회선, 명의, 번호이동, 사망자 또는 대리 신청 여부와 필수 서류를 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-TRM-002",
+      "process_id": "PR-LCM-TRM-002",
+      "process_ids": [
+        "PR-LCM-TRM-002"
+      ],
+      "name": "위약금·할부·결합·혜택 영향 산정 기능",
+      "description": "해지 전 약정 잔여일수, 위약금, 할부 잔액, 결합·가족 할인, 혜택 소멸 영향을 산정하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-TRM-003",
+      "process_id": "PR-LCM-TRM-003",
+      "process_ids": [
+        "PR-LCM-TRM-003"
+      ],
+      "name": "전자서명·서류 제출·해지 예약 접수 기능",
+      "description": "전자서명, 서류 업로드, OCR 누락 점검 후 즉시 해지 또는 예약 해지를 접수하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-TRM-004",
+      "process_id": "PR-LCM-TRM-004",
+      "process_ids": [
+        "PR-LCM-TRM-004"
+      ],
+      "name": "해지 철회·예약 처리·완료 결·확인 기능",
+      "description": "예약 취소 가능 기간, 평일 자동 처리, 해지 완료, 타사 해지 미완료 후속 처리를 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-CHG-001",
+      "process_id": "PR-LCM-CHG-001",
+      "process_ids": [
+        "PR-LCM-CHG-001"
+      ],
+      "name": "계약자 변경·양도 대상·보증 조건 확인 기능",
+      "description": "계약자 변경, 양도, 임대상품 교체 대상 회선과 보증, 미납, 약정 승계 조건을 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-CHG-002",
+      "process_id": "PR-LCM-CHG-002",
+      "process_ids": [
+        "PR-LCM-CHG-002"
+      ],
+      "name": "구성원 정보 입력·자격 검증 기능",
+      "description": "구성원 정보 입력 후 고객 유형, 가족관계, 권한, 동의, 증빙 조건을 검증하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-CHG-003",
+      "process_id": "PR-LCM-CHG-003",
+      "process_ids": [
+        "PR-LCM-CHG-003"
+      ],
+      "name": "대표 회선·가족·결합 영향 확인 기능",
+      "description": "대표 회선 변경, 가족/결합 그룹 탈퇴, 할인 영향, 구성원 권한 변화를 사전 안내하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-CHG-004",
+      "process_id": "PR-LCM-CHG-004",
+      "process_ids": [
+        "PR-LCM-CHG-004"
+      ],
+      "name": "변경 요청 접수·권한 갱신 결·확인 기능",
+      "description": "계약자 변경 또는 구성원 권한 변경 요청을 접수하고 BSS 권한·원장 갱신 결과를 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SPC-001",
+      "process_id": "PR-LCM-SPC-001",
+      "process_ids": [
+        "PR-LCM-SPC-001"
+      ],
+      "name": "해외·사망·대리·거동불편 상황 선택 기능",
+      "description": "고객 또는 대리인이 해외 체류, 귀국 전 정지해제, 사망자 회선, 거동 불편, 특수 해지 상황을 선택하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SPC-002",
+      "process_id": "PR-LCM-SPC-002",
+      "process_ids": [
+        "PR-LCM-SPC-002"
+      ],
+      "name": "상황별 인증·증빙·OCR 입력 보조 기능",
+      "description": "상황별 필수 서류, 전자서명, OCR 인식, 해외 접속 인증, 서류 누락 사전 점검을 지원하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SPC-003",
+      "process_id": "PR-LCM-SPC-003",
+      "process_ids": [
+        "PR-LCM-SPC-003"
+      ],
+      "name": "비대면 신청 접수·운영 검토 연결 기능",
+      "description": "비대면 신청을 접수하고 자동 처리 불가 조건은 운영 검토와 SLA 기준으로 연결하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-SPC-004",
+      "process_id": "PR-LCM-SPC-004",
+      "process_ids": [
+        "PR-LCM-SPC-004"
+      ],
+      "name": "해외 접속·귀국 예약·타사 해지 후속 처리 기능",
+      "description": "해외 접속 인증, 귀국 전용 정지해제 예약, 번호이동 후 타사 해지 미완료 상태를 안내하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-HIS-001",
+      "process_id": "PR-LCM-HIS-001",
+      "process_ids": [
+        "PR-LCM-HIS-001"
+      ],
+      "name": "변경 신청 내역·상태 조회 기능",
+      "description": "고객이 접수번호 기준으로 정지, 해지, 분실, 명의 변경, 서류 제출 상태를 조회하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-HIS-002",
+      "process_id": "PR-LCM-HIS-002",
+      "process_ids": [
+        "PR-LCM-HIS-002"
+      ],
+      "name": "실패·반려·보류 사유·다음 행동 확인 기능",
+      "description": "실패, 보류, 반려, 제한 상태의 사유와 재시도, 보완, 상담 전환 기준을 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-HIS-003",
+      "process_id": "PR-LCM-HIS-003",
+      "process_ids": [
+        "PR-LCM-HIS-003"
+      ],
+      "name": "후속 체크리스트·고객 고지 확인 기능",
+      "description": "처리 완료 후 요금, 결합, 보험, 유심, PUK, 임대폰, 해지 증빙 등 후속 조치 체크리스트를 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-REP-001",
+      "process_id": "PR-LCM-REP-001",
+      "process_ids": [
+        "PR-LCM-REP-001"
+      ],
+      "name": "대리·보호자·사망자 권한 유형 선택 기능",
+      "description": "법정대리인 또는 대리인이 신청 유형과 권한 관계를 선택하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-REP-002",
+      "process_id": "PR-LCM-REP-002",
+      "process_ids": [
+        "PR-LCM-REP-002"
+      ],
+      "name": "위임·가족·사망 증빙 제출·진위 확인 기능",
+      "description": "위임장, 가족관계, 사망, 보호자 증빙을 제출하고 필수·선택 여부와 유효기간을 확인하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-REP-003",
+      "process_id": "PR-LCM-REP-003",
+      "process_ids": [
+        "PR-LCM-REP-003"
+      ],
+      "name": "승인 결과·처리 가능 범위 확인 기능",
+      "description": "권한 승인 결과에 따라 처리 가능한 회선, 업무, 기간, 제한 사유를 안내하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-OPR-001",
+      "process_id": "PR-LCM-OPR-001",
+      "process_ids": [
+        "PR-LCM-OPR-001"
+      ],
+      "name": "예외 승인·반려·보류 처리 기능",
+      "description": "운영자가 자동 처리 불가 신청의 증빙, 사유, 고객 영향도를 검토해 승인, 반려, 보류를 확정하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-OPR-002",
+      "process_id": "PR-LCM-OPR-002",
+      "process_ids": [
+        "PR-LCM-OPR-002"
+      ],
+      "name": "예약 충돌·실패·SLA 초·모니터링 기능",
+      "description": "예약 해지, 정지해제, BSS 반영 실패, SLA 초과 건을 모니터링하고 재처리 대상을 분류하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-OPR-003",
+      "process_id": "PR-LCM-OPR-003",
+      "process_ids": [
+        "PR-LCM-OPR-003"
+      ],
+      "name": "사유별 안내문·fallback 정책 관리 기능",
+      "description": "운영자가 사유별 고객 안내문, 상담 전환 조건, fallback 문구와 변경 이력을 관리하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-CSR-001",
+      "process_id": "PR-LCM-CSR-001",
+      "process_ids": [
+        "PR-LCM-CSR-001"
+      ],
+      "name": "고객 회선·신청·인증 문맥 확인 기능",
+      "description": "상담사가 고객 회선 상태, 접수번호, 인증 결과, 제한 사유를 확인해 셀프 처리와 동일한 기준으로 안내하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    },
+    {
+      "id": "FN-LCM-CSR-002",
+      "process_id": "PR-LCM-CSR-002",
+      "process_ids": [
+        "PR-LCM-CSR-002"
+      ],
+      "name": "상담 전환 후 처리 경로 안내 기능",
+      "description": "상담사가 고객에게 보완 자료, 예약 취소, 운영 검토, 대체 처리 경로와 예상 시간을 안내하여 결과를 생성한다.",
+      "details": [
+        "대상 식별",
+        "조건 판정",
+        "결과 구성",
+        "이력 저장"
+      ]
+    }
+  ],
+  "function_details": [
+    {
+      "function_id": "FN-LCM-SEL-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SCOPE-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SEL-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-ELIG-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SEL-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-ELIG-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SEL-004",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-IMPACT-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SUS-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-IDEMPOTENCY-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SUS-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SUS-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SUSPEND-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SUS-004",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-LOS-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSS-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-LOS-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSS-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-LOS-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSSREC-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-LOS-004",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-LOSSREC-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-TRM-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-TERMINATION-001",
+        "PG-LCM-DOCUMENT-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-TRM-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-TERMINATION-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-TRM-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-TERMINATION-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-TRM-004",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-CHG-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-TRANSFER-001",
+        "PG-LCM-ELIG-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-CHG-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-GROUP-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-CHG-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-GROUP-001",
+        "PG-LCM-IMPACT-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-CHG-004",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-TRANSFER-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SPC-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-SCOPE-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SPC-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SPC-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-SPC-004",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-SPECIAL-001",
+        "PG-LCM-HISTORY-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-HIS-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-HIS-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-HIS-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-LOSSREC-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-REP-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-AUTH-001",
+        "PG-LCM-SPECIAL-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-REP-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-DOCUMENT-001",
+        "PG-LCM-PRIVACY-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-REP-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-AUTH-001",
+        "PG-LCM-NOTICE-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-OPR-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-OPERATION-001",
+        "PG-LCM-DOCUMENT-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-OPR-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-IDEMPOTENCY-001",
+        "PG-LCM-BSS-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-OPR-003",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-CSR-001",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-HISTORY-001",
+        "PG-LCM-AUTH-001"
+      ]
+    },
+    {
+      "function_id": "FN-LCM-CSR-002",
+      "input_information": [
+        "고객 인증 결과",
+        "대상 회선 식별 정보",
+        "현재 회선 상태",
+        "신청 유형"
+      ],
+      "processing_rules": [
+        "권한과 상태를 먼저 판정",
+        "고객 영향도를 처리 전에 산정",
+        "동일 요청 중복 여부 확인"
+      ],
+      "output_information": [
+        "처리 가능 여부",
+        "제한 사유",
+        "접수번호",
+        "고객 안내 메시지"
+      ],
+      "related_policies": [
+        "PG-LCM-NOTICE-001",
+        "PG-LCM-OPERATION-001"
+      ]
+    }
+  ],
+  "policy_groups": [
+    {
+      "id": "PG-LCM-SCOPE-001",
+      "name": "회선 변경 범위·경계 정책",
+      "description": "회선 변경/관리 정책서가 다루는 업무 범위와 인접 정책서와의 경계를 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-SCOPE-001-01",
+          "name": "대상 업무 범위"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-02",
+          "name": "인접 업무 경계"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-03",
+          "name": "회선·계정 분리"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-04",
+          "name": "채널 일관성"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-05",
+          "name": "유선 설치 정보 확인"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-AUTH-001",
+      "name": "회선 권한·본인확인 정책",
+      "description": "고객, 대리인, 법정대리인, 상담사, 운영자의 회선 변경 권한과 인증 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-AUTH-001-01",
+          "name": "본인확인 기준"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-02",
+          "name": "대리 권한 기준"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-03",
+          "name": "해외 인증 기준"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-04",
+          "name": "민감 업무 재인증"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-05",
+          "name": "권한 실패 안내"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-06",
+          "name": "납부정보 인증 힌트"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-ELIG-001",
+      "name": "처리 가능 여부·제한 정책",
+      "description": "회선 상태와 고객 조건에 따라 셀프 처리 가능 여부와 제한 사유를 판정한다.",
+      "items": [
+        {
+          "id": "PI-LCM-ELIG-001-01",
+          "name": "진행 중 신청 제한"
+        },
+        {
+          "id": "PI-LCM-ELIG-001-02",
+          "name": "상태별 허용"
+        },
+        {
+          "id": "PI-LCM-ELIG-001-03",
+          "name": "미납·법인·특수 회선 제한"
+        },
+        {
+          "id": "PI-LCM-ELIG-001-04",
+          "name": "예약 충돌 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-IMPACT-001",
+      "name": "변경 영향도·대체 경로 고지 정책",
+      "description": "정지, 해지, 양도, 대표 회선 변경 전 고객 영향과 대체 경로를 고지한다.",
+      "items": [
+        {
+          "id": "PI-LCM-IMPACT-001-01",
+          "name": "비용 영향 고지"
+        },
+        {
+          "id": "PI-LCM-IMPACT-001-02",
+          "name": "결합·가족 영향 고지"
+        },
+        {
+          "id": "PI-LCM-IMPACT-001-03",
+          "name": "수신·인증 영향 고지"
+        },
+        {
+          "id": "PI-LCM-IMPACT-001-04",
+          "name": "대체 경로 제시"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-SUSPEND-001",
+      "name": "일시정지·정지해제 정책",
+      "description": "회선 정지, 정지해제, 예약, 조기해제, 다회선 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-SUSPEND-001-01",
+          "name": "정지 유형"
+        },
+        {
+          "id": "PI-LCM-SUSPEND-001-02",
+          "name": "기간·예약 기준"
+        },
+        {
+          "id": "PI-LCM-SUSPEND-001-03",
+          "name": "정지해제 조건"
+        },
+        {
+          "id": "PI-LCM-SUSPEND-001-04",
+          "name": "다회선 처리"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-LOSS-001",
+      "name": "분실·도난 긴급 차단 정책",
+      "description": "분실·도난 상황의 긴급 차단, 접수번호, 기기 유형별 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-LOSS-001-01",
+          "name": "긴급 차단 우선"
+        },
+        {
+          "id": "PI-LCM-LOSS-001-02",
+          "name": "기기 유형 기준"
+        },
+        {
+          "id": "PI-LCM-LOSS-001-03",
+          "name": "접수번호 자동 조회"
+        },
+        {
+          "id": "PI-LCM-LOSS-001-04",
+          "name": "신고 취소 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-LOSSREC-001",
+      "name": "분실 복구·후속 서비스 정책",
+      "description": "분실 신고 이후 복구, 보험, 임대폰, PUK, 유심, 위치조회 연계 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-LOSSREC-001-01",
+          "name": "후속 서비스 연결"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-02",
+          "name": "PUK·유심 기준"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-03",
+          "name": "임대폰·보상 연계"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-04",
+          "name": "복구 완료 안내"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-05",
+          "name": "보상센터 원스톱 연계"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-06",
+          "name": "유심 잠금 해제 지원"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-07",
+          "name": "PUK 코드 조회"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-08",
+          "name": "임대 단말 신청"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-TERMINATION-001",
+      "name": "회선 해지·해지예약 정책",
+      "description": "회선 해지, 번호 해지, 해지 예약, 철회, 번호이동 후속 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-TERM-001-01",
+          "name": "해지 가능 회선 조회"
+        },
+        {
+          "id": "PI-LCM-TERM-001-02",
+          "name": "해지 영향 확인"
+        },
+        {
+          "id": "PI-LCM-TERM-001-03",
+          "name": "해지 예약 처리"
+        },
+        {
+          "id": "PI-LCM-TERM-001-04",
+          "name": "번호이동 후속 처리"
+        },
+        {
+          "id": "PI-LCM-TERM-001-05",
+          "name": "모바일 해지 진입 기준"
+        },
+        {
+          "id": "PI-LCM-TERM-001-06",
+          "name": "해지 절차 단계 안내"
+        },
+        {
+          "id": "PI-LCM-TERM-001-07",
+          "name": "해지 총 부담금 시뮬레이션"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-DOCUMENT-001",
+      "name": "서류·전자서명·증빙 정책",
+      "description": "서류 업로드, OCR, 전자서명, 필수 서류, 보완 제출 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-DOC-001-01",
+          "name": "필수 서류 사전 안내"
+        },
+        {
+          "id": "PI-LCM-DOC-001-02",
+          "name": "서류 업로드·OCR"
+        },
+        {
+          "id": "PI-LCM-DOC-001-03",
+          "name": "전자서명 증적"
+        },
+        {
+          "id": "PI-LCM-DOC-001-04",
+          "name": "보완 제출 기한"
+        },
+        {
+          "id": "PI-LCM-DOC-001-05",
+          "name": "해외 장기 정지 서류"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-TRANSFER-001",
+      "name": "계약자 변경·양도 정책",
+      "description": "계약자 변경, 양도, 임대상품 교체, 권한 갱신 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-TRN-001-01",
+          "name": "계약자 변경 허용"
+        },
+        {
+          "id": "PI-LCM-TRN-001-02",
+          "name": "임대상품 교체"
+        },
+        {
+          "id": "PI-LCM-TRN-001-03",
+          "name": "양도 영향 고지"
+        },
+        {
+          "id": "PI-LCM-TRN-001-04",
+          "name": "권한 갱신 결과"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-GROUP-001",
+      "name": "대표 회선·구성원·결합 영향 정책",
+      "description": "대표 회선, 구성원 권한, 가족·결합 그룹 탈퇴와 할인 영향 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-GRP-001-01",
+          "name": "구성원 검증"
+        },
+        {
+          "id": "PI-LCM-GRP-001-02",
+          "name": "대표 회선 영향"
+        },
+        {
+          "id": "PI-LCM-GRP-001-03",
+          "name": "그룹 탈퇴 기준"
+        },
+        {
+          "id": "PI-LCM-GRP-001-04",
+          "name": "권한 범위"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-SPECIAL-001",
+      "name": "해외·사망·대리 특수상황 정책",
+      "description": "해외, 사망, 대리, 거동불편 등 특수 상황의 비대면 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-SPC-001-01",
+          "name": "사망자 회선 처리"
+        },
+        {
+          "id": "PI-LCM-SPC-001-02",
+          "name": "해외 신청 처리"
+        },
+        {
+          "id": "PI-LCM-SPC-001-03",
+          "name": "대리 신청 범위"
+        },
+        {
+          "id": "PI-LCM-SPC-001-04",
+          "name": "특수 상황 상담 전환"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-HISTORY-001",
+      "name": "신청 이력·상태 추적 정책",
+      "description": "접수번호, 진행 상태, 변경 이력, 감사 로그, 고객 조회 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-HIS-001-01",
+          "name": "접수번호 부여"
+        },
+        {
+          "id": "PI-LCM-HIS-001-02",
+          "name": "상태 이력 저장"
+        },
+        {
+          "id": "PI-LCM-HIS-001-03",
+          "name": "감사 로그"
+        },
+        {
+          "id": "PI-LCM-HIS-001-04",
+          "name": "고객 조회 범위"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-BSS-001",
+      "name": "BSS 반영·원장 동기화 정책",
+      "description": "BSS 상태 변경, 원장 반영, 연계 실패, 재처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-BSS-001-01",
+          "name": "사전 검증 회신"
+        },
+        {
+          "id": "PI-LCM-BSS-001-02",
+          "name": "상태 변경 반영"
+        },
+        {
+          "id": "PI-LCM-BSS-001-03",
+          "name": "연계 실패 처리"
+        },
+        {
+          "id": "PI-LCM-BSS-001-04",
+          "name": "결과 회신 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-NOTICE-001",
+      "name": "고객 고지·fallback 정책",
+      "description": "고객 안내, 실패 사유, 다음 행동, 상담 전환과 fallback 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-NOT-001-01",
+          "name": "실패 사유 안내"
+        },
+        {
+          "id": "PI-LCM-NOT-001-02",
+          "name": "사유별 fallback"
+        },
+        {
+          "id": "PI-LCM-NOT-001-03",
+          "name": "처리 결과 고지"
+        },
+        {
+          "id": "PI-LCM-NOT-001-04",
+          "name": "고객 용어 기준"
+        },
+        {
+          "id": "PI-LCM-NOT-001-05",
+          "name": "채널 간 해지 기준 일관화"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-OPERATION-001",
+      "name": "예외 승인·운영 모니터링 정책",
+      "description": "운영 검토, SLA, 예약 충돌, 사유별 안내문 운영 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-OPR-001-01",
+          "name": "운영 확인 SLA"
+        },
+        {
+          "id": "PI-LCM-OPR-001-02",
+          "name": "예외 승인 기준"
+        },
+        {
+          "id": "PI-LCM-OPR-001-03",
+          "name": "예약 충돌 관리"
+        },
+        {
+          "id": "PI-LCM-OPR-001-04",
+          "name": "안내문 관리"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-PRIVACY-001",
+      "name": "개인정보·증빙 보관 정책",
+      "description": "민감 증빙, PUK, 위치조회, 서류 보관, 마스킹 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-PRV-001-01",
+          "name": "민감 증빙 최소화"
+        },
+        {
+          "id": "PI-LCM-PRV-001-02",
+          "name": "위치조회 고지"
+        },
+        {
+          "id": "PI-LCM-PRV-001-03",
+          "name": "PUK 보안"
+        },
+        {
+          "id": "PI-LCM-PRV-001-04",
+          "name": "보관 기간"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-IDEMPOTENCY-001",
+      "name": "중복 요청·예약 충돌 정책",
+      "description": "동일 회선 중복 신청, 예약 충돌, 재시도, 멱등성 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-IDM-001-01",
+          "name": "중복 요청 제한"
+        },
+        {
+          "id": "PI-LCM-IDM-001-02",
+          "name": "예약 우선순위"
+        },
+        {
+          "id": "PI-LCM-IDM-001-03",
+          "name": "재시도 기준"
+        },
+        {
+          "id": "PI-LCM-IDM-001-04",
+          "name": "멱등 처리"
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "PG-LCM-SCOPE-001",
+      "name": "회선 변경 범위·경계 정책",
+      "description": "회선 변경/관리 정책서가 다루는 업무 범위와 인접 정책서와의 경계를 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-SCOPE-001-01",
+          "name": "대상 업무 범위"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-02",
+          "name": "인접 업무 경계"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-03",
+          "name": "회선·계정 분리"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-04",
+          "name": "채널 일관성"
+        },
+        {
+          "id": "PI-LCM-SCOPE-001-05",
+          "name": "유선 설치 정보 확인"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-AUTH-001",
+      "name": "회선 권한·본인확인 정책",
+      "description": "고객, 대리인, 법정대리인, 상담사, 운영자의 회선 변경 권한과 인증 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-AUTH-001-01",
+          "name": "본인확인 기준"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-02",
+          "name": "대리 권한 기준"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-03",
+          "name": "해외 인증 기준"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-04",
+          "name": "민감 업무 재인증"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-05",
+          "name": "권한 실패 안내"
+        },
+        {
+          "id": "PI-LCM-AUTH-001-06",
+          "name": "납부정보 인증 힌트"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-ELIG-001",
+      "name": "처리 가능 여부·제한 정책",
+      "description": "회선 상태와 고객 조건에 따라 셀프 처리 가능 여부와 제한 사유를 판정한다.",
+      "items": [
+        {
+          "id": "PI-LCM-ELIG-001-01",
+          "name": "진행 중 신청 제한"
+        },
+        {
+          "id": "PI-LCM-ELIG-001-02",
+          "name": "상태별 허용"
+        },
+        {
+          "id": "PI-LCM-ELIG-001-03",
+          "name": "미납·법인·특수 회선 제한"
+        },
+        {
+          "id": "PI-LCM-ELIG-001-04",
+          "name": "예약 충돌 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-IMPACT-001",
+      "name": "변경 영향도·대체 경로 고지 정책",
+      "description": "정지, 해지, 양도, 대표 회선 변경 전 고객 영향과 대체 경로를 고지한다.",
+      "items": [
+        {
+          "id": "PI-LCM-IMPACT-001-01",
+          "name": "비용 영향 고지"
+        },
+        {
+          "id": "PI-LCM-IMPACT-001-02",
+          "name": "결합·가족 영향 고지"
+        },
+        {
+          "id": "PI-LCM-IMPACT-001-03",
+          "name": "수신·인증 영향 고지"
+        },
+        {
+          "id": "PI-LCM-IMPACT-001-04",
+          "name": "대체 경로 제시"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-SUSPEND-001",
+      "name": "일시정지·정지해제 정책",
+      "description": "회선 정지, 정지해제, 예약, 조기해제, 다회선 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-SUSPEND-001-01",
+          "name": "정지 유형"
+        },
+        {
+          "id": "PI-LCM-SUSPEND-001-02",
+          "name": "기간·예약 기준"
+        },
+        {
+          "id": "PI-LCM-SUSPEND-001-03",
+          "name": "정지해제 조건"
+        },
+        {
+          "id": "PI-LCM-SUSPEND-001-04",
+          "name": "다회선 처리"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-LOSS-001",
+      "name": "분실·도난 긴급 차단 정책",
+      "description": "분실·도난 상황의 긴급 차단, 접수번호, 기기 유형별 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-LOSS-001-01",
+          "name": "긴급 차단 우선"
+        },
+        {
+          "id": "PI-LCM-LOSS-001-02",
+          "name": "기기 유형 기준"
+        },
+        {
+          "id": "PI-LCM-LOSS-001-03",
+          "name": "접수번호 자동 조회"
+        },
+        {
+          "id": "PI-LCM-LOSS-001-04",
+          "name": "신고 취소 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-LOSSREC-001",
+      "name": "분실 복구·후속 서비스 정책",
+      "description": "분실 신고 이후 복구, 보험, 임대폰, PUK, 유심, 위치조회 연계 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-LOSSREC-001-01",
+          "name": "후속 서비스 연결"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-02",
+          "name": "PUK·유심 기준"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-03",
+          "name": "임대폰·보상 연계"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-04",
+          "name": "복구 완료 안내"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-05",
+          "name": "보상센터 원스톱 연계"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-06",
+          "name": "유심 잠금 해제 지원"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-07",
+          "name": "PUK 코드 조회"
+        },
+        {
+          "id": "PI-LCM-LOSSREC-001-08",
+          "name": "임대 단말 신청"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-TERMINATION-001",
+      "name": "회선 해지·해지예약 정책",
+      "description": "회선 해지, 번호 해지, 해지 예약, 철회, 번호이동 후속 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-TERM-001-01",
+          "name": "해지 가능 회선 조회"
+        },
+        {
+          "id": "PI-LCM-TERM-001-02",
+          "name": "해지 영향 확인"
+        },
+        {
+          "id": "PI-LCM-TERM-001-03",
+          "name": "해지 예약 처리"
+        },
+        {
+          "id": "PI-LCM-TERM-001-04",
+          "name": "번호이동 후속 처리"
+        },
+        {
+          "id": "PI-LCM-TERM-001-05",
+          "name": "모바일 해지 진입 기준"
+        },
+        {
+          "id": "PI-LCM-TERM-001-06",
+          "name": "해지 절차 단계 안내"
+        },
+        {
+          "id": "PI-LCM-TERM-001-07",
+          "name": "해지 총 부담금 시뮬레이션"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-DOCUMENT-001",
+      "name": "서류·전자서명·증빙 정책",
+      "description": "서류 업로드, OCR, 전자서명, 필수 서류, 보완 제출 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-DOC-001-01",
+          "name": "필수 서류 사전 안내"
+        },
+        {
+          "id": "PI-LCM-DOC-001-02",
+          "name": "서류 업로드·OCR"
+        },
+        {
+          "id": "PI-LCM-DOC-001-03",
+          "name": "전자서명 증적"
+        },
+        {
+          "id": "PI-LCM-DOC-001-04",
+          "name": "보완 제출 기한"
+        },
+        {
+          "id": "PI-LCM-DOC-001-05",
+          "name": "해외 장기 정지 서류"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-TRANSFER-001",
+      "name": "계약자 변경·양도 정책",
+      "description": "계약자 변경, 양도, 임대상품 교체, 권한 갱신 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-TRN-001-01",
+          "name": "계약자 변경 허용"
+        },
+        {
+          "id": "PI-LCM-TRN-001-02",
+          "name": "임대상품 교체"
+        },
+        {
+          "id": "PI-LCM-TRN-001-03",
+          "name": "양도 영향 고지"
+        },
+        {
+          "id": "PI-LCM-TRN-001-04",
+          "name": "권한 갱신 결과"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-GROUP-001",
+      "name": "대표 회선·구성원·결합 영향 정책",
+      "description": "대표 회선, 구성원 권한, 가족·결합 그룹 탈퇴와 할인 영향 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-GRP-001-01",
+          "name": "구성원 검증"
+        },
+        {
+          "id": "PI-LCM-GRP-001-02",
+          "name": "대표 회선 영향"
+        },
+        {
+          "id": "PI-LCM-GRP-001-03",
+          "name": "그룹 탈퇴 기준"
+        },
+        {
+          "id": "PI-LCM-GRP-001-04",
+          "name": "권한 범위"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-SPECIAL-001",
+      "name": "해외·사망·대리 특수상황 정책",
+      "description": "해외, 사망, 대리, 거동불편 등 특수 상황의 비대면 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-SPC-001-01",
+          "name": "사망자 회선 처리"
+        },
+        {
+          "id": "PI-LCM-SPC-001-02",
+          "name": "해외 신청 처리"
+        },
+        {
+          "id": "PI-LCM-SPC-001-03",
+          "name": "대리 신청 범위"
+        },
+        {
+          "id": "PI-LCM-SPC-001-04",
+          "name": "특수 상황 상담 전환"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-HISTORY-001",
+      "name": "신청 이력·상태 추적 정책",
+      "description": "접수번호, 진행 상태, 변경 이력, 감사 로그, 고객 조회 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-HIS-001-01",
+          "name": "접수번호 부여"
+        },
+        {
+          "id": "PI-LCM-HIS-001-02",
+          "name": "상태 이력 저장"
+        },
+        {
+          "id": "PI-LCM-HIS-001-03",
+          "name": "감사 로그"
+        },
+        {
+          "id": "PI-LCM-HIS-001-04",
+          "name": "고객 조회 범위"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-BSS-001",
+      "name": "BSS 반영·원장 동기화 정책",
+      "description": "BSS 상태 변경, 원장 반영, 연계 실패, 재처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-BSS-001-01",
+          "name": "사전 검증 회신"
+        },
+        {
+          "id": "PI-LCM-BSS-001-02",
+          "name": "상태 변경 반영"
+        },
+        {
+          "id": "PI-LCM-BSS-001-03",
+          "name": "연계 실패 처리"
+        },
+        {
+          "id": "PI-LCM-BSS-001-04",
+          "name": "결과 회신 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-NOTICE-001",
+      "name": "고객 고지·fallback 정책",
+      "description": "고객 안내, 실패 사유, 다음 행동, 상담 전환과 fallback 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-NOT-001-01",
+          "name": "실패 사유 안내"
+        },
+        {
+          "id": "PI-LCM-NOT-001-02",
+          "name": "사유별 fallback"
+        },
+        {
+          "id": "PI-LCM-NOT-001-03",
+          "name": "처리 결과 고지"
+        },
+        {
+          "id": "PI-LCM-NOT-001-04",
+          "name": "고객 용어 기준"
+        },
+        {
+          "id": "PI-LCM-NOT-001-05",
+          "name": "채널 간 해지 기준 일관화"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-OPERATION-001",
+      "name": "예외 승인·운영 모니터링 정책",
+      "description": "운영 검토, SLA, 예약 충돌, 사유별 안내문 운영 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-OPR-001-01",
+          "name": "운영 확인 SLA"
+        },
+        {
+          "id": "PI-LCM-OPR-001-02",
+          "name": "예외 승인 기준"
+        },
+        {
+          "id": "PI-LCM-OPR-001-03",
+          "name": "예약 충돌 관리"
+        },
+        {
+          "id": "PI-LCM-OPR-001-04",
+          "name": "안내문 관리"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-PRIVACY-001",
+      "name": "개인정보·증빙 보관 정책",
+      "description": "민감 증빙, PUK, 위치조회, 서류 보관, 마스킹 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-PRV-001-01",
+          "name": "민감 증빙 최소화"
+        },
+        {
+          "id": "PI-LCM-PRV-001-02",
+          "name": "위치조회 고지"
+        },
+        {
+          "id": "PI-LCM-PRV-001-03",
+          "name": "PUK 보안"
+        },
+        {
+          "id": "PI-LCM-PRV-001-04",
+          "name": "보관 기간"
+        }
+      ]
+    },
+    {
+      "id": "PG-LCM-IDEMPOTENCY-001",
+      "name": "중복 요청·예약 충돌 정책",
+      "description": "동일 회선 중복 신청, 예약 충돌, 재시도, 멱등성 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-LCM-IDM-001-01",
+          "name": "중복 요청 제한"
+        },
+        {
+          "id": "PI-LCM-IDM-001-02",
+          "name": "예약 우선순위"
+        },
+        {
+          "id": "PI-LCM-IDM-001-03",
+          "name": "재시도 기준"
+        },
+        {
+          "id": "PI-LCM-IDM-001-04",
+          "name": "멱등 처리"
+        }
+      ]
+    }
+  ],
+  "policy_details": [
+    {
+      "id": "PI-LCM-SCOPE-001-01",
+      "policy_id": "PG-LCM-SCOPE-001",
+      "name": "대상 업무 범위",
+      "content": "정지, 정지해제, 분실·도난 차단, 해지·예약 해지, 계약자 변경, 양도, 대표 회선·구성원 권한, 특수 상황 비대면 변경을 포함한다."
+    },
+    {
+      "id": "PI-LCM-SCOPE-001-02",
+      "policy_id": "PG-LCM-SCOPE-001",
+      "name": "인접 업무 경계",
+      "content": "상품 신규 가입, 결제, 배송, 환불, 멤버십 혜택 사용 자체는 인접 정책서로 분리하고, 본 문서는 회선 변경이 해당 업무에 미치는 영향만 정의한다."
+    },
+    {
+      "id": "PI-LCM-SCOPE-001-03",
+      "policy_id": "PG-LCM-SCOPE-001",
+      "name": "회선·계정 분리",
+      "content": "계정 로그인 성공만으로 회선 변경을 허용하지 않는다. 선택 회선의 명의, 위임, 구성원 권한이 확인된 경우에만 변경을 허용한다."
+    },
+    {
+      "id": "PI-LCM-SCOPE-001-04",
+      "policy_id": "PG-LCM-SCOPE-001",
+      "name": "채널 일관성",
+      "content": "앱·웹·상담에서 동일 회선 상태와 제한 사유를 사용한다. 채널별 안내 문구가 다르더라도 처리 가능 여부 기준은 동일하게 관리한다."
+    },
+    {
+      "id": "PI-LCM-SCOPE-001-05",
+      "policy_id": "PG-LCM-SCOPE-001",
+      "name": "유선 설치 정보 확인",
+      "content": "유선 서비스 해지 또는 중지 전에는 설치 주소와 연락처를 확인한다. 장비 회수, 처리 결과 안내, 현장 방문 필요 여부에 영향을 주는 경우 고객 확인을 필수로 둔다."
+    },
+    {
+      "id": "PI-LCM-AUTH-001-01",
+      "policy_id": "PG-LCM-AUTH-001",
+      "name": "본인확인 기준",
+      "content": "정지, 해지, 계약자 변경, 분실 신고 취소, PUK 조회는 본인확인 또는 승인된 대리 권한이 확인된 경우에만 허용한다."
+    },
+    {
+      "id": "PI-LCM-AUTH-001-02",
+      "policy_id": "PG-LCM-AUTH-001",
+      "name": "대리 권한 기준",
+      "content": "대리 권한자은 가족관계, 위임장, 사망 증빙, 보호자 증빙 중 업무별 필수 증빙이 충족된 경우 해당 범위 안에서만 처리할 수 있다."
+    },
+    {
+      "id": "PI-LCM-AUTH-001-03",
+      "policy_id": "PG-LCM-AUTH-001",
+      "name": "해외 인증 기준",
+      "content": "해외 접속 고객은 휴대폰 본인확인이 불가한 경우 이메일 OTP, 아이핀, 공동인증 등 대체 인증을 허용한다. 인증 성공 시점과 방식은 이력으로 저장한다."
+    },
+    {
+      "id": "PI-LCM-AUTH-001-04",
+      "policy_id": "PG-LCM-AUTH-001",
+      "name": "민감 업무 재인증",
+      "content": "해지, 분실 신고 취소, 유심 잠금 해제, PUK 조회는 인증 완료 후 10분 이내에만 제출할 수 있다. 시간이 지나면 재인증을 요구한다."
+    },
+    {
+      "id": "PI-LCM-AUTH-001-05",
+      "policy_id": "PG-LCM-AUTH-001",
+      "name": "권한 실패 안내",
+      "content": "권한이 부족한 경우 권한 유형, 부족한 증빙, 가능한 대체 경로를 함께 안내한다. 명의자 개인정보는 마스킹한다."
+    },
+    {
+      "id": "PI-LCM-AUTH-001-06",
+      "policy_id": "PG-LCM-AUTH-001",
+      "name": "납부정보 인증 힌트",
+      "content": "납부정보 기반 인증이 필요한 경우 카드사명, 은행명, 일부 마스킹 정보처럼 고객이 본인 정보를 식별할 수 있는 힌트를 제공한다. 전체 번호는 노출하지 않는다."
+    },
+    {
+      "id": "PI-LCM-ELIG-001-01",
+      "policy_id": "PG-LCM-ELIG-001",
+      "name": "진행 중 신청 제한",
+      "content": "동일 회선에 정지, 해지, 명의 변경, 분실 차단 신청이 진행 중이면 동일 유형의 신규 신청은 제한하고 기존 접수번호를 안내한다."
+    },
+    {
+      "id": "PI-LCM-ELIG-001-02",
+      "policy_id": "PG-LCM-ELIG-001",
+      "name": "상태별 허용",
+      "content": "정상 회선은 정지, 해지, 계약자 변경을 신청할 수 있다. 해지 완료 회선은 복구 불가로 분류하고 조회와 증빙 발급만 허용한다."
+    },
+    {
+      "id": "PI-LCM-ELIG-001-03",
+      "policy_id": "PG-LCM-ELIG-001",
+      "name": "미납·법인·특수 회선 제한",
+      "content": "미납, 법인, 특수 계약, 사법기관 제한, 임대단말 미반납 조건이 있는 경우 셀프 처리를 제한하고 상담 또는 운영 검토로 전환한다."
+    },
+    {
+      "id": "PI-LCM-ELIG-001-04",
+      "policy_id": "PG-LCM-ELIG-001",
+      "name": "예약 충돌 제한",
+      "content": "해지 예약과 정지 예약이 동일 시점에 충돌하면 고객에게 우선 처리 대상 선택을 요구한다. 선택 전에는 BSS 반영 요청을 전송하지 않는다."
+    },
+    {
+      "id": "PI-LCM-IMPACT-001-01",
+      "policy_id": "PG-LCM-IMPACT-001",
+      "name": "비용 영향 고지",
+      "content": "해지 또는 정지 전 약정 잔여일수, 위약금, 할부 잔액, 정지 기간 요금, 미납액을 합산해 고객에게 사전 표시한다."
+    },
+    {
+      "id": "PI-LCM-IMPACT-001-02",
+      "policy_id": "PG-LCM-IMPACT-001",
+      "name": "결합·가족 영향 고지",
+      "content": "대표 회선 변경, 그룹 탈퇴, 해지, 양도 전 가족 할인, 결합 할인, 구성원 권한 영향과 소멸 시점을 고지한다."
+    },
+    {
+      "id": "PI-LCM-IMPACT-001-03",
+      "policy_id": "PG-LCM-IMPACT-001",
+      "name": "수신·인증 영향 고지",
+      "content": "정지 또는 분실 차단 전 문자 수신, 인증번호 수신, 금융 알림, 로밍 이용 가능 여부를 안내하고 대체 수신 방법을 제시한다."
+    },
+    {
+      "id": "PI-LCM-IMPACT-001-04",
+      "policy_id": "PG-LCM-IMPACT-001",
+      "name": "대체 경로 제시",
+      "content": "고객에게 불리한 영향이 큰 경우 즉시 처리, 예약 처리, 상담 전환, 철회 중 선택 가능한 대체 경로를 제공한다."
+    },
+    {
+      "id": "PI-LCM-SUSPEND-001-01",
+      "policy_id": "PG-LCM-SUSPEND-001",
+      "name": "정지 유형",
+      "content": "일시정지는 고객 요청 정지, 분실 정지, 계약 정지, 해외 장기 정지로 구분한다. 각 유형은 기간, 요금, 수신 가능 범위를 별도로 관리한다."
+    },
+    {
+      "id": "PI-LCM-SUSPEND-001-02",
+      "policy_id": "PG-LCM-SUSPEND-001",
+      "name": "기간·예약 기준",
+      "content": "일시정지와 정지해제는 즉시 처리와 예약 처리를 모두 허용한다. 예약은 현재 시점보다 미래인 날짜만 허용하고 예약 변경 이력을 저장한다."
+    },
+    {
+      "id": "PI-LCM-SUSPEND-001-03",
+      "policy_id": "PG-LCM-SUSPEND-001",
+      "name": "정지해제 조건",
+      "content": "정지해제는 본인확인, 미납 해소, 분실 취소 또는 복구 가능 상태가 충족된 경우에 허용한다. 조건 미충족 시 보완 항목을 안내한다."
+    },
+    {
+      "id": "PI-LCM-SUSPEND-001-04",
+      "policy_id": "PG-LCM-SUSPEND-001",
+      "name": "다회선 처리",
+      "content": "다회선 일괄 해제는 고객이 관리 권한을 가진 회선에만 적용한다. 일부 회선 실패 시 성공·실패 회선을 분리해 결과를 제공한다."
+    },
+    {
+      "id": "PI-LCM-LOSS-001-01",
+      "policy_id": "PG-LCM-LOSS-001",
+      "name": "긴급 차단 우선",
+      "content": "분실·도난 신고는 권한이 확인되면 요금 영향 설명보다 차단 요청을 우선 접수한다. 차단 후 비용·후속 서비스 안내를 제공한다."
+    },
+    {
+      "id": "PI-LCM-LOSS-001-02",
+      "policy_id": "PG-LCM-LOSS-001",
+      "name": "기기 유형 기준",
+      "content": "휴대폰, 워치, 태블릿, 유심 분실은 동일 접수 흐름을 사용하되 차단 대상과 후속 서비스는 기기 유형별로 구분한다."
+    },
+    {
+      "id": "PI-LCM-LOSS-001-03",
+      "policy_id": "PG-LCM-LOSS-001",
+      "name": "접수번호 자동 조회",
+      "content": "기존 분실 신고가 있으면 접수번호를 자동 조회해 중복 접수를 제한한다. 기존 접수의 취소 또는 복구 경로를 우선 안내한다."
+    },
+    {
+      "id": "PI-LCM-LOSS-001-04",
+      "policy_id": "PG-LCM-LOSS-001",
+      "name": "신고 취소 기준",
+      "content": "분실 신고 취소는 신고자 본인 또는 권한 보유자가 재인증한 경우에 허용한다. 취소 시 차단 해제 가능 여부를 별도 판정한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-01",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "후속 서비스 연결",
+      "content": "분실 신고 후 위치조회, 보험, 보상센터, 임대폰, 금융 차단, 로밍 차단 중 고객 상황에 필요한 경로를 체크리스트로 제공한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-02",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "PUK·유심 기준",
+      "content": "PUK 조회와 유심 잠금 해제는 재인증 후 1회성 노출로 제공한다. 노출 시각과 조회 주체를 감사 이력으로 저장한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-03",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "임대폰·보상 연계",
+      "content": "보험 가입 여부와 임대폰 가능 여부는 회선 상태와 상품 조건을 조회해 표시한다. 신청은 해당 후속 서비스 경로로 연결한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-04",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "복구 완료 안내",
+      "content": "분실 복구가 완료되면 차단 해제, 유심 상태, 보험·임대폰 진행 상태, 금융·로밍 차단 후속 확인을 고객에게 안내한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-05",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "보상센터 원스톱 연계",
+      "content": "보험 가입 현황이 확인된 고객은 보상센터 이동 경로와 필요 서류를 분실 완료 화면에서 바로 확인할 수 있다. 미가입 고객에게는 대체 후속 경로를 안내한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-06",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "유심 잠금 해제 지원",
+      "content": "유심 잠금 상태는 본인확인 후 진단 결과를 제공하고, PIN 초기화, PUK 조회, 지점 방문 중 가능한 해제 경로를 안내한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-07",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "PUK 코드 조회",
+      "content": "PUK 코드 조회는 재인증 성공 후 제한 시간 안에 1회성으로 제공한다. 조회 이력, 조회 주체, 노출 시각은 감사 로그로 저장한다."
+    },
+    {
+      "id": "PI-LCM-LOSSREC-001-08",
+      "policy_id": "PG-LCM-LOSSREC-001",
+      "name": "임대 단말 신청",
+      "content": "분실 또는 파손 조건을 충족한 고객은 임대 단말 신청 가능 여부를 확인할 수 있다. 불가 사유가 있으면 보증, 재고, 회선 상태 기준으로 사전 안내한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-01",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "해지 가능 회선 조회",
+      "content": "해지 신청 전 고객 명의 또는 승인된 대리 권한이 있는 회선만 해지 가능 후보로 표시한다. 이미 해지 예약된 회선은 기존 예약을 우선 안내한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-02",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "해지 영향 확인",
+      "content": "고객이 위약금, 할부, 결합, 번호이동, 가족 할인, 임대단말 반납 영향을 확인해야 해지 신청 버튼을 활성화한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-03",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "해지 예약 처리",
+      "content": "해지 예약은 평일 자동 처리 가능 일자와 고객 지정 일자 중 선택한다. 예약 시점 전에는 철회를 허용하고 철회 이력을 저장한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-04",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "번호이동 후속 처리",
+      "content": "번호이동 후 타사 해지가 완료되지 않은 경우 미완료 상태와 고객 후속 조치를 표시한다. 완료 전 중복 해지 요청은 제한한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-05",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "모바일 해지 진입 기준",
+      "content": "앱 홈과 나의 가입정보에서 번호 해지 메뉴 바로가기를 제공하되, 진입 후에는 본인확인, 영향 확인, 전자서명, 예약 또는 즉시 처리 단계로 이어지게 한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-06",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "해지 절차 단계 안내",
+      "content": "번호 해지 전 본인확인, 서류 제출, 해지 영향 확인, 운영 검토, 완료까지의 단계와 예상 소요 시간을 고객에게 순서대로 안내한다."
+    },
+    {
+      "id": "PI-LCM-TERM-001-07",
+      "policy_id": "PG-LCM-TERMINATION-001",
+      "name": "해지 총 부담금 시뮬레이션",
+      "content": "해지 총 부담금 시뮬레이션은 위약금, 단말 할부금, 미납액, 잔여 청구 가능 금액을 항목별로 표시하고 합계 금액을 해지 신청 전에 확인받는다."
+    },
+    {
+      "id": "PI-LCM-DOC-001-01",
+      "policy_id": "PG-LCM-DOCUMENT-001",
+      "name": "필수 서류 사전 안내",
+      "content": "해지, 사망자 회선, 대리 신청, 해외 장기 정지, 계약자 변경은 신청 전 필수 서류와 준비사항을 업무별로 안내한다."
+    },
+    {
+      "id": "PI-LCM-DOC-001-02",
+      "policy_id": "PG-LCM-DOCUMENT-001",
+      "name": "서류 업로드·OCR",
+      "content": "업로드 서류는 OCR로 문서 종류, 성명, 생년월일, 유효기간을 사전 점검한다. OCR 실패 시 수기 확인이 아닌 운영 검토로 전환한다."
+    },
+    {
+      "id": "PI-LCM-DOC-001-03",
+      "policy_id": "PG-LCM-DOCUMENT-001",
+      "name": "전자서명 증적",
+      "content": "전자서명은 신청자, 회선, 문서 버전, 서명 시각, IP 또는 인증 수단을 함께 저장한다. 서명 후 문서 내용 변경은 새 서명을 요구한다."
+    },
+    {
+      "id": "PI-LCM-DOC-001-04",
+      "policy_id": "PG-LCM-DOCUMENT-001",
+      "name": "보완 제출 기한",
+      "content": "서류 누락 또는 불명확 판정 시 보완 제출 기한을 7일로 안내한다. 기한 초과 시 신청은 반려하고 재신청 경로를 제공한다."
+    },
+    {
+      "id": "PI-LCM-DOC-001-05",
+      "policy_id": "PG-LCM-DOCUMENT-001",
+      "name": "해외 장기 정지 서류",
+      "content": "해외 장기 정지 또는 재정지 신청은 신분증, 항공권, 체류 증빙 등 업무별 필수 서류를 앱에서 업로드하도록 한다. 서류 누락은 보완 필요 상태로 분류한다."
+    },
+    {
+      "id": "PI-LCM-TRN-001-01",
+      "policy_id": "PG-LCM-TRANSFER-001",
+      "name": "계약자 변경 허용",
+      "content": "계약자 변경은 양도인과 양수인의 권한, 미납 여부, 보증 조건, 약정 승계 동의가 충족된 경우에 허용한다."
+    },
+    {
+      "id": "PI-LCM-TRN-001-02",
+      "policy_id": "PG-LCM-TRANSFER-001",
+      "name": "임대상품 교체",
+      "content": "임대상품 교체는 회선 상태가 정상이고 반납 또는 교체 가능 조건이 충족된 경우에 접수한다. 미반납 조건은 제한 사유로 안내한다."
+    },
+    {
+      "id": "PI-LCM-TRN-001-03",
+      "policy_id": "PG-LCM-TRANSFER-001",
+      "name": "양도 영향 고지",
+      "content": "양도 전 약정, 할인, 결합, 멤버십, 청구, 납부 정보 변경 영향을 양도인과 양수인에게 각각 고지한다."
+    },
+    {
+      "id": "PI-LCM-TRN-001-04",
+      "policy_id": "PG-LCM-TRANSFER-001",
+      "name": "권한 갱신 결과",
+      "content": "계약자 변경 완료 후 기존 권한은 즉시 회수하고 신규 계약자의 조회·변경 권한을 BSS와 채널에 반영한다."
+    },
+    {
+      "id": "PI-LCM-GRP-001-01",
+      "policy_id": "PG-LCM-GROUP-001",
+      "name": "구성원 검증",
+      "content": "구성원 추가·변경은 성명, 생년월일, 관계, 동의 여부가 확인된 경우에만 접수한다. 정보 불일치 시 보완을 요구한다."
+    },
+    {
+      "id": "PI-LCM-GRP-001-02",
+      "policy_id": "PG-LCM-GROUP-001",
+      "name": "대표 회선 영향",
+      "content": "대표 회선 변경 전 결합, 가족 할인, 알림 수신, 권한 위임 영향이 있는 구성원을 표시하고 고객 확인을 요구한다."
+    },
+    {
+      "id": "PI-LCM-GRP-001-03",
+      "policy_id": "PG-LCM-GROUP-001",
+      "name": "그룹 탈퇴 기준",
+      "content": "가족·결합 그룹 탈퇴는 할인 소멸, 잔여 구성원 영향, 재가입 제한 여부를 고지한 뒤 접수한다."
+    },
+    {
+      "id": "PI-LCM-GRP-001-04",
+      "policy_id": "PG-LCM-GROUP-001",
+      "name": "권한 범위",
+      "content": "구성원 권한은 조회, 변경 요청, 결합 관리, 해지 요청 범위로 구분한다. 권한 범위 변경은 이력으로 저장한다."
+    },
+    {
+      "id": "PI-LCM-SPC-001-01",
+      "policy_id": "PG-LCM-SPECIAL-001",
+      "name": "사망자 회선 처리",
+      "content": "사망자 회선 해지는 사망 증빙과 신청자 관계 증빙을 필수로 요구한다. 서류 충족 시 운영 검토 후 해지 또는 보완으로 확정한다."
+    },
+    {
+      "id": "PI-LCM-SPC-001-02",
+      "policy_id": "PG-LCM-SPECIAL-001",
+      "name": "해외 신청 처리",
+      "content": "해외 고객은 해외 접속 인증과 대체 서류 제출을 허용한다. 귀국 예정일이 있는 경우 귀국 전용 정지해제 예약을 제공한다."
+    },
+    {
+      "id": "PI-LCM-SPC-001-03",
+      "policy_id": "PG-LCM-SPECIAL-001",
+      "name": "대리 신청 범위",
+      "content": "대리 신청은 위임 범위 안의 업무만 허용한다. 해지, 명의 변경, 분실 취소는 별도 명시 위임이 있는 경우에만 허용한다."
+    },
+    {
+      "id": "PI-LCM-SPC-001-04",
+      "policy_id": "PG-LCM-SPECIAL-001",
+      "name": "특수 상황 상담 전환",
+      "content": "거동 불편, 서류 판독 불가, 해외 인증 실패, 법인/특수 회선은 운영 검토 또는 상담 전환으로 안내한다."
+    },
+    {
+      "id": "PI-LCM-HIS-001-01",
+      "policy_id": "PG-LCM-HISTORY-001",
+      "name": "접수번호 부여",
+      "content": "정지, 해지, 분실, 계약자 변경, 서류 제출, 운영 검토 요청은 접수번호를 부여하고 고객·상담·운영에서 동일 번호로 조회한다."
+    },
+    {
+      "id": "PI-LCM-HIS-001-02",
+      "policy_id": "PG-LCM-HISTORY-001",
+      "name": "상태 이력 저장",
+      "content": "상태 변경, 예약 등록, 예약 취소, 반려, 보완, BSS 반영 실패, 운영 승인 결과는 변경 전후 상태와 시각을 저장한다."
+    },
+    {
+      "id": "PI-LCM-HIS-001-03",
+      "policy_id": "PG-LCM-HISTORY-001",
+      "name": "감사 로그",
+      "content": "PUK 조회, 서류 열람, 대리 권한 승인, 사망자 회선 처리는 처리 주체, 근거, 접근 시각을 감사 로그로 저장한다."
+    },
+    {
+      "id": "PI-LCM-HIS-001-04",
+      "policy_id": "PG-LCM-HISTORY-001",
+      "name": "고객 조회 범위",
+      "content": "고객은 본인 또는 승인된 대리 권한이 있는 회선의 신청 내역만 조회할 수 있다. 만료된 신청은 요약 이력만 제공한다."
+    },
+    {
+      "id": "PI-LCM-BSS-001-01",
+      "policy_id": "PG-LCM-BSS-001",
+      "name": "사전 검증 회신",
+      "content": "BSS는 회선 상태, 명의, 납부, 약정, 결합, 임대상품, 진행 중 예약 정보를 사전 검증 결과로 회신한다."
+    },
+    {
+      "id": "PI-LCM-BSS-001-02",
+      "policy_id": "PG-LCM-BSS-001",
+      "name": "상태 변경 반영",
+      "content": "정지, 정지해제, 해지, 명의 변경, 권한 갱신은 BSS 원장 반영 성공 후 고객 완료 상태로 표시한다."
+    },
+    {
+      "id": "PI-LCM-BSS-001-03",
+      "policy_id": "PG-LCM-BSS-001",
+      "name": "연계 실패 처리",
+      "content": "BSS 반영 실패 시 고객 화면은 처리 중 또는 운영 확인 필요 상태로 표시하고, 동일 요청 자동 재시도는 최대 2회로 제한한다. 운영 확인 전에는 완료 상태로 확정하지 않는다."
+    },
+    {
+      "id": "PI-LCM-BSS-001-04",
+      "policy_id": "PG-LCM-BSS-001",
+      "name": "결과 회신 기준",
+      "content": "BSS 회신에는 성공·실패 상태, 실패 사유, 재처리 가능 여부, 반영 시각을 포함한다. 고객에게는 내부 오류 코드를 노출하지 않는다."
+    },
+    {
+      "id": "PI-LCM-NOT-001-01",
+      "policy_id": "PG-LCM-NOTICE-001",
+      "name": "실패 사유 안내",
+      "content": "실패, 제한, 반려, 보류 상태에는 고객이 이해할 수 있는 사유와 다음 행동을 함께 표시한다."
+    },
+    {
+      "id": "PI-LCM-NOT-001-02",
+      "policy_id": "PG-LCM-NOTICE-001",
+      "name": "사유별 fallback",
+      "content": "셀프 처리가 불가한 경우 상담 전환, 운영 검토, 서류 보완, 나중에 다시 시도 중 하나의 fallback 경로를 제공한다."
+    },
+    {
+      "id": "PI-LCM-NOT-001-03",
+      "policy_id": "PG-LCM-NOTICE-001",
+      "name": "처리 결과 고지",
+      "content": "처리 완료 시 변경된 회선 상태, 적용 시점, 접수번호, 후속 체크리스트를 앱·웹과 알림으로 제공한다."
+    },
+    {
+      "id": "PI-LCM-NOT-001-04",
+      "policy_id": "PG-LCM-NOTICE-001",
+      "name": "고객 용어 기준",
+      "content": "고객 안내 문구에는 내부 시스템명과 약어를 제외하고 회선 상태, 제한 사유, 필요한 행동을 쉬운 표현으로 작성한다."
+    },
+    {
+      "id": "PI-LCM-NOT-001-05",
+      "policy_id": "PG-LCM-NOTICE-001",
+      "name": "채널 간 해지 기준 일관화",
+      "content": "채널 간 해지 기준 일관화는 앱, 웹, 상담, 오프라인 채널의 해지 기준, 제출 서류 기준, 처리 상태 표현을 동일 정책 버전으로 관리하는 것을 의미한다."
+    },
+    {
+      "id": "PI-LCM-OPR-001-01",
+      "policy_id": "PG-LCM-OPERATION-001",
+      "name": "운영 확인 SLA",
+      "content": "운영 검토 대상은 접수 후 1영업일 안에 승인, 반려, 보완 중 하나로 분류한다. SLA 초과 건은 모니터링 목록에 노출한다."
+    },
+    {
+      "id": "PI-LCM-OPR-001-02",
+      "policy_id": "PG-LCM-OPERATION-001",
+      "name": "예외 승인 기준",
+      "content": "예외 승인은 증빙 충족, 고객 피해 가능성, BSS 처리 가능성, 법적 제한 여부를 모두 확인한 경우에만 허용한다."
+    },
+    {
+      "id": "PI-LCM-OPR-001-03",
+      "policy_id": "PG-LCM-OPERATION-001",
+      "name": "예약 충돌 관리",
+      "content": "동일 회선의 예약 충돌은 고객 선택이 필요한 충돌과 시스템 재처리 충돌로 분류한다. 고객 선택 충돌은 자동 반영하지 않는다."
+    },
+    {
+      "id": "PI-LCM-OPR-001-04",
+      "policy_id": "PG-LCM-OPERATION-001",
+      "name": "안내문 관리",
+      "content": "사유별 안내문과 fallback 정책은 운영자가 버전, 적용일, 승인자를 관리한다. 변경 이력은 최소 1년 보관한다."
+    },
+    {
+      "id": "PI-LCM-PRV-001-01",
+      "policy_id": "PG-LCM-PRIVACY-001",
+      "name": "민감 증빙 최소화",
+      "content": "서류 제출은 업무에 필요한 항목만 수집한다. 주민등록번호 뒷자리, 계좌번호, 타인 연락처는 표시와 저장 단계에서 마스킹한다."
+    },
+    {
+      "id": "PI-LCM-PRV-001-02",
+      "policy_id": "PG-LCM-PRIVACY-001",
+      "name": "위치조회 고지",
+      "content": "분실 후 위치조회 연계는 고객 동의와 서비스 가입 여부가 확인된 경우에만 안내한다. 위치정보는 본 정책서에서 저장하지 않는다."
+    },
+    {
+      "id": "PI-LCM-PRV-001-03",
+      "policy_id": "PG-LCM-PRIVACY-001",
+      "name": "PUK 보안",
+      "content": "PUK와 유심 잠금 해제 정보는 재인증 후 제한 시간 안에만 노출한다. 화면 캡처 방지와 조회 이력 저장 기준을 적용한다."
+    },
+    {
+      "id": "PI-LCM-PRV-001-04",
+      "policy_id": "PG-LCM-PRIVACY-001",
+      "name": "보관 기간",
+      "content": "서류와 전자서명 증적은 업무 완료 후 법정·분쟁 대응 기간 기준으로 보관하고, 기간 만료 시 파기 대상에 포함한다."
+    },
+    {
+      "id": "PI-LCM-IDM-001-01",
+      "policy_id": "PG-LCM-IDEMPOTENCY-001",
+      "name": "중복 요청 제한",
+      "content": "동일 회선, 동일 업무, 동일 신청자가 5분 이내 같은 요청을 제출하면 중복 요청으로 분류하고 기존 접수번호를 안내한다."
+    },
+    {
+      "id": "PI-LCM-IDM-001-02",
+      "policy_id": "PG-LCM-IDEMPOTENCY-001",
+      "name": "예약 우선순위",
+      "content": "해지 예약, 정지 예약, 정지해제 예약이 충돌하면 고객 피해가 큰 해지와 분실 차단을 우선 판단하고 나머지는 고객 선택을 요구한다."
+    },
+    {
+      "id": "PI-LCM-IDM-001-03",
+      "policy_id": "PG-LCM-IDEMPOTENCY-001",
+      "name": "재시도 기준",
+      "content": "BSS 일시 실패는 최대 2회 자동 재시도한다. 2회 실패 후에는 운영 확인 필요 상태로 전환하고 고객에게 처리 중 안내와 예상 확인 경로를 제공한다."
+    },
+    {
+      "id": "PI-LCM-IDM-001-04",
+      "policy_id": "PG-LCM-IDEMPOTENCY-001",
+      "name": "멱등 처리",
+      "content": "재전송된 동일 접수번호 요청은 새 신청을 만들지 않고 기존 신청의 최신 상태를 반환한다."
+    }
+  ],
+  "trace_matrix": [
+    {
+      "stage": "topic_learning",
+      "summary": "PM-21 상세 요구사항명과 상세 요구사항 설명 73건을 회선 변경, 정지, 해지, 분실, 계약자 변경, 특수 상황, 운영 관리 축으로 분류했다.",
+      "evidence_ids": [
+        "REQ-848",
+        "REQ-925",
+        "REQ-989",
+        "REQ-1270",
+        "REQ-1271",
+        "REQ-1272",
+        "REQ-1273",
+        "REQ-1274",
+        "REQ-1275",
+        "REQ-1276",
+        "REQ-1277",
+        "REQ-1280",
+        "REQ-1281",
+        "REQ-1282",
+        "REQ-1285",
+        "REQ-1286",
+        "REQ-1288",
+        "REQ-1289",
+        "REQ-1291",
+        "REQ-1292",
+        "REQ-1294",
+        "REQ-1295",
+        "REQ-1296",
+        "REQ-1297",
+        "REQ-1349",
+        "REQ-2238",
+        "REQ-2283",
+        "REQ-2360",
+        "REQ-2410",
+        "REQ-2529",
+        "REQ-2530",
+        "REQ-2531",
+        "REQ-2532",
+        "REQ-2533",
+        "REQ-2534",
+        "REQ-2535",
+        "REQ-2539",
+        "REQ-2540",
+        "REQ-2541",
+        "REQ-2550",
+        "REQ-2551",
+        "REQ-2552",
+        "REQ-2553",
+        "REQ-2554",
+        "REQ-2560",
+        "REQ-2561",
+        "REQ-2569",
+        "REQ-2577",
+        "REQ-2580",
+        "REQ-2581",
+        "REQ-2585",
+        "REQ-2603",
+        "REQ-2605",
+        "REQ-2606",
+        "REQ-2700",
+        "REQ-2742",
+        "REQ-2801",
+        "REQ-2804",
+        "REQ-2813",
+        "REQ-2814",
+        "REQ-2816",
+        "REQ-2817",
+        "REQ-2819",
+        "REQ-2821",
+        "REQ-2825",
+        "REQ-2827",
+        "REQ-2833",
+        "REQ-2834",
+        "REQ-3017",
+        "REQ-3018",
+        "REQ-3034",
+        "REQ-3035",
+        "REQ-3201"
+      ]
+    },
+    {
+      "stage": "core_design",
+      "summary": "회선 권한, 처리 가능 여부, 영향도, BSS 반영, 예외 증빙, 이력 추적을 중심으로 액터-유즈케이스-프로세스-기능-정책 계층을 설계했다.",
+      "evidence_ids": [
+        "REQ-848",
+        "REQ-925",
+        "REQ-989",
+        "REQ-1270",
+        "REQ-1271",
+        "REQ-1272",
+        "REQ-1273",
+        "REQ-1274",
+        "REQ-1275",
+        "REQ-1276",
+        "REQ-1277",
+        "REQ-1280",
+        "REQ-1281",
+        "REQ-1282",
+        "REQ-1285",
+        "REQ-1286",
+        "REQ-1288",
+        "REQ-1289",
+        "REQ-1291",
+        "REQ-1292",
+        "REQ-1294",
+        "REQ-1295",
+        "REQ-1296",
+        "REQ-1297",
+        "REQ-1349",
+        "REQ-2238",
+        "REQ-2283",
+        "REQ-2360",
+        "REQ-2410",
+        "REQ-2529"
+      ]
+    },
+    {
+      "stage": "policy_detail",
+      "summary": "분실·도난, 해지예약, 정지해제, 계약자 변경, 해외·사망·대리 처리, 운영 검토와 개인정보 보호 기준을 정책 항목으로 구체화했다.",
+      "evidence_ids": [
+        "REQ-2530",
+        "REQ-2531",
+        "REQ-2532",
+        "REQ-2533",
+        "REQ-2534",
+        "REQ-2535",
+        "REQ-2539",
+        "REQ-2540",
+        "REQ-2541",
+        "REQ-2550",
+        "REQ-2551",
+        "REQ-2552",
+        "REQ-2553",
+        "REQ-2554",
+        "REQ-2560",
+        "REQ-2561",
+        "REQ-2569",
+        "REQ-2577",
+        "REQ-2580",
+        "REQ-2581",
+        "REQ-2585",
+        "REQ-2603",
+        "REQ-2605",
+        "REQ-2606",
+        "REQ-2700",
+        "REQ-2742",
+        "REQ-2801",
+        "REQ-2804",
+        "REQ-2813",
+        "REQ-2814",
+        "REQ-2816",
+        "REQ-2817",
+        "REQ-2819",
+        "REQ-2821",
+        "REQ-2825",
+        "REQ-2827",
+        "REQ-2833",
+        "REQ-2834",
+        "REQ-3017",
+        "REQ-3018",
+        "REQ-3034",
+        "REQ-3035",
+        "REQ-3201"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_03-002",
+      "source_number": "848",
+      "requirement_id": "MOD_03-002",
+      "parent_requirement_id": "MOD_03",
+      "parent_name": "가족·대리 회선 변경/관리",
+      "detail_name": "구성원 정보 입력 후 조건 검증 결과 제공",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-CHG-003",
+        "FN-LCM-CHG-002",
+        "PI-LCM-IMPACT-001-02",
+        "FN-LCM-TRM-001",
+        "PG-LCM-GROUP-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_03-002",
+        "848",
+        "REQ-MOD_03-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_05-005",
+      "source_number": "925",
+      "requirement_id": "MOD_05-005",
+      "parent_requirement_id": "MOD_05",
+      "parent_name": "회선 변경/정지/관리 처리 가능 조건 검증 및 불가 사유 안내",
+      "detail_name": "계약자 변경/양도 처리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-005",
+        "PR-LCM-CHG-001",
+        "FN-LCM-CHG-001",
+        "FN-LCM-SEL-001",
+        "FN-LCM-SEL-003"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_05-005",
+        "925",
+        "REQ-MOD_05-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-004",
+      "source_number": "989",
+      "requirement_id": "MOD_08-004",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "임대상품 교체",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-LCM-TRN-001-02",
+        "FN-LCM-CHG-001",
+        "PG-LCM-TRANSFER-001",
+        "PR-LCM-CHG-001",
+        "US-LCM-CSR-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-004",
+        "989",
+        "REQ-MOD_08-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_01-001",
+      "source_number": "1270",
+      "requirement_id": "MOD_01-001",
+      "parent_requirement_id": "MOD_01",
+      "parent_name": "회선 기준정보 확인",
+      "detail_name": "해지/정지 전 현재 이용 상태 확인",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-LCM-SEL-002",
+        "US-LCM-CUS-001",
+        "PI-LCM-SUSPEND-001-03",
+        "FN-LCM-HIS-001",
+        "FN-LCM-SEL-002"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_01-001",
+        "1270",
+        "REQ-MOD_01-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_05-002",
+      "source_number": "1271",
+      "requirement_id": "MOD_05-002",
+      "parent_requirement_id": "MOD_05",
+      "parent_name": "회선 변경/정지/관리 처리 가능 조건 검증 및 불가 사유 안내",
+      "detail_name": "변경 가능 여부 및 사전 검증 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-SEL-003",
+        "PI-LCM-LOSSREC-001-08",
+        "FN-LCM-SEL-001",
+        "FN-LCM-TRM-001",
+        "US-LCM-CUS-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_05-002",
+        "1271",
+        "REQ-MOD_05-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_04-001",
+      "source_number": "1272",
+      "requirement_id": "MOD_04-001",
+      "parent_requirement_id": "MOD_04",
+      "parent_name": "회선 변경/정지/관리 수행시 영향 사전 안내",
+      "detail_name": "정지/해지 전후 영향 비교 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-DOC-001-01",
+        "PG-LCM-IMPACT-001",
+        "PI-LCM-IMPACT-001-02",
+        "FN-LCM-CHG-003",
+        "FN-LCM-HIS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_04-001",
+        "1272",
+        "REQ-MOD_04-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_06-001",
+      "source_number": "1273",
+      "requirement_id": "MOD_06-001",
+      "parent_requirement_id": "MOD_06",
+      "parent_name": "회선 변경/정지/관리 인증·서류·증빙 처리 제공",
+      "detail_name": "필수 인증/서류/준비사항 사전 안내",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-LCM-DOC-001-01",
+        "PG-LCM-DOCUMENT-001",
+        "PI-LCM-DOC-001-05",
+        "PG-LCM-AUTH-001",
+        "PR-LCM-SPC-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_06-001",
+        "1273",
+        "REQ-MOD_06-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_01-002",
+      "source_number": "1274",
+      "requirement_id": "MOD_01-002",
+      "parent_requirement_id": "MOD_01",
+      "parent_name": "회선 기준정보 확인",
+      "detail_name": "유선 서비스 해지/중지 전 설치 주소·연락처 확인",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-LCM-SCOPE-001-05",
+        "FN-LCM-SUS-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-002",
+        "PR-LCM-SUS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_01-002",
+        "1274",
+        "REQ-MOD_01-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-003",
+      "source_number": "1275",
+      "requirement_id": "MOD_02-003",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "서비스 일시정지/정지해제 진입",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001",
+        "FN-LCM-SUS-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-003",
+        "1275",
+        "REQ-MOD_02-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-001",
+      "source_number": "1276",
+      "requirement_id": "MOD_02-001",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "회선 해지/해지 예약 사전 영향도 안내",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001",
+        "FN-LCM-SPC-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-001",
+        "1276",
+        "REQ-MOD_02-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_07-001",
+      "source_number": "1277",
+      "requirement_id": "MOD_07-001",
+      "parent_requirement_id": "MOD_07",
+      "parent_name": "회선 변경/정지/관리 업무 처리현황·이력 제공",
+      "detail_name": "정지/해지/분실 신청 내역 조회",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-HIS-001",
+        "PR-LCM-HIS-001",
+        "US-LCM-CUS-007",
+        "US-LCM-BSS-001",
+        "PI-LCM-ELIG-001-01"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_07-001",
+        "1277",
+        "REQ-MOD_07-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_03-001",
+      "source_number": "1280",
+      "requirement_id": "MOD_03-001",
+      "parent_requirement_id": "MOD_03",
+      "parent_name": "가족·대리 회선 변경/관리",
+      "detail_name": "결합/가족 그룹 탈퇴·해지 영향 안내",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-CHG-003",
+        "PR-LCM-CHG-003",
+        "PI-LCM-IMPACT-001-02",
+        "PG-LCM-GROUP-001",
+        "PI-LCM-GRP-001-03"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_03-001",
+        "1280",
+        "REQ-MOD_03-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-002",
+      "source_number": "1281",
+      "requirement_id": "MOD_02-002",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "회선 일시정지 신청 및 예약 해제 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "PR-LCM-SUS-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-002",
+        "1281",
+        "REQ-MOD_02-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-001",
+      "source_number": "1282",
+      "requirement_id": "MOD_08-001",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실/도난 신고 및 회선 일시 정지/해제 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-003",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-002",
+        "PG-LCM-LOSSREC-001",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-001",
+        "1282",
+        "REQ-MOD_08-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-017",
+      "source_number": "1285",
+      "requirement_id": "MOD_02-017",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "계약정지 처리(기간 지정/자동 해제 포함)",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001",
+        "PI-LCM-SUSPEND-001-02"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-017",
+        "1285",
+        "REQ-MOD_02-017"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_04-002",
+      "source_number": "1286",
+      "requirement_id": "MOD_04-002",
+      "parent_requirement_id": "MOD_04",
+      "parent_name": "회선 변경/정지/관리 수행시 영향 사전 안내",
+      "detail_name": "해지/정지 전 약정 잔여일수 및 위약금 영향 시뮬레이션 조회",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-004",
+        "PI-LCM-DOC-001-01",
+        "PI-LCM-IMPACT-001-01",
+        "FN-LCM-TRM-002",
+        "PG-LCM-IMPACT-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_04-002",
+        "1286",
+        "REQ-MOD_04-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_05-003",
+      "source_number": "1288",
+      "requirement_id": "MOD_05-003",
+      "parent_requirement_id": "MOD_05",
+      "parent_name": "회선 변경/정지/관리 처리 가능 조건 검증 및 불가 사유 안내",
+      "detail_name": "해지/정지/분실 사유 선택 및 상황별 대체 경로 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-001",
+        "FN-LCM-TRM-001",
+        "PG-LCM-IMPACT-001",
+        "US-LCM-CUS-007",
+        "FN-LCM-SEL-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_05-003",
+        "1288",
+        "REQ-MOD_05-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-002",
+      "source_number": "1289",
+      "requirement_id": "MOD_08-002",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "상태 변경 후 후속 조치 체크리스트 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "ST-LCM-015",
+        "PR-LCM-HIS-003",
+        "PI-LCM-NOT-001-03",
+        "FN-LCM-HIS-003",
+        "US-LCM-CSR-001"
+      ],
+      "mapping_type": "state",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-002",
+        "1289",
+        "REQ-MOD_08-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-003",
+      "source_number": "1291",
+      "requirement_id": "MOD_08-003",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실/도난 상황 원스톱 대응 흐름 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-003",
+        "ST-LCM-015",
+        "FN-LCM-LOS-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-003",
+        "1291",
+        "REQ-MOD_08-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_05-004",
+      "source_number": "1292",
+      "requirement_id": "MOD_05-004",
+      "parent_requirement_id": "MOD_05",
+      "parent_name": "회선 변경/정지/관리 처리 가능 조건 검증 및 불가 사유 안내",
+      "detail_name": "권한·예외 기반 처리 제한 및 사유 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-SEL-003",
+        "US-LCM-CUS-001",
+        "PR-LCM-SEL-003",
+        "FN-LCM-REP-003",
+        "FN-LCM-SEL-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_05-004",
+        "1292",
+        "REQ-MOD_05-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_09-001",
+      "source_number": "1294",
+      "requirement_id": "MOD_09-001",
+      "parent_requirement_id": "MOD_09",
+      "parent_name": "운영·정책 관리 지원",
+      "detail_name": "예외 승인 및 증빙 검토 관리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-OPR-001",
+        "PG-LCM-OPERATION-001",
+        "PI-LCM-HIS-001-02",
+        "FN-LCM-OPR-001",
+        "FN-LCM-OPR-002"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_09-001",
+        "1294",
+        "REQ-MOD_09-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_09-002",
+      "source_number": "1295",
+      "requirement_id": "MOD_09-002",
+      "parent_requirement_id": "MOD_09",
+      "parent_name": "운영·정책 관리 지원",
+      "detail_name": "예약 해지/정지 충돌 및 실패 모니터링",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-OPR-002",
+        "US-LCM-OPR-001",
+        "PR-LCM-OPR-002",
+        "PG-LCM-OPERATION-001",
+        "PI-LCM-HIS-001-02"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_09-002",
+        "1295",
+        "REQ-MOD_09-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_09-003",
+      "source_number": "1296",
+      "requirement_id": "MOD_09-003",
+      "parent_requirement_id": "MOD_09",
+      "parent_name": "운영·정책 관리 지원",
+      "detail_name": "상태 변경 이력 및 감사 로그 관리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-OPR-001",
+        "FN-LCM-OPR-002",
+        "PG-LCM-OPERATION-001",
+        "PI-LCM-HIS-001-02",
+        "FN-LCM-OPR-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_09-003",
+        "1296",
+        "REQ-MOD_09-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_09-004",
+      "source_number": "1297",
+      "requirement_id": "MOD_09-004",
+      "parent_requirement_id": "MOD_09",
+      "parent_name": "운영·정책 관리 지원",
+      "detail_name": "사유별 고객 안내문 및 fallback 정책 관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-OPR-001",
+        "PG-LCM-OPERATION-001",
+        "FN-LCM-OPR-002",
+        "FN-LCM-OPR-003",
+        "PI-LCM-HIS-001-02"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_09-004",
+        "1297",
+        "REQ-MOD_09-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_05-001",
+      "source_number": "1349",
+      "requirement_id": "MOD_05-001",
+      "parent_requirement_id": "MOD_05",
+      "parent_name": "회선 변경/정지/관리 처리 가능 조건 검증 및 불가 사유 안내",
+      "detail_name": "회선 변경/관리 셀프처리 불가시 사유 및 대체 경로 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-001",
+        "PG-LCM-IMPACT-001",
+        "FN-LCM-TRM-001",
+        "US-LCM-CSR-001",
+        "PI-LCM-AUTH-001-05"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_05-001",
+        "1349",
+        "REQ-MOD_05-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_03-003",
+      "source_number": "2238",
+      "requirement_id": "MOD_03-003",
+      "parent_requirement_id": "MOD_03",
+      "parent_name": "가족·대리 회선 변경/관리",
+      "detail_name": "가족할인 영향 사전 고지",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-CHG-003",
+        "PR-LCM-CHG-003",
+        "PI-LCM-IMPACT-001-02",
+        "PG-LCM-GROUP-001",
+        "PG-LCM-IMPACT-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_03-003",
+        "2238",
+        "REQ-MOD_03-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_04-003",
+      "source_number": "2283",
+      "requirement_id": "MOD_04-003",
+      "parent_requirement_id": "MOD_04",
+      "parent_name": "회선 변경/정지/관리 수행시 영향 사전 안내",
+      "detail_name": "인터넷 해지 영향 경고",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-DOC-001-01",
+        "FN-LCM-CHG-003",
+        "PG-LCM-IMPACT-001",
+        "US-LCM-CUS-004",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_04-003",
+        "2283",
+        "REQ-MOD_04-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-004",
+      "source_number": "2360",
+      "requirement_id": "MOD_02-004",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "정지해제 연계 처리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "FN-LCM-SUS-004",
+        "PR-LCM-SUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-004",
+        "2360",
+        "REQ-MOD_02-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "PM-21-UNMAPPED-001",
+      "source_number": "2410",
+      "requirement_id": "PM-21-UNMAPPED-001",
+      "parent_requirement_id": "",
+      "parent_name": "",
+      "detail_name": "통신사 이동 후 상태 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-TERM-001-04",
+        "PI-LCM-LOSSREC-001-04",
+        "PI-LCM-LOSSREC-001-05",
+        "PI-LCM-LOSSREC-001-08",
+        "FN-LCM-SPC-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "PM-21-UNMAPPED-001",
+        "2410",
+        "REQ-PM-21-UNMAPPED-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-005",
+      "source_number": "2529",
+      "requirement_id": "MOD_02-005",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "번호 해지 셀프 신청",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SPC-004",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-005",
+        "2529",
+        "REQ-MOD_02-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-006",
+      "source_number": "2530",
+      "requirement_id": "MOD_02-006",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "모바일 해지 메뉴 바로가기",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001",
+        "FN-LCM-SPC-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-006",
+        "2530",
+        "REQ-MOD_02-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-007",
+      "source_number": "2531",
+      "requirement_id": "MOD_02-007",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "해지 절차 단계 안내",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PG-LCM-TERMINATION-001",
+        "PI-LCM-TERM-001-06",
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SPC-004"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-007",
+        "2531",
+        "REQ-MOD_02-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_06-002",
+      "source_number": "2532",
+      "requirement_id": "MOD_06-002",
+      "parent_requirement_id": "MOD_06",
+      "parent_name": "회선 변경/정지/관리 인증·서류·증빙 처리 제공",
+      "detail_name": "서류 업로드 지원",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-LCM-DOC-001-05",
+        "FN-LCM-SPC-002",
+        "PG-LCM-DOCUMENT-001",
+        "ST-LCM-006",
+        "PR-LCM-SPC-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_06-002",
+        "2532",
+        "REQ-MOD_06-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "PM-21-UNMAPPED-002",
+      "source_number": "2533",
+      "requirement_id": "PM-21-UNMAPPED-002",
+      "parent_requirement_id": "",
+      "parent_name": "",
+      "detail_name": "전자서명 기반 신청",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-TRM-003",
+        "PI-LCM-DOC-001-03",
+        "US-LCM-CUS-004",
+        "PR-LCM-TRM-003",
+        "PI-LCM-TERM-001-05"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "PM-21-UNMAPPED-002",
+        "2533",
+        "REQ-PM-21-UNMAPPED-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_06-003",
+      "source_number": "2534",
+      "requirement_id": "MOD_06-003",
+      "parent_requirement_id": "MOD_06",
+      "parent_name": "회선 변경/정지/관리 인증·서류·증빙 처리 제공",
+      "detail_name": "서류 누락 사전 점검",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-SPC-002",
+        "PR-LCM-SPC-002",
+        "PI-LCM-DOC-001-05",
+        "PI-LCM-DOC-001-01",
+        "PG-LCM-DOCUMENT-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_06-003",
+        "2534",
+        "REQ-MOD_06-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-008",
+      "source_number": "2535",
+      "requirement_id": "MOD_02-008",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "해지 가능 회선 조회",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-TERM-001-01",
+        "PG-LCM-TERMINATION-001",
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-008",
+        "2535",
+        "REQ-MOD_02-008"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_04-004",
+      "source_number": "2539",
+      "requirement_id": "MOD_04-004",
+      "parent_requirement_id": "MOD_04",
+      "parent_name": "회선 변경/정지/관리 수행시 영향 사전 안내",
+      "detail_name": "해지 총 부담금 시뮬레이션",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PG-LCM-TERMINATION-001",
+        "PI-LCM-TERM-001-07",
+        "US-LCM-CUS-004",
+        "PI-LCM-DOC-001-01",
+        "PG-LCM-IMPACT-001"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_04-004",
+        "2539",
+        "REQ-MOD_04-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-009",
+      "source_number": "2540",
+      "requirement_id": "MOD_02-009",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "해지 예약 등록",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "FN-LCM-SUS-004",
+        "PR-LCM-SUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-009",
+        "2540",
+        "REQ-MOD_02-009"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-010",
+      "source_number": "2541",
+      "requirement_id": "MOD_02-010",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "평일 자동 처리 예약",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "ST-LCM-008",
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001"
+      ],
+      "mapping_type": "state",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-010",
+        "2541",
+        "REQ-MOD_02-010"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-011",
+      "source_number": "2550",
+      "requirement_id": "MOD_02-011",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "사망자 회선 온라인 해지",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001",
+        "FN-LCM-SPC-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-011",
+        "2550",
+        "REQ-MOD_02-011"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_03-004",
+      "source_number": "2551",
+      "requirement_id": "MOD_03-004",
+      "parent_requirement_id": "MOD_03",
+      "parent_name": "가족·대리 회선 변경/관리",
+      "detail_name": "대리인 해지 신청",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-CHG-003",
+        "FN-LCM-HIS-001",
+        "US-LCM-BSS-001",
+        "US-LCM-CUS-005",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_03-004",
+        "2551",
+        "REQ-MOD_03-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "PM-21-UNMAPPED-003",
+      "source_number": "2552",
+      "requirement_id": "PM-21-UNMAPPED-003",
+      "parent_requirement_id": "",
+      "parent_name": "",
+      "detail_name": "특수 상황 비대면 처리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-SPC-001",
+        "US-LCM-CUS-006",
+        "PG-LCM-SPECIAL-001",
+        "PR-LCM-SPC-001",
+        "PI-LCM-SPC-001-04"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "PM-21-UNMAPPED-003",
+        "2552",
+        "REQ-PM-21-UNMAPPED-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-012",
+      "source_number": "2553",
+      "requirement_id": "MOD_02-012",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "해외 해지 방법 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "FN-LCM-SPC-004",
+        "PG-LCM-SUSPEND-001",
+        "PR-LCM-SPC-004",
+        "FN-LCM-SUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-012",
+        "2553",
+        "REQ-MOD_02-012"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-013",
+      "source_number": "2554",
+      "requirement_id": "MOD_02-013",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "해외 해지/장기정지/재정지 신청 지원",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SPC-004",
+        "PI-LCM-SPC-001-02",
+        "FN-LCM-SUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-013",
+        "2554",
+        "REQ-MOD_02-013"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-006",
+      "source_number": "2560",
+      "requirement_id": "MOD_08-006",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실 정지 해제 셀프 처리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "ST-LCM-015",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-002"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-006",
+        "2560",
+        "REQ-MOD_08-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-007",
+      "source_number": "2561",
+      "requirement_id": "MOD_08-007",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "접수번호 자동 조회",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-LOSS-001-03",
+        "PG-LCM-LOSS-001",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-007",
+        "US-LCM-CUS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-007",
+        "2561",
+        "REQ-MOD_08-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_09-005",
+      "source_number": "2569",
+      "requirement_id": "MOD_09-005",
+      "parent_requirement_id": "MOD_09",
+      "parent_name": "운영·정책 관리 지원",
+      "detail_name": "채널 간 해지 기준 일관화",
+      "requirement_type": "비기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-NOT-001-05",
+        "PG-LCM-NOTICE-001",
+        "FN-LCM-OPR-002",
+        "US-LCM-OPR-001",
+        "PG-LCM-OPERATION-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_09-005",
+        "2569",
+        "REQ-MOD_09-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-014",
+      "source_number": "2577",
+      "requirement_id": "MOD_02-014",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "귀국 전용 해제 플로우",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "PR-LCM-SUS-001",
+        "FN-LCM-SUS-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-014",
+        "2577",
+        "REQ-MOD_02-014"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_06-004",
+      "source_number": "2581",
+      "requirement_id": "MOD_06-004",
+      "parent_requirement_id": "MOD_06",
+      "parent_name": "회선 변경/정지/관리 인증·서류·증빙 처리 제공",
+      "detail_name": "납부정보 자동 조회 힌트",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PG-LCM-AUTH-001",
+        "PI-LCM-AUTH-001-06",
+        "PI-LCM-DOC-001-05",
+        "FN-LCM-SPC-002",
+        "PG-LCM-IMPACT-001"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_06-004",
+        "2581",
+        "REQ-MOD_06-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-015",
+      "source_number": "2585",
+      "requirement_id": "MOD_02-015",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "정지 해제 예약 등록",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001",
+        "FN-LCM-SUS-001",
+        "FN-LCM-SUS-004",
+        "PR-LCM-SUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-015",
+        "2585",
+        "REQ-MOD_02-015"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_02-016",
+      "source_number": "2603",
+      "requirement_id": "MOD_02-016",
+      "parent_requirement_id": "MOD_02",
+      "parent_name": "회선 정지·정지해제 처리 지원",
+      "detail_name": "다회선 일괄 해제",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-SUS-004",
+        "PR-LCM-SUS-004",
+        "PI-LCM-SUSPEND-001-04",
+        "US-LCM-CUS-002",
+        "PG-LCM-SUSPEND-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_02-016",
+        "2603",
+        "REQ-MOD_02-016"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_06-005",
+      "source_number": "2606",
+      "requirement_id": "MOD_06-005",
+      "parent_requirement_id": "MOD_06",
+      "parent_name": "회선 변경/정지/관리 인증·서류·증빙 처리 제공",
+      "detail_name": "서류 OCR 인식",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-LCM-SPC-002",
+        "PR-LCM-SPC-002",
+        "PI-LCM-DOC-001-05",
+        "PG-LCM-AUTH-001",
+        "PG-LCM-DOCUMENT-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_06-005",
+        "2606",
+        "REQ-MOD_06-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-008",
+      "source_number": "2700",
+      "requirement_id": "MOD_08-008",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실 신고 원스톱 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PG-LCM-LOSSREC-001",
+        "US-LCM-CUS-003",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-008",
+        "2700",
+        "REQ-MOD_08-008"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-009",
+      "source_number": "2742",
+      "requirement_id": "MOD_08-009",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "정지 시 수신 방법 전환 제안",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "US-LCM-BSS-001",
+        "US-LCM-CSR-001",
+        "ST-LCM-005"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-009",
+        "2742",
+        "REQ-MOD_08-009"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-010",
+      "source_number": "2801",
+      "requirement_id": "MOD_08-010",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "정지 유형 선택",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-007",
+        "US-LCM-CUS-001",
+        "FN-LCM-SUS-001",
+        "US-LCM-BSS-001",
+        "US-LCM-CSR-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-010",
+        "2801",
+        "REQ-MOD_08-010"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-011",
+      "source_number": "2804",
+      "requirement_id": "MOD_08-011",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실 접수번호 자동 조회",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-003",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "ST-LCM-015"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-011",
+        "2804",
+        "REQ-MOD_08-011"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-012",
+      "source_number": "2813",
+      "requirement_id": "MOD_08-012",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실 후속 서비스 원스톱 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PG-LCM-LOSSREC-001",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-003",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-012",
+        "2813",
+        "REQ-MOD_08-012"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-013",
+      "source_number": "2814",
+      "requirement_id": "MOD_08-013",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "위치조회 서비스 연계",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "US-LCM-BSS-001",
+        "US-LCM-CUS-003"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-013",
+        "2814",
+        "REQ-MOD_08-013"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-014",
+      "source_number": "2816",
+      "requirement_id": "MOD_08-014",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "임대폰 신청 연계",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-007",
+        "FN-LCM-HIS-001",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-005"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-014",
+        "2816",
+        "REQ-MOD_08-014"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-015",
+      "source_number": "2817",
+      "requirement_id": "MOD_08-015",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "보험 가입 현황 조회",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "ST-LCM-015",
+        "PI-LCM-LOSSREC-001-05",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "state",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-015",
+        "2817",
+        "REQ-MOD_08-015"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-016",
+      "source_number": "2819",
+      "requirement_id": "MOD_08-016",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "보상센터 원스톱 연계",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-LCM-LOSSREC-001-05",
+        "PG-LCM-LOSSREC-001",
+        "ST-LCM-015",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-016",
+        "2819",
+        "REQ-MOD_08-016"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_04-005",
+      "source_number": "2821",
+      "requirement_id": "MOD_04-005",
+      "parent_requirement_id": "MOD_04",
+      "parent_name": "회선 변경/정지/관리 수행시 영향 사전 안내",
+      "detail_name": "정지 요금 시뮬레이션",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-DOC-001-01",
+        "FN-LCM-CHG-003",
+        "PG-LCM-IMPACT-001",
+        "US-LCM-CUS-007",
+        "ST-LCM-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_04-005",
+        "2821",
+        "REQ-MOD_04-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-017",
+      "source_number": "2825",
+      "requirement_id": "MOD_08-017",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "금융 차단 연계 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-LOSSREC-001-04",
+        "FN-LCM-LOS-003",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-003",
+        "US-LCM-CUS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-017",
+        "2825",
+        "REQ-MOD_08-017"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-018",
+      "source_number": "2827",
+      "requirement_id": "MOD_08-018",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "로밍 차단 연계",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-003",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "PI-LCM-LOSSREC-001-04"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-018",
+        "2827",
+        "REQ-MOD_08-018"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-019",
+      "source_number": "2833",
+      "requirement_id": "MOD_08-019",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "분실 신고 취소 지원",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-LCM-CUS-003",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "PG-LCM-LOSSREC-001",
+        "US-LCM-CSR-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-019",
+        "2833",
+        "REQ-MOD_08-019"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-020",
+      "source_number": "2834",
+      "requirement_id": "MOD_08-020",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "워치·태블릿 분실 신고",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "US-LCM-CUS-003",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007",
+        "PG-LCM-LOSSREC-001",
+        "US-LCM-CSR-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-020",
+        "2834",
+        "REQ-MOD_08-020"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-021",
+      "source_number": "3017",
+      "requirement_id": "MOD_08-021",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "유심 잠금 해제 지원",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-LCM-LOSSREC-001-06",
+        "PG-LCM-LOSSREC-001",
+        "ST-LCM-015",
+        "PI-LCM-BSS-001-02",
+        "PI-LCM-LOSSREC-001-04"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-021",
+        "3017",
+        "REQ-MOD_08-021"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-022",
+      "source_number": "3018",
+      "requirement_id": "MOD_08-022",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "PUK 코드 조회",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PG-LCM-LOSSREC-001",
+        "PI-LCM-LOSSREC-001-07",
+        "US-LCM-CSR-001",
+        "US-LCM-CUS-001",
+        "US-LCM-CUS-007"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-022",
+        "3018",
+        "REQ-MOD_08-022"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_07-002",
+      "source_number": "3034",
+      "requirement_id": "MOD_07-002",
+      "parent_requirement_id": "MOD_07",
+      "parent_name": "회선 변경/정지/관리 업무 처리현황·이력 제공",
+      "detail_name": "번호이동 후 타사 해지 상태 조회",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-LCM-CUS-007",
+        "FN-LCM-HIS-001",
+        "FN-LCM-SPC-004",
+        "ST-LCM-015",
+        "US-LCM-BSS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_07-002",
+        "3034",
+        "REQ-MOD_07-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-023",
+      "source_number": "3035",
+      "requirement_id": "MOD_08-023",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "타사 해지 미완료 후속 처리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-LCM-TRM-004",
+        "PR-LCM-TRM-004",
+        "FN-LCM-SPC-004",
+        "PI-LCM-TERM-001-04",
+        "US-LCM-CUS-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-023",
+        "3035",
+        "REQ-MOD_08-023"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "MOD_08-005",
+      "source_number": "3201",
+      "requirement_id": "MOD_08-005",
+      "parent_requirement_id": "MOD_08",
+      "parent_name": "후속 조치·연계 서비스 제공",
+      "detail_name": "임대 단말 신청",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-LCM-LOSSREC-001-08",
+        "PG-LCM-LOSSREC-001",
+        "US-LCM-CUS-007",
+        "US-LCM-CUS-005",
+        "FN-LCM-HIS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "MOD_08-005",
+        "3201",
+        "REQ-MOD_08-005"
+      ]
+    }
+  ],
+  "final_check": [
+    "회선 권한과 고객 계정 인증이 분리되어 있는지 확인한다.",
+    "정지, 해지, 분실, 계약자 변경 전 고객 영향도와 대체 경로가 제시되는지 확인한다.",
+    "유즈케이스가 고객 또는 운영자의 완결 업무 단위이며, 프로세스가 해당 업무를 완료하는 절차인지 확인한다.",
+    "각 프로세스가 실제 기능 ID와 정책 ID에 연결되어 있는지 확인한다.",
+    "상태 전이표의 현재 상태와 다음 상태가 상태 코드 목록과 일치하는지 확인한다.",
+    "BSS 원장 반영, 연계 실패, 재처리, 이력 저장 기준이 정책 항목으로 남아 있는지 확인한다.",
+    "대리, 사망, 해외, 분실 등 특수 상황의 인증·증빙·개인정보 보호 기준이 있는지 확인한다.",
+    "정책 항목에 실제 조건, 기간, 횟수, 상태, 제한, 고지, 이력 기준이 포함되어 있는지 확인한다.",
+    "요구사항 73건이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 연결되는지 확인한다.",
+    "요구사항 추적성: 상세 요구사항은 유즈케이스, 상태, 프로세스, 기능, 정책 또는 정책 항목 중 하나 이상으로 추적 가능해야 한다.",
+    "개발·QA 전환성: 각 정책 항목은 테스트 조건, 기대 결과, 실패·복구 경로로 전환 가능해야 한다.",
+    "책임 경계 정합성: FO, BSS, 연계 시스템, 외부 주체의 판단·저장·회신 책임이 혼재되지 않아야 한다."
+  ]
+}

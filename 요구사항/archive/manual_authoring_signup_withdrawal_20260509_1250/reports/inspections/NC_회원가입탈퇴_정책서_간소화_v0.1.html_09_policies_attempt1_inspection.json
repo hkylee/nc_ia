@@ -1,0 +1,107 @@
+{
+  "status": "warn",
+  "score": 89,
+  "scope": "09_policies",
+  "checked_at": "2026-05-07T21:17:37",
+  "summary": "검수 결과 warn. 점수 89점, 오류 0건, 경고 1건입니다.",
+  "findings": [
+    {
+      "severity": "warn",
+      "category": "Mock strict",
+      "title": "정책 항목 기계적 접두어",
+      "detail": "정책 항목 본문 1건이 '조건 판정 시 ... 기준은 ...' 형태로 작성됐습니다: PI-MBR-VAL-001-04",
+      "recommendation": "본문은 제목을 다시 풀어쓰지 말고 실제 판단값, 조건, 제한, 예외, 고지, 이력 기준을 바로 선언합니다.",
+      "finding_id": "",
+      "tier": "P2",
+      "is_quality_gate": true,
+      "is_metric_observation": false,
+      "target_path": "current_chapter.policy_details[*].content",
+      "fix_owner": "current_chapter",
+      "upstream_chapter": "",
+      "root_cause": "Mock writer가 정책 항목명과 작성 단계명을 본문 앞에 반복 주입해 문장이 정책값보다 템플릿처럼 보입니다.",
+      "required_change": "본문은 제목을 다시 풀어쓰지 말고 실제 판단값, 조건, 제한, 예외, 고지, 이력 기준을 바로 선언합니다.",
+      "patch_hint": "'조건 판정 시 상태 사용 기준은 판정 결과가...'가 아니라 '상태 사용 기준은 판정 결과가...' 또는 '판정 결과가...'처럼 자연스럽게 고칩니다.",
+      "acceptance_check": "policy_details.content에 '요청 접수 시/조건 판정 시/결과 확정 시 ... 기준은' 패턴이 반복되지 않아야 합니다.",
+      "keep_constraints": "기존 ID와 승인된 상위 장의 연결 구조는 유지합니다.",
+      "do_not_change": "지적 범위를 넘어 장 전체를 재작성하거나 주제별 하드코딩 정책을 추가하지 않습니다."
+    }
+  ],
+  "metrics": {
+    "input_mode": "json",
+    "scope": "09_policies",
+    "term_count": 15,
+    "actor_count": 6,
+    "usecase_count": 8,
+    "state_count": 8,
+    "transition_count": 8,
+    "process_count": 16,
+    "function_count": 32,
+    "process_detail_count": 0,
+    "function_detail_count": 0,
+    "policy_group_count": 22,
+    "policy_detail_count": 117,
+    "final_check_count": 0,
+    "local_precheck": {
+      "issue_count": 0,
+      "missing_link_count": 0,
+      "matrix_rows": 20,
+      "missing_policy_detail_groups": 0
+    },
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "input_mode": "json",
+      "model": "mock-policy-agent",
+      "reasoning_effort": "none",
+      "status": "strict_mock",
+      "summary": "LLM 미사용 모드에서 pass 응답 대신 로컬 strict 규칙으로 검수했습니다.",
+      "prompt_chars": 0,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "stage_inspector_profile": {
+        "role": "Policy Inspector",
+        "focus": "프로세스/기능 동작에 필요한 정책 그룹, 정책 항목, 항목별 값",
+        "must_verify": [
+          "정책 그룹이 프로세스와 기능의 통제 지점에서 도출됐는지",
+          "정책 상세가 인증 수단, 가능 횟수, 유효시간, 제한 조건, 노출 채널, 저장 항목 같은 실제 값/조건을 갖는지",
+          "정책 목록의 정책 항목과 정책 상세가 1:N으로 추적 가능한지"
+        ],
+        "do_not_flag": [
+          "정책이 일반 보안/운영 원칙으로 확장되지 않고 해당 주제의 기능 동작값으로 제한된 구조",
+          "정책 상세가 process에 직접 매핑되지 않고 policy_group 기준으로 관리되는 구조"
+        ],
+        "pass_condition": "상세 설계/개발/QA가 정책 항목별 값을 기준으로 구현·테스트할 수 있음"
+      },
+      "strict_findings": 1
+    },
+    "score_breakdown": {
+      "score": 89,
+      "total_penalty": 11,
+      "gate_blocker_count": 1,
+      "gate_blockers": [
+        {
+          "severity": "warn",
+          "tier": "P2",
+          "category": "Mock strict",
+          "title": "정책 항목 기계적 접두어",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ],
+      "items": [
+        {
+          "severity": "warn",
+          "tier": "P2",
+          "category": "Mock strict",
+          "title": "정책 항목 기계적 접두어",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ]
+    }
+  }
+}

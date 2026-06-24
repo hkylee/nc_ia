@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>결제 정책서 간소화 버전 v0.11</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>결제 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-PAY</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.11</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-09</td></tr>
+<tr><th>작성 기준</th><td>상세 요구사항 104건은 결제수단 선택, 할인·포인트·쿠폰 적용, 승인·수납 분리, 실패 복구, 정기결제, 증빙, 운영 정책 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했다.<br/>PM-17 결제 관련 상세 요구사항명과 상세 요구사항 설명을 기준으로 재구성했다.<br/>결제 Topic Knowledge의 지향점, 결제 처리·할인 적용·결제 수단 축, must_not 기준을 작성 작전서로 사용했다.<br/>유즈케이스는 결제 고객 과업 단위로 묶고, 승인·실패·복구·정기결제·증빙·운영 기준은 프로세스와 정책으로 분해했다.<br/>최신 requirements.db 기준 결제 상세 요구사항 104건을 확인하고 제휴카드 운영·비로그인 쿠폰 대안 판단축을 정책 항목으로 보강했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.11</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 고객이 결제 금액을 확인하고 결제수단과 혜택을 선택해 결제를 완료하는 업무 기준을 정의한다.<br/></p><p class="plain-text">• 포함 범위는 결제 단계 진입, 결제수단 선택·등록·변경, 할인·포인트·쿠폰·프로모션 적용, 결제 승인, 외부 간편결제 복귀, 실패 복구, 정기결제, 결제 증빙, 운영 정책 관리를 포함한다.<br/></p><p class="plain-text">• 고객은 결제 전에 최종 금액, 할인 근거, 결제수단 제한, 인증 필요 여부, 취소·환불 핵심 조건, 실패 시 다음 행동을 이해할 수 있어야 한다.<br/></p><p class="plain-text">• 주문 생성, 배송·교환·반품, 계약 조항, 상품 탐색은 인접 정책서에서 다루며 본 문서는 결제와 직접 연결되는 금액·승인·수납·증빙 기준만 정의한다.<br/></p><p class="plain-text">• API 필드, PG 전문, DB 컬럼, 운영자 화면 상세, 정산 배치 설계는 후속 상세 설계에서 다루고 본 문서는 정책 판단에 필요한 기준만 포함한다.<br/></p><p class="plain-text">• 채널 업무 시스템은 결제 금액 표시, 결제수단 선택, 고객 안내, 재시도·복구 경로를 책임지고 결제 연계 시스템은 PG 승인, BSS 수납 반영, 환불·취소, 증빙 결과 회신을 책임진다.<br/></p><p class="plain-text">• 고객 표시 상태는 결제 대기, 승인 완료, 수납 반영 대기, 결제 실패, 환불 처리 중, 환불 완료로 안내하고 내부 상태는 승인 거래, 멱등키, BSS 수납 반영, 혜택 복원, 증빙 발급 이력으로 분리한다.<br/></p><p class="plain-text">• 통합 리스크는 PG 승인과 BSS 수납 반영 불일치, 간편결제 복귀 실패, 콜백 중복, 채널별 결제 상태 캐시 차이이며 완료 표시는 수납 반영 확인 후 확정한다.<br/></p><p class="plain-text">• 상세 요구사항 104건은 결제수단 선택, 할인·포인트·쿠폰 적용, 승인·수납 분리, 실패 복구, 정기결제, 증빙, 운영 정책 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했다.<br/></p><p class="plain-text">• FO는 결제 금액 표시, 결제수단 선택, 고객 안내와 재시도 경로를 책임지고, BSS는 수납 원장과 주문·계약 상태 반영을 책임지며, 외부 시스템은 PG 승인·간편결제 복귀·카드사 회신 결과를 책임진다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• 금액 투명성 우선: 고객이 상품금액, 할인, 포인트, 결제수단 프로모션, 최종 결제 금액을 한 흐름에서 이해하도록 구성한다.<br/></p><p class="principle-text">• 실패 불안 최소화: 결제 실패, 중단, 외부 복귀 실패, 승인·수납 불일치 상태에서 고객이 다음 행동을 즉시 선택하게 한다.<br/></p><p class="principle-text">• 중복 결제 차단: 동일 주문서의 중복 요청, 연타, 콜백 중복, 재진입 결제는 거래ID와 멱등키 기준으로 차단한다.<br/></p><p class="principle-text">• 혜택 판단 일관성: 쿠폰, 포인트, 할인, 결제수단 프로모션의 우선순위와 제한 사유는 결제 전후 동일한 기준으로 표시한다.<br/></p><p class="principle-text">• BSS 수납 정합성: PG 승인과 BSS 수납, 주문·계약 상태 반영이 일치해야 결제 완료로 확정한다.<br/></p><p class="principle-text">• 운영 통제 가능성: 결제수단 노출, 제한, 프로모션, 할인 예외, 실패 모니터링은 운영자가 이력과 승인 절차로 관리한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-PAY-001</td><td>결제 금액</td><td>상품금액, 할인, 쿠폰, 포인트, 결제수단 프로모션, 즉시 결제 금액, 월 반복 비용, 청구 반영 금액을 결합한 고객 확인 대상 금액이다.<br/></td></tr><tr><td class="mono">TM-PAY-002</td><td>결제수단</td><td>카드, 계좌, 간편결제, 휴대폰결제, 통신요금 합산, 제휴 포인트처럼 고객이 결제 또는 수납에 사용할 수 있는 수단이다.<br/></td></tr><tr><td class="mono">TM-PAY-003</td><td>결제수단 프로모션</td><td>특정 결제수단 사용 시 제공되는 즉시할인, 청구할인, 캐시백, 제휴 포인트 혜택이다.<br/></td></tr><tr><td class="mono">TM-PAY-004</td><td>멱등키</td><td>동일 주문서의 결제 요청을 한 번만 처리하기 위해 거래ID와 함께 사용하는 중복 방지 기준값이다.<br/></td></tr><tr><td class="mono">TM-PAY-005</td><td>외부 결제 복귀</td><td>간편결제 앱, 웹뷰, 리다이렉트 승인 후 NC 결제 단계로 돌아와 기존 선택값과 처리 상태를 복원하는 흐름이다.<br/></td></tr><tr><td class="mono">TM-PAY-006</td><td>수납 반영</td><td>PG 승인 결과가 BSS의 수납, 청구, 주문·계약 상태에 반영되어 고객 결제 완료 기준을 충족하는 처리다.<br/></td></tr><tr><td class="mono">TM-PAY-007</td><td>정기결제</td><td>등록된 대표 또는 예비 결제수단으로 정해진 주기에 자동 결제되는 결제 방식이다.<br/></td></tr><tr><td class="mono">TM-PAY-008</td><td>결제 증빙</td><td>영수증, 거래내역, 확인서, 현금영수증, 세금계산서처럼 결제 완료 후 고객 또는 법인 확인에 필요한 자료다.<br/></td></tr><tr><td class="mono">TM-PAY-009</td><td>혜택 재검증</td><td>결제수단 변경, 재시도, 주문서 복귀, 금액 변동 시 쿠폰·포인트·할인 적용 가능 여부를 다시 확인하는 절차다.<br/></td></tr><tr><td class="mono">TM-PAY-010</td><td>수납 반영 보류</td><td>PG 승인은 성공했지만 BSS 수납 또는 주문·계약 반영이 완료되지 않아 고객 완료로 확정하지 않는 상태다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-PAY-001</td><td>고객</td><td>결제 금액, 결제수단, 할인·포인트·쿠폰, 인증, 승인 결과, 실패 복구와 증빙을 확인하고 결제를 완료하는 주체다.<br/></td></tr><tr><td class="mono">ACT-PAY-002</td><td>운영자</td><td>결제수단 노출, 제한, 프로모션, 할인 우선순위, 예외, 승인·배포·롤백, 실패 모니터링 기준을 관리하는 주체다.<br/></td></tr><tr><td class="mono">ACT-PAY-003</td><td>상담사</td><td>결제 실패, 중복 승인 우려, 복귀 실패, 수납 반영 보류 상황에서 고객 문맥을 이어받아 대체 결제와 후속 안내를 수행하는 주체다.<br/></td></tr><tr><td class="mono">ACT-PAY-004</td><td>채널 업무 시스템</td><td>결제 금액 구성, 결제수단 후보, 할인·포인트·쿠폰 조합, 인증 상태, 결제 요청과 결과 안내를 제공하는 시스템이다.<br/></td></tr><tr><td class="mono">ACT-PAY-005</td><td>결제 연계 시스템</td><td>PG 승인, 결제수단, 혜택 적용, BSS 수납 반영, 환불·취소, 증빙 결과를 연계해 결제 상태와 회신 결과를 제공하는 시스템이다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-PAY-CUS-001</td><td>고객</td><td>결제 조건과 금액 확인</td><td>고객이 주문 또는 가입 맥락에서 상품금액, 할인, 최종 결제 금액, 정기·청구 반영 금액을 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CUS-002</td><td>고객</td><td>결제수단 선택과 인증</td><td>고객이 사용 가능한 결제수단을 선택·등록·변경하고 필요한 인증을 완료한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CUS-003</td><td>고객</td><td>할인·포인트·프로모션 적용</td><td>고객이 쿠폰, 포인트, 할인, 결제수단 프로모션을 적용하고 적용 전후 금액과 제한 사유를 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CUS-004</td><td>고객</td><td>결제 승인과 완료 확인</td><td>고객이 결제를 요청하고 외부 결제 복귀, 처리 중 상태, 성공 결과, 다음 행동을 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CUS-005</td><td>고객</td><td>결제 실패 복구와 중복 방지</td><td>고객이 실패 사유를 확인하고 기존 주문서로 복귀해 재시도, 수단 변경, 할인 재적용, 상담 전환을 선택한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CUS-006</td><td>고객</td><td>정기결제와 청구정보 관리</td><td>고객이 정기결제 대표·예비 결제수단, 청구·납부 방식, 선불형 정기결제, 갱신 실패 복구를 관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CUS-007</td><td>고객</td><td>결제 증빙과 발급정보 관리</td><td>고객이 결제 완료 후 영수증, 거래내역, 현금영수증, 세금계산서 발급 정보를 조회·등록·수정한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-OPR-001</td><td>운영자</td><td>결제·혜택 기준 운영</td><td>운영자가 결제수단 노출, 제한, 프로모션, 할인 우선순위, 검수·승인·예약 배포와 실패 모니터링 기준을 운영한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-CS-001</td><td>상담사</td><td>결제 실패 상담 지원</td><td>상담사가 결제 실패 문맥, 주문서 유지 상태, 승인·수납 불일치 결과를 이어받아 대체 결제 또는 후속 조치를 안내한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PAY-SYS-001</td><td>채널 업무 시스템</td><td>결제 가능성·혜택 산정</td><td>채널 업무 시스템이 결제수단 가능 여부, 혜택 조합, 금액 변동, 인증 필요 여부를 산정한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-PAY-BSS-001</td><td>결제 연계 시스템</td><td>승인·수납·정산 반영</td><td>결제 연계 시스템이 PG 승인, 수납 반영, 청구 상태, 환불·취소, 증빙 발급 결과를 회신한다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="결제 유즈케이스 다이어그램" height="875" role="img" viewBox="0 0 1120 875" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="793" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">결제 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="179"></line><line class="conn" x1="144" x2="442" y1="172" y2="243"></line><line class="conn" x1="144" x2="442" y1="172" y2="307"></line><line class="conn" x1="144" x2="442" y1="172" y2="371"></line><line class="conn" x1="144" x2="442" y1="172" y2="435"></line><line class="conn" x1="144" x2="442" y1="172" y2="499"></line><line class="conn" x1="144" x2="442" y1="464" y2="563"></line><line class="conn" x1="144" x2="442" y1="757" y2="627"></line><line class="conn" x1="678" x2="976" y1="691" y2="172"></line><line class="conn" x1="678" x2="976" y1="755" y2="757"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">결제 조건과 금액 확인</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-PAY-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="179" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="176">결제수단 선택과 인증</text><text class="uc-sub" text-anchor="middle" x="560" y="201">US-PAY-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="243" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="240">할인·포인트·프로모션 적용</text><text class="uc-sub" text-anchor="middle" x="560" y="265">US-PAY-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="307" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="304">결제 승인과 완료 확인</text><text class="uc-sub" text-anchor="middle" x="560" y="329">US-PAY-CUS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="371" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="368">결제 실패 복구와 중복 방지</text><text class="uc-sub" text-anchor="middle" x="560" y="393">US-PAY-CUS-005 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="435" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="432">정기결제와 청구정보 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="457">US-PAY-CUS-006 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="499" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="496">결제 증빙과 발급정보 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="521">US-PAY-CUS-007 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="563" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="560">결제·혜택 기준 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="585">US-PAY-OPR-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="627" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="624">결제 실패 상담 지원</text><text class="uc-sub" text-anchor="middle" x="560" y="649">US-PAY-CS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">결제 가능성·혜택 산정</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-PAY-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="755" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="752">승인·수납·정산 반영</text><text class="uc-sub" text-anchor="middle" x="560" y="777">US-PAY-BSS-001 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="412" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="430" y2="477"></line><line class="actor-line" x1="86" x2="138" y1="447" y2="447"></line><line class="actor-line" x1="112" x2="92" y1="477" y2="512"></line><line class="actor-line" x1="112" x2="132" y1="477" y2="512"></line><text class="actor-text" text-anchor="middle" x="112" y="538">운영자</text><circle class="actor-line" cx="112" cy="705" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="723" y2="770"></line><line class="actor-line" x1="86" x2="138" y1="740" y2="740"></line><line class="actor-line" x1="112" x2="92" y1="770" y2="805"></line><line class="actor-line" x1="112" x2="132" y1="770" y2="805"></line><text class="actor-text" text-anchor="middle" x="112" y="831">상담사</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="705" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="723" y2="770"></line><line class="system-actor-line" x1="982" x2="1034" y1="740" y2="740"></line><line class="system-actor-line" x1="1008" x2="988" y1="770" y2="805"></line><line class="system-actor-line" x1="1008" x2="1028" y1="770" y2="805"></line><text class="actor-text" text-anchor="middle" x="1008" y="831">결제 연계 시스템</text><text class="legend" x="304" y="849">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-PAY-001</td><td>결제 전</td><td>주문 또는 가입 흐름에서 결제 단계 진입 전이며 금액·수단·혜택 확인이 필요한 상태다.<br/></td><td>결제 대상과 금액 구성을 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-002</td><td>금액 확인 완료</td><td>상품금액, 할인, 최종 결제 금액, 정기·청구 반영 금액이 고객에게 표시된 상태다.<br/></td><td>결제수단 선택 또는 할인 적용 단계로 이동한다.<br/></td></tr><tr><td class="mono">ST-PAY-003</td><td>결제수단 선택 중</td><td>고객이 카드, 계좌, 간편결제, 휴대폰결제, 통신요금 합산 등 결제수단을 선택하는 상태다.<br/></td><td>사용 가능한 결제수단을 선택하거나 새 수단을 등록한다.<br/></td></tr><tr><td class="mono">ST-PAY-004</td><td>혜택 적용 중</td><td>쿠폰, 포인트, 할인, 결제수단 프로모션 적용 가능 여부와 금액 변화가 산정되는 상태다.<br/></td><td>적용 조합을 확정하거나 제한 사유를 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-005</td><td>추가 인증 필요</td><td>고액, 기기 변경, 외부 결제, 위험 신호, 거래 바인딩 조건으로 추가 인증이 필요한 상태다.<br/></td><td>10분 안에 추가 인증을 완료하거나 대체 수단을 선택한다.<br/></td></tr><tr><td class="mono">ST-PAY-006</td><td>결제 요청 접수</td><td>고객이 결제하기를 선택했고 결제 요청이 중복 방지 키와 함께 접수된 상태다.<br/></td><td>PG 승인 또는 외부 결제 전환 결과를 기다린다.<br/></td></tr><tr><td class="mono">ST-PAY-007</td><td>외부 결제 진행 중</td><td>간편결제 앱, 웹뷰, 리다이렉트로 이동해 외부 승인 결과를 기다리는 상태다.<br/></td><td>복귀 콜백 또는 상태 조회로 결제 결과를 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-008</td><td>처리 중</td><td>승인 또는 수납 반영 결과가 아직 확정되지 않아 고객에게 대기 상태로 표시되는 상태다.<br/></td><td>상태 조회를 반복하고 초과 시 재조회 또는 상담 전환을 제공한다.<br/></td></tr><tr><td class="mono">ST-PAY-009</td><td>결제 완료</td><td>승인, 수납 반영, 주문·계약 상태 갱신이 성공한 상태다.<br/></td><td>영수증, 주문·배송 조회, 혜택 확인, 증빙 조회 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-PAY-010</td><td>결제 실패</td><td>승인 거절, 인증 실패, 한도 부족, 콜백 실패, 수납 반영 실패로 결제가 완료되지 않은 상태다.<br/></td><td>실패 사유와 재시도 가능 여부를 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-011</td><td>재시도 대기</td><td>기존 주문서와 결제 선택값을 유지한 채 다시 결제할 수 있는 상태다.<br/></td><td>수단 변경, 할인 재적용, 다시 결제 중 하나를 선택한다.<br/></td></tr><tr><td class="mono">ST-PAY-012</td><td>주문서 유지</td><td>결제 실패 또는 중단 후 고객이 기존 주문서로 복귀할 수 있도록 주문 정보가 보관된 상태다.<br/></td><td>유지 기한 안에 결제를 재개하거나 주문서를 수정한다.<br/></td></tr><tr><td class="mono">ST-PAY-013</td><td>결제 중단</td><td>고객이 뒤로가기, 앱 종료, 외부 결제 이탈로 결제를 완료하지 않은 상태다.<br/></td><td>주문 유지 여부와 재진입 경로를 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-014</td><td>중복 결제 차단</td><td>동일 주문서에 승인 완료 또는 처리 중 거래가 있어 추가 결제 요청이 차단된 상태다.<br/></td><td>기존 거래 상태 화면으로 이동한다.<br/></td></tr><tr><td class="mono">ST-PAY-015</td><td>수납 반영 보류</td><td>PG 승인은 성공했지만 BSS 수납 또는 주문·계약 반영이 완료되지 않은 상태다.<br/></td><td>재처리 결과를 기다리거나 운영 확인 대상으로 전환한다.<br/></td></tr><tr><td class="mono">ST-PAY-016</td><td>취소·환불 대기</td><td>결제 취소 또는 환불 요청이 접수되어 승인 취소, 부분 취소, 수납 정정 결과를 기다리는 상태다.<br/></td><td>취소·환불 진행 상태와 예상 완료 시점을 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-017</td><td>정기결제 예정</td><td>정기결제 수단과 다음 결제 일정이 등록되어 결제 예정 상태로 관리되는 상태다.<br/></td><td>대표·예비 결제수단과 다음 결제일을 확인한다.<br/></td></tr><tr><td class="mono">ST-PAY-018</td><td>정기결제 실패 유예</td><td>정기결제 실패 후 혜택 제한 전 고객에게 수단 변경이나 선결제 기회를 제공하는 상태다.<br/></td><td>유예 기간 안에 결제수단을 변경하거나 선결제를 수행한다.<br/></td></tr><tr><td class="mono">ST-PAY-019</td><td>증빙 발급 대기</td><td>영수증, 현금영수증, 세금계산서 발급 정보 검증 또는 외부 발급 결과를 기다리는 상태다.<br/></td><td>발급 정보 보완 또는 발급 상태 조회를 제공한다.<br/></td></tr><tr><td class="mono">ST-PAY-020</td><td>상담 전환</td><td>고객이 직접 복구할 수 없는 실패 또는 수납 불일치가 있어 상담사가 처리해야 하는 상태다.<br/></td><td>주문서, 거래ID, 실패 사유, 결제 선택값을 상담 문맥으로 전달한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>결제 전</td><td>결제 단계 진입</td><td>금액 확인 완료</td><td>주문 최종 검토가 완료되고 결제 대상 금액과 결제 유형이 구성되면 금액 확인 완료로 전이한다.<br/></td></tr><tr><td>금액 확인 완료</td><td>결제수단 선택</td><td>결제수단 선택 중</td><td>고객이 사용 가능한 결제수단 목록을 확인하고 수단 선택 단계로 이동하면 전이한다.<br/></td></tr><tr><td>금액 확인 완료</td><td>혜택 적용 진입</td><td>혜택 적용 중</td><td>고객이 쿠폰, 포인트, 할인, 프로모션 적용 영역을 열면 혜택 적용 중으로 전이한다.<br/></td></tr><tr><td>결제수단 선택 중</td><td>추가 인증 조건 발생</td><td>추가 인증 필요</td><td>고액, 기기 변경, 외부 결제, 위험 신호, 거래 바인딩 기준에 해당하면 추가 인증 필요로 전이한다.<br/></td></tr><tr><td>추가 인증 필요</td><td>인증 완료</td><td>결제수단 선택 중</td><td>추가 인증이 10분 안에 완료되면 선택한 결제수단을 유지하고 결제수단 선택 중으로 복귀한다.<br/></td></tr><tr><td>혜택 적용 중</td><td>혜택 조합 확정</td><td>금액 확인 완료</td><td>할인·포인트·쿠폰·프로모션 적용 결과가 확정되면 최종 결제 금액을 다시 표시한다.<br/></td></tr><tr><td>결제수단 선택 중</td><td>결제 요청</td><td>결제 요청 접수</td><td>고객이 결제 전 최종 확인과 필수 동의를 완료하고 결제하기를 선택하면 접수 상태로 전이한다.<br/></td></tr><tr><td>결제 요청 접수</td><td>외부 결제 전환</td><td>외부 결제 진행 중</td><td>간편결제 앱·웹뷰·리다이렉트 승인이 필요한 수단이면 외부 결제 진행 중으로 전이한다.<br/></td></tr><tr><td>결제 요청 접수</td><td>승인 처리 시작</td><td>처리 중</td><td>PG 승인 또는 BSS 수납 반영 응답을 기다리는 경우 처리 중으로 전이한다.<br/></td></tr><tr><td>외부 결제 진행 중</td><td>복귀 콜백 성공</td><td>처리 중</td><td>외부 결제 복귀 콜백이 수신되면 기존 선택값을 복원하고 처리 중으로 전이한다.<br/></td></tr><tr><td>처리 중</td><td>승인·수납 반영 성공</td><td>결제 완료</td><td>PG 승인, BSS 수납 반영, 주문·계약 상태 갱신이 모두 성공하면 결제 완료로 전이한다.<br/></td></tr><tr><td>처리 중</td><td>PG 승인 성공·BSS 반영 지연</td><td>수납 반영 보류</td><td>PG 승인은 성공했으나 BSS 수납 또는 주문 상태 반영이 5분 안에 완료되지 않으면 수납 반영 보류로 전이한다.<br/></td></tr><tr><td>처리 중</td><td>승인 실패</td><td>결제 실패</td><td>승인 거절, 한도 부족, 인증 실패, 콜백 실패가 확인되면 결제 실패로 전이한다.<br/></td></tr><tr><td>결제 실패</td><td>재시도 가능</td><td>재시도 대기</td><td>실패 사유가 일시 오류, 한도 보완, 수단 변경, 인증 재시도 대상이면 재시도 대기로 전이한다.<br/></td></tr><tr><td>재시도 대기</td><td>기존 주문서 복귀</td><td>주문서 유지</td><td>고객이 주문서로 돌아가기를 선택하면 선택값과 할인 조합을 보존한 주문서 유지 상태로 전이한다.<br/></td></tr><tr><td>주문서 유지</td><td>재결제 선택</td><td>결제수단 선택 중</td><td>주문서 유지 기한 안에 고객이 다시 결제를 선택하면 결제수단 선택 중으로 전이한다.<br/></td></tr><tr><td>결제 요청 접수</td><td>동일 주문 중복 요청</td><td>중복 결제 차단</td><td>동일 주문서에 처리 중 또는 승인 완료 거래가 있으면 신규 결제 요청을 차단한다.<br/></td></tr><tr><td>결제 요청 접수</td><td>고객 이탈 또는 중단</td><td>결제 중단</td><td>고객이 뒤로가기, 앱 종료, 외부 결제 이탈로 승인 결과를 받지 못하면 결제 중단으로 전이한다.<br/></td></tr><tr><td>결제 중단</td><td>상태 조회 후 미승인</td><td>주문서 유지</td><td>결제 상태 재조회 결과 승인 거래가 없으면 기존 주문서 유지 상태로 전이한다.<br/></td></tr><tr><td>수납 반영 보류</td><td>재처리 실패</td><td>상담 전환</td><td>수납 반영 보류가 재처리 후에도 해소되지 않으면 상담 전환으로 전이한다.<br/></td></tr><tr><td>결제 완료</td><td>증빙 발급 요청</td><td>증빙 발급 대기</td><td>고객이 영수증, 현금영수증, 세금계산서 발급 또는 조회를 요청하면 증빙 발급 대기로 전이한다.<br/></td></tr><tr><td>정기결제 예정</td><td>정기결제 승인 실패</td><td>정기결제 실패 유예</td><td>정기결제 대표 수단 승인 실패가 발생하면 유예 상태로 전이하고 예비 수단 또는 선결제를 안내한다.<br/></td></tr><tr><td>정기결제 실패 유예</td><td>유예 기간 내 복구</td><td>정기결제 예정</td><td>고객이 유예 기간 안에 수단 변경 또는 선결제를 완료하면 정기결제 예정으로 복귀한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="1016" role="img" viewBox="0 0 1120 1016" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="938" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="245.0" x2="355.0" y1="134.0" y2="134.0"></line><line class="flow" x1="505.0" x2="615.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M355.0 134.0 C355.0 204.0, 255.0 246.0, 255.0 316.0"></path><line class="flow" x1="765.0" x2="875.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M875.0 134.0 C820.0 206.0, 820.0 206.0, 765.0 134.0"></path><path class="flow-dash" d="M255.0 316.0 C255.0 246.0, 355.0 204.0, 355.0 134.0"></path><path class="flow-dash" d="M615.0 134.0 C615.0 204.0, 508.3 246.0, 508.3 316.0"></path><path class="flow-dash" d="M508.3 316.0 C560.0 244.0, 560.0 244.0, 611.7 316.0"></path><path class="flow-dash" d="M508.3 316.0 C686.7 244.0, 686.7 244.0, 865.0 316.0"></path><path class="flow-dash" d="M761.7 316.0 C813.3 244.0, 813.3 244.0, 865.0 316.0"></path><path class="flow-dash" d="M865.0 316.0 C865.0 386.0, 255.0 400.0, 255.0 470.0"></path><path class="flow-dash" d="M865.0 316.0 C865.0 386.0, 508.3 400.0, 508.3 470.0"></path><path class="flow-dash" d="M865.0 316.0 C865.0 386.0, 761.7 400.0, 761.7 470.0"></path><path class="flow-dash" d="M761.7 470.0 C813.3 398.0, 813.3 398.0, 865.0 470.0"></path><path class="flow-dash" d="M865.0 470.0 C865.0 540.0, 255.0 554.0, 255.0 624.0"></path><path class="flow-dash" d="M255.0 624.0 C255.0 554.0, 615.0 204.0, 615.0 134.0"></path><path class="flow-dash" d="M433.3 348.0 C433.3 418.0, 433.3 522.0, 433.3 592.0"></path><path class="flow-dash" d="M433.3 348.0 C433.3 418.0, 686.7 522.0, 686.7 592.0"></path><path class="flow-dash" d="M611.7 624.0 C433.3 552.0, 433.3 552.0, 255.0 624.0"></path><path class="flow-dash" d="M508.3 470.0 C508.3 540.0, 865.0 554.0, 865.0 624.0"></path><path class="flow-dash" d="M180.0 502.0 C180.0 572.0, 180.0 676.0, 180.0 746.0"></path><path class="flow-dash" d="M508.3 778.0 C560.0 706.0, 560.0 706.0, 611.7 778.0"></path><path class="flow-dash" d="M611.7 778.0 C560.0 706.0, 560.0 706.0, 508.3 778.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="150" x="95.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">결제 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-PAY-001</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="355.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="430" y="128">금액 확인 완료</text><text class="state-sub" text-anchor="middle" x="430" y="151">ST-PAY-002</text><rect class="state" height="64" rx="29" ry="29" width="150" x="615.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="690" y="128">결제수단 선택 중</text><text class="state-sub" text-anchor="middle" x="690" y="151">ST-PAY-003</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="875.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">추가 인증 필요</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-PAY-005</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">혜택 적용 중</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-PAY-004</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">결제 요청 접수</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-PAY-006</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">외부 결제 진행 중</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-PAY-007</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">처리 중</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-PAY-008</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="105.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">결제 완료</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-PAY-009</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="358.3" y="438.0"></rect><text class="state-text" text-anchor="middle" x="433" y="464">수납 반영 보류</text><text class="state-sub" text-anchor="middle" x="433" y="487">ST-PAY-015</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="611.7" y="438.0"></rect><text class="state-text" text-anchor="middle" x="686" y="464">결제 실패</text><text class="state-sub" text-anchor="middle" x="686" y="487">ST-PAY-010</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">재시도 대기</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-PAY-011</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="180" y="618">주문서 유지</text><text class="state-sub" text-anchor="middle" x="180" y="641">ST-PAY-012</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="358.3" y="592.0"></rect><text class="state-text" text-anchor="middle" x="433" y="618">중복 결제 차단</text><text class="state-sub" text-anchor="middle" x="433" y="641">ST-PAY-014</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="592.0"></rect><text class="state-text" text-anchor="middle" x="686" y="618">결제 중단</text><text class="state-sub" text-anchor="middle" x="686" y="641">ST-PAY-013</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="940" y="618">상담 전환</text><text class="state-sub" text-anchor="middle" x="940" y="641">ST-PAY-020</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="746.0"></rect><text class="state-text" text-anchor="middle" x="180" y="772">증빙 발급 대기</text><text class="state-sub" text-anchor="middle" x="180" y="795">ST-PAY-019</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="746.0"></rect><text class="state-text" text-anchor="middle" x="433" y="772">정기결제 예정</text><text class="state-sub" text-anchor="middle" x="433" y="795">ST-PAY-017</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="611.7" y="746.0"></rect><text class="state-text" text-anchor="middle" x="686" y="772">정기결제 실패 유예</text><text class="state-sub" text-anchor="middle" x="686" y="795">ST-PAY-018</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="746.0"></rect><text class="state-text" text-anchor="middle" x="940" y="772">취소·환불 대기</text><text class="state-sub" text-anchor="middle" x="940" y="795">ST-PAY-016</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="261.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="300.0" y="91.0">결제 단계 진입</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="523.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="91.0">결제수단 선택</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="266.0" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="305.0" y="196.0">혜택 적용 진입</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="770.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="820.0" y="91.0">추가 인증 조건 발생</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="783.0" y="214.0"></rect><text class="flow-label" text-anchor="middle" x="820.0" y="231.0">인증 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="266.0" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="305.0" y="232.0">혜택 조합 확정</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="524.7" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="561.7" y="196.0">결제 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="233.0">외부 결제 전환</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="647.7" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="233.0">승인 처리 시작</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="774.3" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="233.0">복귀 콜백 성공</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="510.5" y="347.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="364.0">승인·수납 반영 성공</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="633.7" y="369.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="386.0">PG 승인 성공·BSS</text><text class="flow-label" text-anchor="middle" x="686.7" y="400.0">반영 지연</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="776.3" y="347.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="364.0">승인 실패</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="776.3" y="370.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="387.0">재시도 가능</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="517.5" y="501.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="518.0">기존 주문서 복귀</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="398.0" y="369.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="386.0">재결제 선택</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="383.8" y="424.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="441.0">동일 주문 중복 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="510.5" y="460.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="477.0">고객 이탈 또는 중단</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="383.8" y="524.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="541.0">상태 조회 후 미승인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="649.7" y="537.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="554.0">재처리 실패</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="141.0" y="578.0"></rect><text class="flow-label" text-anchor="middle" x="180.0" y="595.0">증빙 발급 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="92" x="514.0" y="678.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="695.0">정기결제 승인 실패</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="92" x="514.0" y="678.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="695.0">유예 기간 내 복구</text><text class="note" x="78" y="962">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 결제 조건과 금액 확인 (US-PAY-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-AMT-001</td><td>결제 단계 진입과 유형 확인</td><td>주문, 정기결제 가입, 요금 납부, 후불 청구 반영 중 어떤 결제 유형인지 확인한다.<br/></td><td>FN-PAY-AMT-001 결제 유형 확인 기능</td><td>PG-PAY-SCOPE-001 결제 범위·경계 정책<br/>PG-PAY-AMOUNT-001 결제 금액 확정 정책</td></tr><tr><td class="mono">PR-PAY-AMT-002</td><td>상품금액·할인·최종금액 구성</td><td>상품금액, 할인 합계, 포인트·쿠폰 차감, 즉시 결제 금액, 월 반복 비용을 구분해 구성한다.<br/></td><td>FN-PAY-AMT-002 결제 금액 구성 기능</td><td>PG-PAY-AMOUNT-001 결제 금액 확정 정책<br/>PG-PAY-DISCOUNT-001 할인 적용 정책</td></tr><tr><td class="mono">PR-PAY-AMT-003</td><td>분리 결제와 0원 결제 판정</td><td>혼합 주문, 분할 납부, 0원 결제, 다음 청구서 반영 금액을 구분해 결제 흐름을 분기한다.<br/></td><td>FN-PAY-AMT-003 결제 분기 판정 기능</td><td>PG-PAY-SPLIT-001 분리·분할 결제 정책<br/>PG-PAY-ZERO-001 0원 결제 정책</td></tr><tr><td class="mono">PR-PAY-AMT-004</td><td>금액 변동 재확인</td><td>결제 직전 금액, 혜택, 청구 방식이 변경되면 변동 사유와 최종 확인을 다시 받는다.<br/></td><td>FN-PAY-AMT-004 금액 변동 재확인 기능</td><td>PG-PAY-AMOUNT-001 결제 금액 확정 정책<br/>PG-PAY-HIST-001 결제 이력 정책</td></tr></tbody>
+</table>
+
+<h4>2) 결제수단 선택과 인증 (US-PAY-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-MTD-001</td><td>결제수단 후보와 제한 사유 확인</td><td>상품, 주문단위, 고객조건별 사용 가능한 결제수단과 제한 사유를 확인한다.<br/></td><td>FN-PAY-MTD-001 결제수단 후보 제공 기능</td><td>PG-PAY-METHOD-001 결제수단 선택 정책<br/>PG-PAY-LIMIT-001 결제수단 제한 정책</td></tr><tr><td class="mono">PR-PAY-MTD-002</td><td>결제수단 등록·삭제·기본 설정</td><td>카드, 계좌, 간편결제, 환불 계좌, 기본 결제수단을 등록·삭제·변경한다.<br/></td><td>FN-PAY-MTD-002 결제수단 프로필 관리 기능</td><td>PG-PAY-METHOD-001 결제수단 선택 정책<br/>PG-PAY-AUTH-001 결제 인증 정책<br/>PG-PAY-HIST-001 결제 이력 정책</td></tr><tr><td class="mono">PR-PAY-MTD-003</td><td>입력 최소화와 카드 OCR 등록</td><td>저장된 수단, 자동완성, 카드 OCR, 최근 사용 수단을 활용해 결제 입력을 줄인다.<br/></td><td>FN-PAY-MTD-003 결제 입력 최소화 기능</td><td>PG-PAY-METHOD-001 결제수단 선택 정책<br/>PG-PAY-AUTH-001 결제 인증 정책</td></tr><tr><td class="mono">PR-PAY-MTD-004</td><td>추가 인증과 거래 바인딩</td><td>OTP, 3DS, 간편인증, 원탭 결제, 주문·결제 거래 바인딩 인증을 수행한다.<br/></td><td>FN-PAY-MTD-004 결제 인증 처리 기능</td><td>PG-PAY-AUTH-001 결제 인증 정책<br/>PG-PAY-APPROVAL-001 결제 승인 정책</td></tr></tbody>
+</table>
+
+<h4>3) 할인·포인트·프로모션 적용 (US-PAY-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-DCN-001</td><td>사용 가능 혜택 조회</td><td>쿠폰, 포인트, 이용권, 제휴 포인트, 결제수단 프로모션의 사용 가능 상태를 조회한다.<br/></td><td>FN-PAY-DCN-001 혜택 가능성 조회 기능</td><td>PG-PAY-DISCOUNT-001 할인 적용 정책<br/>PG-PAY-POINT-001 포인트·쿠폰 적용 정책</td></tr><tr><td class="mono">PR-PAY-DCN-002</td><td>쿠폰·포인트·할인 조합 선택</td><td>고객이 최대 사용, 일부 사용, 적용 해제, 최적 조합 적용 중 하나를 선택한다.<br/></td><td>FN-PAY-DCN-002 혜택 조합 선택 기능</td><td>PG-PAY-POINT-001 포인트·쿠폰 적용 정책<br/>PG-PAY-DISCOUNT-001 할인 적용 정책</td></tr><tr><td class="mono">PR-PAY-DCN-003</td><td>우선순위·중복·배타 검증</td><td>혜택 간 선행·배타 조건, 중복 가능 여부, 적용 우선순위, 결제수단 제약을 검증한다.<br/></td><td>FN-PAY-DCN-003 혜택 우선순위 검증 기능</td><td>PG-PAY-DISCOUNT-001 할인 적용 정책<br/>PG-PAY-POINT-001 포인트·쿠폰 적용 정책</td></tr><tr><td class="mono">PR-PAY-DCN-004</td><td>결제수단 프로모션 반영</td><td>즉시할인, 청구할인, 캐시백, 제휴 포인트의 적용 범위와 고지 항목을 반영한다.<br/></td><td>FN-PAY-DCN-004 수단 프로모션 반영 기능</td><td>PG-PAY-PROMO-001 결제수단 프로모션 정책<br/>PG-PAY-METHOD-001 결제수단 선택 정책</td></tr><tr><td class="mono">PR-PAY-DCN-005</td><td>적용 전후 금액 확정</td><td>할인 적용 전후 금액, 할인 근거, 계산 내역, 최종 결제 금액을 확정한다.<br/></td><td>FN-PAY-DCN-005 할인 후 금액 확정 기능</td><td>PG-PAY-AMOUNT-001 결제 금액 확정 정책<br/>PG-PAY-DISCOUNT-001 할인 적용 정책<br/>PG-PAY-POINT-001 포인트·쿠폰 적용 정책</td></tr></tbody>
+</table>
+
+<h4>4) 결제 승인과 완료 확인 (US-PAY-CUS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-APR-001</td><td>결제 전 최종 확인</td><td>결제수단, 결제금액, 할인내역, 환불·취소 핵심 조건, 필수 동의를 한 화면에서 확인한다.<br/></td><td>FN-PAY-APR-001 결제 최종 확인 기능</td><td>PG-PAY-APPROVAL-001 결제 승인 정책<br/>PG-PAY-AMOUNT-001 결제 금액 확정 정책<br/>PG-PAY-AUTH-001 결제 인증 정책</td></tr><tr><td class="mono">PR-PAY-APR-002</td><td>결제 요청 제출과 중복 차단</td><td>결제 요청을 멱등키와 함께 제출하고 연타·재진입·중복 요청을 차단한다.<br/></td><td>FN-PAY-APR-002 결제 요청 제출 기능</td><td>PG-PAY-APPROVAL-001 결제 승인 정책<br/>PG-PAY-DUP-001 중복 결제 방지 정책</td></tr><tr><td class="mono">PR-PAY-APR-003</td><td>외부 간편결제 전환과 복귀</td><td>외부 앱·웹뷰·리다이렉트로 전환하고 복귀 시 선택값과 처리 상태를 복원한다.<br/></td><td>FN-PAY-APR-003 외부 결제 복귀 기능</td><td>PG-PAY-EXTERNAL-001 외부 결제 연동 정책<br/>PG-PAY-ORDER-001 주문서 유지 정책</td></tr><tr><td class="mono">PR-PAY-APR-004</td><td>처리 중 상태와 성공 결과 안내</td><td>승인 처리 중 상태, 초과 시 조회 경로, 성공 시 승인 요약과 다음 행동을 제공한다.<br/></td><td>FN-PAY-APR-004 결제 결과 안내 기능</td><td>PG-PAY-APPROVAL-001 결제 승인 정책<br/>PG-PAY-BSS-001 BSS 수납 반영 정책<br/>PG-PAY-PROOF-001 결제 증빙 정책</td></tr></tbody>
+</table>
+
+<h4>5) 결제 실패 복구와 중복 방지 (US-PAY-CUS-005)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-REC-001</td><td>실패 사유 분류</td><td>승인 거절, 한도 부족, 인증 실패, 외부 복귀 실패, BSS 반영 실패를 구분한다.<br/></td><td>FN-PAY-REC-001 결제 실패 분류 기능</td><td>PG-PAY-FAIL-001 결제 실패 정책<br/>PG-PAY-BSS-001 BSS 수납 반영 정책</td></tr><tr><td class="mono">PR-PAY-REC-002</td><td>기존 주문서 복귀와 이어하기</td><td>실패 후 기존 주문서로 복귀해 결제수단, 혜택 조합, 인증 상태, 입력값을 유지한다.<br/></td><td>FN-PAY-REC-002 주문서 이어하기 기능</td><td>PG-PAY-ORDER-001 주문서 유지 정책<br/>PG-PAY-RECOVERY-001 결제 복구 정책</td></tr><tr><td class="mono">PR-PAY-REC-003</td><td>재시도·수단 변경·할인 재적용</td><td>실패 원인에 맞춰 다시 결제, 결제수단 변경, 할인·포인트 재적용, 주문서 수정 CTA를 제공한다.<br/></td><td>FN-PAY-REC-003 결제 재시도 안내 기능</td><td>PG-PAY-RECOVERY-001 결제 복구 정책<br/>PG-PAY-FAIL-001 결제 실패 정책<br/>PG-PAY-METHOD-001 결제수단 선택 정책</td></tr><tr><td class="mono">PR-PAY-REC-004</td><td>취소·환불·상태 복구 정합성 확인</td><td>승인, 취소, 환불, 주문 상태, 수납 상태가 불일치하지 않도록 상태를 재조회하고 복구한다.<br/></td><td>FN-PAY-REC-004 승인·수납 정합성 기능</td><td>PG-PAY-BSS-001 BSS 수납 반영 정책<br/>PG-PAY-FAIL-001 결제 실패 정책<br/>PG-PAY-HIST-001 결제 이력 정책</td></tr></tbody>
+</table>
+
+<h4>6) 정기결제와 청구정보 관리 (US-PAY-CUS-006)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-RECUR-001</td><td>정기결제 대표·예비 수단 관리</td><td>대표 결제수단, 예비 결제수단, 최근 사용 수단, 채널 공통 결제 프로필을 관리한다.<br/></td><td>FN-PAY-RECUR-001 정기결제 수단 관리 기능</td><td>PG-PAY-RECUR-001 정기결제 정책<br/>PG-PAY-METHOD-001 결제수단 선택 정책</td></tr><tr><td class="mono">PR-PAY-RECUR-002</td><td>갱신 실패 사전 알림과 복구</td><td>카드 만료, 잔액 부족, 승인 실패 위험을 사전에 알리고 수단 변경 또는 선결제를 제공한다.<br/></td><td>FN-PAY-RECUR-002 갱신 실패 복구 기능</td><td>PG-PAY-RECUR-001 정기결제 정책<br/>PG-PAY-FAIL-001 결제 실패 정책<br/>PG-PAY-CS-001 결제 상담 전환 정책</td></tr><tr><td class="mono">PR-PAY-RECUR-003</td><td>청구·납부·단말할부금 방식 선택</td><td>청구정보, 납부정보, 일시불·선불, 후불 청구, SKT 자산 단말 할부금 계산 방식을 선택한다.<br/></td><td>FN-PAY-RECUR-003 청구·납부·단말할부금 선택 기능</td><td>PG-PAY-BILLING-001 청구·납부 방식 정책<br/>PG-PAY-SPLIT-001 분리·분할 결제 정책</td></tr><tr><td class="mono">PR-PAY-RECUR-004</td><td>선불형 정기결제 조건 확인</td><td>선불형 정기결제 가입, 결제 주기, 유지 조건, 다음 결제 일정을 확인한다.<br/></td><td>FN-PAY-RECUR-004 선불형 정기결제 안내 기능</td><td>PG-PAY-RECUR-001 정기결제 정책<br/>PG-PAY-BILLING-001 청구·납부 방식 정책</td></tr></tbody>
+</table>
+
+<h4>7) 결제 증빙과 발급정보 관리 (US-PAY-CUS-007)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-PRF-001</td><td>영수증·거래내역·확인서 조회</td><td>결제 완료 후 영수증, 거래내역, 확인서, 승인정보 요약을 조회·저장·공유한다.<br/></td><td>FN-PAY-PRF-001 결제 증빙 조회 기능</td><td>PG-PAY-PROOF-001 결제 증빙 정책<br/>PG-PAY-HIST-001 결제 이력 정책</td></tr><tr><td class="mono">PR-PAY-PRF-002</td><td>현금영수증·세금계산서 발급정보 관리</td><td>현금영수증 번호, 사업자 정보, 법인/B2B 발급 가능 여부와 발급 상태를 관리한다.<br/></td><td>FN-PAY-PRF-002 발급정보 관리 기능</td><td>PG-PAY-PROOF-001 결제 증빙 정책<br/>PG-PAY-AUTH-001 결제 인증 정책</td></tr></tbody>
+</table>
+
+<h4>8) 결제·혜택 기준 운영 (US-PAY-OPR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-OPR-001</td><td>결제수단 노출·우선순위 관리</td><td>운영자가 채널, 상품군, 고객조건별 결제수단 노출 순서와 배지를 관리한다.<br/></td><td>FN-PAY-OPR-001 수단 노출 기준 관리 기능</td><td>PG-PAY-OPR-001 운영 정책 관리 기준<br/>PG-PAY-METHOD-001 결제수단 선택 정책<br/>PG-PAY-LIMIT-001 결제수단 제한 정책</td></tr><tr><td class="mono">PR-PAY-OPR-002</td><td>프로모션·제휴카드 기준 관리</td><td>즉시할인, 청구할인, 캐시백, 제휴카드, 제휴몰 코드, 적용 범위, 제외 규칙, 우선순위와 충돌 규칙을 관리한다.<br/></td><td>FN-PAY-OPR-002 프로모션·제휴카드 기준 관리 기능</td><td>PG-PAY-OPR-001 운영 정책 관리 기준<br/>PG-PAY-PROMO-001 결제수단 프로모션 정책<br/>PG-PAY-PARTNER-001 제휴카드 운영 정책</td></tr><tr><td class="mono">PR-PAY-OPR-003</td><td>할인·포인트 예외 기준 관리</td><td>포인트, 쿠폰, 할인 항목의 중복 허용, 결제수단 제약, 상품별 예외 기준을 관리한다.<br/></td><td>FN-PAY-OPR-003 할인 예외 기준 관리 기능</td><td>PG-PAY-OPR-001 운영 정책 관리 기준<br/>PG-PAY-DISCOUNT-001 할인 적용 정책<br/>PG-PAY-POINT-001 포인트·쿠폰 적용 정책</td></tr><tr><td class="mono">PR-PAY-OPR-004</td><td>검수·승인·예약 배포</td><td>운영자가 정책 변경을 작성, 검수, 승인, 예약 배포, 종료, 롤백하고 이력을 확인한다.<br/></td><td>FN-PAY-OPR-004 정책 배포 관리 기능</td><td>PG-PAY-OPR-001 운영 정책 관리 기준<br/>PG-PAY-HIST-001 결제 이력 정책<br/>PG-PAY-PARTNER-001 제휴카드 운영 정책</td></tr><tr><td class="mono">PR-PAY-OPR-005</td><td>실패·갱신·보정 모니터링</td><td>갱신 실패, 결제 유예, 보류, 종료 예정, 수납 불일치 상태를 모니터링하고 보정한다.<br/></td><td>FN-PAY-OPR-005 결제 상태 모니터링 기능</td><td>PG-PAY-OPR-001 운영 정책 관리 기준<br/>PG-PAY-FAIL-001 결제 실패 정책<br/>PG-PAY-BSS-001 BSS 수납 반영 정책</td></tr></tbody>
+</table>
+
+<h4>9) 결제 실패 상담 지원 (US-PAY-CS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PAY-CS-001</td><td>결제 실패 문맥 확인</td><td>상담사가 주문서, 거래ID, 결제수단, 혜택 조합, 실패 사유, 수납 상태를 확인한다.<br/></td><td>FN-PAY-CS-001 결제 상담 문맥 기능</td><td>PG-PAY-CS-001 결제 상담 전환 정책<br/>PG-PAY-HIST-001 결제 이력 정책</td></tr><tr><td class="mono">PR-PAY-CS-002</td><td>대체 결제와 복구 안내</td><td>상담사가 대체 결제수단, 재결제 가능 여부, 수납 보정, 환불·취소 후속 안내를 제공한다.<br/></td><td>FN-PAY-CS-002 대체 결제 안내 기능</td><td>PG-PAY-CS-001 결제 상담 전환 정책<br/>PG-PAY-RECOVERY-001 결제 복구 정책<br/>PG-PAY-FAIL-001 결제 실패 정책</td></tr></tbody>
+</table>
+
+
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_결제_정책서_간소화_v0.11_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"결제 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_PAY_CUS_001\" name=\"US-PAY-CUS-001 결제 조건과 금액 확인\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_AMT_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_AMT_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_AMT_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_AMT_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CUS_002\" name=\"US-PAY-CUS-002 결제수단 선택과 인증\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_MTD_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_MTD_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_MTD_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_MTD_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CUS_003\" name=\"US-PAY-CUS-003 할인·포인트·프로모션 적용\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_DCN_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_DCN_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_DCN_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_DCN_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_DCN_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CUS_004\" name=\"US-PAY-CUS-004 결제 승인과 완료 확인\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_APR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_APR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_APR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_APR_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CUS_005\" name=\"US-PAY-CUS-005 결제 실패 복구와 중복 방지\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_REC_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_REC_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_REC_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_REC_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_005<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CUS_006\" name=\"US-PAY-CUS-006 정기결제와 청구정보 관리\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_RECUR_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_006<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CUS_007\" name=\"US-PAY-CUS-007 결제 증빙과 발급정보 관리\">\n        <bpmn:flowNodeRef>Start_US_PAY_CUS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_PRF_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_PRF_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CUS_007<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_OPR_001\" name=\"US-PAY-OPR-001 결제·혜택 기준 운영\">\n        <bpmn:flowNodeRef>Start_US_PAY_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_OPR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_OPR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_OPR_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_OPR_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_OPR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PAY_CS_001\" name=\"US-PAY-CS-001 결제 실패 상담 지원\">\n        <bpmn:flowNodeRef>Start_US_PAY_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PAY_CS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PAY_CS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_AMT_001\" name=\"PR-PAY-AMT-001 결제 단계 진입과 유형 확인\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_AMT_002\" name=\"PR-PAY-AMT-002 상품금액·할인·최종금액 구성\">\n      <bpmn:incoming>Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_AMT_003\" name=\"PR-PAY-AMT-003 분리 결제와 0원 결제 판정\">\n      <bpmn:incoming>Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_AMT_004\" name=\"PR-PAY-AMT-004 금액 변동 재확인\">\n      <bpmn:incoming>Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001\" sourceRef=\"Start_US_PAY_CUS_001\" targetRef=\"Task_PR_PAY_AMT_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002\" sourceRef=\"Task_PR_PAY_AMT_001\" targetRef=\"Task_PR_PAY_AMT_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003\" sourceRef=\"Task_PR_PAY_AMT_002\" targetRef=\"Task_PR_PAY_AMT_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004\" sourceRef=\"Task_PR_PAY_AMT_003\" targetRef=\"Task_PR_PAY_AMT_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001\" sourceRef=\"Task_PR_PAY_AMT_004\" targetRef=\"End_US_PAY_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_MTD_001\" name=\"PR-PAY-MTD-001 결제수단 후보와 제한 사유 확인\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_MTD_002\" name=\"PR-PAY-MTD-002 결제수단 등록·삭제·기본 설정\">\n      <bpmn:incoming>Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_MTD_003\" name=\"PR-PAY-MTD-003 입력 최소화와 카드 OCR 등록\">\n      <bpmn:incoming>Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_MTD_004\" name=\"PR-PAY-MTD-004 추가 인증과 거래 바인딩\">\n      <bpmn:incoming>Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001\" sourceRef=\"Start_US_PAY_CUS_002\" targetRef=\"Task_PR_PAY_MTD_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002\" sourceRef=\"Task_PR_PAY_MTD_001\" targetRef=\"Task_PR_PAY_MTD_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003\" sourceRef=\"Task_PR_PAY_MTD_002\" targetRef=\"Task_PR_PAY_MTD_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004\" sourceRef=\"Task_PR_PAY_MTD_003\" targetRef=\"Task_PR_PAY_MTD_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002\" sourceRef=\"Task_PR_PAY_MTD_004\" targetRef=\"End_US_PAY_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_DCN_001\" name=\"PR-PAY-DCN-001 사용 가능 혜택 조회\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_DCN_002\" name=\"PR-PAY-DCN-002 쿠폰·포인트·할인 조합 선택\">\n      <bpmn:incoming>Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_DCN_003\" name=\"PR-PAY-DCN-003 우선순위·중복·배타 검증\">\n      <bpmn:incoming>Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_DCN_004\" name=\"PR-PAY-DCN-004 결제수단 프로모션 반영\">\n      <bpmn:incoming>Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_DCN_005\" name=\"PR-PAY-DCN-005 적용 전후 금액 확정\">\n      <bpmn:incoming>Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001\" sourceRef=\"Start_US_PAY_CUS_003\" targetRef=\"Task_PR_PAY_DCN_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002\" sourceRef=\"Task_PR_PAY_DCN_001\" targetRef=\"Task_PR_PAY_DCN_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003\" sourceRef=\"Task_PR_PAY_DCN_002\" targetRef=\"Task_PR_PAY_DCN_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004\" sourceRef=\"Task_PR_PAY_DCN_003\" targetRef=\"Task_PR_PAY_DCN_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005\" sourceRef=\"Task_PR_PAY_DCN_004\" targetRef=\"Task_PR_PAY_DCN_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003\" sourceRef=\"Task_PR_PAY_DCN_005\" targetRef=\"End_US_PAY_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_APR_001\" name=\"PR-PAY-APR-001 결제 전 최종 확인\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_APR_002\" name=\"PR-PAY-APR-002 결제 요청 제출과 중복 차단\">\n      <bpmn:incoming>Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_APR_003\" name=\"PR-PAY-APR-003 외부 간편결제 전환과 복귀\">\n      <bpmn:incoming>Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_APR_004\" name=\"PR-PAY-APR-004 처리 중 상태와 성공 결과 안내\">\n      <bpmn:incoming>Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001\" sourceRef=\"Start_US_PAY_CUS_004\" targetRef=\"Task_PR_PAY_APR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002\" sourceRef=\"Task_PR_PAY_APR_001\" targetRef=\"Task_PR_PAY_APR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003\" sourceRef=\"Task_PR_PAY_APR_002\" targetRef=\"Task_PR_PAY_APR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004\" sourceRef=\"Task_PR_PAY_APR_003\" targetRef=\"Task_PR_PAY_APR_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004\" sourceRef=\"Task_PR_PAY_APR_004\" targetRef=\"End_US_PAY_CUS_004\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_005\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_REC_001\" name=\"PR-PAY-REC-001 실패 사유 분류\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_REC_002\" name=\"PR-PAY-REC-002 기존 주문서 복귀와 이어하기\">\n      <bpmn:incoming>Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_REC_003\" name=\"PR-PAY-REC-003 재시도·수단 변경·할인 재적용\">\n      <bpmn:incoming>Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_REC_004\" name=\"PR-PAY-REC-004 취소·환불·상태 복구 정합성 확인\">\n      <bpmn:incoming>Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_005\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001\" sourceRef=\"Start_US_PAY_CUS_005\" targetRef=\"Task_PR_PAY_REC_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002\" sourceRef=\"Task_PR_PAY_REC_001\" targetRef=\"Task_PR_PAY_REC_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003\" sourceRef=\"Task_PR_PAY_REC_002\" targetRef=\"Task_PR_PAY_REC_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004\" sourceRef=\"Task_PR_PAY_REC_003\" targetRef=\"Task_PR_PAY_REC_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005\" sourceRef=\"Task_PR_PAY_REC_004\" targetRef=\"End_US_PAY_CUS_005\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_006\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_RECUR_001\" name=\"PR-PAY-RECUR-001 정기결제 대표·예비 수단 관리\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_RECUR_002\" name=\"PR-PAY-RECUR-002 갱신 실패 사전 알림과 복구\">\n      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_RECUR_003\" name=\"PR-PAY-RECUR-003 청구·납부·단말할부금 방식 선택\">\n      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_RECUR_004\" name=\"PR-PAY-RECUR-004 선불형 정기결제 조건 확인\">\n      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_006\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001\" sourceRef=\"Start_US_PAY_CUS_006\" targetRef=\"Task_PR_PAY_RECUR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002\" sourceRef=\"Task_PR_PAY_RECUR_001\" targetRef=\"Task_PR_PAY_RECUR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003\" sourceRef=\"Task_PR_PAY_RECUR_002\" targetRef=\"Task_PR_PAY_RECUR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004\" sourceRef=\"Task_PR_PAY_RECUR_003\" targetRef=\"Task_PR_PAY_RECUR_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006\" sourceRef=\"Task_PR_PAY_RECUR_004\" targetRef=\"End_US_PAY_CUS_006\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CUS_007\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_PRF_001\" name=\"PR-PAY-PRF-001 영수증·거래내역·확인서 조회\">\n      <bpmn:incoming>Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_PRF_002\" name=\"PR-PAY-PRF-002 현금영수증·세금계산서 발급정보 관리\">\n      <bpmn:incoming>Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CUS_007\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001\" sourceRef=\"Start_US_PAY_CUS_007\" targetRef=\"Task_PR_PAY_PRF_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002\" sourceRef=\"Task_PR_PAY_PRF_001\" targetRef=\"Task_PR_PAY_PRF_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007\" sourceRef=\"Task_PR_PAY_PRF_002\" targetRef=\"End_US_PAY_CUS_007\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_OPR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_OPR_001\" name=\"PR-PAY-OPR-001 결제수단 노출·우선순위 관리\">\n      <bpmn:incoming>Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_OPR_002\" name=\"PR-PAY-OPR-002 프로모션·제휴카드 기준 관리\">\n      <bpmn:incoming>Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_OPR_003\" name=\"PR-PAY-OPR-003 할인·포인트 예외 기준 관리\">\n      <bpmn:incoming>Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_OPR_004\" name=\"PR-PAY-OPR-004 검수·승인·예약 배포\">\n      <bpmn:incoming>Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_OPR_005\" name=\"PR-PAY-OPR-005 실패·갱신·보정 모니터링\">\n      <bpmn:incoming>Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_OPR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001\" sourceRef=\"Start_US_PAY_OPR_001\" targetRef=\"Task_PR_PAY_OPR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002\" sourceRef=\"Task_PR_PAY_OPR_001\" targetRef=\"Task_PR_PAY_OPR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003\" sourceRef=\"Task_PR_PAY_OPR_002\" targetRef=\"Task_PR_PAY_OPR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004\" sourceRef=\"Task_PR_PAY_OPR_003\" targetRef=\"Task_PR_PAY_OPR_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005\" sourceRef=\"Task_PR_PAY_OPR_004\" targetRef=\"Task_PR_PAY_OPR_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001\" sourceRef=\"Task_PR_PAY_OPR_005\" targetRef=\"End_US_PAY_OPR_001\"/>\n    <bpmn:startEvent id=\"Start_US_PAY_CS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PAY_CS_001\" name=\"PR-PAY-CS-001 결제 실패 문맥 확인\">\n      <bpmn:incoming>Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PAY_CS_002\" name=\"PR-PAY-CS-002 대체 결제와 복구 안내\">\n      <bpmn:incoming>Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PAY_CS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001\" sourceRef=\"Start_US_PAY_CS_001\" targetRef=\"Task_PR_PAY_CS_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002\" sourceRef=\"Task_PR_PAY_CS_001\" targetRef=\"Task_PR_PAY_CS_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001\" sourceRef=\"Task_PR_PAY_CS_002\" targetRef=\"End_US_PAY_CS_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_001_di\" bpmnElement=\"Lane_US_PAY_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_001_di\" bpmnElement=\"Start_US_PAY_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_AMT_001_di\" bpmnElement=\"Task_PR_PAY_AMT_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_AMT_002_di\" bpmnElement=\"Task_PR_PAY_AMT_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_AMT_003_di\" bpmnElement=\"Task_PR_PAY_AMT_003\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_AMT_004_di\" bpmnElement=\"Task_PR_PAY_AMT_004\">\n        <dc:Bounds x=\"900\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_001_di\" bpmnElement=\"End_US_PAY_CUS_001\">\n        <dc:Bounds x=\"1120\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_002_di\" bpmnElement=\"Lane_US_PAY_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_002_di\" bpmnElement=\"Start_US_PAY_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_MTD_001_di\" bpmnElement=\"Task_PR_PAY_MTD_001\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_MTD_002_di\" bpmnElement=\"Task_PR_PAY_MTD_002\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_MTD_003_di\" bpmnElement=\"Task_PR_PAY_MTD_003\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_MTD_004_di\" bpmnElement=\"Task_PR_PAY_MTD_004\">\n        <dc:Bounds x=\"900\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_002_di\" bpmnElement=\"End_US_PAY_CUS_002\">\n        <dc:Bounds x=\"1120\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_003_di\" bpmnElement=\"Lane_US_PAY_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_003_di\" bpmnElement=\"Start_US_PAY_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_DCN_001_di\" bpmnElement=\"Task_PR_PAY_DCN_001\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_DCN_002_di\" bpmnElement=\"Task_PR_PAY_DCN_002\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_DCN_003_di\" bpmnElement=\"Task_PR_PAY_DCN_003\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_DCN_004_di\" bpmnElement=\"Task_PR_PAY_DCN_004\">\n        <dc:Bounds x=\"900\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_DCN_005_di\" bpmnElement=\"Task_PR_PAY_DCN_005\">\n        <dc:Bounds x=\"1120\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_003_di\" bpmnElement=\"End_US_PAY_CUS_003\">\n        <dc:Bounds x=\"1340\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_004_di\" bpmnElement=\"Lane_US_PAY_CUS_004\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_004_di\" bpmnElement=\"Start_US_PAY_CUS_004\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_APR_001_di\" bpmnElement=\"Task_PR_PAY_APR_001\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_APR_002_di\" bpmnElement=\"Task_PR_PAY_APR_002\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_APR_003_di\" bpmnElement=\"Task_PR_PAY_APR_003\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_APR_004_di\" bpmnElement=\"Task_PR_PAY_APR_004\">\n        <dc:Bounds x=\"900\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_004_di\" bpmnElement=\"End_US_PAY_CUS_004\">\n        <dc:Bounds x=\"1120\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_005_di\" bpmnElement=\"Lane_US_PAY_CUS_005\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_005_di\" bpmnElement=\"Start_US_PAY_CUS_005\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_REC_001_di\" bpmnElement=\"Task_PR_PAY_REC_001\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_REC_002_di\" bpmnElement=\"Task_PR_PAY_REC_002\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_REC_003_di\" bpmnElement=\"Task_PR_PAY_REC_003\">\n        <dc:Bounds x=\"680\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_REC_004_di\" bpmnElement=\"Task_PR_PAY_REC_004\">\n        <dc:Bounds x=\"900\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_005_di\" bpmnElement=\"End_US_PAY_CUS_005\">\n        <dc:Bounds x=\"1120\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_006_di\" bpmnElement=\"Lane_US_PAY_CUS_006\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_006_di\" bpmnElement=\"Start_US_PAY_CUS_006\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_RECUR_001_di\" bpmnElement=\"Task_PR_PAY_RECUR_001\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_RECUR_002_di\" bpmnElement=\"Task_PR_PAY_RECUR_002\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_RECUR_003_di\" bpmnElement=\"Task_PR_PAY_RECUR_003\">\n        <dc:Bounds x=\"680\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_RECUR_004_di\" bpmnElement=\"Task_PR_PAY_RECUR_004\">\n        <dc:Bounds x=\"900\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_006_di\" bpmnElement=\"End_US_PAY_CUS_006\">\n        <dc:Bounds x=\"1120\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CUS_007_di\" bpmnElement=\"Lane_US_PAY_CUS_007\">\n        <dc:Bounds x=\"40\" y=\"1045\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CUS_007_di\" bpmnElement=\"Start_US_PAY_CUS_007\">\n        <dc:Bounds x=\"112\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_PRF_001_di\" bpmnElement=\"Task_PR_PAY_PRF_001\">\n        <dc:Bounds x=\"240\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_PRF_002_di\" bpmnElement=\"Task_PR_PAY_PRF_002\">\n        <dc:Bounds x=\"460\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CUS_007_di\" bpmnElement=\"End_US_PAY_CUS_007\">\n        <dc:Bounds x=\"680\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_OPR_001_di\" bpmnElement=\"Lane_US_PAY_OPR_001\">\n        <dc:Bounds x=\"40\" y=\"1215\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_OPR_001_di\" bpmnElement=\"Start_US_PAY_OPR_001\">\n        <dc:Bounds x=\"112\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_OPR_001_di\" bpmnElement=\"Task_PR_PAY_OPR_001\">\n        <dc:Bounds x=\"240\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_OPR_002_di\" bpmnElement=\"Task_PR_PAY_OPR_002\">\n        <dc:Bounds x=\"460\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_OPR_003_di\" bpmnElement=\"Task_PR_PAY_OPR_003\">\n        <dc:Bounds x=\"680\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_OPR_004_di\" bpmnElement=\"Task_PR_PAY_OPR_004\">\n        <dc:Bounds x=\"900\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_OPR_005_di\" bpmnElement=\"Task_PR_PAY_OPR_005\">\n        <dc:Bounds x=\"1120\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_OPR_001_di\" bpmnElement=\"End_US_PAY_OPR_001\">\n        <dc:Bounds x=\"1340\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PAY_CS_001_di\" bpmnElement=\"Lane_US_PAY_CS_001\">\n        <dc:Bounds x=\"40\" y=\"1385\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PAY_CS_001_di\" bpmnElement=\"Start_US_PAY_CS_001\">\n        <dc:Bounds x=\"112\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_CS_001_di\" bpmnElement=\"Task_PR_PAY_CS_001\">\n        <dc:Bounds x=\"240\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PAY_CS_002_di\" bpmnElement=\"Task_PR_PAY_CS_002\">\n        <dc:Bounds x=\"460\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PAY_CS_001_di\" bpmnElement=\"End_US_PAY_CS_001\">\n        <dc:Bounds x=\"680\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_001_Task_PR_PAY_AMT_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002_di\" bpmnElement=\"Flow_Task_PR_PAY_AMT_001_Task_PR_PAY_AMT_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003_di\" bpmnElement=\"Flow_Task_PR_PAY_AMT_002_Task_PR_PAY_AMT_003\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004_di\" bpmnElement=\"Flow_Task_PR_PAY_AMT_003_Task_PR_PAY_AMT_004\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001_di\" bpmnElement=\"Flow_Task_PR_PAY_AMT_004_End_US_PAY_CUS_001\">\n        <di:waypoint x=\"1070\" y=\"70\"/>\n        <di:waypoint x=\"1120\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_002_Task_PR_PAY_MTD_001\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002_di\" bpmnElement=\"Flow_Task_PR_PAY_MTD_001_Task_PR_PAY_MTD_002\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003_di\" bpmnElement=\"Flow_Task_PR_PAY_MTD_002_Task_PR_PAY_MTD_003\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004_di\" bpmnElement=\"Flow_Task_PR_PAY_MTD_003_Task_PR_PAY_MTD_004\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002_di\" bpmnElement=\"Flow_Task_PR_PAY_MTD_004_End_US_PAY_CUS_002\">\n        <di:waypoint x=\"1070\" y=\"240\"/>\n        <di:waypoint x=\"1120\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_003_Task_PR_PAY_DCN_001\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002_di\" bpmnElement=\"Flow_Task_PR_PAY_DCN_001_Task_PR_PAY_DCN_002\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003_di\" bpmnElement=\"Flow_Task_PR_PAY_DCN_002_Task_PR_PAY_DCN_003\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004_di\" bpmnElement=\"Flow_Task_PR_PAY_DCN_003_Task_PR_PAY_DCN_004\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005_di\" bpmnElement=\"Flow_Task_PR_PAY_DCN_004_Task_PR_PAY_DCN_005\">\n        <di:waypoint x=\"1070\" y=\"410\"/>\n        <di:waypoint x=\"1120\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003_di\" bpmnElement=\"Flow_Task_PR_PAY_DCN_005_End_US_PAY_CUS_003\">\n        <di:waypoint x=\"1290\" y=\"410\"/>\n        <di:waypoint x=\"1340\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_004_Task_PR_PAY_APR_001\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002_di\" bpmnElement=\"Flow_Task_PR_PAY_APR_001_Task_PR_PAY_APR_002\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003_di\" bpmnElement=\"Flow_Task_PR_PAY_APR_002_Task_PR_PAY_APR_003\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004_di\" bpmnElement=\"Flow_Task_PR_PAY_APR_003_Task_PR_PAY_APR_004\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004_di\" bpmnElement=\"Flow_Task_PR_PAY_APR_004_End_US_PAY_CUS_004\">\n        <di:waypoint x=\"1070\" y=\"580\"/>\n        <di:waypoint x=\"1120\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_005_Task_PR_PAY_REC_001\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002_di\" bpmnElement=\"Flow_Task_PR_PAY_REC_001_Task_PR_PAY_REC_002\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003_di\" bpmnElement=\"Flow_Task_PR_PAY_REC_002_Task_PR_PAY_REC_003\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004_di\" bpmnElement=\"Flow_Task_PR_PAY_REC_003_Task_PR_PAY_REC_004\">\n        <di:waypoint x=\"850\" y=\"750\"/>\n        <di:waypoint x=\"900\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005_di\" bpmnElement=\"Flow_Task_PR_PAY_REC_004_End_US_PAY_CUS_005\">\n        <di:waypoint x=\"1070\" y=\"750\"/>\n        <di:waypoint x=\"1120\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_006_Task_PR_PAY_RECUR_001\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002_di\" bpmnElement=\"Flow_Task_PR_PAY_RECUR_001_Task_PR_PAY_RECUR_002\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003_di\" bpmnElement=\"Flow_Task_PR_PAY_RECUR_002_Task_PR_PAY_RECUR_003\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004_di\" bpmnElement=\"Flow_Task_PR_PAY_RECUR_003_Task_PR_PAY_RECUR_004\">\n        <di:waypoint x=\"850\" y=\"920\"/>\n        <di:waypoint x=\"900\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006_di\" bpmnElement=\"Flow_Task_PR_PAY_RECUR_004_End_US_PAY_CUS_006\">\n        <di:waypoint x=\"1070\" y=\"920\"/>\n        <di:waypoint x=\"1120\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001_di\" bpmnElement=\"Flow_Start_US_PAY_CUS_007_Task_PR_PAY_PRF_001\">\n        <di:waypoint x=\"148\" y=\"1090\"/>\n        <di:waypoint x=\"240\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002_di\" bpmnElement=\"Flow_Task_PR_PAY_PRF_001_Task_PR_PAY_PRF_002\">\n        <di:waypoint x=\"410\" y=\"1090\"/>\n        <di:waypoint x=\"460\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007_di\" bpmnElement=\"Flow_Task_PR_PAY_PRF_002_End_US_PAY_CUS_007\">\n        <di:waypoint x=\"630\" y=\"1090\"/>\n        <di:waypoint x=\"680\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001_di\" bpmnElement=\"Flow_Start_US_PAY_OPR_001_Task_PR_PAY_OPR_001\">\n        <di:waypoint x=\"148\" y=\"1260\"/>\n        <di:waypoint x=\"240\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002_di\" bpmnElement=\"Flow_Task_PR_PAY_OPR_001_Task_PR_PAY_OPR_002\">\n        <di:waypoint x=\"410\" y=\"1260\"/>\n        <di:waypoint x=\"460\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003_di\" bpmnElement=\"Flow_Task_PR_PAY_OPR_002_Task_PR_PAY_OPR_003\">\n        <di:waypoint x=\"630\" y=\"1260\"/>\n        <di:waypoint x=\"680\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004_di\" bpmnElement=\"Flow_Task_PR_PAY_OPR_003_Task_PR_PAY_OPR_004\">\n        <di:waypoint x=\"850\" y=\"1260\"/>\n        <di:waypoint x=\"900\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005_di\" bpmnElement=\"Flow_Task_PR_PAY_OPR_004_Task_PR_PAY_OPR_005\">\n        <di:waypoint x=\"1070\" y=\"1260\"/>\n        <di:waypoint x=\"1120\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001_di\" bpmnElement=\"Flow_Task_PR_PAY_OPR_005_End_US_PAY_OPR_001\">\n        <di:waypoint x=\"1290\" y=\"1260\"/>\n        <di:waypoint x=\"1340\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001_di\" bpmnElement=\"Flow_Start_US_PAY_CS_001_Task_PR_PAY_CS_001\">\n        <di:waypoint x=\"148\" y=\"1430\"/>\n        <di:waypoint x=\"240\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002_di\" bpmnElement=\"Flow_Task_PR_PAY_CS_001_Task_PR_PAY_CS_002\">\n        <di:waypoint x=\"410\" y=\"1430\"/>\n        <di:waypoint x=\"460\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001_di\" bpmnElement=\"Flow_Task_PR_PAY_CS_002_End_US_PAY_CS_001\">\n        <di:waypoint x=\"630\" y=\"1430\"/>\n        <di:waypoint x=\"680\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="1556" role="img" viewBox="0 0 1362 1556" width="1362" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="85">US-PAY-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="101">결제 조건과 금액 확인</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-PAY-AMT-001</text><text class="task-text" text-anchor="middle" x="410" y="119">결제 단계 진입과 유형 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-PAY-AMT-002</text><text class="task-text" text-anchor="middle" x="595" y="119">상품금액·할인·최종금액 구성</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-PAY-AMT-003</text><text class="task-text" text-anchor="middle" x="780" y="119">분리 결제와 0원 결제 판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="75"></rect><text class="task-text" text-anchor="middle" x="965" y="96">PR-PAY-AMT-004</text><text class="task-text" text-anchor="middle" x="965" y="119">금액 변동 재확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="108" y2="108"></line><circle class="end" cx="1103" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="253">US-PAY-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="269">결제수단 선택과 인증</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-PAY-MTD-001</text><text class="task-text" text-anchor="middle" x="410" y="280">결제수단 후보와 제한 사유</text><text class="task-text" text-anchor="middle" x="410" y="294">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-PAY-MTD-002</text><text class="task-text" text-anchor="middle" x="595" y="280">결제수단 등록·삭제·기본</text><text class="task-text" text-anchor="middle" x="595" y="294">설정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-PAY-MTD-003</text><text class="task-text" text-anchor="middle" x="780" y="280">입력 최소화와 카드 OCR</text><text class="task-text" text-anchor="middle" x="780" y="294">등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="243"></rect><text class="task-text" text-anchor="middle" x="965" y="264">PR-PAY-MTD-004</text><text class="task-text" text-anchor="middle" x="965" y="287">추가 인증과 거래 바인딩</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="276" y2="276"></line><circle class="end" cx="1103" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-PAY-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">할인·포인트·프로모션 적용</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-PAY-DCN-001</text><text class="task-text" text-anchor="middle" x="410" y="455">사용 가능 혜택 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-PAY-DCN-002</text><text class="task-text" text-anchor="middle" x="595" y="455">쿠폰·포인트·할인 조합 선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-PAY-DCN-003</text><text class="task-text" text-anchor="middle" x="780" y="455">우선순위·중복·배타 검증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="885" y="411"></rect><text class="task-text" text-anchor="middle" x="965" y="432">PR-PAY-DCN-004</text><text class="task-text" text-anchor="middle" x="965" y="455">결제수단 프로모션 반영</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="1070" y="411"></rect><text class="task-text" text-anchor="middle" x="1150" y="432">PR-PAY-DCN-005</text><text class="task-text" text-anchor="middle" x="1150" y="455">적용 전후 금액 확정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1064" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1234" x2="1267" y1="444" y2="444"></line><circle class="end" cx="1288" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="1288" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-PAY-CUS-004</text><text class="pool-title" text-anchor="middle" x="145" y="605">결제 승인과 완료 확인</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-PAY-APR-001</text><text class="task-text" text-anchor="middle" x="410" y="623">결제 전 최종 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-PAY-APR-002</text><text class="task-text" text-anchor="middle" x="595" y="623">결제 요청 제출과 중복 차단</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-PAY-APR-003</text><text class="task-text" text-anchor="middle" x="780" y="623">외부 간편결제 전환과 복귀</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="579"></rect><text class="task-text" text-anchor="middle" x="965" y="600">PR-PAY-APR-004</text><text class="task-text" text-anchor="middle" x="965" y="616">처리 중 상태와 성공 결과</text><text class="task-text" text-anchor="middle" x="965" y="630">안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="612" y2="612"></line><circle class="end" cx="1103" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-PAY-CUS-005</text><text class="pool-title" text-anchor="middle" x="145" y="773">결제 실패 복구와 중복 방지</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-PAY-REC-001</text><text class="task-text" text-anchor="middle" x="410" y="791">실패 사유 분류</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-PAY-REC-002</text><text class="task-text" text-anchor="middle" x="595" y="791">기존 주문서 복귀와 이어하기</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="747"></rect><text class="task-text" text-anchor="middle" x="780" y="768">PR-PAY-REC-003</text><text class="task-text" text-anchor="middle" x="780" y="784">재시도·수단 변경·할인</text><text class="task-text" text-anchor="middle" x="780" y="798">재적용</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="747"></rect><text class="task-text" text-anchor="middle" x="965" y="768">PR-PAY-REC-004</text><text class="task-text" text-anchor="middle" x="965" y="784">취소·환불·상태 복구 정합성</text><text class="task-text" text-anchor="middle" x="965" y="798">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="780" y2="780"></line><circle class="end" cx="1103" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="925">US-PAY-CUS-006</text><text class="pool-title" text-anchor="middle" x="145" y="941">정기결제와 청구정보 관리</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-PAY-RECUR-001</text><text class="task-text" text-anchor="middle" x="410" y="952">정기결제 대표·예비 수단</text><text class="task-text" text-anchor="middle" x="410" y="966">관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-PAY-RECUR-002</text><text class="task-text" text-anchor="middle" x="595" y="959">갱신 실패 사전 알림과 복구</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="915"></rect><text class="task-text" text-anchor="middle" x="780" y="936">PR-PAY-RECUR-003</text><text class="task-text" text-anchor="middle" x="780" y="952">청구·납부·단말할부금 방식</text><text class="task-text" text-anchor="middle" x="780" y="966">선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="915"></rect><text class="task-text" text-anchor="middle" x="965" y="936">PR-PAY-RECUR-004</text><text class="task-text" text-anchor="middle" x="965" y="959">선불형 정기결제 조건 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="948" y2="948"></line><circle class="end" cx="1103" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="952">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="1040"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1040"></rect><text class="pool-index" x="58" y="1072">07</text><text class="pool-title" text-anchor="middle" x="145" y="1093">US-PAY-CUS-007</text><text class="pool-title" text-anchor="middle" x="145" y="1109">결제 증빙과 발급정보 관리</text><circle class="start" cx="300" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1120">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1083"></rect><text class="task-text" text-anchor="middle" x="410" y="1104">PR-PAY-PRF-001</text><text class="task-text" text-anchor="middle" x="410" y="1127">영수증·거래내역·확인서 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1116" y2="1116"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1083"></rect><text class="task-text" text-anchor="middle" x="595" y="1104">PR-PAY-PRF-002</text><text class="task-text" text-anchor="middle" x="595" y="1120">현금영수증·세금계산서</text><text class="task-text" text-anchor="middle" x="595" y="1134">발급정보 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1116" y2="1116"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1116" y2="1116"></line><circle class="end" cx="733" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1120">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="1208"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1208"></rect><text class="pool-index" x="58" y="1240">08</text><text class="pool-title" text-anchor="middle" x="145" y="1261">US-PAY-OPR-001</text><text class="pool-title" text-anchor="middle" x="145" y="1277">결제·혜택 기준 운영</text><circle class="start" cx="300" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1288">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1251"></rect><text class="task-text" text-anchor="middle" x="410" y="1272">PR-PAY-OPR-001</text><text class="task-text" text-anchor="middle" x="410" y="1295">결제수단 노출·우선순위 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1284" y2="1284"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1251"></rect><text class="task-text" text-anchor="middle" x="595" y="1272">PR-PAY-OPR-002</text><text class="task-text" text-anchor="middle" x="595" y="1295">프로모션·제휴카드 기준 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1284" y2="1284"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="1251"></rect><text class="task-text" text-anchor="middle" x="780" y="1272">PR-PAY-OPR-003</text><text class="task-text" text-anchor="middle" x="780" y="1295">할인·포인트 예외 기준 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1284" y2="1284"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="885" y="1251"></rect><text class="task-text" text-anchor="middle" x="965" y="1272">PR-PAY-OPR-004</text><text class="task-text" text-anchor="middle" x="965" y="1295">검수·승인·예약 배포</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="1284" y2="1284"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="1070" y="1251"></rect><text class="task-text" text-anchor="middle" x="1150" y="1272">PR-PAY-OPR-005</text><text class="task-text" text-anchor="middle" x="1150" y="1295">실패·갱신·보정 모니터링</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1064" y1="1284" y2="1284"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1234" x2="1267" y1="1284" y2="1284"></line><circle class="end" cx="1288" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="1288" y="1288">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="1376"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1376"></rect><text class="pool-index" x="58" y="1408">09</text><text class="pool-title" text-anchor="middle" x="145" y="1429">US-PAY-CS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1445">결제 실패 상담 지원</text><circle class="start" cx="300" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1456">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1419"></rect><text class="task-text" text-anchor="middle" x="410" y="1440">PR-PAY-CS-001</text><text class="task-text" text-anchor="middle" x="410" y="1463">결제 실패 문맥 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1452" y2="1452"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1419"></rect><text class="task-text" text-anchor="middle" x="595" y="1440">PR-PAY-CS-002</text><text class="task-text" text-anchor="middle" x="595" y="1463">대체 결제와 복구 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1452" y2="1452"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1452" y2="1452"></line><circle class="end" cx="733" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1456">End</text></svg></div></div>
+</div>
+
+
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 결제 단계 진입과 유형 확인 (PR-PAY-AMT-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-AMT-001</td><td>결제 유형 확인 기능</td><td>주문, 정기결제 가입, 요금 납부, 후불 청구 반영 중 어떤 결제 유형인지 확인하여 결제 업무 결과를 제공한다.<br/></td><td>결제 유형 확인<br/>금액 구성<br/>최종 확인</td></tr></tbody>
+</table>
+
+<h4>2) 상품금액·할인·최종금액 구성 (PR-PAY-AMT-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-AMT-002</td><td>결제 금액 구성 기능</td><td>상품금액, 할인 합계, 포인트·쿠폰 차감, 즉시 결제 금액, 월 반복 비용을 구분해 구성하여 결제 업무 결과를 제공한다.<br/></td><td>결제 유형 확인<br/>금액 구성<br/>최종 확인</td></tr></tbody>
+</table>
+
+<h4>3) 분리 결제와 0원 결제 판정 (PR-PAY-AMT-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-AMT-003</td><td>결제 분기 판정 기능</td><td>혼합 주문, 분할 납부, 0원 결제, 다음 청구서 반영 금액을 구분해 결제 흐름을 분기하여 결제 업무 결과를 제공한다.<br/></td><td>결제 유형 확인<br/>금액 구성<br/>최종 확인</td></tr></tbody>
+</table>
+
+<h4>4) 금액 변동 재확인 (PR-PAY-AMT-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-AMT-004</td><td>금액 변동 재확인 기능</td><td>결제 직전 금액, 혜택, 청구 방식이 변경되면 변동 사유와 최종 확인을 다시 받는다.<br/></td><td>결제 유형 확인<br/>금액 구성<br/>최종 확인</td></tr></tbody>
+</table>
+
+<h4>5) 결제수단 후보와 제한 사유 확인 (PR-PAY-MTD-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-MTD-001</td><td>결제수단 후보 제공 기능</td><td>상품, 주문단위, 고객조건별 사용 가능한 결제수단과 제한 사유를 확인하여 결제 업무 결과를 제공한다.<br/></td><td>수단 조회<br/>수단 검증<br/>인증 연결</td></tr></tbody>
+</table>
+
+<h4>6) 결제수단 등록·삭제·기본 설정 (PR-PAY-MTD-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-MTD-002</td><td>결제수단 프로필 관리 기능</td><td>카드, 계좌, 간편결제, 환불 계좌, 기본 결제수단을 등록·삭제·변경하여 결제 업무 결과를 제공한다.<br/></td><td>수단 조회<br/>수단 검증<br/>인증 연결</td></tr></tbody>
+</table>
+
+<h4>7) 입력 최소화와 카드 OCR 등록 (PR-PAY-MTD-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-MTD-003</td><td>결제 입력 최소화 기능</td><td>저장된 수단, 자동완성, 카드 OCR, 최근 사용 수단을 활용해 결제 입력을 줄인다.<br/></td><td>수단 조회<br/>수단 검증<br/>인증 연결</td></tr></tbody>
+</table>
+
+<h4>8) 추가 인증과 거래 바인딩 (PR-PAY-MTD-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-MTD-004</td><td>결제 인증 처리 기능</td><td>OTP, 3DS, 간편인증, 원탭 결제, 주문·결제 거래 바인딩 인증을 수행하여 결제 업무 결과를 제공한다.<br/></td><td>수단 조회<br/>수단 검증<br/>인증 연결</td></tr></tbody>
+</table>
+
+<h4>9) 사용 가능 혜택 조회 (PR-PAY-DCN-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-DCN-001</td><td>혜택 가능성 조회 기능</td><td>쿠폰, 포인트, 이용권, 제휴 포인트, 결제수단 프로모션의 사용 가능 상태를 조회하여 결제 업무 결과를 제공한다.<br/></td><td>혜택 조회<br/>조합 검증<br/>금액 갱신</td></tr></tbody>
+</table>
+
+<h4>10) 쿠폰·포인트·할인 조합 선택 (PR-PAY-DCN-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-DCN-002</td><td>혜택 조합 선택 기능</td><td>고객이 최대 사용, 일부 사용, 적용 해제, 최적 조합 적용 중 하나를 선택하여 결제 업무 결과를 제공한다.<br/></td><td>혜택 조회<br/>조합 검증<br/>금액 갱신</td></tr></tbody>
+</table>
+
+<h4>11) 우선순위·중복·배타 검증 (PR-PAY-DCN-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-DCN-003</td><td>혜택 우선순위 검증 기능</td><td>혜택 간 선행·배타 조건, 중복 가능 여부, 적용 우선순위, 결제수단 제약을 검증하여 결제 업무 결과를 제공한다.<br/></td><td>혜택 조회<br/>조합 검증<br/>금액 갱신</td></tr></tbody>
+</table>
+
+<h4>12) 결제수단 프로모션 반영 (PR-PAY-DCN-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-DCN-004</td><td>수단 프로모션 반영 기능</td><td>즉시할인, 청구할인, 캐시백, 제휴 포인트의 적용 범위와 고지 항목을 반영하여 결제 업무 결과를 제공한다.<br/></td><td>혜택 조회<br/>조합 검증<br/>금액 갱신</td></tr></tbody>
+</table>
+
+<h4>13) 적용 전후 금액 확정 (PR-PAY-DCN-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-DCN-005</td><td>할인 후 금액 확정 기능</td><td>할인 적용 전후 금액, 할인 근거, 계산 내역, 최종 결제 금액을 확정하여 결제 업무 결과를 제공한다.<br/></td><td>혜택 조회<br/>조합 검증<br/>금액 갱신</td></tr></tbody>
+</table>
+
+<h4>14) 결제 전 최종 확인 (PR-PAY-APR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-APR-001</td><td>결제 최종 확인 기능</td><td>결제수단, 결제금액, 할인내역, 환불·취소 핵심 조건, 필수 동의를 한 화면에서 확인하여 결제 업무 결과를 제공한다.<br/></td><td>요청 접수<br/>승인 연동<br/>결과 안내</td></tr></tbody>
+</table>
+
+<h4>15) 결제 요청 제출과 중복 차단 (PR-PAY-APR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-APR-002</td><td>결제 요청 제출 기능</td><td>결제 요청을 멱등키와 함께 제출하고 연타·재진입·중복 요청을 차단하여 결제 업무 결과를 제공한다.<br/></td><td>요청 접수<br/>승인 연동<br/>결과 안내</td></tr></tbody>
+</table>
+
+<h4>16) 외부 간편결제 전환과 복귀 (PR-PAY-APR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-APR-003</td><td>외부 결제 복귀 기능</td><td>외부 앱·웹뷰·리다이렉트로 전환하고 복귀 시 선택값과 처리 상태를 복원하여 결제 업무 결과를 제공한다.<br/></td><td>요청 접수<br/>승인 연동<br/>결과 안내</td></tr></tbody>
+</table>
+
+<h4>17) 처리 중 상태와 성공 결과 안내 (PR-PAY-APR-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-APR-004</td><td>결제 결과 안내 기능</td><td>승인 처리 중 상태, 초과 시 조회 경로, 성공 시 승인 요약과 다음 행동을 제공하여 결제 업무 결과를 제공한다.<br/></td><td>요청 접수<br/>승인 연동<br/>결과 안내</td></tr></tbody>
+</table>
+
+<h4>18) 실패 사유 분류 (PR-PAY-REC-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-REC-001</td><td>결제 실패 분류 기능</td><td>승인 거절, 한도 부족, 인증 실패, 외부 복귀 실패, BSS 반영 실패를 구분하여 결제 업무 결과를 제공한다.<br/></td><td>실패 분류<br/>주문서 복원<br/>재시도 안내</td></tr></tbody>
+</table>
+
+<h4>19) 기존 주문서 복귀와 이어하기 (PR-PAY-REC-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-REC-002</td><td>주문서 이어하기 기능</td><td>실패 후 기존 주문서로 복귀해 결제수단, 혜택 조합, 인증 상태, 입력값을 유지하여 결제 업무 결과를 제공한다.<br/></td><td>실패 분류<br/>주문서 복원<br/>재시도 안내</td></tr></tbody>
+</table>
+
+<h4>20) 재시도·수단 변경·할인 재적용 (PR-PAY-REC-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-REC-003</td><td>결제 재시도 안내 기능</td><td>실패 원인에 맞춰 다시 결제, 결제수단 변경, 할인·포인트 재적용, 주문서 수정 CTA를 제공하여 결제 업무 결과를 제공한다.<br/></td><td>실패 분류<br/>주문서 복원<br/>재시도 안내</td></tr></tbody>
+</table>
+
+<h4>21) 취소·환불·상태 복구 정합성 확인 (PR-PAY-REC-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-REC-004</td><td>승인·수납 정합성 기능</td><td>승인, 취소, 환불, 주문 상태, 수납 상태가 불일치하지 않도록 상태를 재조회하고 복구하여 결제 업무 결과를 제공한다.<br/></td><td>실패 분류<br/>주문서 복원<br/>재시도 안내</td></tr></tbody>
+</table>
+
+<h4>22) 정기결제 대표·예비 수단 관리 (PR-PAY-RECUR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-RECUR-001</td><td>정기결제 수단 관리 기능</td><td>대표 결제수단, 예비 결제수단, 최근 사용 수단, 채널 공통 결제 프로필을 관리하여 결제 업무 결과를 제공한다.<br/></td><td>정기 수단 관리<br/>청구 조건 확인<br/>갱신 복구</td></tr></tbody>
+</table>
+
+<h4>23) 갱신 실패 사전 알림과 복구 (PR-PAY-RECUR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-RECUR-002</td><td>갱신 실패 복구 기능</td><td>카드 만료, 잔액 부족, 승인 실패 위험을 사전에 알리고 수단 변경 또는 선결제를 제공하여 결제 업무 결과를 제공한다.<br/></td><td>정기 수단 관리<br/>청구 조건 확인<br/>갱신 복구</td></tr></tbody>
+</table>
+
+<h4>24) 청구·납부·단말할부금 방식 선택 (PR-PAY-RECUR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-RECUR-003</td><td>청구·납부·단말할부금 선택 기능</td><td>청구정보, 납부정보, 일시불·선불, 후불 청구, SKT 자산 단말 할부금 계산 방식을 선택하여 결제 업무 결과를 제공한다.<br/></td><td>정기 수단 관리<br/>청구 조건 확인<br/>갱신 복구</td></tr></tbody>
+</table>
+
+<h4>25) 선불형 정기결제 조건 확인 (PR-PAY-RECUR-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-RECUR-004</td><td>선불형 정기결제 안내 기능</td><td>선불형 정기결제 가입, 결제 주기, 유지 조건, 다음 결제 일정을 확인하여 결제 업무 결과를 제공한다.<br/></td><td>정기 수단 관리<br/>청구 조건 확인<br/>갱신 복구</td></tr></tbody>
+</table>
+
+<h4>26) 영수증·거래내역·확인서 조회 (PR-PAY-PRF-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-PRF-001</td><td>결제 증빙 조회 기능</td><td>결제 완료 후 영수증, 거래내역, 확인서, 승인정보 요약을 조회·저장·공유하여 결제 업무 결과를 제공한다.<br/></td><td>증빙 조회<br/>발급 정보 검증<br/>발급 상태 확인</td></tr></tbody>
+</table>
+
+<h4>27) 현금영수증·세금계산서 발급정보 관리 (PR-PAY-PRF-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-PRF-002</td><td>발급정보 관리 기능</td><td>현금영수증 번호, 사업자 정보, 법인/B2B 발급 가능 여부와 발급 상태를 관리하여 결제 업무 결과를 제공한다.<br/></td><td>증빙 조회<br/>발급 정보 검증<br/>발급 상태 확인</td></tr></tbody>
+</table>
+
+<h4>28) 결제수단 노출·우선순위 관리 (PR-PAY-OPR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-OPR-001</td><td>수단 노출 기준 관리 기능</td><td>운영자가 채널, 상품군, 고객조건별 결제수단 노출 순서와 배지를 관리하여 결제 업무 결과를 제공한다.<br/></td><td>기준 등록<br/>검수 승인<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>29) 프로모션·제휴카드 기준 관리 (PR-PAY-OPR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-OPR-002</td><td>프로모션·제휴카드 기준 관리 기능</td><td>프로모션, 제휴카드, 제휴몰 코드, 적용 범위, 제외 규칙, 약관·노출상태, 상품 매핑 기준을 관리하여 결제 운영 기준을 제공한다.<br/></td><td>제휴 기준 등록<br/>약관·노출 검증<br/>공통 항목 배포</td></tr></tbody>
+</table>
+
+<h4>30) 할인·포인트 예외 기준 관리 (PR-PAY-OPR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-OPR-003</td><td>할인 예외 기준 관리 기능</td><td>포인트, 쿠폰, 할인 항목의 중복 허용, 결제수단 제약, 상품별 예외 기준을 관리하여 결제 업무 결과를 제공한다.<br/></td><td>기준 등록<br/>검수 승인<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>31) 검수·승인·예약 배포 (PR-PAY-OPR-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-OPR-004</td><td>정책 배포 관리 기능</td><td>운영자가 정책 변경을 작성, 검수, 승인, 예약 배포, 종료, 롤백하고 이력을 확인하여 결제 업무 결과를 제공한다.<br/></td><td>기준 등록<br/>검수 승인<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>32) 실패·갱신·보정 모니터링 (PR-PAY-OPR-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-OPR-005</td><td>결제 상태 모니터링 기능</td><td>갱신 실패, 결제 유예, 보류, 종료 예정, 수납 불일치 상태를 모니터링하고 보정하여 결제 업무 결과를 제공한다.<br/></td><td>기준 등록<br/>검수 승인<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>33) 결제 실패 문맥 확인 (PR-PAY-CS-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-CS-001</td><td>결제 상담 문맥 기능</td><td>상담사가 주문서, 거래ID, 결제수단, 혜택 조합, 실패 사유, 수납 상태를 확인하여 결제 업무 결과를 제공한다.<br/></td><td>문맥 조회<br/>대체 경로 안내<br/>후속 이력 저장</td></tr></tbody>
+</table>
+
+<h4>34) 대체 결제와 복구 안내 (PR-PAY-CS-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PAY-CS-002</td><td>대체 결제 안내 기능</td><td>상담사가 대체 결제수단, 재결제 가능 여부, 수납 보정, 환불·취소 후속 안내를 제공하여 결제 업무 결과를 제공한다.<br/></td><td>문맥 조회<br/>대체 경로 안내<br/>후속 이력 저장</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 결제 단계 진입과 유형 확인 (PR-PAY-AMT-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-SCOPE-001</td><td>결제 범위·경계 정책</td><td>결제 문서가 다루는 결제 처리, 결제수단, 할인 적용, 정기결제, 증빙의 범위와 인접 정책서 경계를 정한다.<br/></td><td>대상 범위<br/>제외 범위<br/>결제 단계 표준</td></tr><tr><td class="mono">PG-PAY-AMOUNT-001</td><td>결제 금액 확정 정책</td><td>상품금액, 할인, 최종 결제 금액, 월 반복 비용, 금액 변동 재확인 기준을 정한다.<br/></td><td>금액 구성<br/>금액 변동<br/>요약 표시<br/>가격 정책 기준</td></tr></tbody>
+</table>
+
+<h4>2) 상품금액·할인·최종금액 구성 (PR-PAY-AMT-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-AMOUNT-001</td><td>결제 금액 확정 정책</td><td>상품금액, 할인, 최종 결제 금액, 월 반복 비용, 금액 변동 재확인 기준을 정한다.<br/></td><td>금액 구성<br/>금액 변동<br/>요약 표시<br/>가격 정책 기준</td></tr><tr><td class="mono">PG-PAY-DISCOUNT-001</td><td>할인 적용 정책</td><td>쿠폰, 할인, 최적 조합, 적용 전후 금액과 적용 불가 사유 기준을 정한다.<br/></td><td>적용 상태<br/>최적 조합<br/>적용 불가</td></tr></tbody>
+</table>
+
+<h4>3) 분리 결제와 0원 결제 판정 (PR-PAY-AMT-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-SPLIT-001</td><td>분리·분할 결제 정책</td><td>혼합 주문, 분리 결제, 분할 납부, 할부 방식과 청구 방식 선택 기준을 정한다.<br/></td><td>분리 결제<br/>분할 납부<br/>할부 방식</td></tr><tr><td class="mono">PG-PAY-ZERO-001</td><td>0원 결제 정책</td><td>최종 결제 금액이 0원인 경우 결제수단 선택 없이 완료하는 기준을 정한다.<br/></td><td>무결제 완료<br/>0원 증빙<br/>0원 실패</td></tr></tbody>
+</table>
+
+<h4>4) 금액 변동 재확인 (PR-PAY-AMT-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-AMOUNT-001</td><td>결제 금액 확정 정책</td><td>상품금액, 할인, 최종 결제 금액, 월 반복 비용, 금액 변동 재확인 기준을 정한다.<br/></td><td>금액 구성<br/>금액 변동<br/>요약 표시<br/>가격 정책 기준</td></tr><tr><td class="mono">PG-PAY-HIST-001</td><td>결제 이력 정책</td><td>결제 요청, 승인, 실패, 복귀, 증빙, 운영 변경 이력 저장 기준을 정한다.<br/></td><td>거래 이력<br/>고객 조회<br/>운영 이력</td></tr></tbody>
+</table>
+
+<h4>5) 결제수단 후보와 제한 사유 확인 (PR-PAY-MTD-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr><tr><td class="mono">PG-PAY-LIMIT-001</td><td>결제수단 제한 정책</td><td>상품, 주문단위, 고객조건별 허용·제한 결제수단과 제한 사유 표시 기준을 정한다.<br/></td><td>허용 수단<br/>제한 수단<br/>제한 사유</td></tr></tbody>
+</table>
+
+<h4>6) 결제수단 등록·삭제·기본 설정 (PR-PAY-MTD-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr><tr><td class="mono">PG-PAY-AUTH-001</td><td>결제 인증 정책</td><td>결제 인증, 추가 인증, 원탭 결제, 거래 바인딩 인증 기준을 정한다.<br/></td><td>추가 인증<br/>인증 유효 시간<br/>원탭 결제<br/>거래 바인딩</td></tr><tr><td class="mono">PG-PAY-HIST-001</td><td>결제 이력 정책</td><td>결제 요청, 승인, 실패, 복귀, 증빙, 운영 변경 이력 저장 기준을 정한다.<br/></td><td>거래 이력<br/>고객 조회<br/>운영 이력</td></tr></tbody>
+</table>
+
+<h4>7) 입력 최소화와 카드 OCR 등록 (PR-PAY-MTD-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr><tr><td class="mono">PG-PAY-AUTH-001</td><td>결제 인증 정책</td><td>결제 인증, 추가 인증, 원탭 결제, 거래 바인딩 인증 기준을 정한다.<br/></td><td>추가 인증<br/>인증 유효 시간<br/>원탭 결제<br/>거래 바인딩</td></tr></tbody>
+</table>
+
+<h4>8) 추가 인증과 거래 바인딩 (PR-PAY-MTD-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-AUTH-001</td><td>결제 인증 정책</td><td>결제 인증, 추가 인증, 원탭 결제, 거래 바인딩 인증 기준을 정한다.<br/></td><td>추가 인증<br/>인증 유효 시간<br/>원탭 결제<br/>거래 바인딩</td></tr><tr><td class="mono">PG-PAY-APPROVAL-001</td><td>결제 승인 정책</td><td>결제 전 최종 확인, 결제 요청, 승인 결과, 처리 중 상태 기준을 정한다.<br/></td><td>최종 확인<br/>처리 중<br/>성공 결과</td></tr></tbody>
+</table>
+
+<h4>9) 사용 가능 혜택 조회 (PR-PAY-DCN-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-DISCOUNT-001</td><td>할인 적용 정책</td><td>쿠폰, 할인, 최적 조합, 적용 전후 금액과 적용 불가 사유 기준을 정한다.<br/></td><td>적용 상태<br/>최적 조합<br/>적용 불가</td></tr><tr><td class="mono">PG-PAY-POINT-001</td><td>포인트·쿠폰 적용 정책</td><td>포인트, 제휴 포인트, 쿠폰의 전액·일부 사용, 우선순위, 중복·배타 기준을 정한다.<br/></td><td>포인트 사용<br/>쿠폰 선택<br/>중복 우선순위<br/>제휴 포인트<br/>비로그인 쿠폰 대안</td></tr></tbody>
+</table>
+
+<h4>10) 쿠폰·포인트·할인 조합 선택 (PR-PAY-DCN-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-POINT-001</td><td>포인트·쿠폰 적용 정책</td><td>포인트, 제휴 포인트, 쿠폰의 전액·일부 사용, 우선순위, 중복·배타 기준을 정한다.<br/></td><td>포인트 사용<br/>쿠폰 선택<br/>중복 우선순위<br/>제휴 포인트<br/>비로그인 쿠폰 대안</td></tr><tr><td class="mono">PG-PAY-DISCOUNT-001</td><td>할인 적용 정책</td><td>쿠폰, 할인, 최적 조합, 적용 전후 금액과 적용 불가 사유 기준을 정한다.<br/></td><td>적용 상태<br/>최적 조합<br/>적용 불가</td></tr></tbody>
+</table>
+
+<h4>11) 우선순위·중복·배타 검증 (PR-PAY-DCN-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-DISCOUNT-001</td><td>할인 적용 정책</td><td>쿠폰, 할인, 최적 조합, 적용 전후 금액과 적용 불가 사유 기준을 정한다.<br/></td><td>적용 상태<br/>최적 조합<br/>적용 불가</td></tr><tr><td class="mono">PG-PAY-POINT-001</td><td>포인트·쿠폰 적용 정책</td><td>포인트, 제휴 포인트, 쿠폰의 전액·일부 사용, 우선순위, 중복·배타 기준을 정한다.<br/></td><td>포인트 사용<br/>쿠폰 선택<br/>중복 우선순위<br/>제휴 포인트<br/>비로그인 쿠폰 대안</td></tr></tbody>
+</table>
+
+<h4>12) 결제수단 프로모션 반영 (PR-PAY-DCN-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-PROMO-001</td><td>결제수단 프로모션 정책</td><td>결제수단 프로모션의 즉시할인, 청구할인, 캐시백, 적용 범위, 고지 기준을 정한다.<br/></td><td>즉시할인<br/>사후 혜택<br/>적용 범위<br/>충돌 규칙<br/>혼합 주문 프로모션</td></tr><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr></tbody>
+</table>
+
+<h4>13) 적용 전후 금액 확정 (PR-PAY-DCN-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-AMOUNT-001</td><td>결제 금액 확정 정책</td><td>상품금액, 할인, 최종 결제 금액, 월 반복 비용, 금액 변동 재확인 기준을 정한다.<br/></td><td>금액 구성<br/>금액 변동<br/>요약 표시<br/>가격 정책 기준</td></tr><tr><td class="mono">PG-PAY-DISCOUNT-001</td><td>할인 적용 정책</td><td>쿠폰, 할인, 최적 조합, 적용 전후 금액과 적용 불가 사유 기준을 정한다.<br/></td><td>적용 상태<br/>최적 조합<br/>적용 불가</td></tr><tr><td class="mono">PG-PAY-POINT-001</td><td>포인트·쿠폰 적용 정책</td><td>포인트, 제휴 포인트, 쿠폰의 전액·일부 사용, 우선순위, 중복·배타 기준을 정한다.<br/></td><td>포인트 사용<br/>쿠폰 선택<br/>중복 우선순위<br/>제휴 포인트<br/>비로그인 쿠폰 대안</td></tr></tbody>
+</table>
+
+<h4>14) 결제 전 최종 확인 (PR-PAY-APR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-APPROVAL-001</td><td>결제 승인 정책</td><td>결제 전 최종 확인, 결제 요청, 승인 결과, 처리 중 상태 기준을 정한다.<br/></td><td>최종 확인<br/>처리 중<br/>성공 결과</td></tr><tr><td class="mono">PG-PAY-AMOUNT-001</td><td>결제 금액 확정 정책</td><td>상품금액, 할인, 최종 결제 금액, 월 반복 비용, 금액 변동 재확인 기준을 정한다.<br/></td><td>금액 구성<br/>금액 변동<br/>요약 표시<br/>가격 정책 기준</td></tr><tr><td class="mono">PG-PAY-AUTH-001</td><td>결제 인증 정책</td><td>결제 인증, 추가 인증, 원탭 결제, 거래 바인딩 인증 기준을 정한다.<br/></td><td>추가 인증<br/>인증 유효 시간<br/>원탭 결제<br/>거래 바인딩</td></tr></tbody>
+</table>
+
+<h4>15) 결제 요청 제출과 중복 차단 (PR-PAY-APR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-APPROVAL-001</td><td>결제 승인 정책</td><td>결제 전 최종 확인, 결제 요청, 승인 결과, 처리 중 상태 기준을 정한다.<br/></td><td>최종 확인<br/>처리 중<br/>성공 결과</td></tr><tr><td class="mono">PG-PAY-DUP-001</td><td>중복 결제 방지 정책</td><td>결제하기 연타, 재진입, 콜백 중복, 멱등키 기반 중복 결제 방지 기준을 정한다.<br/></td><td>연타 방지<br/>멱등키<br/>재진입 차단</td></tr></tbody>
+</table>
+
+<h4>16) 외부 간편결제 전환과 복귀 (PR-PAY-APR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-EXTERNAL-001</td><td>외부 결제 연동 정책</td><td>간편결제 앱·웹뷰·리다이렉트 전환과 복귀 상태 복원 기준을 정한다.<br/></td><td>외부 전환<br/>복귀 복원<br/>콜백 실패</td></tr><tr><td class="mono">PG-PAY-ORDER-001</td><td>주문서 유지 정책</td><td>결제 실패·중단 후 주문서 유지 기간, 만료, 복귀 영향 기준을 정한다.<br/></td><td>유지 기간<br/>중단 안내<br/>만료 영향</td></tr></tbody>
+</table>
+
+<h4>17) 처리 중 상태와 성공 결과 안내 (PR-PAY-APR-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-APPROVAL-001</td><td>결제 승인 정책</td><td>결제 전 최종 확인, 결제 요청, 승인 결과, 처리 중 상태 기준을 정한다.<br/></td><td>최종 확인<br/>처리 중<br/>성공 결과</td></tr><tr><td class="mono">PG-PAY-BSS-001</td><td>BSS 수납 반영 정책</td><td>PG 승인, BSS 수납 반영, 주문·계약 상태, 부분 성공, 보류, 환불·취소 정합성 기준을 정한다.<br/></td><td>수납 반영<br/>불일치<br/>취소·환불<br/>부분 성공</td></tr><tr><td class="mono">PG-PAY-PROOF-001</td><td>결제 증빙 정책</td><td>영수증, 거래내역, 확인서, 현금영수증, 세금계산서 발급 기준을 정한다.<br/></td><td>영수증<br/>현금영수증<br/>세금계산서</td></tr></tbody>
+</table>
+
+<h4>18) 실패 사유 분류 (PR-PAY-REC-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-FAIL-001</td><td>결제 실패 정책</td><td>결제 실패 사유 분류, 실패 화면, 재시도 가능 여부와 대체 결제수단 안내 기준을 정한다.<br/></td><td>실패 분류<br/>실패 CTA<br/>재시도 횟수</td></tr><tr><td class="mono">PG-PAY-BSS-001</td><td>BSS 수납 반영 정책</td><td>PG 승인, BSS 수납 반영, 주문·계약 상태, 부분 성공, 보류, 환불·취소 정합성 기준을 정한다.<br/></td><td>수납 반영<br/>불일치<br/>취소·환불<br/>부분 성공</td></tr></tbody>
+</table>
+
+<h4>19) 기존 주문서 복귀와 이어하기 (PR-PAY-REC-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-ORDER-001</td><td>주문서 유지 정책</td><td>결제 실패·중단 후 주문서 유지 기간, 만료, 복귀 영향 기준을 정한다.<br/></td><td>유지 기간<br/>중단 안내<br/>만료 영향</td></tr><tr><td class="mono">PG-PAY-RECOVERY-001</td><td>결제 복구 정책</td><td>실패 후 주문서 복귀, 선택값 유지, 재결제, 할인 재적용, 수단 변경 기준을 정한다.<br/></td><td>주문서 복귀<br/>혜택 재검증<br/>복구 불가</td></tr></tbody>
+</table>
+
+<h4>20) 재시도·수단 변경·할인 재적용 (PR-PAY-REC-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-RECOVERY-001</td><td>결제 복구 정책</td><td>실패 후 주문서 복귀, 선택값 유지, 재결제, 할인 재적용, 수단 변경 기준을 정한다.<br/></td><td>주문서 복귀<br/>혜택 재검증<br/>복구 불가</td></tr><tr><td class="mono">PG-PAY-FAIL-001</td><td>결제 실패 정책</td><td>결제 실패 사유 분류, 실패 화면, 재시도 가능 여부와 대체 결제수단 안내 기준을 정한다.<br/></td><td>실패 분류<br/>실패 CTA<br/>재시도 횟수</td></tr><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr></tbody>
+</table>
+
+<h4>21) 취소·환불·상태 복구 정합성 확인 (PR-PAY-REC-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-BSS-001</td><td>BSS 수납 반영 정책</td><td>PG 승인, BSS 수납 반영, 주문·계약 상태, 부분 성공, 보류, 환불·취소 정합성 기준을 정한다.<br/></td><td>수납 반영<br/>불일치<br/>취소·환불<br/>부분 성공</td></tr><tr><td class="mono">PG-PAY-FAIL-001</td><td>결제 실패 정책</td><td>결제 실패 사유 분류, 실패 화면, 재시도 가능 여부와 대체 결제수단 안내 기준을 정한다.<br/></td><td>실패 분류<br/>실패 CTA<br/>재시도 횟수</td></tr><tr><td class="mono">PG-PAY-HIST-001</td><td>결제 이력 정책</td><td>결제 요청, 승인, 실패, 복귀, 증빙, 운영 변경 이력 저장 기준을 정한다.<br/></td><td>거래 이력<br/>고객 조회<br/>운영 이력</td></tr></tbody>
+</table>
+
+<h4>22) 정기결제 대표·예비 수단 관리 (PR-PAY-RECUR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-RECUR-001</td><td>정기결제 정책</td><td>정기결제 대표·예비 수단, 갱신 실패, 유예, 선불형 정기결제 기준을 정한다.<br/></td><td>대표·예비 수단<br/>실패 유예<br/>갱신 알림<br/>선불형</td></tr><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr></tbody>
+</table>
+
+<h4>23) 갱신 실패 사전 알림과 복구 (PR-PAY-RECUR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-RECUR-001</td><td>정기결제 정책</td><td>정기결제 대표·예비 수단, 갱신 실패, 유예, 선불형 정기결제 기준을 정한다.<br/></td><td>대표·예비 수단<br/>실패 유예<br/>갱신 알림<br/>선불형</td></tr><tr><td class="mono">PG-PAY-FAIL-001</td><td>결제 실패 정책</td><td>결제 실패 사유 분류, 실패 화면, 재시도 가능 여부와 대체 결제수단 안내 기준을 정한다.<br/></td><td>실패 분류<br/>실패 CTA<br/>재시도 횟수</td></tr><tr><td class="mono">PG-PAY-CS-001</td><td>결제 상담 전환 정책</td><td>결제 실패 또는 수납 불일치 상담 전환과 상담 문맥 유지 기준을 정한다.<br/></td><td>상담 문맥<br/>대체 안내<br/>후속 이력</td></tr></tbody>
+</table>
+
+<h4>24) 청구·납부·단말할부금 방식 선택 (PR-PAY-RECUR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-BILLING-001</td><td>청구·납부 방식 정책</td><td>청구정보, 납부정보, 일시불, 후불 청구, 단말할부금 계산 방식 기준을 정한다.<br/></td><td>청구정보<br/>납부정보<br/>변상금<br/>일시불·선불 수납<br/>SKT 자산 단말 수납<br/>단말할부금 청구방식 선택</td></tr><tr><td class="mono">PG-PAY-SPLIT-001</td><td>분리·분할 결제 정책</td><td>혼합 주문, 분리 결제, 분할 납부, 할부 방식과 청구 방식 선택 기준을 정한다.<br/></td><td>분리 결제<br/>분할 납부<br/>할부 방식</td></tr></tbody>
+</table>
+
+<h4>25) 선불형 정기결제 조건 확인 (PR-PAY-RECUR-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-RECUR-001</td><td>정기결제 정책</td><td>정기결제 대표·예비 수단, 갱신 실패, 유예, 선불형 정기결제 기준을 정한다.<br/></td><td>대표·예비 수단<br/>실패 유예<br/>갱신 알림<br/>선불형</td></tr><tr><td class="mono">PG-PAY-BILLING-001</td><td>청구·납부 방식 정책</td><td>청구정보, 납부정보, 일시불, 후불 청구, 단말할부금 계산 방식 기준을 정한다.<br/></td><td>청구정보<br/>납부정보<br/>변상금<br/>일시불·선불 수납<br/>SKT 자산 단말 수납<br/>단말할부금 청구방식 선택</td></tr></tbody>
+</table>
+
+<h4>26) 영수증·거래내역·확인서 조회 (PR-PAY-PRF-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-PROOF-001</td><td>결제 증빙 정책</td><td>영수증, 거래내역, 확인서, 현금영수증, 세금계산서 발급 기준을 정한다.<br/></td><td>영수증<br/>현금영수증<br/>세금계산서</td></tr><tr><td class="mono">PG-PAY-HIST-001</td><td>결제 이력 정책</td><td>결제 요청, 승인, 실패, 복귀, 증빙, 운영 변경 이력 저장 기준을 정한다.<br/></td><td>거래 이력<br/>고객 조회<br/>운영 이력</td></tr></tbody>
+</table>
+
+<h4>27) 현금영수증·세금계산서 발급정보 관리 (PR-PAY-PRF-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-PROOF-001</td><td>결제 증빙 정책</td><td>영수증, 거래내역, 확인서, 현금영수증, 세금계산서 발급 기준을 정한다.<br/></td><td>영수증<br/>현금영수증<br/>세금계산서</td></tr><tr><td class="mono">PG-PAY-AUTH-001</td><td>결제 인증 정책</td><td>결제 인증, 추가 인증, 원탭 결제, 거래 바인딩 인증 기준을 정한다.<br/></td><td>추가 인증<br/>인증 유효 시간<br/>원탭 결제<br/>거래 바인딩</td></tr></tbody>
+</table>
+
+<h4>28) 결제수단 노출·우선순위 관리 (PR-PAY-OPR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-OPR-001</td><td>운영 정책 관리 기준</td><td>운영자가 결제수단, 프로모션, 할인, 검수·승인·배포, 모니터링 기준을 관리하는 정책을 정한다.<br/></td><td>수단 정책<br/>프로모션 관리<br/>검수 배포<br/>모니터링<br/>제휴몰 코드 관리</td></tr><tr><td class="mono">PG-PAY-METHOD-001</td><td>결제수단 선택 정책</td><td>결제수단 노출, 선택, 등록, 삭제, 기본 수단, 채널 공통 결제 프로필 기준을 정한다.<br/></td><td>수단 노출<br/>수단 등록<br/>입력 최소화<br/>프로필 연속성</td></tr><tr><td class="mono">PG-PAY-LIMIT-001</td><td>결제수단 제한 정책</td><td>상품, 주문단위, 고객조건별 허용·제한 결제수단과 제한 사유 표시 기준을 정한다.<br/></td><td>허용 수단<br/>제한 수단<br/>제한 사유</td></tr></tbody>
+</table>
+
+<h4>29) 프로모션·제휴카드 기준 관리 (PR-PAY-OPR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-OPR-001</td><td>운영 정책 관리 기준</td><td>운영자가 결제수단, 프로모션, 할인, 검수·승인·배포, 모니터링 기준을 관리하는 정책을 정한다.<br/></td><td>수단 정책<br/>프로모션 관리<br/>검수 배포<br/>모니터링<br/>제휴몰 코드 관리</td></tr><tr><td class="mono">PG-PAY-PROMO-001</td><td>결제수단 프로모션 정책</td><td>결제수단 프로모션의 즉시할인, 청구할인, 캐시백, 적용 범위, 고지 기준을 정한다.<br/></td><td>즉시할인<br/>사후 혜택<br/>적용 범위<br/>충돌 규칙<br/>혼합 주문 프로모션</td></tr><tr><td class="mono">PG-PAY-PARTNER-001</td><td>제휴카드 운영 정책</td><td>제휴할인카드의 등록, 노출, 약관, 상태, 상품 매핑, 공통 항목 일괄 설정 기준을 정한다.<br/></td><td>제휴카드 탐색 위치<br/>제휴카드 유의사항 관리<br/>카드코드·할인적용·노출상태 산정<br/>카드 이미지 검증<br/>할인대상 매핑<br/>입력 유효성 검증<br/>저장 후 결과 확인<br/>약관 버전 관리<br/>제휴카드 삭제 및 상태관리<br/>제휴카드 노출순서 및 적용상품 매핑·공통 항목</td></tr></tbody>
+</table>
+
+<h4>30) 할인·포인트 예외 기준 관리 (PR-PAY-OPR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-OPR-001</td><td>운영 정책 관리 기준</td><td>운영자가 결제수단, 프로모션, 할인, 검수·승인·배포, 모니터링 기준을 관리하는 정책을 정한다.<br/></td><td>수단 정책<br/>프로모션 관리<br/>검수 배포<br/>모니터링<br/>제휴몰 코드 관리</td></tr><tr><td class="mono">PG-PAY-DISCOUNT-001</td><td>할인 적용 정책</td><td>쿠폰, 할인, 최적 조합, 적용 전후 금액과 적용 불가 사유 기준을 정한다.<br/></td><td>적용 상태<br/>최적 조합<br/>적용 불가</td></tr><tr><td class="mono">PG-PAY-POINT-001</td><td>포인트·쿠폰 적용 정책</td><td>포인트, 제휴 포인트, 쿠폰의 전액·일부 사용, 우선순위, 중복·배타 기준을 정한다.<br/></td><td>포인트 사용<br/>쿠폰 선택<br/>중복 우선순위<br/>제휴 포인트<br/>비로그인 쿠폰 대안</td></tr></tbody>
+</table>
+
+<h4>31) 검수·승인·예약 배포 (PR-PAY-OPR-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-OPR-001</td><td>운영 정책 관리 기준</td><td>운영자가 결제수단, 프로모션, 할인, 검수·승인·배포, 모니터링 기준을 관리하는 정책을 정한다.<br/></td><td>수단 정책<br/>프로모션 관리<br/>검수 배포<br/>모니터링<br/>제휴몰 코드 관리</td></tr><tr><td class="mono">PG-PAY-HIST-001</td><td>결제 이력 정책</td><td>결제 요청, 승인, 실패, 복귀, 증빙, 운영 변경 이력 저장 기준을 정한다.<br/></td><td>거래 이력<br/>고객 조회<br/>운영 이력</td></tr><tr><td class="mono">PG-PAY-PARTNER-001</td><td>제휴카드 운영 정책</td><td>제휴할인카드의 등록, 노출, 약관, 상태, 상품 매핑, 공통 항목 일괄 설정 기준을 정한다.<br/></td><td>제휴카드 탐색 위치<br/>제휴카드 유의사항 관리<br/>카드코드·할인적용·노출상태 산정<br/>카드 이미지 검증<br/>할인대상 매핑<br/>입력 유효성 검증<br/>저장 후 결과 확인<br/>약관 버전 관리<br/>제휴카드 삭제 및 상태관리<br/>제휴카드 노출순서 및 적용상품 매핑·공통 항목</td></tr></tbody>
+</table>
+
+<h4>32) 실패·갱신·보정 모니터링 (PR-PAY-OPR-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-OPR-001</td><td>운영 정책 관리 기준</td><td>운영자가 결제수단, 프로모션, 할인, 검수·승인·배포, 모니터링 기준을 관리하는 정책을 정한다.<br/></td><td>수단 정책<br/>프로모션 관리<br/>검수 배포<br/>모니터링<br/>제휴몰 코드 관리</td></tr><tr><td class="mono">PG-PAY-FAIL-001</td><td>결제 실패 정책</td><td>결제 실패 사유 분류, 실패 화면, 재시도 가능 여부와 대체 결제수단 안내 기준을 정한다.<br/></td><td>실패 분류<br/>실패 CTA<br/>재시도 횟수</td></tr><tr><td class="mono">PG-PAY-BSS-001</td><td>BSS 수납 반영 정책</td><td>PG 승인, BSS 수납 반영, 주문·계약 상태, 부분 성공, 보류, 환불·취소 정합성 기준을 정한다.<br/></td><td>수납 반영<br/>불일치<br/>취소·환불<br/>부분 성공</td></tr></tbody>
+</table>
+
+<h4>33) 결제 실패 문맥 확인 (PR-PAY-CS-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-CS-001</td><td>결제 상담 전환 정책</td><td>결제 실패 또는 수납 불일치 상담 전환과 상담 문맥 유지 기준을 정한다.<br/></td><td>상담 문맥<br/>대체 안내<br/>후속 이력</td></tr><tr><td class="mono">PG-PAY-HIST-001</td><td>결제 이력 정책</td><td>결제 요청, 승인, 실패, 복귀, 증빙, 운영 변경 이력 저장 기준을 정한다.<br/></td><td>거래 이력<br/>고객 조회<br/>운영 이력</td></tr></tbody>
+</table>
+
+<h4>34) 대체 결제와 복구 안내 (PR-PAY-CS-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PAY-CS-001</td><td>결제 상담 전환 정책</td><td>결제 실패 또는 수납 불일치 상담 전환과 상담 문맥 유지 기준을 정한다.<br/></td><td>상담 문맥<br/>대체 안내<br/>후속 이력</td></tr><tr><td class="mono">PG-PAY-RECOVERY-001</td><td>결제 복구 정책</td><td>실패 후 주문서 복귀, 선택값 유지, 재결제, 할인 재적용, 수단 변경 기준을 정한다.<br/></td><td>주문서 복귀<br/>혜택 재검증<br/>복구 불가</td></tr><tr><td class="mono">PG-PAY-FAIL-001</td><td>결제 실패 정책</td><td>결제 실패 사유 분류, 실패 화면, 재시도 가능 여부와 대체 결제수단 안내 기준을 정한다.<br/></td><td>실패 분류<br/>실패 CTA<br/>재시도 횟수</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 결제 범위·경계 정책 (PG-PAY-SCOPE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 대상 범위 <span class="mono">(PI-PAY-SCOPE-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 본 문서는 결제 처리, 결제수단, 할인·포인트·쿠폰, 결제수단 프로모션, 정기결제, 증빙 발급, 결제 실패 복구를 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제외 범위 <span class="mono">(PI-PAY-SCOPE-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 탐색, 주문 생성, 배송·교환·반품, 계약 상세 조항은 인접 정책서에서 정의하고 본 문서는 결제 영향과 연계 결과만 다룬다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결제 단계 표준 <span class="mono">(PI-PAY-SCOPE-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문 최종 검토 이후 결제 단계는 상품금액, 수단 선택, 혜택 적용, 최종 금액 확인, 결제 진행 순서로 구성한다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 결제 금액 확정 정책 (PG-PAY-AMOUNT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 금액 구성 <span class="mono">(PI-PAY-AMOUNT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 화면은 상품금액, 할인 합계, 포인트·쿠폰 차감, 즉시 결제 금액, 월 반복 비용, 다음 청구 반영 금액을 구분해 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 금액 변동 <span class="mono">(PI-PAY-AMOUNT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 직전 금액이 바뀌면 변동 사유, 변경 전 금액, 변경 후 금액을 표시하고 고객 재확인을 받아야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 요약 표시 <span class="mono">(PI-PAY-AMOUNT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 요약은 주문단위별 최종 결제 금액을 기본값으로 표시하고, 상품금액·할인·포인트·쿠폰·청구 반영 금액은 항목별 상세 펼침에서 확인할 수 있게 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가격 정책 기준 <span class="mono">(PI-PAY-AMOUNT-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- Product Offering의 Price Plan, 매출 구분, 정액·정률·종량·일시불 구조는 결제 금액 구성의 기준 데이터로 사용한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 결제수단 선택 정책 (PG-PAY-METHOD-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 수단 노출 <span class="mono">(PI-PAY-METHOD-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용 가능한 결제수단은 최근 사용, 기본 수단, 채널 공통 결제 프로필 순으로 우선 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 수단 등록 <span class="mono">(PI-PAY-METHOD-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카드, 계좌, 간편결제 등록은 본인확인과 유효성 검증을 통과한 경우에만 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 입력 최소화 <span class="mono">(PI-PAY-METHOD-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 저장된 수단, 자동완성, 카드 OCR, 스캔 입력은 고객 동의가 있을 때만 사용하고 인식 실패 시 수동 입력으로 전환한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 프로필 연속성 <span class="mono">(PI-PAY-METHOD-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기본 수단, 최근 사용 수단, 할부 개월 수, 현금영수증 유형, 환불 계좌는 고객 단위 공통 결제 프로필로 저장하고 고객이 삭제 또는 기본값 변경을 요청하면 즉시 반영한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 결제수단 제한 정책 (PG-PAY-LIMIT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 허용 수단 <span class="mono">(PI-PAY-LIMIT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 또는 주문단위별 Allowlist에 포함된 결제수단만 선택 가능으로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제한 수단 <span class="mono">(PI-PAY-LIMIT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- Blocklist 또는 한도·인증·상품 조건에 걸린 수단은 비활성화하고 제한 사유와 대체 수단을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제한 사유 <span class="mono">(PI-PAY-LIMIT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제한 사유는 상품 제한, 결제수단 한도, 고객 인증 부족, 프로모션 조건 불충족, 외부 연계 불가 중 하나로 표준화한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 결제 인증 정책 (PG-PAY-AUTH-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 추가 인증 <span class="mono">(PI-PAY-AUTH-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고액, 기기 변경, 이상 거래, 외부 결제, 저장 수단 변경은 Step-up 인증 대상이다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 유효 시간 <span class="mono">(PI-PAY-AUTH-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 추가 인증 유효 시간은 10분이며 만료되면 결제수단과 혜택 선택값은 유지하고 인증만 다시 요구한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 원탭 결제 <span class="mono">(PI-PAY-AUTH-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 등록 인증 기반 원탭 결제는 동일 기기, 정상 위험 등급, 저장 수단 유효 상태를 모두 만족할 때만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 거래 바인딩 <span class="mono">(PI-PAY-AUTH-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 최종 강한 인증은 주문번호, 결제금액, 결제수단, 거래ID와 묶어서 수행한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 할인 적용 정책 (PG-PAY-DISCOUNT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 적용 상태 <span class="mono">(PI-PAY-DISCOUNT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 혜택 영역은 지금 적용 가능, 조건 충족 시 가능, 적용 불가 세 상태로 구분해 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 최적 조합 <span class="mono">(PI-PAY-DISCOUNT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 최적 조합 제안은 고객이 그대로 적용하거나 일부 변경할 수 있어야 하며 변경 시 최종 금액을 즉시 갱신한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 적용 불가 <span class="mono">(PI-PAY-DISCOUNT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 만료, 잔액 부족, 최소 금액 미충족, 중복 불가, 특정 수단 제한은 적용 불가 사유와 대체 적용안을 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 포인트·쿠폰 적용 정책 (PG-PAY-POINT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 포인트 사용 <span class="mono">(PI-PAY-POINT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 포인트는 전액 사용, 일부 사용, 최대 사용, 적용 해제 방식으로 선택할 수 있고 변경 즉시 남은 결제 금액을 갱신한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 쿠폰 선택 <span class="mono">(PI-PAY-POINT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용 가능한 쿠폰은 대상, 기간, 최소 금액, 만료 임박 기준으로 필터링하고 불가 쿠폰은 사유를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중복 우선순위 <span class="mono">(PI-PAY-POINT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 포인트, 쿠폰, 할인은 운영자가 등록한 우선순위와 중복 가능 여부를 적용하되 고객에게 적용 순서를 문장으로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제휴 포인트 <span class="mono">(PI-PAY-POINT-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴 포인트는 연동 완료, 잔액 조회 성공, 사용 조건 충족 시에만 결제수단 또는 혜택으로 선택할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 비로그인 쿠폰 대안 <span class="mono">(PI-PAY-POINT-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 비로그인 상태에서 쿠폰 목록을 조회할 수 없으면 로그인 유도만 표시하지 않는다.<br/></span><span class="policy-item-line">- 일반 적용 조건 보기, 로그인 후 적용 가능 안내, 대체 혜택 탐색 경로를 함께 제공하고 쿠폰 선택값은 로그인 완료 전까지 확정하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 결제수단 프로모션 정책 (PG-PAY-PROMO-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 즉시할인 <span class="mono">(PI-PAY-PROMO-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 즉시할인은 결제 금액 구성의 별도 라인으로 표시하고 조건 미충족 시 사유를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 사후 혜택 <span class="mono">(PI-PAY-PROMO-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구할인과 캐시백은 사후 혜택 섹션으로 분리하고 지급 주체, 지급 시점, 확인 경로, 한도를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 적용 범위 <span class="mono">(PI-PAY-PROMO-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 프로모션 적용 범위는 전체, 카테고리, 상품, 주문단위 중 하나로 관리하고 제외 대상은 결제 전에 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 충돌 규칙 <span class="mono">(PI-PAY-PROMO-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제수단 프로모션과 쿠폰·포인트가 중복 불가이면 우선 적용 항목과 제외 항목을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 혼합 주문 프로모션 <span class="mono">(PI-PAY-PROMO-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 혼합 주문에서 프로모션이 일부 상품 또는 카테고리에만 적용되면 적용 대상과 제외 대상을 라벨로 분리 표시하고, 합산 결제 조건을 충족하지 못하면 분리 결제로 전환한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 제휴카드 운영 정책 (PG-PAY-PARTNER-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 제휴카드 탐색 위치 <span class="mono">(PI-PAY-PARTNER-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 상세 또는 비교 팝업에서 카드가 2개 이상이면 전체 카드 수와 현재 위치를 함께 표시한다.<br/></span><span class="policy-item-line">- 고객이 좌우 탐색 중 동일 카드에 머무르거나 적용 가능 혜택을 놓치지 않도록 현재 위치, 이전·다음 이동 가능 여부, 선택 카드명을 함께 갱신한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제휴카드 유의사항 관리 <span class="mono">(PI-PAY-PARTNER-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금할인카드와 휴대폰할인카드의 유의사항은 카드 유형, 적용 기간, 상품군, 고객 유형별로 등록·수정·중지할 수 있다.<br/></span><span class="policy-item-line">- 변경 내용은 검수 승인 후 노출하고 작성자, 승인자, 적용 시작 시각, 이전 문구를 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 카드코드·할인적용·노출상태 산정 <span class="mono">(PI-PAY-PARTNER-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 코드는 카드 유형 Prefix와 자동 증가 일련번호 조합으로 생성하며 수동 중복 등록을 허용하지 않는다.<br/></span><span class="policy-item-line">- 할인적용 상태와 프론트 노출상태는 사용여부, 사용기간, 승인상태, 적용상품 매핑 결과가 모두 유효한 경우에만 가능으로 산정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 카드 이미지 검증 <span class="mono">(PI-PAY-PARTNER-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카드 이미지는 승인된 확장자, 용량, 비율, 최소 해상도 기준을 통과한 경우에만 저장한다.<br/></span><span class="policy-item-line">- 기준 미달이면 저장을 차단하고 운영자에게 보완 사유와 재업로드 기준을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 할인대상 매핑 <span class="mono">(PI-PAY-PARTNER-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 할인 대상은 단말, 인터넷, Btv, 요금제, 상품군 중 적용 단위를 선택해 매핑한다.<br/></span><span class="policy-item-line">- 동일 카드에 중복 또는 충돌 매핑이 있으면 우선순위와 제외 대상을 확인한 뒤 승인 대상으로 전환한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 입력 유효성 검증 <span class="mono">(PI-PAY-PARTNER-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 등록·수정 시 카드명, 카드코드, 사용기간, 노출순서, 약관 버전, 유의사항, 할인대상 매핑을 필수 검증한다.<br/></span><span class="policy-item-line">- 필수값 누락이나 기간 역전, 중복 코드, 승인 전 노출 시도는 저장 전 차단한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 저장 후 결과 확인 <span class="mono">(PI-PAY-PARTNER-007)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 저장이 완료되면 운영자는 저장된 상세 화면으로 이동해 카드코드, 노출상태, 약관 버전, 적용상품 매핑, 유의사항 반영 결과를 확인한다.<br/></span><span class="policy-item-line">- 저장 실패 시 입력 화면을 유지하고 실패 항목별 보완 위치를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 버전 관리 <span class="mono">(PI-PAY-PARTNER-008)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 약관은 버전 단위로 등록하고 결제 또는 혜택 적용 시점의 약관 버전을 거래 이력에 저장한다.<br/></span><span class="policy-item-line">- 사용 중인 약관 버전은 삭제하지 않고 종료 처리하며, 신규 버전은 승인 후 적용 시작 시각부터 사용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제휴카드 삭제 및 상태관리 <span class="mono">(PI-PAY-PARTNER-009)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 삭제는 진행 중 프로모션, 적용상품 매핑, 고객 거래 참조가 없는 경우에만 허용한다.<br/></span><span class="policy-item-line">- 참조가 있으면 삭제 대신 사용중지 또는 노출중지로 상태관리하고 변경 사유와 영향 범위를 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제휴카드 노출순서 및 적용상품 매핑·공통 항목 <span class="mono">(PI-PAY-PARTNER-010)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 노출순서와 적용 가능한 인터넷/Btv 상품 매핑은 상품군과 카드 유형별로 관리하며 동일 순번 충돌 시 운영자가 우선순위를 확정해야 배포할 수 있다.<br/></span><span class="policy-item-line">- 라이트할부 카드와 요금할인카드의 공통 노출 조건은 일괄 설정할 수 있으나 개별 override 여부와 변경 이력은 카드별로 남긴다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) 분리·분할 결제 정책 (PG-PAY-SPLIT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 분리 결제 <span class="mono">(PI-PAY-SPLIT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 혼합 주문에 서로 다른 결제 제한이 섞이면 합산 가능 여부를 표시하고 불가 시 주문단위별 분리 결제로 유도한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 분할 납부 <span class="mono">(PI-PAY-SPLIT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 분할 납부는 상품별 허용 조건을 충족한 경우에만 제공하고 비율 또는 순서를 선택할 수 있게 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 할부 방식 <span class="mono">(PI-PAY-SPLIT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 단말할부금은 일할계산, 월할계산, 당월 시작, 익월 시작 중 허용된 방식만 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 0원 결제 정책 (PG-PAY-ZERO-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 무결제 완료 <span class="mono">(PI-PAY-ZERO-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 최종 결제금액이 0원이면 결제수단 선택 없이 완료할 수 있으나 주문·계약 상태와 증빙은 생성한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 0원 증빙 <span class="mono">(PI-PAY-ZERO-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 0원 결제 완료 화면에는 할인·포인트 적용 근거, 결제금액 0원 표시, 주문·계약 반영 상태, 증빙 조회 경로를 모두 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 0원 실패 <span class="mono">(PI-PAY-ZERO-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 0원 결제라도 계약 반영이나 혜택 차감이 실패하면 결제 실패가 아니라 수납 반영 보류로 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 결제 승인 정책 (PG-PAY-APPROVAL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 최종 확인 <span class="mono">(PI-PAY-APPROVAL-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 전 최종 확인은 결제수단, 최종 금액, 할인 내역, 취소·환불 핵심 조건, 필수 동의 항목이 모두 표시된 경우에만 완료로 인정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 처리 중 <span class="mono">(PI-PAY-APPROVAL-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 요청 후 30초 안에 승인 또는 실패 결과가 없으면 처리 중 상태로 전환하고, 고객에게 상태 조회와 상담 전환 가능 시점을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 성공 결과 <span class="mono">(PI-PAY-APPROVAL-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 성공 안내에는 결제수단, 승인번호, 주문번호, 다음 행동, 증빙 조회 경로를 포함한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) 외부 결제 연동 정책 (PG-PAY-EXTERNAL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 외부 전환 <span class="mono">(PI-PAY-EXTERNAL-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 간편결제 앱·웹뷰·리다이렉트 전환 전 고객에게 외부 이동과 복귀 방식, 예상 소요 시간을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복귀 복원 <span class="mono">(PI-PAY-EXTERNAL-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외부 결제 복귀 시 결제 단계, 선택 수단, 혜택 조합, 주문서 상태를 복원한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 콜백 실패 <span class="mono">(PI-PAY-EXTERNAL-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 콜백이 누락되면 동일 거래ID로 상태 조회를 수행하고 승인 여부가 확인되기 전까지 재결제를 차단한다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) 중복 결제 방지 정책 (PG-PAY-DUP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 연타 방지 <span class="mono">(PI-PAY-DUP-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제하기 버튼은 최초 요청 후 즉시 비활성화하고 로딩 상태를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 멱등키 <span class="mono">(PI-PAY-DUP-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 주문서의 결제 요청은 거래ID와 멱등키로 구분하며 5초 안의 동일 요청은 중복으로 차단한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재진입 차단 <span class="mono">(PI-PAY-DUP-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 이탈 후 재진입 시 승인 완료 또는 처리 중 거래가 있으면 결제 화면 대신 상태 확인 화면으로 이동한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 결제 실패 정책 (PG-PAY-FAIL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 실패 분류 <span class="mono">(PI-PAY-FAIL-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패 사유는 승인 거절, 한도 부족, 인증 실패, 수단 제한, 외부 복귀 실패, BSS 반영 실패로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 CTA <span class="mono">(PI-PAY-FAIL-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패 화면은 다시 결제하기, 수단 변경, 할인·포인트 재적용, 주문서로 돌아가기, 상담 연결 중 가능한 CTA만 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재시도 횟수 <span class="mono">(PI-PAY-FAIL-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 주문서 재시도는 동일 세션에서 최대 3회까지 허용하고 이후에는 수단 변경 또는 상담 전환을 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>16) 결제 복구 정책 (PG-PAY-RECOVERY-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 주문서 복귀 <span class="mono">(PI-PAY-RECOVERY-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 실패 후 주문서 복귀 시 결제수단, 혜택 조합, 인증 상태, 입력값을 가능한 범위에서 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 혜택 재검증 <span class="mono">(PI-PAY-RECOVERY-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제수단 변경 또는 재시도 시 쿠폰, 포인트, 프로모션 적용 여부를 다시 검증한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복구 불가 <span class="mono">(PI-PAY-RECOVERY-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 승인 완료 후 BSS 반영 보류, 환불 대기, 주문 만료 상태는 고객 재시도 대상에서 제외하고 상담 또는 상태 조회로 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>17) 주문서 유지 정책 (PG-PAY-ORDER-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 유지 기간 <span class="mono">(PI-PAY-ORDER-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 실패 후 주문서는 24시간 유지하고 만료 시 장바구니 복귀 또는 주문 재작성 필요 여부를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중단 안내 <span class="mono">(PI-PAY-ORDER-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 뒤로가기 또는 취소를 선택하면 결제 중단 상태, 주문 유지 여부, 재진입 가능 시간을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 만료 영향 <span class="mono">(PI-PAY-ORDER-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문서가 만료되면 예약 재고, 할인 적용, 쿠폰 선택, 인증 상태는 모두 재검증 대상으로 전환한다.<br/></span></div>
+</div>
+</div>
+
+<h4>18) 정기결제 정책 (PG-PAY-RECUR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 대표·예비 수단 <span class="mono">(PI-PAY-RECUR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 정기결제 상품은 대표 결제수단 1개와 예비 결제수단 1개 이상을 등록할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 유예 <span class="mono">(PI-PAY-RECUR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 정기결제 실패 후 유예 기간에는 혜택 제한 전 수단 변경, 예비 수단 결제, 선결제 경로 중 하나 이상을 고객에게 선택지로 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 갱신 알림 <span class="mono">(PI-PAY-RECUR-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카드 만료, 잔액 부족, 갱신 실패 위험은 다음 결제일 전 사전 알림 대상으로 등록하고, 알림에는 결제수단 변경 경로와 실패 시 영향 범위를 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선불형 <span class="mono">(PI-PAY-RECUR-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선불형 정기결제는 결제 주기, 유지 조건, 다음 결제 일정, 실패 시 혜택 제한 시점을 결제 단계에서 고지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>19) 청구·납부 방식 정책 (PG-PAY-BILLING-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 청구정보 <span class="mono">(PI-PAY-BILLING-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 후불 청구형 상품은 주문 단계에서 청구 방식과 납부 시점을 안내하고 청구 관리 화면으로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 납부정보 <span class="mono">(PI-PAY-BILLING-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 구매자 통합회원의 청구정보와 납부정보를 선택할 수 있는 경우 현재 등록 상태와 변경 가능 여부를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 변상금 <span class="mono">(PI-PAY-BILLING-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 위약금 또는 변상금 수납은 즉시 수납과 후불 청구 중 허용된 방식을 선택할 수 있게 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 일시불·선불 수납 <span class="mono">(PI-PAY-BILLING-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 일시불 또는 선불 결제는 회원 청구정보의 등록 카드, 고객 보유 카드, 현금성 수단 중 상품별 허용 수단만 선택할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• SKT 자산 단말 수납 <span class="mono">(PI-PAY-BILLING-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- SKT 자산 단말 결제는 단말 소유 기준, 수납 방식, 청구 반영 방식이 확인된 경우에만 일시불 또는 할부 수납으로 접수한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 단말할부금 청구방식 선택 <span class="mono">(PI-PAY-BILLING-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 단말할부금 청구방식은 일할계산 또는 월할계산 중 상품별 허용 방식만 선택할 수 있으며 월할계산은 당월 시작 또는 익월 시작 기준을 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>20) 결제 증빙 정책 (PG-PAY-PROOF-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 영수증 <span class="mono">(PI-PAY-PROOF-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 완료 후 영수증, 거래내역, 확인서 조회는 결제 완료 상태에서만 허용하고 저장·공유 진입은 고객 식별 정보 마스킹 후 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 현금영수증 <span class="mono">(PI-PAY-PROOF-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 현금영수증 발급 정보는 휴대폰번호 또는 사업자번호를 마스킹하여 저장하고 결제 단계에서 기본값으로 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 세금계산서 <span class="mono">(PI-PAY-PROOF-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법인 또는 B2B 과금 유형은 사업자 정보, 발급 대상, 발급 가능 상태가 모두 확인된 경우에 세금계산서 신청을 허용한다.<br/></span></div>
+</div>
+</div>
+
+<h4>21) BSS 수납 반영 정책 (PG-PAY-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 수납 반영 <span class="mono">(PI-PAY-BSS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 완료는 PG 승인, BSS 수납, 주문·계약 상태 반영이 모두 성공한 경우에만 확정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 불일치 <span class="mono">(PI-PAY-BSS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- PG 승인 성공 후 BSS 반영이 5분 안에 완료되지 않으면 수납 반영 보류로 전환하고 재처리 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 취소·환불 <span class="mono">(PI-PAY-BSS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 취소 또는 환불은 승인 취소, 부분 취소, 수납 정정, 주문 상태 복구 결과가 모두 확정된 경우에만 고객에게 완료로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 부분 성공 <span class="mono">(PI-PAY-BSS-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 프로모션 차감 또는 제휴 포인트 차감만 성공한 경우 고객 결제 완료로 표시하지 않고 복구 또는 상담 전환으로 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>22) 결제 이력 정책 (PG-PAY-HIST-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 거래 이력 <span class="mono">(PI-PAY-HIST-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 요청, 승인, 실패, 중단, 복귀, 재시도, 취소, 환불, 증빙 발급 이력은 거래ID 기준으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고객 조회 <span class="mono">(PI-PAY-HIST-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 결제 이력의 기본 조회 범위는 최근 1년이며, 그 이전 이력은 증빙 조회 또는 고객센터 요청 경로로 분리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 이력 <span class="mono">(PI-PAY-HIST-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제수단 정책, 프로모션, 할인 우선순위 변경은 작성자, 검수자, 승인자, 배포 시각, 롤백 여부를 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>23) 운영 정책 관리 기준 (PG-PAY-OPR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 수단 정책 <span class="mono">(PI-PAY-OPR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 채널, 상품군, 고객조건별 결제수단 노출 순서, 추천 수단, 배지, 제한 문구를 등록하고 변경 시 미리보기와 영향 확인을 거친다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 프로모션 관리 <span class="mono">(PI-PAY-OPR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 프로모션은 유형, 대상 수단, 기간, 조건, 한도, 적용 범위, 제외 규칙, 요약·상세 문구를 필수 항목으로 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 검수 배포 <span class="mono">(PI-PAY-OPR-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 정책 변경은 작성, 검수, 승인, 예약 배포, 종료, 롤백 단계를 거쳐 반영한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 모니터링 <span class="mono">(PI-PAY-OPR-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 모니터링은 결제 실패율, 정기결제 갱신 실패, 수납 반영 보류, 상담 전환 사유를 일 단위로 집계하고 기준치를 초과하면 운영 확인 대상으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제휴몰 코드 관리 <span class="mono">(PI-PAY-OPR-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 토스, 카카오페이, 네이버 등 제휴몰과 요금제 코드는 운영자가 등록·수정·중지할 수 있으며 변경 이력과 적용 시작 시각을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>24) 결제 상담 전환 정책 (PG-PAY-CS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상담 문맥 <span class="mono">(PI-PAY-CS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담 전환 시 주문번호, 거래ID, 결제수단, 최종 금액, 혜택 조합, 실패 사유, 수납 상태를 함께 전달한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대체 안내 <span class="mono">(PI-PAY-CS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담사는 실패 원인에 따라 대체 수단, 재결제, 주문 재작성, 수납 보정, 환불·취소 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 후속 이력 <span class="mono">(PI-PAY-CS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담 처리 결과는 결제 거래 이력과 상담 이력 양쪽에 저장하고 고객에게 후속 상태를 안내한다.<br/></span></div>
+</div>
+</div>
+
+
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">결제 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 범위 정합성</div>결제 처리, 결제수단, 할인 적용, 정기결제, 증빙은 포함하고 주문 생성, 배송·교환·반품, 계약 상세 조항은 인접 정책서로 분리했는지 확인한다.<br/><div class="guide-section-title">2. 고객 완결성</div>고객이 금액 확인, 수단 선택, 혜택 적용, 인증, 승인, 성공·실패 결과, 증빙 조회까지 한 흐름에서 이해하고 완료할 수 있는지 확인한다.<br/><div class="guide-section-title">3. 액터 입자도</div>카드사, PG사, 간편결제사, 제휴처를 별도 액터로 과분화하지 않고 결제 연계 시스템 또는 정책 조건으로 관리했는지 확인한다.<br/><div class="guide-section-title">4. 유즈케이스 입자도</div>유즈케이스가 버튼·입력 단계가 아니라 고객 또는 운영자의 완결 결제 업무 단위로 작성되었는지 확인한다.<br/><div class="guide-section-title">5. 프로세스 연결성</div>각 사람 액터 유즈케이스에 두 개 이상의 프로세스가 연결되고 프로세스가 기능·정책과 연결되는지 확인한다.<br/><div class="guide-section-title">6. 상태 전이 정합성</div>결제 전, 처리 중, 완료, 실패, 재시도, 주문서 유지, 중복 차단, 수납 반영 보류, 상담 전환 상태가 정상·예외 흐름으로 연결되는지 확인한다.<br/><div class="guide-section-title">7. 정책 구체성</div>정책 상세에 결제 가능 조건, 인증 유효 시간, 중복 차단, 재시도 횟수, 주문서 유지 기간, BSS 수납 반영, 제휴카드 약관·노출·삭제·상품 매핑 기준이 포함되는지 확인한다.<br/><div class="guide-section-title">8. BSS/연계 포함성</div>PG 승인과 BSS 수납 반영, 주문·계약 상태, 환불·취소, 증빙 발급 결과 회신이 정책으로 연결되는지 확인한다.<br/><div class="guide-section-title">9. 요구사항 반영</div>결제 상세 요구사항 104건이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 추적 가능하게 반영되었는지 확인한다.<br/><div class="guide-section-title">10. 실패 복구 기준</div>실패 후 재시도, 수단 변경, 혜택 재검증, 주문서 복귀, 상담 전환 기준이 고객의 다음 행동으로 명확히 제시되는지 확인한다.<br/><div class="guide-section-title">11. 요구사항 추적성</div>상세 요구사항 104건은 결제수단 선택, 할인·포인트·쿠폰 적용, 승인·수납 분리, 실패 복구, 정기결제, 증빙, 운영 정책 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했는지 확인한다.<br/><div class="guide-section-title">12. 개발·QA 전환성</div>개발·QA가 결제 요청, 승인 성공, 수납 반영 대기, 결제 실패, 중복 요청, 환불·복원, 증빙 발급의 입력 조건과 기대 결과를 테스트 케이스로 전환할 수 있는지 확인한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

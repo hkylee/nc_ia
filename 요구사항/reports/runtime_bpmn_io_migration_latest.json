@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-05-16T11:47:41",
+  "updated": [
+    {
+      "html": "output/NC_추천_정책서_간소화_v0.12.html",
+      "spec": "output/NC_추천_정책서_간소화_v0.12_spec.json",
+      "bpmn": "output/NC_추천_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "viewer": "output/NC_추천_정책서_간소화_v0.12_전체업무흐름도_viewer.html"
+    }
+  ],
+  "skipped": []
+}

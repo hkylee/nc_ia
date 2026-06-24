@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: ncstudio
+    runtime: python
+    plan: starter
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 -u src/web_app.py --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: ncstudio-data
+      mountPath: /var/data/ncstudio
+      sizeGB: 10
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.9
+      - key: NC_OUTPUT_DIR
+        value: /var/data/ncstudio/output
+      - key: NC_REPORTS_DIR
+        value: /var/data/ncstudio/reports
+      - key: NC_SITE_SETTINGS_PATH
+        value: /var/data/ncstudio/reports/site_settings.json
+      - key: NC_USER_DB_PATH
+        value: /var/data/ncstudio/reports/auth/users.sqlite3
+      - key: NC_REFERENCE_DB_PATH
+        value: /var/data/ncstudio/reports/evidence/reference_evidence.db
+      - key: NC_FEATURE_INVENTORY_DB_PATH
+        value: /var/data/ncstudio/reports/evidence/feature_inventory.db
+      - key: NC_TOPIC_KNOWLEDGE_DIR
+        value: /var/data/ncstudio/reports/evidence/topic_knowledge
+      - key: OPENAI_PREFLIGHT_ENABLED
+        value: "1"

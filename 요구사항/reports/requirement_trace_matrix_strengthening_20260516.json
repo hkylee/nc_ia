@@ -1,0 +1,757 @@
+{
+  "gap_topic_count": 22,
+  "gap_topics": [
+    "가이드라인/ 공통/ 품질/ 적응형",
+    "전시/관리 기능",
+    "상품 목록",
+    "AI 검색",
+    "추천",
+    "데이터 트래킹 체계",
+    "이벤트/미션 프로그램",
+    "외부 쿠폰",
+    "멤버십 혜택/T 플러스포인트",
+    "카트/장바구니",
+    "할인/시뮬레이션",
+    "주문/계약/가입",
+    "선물주문",
+    "상품변경",
+    "결제",
+    "주문 상태/사후 관리",
+    "해지/환불/취소",
+    "나의 가입 정보",
+    "회선 변경/관리",
+    "상품·서비스 혜택 이용/공유",
+    "통합 쿠폰/이용권함",
+    "회원 가입/탈퇴"
+  ],
+  "changed_file_count": 72,
+  "changed_files": [
+    {
+      "path": "output/가이드라인공통품질적응형_policy_spec.json",
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "before_rows": 10,
+      "after_rows": 208,
+      "added_rows": 198,
+      "updated_rows": 1,
+      "before_gap": 85,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.10_spec.json",
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "before_rows": 10,
+      "after_rows": 208,
+      "added_rows": 198,
+      "updated_rows": 1,
+      "before_gap": 85,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.11_spec.json",
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "before_rows": 10,
+      "after_rows": 208,
+      "added_rows": 198,
+      "updated_rows": 1,
+      "before_gap": 85,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.12_spec.json",
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "before_rows": 10,
+      "after_rows": 208,
+      "added_rows": 198,
+      "updated_rows": 1,
+      "before_gap": 85,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.13_spec.json",
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "before_rows": 10,
+      "after_rows": 208,
+      "added_rows": 198,
+      "updated_rows": 1,
+      "before_gap": 85,
+      "after_gap": 0
+    },
+    {
+      "path": "output/전시관리기능_policy_spec.json",
+      "topic": "전시/관리 기능",
+      "before_rows": 8,
+      "after_rows": 157,
+      "added_rows": 149,
+      "updated_rows": 0,
+      "before_gap": 132,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_전시관리기능_정책서_간소화_v0.10_spec.json",
+      "topic": "전시/관리 기능",
+      "before_rows": 8,
+      "after_rows": 157,
+      "added_rows": 149,
+      "updated_rows": 0,
+      "before_gap": 132,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_전시관리기능_정책서_간소화_v0.11_spec.json",
+      "topic": "전시/관리 기능",
+      "before_rows": 8,
+      "after_rows": 157,
+      "added_rows": 149,
+      "updated_rows": 0,
+      "before_gap": 132,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_전시관리기능_정책서_간소화_v0.12_spec.json",
+      "topic": "전시/관리 기능",
+      "before_rows": 8,
+      "after_rows": 157,
+      "added_rows": 149,
+      "updated_rows": 0,
+      "before_gap": 132,
+      "after_gap": 0
+    },
+    {
+      "path": "output/상품목록_policy_spec.json",
+      "topic": "상품 목록",
+      "before_rows": 13,
+      "after_rows": 95,
+      "added_rows": 82,
+      "updated_rows": 5,
+      "before_gap": 1,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_상품목록_정책서_간소화_v0.10_spec.json",
+      "topic": "상품 목록",
+      "before_rows": 13,
+      "after_rows": 95,
+      "added_rows": 82,
+      "updated_rows": 5,
+      "before_gap": 1,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_상품목록_정책서_간소화_v0.11_spec.json",
+      "topic": "상품 목록",
+      "before_rows": 13,
+      "after_rows": 95,
+      "added_rows": 82,
+      "updated_rows": 5,
+      "before_gap": 1,
+      "after_gap": 0
+    },
+    {
+      "path": "output/AI검색_policy_spec.json",
+      "topic": "AI 검색",
+      "before_rows": 11,
+      "after_rows": 109,
+      "added_rows": 98,
+      "updated_rows": 3,
+      "before_gap": 51,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_AI검색_정책서_간소화_v0.10_spec.json",
+      "topic": "AI 검색",
+      "before_rows": 11,
+      "after_rows": 109,
+      "added_rows": 98,
+      "updated_rows": 3,
+      "before_gap": 51,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_AI검색_정책서_간소화_v0.11_spec.json",
+      "topic": "AI 검색",
+      "before_rows": 11,
+      "after_rows": 109,
+      "added_rows": 98,
+      "updated_rows": 3,
+      "before_gap": 51,
+      "after_gap": 0
+    },
+    {
+      "path": "output/추천_policy_spec.json",
+      "topic": "추천",
+      "before_rows": 8,
+      "after_rows": 86,
+      "added_rows": 78,
+      "updated_rows": 0,
+      "before_gap": 45,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_추천_정책서_간소화_v0.10_spec.json",
+      "topic": "추천",
+      "before_rows": 8,
+      "after_rows": 86,
+      "added_rows": 78,
+      "updated_rows": 0,
+      "before_gap": 45,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_추천_정책서_간소화_v0.11_spec.json",
+      "topic": "추천",
+      "before_rows": 8,
+      "after_rows": 86,
+      "added_rows": 78,
+      "updated_rows": 0,
+      "before_gap": 45,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_추천_정책서_간소화_v0.12_spec.json",
+      "topic": "추천",
+      "before_rows": 8,
+      "after_rows": 86,
+      "added_rows": 78,
+      "updated_rows": 0,
+      "before_gap": 45,
+      "after_gap": 0
+    },
+    {
+      "path": "output/데이터트래킹체계_policy_spec.json",
+      "topic": "데이터 트래킹 체계",
+      "before_rows": 0,
+      "after_rows": 88,
+      "added_rows": 88,
+      "updated_rows": 0,
+      "before_gap": 69,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_데이터트래킹체계_정책서_간소화_v0.10_spec.json",
+      "topic": "데이터 트래킹 체계",
+      "before_rows": 0,
+      "after_rows": 88,
+      "added_rows": 88,
+      "updated_rows": 0,
+      "before_gap": 69,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_데이터트래킹체계_정책서_간소화_v0.11_spec.json",
+      "topic": "데이터 트래킹 체계",
+      "before_rows": 0,
+      "after_rows": 88,
+      "added_rows": 88,
+      "updated_rows": 0,
+      "before_gap": 69,
+      "after_gap": 0
+    },
+    {
+      "path": "output/이벤트미션프로그램_policy_spec.json",
+      "topic": "이벤트/미션 프로그램",
+      "before_rows": 0,
+      "after_rows": 66,
+      "added_rows": 66,
+      "updated_rows": 0,
+      "before_gap": 61,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_이벤트미션프로그램_정책서_간소화_v0.10_spec.json",
+      "topic": "이벤트/미션 프로그램",
+      "before_rows": 0,
+      "after_rows": 66,
+      "added_rows": 66,
+      "updated_rows": 0,
+      "before_gap": 61,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_이벤트미션프로그램_정책서_간소화_v0.11_spec.json",
+      "topic": "이벤트/미션 프로그램",
+      "before_rows": 0,
+      "after_rows": 66,
+      "added_rows": 66,
+      "updated_rows": 0,
+      "before_gap": 61,
+      "after_gap": 0
+    },
+    {
+      "path": "output/외부쿠폰_policy_spec.json",
+      "topic": "외부 쿠폰",
+      "before_rows": 0,
+      "after_rows": 32,
+      "added_rows": 32,
+      "updated_rows": 0,
+      "before_gap": 32,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_외부쿠폰_정책서_간소화_v0.10_spec.json",
+      "topic": "외부 쿠폰",
+      "before_rows": 0,
+      "after_rows": 32,
+      "added_rows": 32,
+      "updated_rows": 0,
+      "before_gap": 32,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_외부쿠폰_정책서_간소화_v0.11_spec.json",
+      "topic": "외부 쿠폰",
+      "before_rows": 0,
+      "after_rows": 32,
+      "added_rows": 32,
+      "updated_rows": 0,
+      "before_gap": 32,
+      "after_gap": 0
+    },
+    {
+      "path": "output/멤버십혜택T플러스포인트_policy_spec.json",
+      "topic": "멤버십 혜택/T 플러스포인트",
+      "before_rows": 0,
+      "after_rows": 81,
+      "added_rows": 81,
+      "updated_rows": 0,
+      "before_gap": 76,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_spec.json",
+      "topic": "멤버십 혜택/T 플러스포인트",
+      "before_rows": 0,
+      "after_rows": 81,
+      "added_rows": 81,
+      "updated_rows": 0,
+      "before_gap": 76,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_spec.json",
+      "topic": "멤버십 혜택/T 플러스포인트",
+      "before_rows": 0,
+      "after_rows": 81,
+      "added_rows": 81,
+      "updated_rows": 0,
+      "before_gap": 76,
+      "after_gap": 0
+    },
+    {
+      "path": "output/카트장바구니_policy_spec.json",
+      "topic": "카트/장바구니",
+      "before_rows": 0,
+      "after_rows": 43,
+      "added_rows": 43,
+      "updated_rows": 0,
+      "before_gap": 43,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_카트장바구니_정책서_간소화_v0.10_spec.json",
+      "topic": "카트/장바구니",
+      "before_rows": 0,
+      "after_rows": 43,
+      "added_rows": 43,
+      "updated_rows": 0,
+      "before_gap": 43,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_카트장바구니_정책서_간소화_v0.11_spec.json",
+      "topic": "카트/장바구니",
+      "before_rows": 0,
+      "after_rows": 43,
+      "added_rows": 43,
+      "updated_rows": 0,
+      "before_gap": 43,
+      "after_gap": 0
+    },
+    {
+      "path": "output/할인시뮬레이션_policy_spec.json",
+      "topic": "할인/시뮬레이션",
+      "before_rows": 0,
+      "after_rows": 70,
+      "added_rows": 70,
+      "updated_rows": 0,
+      "before_gap": 61,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_할인시뮬레이션_정책서_간소화_v0.10_spec.json",
+      "topic": "할인/시뮬레이션",
+      "before_rows": 0,
+      "after_rows": 70,
+      "added_rows": 70,
+      "updated_rows": 0,
+      "before_gap": 61,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_할인시뮬레이션_정책서_간소화_v0.11_spec.json",
+      "topic": "할인/시뮬레이션",
+      "before_rows": 0,
+      "after_rows": 70,
+      "added_rows": 70,
+      "updated_rows": 0,
+      "before_gap": 61,
+      "after_gap": 0
+    },
+    {
+      "path": "output/주문계약가입_policy_spec.json",
+      "topic": "주문/계약/가입",
+      "before_rows": 73,
+      "after_rows": 325,
+      "added_rows": 252,
+      "updated_rows": 74,
+      "before_gap": 225,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_주문계약가입_정책서_간소화_v0.10_spec.json",
+      "topic": "주문/계약/가입",
+      "before_rows": 73,
+      "after_rows": 325,
+      "added_rows": 252,
+      "updated_rows": 74,
+      "before_gap": 225,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_주문계약가입_정책서_간소화_v0.11_spec.json",
+      "topic": "주문/계약/가입",
+      "before_rows": 73,
+      "after_rows": 325,
+      "added_rows": 252,
+      "updated_rows": 74,
+      "before_gap": 225,
+      "after_gap": 0
+    },
+    {
+      "path": "output/선물주문_policy_spec.json",
+      "topic": "선물주문",
+      "before_rows": 0,
+      "after_rows": 29,
+      "added_rows": 29,
+      "updated_rows": 0,
+      "before_gap": 28,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_선물주문_정책서_간소화_v0.10_spec.json",
+      "topic": "선물주문",
+      "before_rows": 0,
+      "after_rows": 29,
+      "added_rows": 29,
+      "updated_rows": 0,
+      "before_gap": 28,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_선물주문_정책서_간소화_v0.11_spec.json",
+      "topic": "선물주문",
+      "before_rows": 0,
+      "after_rows": 29,
+      "added_rows": 29,
+      "updated_rows": 0,
+      "before_gap": 28,
+      "after_gap": 0
+    },
+    {
+      "path": "output/상품변경_policy_spec.json",
+      "topic": "상품변경",
+      "before_rows": 0,
+      "after_rows": 39,
+      "added_rows": 39,
+      "updated_rows": 0,
+      "before_gap": 35,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_상품변경_정책서_간소화_v0.10_spec.json",
+      "topic": "상품변경",
+      "before_rows": 0,
+      "after_rows": 39,
+      "added_rows": 39,
+      "updated_rows": 0,
+      "before_gap": 35,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_상품변경_정책서_간소화_v0.11_spec.json",
+      "topic": "상품변경",
+      "before_rows": 0,
+      "after_rows": 39,
+      "added_rows": 39,
+      "updated_rows": 0,
+      "before_gap": 35,
+      "after_gap": 0
+    },
+    {
+      "path": "output/결제_policy_spec.json",
+      "topic": "결제",
+      "before_rows": 0,
+      "after_rows": 103,
+      "added_rows": 103,
+      "updated_rows": 1,
+      "before_gap": 92,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_결제_정책서_간소화_v0.10_spec.json",
+      "topic": "결제",
+      "before_rows": 0,
+      "after_rows": 103,
+      "added_rows": 103,
+      "updated_rows": 1,
+      "before_gap": 92,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_결제_정책서_간소화_v0.11_spec.json",
+      "topic": "결제",
+      "before_rows": 0,
+      "after_rows": 103,
+      "added_rows": 103,
+      "updated_rows": 1,
+      "before_gap": 92,
+      "after_gap": 0
+    },
+    {
+      "path": "output/주문상태사후관리_policy_spec.json",
+      "topic": "주문 상태/사후 관리",
+      "before_rows": 1,
+      "after_rows": 111,
+      "added_rows": 110,
+      "updated_rows": 1,
+      "before_gap": 106,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_주문상태사후관리_정책서_간소화_v0.10_spec.json",
+      "topic": "주문 상태/사후 관리",
+      "before_rows": 1,
+      "after_rows": 111,
+      "added_rows": 110,
+      "updated_rows": 1,
+      "before_gap": 106,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_주문상태사후관리_정책서_간소화_v0.11_spec.json",
+      "topic": "주문 상태/사후 관리",
+      "before_rows": 1,
+      "after_rows": 111,
+      "added_rows": 110,
+      "updated_rows": 1,
+      "before_gap": 106,
+      "after_gap": 0
+    },
+    {
+      "path": "output/해지환불취소_policy_spec.json",
+      "topic": "해지/환불/취소",
+      "before_rows": 48,
+      "after_rows": 48,
+      "added_rows": 0,
+      "updated_rows": 48,
+      "before_gap": 25,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_해지환불취소_정책서_간소화_v0.10_spec.json",
+      "topic": "해지/환불/취소",
+      "before_rows": 48,
+      "after_rows": 48,
+      "added_rows": 0,
+      "updated_rows": 48,
+      "before_gap": 25,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_해지환불취소_정책서_간소화_v0.11_spec.json",
+      "topic": "해지/환불/취소",
+      "before_rows": 48,
+      "after_rows": 48,
+      "added_rows": 0,
+      "updated_rows": 48,
+      "before_gap": 25,
+      "after_gap": 0
+    },
+    {
+      "path": "output/나의가입정보_policy_spec.json",
+      "topic": "나의 가입 정보",
+      "before_rows": 0,
+      "after_rows": 83,
+      "added_rows": 83,
+      "updated_rows": 0,
+      "before_gap": 71,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_나의가입정보_정책서_간소화_v0.10_spec.json",
+      "topic": "나의 가입 정보",
+      "before_rows": 0,
+      "after_rows": 83,
+      "added_rows": 83,
+      "updated_rows": 0,
+      "before_gap": 71,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_나의가입정보_정책서_간소화_v0.11_spec.json",
+      "topic": "나의 가입 정보",
+      "before_rows": 0,
+      "after_rows": 83,
+      "added_rows": 83,
+      "updated_rows": 0,
+      "before_gap": 71,
+      "after_gap": 0
+    },
+    {
+      "path": "output/회선변경관리_policy_spec.json",
+      "topic": "회선 변경/관리",
+      "before_rows": 3,
+      "after_rows": 74,
+      "added_rows": 71,
+      "updated_rows": 0,
+      "before_gap": 58,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_회선변경관리_정책서_간소화_v0.10_spec.json",
+      "topic": "회선 변경/관리",
+      "before_rows": 3,
+      "after_rows": 74,
+      "added_rows": 71,
+      "updated_rows": 0,
+      "before_gap": 58,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_회선변경관리_정책서_간소화_v0.11_spec.json",
+      "topic": "회선 변경/관리",
+      "before_rows": 3,
+      "after_rows": 74,
+      "added_rows": 71,
+      "updated_rows": 0,
+      "before_gap": 58,
+      "after_gap": 0
+    },
+    {
+      "path": "output/상품서비스혜택이용공유_policy_spec.json",
+      "topic": "상품·서비스 혜택 이용/공유",
+      "before_rows": 30,
+      "after_rows": 30,
+      "added_rows": 0,
+      "updated_rows": 30,
+      "before_gap": 30,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.10_spec.json",
+      "topic": "상품·서비스 혜택 이용/공유",
+      "before_rows": 30,
+      "after_rows": 30,
+      "added_rows": 0,
+      "updated_rows": 30,
+      "before_gap": 30,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.11_spec.json",
+      "topic": "상품·서비스 혜택 이용/공유",
+      "before_rows": 30,
+      "after_rows": 30,
+      "added_rows": 0,
+      "updated_rows": 30,
+      "before_gap": 30,
+      "after_gap": 0
+    },
+    {
+      "path": "output/통합쿠폰이용권함_policy_spec.json",
+      "topic": "통합 쿠폰/이용권함",
+      "before_rows": 31,
+      "after_rows": 31,
+      "added_rows": 0,
+      "updated_rows": 31,
+      "before_gap": 18,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.10_spec.json",
+      "topic": "통합 쿠폰/이용권함",
+      "before_rows": 31,
+      "after_rows": 31,
+      "added_rows": 0,
+      "updated_rows": 31,
+      "before_gap": 18,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.11_spec.json",
+      "topic": "통합 쿠폰/이용권함",
+      "before_rows": 31,
+      "after_rows": 31,
+      "added_rows": 0,
+      "updated_rows": 31,
+      "before_gap": 18,
+      "after_gap": 0
+    },
+    {
+      "path": "output/회원가입탈퇴_policy_spec.json",
+      "topic": "회원 가입/탈퇴",
+      "before_rows": 187,
+      "after_rows": 187,
+      "added_rows": 0,
+      "updated_rows": 187,
+      "before_gap": 185,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_회원가입탈퇴_정책서_Full_v0.10_spec.json",
+      "topic": "회원 가입/탈퇴",
+      "before_rows": 187,
+      "after_rows": 187,
+      "added_rows": 0,
+      "updated_rows": 187,
+      "before_gap": 185,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_회원가입탈퇴_정책서_Full_v0.11_spec.json",
+      "topic": "회원 가입/탈퇴",
+      "before_rows": 187,
+      "after_rows": 187,
+      "added_rows": 0,
+      "updated_rows": 187,
+      "before_gap": 185,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_회원가입탈퇴_정책서_간소화_v0.10_spec.json",
+      "topic": "회원 가입/탈퇴",
+      "before_rows": 187,
+      "after_rows": 187,
+      "added_rows": 0,
+      "updated_rows": 187,
+      "before_gap": 185,
+      "after_gap": 0
+    },
+    {
+      "path": "output/NC_회원가입탈퇴_정책서_간소화_v0.11_spec.json",
+      "topic": "회원 가입/탈퇴",
+      "before_rows": 187,
+      "after_rows": 187,
+      "added_rows": 0,
+      "updated_rows": 187,
+      "before_gap": 185,
+      "after_gap": 0
+    }
+  ],
+  "dry_run": false,
+  "policy_graph_validation": {
+    "db_path": "reports/evidence/policy_graph.db",
+    "document_count": 79,
+    "bad_document_count": 0,
+    "bad_documents": []
+  }
+}

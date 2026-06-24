@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>청구및수납관리 정책서 간소화 버전 v0.10</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { display: inline-flex; align-items: center; border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; text-decoration: none; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>청구및수납관리 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono"></td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.10</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-10</td></tr>
+<tr><th>작성 기준</th><td>PM-23 관련 상세 요구사항명과 상세 요구사항 설명 121건, 34개 작성 지향점, TK/채널 방향성, AGENTS 작성 기준을 바탕으로 재구성했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.10</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 포함 범위: 본 정책서는 통합채널에서 고객이 청구금액을 이해하고 납부, 수신 방식 변경, 증빙 발급, 미납 해소, 실시간 요금 확인, 통합 포인트 확인을 셀프로 처리하기 위한 기준을 정의한다.<br/></p><p class="plain-text">• 포함 범위: 청구 요약·상세 조회, 전월 대비 증감 설명, 예상 청구 안내, 청구서 수신 방식, 영수증·납부확인서, 자동납부, 납부수단, 즉시·예약·부분 납부, 통합청구, 실시간 이용요금, 포인트, 운영 보정을 포함한다.<br/></p><p class="plain-text">• 포함 범위: 수납 연계 시스템과 결제 금융기관이 수행하는 청구 원장 회신, 결제 승인, 수납 반영, 자동납부 결과, 미납·연체 상태, 포인트 반영은 정책 판단 기준에 포함한다.<br/></p><p class="plain-text">• 제외 범위: 상품 가입·변경·해지, 배송, 환불, 멤버십 혜택 사용 자체의 상세 기준은 인접 정책서에서 다루며 본 문서는 금액 이해와 수납 완료 기준에 집중한다.<br/></p><p class="plain-text">• 제외 범위: 화면 UI 상세, API 필드, DB 컬럼, 금융기관 내부 심사, 세금계산서 상세 양식은 제외하되 고객 납부 가능 여부와 증빙·이력 기준에 영향을 주는 내용은 정책 항목으로 남긴다.<br/></p><p class="plain-text">• 상세 요구사항 121건은 청구 조회, 수신 방식, 납부수단, 수납 반영, 미납 복구, 증빙, 실시간 요금, 포인트 수납 기준 중 하나 이상에 매핑한다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• <b>금액 이해 우선</b>: 고객이 납부하기 전에 청구 항목, 증감 사유, 적용 할인, 납부 예정일, 미납 여부를 이해할 수 있어야 한다.<br/></p><p class="principle-text">• <b>수납 원장 기준 완료</b>: 결제 승인만으로 납부 완료를 안내하지 않고 BSS 수납 원장 반영 성공을 완료 기준으로 둔다.<br/></p><p class="principle-text">• <b>셀프 납부와 복구 우선</b>: 고객이 즉시 납부, 예약 납부, 부분 납부, 대체 수단 변경, 미납 해소를 앱·웹에서 직접 완료할 수 있게 한다.<br/></p><p class="principle-text">• <b>예외의 다음 행동 제공</b>: 납부 실패, 이상 청구, 할인 미적용, 청구서 미수신, 포인트 지연은 사유와 함께 재시도, 보정, 상담 연결을 제공한다.<br/></p><p class="principle-text">• <b>통합청구 책임 명확화</b>: 다회선·그룹·법인 청구는 누가 어느 항목을 부담하는지 사전에 명확히 안내한다.<br/></p><p class="principle-text">• <b>증빙과 개인정보 보호</b>: 영수증, 납부확인서, 청구서 발급은 권한, 기간, 마스킹, 발급 이력을 기준으로 관리한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-BIL-001</td><td>청구금액</td><td>고객에게 납부 대상으로 확정 또는 예상 안내되는 요금, 할부, 할인, 포인트, 일회성 과금의 합산 금액이다.<br/></td></tr><tr><td class="mono">TM-BIL-002</td><td>수납</td><td>고객 납부 또는 자동납부 결과가 BSS 원장에 반영되어 납부 상태가 변경되는 처리다.<br/></td></tr><tr><td class="mono">TM-BIL-003</td><td>자동납부</td><td>고객이 등록한 카드, 계좌 등 납부수단으로 지정일에 요금이 자동 결제되는 방식이다.<br/></td></tr><tr><td class="mono">TM-BIL-004</td><td>부분 수납</td><td>전체 청구금액 중 BSS가 허용한 일부 항목만 선택해 납부하는 처리다.<br/></td></tr><tr><td class="mono">TM-BIL-005</td><td>미납</td><td>납부 예정일 이후에도 납부 대상 금액이 남아 있는 상태다.<br/></td></tr><tr><td class="mono">TM-BIL-006</td><td>연체</td><td>미납 상태가 정지, 신용 영향, 추가 고지 대상 기준을 충족한 상태다.<br/></td></tr><tr><td class="mono">TM-BIL-007</td><td>통합청구</td><td>여러 회선, 상품, 구성원, 법인 항목을 하나의 청구계정이나 대표회선 기준으로 묶어 청구하는 방식이다.<br/></td></tr><tr><td class="mono">TM-BIL-008</td><td>청구계정</td><td>청구 대상 서비스와 납부 책임 범위를 연결하는 BSS 기준 계정이다.<br/></td></tr><tr><td class="mono">TM-BIL-009</td><td>실시간 이용요금</td><td>확정 청구 전 현재 사용량과 과금 정보를 기준으로 산정한 참고 금액이다.<br/></td></tr><tr><td class="mono">TM-BIL-010</td><td>납부확인서</td><td>납부 완료 이력을 고객 또는 법인이 증빙할 수 있도록 발급하는 문서다.<br/></td></tr><tr><td class="mono">TM-BIL-011</td><td>가상계좌</td><td>특정 납부 대상에 대해 일시적으로 발급되는 입금 전용 계좌다.<br/></td></tr><tr><td class="mono">TM-BIL-012</td><td>통합 포인트</td><td>여러 서비스나 혜택에서 발생한 포인트를 고객 자산 관점에서 통합 조회·관리하는 포인트다.<br/></td></tr><tr><td class="mono">TM-BIL-013</td><td>청구 보정</td><td>이상 청구, 할인 미적용, 누락·중복 과금, 원장 불일치를 운영자가 수정하거나 차감·환급 기준으로 반영하는 처리다.<br/></td></tr><tr><td class="mono">TM-BIL-014</td><td>수신 방식</td><td>청구서를 앱, 이메일, SMS, 우편 등으로 받는 방법과 그 조합이다.<br/></td></tr><tr><td class="mono">TM-BIL-015</td><td>요금안내서</td><td>청구 항목, 할인, 이용량, 이용 패턴, 납부 정보, 안내문, 가입 정보를 고객이 이해할 수 있게 묶어 제공하는 청구 안내 문서다.<br/></td></tr><tr><td class="mono">TM-BIL-016</td><td>오픈뱅킹</td><td>공동인증서 없이 계좌 확인과 등록을 처리할 수 있도록 금융기관과 연계하는 계좌 인증 방식이다.<br/></td></tr><tr><td class="mono">TM-BIL-017</td><td>입금 전용계좌</td><td>특정 청구 또는 미납 금액 납부를 위해 고객에게 일시 발급하는 가상계좌 성격의 납부 계좌다.<br/></td></tr><tr><td class="mono">TM-BIL-018</td><td>복지 자격</td><td>행정기관 또는 자격 확인 결과에 따라 청구 할인 적용 가능성을 판단하는 고객 자격 정보다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-BIL-001</td><td>고객</td><td>청구 금액을 이해하고 납부, 수신 방식, 증빙, 실시간 요금, 포인트, 미납 해소를 직접 처리하는 주체다.<br/></td></tr><tr><td class="mono">ACT-BIL-002</td><td>운영자</td><td>청구 상태코드, 납부수단 허용, 이상 청구 보정, 증빙 발급, 미납·연체 예외, 포인트 반영 지연을 관리하는 주체다.<br/></td></tr><tr><td class="mono">ACT-BIL-003</td><td>상담사</td><td>고객이 셀프 처리로 해결하지 못한 청구·납부 문제를 기존 문맥과 이력 기반으로 지원하는 주체다.<br/></td></tr><tr><td class="mono">ACT-BIL-004</td><td>채널 업무 시스템</td><td>청구 요약, 납부 실행, 수신 방식, 증빙, 포인트, 실시간 요금 화면과 후속 행동을 구성하는 시스템이다.<br/></td></tr><tr><td class="mono">ACT-BIL-005</td><td>수납 연계 시스템</td><td>청구 원장, 납부 상태, 자동납부, 통합청구, 미납, 실시간 요금, 포인트 원장 반영 결과를 회신하는 시스템이다.<br/></td></tr><tr><td class="mono">ACT-BIL-006</td><td>결제 금융기관</td><td>카드, 계좌, 오픈뱅킹, 가상계좌, 자동납부 승인과 실패 결과를 회신하는 외부 승인 주체다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-BIL-CUS-001</td><td>고객</td><td>청구 요약과 상세 이해</td><td>고객이 당월 청구금액, 납부 예정일, 납부 상태, 증감 사유, 예상 청구 영향을 이해한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-002</td><td>고객</td><td>청구서 수신과 증빙 관리</td><td>고객이 청구서 수신 방식, 우편·전자 발송 상태, 과거 청구서, 영수증, 납부확인서를 조회·변경·발급한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-003</td><td>고객</td><td>납부수단과 자동납부 관리</td><td>고객이 자동납부, 카드, 계좌, 오픈뱅킹, 가상계좌 등 납부수단을 등록·변경·해지하고 반영 시점을 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-004</td><td>고객</td><td>즉시·예약·부분 납부 완료</td><td>고객이 당월 요금, 미납 요금, 일부 수납 대상, 계약 연장, 할부금 완납 등을 납부하고 결과를 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-005</td><td>고객</td><td>미납·연체·납부 실패 복구</td><td>고객이 미납, 연체, 자동납부 실패, 이상 청구를 인지하고 재시도, 대체 결제, 상담 연결로 복구한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-006</td><td>고객</td><td>통합청구와 청구계정 관리</td><td>고객이 다회선·그룹·법인·회원별 청구 범위와 납부 책임을 확인하고 통합·분리 기준을 이해한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-007</td><td>고객</td><td>실시간 이용요금과 한도 관리</td><td>고객이 휴대폰 결제, 콘텐츠 이용료, 실시간 이용 요금, 한도, 차단·해제를 조회·관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CUS-008</td><td>고객</td><td>통합 포인트 자산 확인</td><td>고객이 포인트 가용 잔액, 예정 적립, 제한 잔액, 소멸 예정, 반영 지연 상태를 확인하고 사용 경로로 이동한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-OPS-001</td><td>운영자</td><td>청구·수납 예외와 정책 운영</td><td>운영자가 청구 문구, 상태코드, 납부수단 정책, 이상 청구, 미납 재처리, 포인트 지연을 관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-CS-001</td><td>상담사</td><td>청구·납부 상담 문맥 지원</td><td>상담사가 고객의 청구 상세, 납부 실패, 미납, 증빙 발급, 보정 이력을 이어받아 지원한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-BIL-SYS-001</td><td>수납 연계 시스템</td><td>청구·수납 원장과 상태 회신</td><td>수납 연계 시스템이 청구금액, 납부상태, 자동납부, 미납, 통합청구, 포인트 반영 결과를 회신한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-BIL-SYS-002</td><td>결제 금융기관</td><td>결제 승인·실패 결과 회신</td><td>결제 금융기관이 카드, 계좌, 오픈뱅킹, 가상계좌, 자동납부 승인·실패·취소 결과를 회신한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-BIL-SYS-003</td><td>채널 업무 시스템</td><td>청구·납부 화면과 다음 행동 구성</td><td>채널 업무 시스템이 고객 상태와 원장 결과를 조합해 금액 설명, 납부 CTA, 실패 복구, 상담 연결 화면을 구성한다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="청구및수납관리 유즈케이스 다이어그램" height="1003" role="img" viewBox="0 0 1120 1003" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="921" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">청구및수납관리 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="179"></line><line class="conn" x1="144" x2="442" y1="172" y2="243"></line><line class="conn" x1="144" x2="442" y1="172" y2="307"></line><line class="conn" x1="144" x2="442" y1="172" y2="371"></line><line class="conn" x1="144" x2="442" y1="172" y2="435"></line><line class="conn" x1="144" x2="442" y1="172" y2="499"></line><line class="conn" x1="144" x2="442" y1="172" y2="563"></line><line class="conn" x1="144" x2="442" y1="528" y2="627"></line><line class="conn" x1="144" x2="442" y1="885" y2="691"></line><line class="conn" x1="678" x2="976" y1="755" y2="528"></line><line class="conn" x1="678" x2="976" y1="819" y2="885"></line><line class="conn" x1="678" x2="976" y1="883" y2="172"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">청구 요약과 상세 이해</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-BIL-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="179" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="176">청구서 수신과 증빙 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="201">US-BIL-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="243" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="240">납부수단과 자동납부 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="265">US-BIL-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="307" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="304">즉시·예약·부분 납부 완료</text><text class="uc-sub" text-anchor="middle" x="560" y="329">US-BIL-CUS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="371" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="368">미납·연체·납부 실패 복구</text><text class="uc-sub" text-anchor="middle" x="560" y="393">US-BIL-CUS-005 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="435" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="432">통합청구와 청구계정 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="457">US-BIL-CUS-006 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="499" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="496">실시간 이용요금과 한도 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="521">US-BIL-CUS-007 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="563" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="560">통합 포인트 자산 확인</text><text class="uc-sub" text-anchor="middle" x="560" y="585">US-BIL-CUS-008 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="627" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="624">청구·수납 예외와 정책 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="649">US-BIL-OPS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">청구·납부 상담 문맥 지원</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-BIL-CS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="755" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="752">청구·수납 원장과 상태 회신</text><text class="uc-sub" text-anchor="middle" x="560" y="777">US-BIL-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="819" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="816">결제 승인·실패 결과 회신</text><text class="uc-sub" text-anchor="middle" x="560" y="841">US-BIL-SYS-002 · 프로세스 N</text><ellipse class="uc" cx="560" cy="883" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="873">청구·납부 화면과 다음 행동</text><text class="uc-text" text-anchor="middle" x="560" y="887">구성</text><text class="uc-sub" text-anchor="middle" x="560" y="905">US-BIL-SYS-003 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="476" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="494" y2="541"></line><line class="actor-line" x1="86" x2="138" y1="511" y2="511"></line><line class="actor-line" x1="112" x2="92" y1="541" y2="576"></line><line class="actor-line" x1="112" x2="132" y1="541" y2="576"></line><text class="actor-text" text-anchor="middle" x="112" y="602">운영자</text><circle class="actor-line" cx="112" cy="833" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="851" y2="898"></line><line class="actor-line" x1="86" x2="138" y1="868" y2="868"></line><line class="actor-line" x1="112" x2="92" y1="898" y2="933"></line><line class="actor-line" x1="112" x2="132" y1="898" y2="933"></line><text class="actor-text" text-anchor="middle" x="112" y="959">상담사</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="476" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="494" y2="541"></line><line class="system-actor-line" x1="982" x2="1034" y1="511" y2="511"></line><line class="system-actor-line" x1="1008" x2="988" y1="541" y2="576"></line><line class="system-actor-line" x1="1008" x2="1028" y1="541" y2="576"></line><text class="actor-text" text-anchor="middle" x="1008" y="602">수납 연계 시스템</text><circle class="system-actor-line" cx="1008" cy="833" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="851" y2="898"></line><line class="system-actor-line" x1="982" x2="1034" y1="868" y2="868"></line><line class="system-actor-line" x1="1008" x2="988" y1="898" y2="933"></line><line class="system-actor-line" x1="1008" x2="1028" y1="898" y2="933"></line><text class="actor-text" text-anchor="middle" x="1008" y="959">결제 금융기관</text><text class="legend" x="304" y="977">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-BIL-001</td><td>청구 대기</td><td>청구 대상 금액이 아직 확정되지 않은 상태</td><td>예상 청구와 변동 요인을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-002</td><td>청구 확정</td><td>청구 원장에 당월 청구금액과 납부 예정일이 확정된 상태</td><td>청구 요약과 상세 내역을 제공한다.<br/></td></tr><tr><td class="mono">ST-BIL-003</td><td>납부 예정</td><td>고객이 납부 전이거나 자동납부 예정일 전인 상태</td><td>납부 수단과 납부 예정일을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-004</td><td>자동납부 대기</td><td>자동납부 수단이 등록되어 출금 또는 승인 대기 중인 상태</td><td>변경 가능 시점과 실패 시 대체 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-005</td><td>납부 진행 중</td><td>즉시 납부, 예약 납부, 부분 납부, 자동납부가 처리 중인 상태</td><td>중복 결제를 제한하고 처리 결과를 확인한다.<br/></td></tr><tr><td class="mono">ST-BIL-006</td><td>수납 반영 대기</td><td>결제 승인은 완료되었으나 BSS 수납 반영이 완료되지 않은 상태이며, 고객 표시 상태와 내부 원장 처리 상태를 분리해 안내한다.<br/></td><td>완료 안내를 보류하고 반영 예정 시점을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-007</td><td>납부 완료</td><td>수납 원장 반영이 완료되어 고객에게 납부 완료로 안내 가능한 상태이며, 고객 표시 상태와 내부 원장 처리 상태를 분리해 안내한다.<br/></td><td>영수증과 납부확인서를 제공한다.<br/></td></tr><tr><td class="mono">ST-BIL-008</td><td>납부 실패</td><td>결제 승인 실패, 계좌 오류, 카드 만료, 한도 초과 등으로 납부가 실패한 상태이며, 고객 표시 상태와 내부 원장 처리 상태를 분리해 안내한다.<br/></td><td>재시도와 대체 수단을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-009</td><td>미납</td><td>납부 예정일 이후 미납 금액이 남아 있는 상태</td><td>즉시 납부와 정지 영향 안내를 제공한다.<br/></td></tr><tr><td class="mono">ST-BIL-010</td><td>연체</td><td>미납 상태가 연체 기준을 충족해 정지 또는 신용 영향 가능성이 있는 상태</td><td>해소 조건과 영향 범위를 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-011</td><td>부분 수납 가능</td><td>전체 청구금액 중 일부 항목만 선택 납부할 수 있는 상태</td><td>선택 가능 항목과 제한 사유를 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-012</td><td>청구 이의·보정 필요</td><td>이상 청구, 할인 미적용, 금액 불일치가 확인된 상태이며, 고객 표시 상태와 내부 원장 처리 상태를 분리해 안내한다.<br/></td><td>원인 분류와 보정 접수 또는 상담 연결을 제공한다.<br/></td></tr><tr><td class="mono">ST-BIL-013</td><td>증빙 발급 가능</td><td>청구서, 영수증, 납부확인서 발급 조건을 충족한 상태</td><td>마스킹된 증빙을 다운로드 또는 공유한다.<br/></td></tr><tr><td class="mono">ST-BIL-014</td><td>수신 방식 변경 대기</td><td>청구서 수신 방식 변경이 접수되어 적용 전인 상태</td><td>현재 수신 방식과 적용 예정일을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-015</td><td>통합청구 구성 중</td><td>통합청구 그룹 구성, 분리, 대표회선 변경이 처리 중인 상태</td><td>납부 책임과 회선별 금액을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-016</td><td>실시간 요금 산정 중</td><td>휴대폰 결제, 콘텐츠 이용료, 실시간 이용 요금을 산정 중인 상태</td><td>예상 금액과 확정 금액 차이를 고지한다.<br/></td></tr><tr><td class="mono">ST-BIL-017</td><td>한도·차단 적용 중</td><td>소액결제 또는 콘텐츠 이용료 한도·차단 변경이 적용 중인 상태</td><td>적용 결과와 재변경 제한을 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-018</td><td>포인트 사용 가능</td><td>통합 포인트 가용 잔액이 확인되어 사용 또는 전환 안내가 가능한 상태</td><td>사용 가능 금액과 소멸 예정 포인트를 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-019</td><td>포인트 보류·지연</td><td>포인트 지급, 적립, 취소, 동기화가 지연 또는 보류된 상태</td><td>반영 예정 시점과 문의 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-BIL-020</td><td>상담 전환 필요</td><td>고객 셀프 처리로 해결되지 않아 상담 또는 운영 확인이 필요한 상태</td><td>청구 문맥과 실패 이력을 전달한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>청구 대기<br/><span class="mono">ST-BIL-001</span></td><td>청구금액 확정</td><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>BSS 청구 원장에 당월 청구금액, 납부 예정일, 납부 대상 회선이 확정되면 청구 확정 상태로 전환한다.<br/></td></tr><tr><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>납부 전 청구 확인</td><td>납부 예정<br/><span class="mono">ST-BIL-003</span></td><td>고객이 청구 상세와 납부 예정일을 확인했으나 수납이 완료되지 않은 경우 납부 예정 상태를 유지한다.<br/></td></tr><tr><td>납부 예정<br/><span class="mono">ST-BIL-003</span></td><td>자동납부 예정일 도래</td><td>자동납부 대기<br/><span class="mono">ST-BIL-004</span></td><td>자동납부 수단이 유효하고 출금 예정일이 도래하면 자동납부 대기 상태로 전환한다.<br/></td></tr><tr><td>납부 예정<br/><span class="mono">ST-BIL-003</span></td><td>즉시 납부 또는 예약 납부 신청</td><td>납부 진행 중<br/><span class="mono">ST-BIL-005</span></td><td>납부 대상, 금액, 납부수단이 확인되면 납부 진행 중으로 전환하고 중복 납부를 제한한다.<br/></td></tr><tr><td>납부 진행 중<br/><span class="mono">ST-BIL-005</span></td><td>결제 승인 완료</td><td>수납 반영 대기<br/><span class="mono">ST-BIL-006</span></td><td>결제기관 승인 완료 후 BSS 수납 원장 반영 전까지 수납 반영 대기 상태로 둔다.<br/></td></tr><tr><td>수납 반영 대기<br/><span class="mono">ST-BIL-006</span></td><td>BSS 수납 반영 완료</td><td>납부 완료<br/><span class="mono">ST-BIL-007</span></td><td>BSS 수납 원장 반영 성공이 확인되면 납부 완료로 전환하고 영수증과 납부확인서를 제공한다.<br/></td></tr><tr><td>납부 진행 중<br/><span class="mono">ST-BIL-005</span></td><td>결제 실패 또는 승인 취소</td><td>납부 실패<br/><span class="mono">ST-BIL-008</span></td><td>카드 만료, 계좌 오류, 한도 초과, 인증 실패, 승인 취소가 발생하면 납부 실패로 전환하고 재시도·대체수단을 안내한다.<br/></td></tr><tr><td>납부 예정<br/><span class="mono">ST-BIL-003</span></td><td>납부기한 경과</td><td>미납<br/><span class="mono">ST-BIL-009</span></td><td>납부 예정일 이후 미납 금액이 남아 있으면 미납 상태로 전환하고 즉시 납부와 정지 영향 안내를 제공한다.<br/></td></tr><tr><td>미납<br/><span class="mono">ST-BIL-009</span></td><td>연체 기준 충족</td><td>연체<br/><span class="mono">ST-BIL-010</span></td><td>미납 기간 또는 금액이 연체 기준을 충족하면 연체 상태로 전환하고 정지, 신용 영향, 해소 기준을 안내한다.<br/></td></tr><tr><td>미납<br/><span class="mono">ST-BIL-009</span></td><td>미납 요금 납부 성공</td><td>수납 반영 대기<br/><span class="mono">ST-BIL-006</span></td><td>미납 요금 결제가 승인되면 수납 반영 대기로 전환하고 자동 해제 가능 여부를 BSS 결과로 판정한다.<br/></td></tr><tr><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>일부 납부 대상 선택</td><td>부분 수납 가능<br/><span class="mono">ST-BIL-011</span></td><td>부분 수납 대상이 존재하고 고객이 납부 항목을 선택할 수 있으면 부분 수납 가능 상태로 전환한다.<br/></td></tr><tr><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>이상 청구 또는 할인 미적용 발견</td><td>청구 이의·보정 필요<br/><span class="mono">ST-BIL-012</span></td><td>비정상 증액, 할인 미적용, 중복 청구, 원장 불일치가 확인되면 청구 이의·보정 필요 상태로 전환한다.<br/></td></tr><tr><td>납부 완료<br/><span class="mono">ST-BIL-007</span></td><td>영수증 또는 납부확인서 요청</td><td>증빙 발급 가능<br/><span class="mono">ST-BIL-013</span></td><td>납부 완료 이력과 발급 권한이 확인되면 증빙 발급 가능 상태로 전환하고 개인정보 마스킹 기준을 적용한다.<br/></td></tr><tr><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>청구서 수신 방식 변경 요청</td><td>수신 방식 변경 대기<br/><span class="mono">ST-BIL-014</span></td><td>고객이 수신 방식을 변경하면 인증, 수신 번호·주소 검증, 복수 수신 제한을 확인하고 변경 대기 상태로 둔다.<br/></td></tr><tr><td>수신 방식 변경 대기<br/><span class="mono">ST-BIL-014</span></td><td>수신 방식 반영 완료</td><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>BSS 또는 발송 시스템 반영이 완료되면 현재 수신 방식과 적용 시점을 갱신한다.<br/></td></tr><tr><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>통합청구 구성 또는 분리 요청</td><td>통합청구 구성 중<br/><span class="mono">ST-BIL-015</span></td><td>통합청구 그룹, 대표회선, 납부 책임 범위 변경이 접수되면 구성 중 상태로 전환한다.<br/></td></tr><tr><td>통합청구 구성 중<br/><span class="mono">ST-BIL-015</span></td><td>통합청구 반영 완료</td><td>청구 확정<br/><span class="mono">ST-BIL-002</span></td><td>청구계정 구성과 회선별 금액이 반영되면 청구 확정 상태로 돌아가 변경 결과를 안내한다.<br/></td></tr><tr><td>청구 대기<br/><span class="mono">ST-BIL-001</span></td><td>실시간 이용요금 조회</td><td>실시간 요금 산정 중<br/><span class="mono">ST-BIL-016</span></td><td>고객이 휴대폰 결제, 콘텐츠 이용료, 실시간 이용요금을 조회하면 산정 중 상태로 전환하고 예상·확정 차이를 고지한다.<br/></td></tr><tr><td>실시간 요금 산정 중<br/><span class="mono">ST-BIL-016</span></td><td>한도 또는 차단 변경 요청</td><td>한도·차단 적용 중<br/><span class="mono">ST-BIL-017</span></td><td>고객이 한도 변경 또는 차단·해제를 요청하면 추가 인증과 변경 제한 기준을 확인하고 적용 중 상태로 전환한다.<br/></td></tr><tr><td>한도·차단 적용 중<br/><span class="mono">ST-BIL-017</span></td><td>한도·차단 적용 완료</td><td>실시간 요금 산정 중<br/><span class="mono">ST-BIL-016</span></td><td>BSS 반영 성공 후 적용 결과, 재변경 제한, 실패 시 복구 경로를 안내한다.<br/></td></tr><tr><td>청구 대기<br/><span class="mono">ST-BIL-001</span></td><td>통합 포인트 조회</td><td>포인트 사용 가능<br/><span class="mono">ST-BIL-018</span></td><td>가용 잔액, 예정 적립, 제한 잔액, 소멸 예정 금액이 정상 조회되면 포인트 사용 가능 상태로 전환한다.<br/></td></tr><tr><td>포인트 사용 가능<br/><span class="mono">ST-BIL-018</span></td><td>포인트 반영 지연 또는 보류 발견</td><td>포인트 보류·지연<br/><span class="mono">ST-BIL-019</span></td><td>지급 예정, 미지급, 동기화 지연, 오남용 차단이 확인되면 포인트 보류·지연 상태로 전환한다.<br/></td></tr><tr><td>납부 실패<br/><span class="mono">ST-BIL-008</span></td><td>반복 실패 또는 셀프 복구 불가</td><td>상담 전환 필요<br/><span class="mono">ST-BIL-020</span></td><td>같은 납부 실패가 3회 이상 반복되거나 고객이 원인을 해결할 수 없으면 상담 문맥과 실패 이력을 전달한다.<br/></td></tr><tr><td>청구 이의·보정 필요<br/><span class="mono">ST-BIL-012</span></td><td>운영 보정 필요</td><td>상담 전환 필요<br/><span class="mono">ST-BIL-020</span></td><td>청구 보정, 할인 미적용, 정합성 오류가 자동 보정되지 않으면 상담 또는 운영 확인 대상으로 전환한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="1016" role="img" viewBox="0 0 1120 1016" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="938" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="245.0" x2="355.0" y1="134.0" y2="134.0"></line><line class="flow" x1="505.0" x2="615.0" y1="134.0" y2="134.0"></line><line class="flow" x1="765.0" x2="875.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M615.0 134.0 C615.0 204.0, 255.0 246.0, 255.0 316.0"></path><path class="flow-dash" d="M255.0 316.0 C306.7 244.0, 306.7 244.0, 358.3 316.0"></path><path class="flow-dash" d="M508.3 316.0 C560.0 244.0, 560.0 244.0, 611.7 316.0"></path><path class="flow-dash" d="M255.0 316.0 C560.0 244.0, 560.0 244.0, 865.0 316.0"></path><path class="flow-dash" d="M615.0 134.0 C615.0 204.0, 255.0 400.0, 255.0 470.0"></path><path class="flow-dash" d="M255.0 470.0 C306.7 398.0, 306.7 398.0, 358.3 470.0"></path><path class="flow-dash" d="M255.0 470.0 C255.0 400.0, 358.3 386.0, 358.3 316.0"></path><path class="flow-dash" d="M430.0 166.0 C430.0 236.0, 686.7 368.0, 686.7 438.0"></path><path class="flow-dash" d="M505.0 134.0 C505.0 204.0, 865.0 400.0, 865.0 470.0"></path><path class="flow-dash" d="M611.7 316.0 C611.7 386.0, 255.0 554.0, 255.0 624.0"></path><path class="flow-dash" d="M430.0 166.0 C430.0 236.0, 433.3 522.0, 433.3 592.0"></path><path class="flow-dash" d="M433.3 592.0 C433.3 522.0, 430.0 236.0, 430.0 166.0"></path><path class="flow-dash" d="M430.0 166.0 C430.0 236.0, 686.7 522.0, 686.7 592.0"></path><path class="flow-dash" d="M686.7 592.0 C686.7 522.0, 430.0 236.0, 430.0 166.0"></path><path class="flow-dash" d="M245.0 134.0 C245.0 204.0, 865.0 554.0, 865.0 624.0"></path><path class="flow-dash" d="M865.0 624.0 C865.0 694.0, 255.0 708.0, 255.0 778.0"></path><path class="flow-dash" d="M255.0 778.0 C255.0 708.0, 865.0 694.0, 865.0 624.0"></path><path class="flow-dash" d="M170.0 166.0 C170.0 236.0, 433.3 676.0, 433.3 746.0"></path><path class="flow-dash" d="M508.3 778.0 C560.0 706.0, 560.0 706.0, 611.7 778.0"></path><path class="flow-dash" d="M940.0 348.0 C940.0 418.0, 940.0 676.0, 940.0 746.0"></path><path class="flow-dash" d="M940.0 502.0 C940.0 572.0, 940.0 676.0, 940.0 746.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="150" x="95.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">청구 대기</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-BIL-001</text><rect class="state" height="64" rx="29" ry="29" width="150" x="355.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="430" y="128">청구 확정</text><text class="state-sub" text-anchor="middle" x="430" y="151">ST-BIL-002</text><rect class="state" height="64" rx="29" ry="29" width="150" x="615.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="690" y="128">납부 예정</text><text class="state-sub" text-anchor="middle" x="690" y="151">ST-BIL-003</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="875.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">자동납부 대기</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-BIL-004</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">납부 진행 중</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-BIL-005</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">수납 반영 대기</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-BIL-006</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="611.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">납부 완료</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-BIL-007</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="865.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">납부 실패</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-BIL-008</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">미납</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-BIL-009</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="438.0"></rect><text class="state-text" text-anchor="middle" x="433" y="464">연체</text><text class="state-sub" text-anchor="middle" x="433" y="487">ST-BIL-010</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="438.0"></rect><text class="state-text" text-anchor="middle" x="686" y="464">부분 수납 가능</text><text class="state-sub" text-anchor="middle" x="686" y="487">ST-BIL-011</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">청구 이의·보정 필요</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-BIL-012</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="180" y="618">증빙 발급 가능</text><text class="state-sub" text-anchor="middle" x="180" y="641">ST-BIL-013</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="592.0"></rect><text class="state-text" text-anchor="middle" x="433" y="618">수신 방식 변경 대기</text><text class="state-sub" text-anchor="middle" x="433" y="641">ST-BIL-014</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="592.0"></rect><text class="state-text" text-anchor="middle" x="686" y="618">통합청구 구성 중</text><text class="state-sub" text-anchor="middle" x="686" y="641">ST-BIL-015</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="940" y="618">실시간 요금 산정 중</text><text class="state-sub" text-anchor="middle" x="940" y="641">ST-BIL-016</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="105.0" y="746.0"></rect><text class="state-text" text-anchor="middle" x="180" y="772">한도·차단 적용 중</text><text class="state-sub" text-anchor="middle" x="180" y="795">ST-BIL-017</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="746.0"></rect><text class="state-text" text-anchor="middle" x="433" y="772">포인트 사용 가능</text><text class="state-sub" text-anchor="middle" x="433" y="795">ST-BIL-018</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="611.7" y="746.0"></rect><text class="state-text" text-anchor="middle" x="686" y="772">포인트 보류·지연</text><text class="state-sub" text-anchor="middle" x="686" y="795">ST-BIL-019</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="746.0"></rect><text class="state-text" text-anchor="middle" x="940" y="772">상담 전환 필요</text><text class="state-sub" text-anchor="middle" x="940" y="795">ST-BIL-020</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="263.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="300.0" y="91.0">청구금액 확정</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="92" x="514.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="91.0">납부 전 청구 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="770.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="820.0" y="91.0">자동납부 예정일 도래</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="385.5" y="201.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="218.0">즉시 납부 또는 예약</text><text class="flow-label" text-anchor="middle" x="435.0" y="232.0">납부 신청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="267.7" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="306.7" y="233.0">결제 승인 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="106" x="507.0" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="233.0">BSS 수납 반영 완료</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="510.5" y="202.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="219.0">결제 실패 또는 승인</text><text class="flow-label" text-anchor="middle" x="560.0" y="233.0">취소</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="398.0" y="292.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="309.0">납부기한 경과</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="267.7" y="370.0"></rect><text class="flow-label" text-anchor="middle" x="306.7" y="387.0">연체 기준 충족</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="257.2" y="383.0"></rect><text class="flow-label" text-anchor="middle" x="306.7" y="400.0">미납 요금 납부 성공</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="508.8" y="256.0"></rect><text class="flow-label" text-anchor="middle" x="558.3" y="273.0">일부 납부 대상 선택</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="635.5" y="278.0"></rect><text class="flow-label" text-anchor="middle" x="685.0" y="295.0">이상 청구 또는 할인</text><text class="flow-label" text-anchor="middle" x="685.0" y="309.0">미적용 발견</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="380.3" y="410.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="427.0">영수증 또는 납부확인서</text><text class="flow-label" text-anchor="middle" x="433.3" y="441.0">요청</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="378.7" y="355.0"></rect><text class="flow-label" text-anchor="middle" x="431.7" y="372.0">청구서 수신 방식 변경</text><text class="flow-label" text-anchor="middle" x="431.7" y="386.0">요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="382.2" y="333.0"></rect><text class="flow-label" text-anchor="middle" x="431.7" y="350.0">수신 방식 반영 완료</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="113" x="501.8" y="355.0"></rect><text class="flow-label" text-anchor="middle" x="558.3" y="372.0">통합청구 구성 또는 분리</text><text class="flow-label" text-anchor="middle" x="558.3" y="386.0">요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="92" x="512.3" y="333.0"></rect><text class="flow-label" text-anchor="middle" x="558.3" y="350.0">통합청구 반영 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="505.5" y="369.0"></rect><text class="flow-label" text-anchor="middle" x="555.0" y="386.0">실시간 이용요금 조회</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="510.5" y="641.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="658.0">한도 또는 차단 변경</text><text class="flow-label" text-anchor="middle" x="560.0" y="672.0">요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="510.5" y="691.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="708.0">한도·차단 적용 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="259.2" y="410.0"></rect><text class="flow-label" text-anchor="middle" x="301.7" y="427.0">통합 포인트 조회</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="507.0" y="664.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="681.0">포인트 반영 지연 또는</text><text class="flow-label" text-anchor="middle" x="560.0" y="695.0">보류 발견</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="890.5" y="487.0"></rect><text class="flow-label" text-anchor="middle" x="940.0" y="504.0">반복 실패 또는 셀프</text><text class="flow-label" text-anchor="middle" x="940.0" y="518.0">복구 불가</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="901.0" y="614.0"></rect><text class="flow-label" text-anchor="middle" x="940.0" y="631.0">운영 보정 필요</text><text class="note" x="78" y="962">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+		
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 청구 요약과 상세 이해 (US-BIL-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-SUM-001</td><td>청구 요약 확인</td><td>당월 청구금액, 납부 예정일, 납부 상태, 미납 여부를 요약해 확인한다.<br/></td><td>FN-BIL-SUM-001 청구 요약 확인 기능</td><td>PG-BIL-BILL-001 청구 요약·상세 안내 정책<br/>PG-BIL-BSS-001 BSS·수납 원장 반영 정책</td></tr><tr><td class="mono">PR-BIL-DET-002</td><td>청구 상세와 증감 사유 확인</td><td>요금제, 부가서비스, 할부, 할인, 일회성 과금과 전월 대비 증감 사유를 확인한다.<br/></td><td>FN-BIL-DET-002 청구 상세와 증감 사유 확인 기능</td><td>PG-BIL-BILL-001 청구 요약·상세 안내 정책</td></tr><tr><td class="mono">PR-BIL-EST-003</td><td>예상 청구와 영향 정보 확인</td><td>요금제 변경, 할인 만료, 로밍·렌탈 과금이 예상 청구에 미치는 영향을 확인한다.<br/></td><td>FN-BIL-EST-003 예상 청구와 영향 정보 확인 기능</td><td>PG-BIL-BILL-001 청구 요약·상세 안내 정책<br/>PG-BIL-REAL-001 실시간 요금·한도 정책</td></tr></tbody>
+</table>
+
+<h4>2) 청구서 수신과 증빙 관리 (US-BIL-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-RCV-004</td><td>청구서 수신 방식 조회·변경</td><td>전자·SMS·이메일·우편 수신 방식을 조회하고 복수 수신과 원복을 신청한다.<br/></td><td>FN-BIL-RCV-004 청구서 수신 방식 조회·변경 기능</td><td>PG-BIL-DELIV-001 청구서 수신·발송 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr><tr><td class="mono">PR-BIL-DOC-005</td><td>증빙 발급과 다운로드</td><td>청구서, 영수증, 납부확인서를 기간·회선·권한 기준으로 발급한다.<br/></td><td>FN-BIL-DOC-005 증빙 발급과 다운로드 기능</td><td>PG-BIL-DOC-001 증빙 발급·마스킹 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr><tr><td class="mono">PR-BIL-MAIL-006</td><td>우편 발송·재발행 상태 확인</td><td>우편 청구서 발송 예정일, 주소 변경 예약, 반송, 재발행 상태를 확인한다.<br/></td><td>FN-BIL-MAIL-006 우편 발송·재발행 상태 확인 기능</td><td>PG-BIL-DELIV-001 청구서 수신·발송 정책<br/>PG-BIL-DOC-001 증빙 발급·마스킹 정책</td></tr></tbody>
+</table>
+
+<h4>3) 납부수단과 자동납부 관리 (US-BIL-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-AUT-007</td><td>자동납부 상태 조회·변경</td><td>자동납부 여부와 주 납부수단을 조회하고 등록·변경·해지한다.<br/></td><td>FN-BIL-AUT-007 자동납부 상태 조회·변경 기능</td><td>PG-BIL-AUTO-001 자동납부·납부수단 정책<br/>PG-BIL-BSS-001 BSS·수납 원장 반영 정책</td></tr><tr><td class="mono">PR-BIL-PAY-008</td><td>납부수단 등록·제한 확인</td><td>카드, 계좌, 오픈뱅킹, 가상계좌 등 사용 가능한 납부수단과 제한 사유를 확인한다.<br/></td><td>FN-BIL-PAY-008 납부수단 등록·제한 확인 기능</td><td>PG-BIL-AUTO-001 자동납부·납부수단 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr><tr><td class="mono">PR-BIL-RISK-009</td><td>고위험 결제 인증</td><td>납부수단 변경, 고액 결제, 비로그인 납부 등 고위험 거래에서 추가 인증을 수행한다.<br/></td><td>FN-BIL-RISK-009 고위험 결제 인증 기능</td><td>PG-BIL-AUTO-001 자동납부·납부수단 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr></tbody>
+</table>
+
+<h4>4) 즉시·예약·부분 납부 완료 (US-BIL-CUS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-NOW-010</td><td>즉시 납부 실행</td><td>당월 요금 또는 미납 요금을 선택한 납부수단으로 즉시 납부한다.<br/></td><td>FN-BIL-NOW-010 즉시 납부 실행 기능</td><td>PG-BIL-PAYM-001 납부 실행 정책<br/>PG-BIL-BSS-001 BSS·수납 원장 반영 정책</td></tr><tr><td class="mono">PR-BIL-RES-011</td><td>예약·부분 납부 신청</td><td>예약 납부 또는 일부 수납 대상을 선택해 신청하고 취소 가능 시점을 확인한다.<br/></td><td>FN-BIL-RES-011 예약·부분 납부 신청 기능</td><td>PG-BIL-PAYM-001 납부 실행 정책<br/>PG-BIL-MISS-001 미납·연체·실패 복구 정책</td></tr><tr><td class="mono">PR-BIL-EXT-012</td><td>계약 연장·할부금 납부</td><td>계약 연장 결제, 할부금 완납, 다회선 할부금 일괄 완납을 처리한다.<br/></td><td>FN-BIL-EXT-012 계약 연장·할부금 납부 기능</td><td>PG-BIL-PAYM-001 납부 실행 정책<br/>PG-BIL-BILL-001 청구 요약·상세 안내 정책</td></tr><tr><td class="mono">PR-BIL-RESL-013</td><td>납부 결과와 영수증 확인</td><td>결제 승인, BSS 수납 반영, 영수증, 납부확인서를 확인한다.<br/></td><td>FN-BIL-RESL-013 납부 결과와 영수증 확인 기능</td><td>PG-BIL-BSS-001 BSS·수납 원장 반영 정책<br/>PG-BIL-DOC-001 증빙 발급·마스킹 정책</td></tr></tbody>
+</table>
+
+<h4>5) 미납·연체·납부 실패 복구 (US-BIL-CUS-005)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-FAIL-014</td><td>납부 실패 원인 확인</td><td>결제 실패, 비정상 증액, 할인 미적용, 카드 만료, 계좌 오류 원인을 확인한다.<br/></td><td>FN-BIL-FAIL-014 납부 실패 원인 확인 기능</td><td>PG-BIL-MISS-001 미납·연체·실패 복구 정책<br/>PG-BIL-OPS-001 운영 보정·정합성 정책</td></tr><tr><td class="mono">PR-BIL-DUE-015</td><td>미납·연체 영향 확인</td><td>미납 금액, 정지 여부, 신용 영향, 납부 후 자동 해제 기준을 확인한다.<br/></td><td>FN-BIL-DUE-015 미납·연체 영향 확인 기능</td><td>PG-BIL-MISS-001 미납·연체·실패 복구 정책<br/>PG-BIL-BSS-001 BSS·수납 원장 반영 정책</td></tr><tr><td class="mono">PR-BIL-REC-016</td><td>재시도·대체 납부 실행</td><td>재시도, 카드 전환, 가상계좌, 상담 연결 등 복구 경로를 수행한다.<br/></td><td>FN-BIL-REC-016 재시도·대체 납부 실행 기능</td><td>PG-BIL-MISS-001 미납·연체·실패 복구 정책<br/>PG-BIL-PAYM-001 납부 실행 정책</td></tr></tbody>
+</table>
+
+<h4>6) 통합청구와 청구계정 관리 (US-BIL-CUS-006)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-GRP-017</td><td>통합청구 대상 조회</td><td>통합청구 대상 회선, 서비스, 대표회선, 납부 책임 범위를 조회한다.<br/></td><td>FN-BIL-GRP-017 통합청구 대상 조회 기능</td><td>PG-BIL-GROUP-001 통합청구·청구계정 정책<br/>PG-BIL-BILL-001 청구 요약·상세 안내 정책</td></tr><tr><td class="mono">PR-BIL-ACC-018</td><td>청구계정 생성·통합 기준 확인</td><td>가입·변경 과정에서 청구계정 생성, 통합, 분리 기준과 적용 영향을 확인한다.<br/></td><td>FN-BIL-ACC-018 청구계정 생성·통합 기준 확인 기능</td><td>PG-BIL-GROUP-001 통합청구·청구계정 정책</td></tr><tr><td class="mono">PR-BIL-CORP-019</td><td>법인·구성원별 청구 관리</td><td>법인 또는 그룹 구성원별 조회 권한과 납부금액 기준을 확인한다.<br/></td><td>FN-BIL-CORP-019 법인·구성원별 청구 관리 기능</td><td>PG-BIL-GROUP-001 통합청구·청구계정 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr></tbody>
+</table>
+
+<h4>7) 실시간 이용요금과 한도 관리 (US-BIL-CUS-007)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-RTB-020</td><td>실시간 이용요금 조회</td><td>휴대폰 결제, 콘텐츠 이용료, 실시간 이용 요금과 확정 전 차이를 확인한다.<br/></td><td>FN-BIL-RTB-020 실시간 이용요금 조회 기능</td><td>PG-BIL-REAL-001 실시간 요금·한도 정책<br/>PG-BIL-BILL-001 청구 요약·상세 안내 정책</td></tr><tr><td class="mono">PR-BIL-LIM-021</td><td>한도 변경과 차단 설정</td><td>소액결제·콘텐츠 이용료 한도 변경, 차단, 해제, 분실 신고 연계를 처리한다.<br/></td><td>FN-BIL-LIM-021 한도 변경과 차단 설정 기능</td><td>PG-BIL-REAL-001 실시간 요금·한도 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr><tr><td class="mono">PR-BIL-DISC-022</td><td>할인·혜택 영향 확인</td><td>현재 적용 중 혜택, 결합 할인 분배, 할인 소멸 경고를 확인한다.<br/></td><td>FN-BIL-DISC-022 할인·혜택 영향 확인 기능</td><td>PG-BIL-REAL-001 실시간 요금·한도 정책<br/>PG-BIL-BILL-001 청구 요약·상세 안내 정책</td></tr></tbody>
+</table>
+
+<h4>8) 통합 포인트 자산 확인 (US-BIL-CUS-008)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-PNT-023</td><td>포인트 잔액과 소멸 확인</td><td>가용 잔액, 예정 적립, 제한 잔액, 소멸 예정 포인트를 확인한다.<br/></td><td>FN-BIL-PNT-023 포인트 잔액과 소멸 확인 기능</td><td>PG-BIL-POINT-001 통합 포인트 정책</td></tr><tr><td class="mono">PR-BIL-PNTD-024</td><td>포인트 반영 지연·누락 확인</td><td>지급 예정, 미지급, 보류, 동기화 오류, 상담 전환 필요성을 확인한다.<br/></td><td>FN-BIL-PNTD-024 포인트 반영 지연·누락 확인 기능</td><td>PG-BIL-POINT-001 통합 포인트 정책<br/>PG-BIL-MISS-001 미납·연체·실패 복구 정책</td></tr></tbody>
+</table>
+
+<h4>9) 청구·수납 예외와 정책 운영 (US-BIL-OPS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-OCD-025</td><td>청구 상태코드·문구 운영</td><td>운영자가 청구·납부 상태코드와 고객 문구, 다음 행동 매핑을 관리한다.<br/></td><td>FN-BIL-OCD-025 청구 상태코드·문구 운영 기능</td><td>PG-BIL-OPS-001 운영 보정·정합성 정책</td></tr><tr><td class="mono">PR-BIL-OCOR-026</td><td>이상 청구·보정 관리</td><td>운영자가 이상 청구, 할인 미적용, 금액 불일치, 포인트 지연을 보정한다.<br/></td><td>FN-BIL-OCOR-026 이상 청구·보정 관리 기능</td><td>PG-BIL-OPS-001 운영 보정·정합성 정책<br/>PG-BIL-POINT-001 통합 포인트 정책</td></tr><tr><td class="mono">PR-BIL-OREC-027</td><td>미납·실패 재처리 운영</td><td>운영자가 자동납부 실패, 미납, 연체, 수납 지연 건을 모니터링하고 재처리한다.<br/></td><td>FN-BIL-OREC-027 미납·실패 재처리 운영 기능</td><td>PG-BIL-MISS-001 미납·연체·실패 복구 정책<br/>PG-BIL-BSS-001 BSS·수납 원장 반영 정책</td></tr></tbody>
+</table>
+
+<h4>10) 청구·납부 상담 문맥 지원 (US-BIL-CS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-BIL-CTX-028</td><td>상담 문맥 조회</td><td>상담사가 고객이 확인한 청구 내역, 실패 원인, 접수번호, 보정 이력을 조회한다.<br/></td><td>FN-BIL-CTX-028 상담 문맥 조회 기능</td><td>PG-BIL-MISS-001 미납·연체·실패 복구 정책<br/>PG-BIL-SEC-001 개인정보·보안 정책</td></tr><tr><td class="mono">PR-BIL-GUID-029</td><td>상담 후속 조치 안내</td><td>상담사가 납부 재시도, 증빙 발급, 보정 접수, 운영 확인 결과를 안내한다.<br/></td><td>FN-BIL-GUID-029 상담 후속 조치 안내 기능</td><td>PG-BIL-MISS-001 미납·연체·실패 복구 정책<br/>PG-BIL-OPS-001 운영 보정·정합성 정책</td></tr></tbody>
+</table>
+
+	
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+	
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<a class="bpmn-download-button" href="NC_청구및수납관리_정책서_간소화_v0.10_전체업무흐름도.bpmn" download="NC_청구및수납관리_정책서_간소화_v0.10_전체업무흐름도.bpmn">BPMN XML 다운로드</a>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"청구및수납관리 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_BIL_CUS_001\" name=\"US-BIL-CUS-001 청구 요약과 상세 이해\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_SUM_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_DET_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_EST_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_002\" name=\"US-BIL-CUS-002 청구서 수신과 증빙 관리\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_RCV_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_DOC_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_MAIL_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_003\" name=\"US-BIL-CUS-003 납부수단과 자동납부 관리\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_AUT_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_PAY_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_RISK_009<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_004\" name=\"US-BIL-CUS-004 즉시·예약·부분 납부 완료\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_NOW_010<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_RES_011<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_EXT_012<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_RESL_013<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_005\" name=\"US-BIL-CUS-005 미납·연체·납부 실패 복구\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_FAIL_014<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_DUE_015<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_REC_016<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_005<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_006\" name=\"US-BIL-CUS-006 통합청구와 청구계정 관리\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_GRP_017<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_ACC_018<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_CORP_019<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_006<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_007\" name=\"US-BIL-CUS-007 실시간 이용요금과 한도 관리\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_RTB_020<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_LIM_021<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_DISC_022<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_007<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CUS_008\" name=\"US-BIL-CUS-008 통합 포인트 자산 확인\">\n        <bpmn:flowNodeRef>Start_US_BIL_CUS_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_PNT_023<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_PNTD_024<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CUS_008<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_OPS_001\" name=\"US-BIL-OPS-001 청구·수납 예외와 정책 운영\">\n        <bpmn:flowNodeRef>Start_US_BIL_OPS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_OCD_025<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_OCOR_026<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_OREC_027<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_OPS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_BIL_CS_001\" name=\"US-BIL-CS-001 청구·납부 상담 문맥 지원\">\n        <bpmn:flowNodeRef>Start_US_BIL_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_CTX_028<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_BIL_GUID_029<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_BIL_CS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_001_Task_PR_BIL_SUM_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_SUM_001\" name=\"PR-BIL-SUM-001 청구 요약 확인\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_001_Task_PR_BIL_SUM_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_SUM_001_Task_PR_BIL_DET_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_DET_002\" name=\"PR-BIL-DET-002 청구 상세와 증감 사유 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_SUM_001_Task_PR_BIL_DET_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_DET_002_Task_PR_BIL_EST_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_EST_003\" name=\"PR-BIL-EST-003 예상 청구와 영향 정보 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_DET_002_Task_PR_BIL_EST_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_EST_003_End_US_BIL_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_EST_003_End_US_BIL_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_001_Task_PR_BIL_SUM_001\" sourceRef=\"Start_US_BIL_CUS_001\" targetRef=\"Task_PR_BIL_SUM_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_SUM_001_Task_PR_BIL_DET_002\" sourceRef=\"Task_PR_BIL_SUM_001\" targetRef=\"Task_PR_BIL_DET_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_DET_002_Task_PR_BIL_EST_003\" sourceRef=\"Task_PR_BIL_DET_002\" targetRef=\"Task_PR_BIL_EST_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_EST_003_End_US_BIL_CUS_001\" sourceRef=\"Task_PR_BIL_EST_003\" targetRef=\"End_US_BIL_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_002_Task_PR_BIL_RCV_004<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_RCV_004\" name=\"PR-BIL-RCV-004 청구서 수신 방식 조회·변경\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_002_Task_PR_BIL_RCV_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_RCV_004_Task_PR_BIL_DOC_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_DOC_005\" name=\"PR-BIL-DOC-005 증빙 발급과 다운로드\">\n      <bpmn:incoming>Flow_Task_PR_BIL_RCV_004_Task_PR_BIL_DOC_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_DOC_005_Task_PR_BIL_MAIL_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_MAIL_006\" name=\"PR-BIL-MAIL-006 우편 발송·재발행 상태 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_DOC_005_Task_PR_BIL_MAIL_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_MAIL_006_End_US_BIL_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_MAIL_006_End_US_BIL_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_002_Task_PR_BIL_RCV_004\" sourceRef=\"Start_US_BIL_CUS_002\" targetRef=\"Task_PR_BIL_RCV_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_RCV_004_Task_PR_BIL_DOC_005\" sourceRef=\"Task_PR_BIL_RCV_004\" targetRef=\"Task_PR_BIL_DOC_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_DOC_005_Task_PR_BIL_MAIL_006\" sourceRef=\"Task_PR_BIL_DOC_005\" targetRef=\"Task_PR_BIL_MAIL_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_MAIL_006_End_US_BIL_CUS_002\" sourceRef=\"Task_PR_BIL_MAIL_006\" targetRef=\"End_US_BIL_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_003_Task_PR_BIL_AUT_007<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_AUT_007\" name=\"PR-BIL-AUT-007 자동납부 상태 조회·변경\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_003_Task_PR_BIL_AUT_007<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_AUT_007_Task_PR_BIL_PAY_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_PAY_008\" name=\"PR-BIL-PAY-008 납부수단 등록·제한 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_AUT_007_Task_PR_BIL_PAY_008<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_PAY_008_Task_PR_BIL_RISK_009<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_RISK_009\" name=\"PR-BIL-RISK-009 고위험 결제 인증\">\n      <bpmn:incoming>Flow_Task_PR_BIL_PAY_008_Task_PR_BIL_RISK_009<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_RISK_009_End_US_BIL_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_RISK_009_End_US_BIL_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_003_Task_PR_BIL_AUT_007\" sourceRef=\"Start_US_BIL_CUS_003\" targetRef=\"Task_PR_BIL_AUT_007\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_AUT_007_Task_PR_BIL_PAY_008\" sourceRef=\"Task_PR_BIL_AUT_007\" targetRef=\"Task_PR_BIL_PAY_008\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_PAY_008_Task_PR_BIL_RISK_009\" sourceRef=\"Task_PR_BIL_PAY_008\" targetRef=\"Task_PR_BIL_RISK_009\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_RISK_009_End_US_BIL_CUS_003\" sourceRef=\"Task_PR_BIL_RISK_009\" targetRef=\"End_US_BIL_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_004_Task_PR_BIL_NOW_010<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_NOW_010\" name=\"PR-BIL-NOW-010 즉시 납부 실행\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_004_Task_PR_BIL_NOW_010<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_NOW_010_Task_PR_BIL_RES_011<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_RES_011\" name=\"PR-BIL-RES-011 예약·부분 납부 신청\">\n      <bpmn:incoming>Flow_Task_PR_BIL_NOW_010_Task_PR_BIL_RES_011<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_RES_011_Task_PR_BIL_EXT_012<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_EXT_012\" name=\"PR-BIL-EXT-012 계약 연장·할부금 납부\">\n      <bpmn:incoming>Flow_Task_PR_BIL_RES_011_Task_PR_BIL_EXT_012<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_EXT_012_Task_PR_BIL_RESL_013<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_RESL_013\" name=\"PR-BIL-RESL-013 납부 결과와 영수증 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_EXT_012_Task_PR_BIL_RESL_013<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_RESL_013_End_US_BIL_CUS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_RESL_013_End_US_BIL_CUS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_004_Task_PR_BIL_NOW_010\" sourceRef=\"Start_US_BIL_CUS_004\" targetRef=\"Task_PR_BIL_NOW_010\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_NOW_010_Task_PR_BIL_RES_011\" sourceRef=\"Task_PR_BIL_NOW_010\" targetRef=\"Task_PR_BIL_RES_011\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_RES_011_Task_PR_BIL_EXT_012\" sourceRef=\"Task_PR_BIL_RES_011\" targetRef=\"Task_PR_BIL_EXT_012\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_EXT_012_Task_PR_BIL_RESL_013\" sourceRef=\"Task_PR_BIL_EXT_012\" targetRef=\"Task_PR_BIL_RESL_013\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_RESL_013_End_US_BIL_CUS_004\" sourceRef=\"Task_PR_BIL_RESL_013\" targetRef=\"End_US_BIL_CUS_004\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_005\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_005_Task_PR_BIL_FAIL_014<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_FAIL_014\" name=\"PR-BIL-FAIL-014 납부 실패 원인 확인\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_005_Task_PR_BIL_FAIL_014<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_FAIL_014_Task_PR_BIL_DUE_015<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_DUE_015\" name=\"PR-BIL-DUE-015 미납·연체 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_FAIL_014_Task_PR_BIL_DUE_015<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_DUE_015_Task_PR_BIL_REC_016<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_REC_016\" name=\"PR-BIL-REC-016 재시도·대체 납부 실행\">\n      <bpmn:incoming>Flow_Task_PR_BIL_DUE_015_Task_PR_BIL_REC_016<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_REC_016_End_US_BIL_CUS_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_005\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_REC_016_End_US_BIL_CUS_005<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_005_Task_PR_BIL_FAIL_014\" sourceRef=\"Start_US_BIL_CUS_005\" targetRef=\"Task_PR_BIL_FAIL_014\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_FAIL_014_Task_PR_BIL_DUE_015\" sourceRef=\"Task_PR_BIL_FAIL_014\" targetRef=\"Task_PR_BIL_DUE_015\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_DUE_015_Task_PR_BIL_REC_016\" sourceRef=\"Task_PR_BIL_DUE_015\" targetRef=\"Task_PR_BIL_REC_016\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_REC_016_End_US_BIL_CUS_005\" sourceRef=\"Task_PR_BIL_REC_016\" targetRef=\"End_US_BIL_CUS_005\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_006\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_006_Task_PR_BIL_GRP_017<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_GRP_017\" name=\"PR-BIL-GRP-017 통합청구 대상 조회\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_006_Task_PR_BIL_GRP_017<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_GRP_017_Task_PR_BIL_ACC_018<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_ACC_018\" name=\"PR-BIL-ACC-018 청구계정 생성·통합 기준 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_GRP_017_Task_PR_BIL_ACC_018<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_ACC_018_Task_PR_BIL_CORP_019<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_CORP_019\" name=\"PR-BIL-CORP-019 법인·구성원별 청구 관리\">\n      <bpmn:incoming>Flow_Task_PR_BIL_ACC_018_Task_PR_BIL_CORP_019<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_CORP_019_End_US_BIL_CUS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_006\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_CORP_019_End_US_BIL_CUS_006<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_006_Task_PR_BIL_GRP_017\" sourceRef=\"Start_US_BIL_CUS_006\" targetRef=\"Task_PR_BIL_GRP_017\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_GRP_017_Task_PR_BIL_ACC_018\" sourceRef=\"Task_PR_BIL_GRP_017\" targetRef=\"Task_PR_BIL_ACC_018\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_ACC_018_Task_PR_BIL_CORP_019\" sourceRef=\"Task_PR_BIL_ACC_018\" targetRef=\"Task_PR_BIL_CORP_019\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_CORP_019_End_US_BIL_CUS_006\" sourceRef=\"Task_PR_BIL_CORP_019\" targetRef=\"End_US_BIL_CUS_006\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_007\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_007_Task_PR_BIL_RTB_020<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_RTB_020\" name=\"PR-BIL-RTB-020 실시간 이용요금 조회\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_007_Task_PR_BIL_RTB_020<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_RTB_020_Task_PR_BIL_LIM_021<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_LIM_021\" name=\"PR-BIL-LIM-021 한도 변경과 차단 설정\">\n      <bpmn:incoming>Flow_Task_PR_BIL_RTB_020_Task_PR_BIL_LIM_021<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_LIM_021_Task_PR_BIL_DISC_022<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_DISC_022\" name=\"PR-BIL-DISC-022 할인·혜택 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_LIM_021_Task_PR_BIL_DISC_022<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_DISC_022_End_US_BIL_CUS_007<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_007\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_DISC_022_End_US_BIL_CUS_007<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_007_Task_PR_BIL_RTB_020\" sourceRef=\"Start_US_BIL_CUS_007\" targetRef=\"Task_PR_BIL_RTB_020\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_RTB_020_Task_PR_BIL_LIM_021\" sourceRef=\"Task_PR_BIL_RTB_020\" targetRef=\"Task_PR_BIL_LIM_021\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_LIM_021_Task_PR_BIL_DISC_022\" sourceRef=\"Task_PR_BIL_LIM_021\" targetRef=\"Task_PR_BIL_DISC_022\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_DISC_022_End_US_BIL_CUS_007\" sourceRef=\"Task_PR_BIL_DISC_022\" targetRef=\"End_US_BIL_CUS_007\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CUS_008\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CUS_008_Task_PR_BIL_PNT_023<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_PNT_023\" name=\"PR-BIL-PNT-023 포인트 잔액과 소멸 확인\">\n      <bpmn:incoming>Flow_Start_US_BIL_CUS_008_Task_PR_BIL_PNT_023<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_PNT_023_Task_PR_BIL_PNTD_024<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_PNTD_024\" name=\"PR-BIL-PNTD-024 포인트 반영 지연·누락 확인\">\n      <bpmn:incoming>Flow_Task_PR_BIL_PNT_023_Task_PR_BIL_PNTD_024<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_PNTD_024_End_US_BIL_CUS_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CUS_008\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_PNTD_024_End_US_BIL_CUS_008<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CUS_008_Task_PR_BIL_PNT_023\" sourceRef=\"Start_US_BIL_CUS_008\" targetRef=\"Task_PR_BIL_PNT_023\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_PNT_023_Task_PR_BIL_PNTD_024\" sourceRef=\"Task_PR_BIL_PNT_023\" targetRef=\"Task_PR_BIL_PNTD_024\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_PNTD_024_End_US_BIL_CUS_008\" sourceRef=\"Task_PR_BIL_PNTD_024\" targetRef=\"End_US_BIL_CUS_008\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_OPS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_OPS_001_Task_PR_BIL_OCD_025<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_OCD_025\" name=\"PR-BIL-OCD-025 청구 상태코드·문구 운영\">\n      <bpmn:incoming>Flow_Start_US_BIL_OPS_001_Task_PR_BIL_OCD_025<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_OCD_025_Task_PR_BIL_OCOR_026<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_OCOR_026\" name=\"PR-BIL-OCOR-026 이상 청구·보정 관리\">\n      <bpmn:incoming>Flow_Task_PR_BIL_OCD_025_Task_PR_BIL_OCOR_026<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_OCOR_026_Task_PR_BIL_OREC_027<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_OREC_027\" name=\"PR-BIL-OREC-027 미납·실패 재처리 운영\">\n      <bpmn:incoming>Flow_Task_PR_BIL_OCOR_026_Task_PR_BIL_OREC_027<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_OREC_027_End_US_BIL_OPS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_OPS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_OREC_027_End_US_BIL_OPS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_OPS_001_Task_PR_BIL_OCD_025\" sourceRef=\"Start_US_BIL_OPS_001\" targetRef=\"Task_PR_BIL_OCD_025\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_OCD_025_Task_PR_BIL_OCOR_026\" sourceRef=\"Task_PR_BIL_OCD_025\" targetRef=\"Task_PR_BIL_OCOR_026\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_OCOR_026_Task_PR_BIL_OREC_027\" sourceRef=\"Task_PR_BIL_OCOR_026\" targetRef=\"Task_PR_BIL_OREC_027\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_OREC_027_End_US_BIL_OPS_001\" sourceRef=\"Task_PR_BIL_OREC_027\" targetRef=\"End_US_BIL_OPS_001\"/>\n    <bpmn:startEvent id=\"Start_US_BIL_CS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_BIL_CS_001_Task_PR_BIL_CTX_028<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_BIL_CTX_028\" name=\"PR-BIL-CTX-028 상담 문맥 조회\">\n      <bpmn:incoming>Flow_Start_US_BIL_CS_001_Task_PR_BIL_CTX_028<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_CTX_028_Task_PR_BIL_GUID_029<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_BIL_GUID_029\" name=\"PR-BIL-GUID-029 상담 후속 조치 안내\">\n      <bpmn:incoming>Flow_Task_PR_BIL_CTX_028_Task_PR_BIL_GUID_029<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_BIL_GUID_029_End_US_BIL_CS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_BIL_CS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_BIL_GUID_029_End_US_BIL_CS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_BIL_CS_001_Task_PR_BIL_CTX_028\" sourceRef=\"Start_US_BIL_CS_001\" targetRef=\"Task_PR_BIL_CTX_028\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_CTX_028_Task_PR_BIL_GUID_029\" sourceRef=\"Task_PR_BIL_CTX_028\" targetRef=\"Task_PR_BIL_GUID_029\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_BIL_GUID_029_End_US_BIL_CS_001\" sourceRef=\"Task_PR_BIL_GUID_029\" targetRef=\"End_US_BIL_CS_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_001_di\" bpmnElement=\"Lane_US_BIL_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_001_di\" bpmnElement=\"Start_US_BIL_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_SUM_001_di\" bpmnElement=\"Task_PR_BIL_SUM_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_DET_002_di\" bpmnElement=\"Task_PR_BIL_DET_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_EST_003_di\" bpmnElement=\"Task_PR_BIL_EST_003\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_001_di\" bpmnElement=\"End_US_BIL_CUS_001\">\n        <dc:Bounds x=\"900\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_002_di\" bpmnElement=\"Lane_US_BIL_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_002_di\" bpmnElement=\"Start_US_BIL_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_RCV_004_di\" bpmnElement=\"Task_PR_BIL_RCV_004\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_DOC_005_di\" bpmnElement=\"Task_PR_BIL_DOC_005\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_MAIL_006_di\" bpmnElement=\"Task_PR_BIL_MAIL_006\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_002_di\" bpmnElement=\"End_US_BIL_CUS_002\">\n        <dc:Bounds x=\"900\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_003_di\" bpmnElement=\"Lane_US_BIL_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_003_di\" bpmnElement=\"Start_US_BIL_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_AUT_007_di\" bpmnElement=\"Task_PR_BIL_AUT_007\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_PAY_008_di\" bpmnElement=\"Task_PR_BIL_PAY_008\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_RISK_009_di\" bpmnElement=\"Task_PR_BIL_RISK_009\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_003_di\" bpmnElement=\"End_US_BIL_CUS_003\">\n        <dc:Bounds x=\"900\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_004_di\" bpmnElement=\"Lane_US_BIL_CUS_004\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_004_di\" bpmnElement=\"Start_US_BIL_CUS_004\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_NOW_010_di\" bpmnElement=\"Task_PR_BIL_NOW_010\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_RES_011_di\" bpmnElement=\"Task_PR_BIL_RES_011\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_EXT_012_di\" bpmnElement=\"Task_PR_BIL_EXT_012\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_RESL_013_di\" bpmnElement=\"Task_PR_BIL_RESL_013\">\n        <dc:Bounds x=\"900\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_004_di\" bpmnElement=\"End_US_BIL_CUS_004\">\n        <dc:Bounds x=\"1120\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_005_di\" bpmnElement=\"Lane_US_BIL_CUS_005\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_005_di\" bpmnElement=\"Start_US_BIL_CUS_005\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_FAIL_014_di\" bpmnElement=\"Task_PR_BIL_FAIL_014\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_DUE_015_di\" bpmnElement=\"Task_PR_BIL_DUE_015\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_REC_016_di\" bpmnElement=\"Task_PR_BIL_REC_016\">\n        <dc:Bounds x=\"680\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_005_di\" bpmnElement=\"End_US_BIL_CUS_005\">\n        <dc:Bounds x=\"900\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_006_di\" bpmnElement=\"Lane_US_BIL_CUS_006\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_006_di\" bpmnElement=\"Start_US_BIL_CUS_006\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_GRP_017_di\" bpmnElement=\"Task_PR_BIL_GRP_017\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_ACC_018_di\" bpmnElement=\"Task_PR_BIL_ACC_018\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_CORP_019_di\" bpmnElement=\"Task_PR_BIL_CORP_019\">\n        <dc:Bounds x=\"680\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_006_di\" bpmnElement=\"End_US_BIL_CUS_006\">\n        <dc:Bounds x=\"900\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_007_di\" bpmnElement=\"Lane_US_BIL_CUS_007\">\n        <dc:Bounds x=\"40\" y=\"1045\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_007_di\" bpmnElement=\"Start_US_BIL_CUS_007\">\n        <dc:Bounds x=\"112\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_RTB_020_di\" bpmnElement=\"Task_PR_BIL_RTB_020\">\n        <dc:Bounds x=\"240\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_LIM_021_di\" bpmnElement=\"Task_PR_BIL_LIM_021\">\n        <dc:Bounds x=\"460\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_DISC_022_di\" bpmnElement=\"Task_PR_BIL_DISC_022\">\n        <dc:Bounds x=\"680\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_007_di\" bpmnElement=\"End_US_BIL_CUS_007\">\n        <dc:Bounds x=\"900\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CUS_008_di\" bpmnElement=\"Lane_US_BIL_CUS_008\">\n        <dc:Bounds x=\"40\" y=\"1215\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CUS_008_di\" bpmnElement=\"Start_US_BIL_CUS_008\">\n        <dc:Bounds x=\"112\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_PNT_023_di\" bpmnElement=\"Task_PR_BIL_PNT_023\">\n        <dc:Bounds x=\"240\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_PNTD_024_di\" bpmnElement=\"Task_PR_BIL_PNTD_024\">\n        <dc:Bounds x=\"460\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CUS_008_di\" bpmnElement=\"End_US_BIL_CUS_008\">\n        <dc:Bounds x=\"680\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_OPS_001_di\" bpmnElement=\"Lane_US_BIL_OPS_001\">\n        <dc:Bounds x=\"40\" y=\"1385\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_OPS_001_di\" bpmnElement=\"Start_US_BIL_OPS_001\">\n        <dc:Bounds x=\"112\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_OCD_025_di\" bpmnElement=\"Task_PR_BIL_OCD_025\">\n        <dc:Bounds x=\"240\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_OCOR_026_di\" bpmnElement=\"Task_PR_BIL_OCOR_026\">\n        <dc:Bounds x=\"460\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_OREC_027_di\" bpmnElement=\"Task_PR_BIL_OREC_027\">\n        <dc:Bounds x=\"680\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_OPS_001_di\" bpmnElement=\"End_US_BIL_OPS_001\">\n        <dc:Bounds x=\"900\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_BIL_CS_001_di\" bpmnElement=\"Lane_US_BIL_CS_001\">\n        <dc:Bounds x=\"40\" y=\"1555\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_BIL_CS_001_di\" bpmnElement=\"Start_US_BIL_CS_001\">\n        <dc:Bounds x=\"112\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_CTX_028_di\" bpmnElement=\"Task_PR_BIL_CTX_028\">\n        <dc:Bounds x=\"240\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_BIL_GUID_029_di\" bpmnElement=\"Task_PR_BIL_GUID_029\">\n        <dc:Bounds x=\"460\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_BIL_CS_001_di\" bpmnElement=\"End_US_BIL_CS_001\">\n        <dc:Bounds x=\"680\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_001_Task_PR_BIL_SUM_001_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_001_Task_PR_BIL_SUM_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_SUM_001_Task_PR_BIL_DET_002_di\" bpmnElement=\"Flow_Task_PR_BIL_SUM_001_Task_PR_BIL_DET_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_DET_002_Task_PR_BIL_EST_003_di\" bpmnElement=\"Flow_Task_PR_BIL_DET_002_Task_PR_BIL_EST_003\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_EST_003_End_US_BIL_CUS_001_di\" bpmnElement=\"Flow_Task_PR_BIL_EST_003_End_US_BIL_CUS_001\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_002_Task_PR_BIL_RCV_004_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_002_Task_PR_BIL_RCV_004\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_RCV_004_Task_PR_BIL_DOC_005_di\" bpmnElement=\"Flow_Task_PR_BIL_RCV_004_Task_PR_BIL_DOC_005\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_DOC_005_Task_PR_BIL_MAIL_006_di\" bpmnElement=\"Flow_Task_PR_BIL_DOC_005_Task_PR_BIL_MAIL_006\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_MAIL_006_End_US_BIL_CUS_002_di\" bpmnElement=\"Flow_Task_PR_BIL_MAIL_006_End_US_BIL_CUS_002\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_003_Task_PR_BIL_AUT_007_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_003_Task_PR_BIL_AUT_007\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_AUT_007_Task_PR_BIL_PAY_008_di\" bpmnElement=\"Flow_Task_PR_BIL_AUT_007_Task_PR_BIL_PAY_008\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_PAY_008_Task_PR_BIL_RISK_009_di\" bpmnElement=\"Flow_Task_PR_BIL_PAY_008_Task_PR_BIL_RISK_009\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_RISK_009_End_US_BIL_CUS_003_di\" bpmnElement=\"Flow_Task_PR_BIL_RISK_009_End_US_BIL_CUS_003\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_004_Task_PR_BIL_NOW_010_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_004_Task_PR_BIL_NOW_010\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_NOW_010_Task_PR_BIL_RES_011_di\" bpmnElement=\"Flow_Task_PR_BIL_NOW_010_Task_PR_BIL_RES_011\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_RES_011_Task_PR_BIL_EXT_012_di\" bpmnElement=\"Flow_Task_PR_BIL_RES_011_Task_PR_BIL_EXT_012\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_EXT_012_Task_PR_BIL_RESL_013_di\" bpmnElement=\"Flow_Task_PR_BIL_EXT_012_Task_PR_BIL_RESL_013\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_RESL_013_End_US_BIL_CUS_004_di\" bpmnElement=\"Flow_Task_PR_BIL_RESL_013_End_US_BIL_CUS_004\">\n        <di:waypoint x=\"1070\" y=\"580\"/>\n        <di:waypoint x=\"1120\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_005_Task_PR_BIL_FAIL_014_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_005_Task_PR_BIL_FAIL_014\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_FAIL_014_Task_PR_BIL_DUE_015_di\" bpmnElement=\"Flow_Task_PR_BIL_FAIL_014_Task_PR_BIL_DUE_015\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_DUE_015_Task_PR_BIL_REC_016_di\" bpmnElement=\"Flow_Task_PR_BIL_DUE_015_Task_PR_BIL_REC_016\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_REC_016_End_US_BIL_CUS_005_di\" bpmnElement=\"Flow_Task_PR_BIL_REC_016_End_US_BIL_CUS_005\">\n        <di:waypoint x=\"850\" y=\"750\"/>\n        <di:waypoint x=\"900\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_006_Task_PR_BIL_GRP_017_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_006_Task_PR_BIL_GRP_017\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_GRP_017_Task_PR_BIL_ACC_018_di\" bpmnElement=\"Flow_Task_PR_BIL_GRP_017_Task_PR_BIL_ACC_018\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_ACC_018_Task_PR_BIL_CORP_019_di\" bpmnElement=\"Flow_Task_PR_BIL_ACC_018_Task_PR_BIL_CORP_019\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_CORP_019_End_US_BIL_CUS_006_di\" bpmnElement=\"Flow_Task_PR_BIL_CORP_019_End_US_BIL_CUS_006\">\n        <di:waypoint x=\"850\" y=\"920\"/>\n        <di:waypoint x=\"900\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_007_Task_PR_BIL_RTB_020_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_007_Task_PR_BIL_RTB_020\">\n        <di:waypoint x=\"148\" y=\"1090\"/>\n        <di:waypoint x=\"240\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_RTB_020_Task_PR_BIL_LIM_021_di\" bpmnElement=\"Flow_Task_PR_BIL_RTB_020_Task_PR_BIL_LIM_021\">\n        <di:waypoint x=\"410\" y=\"1090\"/>\n        <di:waypoint x=\"460\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_LIM_021_Task_PR_BIL_DISC_022_di\" bpmnElement=\"Flow_Task_PR_BIL_LIM_021_Task_PR_BIL_DISC_022\">\n        <di:waypoint x=\"630\" y=\"1090\"/>\n        <di:waypoint x=\"680\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_DISC_022_End_US_BIL_CUS_007_di\" bpmnElement=\"Flow_Task_PR_BIL_DISC_022_End_US_BIL_CUS_007\">\n        <di:waypoint x=\"850\" y=\"1090\"/>\n        <di:waypoint x=\"900\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CUS_008_Task_PR_BIL_PNT_023_di\" bpmnElement=\"Flow_Start_US_BIL_CUS_008_Task_PR_BIL_PNT_023\">\n        <di:waypoint x=\"148\" y=\"1260\"/>\n        <di:waypoint x=\"240\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_PNT_023_Task_PR_BIL_PNTD_024_di\" bpmnElement=\"Flow_Task_PR_BIL_PNT_023_Task_PR_BIL_PNTD_024\">\n        <di:waypoint x=\"410\" y=\"1260\"/>\n        <di:waypoint x=\"460\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_PNTD_024_End_US_BIL_CUS_008_di\" bpmnElement=\"Flow_Task_PR_BIL_PNTD_024_End_US_BIL_CUS_008\">\n        <di:waypoint x=\"630\" y=\"1260\"/>\n        <di:waypoint x=\"680\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_OPS_001_Task_PR_BIL_OCD_025_di\" bpmnElement=\"Flow_Start_US_BIL_OPS_001_Task_PR_BIL_OCD_025\">\n        <di:waypoint x=\"148\" y=\"1430\"/>\n        <di:waypoint x=\"240\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_OCD_025_Task_PR_BIL_OCOR_026_di\" bpmnElement=\"Flow_Task_PR_BIL_OCD_025_Task_PR_BIL_OCOR_026\">\n        <di:waypoint x=\"410\" y=\"1430\"/>\n        <di:waypoint x=\"460\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_OCOR_026_Task_PR_BIL_OREC_027_di\" bpmnElement=\"Flow_Task_PR_BIL_OCOR_026_Task_PR_BIL_OREC_027\">\n        <di:waypoint x=\"630\" y=\"1430\"/>\n        <di:waypoint x=\"680\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_OREC_027_End_US_BIL_OPS_001_di\" bpmnElement=\"Flow_Task_PR_BIL_OREC_027_End_US_BIL_OPS_001\">\n        <di:waypoint x=\"850\" y=\"1430\"/>\n        <di:waypoint x=\"900\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_BIL_CS_001_Task_PR_BIL_CTX_028_di\" bpmnElement=\"Flow_Start_US_BIL_CS_001_Task_PR_BIL_CTX_028\">\n        <di:waypoint x=\"148\" y=\"1600\"/>\n        <di:waypoint x=\"240\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_CTX_028_Task_PR_BIL_GUID_029_di\" bpmnElement=\"Flow_Task_PR_BIL_CTX_028_Task_PR_BIL_GUID_029\">\n        <di:waypoint x=\"410\" y=\"1600\"/>\n        <di:waypoint x=\"460\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_BIL_GUID_029_End_US_BIL_CS_001_di\" bpmnElement=\"Flow_Task_PR_BIL_GUID_029_End_US_BIL_CS_001\">\n        <di:waypoint x=\"630\" y=\"1600\"/>\n        <di:waypoint x=\"680\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="1724" role="img" viewBox="0 0 1177 1724" width="1177" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="85">US-BIL-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="101">청구 요약과 상세 이해</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-BIL-SUM-001</text><text class="task-text" text-anchor="middle" x="410" y="119">청구 요약 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-BIL-DET-002</text><text class="task-text" text-anchor="middle" x="595" y="119">청구 상세와 증감 사유 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-BIL-EST-003</text><text class="task-text" text-anchor="middle" x="780" y="119">예상 청구와 영향 정보 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="108" y2="108"></line><circle class="end" cx="918" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="253">US-BIL-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="269">청구서 수신과 증빙 관리</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-BIL-RCV-004</text><text class="task-text" text-anchor="middle" x="410" y="287">청구서 수신 방식 조회·변경</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-BIL-DOC-005</text><text class="task-text" text-anchor="middle" x="595" y="287">증빙 발급과 다운로드</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-BIL-MAIL-006</text><text class="task-text" text-anchor="middle" x="780" y="287">우편 발송·재발행 상태 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="276" y2="276"></line><circle class="end" cx="918" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-BIL-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">납부수단과 자동납부 관리</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-BIL-AUT-007</text><text class="task-text" text-anchor="middle" x="410" y="455">자동납부 상태 조회·변경</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-BIL-PAY-008</text><text class="task-text" text-anchor="middle" x="595" y="455">납부수단 등록·제한 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-BIL-RISK-009</text><text class="task-text" text-anchor="middle" x="780" y="455">고위험 결제 인증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="444" y2="444"></line><circle class="end" cx="918" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-BIL-CUS-004</text><text class="pool-title" text-anchor="middle" x="145" y="605">즉시·예약·부분 납부 완료</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-BIL-NOW-010</text><text class="task-text" text-anchor="middle" x="410" y="623">즉시 납부 실행</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-BIL-RES-011</text><text class="task-text" text-anchor="middle" x="595" y="623">예약·부분 납부 신청</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-BIL-EXT-012</text><text class="task-text" text-anchor="middle" x="780" y="623">계약 연장·할부금 납부</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="579"></rect><text class="task-text" text-anchor="middle" x="965" y="600">PR-BIL-RESL-013</text><text class="task-text" text-anchor="middle" x="965" y="623">납부 결과와 영수증 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="612" y2="612"></line><circle class="end" cx="1103" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-BIL-CUS-005</text><text class="pool-title" text-anchor="middle" x="145" y="773">미납·연체·납부 실패 복구</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-BIL-FAIL-014</text><text class="task-text" text-anchor="middle" x="410" y="791">납부 실패 원인 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-BIL-DUE-015</text><text class="task-text" text-anchor="middle" x="595" y="791">미납·연체 영향 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="747"></rect><text class="task-text" text-anchor="middle" x="780" y="768">PR-BIL-REC-016</text><text class="task-text" text-anchor="middle" x="780" y="791">재시도·대체 납부 실행</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="780" y2="780"></line><circle class="end" cx="918" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="925">US-BIL-CUS-006</text><text class="pool-title" text-anchor="middle" x="145" y="941">통합청구와 청구계정 관리</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-BIL-GRP-017</text><text class="task-text" text-anchor="middle" x="410" y="959">통합청구 대상 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-BIL-ACC-018</text><text class="task-text" text-anchor="middle" x="595" y="952">청구계정 생성·통합 기준</text><text class="task-text" text-anchor="middle" x="595" y="966">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="915"></rect><text class="task-text" text-anchor="middle" x="780" y="936">PR-BIL-CORP-019</text><text class="task-text" text-anchor="middle" x="780" y="959">법인·구성원별 청구 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="948" y2="948"></line><circle class="end" cx="918" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="952">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1040"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1040"></rect><text class="pool-index" x="58" y="1072">07</text><text class="pool-title" text-anchor="middle" x="145" y="1093">US-BIL-CUS-007</text><text class="pool-title" text-anchor="middle" x="145" y="1109">실시간 이용요금과 한도 관리</text><circle class="start" cx="300" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1120">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1083"></rect><text class="task-text" text-anchor="middle" x="410" y="1104">PR-BIL-RTB-020</text><text class="task-text" text-anchor="middle" x="410" y="1127">실시간 이용요금 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1116" y2="1116"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1083"></rect><text class="task-text" text-anchor="middle" x="595" y="1104">PR-BIL-LIM-021</text><text class="task-text" text-anchor="middle" x="595" y="1127">한도 변경과 차단 설정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1116" y2="1116"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="1083"></rect><text class="task-text" text-anchor="middle" x="780" y="1104">PR-BIL-DISC-022</text><text class="task-text" text-anchor="middle" x="780" y="1127">할인·혜택 영향 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1116" y2="1116"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="1116" y2="1116"></line><circle class="end" cx="918" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="1120">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1208"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1208"></rect><text class="pool-index" x="58" y="1240">08</text><text class="pool-title" text-anchor="middle" x="145" y="1261">US-BIL-CUS-008</text><text class="pool-title" text-anchor="middle" x="145" y="1277">통합 포인트 자산 확인</text><circle class="start" cx="300" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1288">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1251"></rect><text class="task-text" text-anchor="middle" x="410" y="1272">PR-BIL-PNT-023</text><text class="task-text" text-anchor="middle" x="410" y="1295">포인트 잔액과 소멸 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1284" y2="1284"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1251"></rect><text class="task-text" text-anchor="middle" x="595" y="1272">PR-BIL-PNTD-024</text><text class="task-text" text-anchor="middle" x="595" y="1295">포인트 반영 지연·누락 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1284" y2="1284"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1284" y2="1284"></line><circle class="end" cx="733" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1288">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1376"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1376"></rect><text class="pool-index" x="58" y="1408">09</text><text class="pool-title" text-anchor="middle" x="145" y="1429">US-BIL-OPS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1445">청구·수납 예외와 정책 운영</text><circle class="start" cx="300" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1456">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1419"></rect><text class="task-text" text-anchor="middle" x="410" y="1440">PR-BIL-OCD-025</text><text class="task-text" text-anchor="middle" x="410" y="1463">청구 상태코드·문구 운영</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1452" y2="1452"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1419"></rect><text class="task-text" text-anchor="middle" x="595" y="1440">PR-BIL-OCOR-026</text><text class="task-text" text-anchor="middle" x="595" y="1463">이상 청구·보정 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1452" y2="1452"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="1419"></rect><text class="task-text" text-anchor="middle" x="780" y="1440">PR-BIL-OREC-027</text><text class="task-text" text-anchor="middle" x="780" y="1463">미납·실패 재처리 운영</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1452" y2="1452"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="1452" y2="1452"></line><circle class="end" cx="918" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="1456">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1544"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1544"></rect><text class="pool-index" x="58" y="1576">10</text><text class="pool-title" text-anchor="middle" x="145" y="1597">US-BIL-CS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1613">청구·납부 상담 문맥 지원</text><circle class="start" cx="300" cy="1620" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1624">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1587"></rect><text class="task-text" text-anchor="middle" x="410" y="1608">PR-BIL-CTX-028</text><text class="task-text" text-anchor="middle" x="410" y="1631">상담 문맥 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1620" y2="1620"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1587"></rect><text class="task-text" text-anchor="middle" x="595" y="1608">PR-BIL-GUID-029</text><text class="task-text" text-anchor="middle" x="595" y="1631">상담 후속 조치 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1620" y2="1620"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1620" y2="1620"></line><circle class="end" cx="733" cy="1620" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1624">End</text></svg></div></div>
+</div>
+
+	
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 청구 요약 확인 (PR-BIL-SUM-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-SUM-001</td><td>청구 요약 확인 기능</td><td>당월 청구금액, 납부 예정일, 납부 상태, 미납 여부를 요약해 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>2) 청구 상세와 증감 사유 확인 (PR-BIL-DET-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-DET-002</td><td>청구 상세와 증감 사유 확인 기능</td><td>요금제, 부가서비스, 할부, 할인, 일회성 과금과 전월 대비 증감 사유를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>3) 예상 청구와 영향 정보 확인 (PR-BIL-EST-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-EST-003</td><td>예상 청구와 영향 정보 확인 기능</td><td>요금제 변경, 할인 만료, 로밍·렌탈 과금이 예상 청구에 미치는 영향을 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>4) 청구서 수신 방식 조회·변경 (PR-BIL-RCV-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-RCV-004</td><td>청구서 수신 방식 조회·변경 기능</td><td>전자·SMS·이메일·우편 수신 방식을 조회하고 복수 수신과 원복을 신청한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>5) 증빙 발급과 다운로드 (PR-BIL-DOC-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-DOC-005</td><td>증빙 발급과 다운로드 기능</td><td>청구서, 영수증, 납부확인서를 기간·회선·권한 기준으로 발급한다.<br/></td><td>발급 권한 확인<br/>문서 종류 선택<br/>마스킹 적용<br/>발급 이력 저장</td></tr></tbody>
+</table>
+
+<h4>6) 우편 발송·재발행 상태 확인 (PR-BIL-MAIL-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-MAIL-006</td><td>우편 발송·재발행 상태 확인 기능</td><td>우편 청구서 발송 예정일, 주소 변경 예약, 반송, 재발행 상태를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>7) 자동납부 상태 조회·변경 (PR-BIL-AUT-007)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-AUT-007</td><td>자동납부 상태 조회·변경 기능</td><td>자동납부 여부와 주 납부수단을 조회하고 등록·변경·해지한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>8) 납부수단 등록·제한 확인 (PR-BIL-PAY-008)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-PAY-008</td><td>납부수단 등록·제한 확인 기능</td><td>카드, 계좌, 오픈뱅킹, 가상계좌 등 사용 가능한 납부수단과 제한 사유를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>9) 고위험 결제 인증 (PR-BIL-RISK-009)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-RISK-009</td><td>고위험 결제 인증 기능</td><td>납부수단 변경, 고액 결제, 비로그인 납부 등 고위험 거래에서 추가 인증을 수행한다.<br/></td><td>납부 대상 산정<br/>수단 검증<br/>승인 요청<br/>수납 반영 확인</td></tr></tbody>
+</table>
+
+<h4>10) 즉시 납부 실행 (PR-BIL-NOW-010)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-NOW-010</td><td>즉시 납부 실행 기능</td><td>당월 요금 또는 미납 요금을 선택한 납부수단으로 즉시 납부한다.<br/></td><td>납부 대상 산정<br/>수단 검증<br/>승인 요청<br/>수납 반영 확인</td></tr></tbody>
+</table>
+
+<h4>11) 예약·부분 납부 신청 (PR-BIL-RES-011)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-RES-011</td><td>예약·부분 납부 신청 기능</td><td>예약 납부 또는 일부 수납 대상을 선택해 신청하고 취소 가능 시점을 확인한다.<br/></td><td>납부 대상 산정<br/>수단 검증<br/>승인 요청<br/>수납 반영 확인</td></tr></tbody>
+</table>
+
+<h4>12) 계약 연장·할부금 납부 (PR-BIL-EXT-012)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-EXT-012</td><td>계약 연장·할부금 납부 기능</td><td>계약 연장 결제, 할부금 완납, 다회선 할부금 일괄 완납을 처리한다.<br/></td><td>납부 대상 산정<br/>수단 검증<br/>승인 요청<br/>수납 반영 확인</td></tr></tbody>
+</table>
+
+<h4>13) 납부 결과와 영수증 확인 (PR-BIL-RESL-013)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-RESL-013</td><td>납부 결과와 영수증 확인 기능</td><td>결제 승인, BSS 수납 반영, 영수증, 납부확인서를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>14) 납부 실패 원인 확인 (PR-BIL-FAIL-014)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-FAIL-014</td><td>납부 실패 원인 확인 기능</td><td>결제 실패, 비정상 증액, 할인 미적용, 카드 만료, 계좌 오류 원인을 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>15) 미납·연체 영향 확인 (PR-BIL-DUE-015)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-DUE-015</td><td>미납·연체 영향 확인 기능</td><td>미납 금액, 정지 여부, 신용 영향, 납부 후 자동 해제 기준을 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>16) 재시도·대체 납부 실행 (PR-BIL-REC-016)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-REC-016</td><td>재시도·대체 납부 실행 기능</td><td>재시도, 카드 전환, 가상계좌, 상담 연결 등 복구 경로를 수행한다.<br/></td><td>납부 대상 산정<br/>수단 검증<br/>승인 요청<br/>수납 반영 확인</td></tr></tbody>
+</table>
+
+<h4>17) 통합청구 대상 조회 (PR-BIL-GRP-017)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-GRP-017</td><td>통합청구 대상 조회 기능</td><td>통합청구 대상 회선, 서비스, 대표회선, 납부 책임 범위를 조회한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>18) 청구계정 생성·통합 기준 확인 (PR-BIL-ACC-018)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-ACC-018</td><td>청구계정 생성·통합 기준 확인 기능</td><td>가입·변경 과정에서 청구계정 생성, 통합, 분리 기준과 적용 영향을 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>19) 법인·구성원별 청구 관리 (PR-BIL-CORP-019)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-CORP-019</td><td>법인·구성원별 청구 관리 기능</td><td>법인 또는 그룹 구성원별 조회 권한과 납부금액 기준을 확인한다.<br/></td><td>대상 식별<br/>조건 판정<br/>결과 구성<br/>후속 행동 연결</td></tr></tbody>
+</table>
+
+<h4>20) 실시간 이용요금 조회 (PR-BIL-RTB-020)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-RTB-020</td><td>실시간 이용요금 조회 기능</td><td>휴대폰 결제, 콘텐츠 이용료, 실시간 이용 요금과 확정 전 차이를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>21) 한도 변경과 차단 설정 (PR-BIL-LIM-021)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-LIM-021</td><td>한도 변경과 차단 설정 기능</td><td>소액결제·콘텐츠 이용료 한도 변경, 차단, 해제, 분실 신고 연계를 처리한다.<br/></td><td>권한 확인<br/>변경 조건 검증<br/>변경 요청 반영<br/>결과·이력 저장</td></tr></tbody>
+</table>
+
+<h4>22) 할인·혜택 영향 확인 (PR-BIL-DISC-022)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-DISC-022</td><td>할인·혜택 영향 확인 기능</td><td>현재 적용 중 혜택, 결합 할인 분배, 할인 소멸 경고를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>23) 포인트 잔액과 소멸 확인 (PR-BIL-PNT-023)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-PNT-023</td><td>포인트 잔액과 소멸 확인 기능</td><td>가용 잔액, 예정 적립, 제한 잔액, 소멸 예정 포인트를 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>24) 포인트 반영 지연·누락 확인 (PR-BIL-PNTD-024)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-PNTD-024</td><td>포인트 반영 지연·누락 확인 기능</td><td>지급 예정, 미지급, 보류, 동기화 오류, 상담 전환 필요성을 확인한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>25) 청구 상태코드·문구 운영 (PR-BIL-OCD-025)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-OCD-025</td><td>청구 상태코드·문구 운영 기능</td><td>운영자가 청구·납부 상태코드와 고객 문구, 다음 행동 매핑을 관리한다.<br/></td><td>예외 대상 추출<br/>원인 분류<br/>보정·재처리 수행<br/>감사 이력 저장</td></tr></tbody>
+</table>
+
+<h4>26) 이상 청구·보정 관리 (PR-BIL-OCOR-026)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-OCOR-026</td><td>이상 청구·보정 관리 기능</td><td>운영자가 이상 청구, 할인 미적용, 금액 불일치, 포인트 지연을 보정한다.<br/></td><td>예외 대상 추출<br/>원인 분류<br/>보정·재처리 수행<br/>감사 이력 저장</td></tr></tbody>
+</table>
+
+<h4>27) 미납·실패 재처리 운영 (PR-BIL-OREC-027)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-OREC-027</td><td>미납·실패 재처리 운영 기능</td><td>운영자가 자동납부 실패, 미납, 연체, 수납 지연 건을 모니터링하고 재처리한다.<br/></td><td>예외 대상 추출<br/>원인 분류<br/>보정·재처리 수행<br/>감사 이력 저장</td></tr></tbody>
+</table>
+
+<h4>28) 상담 문맥 조회 (PR-BIL-CTX-028)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-CTX-028</td><td>상담 문맥 조회 기능</td><td>상담사가 고객이 확인한 청구 내역, 실패 원인, 접수번호, 보정 이력을 조회한다.<br/></td><td>대상 식별<br/>원장·상태 조회<br/>금액·조건 구성<br/>조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>29) 상담 후속 조치 안내 (PR-BIL-GUID-029)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-BIL-GUID-029</td><td>상담 후속 조치 안내 기능</td><td>상담사가 납부 재시도, 증빙 발급, 보정 접수, 운영 확인 결과를 안내한다.<br/></td><td>대상 식별<br/>조건 판정<br/>결과 구성<br/>후속 행동 연결</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 청구 요약 확인 (PR-BIL-SUM-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr><tr><td class="mono">PG-BIL-BSS-001</td><td>BSS·수납 원장 반영 정책</td><td>BSS·수납 원장 반영 정책을 정의한다.<br/></td><td>원장 반영 완료 기준<br/>수납 반영 지연<br/>결제기관 결과 우선순위<br/>청구·수납 불일치 처리<br/>이력 저장 기준<br/>FO·수납·결제 책임 경계<br/>통합 장애 영향 관리</td></tr></tbody>
+</table>
+
+<h4>2) 청구 상세와 증감 사유 확인 (PR-BIL-DET-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr></tbody>
+</table>
+
+<h4>3) 예상 청구와 영향 정보 확인 (PR-BIL-EST-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr><tr><td class="mono">PG-BIL-REAL-001</td><td>실시간 요금·한도 정책</td><td>실시간 요금·한도 정책을 정의한다.<br/></td><td>실시간 요금 조회<br/>휴대폰 결제 한도<br/>콘텐츠 이용료 차단<br/>분실 신고 차단 연계<br/>확정 금액 차이 고지</td></tr></tbody>
+</table>
+
+<h4>4) 청구서 수신 방식 조회·변경 (PR-BIL-RCV-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-DELIV-001</td><td>청구서 수신·발송 정책</td><td>청구서 수신·발송 정책을 정의한다.<br/></td><td>수신 방식 복수 설정<br/>타사 번호 인증<br/>우편 주소 변경 예약<br/>미수신 재발송<br/>수신 변경 이력<br/>발송 이력 조회<br/>반송 원인 조회<br/>반송 감지 알림<br/>요금안내서 수신 항목 관리</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>5) 증빙 발급과 다운로드 (PR-BIL-DOC-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-DOC-001</td><td>증빙 발급·마스킹 정책</td><td>증빙 발급·마스킹 정책을 정의한다.<br/></td><td>발급 가능 증빙<br/>발급 가능 기간<br/>개인정보 마스킹<br/>법인 일괄 발급<br/>발급 이력 보존<br/>과거 청구서 다운로드<br/>개명 명의 자동 갱신</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>6) 우편 발송·재발행 상태 확인 (PR-BIL-MAIL-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-DELIV-001</td><td>청구서 수신·발송 정책</td><td>청구서 수신·발송 정책을 정의한다.<br/></td><td>수신 방식 복수 설정<br/>타사 번호 인증<br/>우편 주소 변경 예약<br/>미수신 재발송<br/>수신 변경 이력<br/>발송 이력 조회<br/>반송 원인 조회<br/>반송 감지 알림<br/>요금안내서 수신 항목 관리</td></tr><tr><td class="mono">PG-BIL-DOC-001</td><td>증빙 발급·마스킹 정책</td><td>증빙 발급·마스킹 정책을 정의한다.<br/></td><td>발급 가능 증빙<br/>발급 가능 기간<br/>개인정보 마스킹<br/>법인 일괄 발급<br/>발급 이력 보존<br/>과거 청구서 다운로드<br/>개명 명의 자동 갱신</td></tr></tbody>
+</table>
+
+<h4>7) 자동납부 상태 조회·변경 (PR-BIL-AUT-007)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-AUTO-001</td><td>자동납부·납부수단 정책</td><td>자동납부·납부수단 정책을 정의한다.<br/></td><td>자동납부 변경 반영일<br/>카드 만료 사전 알림<br/>납부수단 허용 제한<br/>고위험 결제 추가 인증<br/>이중 납부 방지<br/>당일 출금 유예 요청<br/>오픈뱅킹 계좌 등록<br/>특수 상황 비대면 처리<br/>예금주명 허용 문자<br/>AMEX 카드 예외<br/>셀프동의 URL 납부방법</td></tr><tr><td class="mono">PG-BIL-BSS-001</td><td>BSS·수납 원장 반영 정책</td><td>BSS·수납 원장 반영 정책을 정의한다.<br/></td><td>원장 반영 완료 기준<br/>수납 반영 지연<br/>결제기관 결과 우선순위<br/>청구·수납 불일치 처리<br/>이력 저장 기준<br/>FO·수납·결제 책임 경계<br/>통합 장애 영향 관리</td></tr></tbody>
+</table>
+
+<h4>8) 납부수단 등록·제한 확인 (PR-BIL-PAY-008)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-AUTO-001</td><td>자동납부·납부수단 정책</td><td>자동납부·납부수단 정책을 정의한다.<br/></td><td>자동납부 변경 반영일<br/>카드 만료 사전 알림<br/>납부수단 허용 제한<br/>고위험 결제 추가 인증<br/>이중 납부 방지<br/>당일 출금 유예 요청<br/>오픈뱅킹 계좌 등록<br/>특수 상황 비대면 처리<br/>예금주명 허용 문자<br/>AMEX 카드 예외<br/>셀프동의 URL 납부방법</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>9) 고위험 결제 인증 (PR-BIL-RISK-009)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-AUTO-001</td><td>자동납부·납부수단 정책</td><td>자동납부·납부수단 정책을 정의한다.<br/></td><td>자동납부 변경 반영일<br/>카드 만료 사전 알림<br/>납부수단 허용 제한<br/>고위험 결제 추가 인증<br/>이중 납부 방지<br/>당일 출금 유예 요청<br/>오픈뱅킹 계좌 등록<br/>특수 상황 비대면 처리<br/>예금주명 허용 문자<br/>AMEX 카드 예외<br/>셀프동의 URL 납부방법</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>10) 즉시 납부 실행 (PR-BIL-NOW-010)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-PAYM-001</td><td>납부 실행 정책</td><td>납부 실행 정책을 정의한다.<br/></td><td>즉시 납부 대상<br/>예약 납부 기준<br/>부분 수납 기준<br/>해지 고객 비로그인 납부<br/>계약 연장 결제<br/>미납금 계약구조 제한<br/>가상계좌 즉시 발급<br/>가상계좌 발급 결과<br/>할부금 완납 신청</td></tr><tr><td class="mono">PG-BIL-BSS-001</td><td>BSS·수납 원장 반영 정책</td><td>BSS·수납 원장 반영 정책을 정의한다.<br/></td><td>원장 반영 완료 기준<br/>수납 반영 지연<br/>결제기관 결과 우선순위<br/>청구·수납 불일치 처리<br/>이력 저장 기준<br/>FO·수납·결제 책임 경계<br/>통합 장애 영향 관리</td></tr></tbody>
+</table>
+
+<h4>11) 예약·부분 납부 신청 (PR-BIL-RES-011)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-PAYM-001</td><td>납부 실행 정책</td><td>납부 실행 정책을 정의한다.<br/></td><td>즉시 납부 대상<br/>예약 납부 기준<br/>부분 수납 기준<br/>해지 고객 비로그인 납부<br/>계약 연장 결제<br/>미납금 계약구조 제한<br/>가상계좌 즉시 발급<br/>가상계좌 발급 결과<br/>할부금 완납 신청</td></tr><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr></tbody>
+</table>
+
+<h4>12) 계약 연장·할부금 납부 (PR-BIL-EXT-012)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-PAYM-001</td><td>납부 실행 정책</td><td>납부 실행 정책을 정의한다.<br/></td><td>즉시 납부 대상<br/>예약 납부 기준<br/>부분 수납 기준<br/>해지 고객 비로그인 납부<br/>계약 연장 결제<br/>미납금 계약구조 제한<br/>가상계좌 즉시 발급<br/>가상계좌 발급 결과<br/>할부금 완납 신청</td></tr><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr></tbody>
+</table>
+
+<h4>13) 납부 결과와 영수증 확인 (PR-BIL-RESL-013)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-BSS-001</td><td>BSS·수납 원장 반영 정책</td><td>BSS·수납 원장 반영 정책을 정의한다.<br/></td><td>원장 반영 완료 기준<br/>수납 반영 지연<br/>결제기관 결과 우선순위<br/>청구·수납 불일치 처리<br/>이력 저장 기준<br/>FO·수납·결제 책임 경계<br/>통합 장애 영향 관리</td></tr><tr><td class="mono">PG-BIL-DOC-001</td><td>증빙 발급·마스킹 정책</td><td>증빙 발급·마스킹 정책을 정의한다.<br/></td><td>발급 가능 증빙<br/>발급 가능 기간<br/>개인정보 마스킹<br/>법인 일괄 발급<br/>발급 이력 보존<br/>과거 청구서 다운로드<br/>개명 명의 자동 갱신</td></tr></tbody>
+</table>
+
+<h4>14) 납부 실패 원인 확인 (PR-BIL-FAIL-014)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr><tr><td class="mono">PG-BIL-OPS-001</td><td>운영 보정·정합성 정책</td><td>운영 보정·정합성 정책을 정의한다.<br/></td><td>상태코드 문구 매핑<br/>이상 청구 보정<br/>할인 미적용 보정<br/>발송 유형 조회기간<br/>운영 변경 감사<br/>복지 자격 자동 조회</td></tr></tbody>
+</table>
+
+<h4>15) 미납·연체 영향 확인 (PR-BIL-DUE-015)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr><tr><td class="mono">PG-BIL-BSS-001</td><td>BSS·수납 원장 반영 정책</td><td>BSS·수납 원장 반영 정책을 정의한다.<br/></td><td>원장 반영 완료 기준<br/>수납 반영 지연<br/>결제기관 결과 우선순위<br/>청구·수납 불일치 처리<br/>이력 저장 기준<br/>FO·수납·결제 책임 경계<br/>통합 장애 영향 관리</td></tr></tbody>
+</table>
+
+<h4>16) 재시도·대체 납부 실행 (PR-BIL-REC-016)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr><tr><td class="mono">PG-BIL-PAYM-001</td><td>납부 실행 정책</td><td>납부 실행 정책을 정의한다.<br/></td><td>즉시 납부 대상<br/>예약 납부 기준<br/>부분 수납 기준<br/>해지 고객 비로그인 납부<br/>계약 연장 결제<br/>미납금 계약구조 제한<br/>가상계좌 즉시 발급<br/>가상계좌 발급 결과<br/>할부금 완납 신청</td></tr></tbody>
+</table>
+
+<h4>17) 통합청구 대상 조회 (PR-BIL-GRP-017)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-GROUP-001</td><td>통합청구·청구계정 정책</td><td>통합청구·청구계정 정책을 정의한다.<br/></td><td>통합청구 대상<br/>대표회선·납부 책임<br/>청구계정 생성 기준<br/>통합청구 분리<br/>법인 권한 구분<br/>결합 할인 분배 관리<br/>채널별 통합청구 단일 구조</td></tr><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr></tbody>
+</table>
+
+<h4>18) 청구계정 생성·통합 기준 확인 (PR-BIL-ACC-018)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-GROUP-001</td><td>통합청구·청구계정 정책</td><td>통합청구·청구계정 정책을 정의한다.<br/></td><td>통합청구 대상<br/>대표회선·납부 책임<br/>청구계정 생성 기준<br/>통합청구 분리<br/>법인 권한 구분<br/>결합 할인 분배 관리<br/>채널별 통합청구 단일 구조</td></tr></tbody>
+</table>
+
+<h4>19) 법인·구성원별 청구 관리 (PR-BIL-CORP-019)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-GROUP-001</td><td>통합청구·청구계정 정책</td><td>통합청구·청구계정 정책을 정의한다.<br/></td><td>통합청구 대상<br/>대표회선·납부 책임<br/>청구계정 생성 기준<br/>통합청구 분리<br/>법인 권한 구분<br/>결합 할인 분배 관리<br/>채널별 통합청구 단일 구조</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>20) 실시간 이용요금 조회 (PR-BIL-RTB-020)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-REAL-001</td><td>실시간 요금·한도 정책</td><td>실시간 요금·한도 정책을 정의한다.<br/></td><td>실시간 요금 조회<br/>휴대폰 결제 한도<br/>콘텐츠 이용료 차단<br/>분실 신고 차단 연계<br/>확정 금액 차이 고지</td></tr><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr></tbody>
+</table>
+
+<h4>21) 한도 변경과 차단 설정 (PR-BIL-LIM-021)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-REAL-001</td><td>실시간 요금·한도 정책</td><td>실시간 요금·한도 정책을 정의한다.<br/></td><td>실시간 요금 조회<br/>휴대폰 결제 한도<br/>콘텐츠 이용료 차단<br/>분실 신고 차단 연계<br/>확정 금액 차이 고지</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>22) 할인·혜택 영향 확인 (PR-BIL-DISC-022)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-REAL-001</td><td>실시간 요금·한도 정책</td><td>실시간 요금·한도 정책을 정의한다.<br/></td><td>실시간 요금 조회<br/>휴대폰 결제 한도<br/>콘텐츠 이용료 차단<br/>분실 신고 차단 연계<br/>확정 금액 차이 고지</td></tr><tr><td class="mono">PG-BIL-BILL-001</td><td>청구 요약·상세 안내 정책</td><td>청구 요약·상세 안내 정책을 정의한다.<br/></td><td>청구 요약 표시<br/>청구 상세 구성<br/>전월 대비 증감 사유<br/>예상 청구 차이 고지<br/>로밍·렌탈 청구 구분<br/>예상 청구금액 사전 안내<br/>청구 항목 상세 설명<br/>이전 통신사 요금 안내<br/>요금 급증 원인 안내<br/>요금안내서 정보 밀도</td></tr></tbody>
+</table>
+
+<h4>23) 포인트 잔액과 소멸 확인 (PR-BIL-PNT-023)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-POINT-001</td><td>통합 포인트 정책</td><td>통합 포인트 정책을 정의한다.<br/></td><td>가용 잔액 구분<br/>소멸 예정 우선 노출<br/>지급 예정·미지급 표시<br/>오남용 차단<br/>반영 지연 SLA</td></tr></tbody>
+</table>
+
+<h4>24) 포인트 반영 지연·누락 확인 (PR-BIL-PNTD-024)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-POINT-001</td><td>통합 포인트 정책</td><td>통합 포인트 정책을 정의한다.<br/></td><td>가용 잔액 구분<br/>소멸 예정 우선 노출<br/>지급 예정·미지급 표시<br/>오남용 차단<br/>반영 지연 SLA</td></tr><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr></tbody>
+</table>
+
+<h4>25) 청구 상태코드·문구 운영 (PR-BIL-OCD-025)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-OPS-001</td><td>운영 보정·정합성 정책</td><td>운영 보정·정합성 정책을 정의한다.<br/></td><td>상태코드 문구 매핑<br/>이상 청구 보정<br/>할인 미적용 보정<br/>발송 유형 조회기간<br/>운영 변경 감사<br/>복지 자격 자동 조회</td></tr></tbody>
+</table>
+
+<h4>26) 이상 청구·보정 관리 (PR-BIL-OCOR-026)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-OPS-001</td><td>운영 보정·정합성 정책</td><td>운영 보정·정합성 정책을 정의한다.<br/></td><td>상태코드 문구 매핑<br/>이상 청구 보정<br/>할인 미적용 보정<br/>발송 유형 조회기간<br/>운영 변경 감사<br/>복지 자격 자동 조회</td></tr><tr><td class="mono">PG-BIL-POINT-001</td><td>통합 포인트 정책</td><td>통합 포인트 정책을 정의한다.<br/></td><td>가용 잔액 구분<br/>소멸 예정 우선 노출<br/>지급 예정·미지급 표시<br/>오남용 차단<br/>반영 지연 SLA</td></tr></tbody>
+</table>
+
+<h4>27) 미납·실패 재처리 운영 (PR-BIL-OREC-027)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr><tr><td class="mono">PG-BIL-BSS-001</td><td>BSS·수납 원장 반영 정책</td><td>BSS·수납 원장 반영 정책을 정의한다.<br/></td><td>원장 반영 완료 기준<br/>수납 반영 지연<br/>결제기관 결과 우선순위<br/>청구·수납 불일치 처리<br/>이력 저장 기준<br/>FO·수납·결제 책임 경계<br/>통합 장애 영향 관리</td></tr></tbody>
+</table>
+
+<h4>28) 상담 문맥 조회 (PR-BIL-CTX-028)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr><tr><td class="mono">PG-BIL-SEC-001</td><td>개인정보·보안 정책</td><td>개인정보·보안 정책을 정의한다.<br/></td><td>추가 인증 기준<br/>증빙 마스킹<br/>고객 문맥 전달 제한<br/>민감 금액 노출 제한<br/>감사 이력 보존</td></tr></tbody>
+</table>
+
+<h4>29) 상담 후속 조치 안내 (PR-BIL-GUID-029)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-MISS-001</td><td>미납·연체·실패 복구 정책</td><td>미납·연체·실패 복구 정책을 정의한다.<br/></td><td>미납 안내 기준<br/>연체 영향 고지<br/>자동납부 실패 재처리<br/>대체 결제 전환<br/>상담 전환 기준</td></tr><tr><td class="mono">PG-BIL-OPS-001</td><td>운영 보정·정합성 정책</td><td>운영 보정·정합성 정책을 정의한다.<br/></td><td>상태코드 문구 매핑<br/>이상 청구 보정<br/>할인 미적용 보정<br/>발송 유형 조회기간<br/>운영 변경 감사<br/>복지 자격 자동 조회</td></tr></tbody>
+</table>
+
+<h4>30) 미연결 정책</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-BIL-SCOPE-001</td><td>청구·수납 범위·경계 정책</td><td>청구·수납 범위·경계 정책을 정의한다.<br/></td><td>대상 업무 범위<br/>인접 업무 경계<br/>청구 이해 우선<br/>금전 업무 신뢰 기준</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 청구·수납 범위·경계 정책 (PG-BIL-SCOPE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 대상 업무 범위 <span class="mono">(PI-BIL-SCOPE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 본 문서는 청구 요약, 상세 청구서, 수신 방식, 증빙 발급, 납부수단, 즉시·예약·부분 납부, 미납·연체, 통합청구, 실시간 요금, 통합 포인트를 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인접 업무 경계 <span class="mono">(PI-BIL-SCOPE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 가입, 해지, 환불, 배송, 멤버십 카드 사용 상세는 인접 정책서에서 다루고 본 문서는 금액 이해, 납부, 수납 반영, 증빙, 고객 안내 기준만 정의한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 청구 이해 우선 <span class="mono">(PI-BIL-SCOPE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 납부하기 전에 왜 이 금액이 청구됐는지, 어떤 항목이 변동됐는지, 언제까지 어떤 방식으로 납부해야 하는지 먼저 확인하게 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 금전 업무 신뢰 기준 <span class="mono">(PI-BIL-SCOPE-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 금전 업무는 BSS 원장, 결제 승인, 고객 안내, 증빙 이력이 일치해야 완료로 본다.<br/></span><span class="policy-item-line">- 원장 반영 전에는 완료로 표시하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 청구 요약·상세 안내 정책 (PG-BIL-BILL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 청구 요약 표시 <span class="mono">(PI-BIL-BILL-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구 요약에는 당월 청구금액, 납부 예정일, 납부 상태, 자동납부 설정, 미납 여부, 주요 증감 사유를 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 청구 상세 구성 <span class="mono">(PI-BIL-BILL-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구 상세는 요금제, 부가서비스, 단말 할부, 결합 할인, 제휴·구독 할인, 일회성 과금을 항목별 금액과 적용 여부로 구분한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전월 대비 증감 사유 <span class="mono">(PI-BIL-BILL-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전월 대비 10% 이상 또는 1만원 이상 증감된 항목은 신규 가입, 할인 종료, 일회성 과금, 사용량 변화 등 고객 언어의 사유를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예상 청구 차이 고지 <span class="mono">(PI-BIL-BILL-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예상 청구금액은 확정 금액이 아니므로 실제 청구와 달라질 수 있는 항목을 함께 고지하고 비용 관리 행동으로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 로밍·렌탈 청구 구분 <span class="mono">(PI-BIL-BILL-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍과 렌탈형 로밍 상품은 기본료, 사용료, 반납 조건, 결제 조건을 일반 상품과 분리해 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예상 청구금액 사전 안내 <span class="mono">(PI-BIL-BILL-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예상 청구금액은 당월 사용 현황, 요금제 변경, 할인 반영, 일회성 과금, 로밍·콘텐츠 이용료를 기준으로 산정하고 실제 청구금액과 달라질 수 있는 항목을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 청구 항목 상세 설명 <span class="mono">(PI-BIL-BILL-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구 항목 상세 설명은 요금제, 부가서비스, 단말 할부금, 결합 할인, 정보이용료, 로밍 요금별 발생 원인과 적용 기간을 고객 언어로 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이전 통신사 요금 안내 <span class="mono">(PI-BIL-BILL-001-08)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 번호이동 후 첫 청구서에 이전 통신사 요금이 포함되면 포함 항목, 정산 구조, 납부 책임, 문의 경로를 별도 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 요금 급증 원인 안내 <span class="mono">(PI-BIL-BILL-001-09)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금 급증 원인 안내는 전월 대비 증가 항목, 사용량 변화, 할인 종료, 일회성 과금, 로밍·콘텐츠 이용료를 자동 분석해 우선순위로 보여준다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 요금안내서 정보 밀도 <span class="mono">(PI-BIL-BILL-001-10)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금안내서는 Bill Letter 수준의 할인상세내역, 이용량안내, 이용패턴, 콘텐츠 및 휴대폰결제, 납부정보, 안내문, 가입정보를 포함하되 중복 항목은 고객 과업 기준으로 통합한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 청구서 수신·발송 정책 (PG-BIL-DELIV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 수신 방식 복수 설정 <span class="mono">(PI-BIL-DELIV-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 앱, 이메일, SMS, 우편 중 허용된 수신 방식을 복수 설정할 수 있고 현재 설정과 적용 예정일을 확인할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 타사 번호 인증 <span class="mono">(PI-BIL-DELIV-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 타사 이동전화번호를 수신 번호로 등록할 때는 SMS 인증 성공 후에만 적용하고 실제 적용 번호를 고객에게 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 우편 주소 변경 예약 <span class="mono">(PI-BIL-DELIV-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 우편 수신 주소 변경은 발송 예정일 이전까지만 예약 가능하며, 발송 준비 이후에는 다음 회차부터 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미수신 재발송 <span class="mono">(PI-BIL-DELIV-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구서 미수신 또는 반송이 확인되면 반송 원인, 재발송 가능 여부, 대체 수신 방식을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 수신 변경 이력 <span class="mono">(PI-BIL-DELIV-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 수신 방식 변경, 원복, 발송, 재발행 이력은 고객 문의와 감사 대응을 위해 5년간 보존한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 발송 이력 조회 <span class="mono">(PI-BIL-DELIV-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 발송 이력 조회는 우편, 문자, 이메일, 지로, 빌레터 발송 채널과 발송 일시, 성공·반송·미수신 상태를 고객과 상담사가 확인할 수 있게 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 반송 원인 조회 <span class="mono">(PI-BIL-DELIV-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 반송 원인 조회는 주소 오류, 수취인 불일치, 배송 불가, 우편 반송을 구분하고 주소 수정 또는 전자 수신 전환 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 반송 감지 알림 <span class="mono">(PI-BIL-DELIV-001-08)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구서 반송 감지 알림은 반송 징후가 확인되면 주소 수정 필요, 대체 수신 방식, 재발송 가능 여부를 고객에게 사전 고지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 요금안내서 수신 항목 관리 <span class="mono">(PI-BIL-DELIV-001-09)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금안내서 수신방법 항목 구성, 노출 순서, 기본값은 채널 파라미터로 분기하되 운영자가 어드민에서 등록·수정·중지할 수 있어야 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 증빙 발급·마스킹 정책 (PG-BIL-DOC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 발급 가능 증빙 <span class="mono">(PI-BIL-DOC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 발급 가능 증빙은 청구서, 영수증, 납부확인서로 구분하고 납부 완료 여부와 고객 권한에 따라 발급 범위를 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 발급 가능 기간 <span class="mono">(PI-BIL-DOC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 과거 청구서와 납부 증빙은 최근 5년 범위에서 조회·발급을 기본으로 하며 법령 또는 내부 보존 기준이 다르면 해당 기준을 따른다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보 마스킹 <span class="mono">(PI-BIL-DOC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 증빙 파일에는 주민등록번호, 카드번호, 계좌번호 등 민감정보 전체값을 표시하지 않고 필요한 경우 뒤 4자리만 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 법인 일괄 발급 <span class="mono">(PI-BIL-DOC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법인 고객의 일괄 발급은 법인 관리자 권한이 확인된 경우에만 허용하고 대상 회선·기간·문서 종류를 이력으로 남긴다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 발급 이력 보존 <span class="mono">(PI-BIL-DOC-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 증빙 다운로드, 공유, 재발급 이력은 발급자, 시각, 대상 문서, 마스킹 기준과 함께 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 과거 청구서 다운로드 <span class="mono">(PI-BIL-DOC-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 과거 청구서 다운로드는 월별 청구서를 파일 형태로 제공하고 조회 가능 기간, 재발급 제한, 개인정보 마스킹, 다운로드 이력을 함께 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개명 명의 자동 갱신 <span class="mono">(PI-BIL-DOC-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개명 시 청구서 명의 자동 갱신은 신분증 OCR 또는 고객정보 연동으로 확인된 최신 명의를 다음 발급분부터 반영하고 변경 이력을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 납부 실행 정책 (PG-BIL-PAYM-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 즉시 납부 대상 <span class="mono">(PI-BIL-PAYM-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 즉시 납부는 당월 청구금액, 미납금액, 부분 수납 가능 항목, 계약 연장 결제, 할부금 완납 대상에 한해 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예약 납부 기준 <span class="mono">(PI-BIL-PAYM-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예약 납부는 납부 예정일과 예약 가능 기간 안에서만 허용하고 예약 취소 가능 시점과 실패 시 대체 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 부분 수납 기준 <span class="mono">(PI-BIL-PAYM-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 부분 수납은 BSS가 부분 수납 대상으로 회신한 항목에 한해 허용하며 선택 항목, 합산 금액, 잔여 미납 영향을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 해지 고객 비로그인 납부 <span class="mono">(PI-BIL-PAYM-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 해지 고객의 비로그인 납부는 본인확인 또는 납부대상 식별이 완료된 경우에만 허용하고 납부 후 계약 복구로 오인되지 않게 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 계약 연장 결제 <span class="mono">(PI-BIL-PAYM-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 계약 연장 결제는 연장 기간, 결제 금액, 청구 반영 시점, 이용 적용 시점을 고객 확인 후 진행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미납금 계약구조 제한 <span class="mono">(PI-BIL-PAYM-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 마케팅프로그램 계약구조 선택 시 SKT 미납금이 있고 분할납부 부적격으로 판정되면 분할납부를 제한하고 일시불 선택 사유를 고지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가상계좌 즉시 발급 <span class="mono">(PI-BIL-PAYM-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가상계좌 즉시 발급은 고객이 은행을 선택하면 입금 전용계좌 번호, 입금 기한, 사용 가능 시간을 즉시 안내하고 미사용 만료 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가상계좌 발급 결과 <span class="mono">(PI-BIL-PAYM-001-08)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가상계좌 발급 결과는 계좌번호, 은행, 예금주 표시 기준, 입금 기한, 발급 실패 사유, 재발급 가능 여부를 고객에게 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 할부금 완납 신청 <span class="mono">(PI-BIL-PAYM-001-09)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 할부금 완납 신청은 잔여 할부금, 수수료 또는 할인 영향, 전자서명 필요 여부, 즉시 처리 가능 여부를 확인한 뒤 수납 결과를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 자동납부·납부수단 정책 (PG-BIL-AUTO-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 자동납부 변경 반영일 <span class="mono">(PI-BIL-AUTO-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동납부 등록·변경·해지는 다음 청구부터 반영을 기본으로 하며 당월 반영 가능 여부는 BSS 회신 기준으로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 카드 만료 사전 알림 <span class="mono">(PI-BIL-AUTO-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 등록 카드 만료, 정지, 해지 감지는 납부일 7일 전부터 사전 알림을 제공하고 대체 수단 변경 경로로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 납부수단 허용 제한 <span class="mono">(PI-BIL-AUTO-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합청구 여부, 회선 상태, 미납 이력, 고객 유형에 따라 선택 가능한 납부수단을 제한할 수 있으며 제한 사유를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고위험 결제 추가 인증 <span class="mono">(PI-BIL-AUTO-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 납부수단 변경, 오픈뱅킹 계좌 등록, 고액 또는 반복 결제는 추가 본인확인을 요구할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이중 납부 방지 <span class="mono">(PI-BIL-AUTO-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 납부 카드 변경 직후 기존 자동납부와 신규 납부가 동시에 실행될 수 있으면 이중 납부 위험을 안내하고 중복 처리를 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 당일 출금 유예 요청 <span class="mono">(PI-BIL-AUTO-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 당일 출금 유예 요청은 자동납부 당일에도 수납 연계 시스템이 유예 가능 조건을 회신한 경우에만 허용하고 적용 결과와 다음 출금일을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 오픈뱅킹 계좌 등록 <span class="mono">(PI-BIL-AUTO-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 오픈뱅킹 계좌 등록은 공동인증서 없이 계좌 인증과 예금주 확인을 수행하되 인증 실패, 중복 계좌, 은행 응답 지연 시 대체 등록 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 특수 상황 비대면 처리 <span class="mono">(PI-BIL-AUTO-001-08)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사망, 이혼, 법정대리 상황의 자동납부 변경·해지는 증빙서류 제출, 권한 확인, 처리 가능 범위를 충족한 경우에만 비대면으로 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예금주명 허용 문자 <span class="mono">(PI-BIL-AUTO-001-09)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예금주명 입력 허용 문자 유형은 채널과 관계없이 통합 기준으로 적용하고 한글, 영문, 숫자, 허용 특수문자 외 입력은 사유와 함께 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• AMEX 카드 예외 <span class="mono">(PI-BIL-AUTO-001-10)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AMEX 카드번호가 34 또는 37로 시작하는 15자리인 경우 일반 16자리 카드 검증과 분리해 유효성, 인증, 마스킹 기준을 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 셀프동의 URL 납부방법 <span class="mono">(PI-BIL-AUTO-001-11)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 셀프동의 URL에서는 계좌이체와 신용카드 중 허용 납부방법을 선택하고 인증 완료 후에만 납부수단을 등록하거나 변경한다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 미납·연체·실패 복구 정책 (PG-BIL-MISS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 미납 안내 기준 <span class="mono">(PI-BIL-MISS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 미납 발생 즉시 미납 금액, 납부 기한, 정지 가능성, 즉시 납부 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연체 영향 고지 <span class="mono">(PI-BIL-MISS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 연체 상태는 미납 기간, 금액, 서비스 정지 가능성, 신용 영향 여부를 구분해 고지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자동납부 실패 재처리 <span class="mono">(PI-BIL-MISS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동납부 실패는 카드 만료, 잔액 부족, 계좌 오류, 인증 실패, 금융기관 응답 지연으로 분류하고 1회 자동 재처리 또는 고객 대체 결제로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대체 결제 전환 <span class="mono">(PI-BIL-MISS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 계좌이체 실패 후 카드 전환, 가상계좌 발급, 예약 납부 변경처럼 대체 결제 경로를 최소 1개 이상 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상담 전환 기준 <span class="mono">(PI-BIL-MISS-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 실패가 3회 이상 반복되거나 금액 불일치가 확인되면 상담 전환 문맥을 구성하고 고객에게 문의 경로를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 통합청구·청구계정 정책 (PG-BIL-GROUP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 통합청구 대상 <span class="mono">(PI-BIL-GROUP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합청구 대상은 동일 고객, 가족·그룹, 법인, 서비스 묶음 기준으로 구분하고 회선별 포함 여부를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대표회선·납부 책임 <span class="mono">(PI-BIL-GROUP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 대표회선 또는 납부자는 어떤 회선·서비스 금액을 부담하는지 사전에 확인해야 하며 변경 시 영향 금액을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 청구계정 생성 기준 <span class="mono">(PI-BIL-GROUP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구계정은 가입·변경 과정에서 고객, 회선, 그룹 기준 중 하나로 생성되며 소속 청구계정을 고객이 확인할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 통합청구 분리 <span class="mono">(PI-BIL-GROUP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합청구 분리 또는 개별 청구 전환은 미납, 예약납부, 자동납부 실행 중인 경우 제한될 수 있으며 제한 사유를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 법인 권한 구분 <span class="mono">(PI-BIL-GROUP-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법인 고객은 권한별로 조회, 변경, 일괄 발급 가능 범위를 구분하고 권한 없는 회선의 금액 상세를 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결합 할인 분배 관리 <span class="mono">(PI-BIL-GROUP-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결합 할인 분배 변경은 대상 회선, 대표회선, 할인 원천, 변경 후 예상 청구액을 사전 비교한 뒤 적용하고 회선별 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 채널별 통합청구 단일 구조 <span class="mono">(PI-BIL-GROUP-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- OEM, OMD, USIM, eSIM의 통합청구 처리는 채널별 파라미터 차이를 내부 기준으로 흡수하고 고객에게는 동일한 통합·분리·납부 책임 구조로 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 실시간 요금·한도 정책 (PG-BIL-REAL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 실시간 요금 조회 <span class="mono">(PI-BIL-REAL-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실시간 이용요금은 확정 청구금액이 아니므로 조회 시점, 반영 지연 가능성, 미반영 항목을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 휴대폰 결제 한도 <span class="mono">(PI-BIL-REAL-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 휴대폰 결제와 콘텐츠 이용료 한도 변경은 본인확인 후 허용하고 변경 가능 횟수와 적용 시점을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 콘텐츠 이용료 차단 <span class="mono">(PI-BIL-REAL-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 콘텐츠 이용료 차단·해제는 즉시 반영을 원칙으로 하되 BSS 반영 전에는 처리 중 상태로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 분실 신고 차단 연계 <span class="mono">(PI-BIL-REAL-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 분실 신고가 접수된 회선은 소액결제와 콘텐츠 이용료 사용을 자동 차단하거나 차단 권고를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 확정 금액 차이 고지 <span class="mono">(PI-BIL-REAL-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실시간 요금과 확정 청구금액이 다르면 차이 발생 항목과 확정 시점을 고객에게 고지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) 통합 포인트 정책 (PG-BIL-POINT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 가용 잔액 구분 <span class="mono">(PI-BIL-POINT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합 포인트는 가용 잔액, 예정 적립, 제한 잔액, 사용 불가 잔액으로 구분해 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 소멸 예정 우선 노출 <span class="mono">(PI-BIL-POINT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 소멸 예정 포인트는 만료일이 빠른 순서로 우선 노출하고 사용 가능한 경로를 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 지급 예정·미지급 표시 <span class="mono">(PI-BIL-POINT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 지급 예정, 미지급, 반영 지연 포인트는 상태와 예상 반영 시점을 표시하고 고객 문의 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 오남용 차단 <span class="mono">(PI-BIL-POINT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 오남용 의심 또는 정책 위반 포인트는 재노출, 사용, 전환을 제한할 수 있으며 제한 사유를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 반영 지연 SLA <span class="mono">(PI-BIL-POINT-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 포인트 반영 지연은 SLA 24시간을 기본으로 모니터링하고 초과 시 운영 확인과 고객 안내 대상으로 전환한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 운영 보정·정합성 정책 (PG-BIL-OPS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상태코드 문구 매핑 <span class="mono">(PI-BIL-OPS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 청구, 납부, 자동납부, 미납, 연체, 보류 상태코드를 고객용 상태명, 설명 문구, 다음 행동과 매핑해 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이상 청구 보정 <span class="mono">(PI-BIL-OPS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 이상 청구, 할인 미적용, 청구 항목 누락·중복, 시스템 간 금액 불일치는 원인별로 분류하고 보정 전후 이력을 남긴다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 할인 미적용 보정 <span class="mono">(PI-BIL-OPS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 할인 미적용 보정은 적용 조건, 적용 기간, 고객 영향 금액, 환급 또는 차감 방식을 함께 기록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 발송 유형 조회기간 <span class="mono">(PI-BIL-OPS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구서 발송 유형별 조회 항목과 가능 기간은 동일 고객 기준으로 일관되게 관리하고 예외는 운영 정책으로 승인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 변경 감사 <span class="mono">(PI-BIL-OPS-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구·수납 정책 변경은 변경자, 변경 시각, 적용 대상, 고객 노출 영향, 롤백 가능 여부를 감사 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복지 자격 자동 조회 <span class="mono">(PI-BIL-OPS-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 복지 자격 자동 조회는 행정기관 연계 결과로 적용 가능한 할인 유형을 안내하되 조회 실패 시 고객에게 증빙 제출 또는 상담 전환 경로를 제공한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) BSS·수납 원장 반영 정책 (PG-BIL-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 원장 반영 완료 기준 <span class="mono">(PI-BIL-BSS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 납부 완료 표시는 결제 승인뿐 아니라 BSS 수납 원장 반영 성공이 확인된 경우에만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 수납 반영 지연 <span class="mono">(PI-BIL-BSS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 수납 반영이 지연되면 고객에게 승인 완료와 수납 반영 대기를 구분해 표시하고 예상 반영 시점을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결제기관 결과 우선순위 <span class="mono">(PI-BIL-BSS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제기관 승인 결과와 BSS 수납 결과가 불일치하면 BSS 원장 확정 전까지 처리 중 또는 보정 필요 상태로 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 청구·수납 불일치 처리 <span class="mono">(PI-BIL-BSS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구 금액, 납부 상태, 자동납부, 통합청구, 포인트 원장이 서로 불일치하면 운영 보정 대상으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이력 저장 기준 <span class="mono">(PI-BIL-BSS-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구 조회, 납부, 증빙 발급, 수신 변경, 포인트 조회의 고객·운영자 이력은 감사와 문의 대응을 위해 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• FO·수납·결제 책임 경계 <span class="mono">(PI-BIL-BSS-001-06)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- FO(채널)는 고객 안내와 요청 접수, 수납 연계 시스템은 원장 반영과 납부 상태 확정, 결제 금융기관은 승인·취소·실패 결과 회신을 담당한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 통합 장애 영향 관리 <span class="mono">(PI-BIL-BSS-001-07)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 수납 연계 지연, 결제기관 장애, 발송 시스템 장애가 발생하면 고객 표시 상태를 보류로 유지하고 영향 채널, 재시도 시점, 상담 전환 기준을 함께 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) 개인정보·보안 정책 (PG-BIL-SEC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 추가 인증 기준 <span class="mono">(PI-BIL-SEC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 납부수단 변경, 비로그인 납부, 한도 변경, 고액 결제, 법인 일괄 발급은 추가 본인확인 또는 권한 확인을 요구한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 증빙 마스킹 <span class="mono">(PI-BIL-SEC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 증빙 문서, 청구 상세, 납부수단 정보는 고객 식별에 필요한 최소 정보만 표시하고 민감정보는 마스킹한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고객 문맥 전달 제한 <span class="mono">(PI-BIL-SEC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담 전환 시에는 고객이 확인한 청구 정보, 실패 사유, 접수번호 등 필요한 문맥만 전달하고 결제수단 전체값은 전달하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 민감 금액 노출 제한 <span class="mono">(PI-BIL-SEC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구금액, 미납, 연체, 포인트 제한처럼 민감한 금전 정보는 인증 세션이 유효한 고객에게만 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 감사 이력 보존 <span class="mono">(PI-BIL-SEC-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 청구·수납·포인트의 변경, 보정, 발급, 삭제, 상담 전달 이력은 감사 목적의 최소 보존 기간을 따른다.<br/></span></div>
+</div>
+</div>
+
+	
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">청구및수납관리 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 청구 요약과 상세 금액의 구성, 증감 사유, 예상 청구 영향이 고객 언어로 설명되는가?<br/></div><div class="guide-section-title">2. 납부 완료 기준이 결제 승인과 BSS 수납 반영으로 구분되는가?<br/></div><div class="guide-section-title">3. 자동납부, 납부수단, 즉시·예약·부분 납부, 계약 연장 결제의 허용·제한 기준이 정책 항목으로 존재하는가?<br/></div><div class="guide-section-title">4. 미납, 연체, 자동납부 실패, 이상 청구, 할인 미적용의 복구 경로가 정의되어 있는가?<br/></div><div class="guide-section-title">5. 통합청구, 청구계정, 법인·구성원별 납부 책임이 명확한가?<br/></div><div class="guide-section-title">6. 실시간 이용요금, 콘텐츠 이용료 한도, 차단·해제 기준과 확정 금액 차이가 고지되는가?<br/></div><div class="guide-section-title">7. 통합 포인트의 가용, 예정, 제한, 소멸, 지연 기준이 정의되어 있는가?<br/></div><div class="guide-section-title">8. 요구사항 121건이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 매핑되는가?<br/></div><div class="guide-section-title">9. QA가 청구 금액 경계값, 납부수단 제한, 자동납부 실패, 수납 반영 지연, 미납·연체, 증빙 발급, 통합청구 변경, 포인트 보류별 테스트 조건과 기대 결과를 도출할 수 있는가?<br/></div><div class="guide-section-title">10. 요구사항 추적성</div>상세 요구사항은 유즈케이스, 상태, 프로세스, 기능, 정책 또는 정책 항목 중 하나 이상으로 추적 가능해야 한다.<br/><div class="guide-section-title">11. 개발·QA 전환성</div>각 정책 항목은 테스트 조건, 기대 결과, 실패·복구 경로로 전환 가능해야 한다.<br/><div class="guide-section-title">12. 책임 경계 정합성</div>FO, BSS, 연계 시스템, 외부 주체의 판단·저장·회신 책임이 혼재되지 않아야 한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+# Source DB Validation
+
+- Status: PASS
+- Generated at: 2026-05-17T15:15:52
+- Database: `/Users/kiwoo/NC/reports/evidence/reference_evidence.db`
+- Requirements source: 20260509_요구사항 최종.xlsx
+- Active requirement detail rows: 2973
+
+## Summary
+
+- [ai] documents=3 chars=22073 pages=24
+- [analysis_synthesis] documents=30 chars=182859 pages=30
+- [benchmark] documents=3 chars=23796 pages=35
+- [compliance] documents=1 chars=10455 pages=1
+- [guideline] documents=10 chars=55693 pages=33
+- [ia] documents=1 chars=927867 pages=1
+- [official] documents=2 chars=16750 pages=8
+- [requirement] documents=1 chars=950043 pages=1
+- [research] documents=2 chars=12164 pages=16
+- [sample] documents=3 chars=184573 pages=3
+- [strategy] documents=16 chars=91063 pages=45
+- [template] documents=2 chars=30113 pages=2
+- [voc] documents=27 chars=282633 pages=117
+
+## Documents
+
+- [ai] TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=8454 pages=6 scope=database_page_chunk_full_document
+- [ai] 전문지식_AI검색추천_공개웹_투명성추적성보조지식_20260503.md | md | chars=2125 pages=1 scope=database_page_chunk_full_document
+- [ai] 채널 AI 경험 검토_CX팀.pdf | pdf | chars=11494 pages=17 scope=database_page_chunk_full_document
+- [analysis_synthesis] benchmarking.html | html | chars=6268 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] customer-research.html | html | chars=5080 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] employee-interview.html | html | chars=4989 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] ia-analysis.html | html | chars=8725 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-add-on-cancel.html | html | chars=6019 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-add-on-join.html | html | chars=5342 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-address-change.html | html | chars=5828 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-auto-payment-apply-change.html | html | chars=4830 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-auto-payment-apply.html | html | chars=6370 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-auto-payment-cancel.html | html | chars=6501 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-bank-transfer-payment.html | html | chars=5903 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-bill-info.html | html | chars=6070 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-bundle.html | html | chars=6469 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-card-payment.html | html | chars=6375 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-contact-change.html | html | chars=6240 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-contract-discount.html | html | chars=5894 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-data-gift.html | html | chars=6106 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-direct-shop.html | html | chars=6080 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-discount-change.html | html | chars=6783 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-lost-device.html | html | chars=6273 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-membership.html | html | chars=5820 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-mobile-cancel.html | html | chars=6083 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-paper-bill.html | html | chars=6092 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-plan-change.html | html | chars=6011 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-refill-coupon.html | html | chars=6055 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-summary.html | html | chars=6490 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-suspension-release.html | html | chars=6549 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-t-universe-subscription.html | html | chars=6026 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-temporary-suspension.html | html | chars=5435 pages=1 scope=database_page_chunk_full_document
+- [analysis_synthesis] voc-wave-flo.html | html | chars=6153 pages=1 scope=database_page_chunk_full_document
+- [benchmark] 4순위_벤치마킹_경쟁사공개웹_보강지식_20260505.md | md | chars=5667 pages=1 scope=database_page_chunk_full_document
+- [benchmark] 벤치마킹 결과.pdf | pdf | chars=10986 pages=33 scope=database_page_chunk_full_document
+- [benchmark] 외부학습_공식규제벤치마킹_정책체크포인트_20260507.md | md | chars=7143 pages=1 scope=database_page_chunk_full_document
+- [compliance] 3순위_컴플라이언스_법령규제기관_보강지식_20260505.md | md | chars=10455 pages=1 scope=database_page_chunk_full_document
+- [guideline] 1순위_첨부자료사내자료요구사항_정책작성체크포인트_20260505.md | md | chars=3444 pages=1 scope=database_page_chunk_full_document
+- [guideline] 34개_정책서_작성_지향점.md | md | chars=7300 pages=1 scope=database_page_chunk_full_document
+- [guideline] PI_Playbook_v1.0.docx | docx | chars=8783 pages=1 scope=database_page_chunk_full_document
+- [guideline] PI_산출물_평가시트_v1.0.xlsx | xlsx | chars=2932 pages=1 scope=database_page_chunk_full_document
+- [guideline] TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=4487 pages=5 scope=database_page_chunk_full_document
+- [guideline] TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=5112 pages=5 scope=database_page_chunk_full_document
+- [guideline] TK_ CH_상품·서비스 자산 이용 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=6942 pages=6 scope=database_page_chunk_full_document
+- [guideline] TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=9037 pages=8 scope=database_page_chunk_full_document
+- [guideline] TK_ CH_주문관리_주문 사후관리 체계 고도화 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=2807 pages=4 scope=database_page_chunk_full_document
+- [guideline] 스타일앵커_예전프로젝트_정책상세화패턴_20260510.md | md | chars=4849 pages=1 scope=database_page_chunk_full_document
+- [ia] 20260319_SKT_T4S_IA_최종 정리본.xlsx | xlsx | chars=927867 pages=1 scope=database_page_chunk_full_document
+- [official] 2순위_SKT공식서비스약관고객지원_정책체크포인트_20260505.md | md | chars=4446 pages=1 scope=database_page_chunk_full_document
+- [official] TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=12304 pages=7 scope=database_page_chunk_full_document
+- [requirement] 20260509_요구사항 최종.xlsx | xlsx | chars=950043 pages=1 scope=database_page_chunk_full_document
+- [research] 고객 조사 인사이트.pdf | pdf | chars=7826 pages=7 scope=database_page_chunk_full_document
+- [research] 고객조사 결과.pdf | pdf | chars=4338 pages=9 scope=database_page_chunk_full_document
+- [sample] NC_AI검색_정책서_간소화_v1.5.html | html | chars=36972 pages=1 scope=database_page_chunk_full_document
+- [sample] NC_정책서_Full_v1.0_확정본.html | html | chars=82992 pages=1 scope=database_page_chunk_full_document
+- [sample] NC_정책서_간소화_v1.0_확정본.html | html | chars=64609 pages=1 scope=database_page_chunk_full_document
+- [strategy] T4s 분석 결과.pdf | pdf | chars=19013 pages=10 scope=database_page_chunk_full_document
+- [strategy] TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=8173 pages=6 scope=database_page_chunk_full_document
+- [strategy] TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=11607 pages=9 scope=database_page_chunk_full_document
+- [strategy] TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=5469 pages=5 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성.pdf | pdf | chars=4967 pages=4 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_SKT_공개웹_개인정보동의보관_보강지식_20260503.md | md | chars=1917 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T다이렉트샵_공개웹_eSIM개통_보강지식_20260503.md | md | chars=1749 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T다이렉트샵_공개웹_주문배송교환반품_보강지식_20260503.md | md | chars=1998 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T멤버십_공개웹_등급포인트회원자격_보강지식_20260503.md | md | chars=1650 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T멤버십_공개웹_혜택바코드Tday_보강지식_20260503.md | md | chars=1892 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T우주_sktuniverse_공개웹_구독정책_통합지식_20260503.md | md | chars=12026 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T우주_공개웹_구독판매자환불_보강지식_20260503.md | md | chars=1727 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T월드_공개웹_설정알림회원정보_보강지식_20260503.md | md | chars=2282 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T월드_공개웹_업무정책_통합지식_20260503.md | md | chars=7873 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_T월드_공개웹_요금납부조회_보강지식_20260503.md | md | chars=1904 pages=1 scope=database_page_chunk_full_document
+- [strategy] 채널 방향성_공개웹_T월드_T멤버십_T다이렉트샵_T우주_통합지식_20260503.md | md | chars=6816 pages=1 scope=database_page_chunk_full_document
+- [template] NC_정책서_Full_템플릿_최종본.html | html | chars=12104 pages=1 scope=database_page_chunk_full_document
+- [template] NC_정책서_간소화_템플릿_최종본.html | html | chars=18009 pages=1 scope=database_page_chunk_full_document
+- [voc] TK_ CH_전시_관리_전시 구조 및 노출 정책 기획_ 운영 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=6019 pages=6 scope=database_page_chunk_full_document
+- [voc] TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf | pdf | chars=11387 pages=7 scope=database_page_chunk_full_document
+- [voc] 결합 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11211 pages=4 scope=database_page_chunk_full_document
+- [voc] 계좌 이체 요금 납부 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=9802 pages=4 scope=database_page_chunk_full_document
+- [voc] 다이렉트 샵 _ 티월드 다이렉트 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10486 pages=4 scope=database_page_chunk_full_document
+- [voc] 데이터 선물 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10646 pages=4 scope=database_page_chunk_full_document
+- [voc] 리필 쿠폰 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10089 pages=4 scope=database_page_chunk_full_document
+- [voc] 멤버십 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10265 pages=4 scope=database_page_chunk_full_document
+- [voc] 부가서비스 가입 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=9384 pages=8 scope=database_page_chunk_full_document
+- [voc] 부가서비스 해지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10187 pages=4 scope=database_page_chunk_full_document
+- [voc] 분실 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11011 pages=4 scope=database_page_chunk_full_document
+- [voc] 신용 카드 요금 납부 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11128 pages=4 scope=database_page_chunk_full_document
+- [voc] 약정 할인 _ 선택 약정 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=9562 pages=4 scope=database_page_chunk_full_document
+- [voc] 연락처 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10859 pages=4 scope=database_page_chunk_full_document
+- [voc] 요금제 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10630 pages=4 scope=database_page_chunk_full_document
+- [voc] 우주 패스 _ T우주 _ 구독 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10175 pages=4 scope=database_page_chunk_full_document
+- [voc] 우편 청구서 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10666 pages=4 scope=database_page_chunk_full_document
+- [voc] 웨이브 _ 플로 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10813 pages=4 scope=database_page_chunk_full_document
+- [voc] 일시 정지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=9447 pages=4 scope=database_page_chunk_full_document
+- [voc] 자동 납부 신청 _ 자동 납부 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11276 pages=4 scope=database_page_chunk_full_document
+- [voc] 자동 납부 신청 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10236 pages=4 scope=database_page_chunk_full_document
+- [voc] 자동 납부 해지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11552 pages=4 scope=database_page_chunk_full_document
+- [voc] 정지 해제 _ 일시 정지 해제 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11608 pages=4 scope=database_page_chunk_full_document
+- [voc] 주소 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10185 pages=4 scope=database_page_chunk_full_document
+- [voc] 청구서 정보 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=11164 pages=4 scope=database_page_chunk_full_document
+- [voc] 할인 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=12321 pages=4 scope=database_page_chunk_full_document
+- [voc] 휴대폰 해지 _ 핸드폰 해지 _ 번호 해지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf | pdf | chars=10524 pages=4 scope=database_page_chunk_full_document
+
+## PDF Extraction Review Candidates
+
+- 없음

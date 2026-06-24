@@ -1,0 +1,4413 @@
+{
+  "meta": {
+    "topic": "추천",
+    "topic_display": "추천",
+    "topic_slug": "추천",
+    "business_code": "REC",
+    "document_id": "POL-REC",
+    "document_type": "간소화 버전",
+    "status": "작성중",
+    "version": "v0.10",
+    "author": "Codex",
+    "date": "2026-05-09",
+    "template_type": "simple",
+    "requirements_count": 78,
+    "references_count": 51,
+    "usecase_diagram": {
+      "lines": [
+        "[고객] → (추천 후보 이해 및 비교) → include: AI PICK 캡션, 추천 근거, 소셜 프루프, 후보 비교, 대체 탐색",
+        "[고객] → (추천 기반 실행 연결) → include: 무료→유료 전환, 구독·선물 추천, 크로스 도메인 넛지, 스크린 어웨어 Next Action",
+        "[고객] → (추천 제어 및 피드백 관리) → include: 관심 없음, 숨김, 설정 진입, 피드백 이력 확인, 실패 대체 경로 선택",
+        "[운영자] → (추천 슬롯 및 룰 운영) → include: 슬롯 등록, 룰 설정, 충돌 검증, 배포·회수",
+        "[운영자] → (추천 품질 개선 및 예외 운영) → include: 성과 분석, 개선안 승인, 예외 룰, 감사 리포트",
+        "[운영자] → (추천 대상 자산 기준 관리) → include: 자산 기준, 라벨·CTA 검수, 비노출·대체 기준",
+        "[추천 연계 시스템] → (추천 후보 산정 및 검증)",
+        "[추천 연계 시스템] → (고객 상태 및 자격 판정)",
+        "[채널 업무 시스템] → (추천 노출 및 이력 처리)"
+      ]
+    },
+    "authoring_basis": [
+      "PM-06 최신 요구사항 DB의 상세 요구사항명과 상세 요구사항 설명 78건을 기준으로 추천 슬롯, 개인화·폴백, AI PICK, 라이프스타일·위치·소비패턴 추천, 크로스 도메인 넛지, 운영 품질 루프를 재구성했다.",
+      "추천은 노출 슬롯 채우기가 아니라 고객 상태와 맥락을 읽어 다음 행동을 제안하는 의사결정 지원 체계라는 TK 지향점을 Core Design 기준으로 사용했다.",
+      "홈 추천, 상세 연관 추천, 관심 없음/숨기기, 추천 룰 같은 세부 요구사항은 상위 유즈케이스가 아니라 프로세스·기능·정책으로 내려 작성했다.",
+      "인접 정책서인 전시/관리 기능, 상품 목록, AI 검색, 데이터 트래킹 체계의 전체 절차는 본문에서 확장하지 않고 추천 판단과 연계 조건만 반영했다.",
+      "2026-05-10 최신 요구사항 DB 78건을 재확인해 기존 70건 작성본에서 약했던 AI PICK 캡션, 구독 기반 선물 추천, 무료→유료 전환, 위치·소비패턴 혜택 추천, 소비 성향 온보딩, 소셜 프루프, 스크린 어웨어 넛지, 로그인·동의 Case 분기를 보강했다."
+    ],
+    "module_id": "PM-06",
+    "document_status": "작성중",
+    "created_at": "2026-05-09",
+    "updated_at": "2026-05-15",
+    "requirements_count_changed": {
+      "old": 70,
+      "new": 78
+    },
+    "history": [
+      {
+        "version": "v0.11",
+        "change": "품질 검수 및 구조 보완 반영",
+        "date": "2026-05-11",
+        "author": "Codex"
+      }
+    ],
+    "template_label": "간소화",
+    "version_spec_file": "NC_추천_정책서_간소화_v0.10_spec.json",
+    "version_spec_saved_at": "2026-05-11T20:09:44",
+    "version_spec_reason": "backfill_existing_output",
+    "version_spec_source": "추천_policy_spec.json"
+  },
+  "history": [
+    {
+      "version": "v0.10",
+      "change": "Codex 기반 초안 작성",
+      "date": "2026-05-10",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.11",
+      "change": "품질 검수 및 구조 보완 반영",
+      "date": "2026-05-11",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.10",
+      "change": "bpmn.io viewer 산출물 생성 및 문서 재렌더링",
+      "date": "2026-05-15",
+      "author": "Codex"
+    }
+  ],
+  "overview": {
+    "scope": [
+      "본 정책서는 통합채널에서 고객 상태와 맥락을 기반으로 상품, 혜택, 콘텐츠, 다음 행동을 추천하고 고객이 납득해 선택하거나 거절할 수 있도록 하는 추천 업무 기준을 정의한다.",
+      "포함 범위는 추천 정보 통합 제공, 추천 슬롯 표준화, 홈·목록·상세·MY·주문 완료 등 추천 위치, 개인화 추천, 비개인화 폴백, 상세 연관 추천, 추천 더보기 랜딩이다.",
+      "고객 제어 범위는 추천 근거 확인, 추천 결과 비교, 추천 실행 연결, 관심 없음, 숨김, 일정 기간 보지 않기, 개인화 설정 진입, 피드백 이력 확인을 포함한다.",
+      "운영 범위는 추천 슬롯 구성, 추천 유형·자산 기준, 비즈니스 룰, 제약 룰, 우선순위, 사전 검증, 시뮬레이션, 배포·회수·롤백, 성과 분석과 개선 승인 기준을 포함한다.",
+      "BSS는 고객 상태, 보유 상품, 혜택 자격, 가입 가능 여부, 제한 조건, 실행 가능 여부의 기준 정보를 제공하고, 추천 연계 시스템은 해당 기준을 추천 노출과 CTA 연결 판정에 반영한다.",
+      "책임 경계는 통합채널 FO가 추천 노출·제어·실행 연결을 담당하고, 추천 연계 시스템이 후보 산정·룰 검증·폴백 생성을 담당하며, BSS는 고객 상태·보유 상품·실행 가능 여부의 기준 정보를 제공하는 구조로 구분한다.",
+      "추천 상태는 고객 표시 상태와 시스템 내부 상태를 구분해 관리하며, 고객에게는 추천 가능·보류·제한·숨김·실행 완료처럼 다음 행동 기준을 보여주고 내부적으로는 후보 산정, 룰 검증, BSS 기준 정보 반영, 이력 저장 상태를 별도로 관리한다.",
+      "제외 범위는 추천 모델 내부 알고리즘, 프롬프트 원문, 피처 가중치, API 필드, DB 컬럼, 화면 UI 상세, 개별 상품 가격·혜택 상세 정책값, 전시 관리·데이터 트래킹 전체 절차다."
+    ],
+    "principles": [
+      {
+        "name": "Decision Support",
+        "description": "추천은 판매 노출이 아니라 고객이 다음 행동을 결정할 수 있도록 이유, 조건, 영향, 대체 경로를 함께 제공한다."
+      },
+      {
+        "name": "Explainable Personalization",
+        "description": "개인화 추천에는 고객이 이해 가능한 추천 근거와 활용 데이터 범주를 표시하고 민감한 내부 정보는 노출하지 않는다."
+      },
+      {
+        "name": "Customer Control",
+        "description": "고객은 추천을 숨기거나 관심 없음으로 처리할 수 있고, 개인화 설정과 제어 이력을 확인할 수 있어야 한다."
+      },
+      {
+        "name": "Safe Business Guardrail",
+        "description": "사업 우선순위와 수익성 룰은 고객 불이익 방지, 컴플라이언스, BSS 실행 가능성보다 앞설 수 없다."
+      },
+      {
+        "name": "Recoverable Recommendation",
+        "description": "추천 실패, 추천 보류, 가입 불가, 근거 부족은 검색, 비교, 필터, 상담으로 복구 가능한 상태로 처리한다."
+      },
+      {
+        "name": "Closed Quality Loop",
+        "description": "추천 노출부터 실행 완료와 부정 반응까지 측정하고 개선안 승인, 배포, 회수, 롤백 기준으로 운영 품질을 관리한다."
+      }
+    ]
+  },
+  "terms": [
+    {
+      "id": "TM-REC-001",
+      "name": "추천",
+      "description": "고객 상태, 행동 맥락, 보유 관계, 운영 룰을 기준으로 고객에게 다음 행동 후보를 제안하는 의사결정 지원 체계다."
+    },
+    {
+      "id": "TM-REC-002",
+      "name": "추천 슬롯",
+      "description": "홈, 목록, 상세, MY, 주문 완료 등 추천이 노출되는 위치와 목적을 슬롯 ID로 관리하는 단위다."
+    },
+    {
+      "id": "TM-REC-003",
+      "name": "개인화 추천",
+      "description": "식별 고객의 동의, 보유 관계, 최근 행동, 진행 중 업무, 고객 상태를 근거로 산정하는 추천이다."
+    },
+    {
+      "id": "TM-REC-004",
+      "name": "비개인화 폴백",
+      "description": "개인화가 불가하거나 신뢰도가 낮을 때 인기, 테마, 최근 많이 찾은 항목, 운영자 큐레이션으로 대체하는 추천이다."
+    },
+    {
+      "id": "TM-REC-005",
+      "name": "추천 근거",
+      "description": "고객이 추천 이유를 이해할 수 있도록 표시하는 사유, 조건, 반영 기준, 갱신 시점 정보다."
+    },
+    {
+      "id": "TM-REC-006",
+      "name": "Next Action",
+      "description": "추천 결과가 상세, 비교, 가입, 변경, 혜택 사용, 상담 연결 같은 다음 실행으로 이어지는 행동 후보를 말한다."
+    },
+    {
+      "id": "TM-REC-007",
+      "name": "관심 없음",
+      "description": "고객이 특정 추천이 자신에게 맞지 않다고 표시해 향후 추천 정확도와 노출 빈도에 반영하는 피드백이다."
+    },
+    {
+      "id": "TM-REC-008",
+      "name": "숨김",
+      "description": "고객이 특정 추천을 현재 지면과 일정 기간 노출 대상에서 제외하는 제어다."
+    },
+    {
+      "id": "TM-REC-009",
+      "name": "비즈니스 룰",
+      "description": "추천 후보에 적용되는 사업 우선순위, 수익성, 업셀·다운셀 제한, 타겟 제외, 캠페인 우선 기준이다."
+    },
+    {
+      "id": "TM-REC-010",
+      "name": "추천 보류",
+      "description": "고객 불이익, 근거 부족, 동의 부족, 룰 충돌, 실행 불가 때문에 추천을 표시하지 않고 대체 경로를 제공하는 상태다."
+    },
+    {
+      "id": "TM-REC-011",
+      "name": "추천 품질 지표",
+      "description": "노출, 클릭, 수용, 실행, 완료, 숨김, 관심 없음, 상담 전환, 오탐 신고를 기준으로 추천 품질을 측정하는 지표다."
+    },
+    {
+      "id": "TM-REC-012",
+      "name": "세그먼트 추천",
+      "description": "신규, 장기, 고가치, 이탈위험, 결합·가족 등 고객군별로 추천 기준과 제외 기준을 달리 적용하는 방식이다."
+    }
+  ],
+  "actors": [
+    {
+      "id": "ACT-REC-001",
+      "name": "고객",
+      "description": "추천 상품과 혜택을 확인하고 다음 행동을 선택하는 주체다."
+    },
+    {
+      "id": "ACT-REC-002",
+      "name": "운영자",
+      "description": "추천 기준, 상품·콘텐츠 운영, 성과 개선 정책을 관리하는 주체다."
+    },
+    {
+      "id": "ACT-REC-003",
+      "name": "채널 업무 시스템",
+      "description": "추천 노출, 상태 표시, 후속 행동 연결을 처리하는 채널 시스템이다."
+    },
+    {
+      "id": "ACT-REC-004",
+      "name": "추천 연계 시스템",
+      "description": "추천 후보 산정, 운영 룰 검증, 개인화·폴백 후보 생성, 추천 제한 판정을 수행하고 BSS 기준 정보를 반영하는 시스템이다."
+    }
+  ],
+  "usecases": [
+    {
+      "id": "US-REC-CUS-001",
+      "actor": "고객",
+      "name": "추천 후보 이해 및 비교",
+      "description": "고객이 추천 후보의 이유, 조건, 혜택, 제한, 대체안을 이해하고 자신에게 적합한지 비교한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-REC-CUS-002",
+      "actor": "고객",
+      "name": "추천 기반 실행 연결",
+      "description": "고객이 추천 결과를 상세, 비교, 가입, 변경, 혜택 사용, 상담 연결 같은 실행 가능한 다음 행동으로 이어간다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-REC-CUS-003",
+      "actor": "고객",
+      "name": "추천 제어 및 피드백 관리",
+      "description": "고객이 원치 않는 추천을 숨기거나 관심 없음으로 처리하고 개인화 적용 여부와 피드백 이력을 확인한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-REC-OPS-001",
+      "actor": "운영자",
+      "name": "추천 슬롯 및 룰 운영",
+      "description": "운영자가 추천 슬롯, 노출 위치, 개인화·폴백 전략, 비즈니스 룰, 우선순위를 등록·검증·배포·회수한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-REC-OPS-002",
+      "actor": "운영자",
+      "name": "추천 품질 개선 및 예외 운영",
+      "description": "운영자가 추천 성과, 고객 피드백, 룰 위반, 실험 결과를 분석하고 개선안 또는 예외 룰을 승인한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-REC-CON-001",
+      "actor": "운영자",
+      "name": "추천 대상 자산 기준 관리",
+      "description": "운영자가 추천 가능한 상품·혜택·콘텐츠의 자산 기준, 라벨, CTA, 비교 연결, 비노출 기준을 관리한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-REC-SYS-001",
+      "actor": "추천 연계 시스템",
+      "name": "추천 후보 산정 및 검증",
+      "description": "추천 연계 시스템이 고객 맥락과 운영 룰을 적용해 개인화 후보, 폴백 후보, 추천 보류 여부를 산정한다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-REC-SYS-002",
+      "actor": "추천 연계 시스템",
+      "name": "고객 상태 및 자격 판정",
+      "description": "BSS는 추천 가능 여부 판단에 필요한 고객 상태, 보유 상품, 제한 조건, 실행 가능 여부의 기준 정보를 제공하고 추천 연계 시스템은 이를 판정에 반영한다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-REC-SYS-003",
+      "actor": "채널 업무 시스템",
+      "name": "추천 노출 및 이력 처리",
+      "description": "채널 업무 시스템이 추천 노출, 선택, 실행, 숨김, 피드백, 상담 전환 이력을 저장하고 후속 처리에 연결한다.",
+      "process_target": "N"
+    }
+  ],
+  "states": [
+    {
+      "id": "ST-REC-001",
+      "name": "추천 미진입",
+      "description": "고객이 추천 영역 또는 추천 연결 지점에 아직 진입하지 않은 상태다.",
+      "next_action": "화면 맥락에 맞는 추천 진입점과 추천 목적 안내를 제공한다."
+    },
+    {
+      "id": "ST-REC-002",
+      "name": "후보 산정 중",
+      "description": "추천 연계 시스템이 고객 맥락, 보유 관계, 최근 행동, 운영 룰을 기준으로 후보를 산정하는 상태다.",
+      "next_action": "개인화 적용 가능 여부와 폴백 필요 여부를 판단한다."
+    },
+    {
+      "id": "ST-REC-003",
+      "name": "추천 확인 가능",
+      "description": "고객에게는 추천 확인 가능 상태로 표시하고, 내부적으로는 후보 산정 완료와 실행 가능 여부 확인 완료를 구분해 관리한다.",
+      "next_action": "추천 이유, 기대 효과, 비교·상세·실행 경로를 함께 제공한다."
+    },
+    {
+      "id": "ST-REC-004",
+      "name": "추천 보류",
+      "description": "룰 위반, 근거 부족, 고객 불이익 가능성, 개인화 동의 부족으로 추천을 표시하지 않는 상태다.",
+      "next_action": "보류 사유와 검색, 필터, 비교, 상담 같은 대체 경로를 안내한다."
+    },
+    {
+      "id": "ST-REC-005",
+      "name": "비교·대체 탐색 중",
+      "description": "고객이 추천 후보와 대체 후보를 비교하거나 조건을 조정하는 상태다.",
+      "next_action": "현재 후보와 대체 후보의 차이, 제한, 실행 가능성을 비교 기준으로 제시한다."
+    },
+    {
+      "id": "ST-REC-006",
+      "name": "실행 연결 대기",
+      "description": "고객에게는 실행 전 확인 단계로 표시하고, 내부적으로는 CTA 요청 키 생성, 고객 확인 대기, BSS 실행 가능 확인 대기를 구분한다.",
+      "next_action": "실행 전 영향, 약관, 인증, 비용, 제한 조건을 다시 확인한다."
+    },
+    {
+      "id": "ST-REC-007",
+      "name": "실행 완료",
+      "description": "고객에게는 실행 완료 또는 연결 완료로 표시하고, 내부적으로는 실행 도메인 인계, 결과 회신 수신, 추천 이력 제외 기준을 구분한다.",
+      "next_action": "실행 결과와 후속 확인 항목, 관련 추천 제외 또는 연계 추천 기준을 기록한다."
+    },
+    {
+      "id": "ST-REC-008",
+      "name": "추천 숨김",
+      "description": "고객이 특정 추천을 숨김, 관심 없음, 일정 기간 보지 않기로 처리한 상태다.",
+      "next_action": "현재 지면에서 즉시 제외하고 차단시간과 피드백 사유를 이력으로 남긴다."
+    },
+    {
+      "id": "ST-REC-009",
+      "name": "추천 제한",
+      "description": "고객에게는 추천 제한 또는 대체 추천 필요 상태로 표시하고, 내부적으로는 룰 제한, BSS 기준 제한, 고객 보호 제한을 구분한다.",
+      "next_action": "제한 사유와 제한 해소 조건 또는 상담 전환 기준을 안내한다."
+    },
+    {
+      "id": "ST-REC-010",
+      "name": "피드백 반영 대기",
+      "description": "고객 피드백이나 운영 분석 결과가 추천 기준에 반영되기 전 검토 중인 상태다.",
+      "next_action": "피드백 유형, 발생 위치, 영향 범위를 분류하고 개선 후보로 등록한다."
+    },
+    {
+      "id": "ST-REC-011",
+      "name": "운영 검수 대기",
+      "description": "추천 슬롯, 룰, 자산, 예외 설정이 배포 전 검증 또는 승인 대기 중인 상태다.",
+      "next_action": "대표 시나리오 검증, 충돌 확인, 고객 불이익 여부, 롤백 가능성을 점검한다."
+    },
+    {
+      "id": "ST-REC-012",
+      "name": "기준 배포 완료",
+      "description": "추천 슬롯, 룰, 자산, 폴백, 예외 기준이 승인되어 적용된 상태다.",
+      "next_action": "적용 시점, 대상 범위, 변경자, 변경 사유, 성과 지표를 기록한다."
+    },
+    {
+      "id": "ST-REC-013",
+      "name": "회수·롤백",
+      "description": "성과 저하, 룰 위반, 고객 불만, 장애 영향으로 추천 기준을 회수하거나 이전 버전으로 되돌리는 상태다.",
+      "next_action": "회수 사유와 영향 범위를 기록하고 안전한 폴백 기준을 적용한다."
+    }
+  ],
+  "state_transitions": [
+    {
+      "usecase_ids": [
+        "US-REC-CUS-001"
+      ],
+      "current_state": "추천 미진입",
+      "event": "추천 영역 진입",
+      "next_state": "후보 산정 중",
+      "criteria": "고객이 홈, 목록, 상세, MY, 주문 완료, 혜택 사용 후 추천 영역에 진입하면 현재 화면 맥락을 유지해 후보 산정을 시작한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-SYS-001",
+        "US-REC-SYS-002"
+      ],
+      "current_state": "후보 산정 중",
+      "event": "고객 상태와 추천 룰 검증 통과",
+      "next_state": "추천 확인 가능",
+      "criteria": "고객 상태, 보유 상품, 동의, 제한 조건, 비즈니스 룰을 통과한 후보만 추천 확인 가능 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-SYS-001"
+      ],
+      "current_state": "후보 산정 중",
+      "event": "근거 부족 또는 룰 충돌 발생",
+      "next_state": "추천 보류",
+      "criteria": "개인화 신뢰도가 낮거나 고객 불이익 가능성, 룰 충돌, 필수 근거 누락이 있으면 추천을 보류한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-001"
+      ],
+      "current_state": "추천 확인 가능",
+      "event": "추천 후보 비교 선택",
+      "next_state": "비교·대체 탐색 중",
+      "criteria": "고객이 비교 보기, 대체안, 관련 카테고리, 검색 전환을 선택하면 후보 비교 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-002"
+      ],
+      "current_state": "추천 확인 가능",
+      "event": "추천 실행 CTA 선택",
+      "next_state": "실행 연결 대기",
+      "criteria": "고객이 가입, 변경, 혜택 사용, 상담 연결 등 실행 CTA를 선택하면 실행 전 확인 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-002",
+        "US-REC-SYS-002"
+      ],
+      "current_state": "실행 연결 대기",
+      "event": "실행 조건 최종 확인 통과",
+      "next_state": "실행 완료",
+      "criteria": "인증, 약관, 비용 영향, BSS 실행 가능 여부를 확인한 뒤 후속 업무로 연결되면 실행 완료로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-002"
+      ],
+      "current_state": "실행 연결 대기",
+      "event": "실행 조건 미충족",
+      "next_state": "추천 제한",
+      "criteria": "가입 불가, 변경 제한, 혜택 사용 불가, 미납·정지 등 제한 조건이 있으면 제한 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-003"
+      ],
+      "current_state": "추천 확인 가능",
+      "event": "관심 없음 또는 숨김 선택",
+      "next_state": "추천 숨김",
+      "criteria": "고객이 관심 없음, 숨기기, 일정 기간 보지 않기를 선택하면 현재 지면에서 제외하고 차단시간을 적용한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-003",
+        "US-REC-SYS-003"
+      ],
+      "current_state": "추천 숨김",
+      "event": "피드백 사유 저장",
+      "next_state": "피드백 반영 대기",
+      "criteria": "고객 피드백 사유와 발생 위치를 저장하면 추천 개선 검토 대상으로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CUS-001"
+      ],
+      "current_state": "추천 보류",
+      "event": "검색 또는 상담 대체 경로 선택",
+      "next_state": "비교·대체 탐색 중",
+      "criteria": "추천이 보류되더라도 고객이 검색, 필터, 관련 카테고리, 상담 연결을 선택하면 흐름을 이어간다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-OPS-001"
+      ],
+      "current_state": "추천 미진입",
+      "event": "추천 슬롯과 룰 등록",
+      "next_state": "운영 검수 대기",
+      "criteria": "운영자가 슬롯, 노출 위치, 룰, 폴백, 예외 기준을 등록하면 검수 대기 상태로 둔다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-OPS-001"
+      ],
+      "current_state": "운영 검수 대기",
+      "event": "시뮬레이션과 충돌 검증 통과",
+      "next_state": "기준 배포 완료",
+      "criteria": "대표 시나리오, 고객 불이익, 룰 충돌, 폴백 적용을 통과하면 예약 또는 즉시 배포한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-OPS-001"
+      ],
+      "current_state": "기준 배포 완료",
+      "event": "성과 저하 또는 위반 탐지",
+      "next_state": "회수·롤백",
+      "criteria": "숨김률 급증, 고객 불만, 룰 위반, 장애 영향이 확인되면 회수 또는 이전 버전을 적용한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-OPS-002"
+      ],
+      "current_state": "피드백 반영 대기",
+      "event": "개선안 승인",
+      "next_state": "운영 검수 대기",
+      "criteria": "운영자가 고객 피드백과 성과 분석을 근거로 개선안을 승인하면 배포 전 검수 대상으로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-REC-CON-001"
+      ],
+      "current_state": "운영 검수 대기",
+      "event": "자산 라벨과 CTA 검수 완료",
+      "next_state": "기준 배포 완료",
+      "criteria": "상품·콘텐츠 자산의 추천 라벨, CTA, 비교 연결, 비노출 조건이 검수되면 추천 자산 기준을 배포한다."
+    },
+    {
+      "from": "ST-REC-001",
+      "event": "스크린 맥락 기반 추천 후보 감지",
+      "to": "ST-REC-002",
+      "criteria": "고객이 혜택, 바코드, 쿠폰, 포인트, 상품 목록 등 특정 화면에 체류하고 후속 행동 후보가 있으면 현재 맥락을 유지해 후보 산정을 시작한다.",
+      "usecase_ids": [
+        "US-REC-CUS-001",
+        "US-REC-SYS-001"
+      ]
+    },
+    {
+      "from": "ST-REC-002",
+      "event": "로그인·선택동의 Case 분기 완료",
+      "to": "ST-REC-003",
+      "criteria": "로그인 상태, 선택동의, 고객 맥락, 오류 여부에 따라 개인화 또는 비개인화 노출 범위가 결정되면 추천 확인 가능 상태로 전환한다.",
+      "usecase_ids": [
+        "US-REC-CUS-001",
+        "US-REC-SYS-002"
+      ]
+    },
+    {
+      "from": "ST-REC-003",
+      "event": "무료→유료 또는 크로스 도메인 추천 선택",
+      "to": "ST-REC-006",
+      "criteria": "고객이 무료 혜택 확장, 구독·선물, 도메인 간 넛지, 요금제·구독 조합 추천을 선택하면 비용·조건·이동 맥락 확인 상태로 전환한다.",
+      "usecase_ids": [
+        "US-REC-CUS-002"
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "id": "PR-REC-CUS-001",
+      "usecase_id": "US-REC-CUS-001",
+      "name": "추천 진입 맥락 확인",
+      "description": "고객이 진입한 화면, 최근 행동, 보유 관계, 추천 위치를 기준으로 추천 목적과 후보 산정 범위를 정한다. 스크린 맥락, 위치·생활권, 소비패턴, 관심상품, 무료 혜택 사용량처럼 추천 판단에 필요한 맥락은 고객 동의와 정책 범위 안에서만 후보 산정에 사용한다.",
+      "related_functions": [
+        "FN-REC-SLOT-001",
+        "FN-REC-CTX-001",
+        "FN-REC-BSS-001"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-DATA-001",
+        "PG-REC-BSS-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-002",
+      "usecase_id": "US-REC-CUS-001",
+      "name": "추천 근거와 조건 확인",
+      "description": "고객에게 추천 이유, 적용 조건, 제한 사유, 개인화 라벨, 반영 시점을 함께 제공한다. AI PICK 캡션, 소셜 프루프, 절감액·추가 혜택 근거는 고객이 오해하지 않도록 공식 조건과 추천 보조 설명을 구분해 표시한다.",
+      "related_functions": [
+        "FN-REC-REASON-001",
+        "FN-REC-CAND-001"
+      ],
+      "related_policies": [
+        "PG-REC-REASON-001",
+        "PG-REC-PERSONAL-001",
+        "PG-REC-LIMIT-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-003",
+      "usecase_id": "US-REC-CUS-001",
+      "name": "추천 후보 비교와 대체 탐색",
+      "description": "고객이 추천 후보를 비교하고 대체 후보, 검색, 필터, 관련 카테고리로 이동할 수 있게 한다.",
+      "related_functions": [
+        "FN-REC-COMP-001",
+        "FN-REC-CAND-001"
+      ],
+      "related_policies": [
+        "PG-REC-ACTION-001",
+        "PG-REC-EXCEPTION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-004",
+      "usecase_id": "US-REC-CUS-002",
+      "name": "실행 가능성 최종 확인",
+      "description": "고객이 추천 CTA를 선택하면 가입·변경·혜택 사용·상담 연결 가능 조건을 최종 확인한다.",
+      "related_functions": [
+        "FN-REC-ACTION-001",
+        "FN-REC-BSS-001",
+        "FN-REC-VALID-001"
+      ],
+      "related_policies": [
+        "PG-REC-BSS-001",
+        "PG-REC-VALID-001",
+        "PG-REC-ACTION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-005",
+      "usecase_id": "US-REC-CUS-002",
+      "name": "추천 결과 실행 연결",
+      "description": "추천 결과를 상세, 비교, 가입, 변경, 혜택 사용, 상담 연결 중 고객이 선택한 다음 행동으로 넘긴다. 추천 실행은 동일 도메인 이동뿐 아니라 T월드, T멤버십, T우주, T다이렉트샵 간 크로스셀 넛지도 현재 맥락을 유지해 연결한다. 컨시어지 카드는 진행 중 업무, 만료 임박 혜택, 실패·미완료 업무를 감지해 고객이 바로 실행할 수 있는 Next Action으로 연결한다.",
+      "related_functions": [
+        "FN-REC-ACTION-001",
+        "FN-REC-HIST-001"
+      ],
+      "related_policies": [
+        "PG-REC-ACTION-001",
+        "PG-REC-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-006",
+      "usecase_id": "US-REC-CUS-002",
+      "name": "실행 결과와 후속 추천 확인",
+      "description": "실행 완료 또는 제한 결과를 고객에게 안내하고 같은 추천의 재노출, 연계 추천, 후속 확인 기준을 정한다. 무료 혜택 사용 후 유료 전환, 구독 기반 선물, 관심상품 재방문처럼 후속 추천은 고객이 얻는 추가 가치와 제한 조건을 함께 확인한 뒤 노출한다.",
+      "related_functions": [
+        "FN-REC-HIST-001",
+        "FN-REC-CAND-001"
+      ],
+      "related_policies": [
+        "PG-REC-HISTORY-001",
+        "PG-REC-LIMIT-001",
+        "PG-REC-EXCEPTION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-007",
+      "usecase_id": "US-REC-CUS-003",
+      "name": "관심 없음·숨김 선택 처리",
+      "description": "고객이 추천 카드의 관심 없음, 숨김, 일정 기간 보지 않기를 선택하면 현재 지면에서 제외한다.",
+      "related_functions": [
+        "FN-REC-CTRL-001",
+        "FN-REC-HIST-001"
+      ],
+      "related_policies": [
+        "PG-REC-CONTROL-001",
+        "PG-REC-LIMIT-001",
+        "PG-REC-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-008",
+      "usecase_id": "US-REC-CUS-003",
+      "name": "개인화 설정과 제어 이력 확인",
+      "description": "고객이 개인화 적용 여부, 숨김 이력, 피드백 반영 범위, 초기화 진입을 확인한다.",
+      "related_functions": [
+        "FN-REC-SET-001",
+        "FN-REC-CTRL-001"
+      ],
+      "related_policies": [
+        "PG-REC-DATA-001",
+        "PG-REC-CONTROL-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CUS-009",
+      "usecase_id": "US-REC-CUS-003",
+      "name": "추천 실패 대체 경로 선택",
+      "description": "추천이 없거나 신뢰하기 어려울 때 고객이 검색, 필터, 비교, 상담 연결로 업무를 계속한다.",
+      "related_functions": [
+        "FN-REC-COMP-001",
+        "FN-REC-ACTION-001"
+      ],
+      "related_policies": [
+        "PG-REC-EXCEPTION-001",
+        "PG-REC-ACTION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-001",
+      "usecase_id": "US-REC-OPS-001",
+      "name": "추천 슬롯과 노출 위치 등록",
+      "description": "운영자가 홈, 목록, 상세, MY, 주문 완료 등 추천 위치와 슬롯 ID, 노출 개수, 기본 전략을 등록한다. 개인화 컨텍스트와 개인화 항목·그룹은 추천 위치, 대상, 기간, 노출 우선순위와 함께 관리한다.",
+      "related_functions": [
+        "FN-REC-SLOT-001",
+        "FN-REC-DEPLOY-001"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-OPERATION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-002",
+      "usecase_id": "US-REC-OPS-001",
+      "name": "추천 룰과 제약 기준 설정",
+      "description": "운영자가 고객 적합도, 사업 우선순위, 다운셀 제한, 타겟 제외, 고객 불이익 방지 룰을 설정한다.",
+      "related_functions": [
+        "FN-REC-RULE-001",
+        "FN-REC-VALID-001"
+      ],
+      "related_policies": [
+        "PG-REC-RULE-001",
+        "PG-REC-PRIORITY-001",
+        "PG-REC-SEGMENT-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-003",
+      "usecase_id": "US-REC-OPS-001",
+      "name": "룰 충돌 검증과 시뮬레이션",
+      "description": "배포 전 대표 시나리오로 추천 공백, 과도한 제한, 고객 불이익, 룰 충돌을 검증한다.",
+      "related_functions": [
+        "FN-REC-VALID-001",
+        "FN-REC-IMPROVE-001"
+      ],
+      "related_policies": [
+        "PG-REC-VALID-001",
+        "PG-REC-RULE-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-004",
+      "usecase_id": "US-REC-OPS-001",
+      "name": "추천 기준 배포·회수 관리",
+      "description": "추천 기준을 즉시 또는 예약 배포하고 성과 저하나 장애 영향이 있으면 회수 또는 롤백한다.",
+      "related_functions": [
+        "FN-REC-DEPLOY-001",
+        "FN-REC-HIST-001"
+      ],
+      "related_policies": [
+        "PG-REC-OPERATION-001",
+        "PG-REC-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-005",
+      "usecase_id": "US-REC-OPS-002",
+      "name": "성과와 피드백 지표 분석",
+      "description": "추천 노출, 수용, 실행, 완료, 숨김, 관심 없음, 상담 전환, 오탐 신고를 분석한다. 추천 영향도는 적용군과 미적용군 또는 대조군을 비교해 전환, 이탈, 숨김, 상담 전환 차이를 함께 분석한다. 고객 서비스 이용 행태 분석은 체류 시간, 특정 메뉴 탐색, 추천 클릭, 이탈 구간을 Trigger로 분류해 추천 후보와 개선안에 연결한다.",
+      "related_functions": [
+        "FN-REC-METRIC-001",
+        "FN-REC-HIST-001"
+      ],
+      "related_policies": [
+        "PG-REC-METRIC-001",
+        "PG-REC-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-006",
+      "usecase_id": "US-REC-OPS-002",
+      "name": "개선안과 예외 룰 승인",
+      "description": "운영자가 실험 결과와 개선 제안을 검토해 승인, 거부, 기간 한정 예외, 자동 해제를 결정한다. 성과 기반 자동 개선안과 캠페인 자동 생성 후보는 운영자 승인 전에는 실제 추천 결과에 반영하지 않는다. 이탈 방지 혜택은 해지 의향 또는 이탈 위험 고객에게만 기간 한정으로 제안하고, 운영자 승인 전 자동 노출하지 않는다.",
+      "related_functions": [
+        "FN-REC-IMPROVE-001",
+        "FN-REC-RULE-001"
+      ],
+      "related_policies": [
+        "PG-REC-METRIC-001",
+        "PG-REC-RULE-001",
+        "PG-REC-OPERATION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-OPS-007",
+      "usecase_id": "US-REC-OPS-002",
+      "name": "룰 위반과 감사 리포트 확인",
+      "description": "운영자가 기간, 세그먼트, 슬롯, 추천 유형별 차단 사유와 위반 이력을 확인한다.",
+      "related_functions": [
+        "FN-REC-METRIC-001",
+        "FN-REC-HIST-001"
+      ],
+      "related_policies": [
+        "PG-REC-HISTORY-001",
+        "PG-REC-VALID-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CON-001",
+      "usecase_id": "US-REC-CON-001",
+      "name": "추천 대상 자산 기준 등록",
+      "description": "상품·혜택·콘텐츠 운영자가 추천 가능한 자산, 필수 정보, 비교 기준, 제외 조건을 등록한다. 추천 자산에는 상품·서비스·혜택·제휴처·구독·캠페인 자산을 포함하되, 추천 목적과 실행 연결이 없는 홍보성 자산은 제외한다.",
+      "related_functions": [
+        "FN-REC-ASSET-001",
+        "FN-REC-SLOT-001"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-REASON-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CON-002",
+      "usecase_id": "US-REC-CON-001",
+      "name": "추천 라벨과 CTA 기준 검수",
+      "description": "추천 라벨, 개인화 표기, 가격·혜택 강조 정보, 상세·비교·가입 CTA가 고객 판단 기준에 맞는지 검수한다.",
+      "related_functions": [
+        "FN-REC-ASSET-001",
+        "FN-REC-REASON-001",
+        "FN-REC-ACTION-001"
+      ],
+      "related_policies": [
+        "PG-REC-REASON-001",
+        "PG-REC-ACTION-001"
+      ]
+    },
+    {
+      "id": "PR-REC-CON-003",
+      "usecase_id": "US-REC-CON-001",
+      "name": "자산 비노출과 대체 기준 관리",
+      "description": "추천 부적합 자산, 만료 자산, 가입 불가 자산, 중복 자산을 제외하고 대체 후보를 연결한다.",
+      "related_functions": [
+        "FN-REC-ASSET-001",
+        "FN-REC-CAND-001"
+      ],
+      "related_policies": [
+        "PG-REC-EXCEPTION-001",
+        "PG-REC-LIMIT-001"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "id": "FN-REC-SLOT-001",
+      "process_ids": [
+        "PR-REC-CUS-001",
+        "PR-REC-OPS-001",
+        "PR-REC-CON-001"
+      ],
+      "name": "추천 슬롯·진입점 관리",
+      "description": "추천 위치와 슬롯 기준을 표준화해 화면·여정별 추천 진입을 관리한다.",
+      "details": [
+        "슬롯 ID 관리",
+        "노출 위치 분류",
+        "노출 개수 설정",
+        "더보기 랜딩 연결",
+        "추천 전시 유형 기준 관리",
+        "AI PICK 캡션 위치 관리",
+        "로그인·선택동의 Case 분기 적용"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-DATA-001",
+        "PG-REC-BSS-001",
+        "PG-REC-OPERATION-001",
+        "PG-REC-REASON-001"
+      ]
+    },
+    {
+      "id": "FN-REC-CTX-001",
+      "process_ids": [
+        "PR-REC-CUS-001"
+      ],
+      "name": "고객 맥락 수집·분류",
+      "description": "추천 산정에 필요한 고객 상태와 행동 맥락을 정책 범위 안에서 분류한다.",
+      "details": [
+        "보유 상품 확인",
+        "최근 행동 분류",
+        "진행 업무 감지",
+        "동의 상태 확인",
+        "스크린 어웨어 맥락 감지",
+        "위치·생활권 활용 가능 여부 확인",
+        "소비패턴·혜택 사용 패턴 분류",
+        "소비 성향 온보딩 결과 반영",
+        "고객 서비스 이용 행태 분석",
+        "TDS 체류·탐색 Trigger 생성"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-DATA-001",
+        "PG-REC-BSS-001"
+      ]
+    },
+    {
+      "id": "FN-REC-CAND-001",
+      "process_ids": [
+        "PR-REC-CUS-002",
+        "PR-REC-CUS-003",
+        "PR-REC-CUS-006",
+        "PR-REC-CON-003"
+      ],
+      "name": "추천 후보 생성·폴백",
+      "description": "개인화 후보와 비개인화 폴백 후보를 산정하고 부적합 후보를 제외한다.",
+      "details": [
+        "개인화 후보 산정",
+        "비개인화 폴백",
+        "부적합 후보 제외",
+        "대체 후보 구성",
+        "구독 기반 선물 후보 산정",
+        "무료 혜택 사용량 기반 유료 전환 후보 산정",
+        "오프라인 제휴처 접근성 후보 산정",
+        "라이프스타일 혜택 후보 산정",
+        "관심상품 기반 재방문 후보 산정",
+        "이탈 방지 혜택 후보 산정"
+      ],
+      "related_policies": [
+        "PG-REC-REASON-001",
+        "PG-REC-PERSONAL-001",
+        "PG-REC-LIMIT-001",
+        "PG-REC-ACTION-001",
+        "PG-REC-EXCEPTION-001",
+        "PG-REC-HISTORY-001"
+      ]
+    },
+    {
+      "id": "FN-REC-REASON-001",
+      "process_ids": [
+        "PR-REC-CUS-002",
+        "PR-REC-CON-002"
+      ],
+      "name": "추천 근거·라벨 생성",
+      "description": "추천 이유, 개인화 라벨, 반영 기준, 갱신 시점을 고객이 이해할 수 있게 구성한다.",
+      "details": [
+        "추천 사유 생성",
+        "개인화 라벨 표시",
+        "반영 기준 안내",
+        "갱신 시점 표시",
+        "AI PICK 캡션 생성",
+        "소셜 프루프 태그 구성",
+        "절감액·추가 혜택 근거 구성",
+        "위치·소비패턴 근거 범주화"
+      ],
+      "related_policies": [
+        "PG-REC-REASON-001",
+        "PG-REC-PERSONAL-001",
+        "PG-REC-LIMIT-001",
+        "PG-REC-ACTION-001"
+      ]
+    },
+    {
+      "id": "FN-REC-COMP-001",
+      "process_ids": [
+        "PR-REC-CUS-003",
+        "PR-REC-CUS-009"
+      ],
+      "name": "비교·대체안 연결",
+      "description": "추천 결과를 비교, 검색, 필터, 관련 카테고리, 상담 대체 경로로 연결한다.",
+      "details": [
+        "비교 보기 연결",
+        "검색 전환 연결",
+        "관련 카테고리 이동",
+        "상담 대체 연결"
+      ],
+      "related_policies": [
+        "PG-REC-ACTION-001",
+        "PG-REC-EXCEPTION-001"
+      ]
+    },
+    {
+      "id": "FN-REC-ACTION-001",
+      "process_ids": [
+        "PR-REC-CUS-004",
+        "PR-REC-CUS-005",
+        "PR-REC-CUS-009",
+        "PR-REC-CON-002"
+      ],
+      "name": "실행 CTA 연결",
+      "description": "추천 결과를 상세, 가입, 변경, 혜택 사용, 상담 연결 같은 실행 경로로 전달한다.",
+      "details": [
+        "상세 이동",
+        "가입·변경 진입",
+        "혜택 사용 진입",
+        "상담 연결",
+        "도메인 간 크로스셀 넛지 연결",
+        "스크린 맥락 기반 Next Action 연결",
+        "구독·혜택·요금제 조합 실행 연결",
+        "컨시어지 카드 Next Action 연결"
+      ],
+      "related_policies": [
+        "PG-REC-BSS-001",
+        "PG-REC-VALID-001",
+        "PG-REC-ACTION-001",
+        "PG-REC-HISTORY-001",
+        "PG-REC-EXCEPTION-001",
+        "PG-REC-REASON-001"
+      ]
+    },
+    {
+      "id": "FN-REC-CTRL-001",
+      "process_ids": [
+        "PR-REC-CUS-007",
+        "PR-REC-CUS-008"
+      ],
+      "name": "숨김·관심 없음 제어",
+      "description": "고객의 숨김, 관심 없음, 일정 기간 보지 않기 선택을 처리한다.",
+      "details": [
+        "현재 지면 제외",
+        "차단시간 적용",
+        "선택 사유 수집",
+        "초기화 진입"
+      ],
+      "related_policies": [
+        "PG-REC-CONTROL-001",
+        "PG-REC-LIMIT-001",
+        "PG-REC-HISTORY-001",
+        "PG-REC-DATA-001"
+      ]
+    },
+    {
+      "id": "FN-REC-SET-001",
+      "process_ids": [
+        "PR-REC-CUS-008"
+      ],
+      "name": "개인화 설정 진입·이력",
+      "description": "개인화 적용 여부와 주요 제어 이력을 고객이 확인할 수 있게 한다.",
+      "details": [
+        "설정 화면 진입",
+        "제어 이력 표시",
+        "활용 데이터 안내",
+        "삭제·초기화 안내"
+      ],
+      "related_policies": [
+        "PG-REC-DATA-001",
+        "PG-REC-CONTROL-001"
+      ]
+    },
+    {
+      "id": "FN-REC-RULE-001",
+      "process_ids": [
+        "PR-REC-OPS-002",
+        "PR-REC-OPS-006"
+      ],
+      "name": "비즈니스 룰·제약 관리",
+      "description": "추천 하한, 차액, 금칙, 타겟 제외, 세그먼트 룰을 등록하고 우선순위를 관리한다.",
+      "details": [
+        "하한 룰 등록",
+        "차액 제한 설정",
+        "타겟 제외 설정",
+        "우선순위 관리",
+        "캠페인 자동 생성 조건 관리",
+        "해지 의향 고객 방어 캠페인 조건 관리",
+        "채널·오퍼링 조합 우선순위 관리"
+      ],
+      "related_policies": [
+        "PG-REC-RULE-001",
+        "PG-REC-PRIORITY-001",
+        "PG-REC-SEGMENT-001",
+        "PG-REC-METRIC-001",
+        "PG-REC-OPERATION-001"
+      ]
+    },
+    {
+      "id": "FN-REC-VALID-001",
+      "process_ids": [
+        "PR-REC-CUS-004",
+        "PR-REC-OPS-002",
+        "PR-REC-OPS-003"
+      ],
+      "name": "룰 검증·추천 보류 처리",
+      "description": "추천 후보가 운영 룰과 고객 보호 기준을 위반하는지 검증하고 보류 기준을 적용한다.",
+      "details": [
+        "룰 위반 탐지",
+        "추천 보류 판정",
+        "대체 후보 요청",
+        "상담 전환 기준"
+      ],
+      "related_policies": [
+        "PG-REC-BSS-001",
+        "PG-REC-VALID-001",
+        "PG-REC-ACTION-001",
+        "PG-REC-RULE-001",
+        "PG-REC-PRIORITY-001",
+        "PG-REC-SEGMENT-001"
+      ]
+    },
+    {
+      "id": "FN-REC-DEPLOY-001",
+      "process_ids": [
+        "PR-REC-OPS-001",
+        "PR-REC-OPS-004"
+      ],
+      "name": "배포·회수·버전 관리",
+      "description": "추천 슬롯, 룰, 폴백, 예외 기준을 버전 단위로 배포하고 회수한다.",
+      "details": [
+        "예약 배포",
+        "즉시 배포",
+        "이전 버전 롤백",
+        "변경 사유 기록"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-OPERATION-001",
+        "PG-REC-HISTORY-001"
+      ]
+    },
+    {
+      "id": "FN-REC-METRIC-001",
+      "process_ids": [
+        "PR-REC-OPS-005",
+        "PR-REC-OPS-007"
+      ],
+      "name": "성과·반응 지표 수집",
+      "description": "추천 노출부터 실행 완료까지 전환과 부정 반응을 지표로 수집한다.",
+      "details": [
+        "노출·클릭 수집",
+        "수용·실행 수집",
+        "숨김률 집계",
+        "상담 전환 집계",
+        "적용군·대조군 비교 분석",
+        "캠페인 결과 분석",
+        "추천 영향도 리포트 생성"
+      ],
+      "related_policies": [
+        "PG-REC-METRIC-001",
+        "PG-REC-HISTORY-001",
+        "PG-REC-VALID-001"
+      ]
+    },
+    {
+      "id": "FN-REC-IMPROVE-001",
+      "process_ids": [
+        "PR-REC-OPS-003",
+        "PR-REC-OPS-006"
+      ],
+      "name": "실험·개선안 관리",
+      "description": "추천 실험, 개선안, 운영 승인, 예외 기간을 관리한다.",
+      "details": [
+        "A/B 실험 설정",
+        "개선안 제안",
+        "승인·거부 처리",
+        "예외 기간 관리",
+        "성과 기반 추천 개선안 자동 제안",
+        "A/B 테스트 결과 해석",
+        "운영자 승인·거부 반영"
+      ],
+      "related_policies": [
+        "PG-REC-VALID-001",
+        "PG-REC-RULE-001",
+        "PG-REC-METRIC-001",
+        "PG-REC-OPERATION-001"
+      ]
+    },
+    {
+      "id": "FN-REC-ASSET-001",
+      "process_ids": [
+        "PR-REC-CON-001",
+        "PR-REC-CON-002",
+        "PR-REC-CON-003"
+      ],
+      "name": "추천 자산 메타 관리",
+      "description": "추천 가능한 상품·혜택·콘텐츠의 필수 메타, 라벨, CTA, 제외 기준을 관리한다.",
+      "details": [
+        "자산 유형 분류",
+        "필수 정보 점검",
+        "CTA 매핑",
+        "비노출 기준 관리",
+        "개인화 컨텍스트 CRUD",
+        "개인화 항목·그룹 관리"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-REASON-001",
+        "PG-REC-ACTION-001",
+        "PG-REC-EXCEPTION-001",
+        "PG-REC-LIMIT-001"
+      ]
+    },
+    {
+      "id": "FN-REC-BSS-001",
+      "process_ids": [
+        "PR-REC-CUS-001",
+        "PR-REC-CUS-004"
+      ],
+      "name": "고객 상태·권한 판정 연계",
+      "description": "BSS 기준 정보와 추천 연계 시스템의 실행 가능 여부 판정을 추천 흐름에 반영한다.",
+      "details": [
+        "가입 상태 조회",
+        "보유 관계 판정",
+        "제한 조건 회신",
+        "실행 가능 여부 회신"
+      ],
+      "related_policies": [
+        "PG-REC-SCOPE-001",
+        "PG-REC-DATA-001",
+        "PG-REC-BSS-001",
+        "PG-REC-VALID-001",
+        "PG-REC-ACTION-001"
+      ]
+    },
+    {
+      "id": "FN-REC-HIST-001",
+      "process_ids": [
+        "PR-REC-CUS-005",
+        "PR-REC-CUS-006",
+        "PR-REC-CUS-007",
+        "PR-REC-OPS-004",
+        "PR-REC-OPS-005",
+        "PR-REC-OPS-007"
+      ],
+      "name": "노출·피드백·처리 이력 저장",
+      "description": "추천 노출, 수용, 실행, 숨김, 피드백, 룰 변경, 배포·회수 이력을 저장한다.",
+      "details": [
+        "노출 이력 저장",
+        "실행 이력 저장",
+        "피드백 이력 저장",
+        "룰 변경 이력 저장"
+      ],
+      "related_policies": [
+        "PG-REC-ACTION-001",
+        "PG-REC-HISTORY-001",
+        "PG-REC-LIMIT-001",
+        "PG-REC-EXCEPTION-001",
+        "PG-REC-CONTROL-001",
+        "PG-REC-OPERATION-001",
+        "PG-REC-METRIC-001",
+        "PG-REC-VALID-001"
+      ]
+    }
+  ],
+  "policy_groups": [
+    {
+      "id": "PG-REC-SCOPE-001",
+      "name": "추천 범위·슬롯 정책",
+      "description": "추천 영역, 슬롯, 추천 유형, 더보기 랜딩의 범위를 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-SCP-001",
+          "name": "추천 슬롯 범위"
+        },
+        {
+          "id": "PI-REC-SCP-002",
+          "name": "추천 유형 구분"
+        },
+        {
+          "id": "PI-REC-SCP-003",
+          "name": "더보기 랜딩 기준"
+        },
+        {
+          "id": "PI-REC-SCP-004",
+          "name": "추천 전시 유형·AI PICK 기준"
+        },
+        {
+          "id": "PI-REC-SCP-005",
+          "name": "라이프스타일·제휴처 추천 범위"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-PERSONAL-001",
+      "name": "개인화 적용·폴백 정책",
+      "description": "개인화 추천 적용 조건과 비개인화 폴백 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-PRS-001",
+          "name": "개인화 적용 조건"
+        },
+        {
+          "id": "PI-REC-PRS-002",
+          "name": "비개인화 폴백"
+        },
+        {
+          "id": "PI-REC-PRS-003",
+          "name": "신뢰도 부족 처리"
+        },
+        {
+          "id": "PI-REC-PRS-004",
+          "name": "무료→유료 전환 추천"
+        },
+        {
+          "id": "PI-REC-PRS-005",
+          "name": "구독·선물 추천 기준"
+        },
+        {
+          "id": "PI-REC-PRS-006",
+          "name": "이탈 방지 혜택 추천"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-REASON-001",
+      "name": "추천 근거·투명성 정책",
+      "description": "추천 이유, 라벨, 반영 기준, 공식 정보와 보조 정보의 구분을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-RSN-001",
+          "name": "추천 사유 노출"
+        },
+        {
+          "id": "PI-REC-RSN-002",
+          "name": "근거 노출 제한"
+        },
+        {
+          "id": "PI-REC-RSN-003",
+          "name": "AI·개인화 라벨"
+        },
+        {
+          "id": "PI-REC-RSN-004",
+          "name": "AI PICK 캡션"
+        },
+        {
+          "id": "PI-REC-RSN-005",
+          "name": "소셜 프루프 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-PRIORITY-001",
+      "name": "추천 우선순위·충돌 정책",
+      "description": "여러 추천 룰과 슬롯이 충돌할 때 우선순위와 안전 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-PRI-001",
+          "name": "우선순위 축"
+        },
+        {
+          "id": "PI-REC-PRI-002",
+          "name": "충돌 처리"
+        },
+        {
+          "id": "PI-REC-PRI-003",
+          "name": "고객 불이익 방지"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-LIMIT-001",
+      "name": "노출 빈도·피로도 정책",
+      "description": "추천 반복 노출, 차단시간, 최신성, 다양성, 중복 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-LIM-001",
+          "name": "노출 빈도 제한"
+        },
+        {
+          "id": "PI-REC-LIM-002",
+          "name": "차단시간 적용"
+        },
+        {
+          "id": "PI-REC-LIM-003",
+          "name": "중복 추천 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-ACTION-001",
+      "name": "추천 실행 연결 정책",
+      "description": "추천 결과를 비교, 상세, 가입, 변경, 혜택 사용, 상담으로 연결하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-ACT-001",
+          "name": "CTA 연결 기준"
+        },
+        {
+          "id": "PI-REC-ACT-002",
+          "name": "비교 연결 기준"
+        },
+        {
+          "id": "PI-REC-ACT-003",
+          "name": "실행 전 확인"
+        },
+        {
+          "id": "PI-REC-ACT-004",
+          "name": "크로스 도메인 넛지"
+        },
+        {
+          "id": "PI-REC-ACT-005",
+          "name": "스크린 어웨어 Next Action"
+        },
+        {
+          "id": "PI-REC-ACT-006",
+          "name": "컨시어지 카드 Next Action"
+        },
+        {
+          "id": "PI-REC-ACT-007",
+          "name": "중복 요청·멱등 처리"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-CONTROL-001",
+      "name": "고객 제어·피드백 정책",
+      "description": "관심 없음, 숨김, 피드백, 설정 진입, 초기화 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-CTL-001",
+          "name": "숨김 즉시 반영"
+        },
+        {
+          "id": "PI-REC-CTL-002",
+          "name": "피드백 사유 수집"
+        },
+        {
+          "id": "PI-REC-CTL-003",
+          "name": "제어 이력 확인"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-RULE-001",
+      "name": "비즈니스 룰·제약 정책",
+      "description": "수익성, 업셀·다운셀, 금칙, 타겟 제외, 세그먼트 룰을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-RUL-001",
+          "name": "수익성 가드레일"
+        },
+        {
+          "id": "PI-REC-RUL-002",
+          "name": "다운셀 제한"
+        },
+        {
+          "id": "PI-REC-RUL-003",
+          "name": "세그먼트 룰"
+        },
+        {
+          "id": "PI-REC-RUL-004",
+          "name": "캠페인 자동 생성 조건"
+        },
+        {
+          "id": "PI-REC-RUL-005",
+          "name": "채널·오퍼링 조합 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-VALID-001",
+      "name": "사전 검증·보류 정책",
+      "description": "추천 후보 검증, 보류, 대체 추천, 상담 전환 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-VAL-001",
+          "name": "사전 검증 기준"
+        },
+        {
+          "id": "PI-REC-VAL-002",
+          "name": "추천 보류 기준"
+        },
+        {
+          "id": "PI-REC-VAL-003",
+          "name": "대체 경로 제공"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-OPERATION-001",
+      "name": "슬롯 운영·배포 정책",
+      "description": "추천 슬롯과 룰의 등록, 검수, 배포, 회수, 롤백 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-OPR-001",
+          "name": "등록 필수값"
+        },
+        {
+          "id": "PI-REC-OPR-002",
+          "name": "검수·승인 기준"
+        },
+        {
+          "id": "PI-REC-OPR-003",
+          "name": "배포·회수 기준"
+        },
+        {
+          "id": "PI-REC-OPR-004",
+          "name": "개인화 컨텍스트 관리"
+        },
+        {
+          "id": "PI-REC-OPR-005",
+          "name": "개인화 항목·그룹 관리"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-METRIC-001",
+      "name": "성과 측정·개선 정책",
+      "description": "추천 성과, 고객 반응, 실험, 개선안 승인 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-MET-001",
+          "name": "전환 퍼널"
+        },
+        {
+          "id": "PI-REC-MET-002",
+          "name": "부정 반응 지표"
+        },
+        {
+          "id": "PI-REC-MET-003",
+          "name": "실험·개선 기준"
+        },
+        {
+          "id": "PI-REC-MET-004",
+          "name": "추천 영향도 비교"
+        },
+        {
+          "id": "PI-REC-MET-005",
+          "name": "캠페인 성과 분석"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-DATA-001",
+      "name": "데이터 활용·고지 정책",
+      "description": "개인화 데이터 범위, 활용 고지, 보관·삭제 안내 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-DAT-001",
+          "name": "활용 데이터·투명성 고지"
+        },
+        {
+          "id": "PI-REC-DAT-002",
+          "name": "삭제·초기화 안내"
+        },
+        {
+          "id": "PI-REC-DAT-003",
+          "name": "설정 소유권"
+        },
+        {
+          "id": "PI-REC-DAT-004",
+          "name": "위치·소비패턴 활용 제한"
+        },
+        {
+          "id": "PI-REC-DAT-005",
+          "name": "소비 성향 온보딩"
+        },
+        {
+          "id": "PI-REC-DAT-006",
+          "name": "고객 서비스 이용 행태 분석"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-BSS-001",
+      "name": "BSS·연계 판정 정책",
+      "description": "고객 상태, 보유 관계, 실행 가능 여부, 원장·이력 연계 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-BSS-001",
+          "name": "상태·보유 관계 판정"
+        },
+        {
+          "id": "PI-REC-BSS-002",
+          "name": "실행 가능 회신"
+        },
+        {
+          "id": "PI-REC-BSS-003",
+          "name": "연계 실패 처리"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-EXCEPTION-001",
+      "name": "실패·대체 경로 정책",
+      "description": "추천 실패, 무결과, 부적합, 제한, 상담 대체 경로 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-EXC-001",
+          "name": "무결과 처리"
+        },
+        {
+          "id": "PI-REC-EXC-002",
+          "name": "부적합 안내와 대체 추천"
+        },
+        {
+          "id": "PI-REC-EXC-003",
+          "name": "추천 실패 복구"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-HISTORY-001",
+      "name": "이력·감사 정책",
+      "description": "추천 노출, 실행, 피드백, 룰 변경, 배포·회수 이력 저장 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-HIS-001",
+          "name": "노출 이력"
+        },
+        {
+          "id": "PI-REC-HIS-002",
+          "name": "피드백 이력"
+        },
+        {
+          "id": "PI-REC-HIS-003",
+          "name": "룰 변경 감사"
+        }
+      ]
+    },
+    {
+      "id": "PG-REC-SEGMENT-001",
+      "name": "세그먼트·비식별 고객 정책",
+      "description": "고객 세그먼트와 비식별 고객 맥락 기반 추천의 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-REC-SEG-001",
+          "name": "세그먼트 분기"
+        },
+        {
+          "id": "PI-REC-SEG-002",
+          "name": "비식별 추천 제한"
+        },
+        {
+          "id": "PI-REC-SEG-003",
+          "name": "로그인 후 연결"
+        },
+        {
+          "id": "PI-REC-SEG-004",
+          "name": "로그인·선택동의 Case 분기"
+        },
+        {
+          "id": "PI-REC-SEG-005",
+          "name": "Cold Start 추천 기준"
+        }
+      ]
+    }
+  ],
+  "policy_details": [
+    {
+      "id": "PI-REC-SCP-001",
+      "policy_id": "PG-REC-SCOPE-001",
+      "name": "추천 슬롯 범위",
+      "content": "추천 슬롯은 홈, 상품 목록, 상품 상세, MY, 주문 완료, 혜택 사용 후, 고객지원 전환 지점을 기본 범위로 둔다. 슬롯마다 슬롯 ID, 추천 목적, 최대 노출 개수, 더보기 연결 여부를 관리하고 목적이 없는 슬롯은 노출하지 않는다."
+    },
+    {
+      "id": "PI-REC-SCP-002",
+      "policy_id": "PG-REC-SCOPE-001",
+      "name": "추천 유형 구분",
+      "content": "추천 유형은 개인화 추천, 운영자 큐레이션, 비개인화 폴백, 컨시어지 Next Action으로 구분한다. 고객에게 표시되는 라벨은 이 네 가지 성격 중 하나를 반드시 드러낸다."
+    },
+    {
+      "id": "PI-REC-SCP-003",
+      "policy_id": "PG-REC-SCOPE-001",
+      "name": "더보기 랜딩 기준",
+      "content": "추천 더보기 랜딩은 동일 추천 목적의 후보를 3건 이상 제공할 수 있을 때 노출한다. 랜딩에는 추천 근거, 비교 진입, 검색 전환, 숨김·관심 없음 제어를 동일한 방식으로 제공한다."
+    },
+    {
+      "id": "PI-REC-PRS-001",
+      "policy_id": "PG-REC-PERSONAL-001",
+      "name": "개인화 적용 조건",
+      "content": "개인화 추천은 고객 식별, 개인화 활용 동의, 최근 행동 또는 보유 관계 중 하나 이상의 근거, BSS 실행 가능 판정이 모두 충족될 때 적용한다."
+    },
+    {
+      "id": "PI-REC-PRS-002",
+      "policy_id": "PG-REC-PERSONAL-001",
+      "name": "비개인화 폴백",
+      "content": "개인화 근거가 부족하거나 신뢰도가 낮으면 인기, 테마, 최근 많이 찾은 항목, 운영자 큐레이션 중 하나를 비개인화 폴백으로 제공한다. 폴백은 개인화처럼 보이지 않도록 라벨을 구분한다."
+    },
+    {
+      "id": "PI-REC-PRS-003",
+      "policy_id": "PG-REC-PERSONAL-001",
+      "name": "신뢰도 부족 처리",
+      "content": "추천 후보의 근거가 2개 미만이거나 고객 제한 조건과 충돌하면 추천을 보류한다. 보류 시에는 검색, 필터, 비교, 상담 중 최소 2개 대체 경로를 제공한다."
+    },
+    {
+      "id": "PI-REC-RSN-001",
+      "policy_id": "PG-REC-REASON-001",
+      "name": "추천 사유 노출",
+      "content": "추천 카드에는 최근 이용, 보유 상품, 조회 이력, 만료 임박, 진행 중 업무, 세그먼트 중 고객이 이해 가능한 사유를 최대 2개까지 노출한다."
+    },
+    {
+      "id": "PI-REC-RSN-002",
+      "policy_id": "PG-REC-REASON-001",
+      "name": "근거 노출 제한",
+      "content": "추천 근거는 민감정보 원문, 상담 상세, 결제 세부값을 직접 노출하지 않는다. 민감도가 높은 근거는 “최근 이용 패턴”, “보유 상품 상태”처럼 범주 단위로 표시한다."
+    },
+    {
+      "id": "PI-REC-RSN-003",
+      "policy_id": "PG-REC-REASON-001",
+      "name": "AI·개인화 라벨",
+      "content": "AI 생성 요약, 개인화 추천, 운영자 큐레이션은 서로 다른 라벨로 표시한다. 고객이 공식 상품 조건과 보조 추천 설명을 혼동하지 않도록 공식 조건은 상세 원천으로 연결한다."
+    },
+    {
+      "id": "PI-REC-PRI-001",
+      "policy_id": "PG-REC-PRIORITY-001",
+      "name": "우선순위 축",
+      "content": "추천 우선순위는 컴플라이언스, 고객 불이익 방지, BSS 실행 가능성, 고객 적합도, 사업 우선순위, 최신성 순서로 적용한다."
+    },
+    {
+      "id": "PI-REC-PRI-002",
+      "policy_id": "PG-REC-PRIORITY-001",
+      "name": "충돌 처리",
+      "content": "두 개 이상의 룰이 충돌하면 더 엄격한 제한 기준을 적용한다. 추천 후보가 모두 제한되면 추천 보류 상태로 전환하고 대체 탐색 경로를 제공한다."
+    },
+    {
+      "id": "PI-REC-PRI-003",
+      "policy_id": "PG-REC-PRIORITY-001",
+      "name": "고객 불이익 방지",
+      "content": "현재 이용 상품 대비 월 부담이 증가하거나 약정·혜택 손실이 발생할 수 있는 추천은 예상 영향 안내와 고객의 실행 전 1회 확인을 거치기 전 실행 CTA를 제공하지 않는다."
+    },
+    {
+      "id": "PI-REC-LIM-001",
+      "policy_id": "PG-REC-LIMIT-001",
+      "name": "노출 빈도 제한",
+      "content": "동일 추천 자산은 동일 고객에게 하루 3회, 7일 10회를 초과해 노출하지 않는다. 운영자가 더 낮은 제한값을 설정하면 운영자 설정을 우선한다."
+    },
+    {
+      "id": "PI-REC-LIM-002",
+      "policy_id": "PG-REC-LIMIT-001",
+      "name": "차단시간 적용",
+      "content": "고객이 관심 없음 또는 숨김을 선택한 추천 자산은 최소 30일 동안 같은 슬롯에서 재노출하지 않는다. “일정 기간 보지 않기”를 선택하면 고객 선택 기간을 우선한다."
+    },
+    {
+      "id": "PI-REC-LIM-003",
+      "policy_id": "PG-REC-LIMIT-001",
+      "name": "중복 추천 제한",
+      "content": "동일 화면에 같은 상품군 또는 동일 CTA를 가진 추천이 2개 이상 노출되면 우선순위가 낮은 후보를 대체 후보로 전환한다."
+    },
+    {
+      "id": "PI-REC-ACT-001",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "CTA 연결 기준",
+      "content": "추천 CTA는 상세 보기, 비교 보기, 가입·변경 시작, 혜택 사용, 상담 연결 중 하나로 연결한다. 실행 CTA는 고객이 영향과 제한을 확인할 수 있는 중간 확인 단계를 포함한다."
+    },
+    {
+      "id": "PI-REC-ACT-002",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "비교 연결 기준",
+      "content": "요금, 혜택, 약정, 사용 조건이 달라지는 추천은 바로 실행보다 비교 보기를 우선 제공한다. 비교 항목이 2개 미만이면 상세 보기와 상담 연결을 대체 경로로 둔다."
+    },
+    {
+      "id": "PI-REC-ACT-003",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "실행 전 확인",
+      "content": "가입, 변경, 혜택 사용, 상담 연결 전에는 고객 상태, 비용 영향, 약관·동의 필요 여부, BSS 실행 가능 여부를 확인하고 실패 시 실행을 보류한다."
+    },
+    {
+      "id": "PI-REC-CTL-001",
+      "policy_id": "PG-REC-CONTROL-001",
+      "name": "숨김 즉시 반영",
+      "content": "관심 없음, 숨김, 일정 기간 보지 않기는 선택 즉시 현재 지면에서 제외한다. 제외 결과는 새로고침 또는 재진입 후에도 유지한다."
+    },
+    {
+      "id": "PI-REC-CTL-002",
+      "policy_id": "PG-REC-CONTROL-001",
+      "name": "피드백 사유 수집",
+      "content": "피드백 사유는 관심 없음, 이미 이용 중, 가격 부담, 관련 없음, 부정확함, 반복 노출의 6개 기본값으로 수집한다. 고객이 사유를 건너뛰어도 숨김 처리는 완료한다."
+    },
+    {
+      "id": "PI-REC-CTL-003",
+      "policy_id": "PG-REC-CONTROL-001",
+      "name": "제어 이력 확인",
+      "content": "고객은 설정 화면에서 최근 90일 내 숨김, 관심 없음, 피드백, 초기화 이력을 확인할 수 있다. 초기화는 고객 확인 후 적용하고 처리 이력을 남긴다."
+    },
+    {
+      "id": "PI-REC-RUL-001",
+      "policy_id": "PG-REC-RULE-001",
+      "name": "수익성 가드레일",
+      "content": "사업 룰은 추천 목적, 적용 슬롯, 대상 상품군, 우선순위, 시작·종료 일시를 포함해야 한다. 기간이 없는 예외 룰은 배포할 수 없다."
+    },
+    {
+      "id": "PI-REC-RUL-002",
+      "policy_id": "PG-REC-RULE-001",
+      "name": "다운셀 제한",
+      "content": "현재 이용 상품 대비 월 부담이 일정 기준 이상 낮아지는 추천은 고객 불이익이 없는 경우에만 노출한다. 예외가 필요하면 운영 승인과 노출 사유를 함께 저장한다."
+    },
+    {
+      "id": "PI-REC-RUL-003",
+      "policy_id": "PG-REC-RULE-001",
+      "name": "세그먼트 룰",
+      "content": "신규, 장기, 결합·가족, 고가치, 이탈위험, 외국인 등 세그먼트 룰은 추천 대상, 제외 대상, 우선순위, 폴백 기준을 분리해 관리한다."
+    },
+    {
+      "id": "PI-REC-VAL-001",
+      "policy_id": "PG-REC-VALID-001",
+      "name": "사전 검증 기준",
+      "content": "배포 전 검증은 대표 고객 상태 5종 이상, 추천 슬롯 3종 이상, 제한 룰 3종 이상을 조합해 추천 공백과 과도한 제한을 확인한다."
+    },
+    {
+      "id": "PI-REC-VAL-002",
+      "policy_id": "PG-REC-VALID-001",
+      "name": "추천 보류 기준",
+      "content": "룰 위반, 개인화 동의 부족, BSS 실행 불가, 고객 불이익 가능성, 근거 부족 중 하나가 확인되면 추천을 보류하고 보류 사유를 기록한다."
+    },
+    {
+      "id": "PI-REC-VAL-003",
+      "policy_id": "PG-REC-VALID-001",
+      "name": "대체 경로 제공",
+      "content": "추천 보류 또는 실패 시 검색, 필터 조정, 비교 보기, 상담 연결 중 최소 2개 경로를 제공한다. 고객이 입력한 조건과 화면 맥락은 대체 경로로 전달한다."
+    },
+    {
+      "id": "PI-REC-OPR-001",
+      "policy_id": "PG-REC-OPERATION-001",
+      "name": "등록 필수값",
+      "content": "운영 등록 시 슬롯 ID, 추천 목적, 추천 유형, 대상 고객, 적용 기간, 폴백 기준, 책임 운영자, 검수자를 필수값으로 둔다."
+    },
+    {
+      "id": "PI-REC-OPR-002",
+      "policy_id": "PG-REC-OPERATION-001",
+      "name": "검수·승인 기준",
+      "content": "운영 검수는 고객 불이익, 개인정보 노출, 룰 충돌, 대체 경로, 롤백 가능성을 모두 통과해야 승인한다."
+    },
+    {
+      "id": "PI-REC-OPR-003",
+      "policy_id": "PG-REC-OPERATION-001",
+      "name": "배포·회수 기준",
+      "content": "배포 후 오류율, 숨김률, 상담 전환, 고객 불만, 룰 위반 중 사전 기준을 초과하면 즉시 회수하거나 직전 정상 버전으로 롤백한다."
+    },
+    {
+      "id": "PI-REC-MET-001",
+      "policy_id": "PG-REC-METRIC-001",
+      "name": "전환 퍼널",
+      "content": "추천 성과는 노출, 클릭, 수용, 실행 시작, 실행 완료, 이탈, 상담 전환의 7단계로 측정한다. 각 단계는 슬롯 ID와 추천 유형 기준으로 집계한다."
+    },
+    {
+      "id": "PI-REC-MET-002",
+      "policy_id": "PG-REC-METRIC-001",
+      "name": "부정 반응 지표",
+      "content": "숨김률, 관심 없음률, 부정확 신고, 반복 노출 불만, 추천 보류율은 추천 품질의 부정 지표로 관리한다. 부정 지표가 기준을 초과하면 개선 검토 상태로 전환한다."
+    },
+    {
+      "id": "PI-REC-MET-003",
+      "policy_id": "PG-REC-METRIC-001",
+      "name": "실험·개선 기준",
+      "content": "A/B 실험은 대상, 기간, 트래픽 비율, 성공 지표, 중단 기준을 등록한 뒤 시작한다. 실험 종료 후 개선안은 운영자 승인 전까지 배포하지 않는다."
+    },
+    {
+      "id": "PI-REC-DAT-001",
+      "policy_id": "PG-REC-DATA-001",
+      "name": "활용 데이터·투명성 고지",
+      "content": "개인화 추천에는 최근 메뉴, 조회·관심, 구매·혜택 이용, 문의 상태, 진행 중 업무 등 활용 데이터 범주를 고객에게 안내한다."
+    },
+    {
+      "id": "PI-REC-DAT-002",
+      "policy_id": "PG-REC-DATA-001",
+      "name": "삭제·초기화 안내",
+      "content": "고객은 설정 화면에서 추천 제어 이력의 삭제·초기화 방법을 확인할 수 있다. 추천 제어와 피드백 이력은 고객 확인 목적 기준 90일 이상 조회 가능하게 두고, 장기 분석 데이터는 비식별 기준으로 분리한다."
+    },
+    {
+      "id": "PI-REC-DAT-003",
+      "policy_id": "PG-REC-DATA-001",
+      "name": "설정 소유권",
+      "content": "개인화 설정의 실제 저장·철회·초기화 기능은 설정 또는 회원정보 관리 영역이 소유한다. 추천 화면은 안내와 진입 경로만 제공한다."
+    },
+    {
+      "id": "PI-REC-BSS-001",
+      "policy_id": "PG-REC-BSS-001",
+      "name": "상태·보유 관계 판정",
+      "content": "추천 연계 시스템은 가입 상태, 보유 상품, 미납·정지, 약정, 혜택 자격, 법정대리인 필요 여부를 BSS 기준 정보로 받아 추천 가능 판정에 반영한다. 보유 관계가 확인되지 않으면 개인화 추천보다 비개인화 폴백을 우선한다."
+    },
+    {
+      "id": "PI-REC-BSS-002",
+      "policy_id": "PG-REC-BSS-001",
+      "name": "실행 가능 회신",
+      "content": "추천 CTA 노출 전 BSS 실행 가능 여부가 확인되지 않으면 실행 CTA 대신 상세 확인, 비교, 상담 연결을 우선 제공한다."
+    },
+    {
+      "id": "PI-REC-BSS-003",
+      "policy_id": "PG-REC-BSS-001",
+      "name": "연계 실패 처리",
+      "content": "BSS 또는 외부 연계 조회가 실패하면 개인화 추천을 보류하고 비개인화 폴백 또는 검색 전환을 제공한다. 실패 이력은 원인 구분과 함께 저장한다."
+    },
+    {
+      "id": "PI-REC-EXC-001",
+      "policy_id": "PG-REC-EXCEPTION-001",
+      "name": "무결과 처리",
+      "content": "추천 후보가 없으면 고객에게 무결과 사유를 간단히 안내하고 검색어 조정, 필터 변경, 카테고리 이동, 상담 연결 중 1개 이상의 대체 경로를 제공한다."
+    },
+    {
+      "id": "PI-REC-EXC-002",
+      "policy_id": "PG-REC-EXCEPTION-001",
+      "name": "부적합 안내와 대체 추천",
+      "content": "추천 상품이 부적합하거나 가입 불가이면 불가 사유를 표시하고 같은 목적의 대체 상품 또는 조건 변경 경로를 제공한다. 대체 후보가 없으면 상담 연결을 제공한다."
+    },
+    {
+      "id": "PI-REC-EXC-003",
+      "policy_id": "PG-REC-EXCEPTION-001",
+      "name": "추천 실패 복구",
+      "content": "추천 생성 오류가 발생하면 현재 고객 입력과 화면 맥락을 유지한 채 재시도 1회, 폴백 1회, 상담 전환 순서로 복구한다."
+    },
+    {
+      "id": "PI-REC-HIS-001",
+      "policy_id": "PG-REC-HISTORY-001",
+      "name": "노출 이력",
+      "content": "추천 노출, 클릭, 비교 진입, 실행 시작, 실행 완료, 상담 전환은 슬롯 ID, 추천 유형, 고객 상태 범주, 발생 시각과 함께 저장한다."
+    },
+    {
+      "id": "PI-REC-HIS-002",
+      "policy_id": "PG-REC-HISTORY-001",
+      "name": "피드백 이력",
+      "content": "숨김, 관심 없음, 부정확 신고, 반복 노출 불만은 추천 자산, 슬롯, 사유, 차단시간, 반영 상태와 함께 저장한다."
+    },
+    {
+      "id": "PI-REC-HIS-003",
+      "policy_id": "PG-REC-HISTORY-001",
+      "name": "룰 변경 감사",
+      "content": "추천 룰의 생성, 수정, 삭제, 배포, 회수, 롤백은 변경자, 승인자, 변경 사유, 적용 범위, 적용 시점을 감사 이력으로 남긴다."
+    },
+    {
+      "id": "PI-REC-SEG-001",
+      "policy_id": "PG-REC-SEGMENT-001",
+      "name": "세그먼트 분기",
+      "content": "세그먼트별 추천은 추천 대상, 제외 조건, 우선순위, 폴백 기준을 별도 관리한다. 세그먼트가 중복되면 고객 불이익 방지 기준을 우선한다."
+    },
+    {
+      "id": "PI-REC-SEG-002",
+      "policy_id": "PG-REC-SEGMENT-001",
+      "name": "비식별 추천 제한",
+      "content": "비식별 고객에게는 검색어와 현재 화면 맥락 기반 추천만 제공한다. 보유 상품, 혜택 자격, 이력 기반 개인화는 로그인 후 동의와 식별이 확인된 뒤 적용한다."
+    },
+    {
+      "id": "PI-REC-SEG-003",
+      "policy_id": "PG-REC-SEGMENT-001",
+      "name": "로그인 후 연결",
+      "content": "비식별 상태의 탐색 이력은 로그인 후 고객이 이어보기 또는 개인화 활용에 동의한 경우에만 식별 고객 프로필과 연결한다. 연결하지 않는 경우 비식별 이력은 개인화 추천에 사용하지 않는다."
+    },
+    {
+      "id": "PI-REC-SCP-004",
+      "policy_id": "PG-REC-SCOPE-001",
+      "name": "추천 전시 유형·AI PICK 기준",
+      "content": "추천 전시 유형은 카드, 리스트, 배너, AI PICK 캡션 중 하나로 구분한다. AI PICK 캡션은 고객 데이터 기반 추천 이유를 1문장으로 요약하되, 공식 상품 조건과 혼동되지 않도록 추천 보조 설명으로 표시한다."
+    },
+    {
+      "id": "PI-REC-SCP-005",
+      "policy_id": "PG-REC-SCOPE-001",
+      "name": "라이프스타일·제휴처 추천 범위",
+      "content": "라이프스타일, 오프라인 제휴처, 혜택 추천은 고객의 위치·생활권·혜택 사용 패턴이 확인되고 고객이 직접 사용할 수 있는 제휴처 또는 혜택으로 한정한다. 방문 가능성이 낮거나 이용 조건이 불명확한 후보는 일반 추천으로 승격하지 않는다."
+    },
+    {
+      "id": "PI-REC-PRS-004",
+      "policy_id": "PG-REC-PERSONAL-001",
+      "name": "무료→유료 전환 추천",
+      "content": "무료 혜택 이용량이 기준 사용률 이상이고 유료 전환 시 추가 혜택, 예상 비용, 해지 가능 조건을 함께 안내할 수 있을 때만 유료 전환 추천을 노출한다. 고객이 비용을 부담하기 전 월 예상 부담과 해지·취소 조건을 같은 위계로 표시한다."
+    },
+    {
+      "id": "PI-REC-PRS-005",
+      "policy_id": "PG-REC-PERSONAL-001",
+      "name": "구독·선물 추천 기준",
+      "content": "구독 중인 상품 기반 선물 추천은 보유 상품, 선물 가능 상태, 수신자 이용 가능 조건, 중복 구매 제한을 모두 충족할 때 노출한다. 조건을 충족하지 않으면 선물 추천 대신 상세 확인 또는 대체 혜택 추천으로 전환한다."
+    },
+    {
+      "id": "PI-REC-RSN-004",
+      "policy_id": "PG-REC-REASON-001",
+      "name": "AI PICK 캡션",
+      "content": "AI PICK 캡션은 고객 맥락, 상품·혜택 핵심 가치, 추천 이유를 40자 안팎의 짧은 문장으로 제공한다. 민감정보 원문, 내부 점수, 추론 과정은 노출하지 않고 “최근 이용 패턴”, “관심 상품”, “생활권 혜택”처럼 범주 단위로 표현한다."
+    },
+    {
+      "id": "PI-REC-RSN-005",
+      "policy_id": "PG-REC-REASON-001",
+      "name": "소셜 프루프 기준",
+      "content": "소셜 프루프는 충분한 모수와 최신 집계 기준이 있을 때만 “유사 고객 인기”, “생활권에서 많이 사용”처럼 범주형 근거로 표시한다. 특정 개인을 식별할 수 있거나 과장된 순위 표현은 사용하지 않는다."
+    },
+    {
+      "id": "PI-REC-ACT-004",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "크로스 도메인 넛지",
+      "content": "통신·멤버십·구독·커머스 도메인 간 크로스셀 넛지는 고객이 현재 화면에서 수행 중인 과업과 직접 연결될 때만 제공한다. 다른 도메인 이동 시 추천 목적, 예상 혜택, 이동 후 유지되는 맥락을 1회 이상 함께 안내한다."
+    },
+    {
+      "id": "PI-REC-ACT-005",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "스크린 어웨어 Next Action",
+      "content": "스크린 어웨어 추천은 고객이 보고 있는 화면, 체류 시간, 탭·스크롤 이력, 상태 정보를 바탕으로 현재 화면에 이어지는 다음 행동을 1개 이상 제안한다. 단, 고객이 작업을 완료하기 전 과도한 판매성 추천으로 흐름을 방해하지 않는다."
+    },
+    {
+      "id": "PI-REC-RUL-004",
+      "policy_id": "PG-REC-RULE-001",
+      "name": "캠페인 자동 생성 조건",
+      "content": "캠페인 자동 생성 후보는 고객 세그먼트, 추천 목적, 대상 상품·혜택, 예상 효과, 제외 조건, 적용 기간이 모두 정의된 경우에만 운영 승인 대상으로 등록한다. 해지 의향 고객 방어 캠페인은 고객 불이익 방지와 수신 동의 기준을 우선 적용한다."
+    },
+    {
+      "id": "PI-REC-RUL-005",
+      "policy_id": "PG-REC-RULE-001",
+      "name": "채널·오퍼링 조합 기준",
+      "content": "채널과 오퍼링 조합 추천은 고객 접촉 빈도, 채널 선호, 실행 가능 상태, 보유 관계를 함께 판단한다. 최적 채널이 외부 또는 인접 서비스이면 고객에게 이동 사유와 완료 가능한 후속 행동을 함께 제시한다."
+    },
+    {
+      "id": "PI-REC-MET-004",
+      "policy_id": "PG-REC-METRIC-001",
+      "name": "추천 영향도 비교",
+      "content": "추천 영향도는 적용군과 미적용군 또는 대조군을 구분해 노출, 클릭, 수용, 실행, 완료, 이탈, 숨김, 상담 전환을 비교한다. 실험 기간, 대상, 트래픽 비율, 유의성 판단 기준은 결과 해석과 함께 저장한다."
+    },
+    {
+      "id": "PI-REC-MET-005",
+      "policy_id": "PG-REC-METRIC-001",
+      "name": "캠페인 성과 분석",
+      "content": "캠페인 추천 성과는 대상 생성, 노출, 수락, 실행, 해지 방어, 전환 실패 사유를 단계별로 측정한다. 자동 생성 캠페인은 운영자 승인 여부와 실제 반영 결과를 함께 이력으로 남긴다."
+    },
+    {
+      "id": "PI-REC-DAT-004",
+      "policy_id": "PG-REC-DATA-001",
+      "name": "위치·소비패턴 활용 제한",
+      "content": "위치, 생활권, 소비패턴, 혜택 사용 패턴은 고객 동의와 서비스 제공 목적이 확인된 경우에만 추천에 활용한다. 민감한 위치 원문이나 결제 세부값은 노출하지 않고 추천 근거에는 범주화된 설명만 사용한다."
+    },
+    {
+      "id": "PI-REC-DAT-005",
+      "policy_id": "PG-REC-DATA-001",
+      "name": "소비 성향 온보딩",
+      "content": "데이터가 부족한 고객에게는 소비 성향 테스트나 가벼운 선호 선택을 통해 추천 초기값을 수집할 수 있다. 온보딩은 선택 사항으로 제공하고, 입력하지 않아도 인기 혜택이나 비개인화 폴백으로 탐색을 계속할 수 있어야 한다."
+    },
+    {
+      "id": "PI-REC-SEG-004",
+      "policy_id": "PG-REC-SEGMENT-001",
+      "name": "로그인·선택동의 Case 분기",
+      "content": "추천 노출은 로그인 여부와 선택동의 상태에 따라 식별 개인화, 제한 개인화, 비개인화, 오류 복구 Case로 분기한다. 선택동의가 없거나 오류가 발생한 경우에는 개인화처럼 보이는 문구를 사용하지 않고 일반 추천 또는 안내 상태로 전환한다."
+    },
+    {
+      "id": "PI-REC-SEG-005",
+      "policy_id": "PG-REC-SEGMENT-001",
+      "name": "Cold Start 추천 기준",
+      "content": "신규 고객이나 데이터 부족 고객은 인기 혜택, 기본 카테고리, 소비 성향 온보딩 결과, 현재 화면 맥락을 기준으로 추천한다. Cold Start 후보는 개인화 추천과 라벨을 구분하고 고객 제어 이력을 학습 신호로 반영한다."
+    },
+    {
+      "id": "PI-REC-ACT-006",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "컨시어지 카드 Next Action",
+      "content": "컨시어지 카드는 진행 중 주문, 만료 임박 혜택, 실패·미완료 업무, 고객지원 전환 맥락이 확인될 때만 노출한다. 카드에는 추천 사유, 실행 CTA, 대체 경로를 함께 제공하고 고객이 닫거나 숨기면 현재 세션에서 즉시 제외한다."
+    },
+    {
+      "id": "PI-REC-OPR-004",
+      "policy_id": "PG-REC-OPERATION-001",
+      "name": "개인화 컨텍스트 관리",
+      "content": "개인화 컨텍스트는 카드, 코너, 배너 단위로 생성·수정·복제·삭제할 수 있으며 대상, 기간, 노출 위치, 우선순위를 필수값으로 관리한다. 컨텍스트 발행·회수·예약 발행은 변경자, 변경 사유, 적용 시점 이력을 남긴다."
+    },
+    {
+      "id": "PI-REC-OPR-005",
+      "policy_id": "PG-REC-OPERATION-001",
+      "name": "개인화 항목·그룹 관리",
+      "content": "개인화 항목과 항목 그룹은 추천 가능한 기능·콘텐츠 단위로 관리한다. 그룹 단위로 노출 조건, 정렬, 우선순위, 제외 조건을 설정하고, 항목이 삭제되면 연결된 추천 슬롯은 비개인화 폴백으로 전환한다."
+    },
+    {
+      "id": "PI-REC-PRS-006",
+      "policy_id": "PG-REC-PERSONAL-001",
+      "name": "이탈 방지 혜택 추천",
+      "content": "이탈 방지 혜택은 Customer 360 또는 고객 서비스 이용 행태 분석에서 해지 의향, 반복 실패, 장기 미사용, 상담 전환 위험이 확인된 경우에만 제안한다. 혜택은 기간, 대상, 중복 제공 제한, 고객 수락 여부를 이력으로 저장한다."
+    },
+    {
+      "id": "PI-REC-DAT-006",
+      "policy_id": "PG-REC-DATA-001",
+      "name": "고객 서비스 이용 행태 분석",
+      "content": "고객 서비스 이용 행태 분석은 체류 시간, 특정 메뉴 탐색, 클릭, 스크롤, 이탈, 상담 전환 같은 행동 신호를 추천 Trigger로 분류한다. 분석 결과는 추천 목적과 직접 관련된 범위에서만 사용하고, 개인을 식별할 수 있는 원문 로그는 추천 근거로 노출하지 않는다."
+    },
+    {
+      "id": "PI-REC-ACT-007",
+      "policy_id": "PG-REC-ACTION-001",
+      "name": "중복 요청·멱등 처리",
+      "content": "동일 고객, 동일 추천 후보, 동일 실행 CTA가 동일 세션에서 2회 이상 중복 요청되면 하나의 요청 키로 묶어 멱등 처리한다. 이미 실행 연결 대기 또는 실행 완료 상태인 요청은 추가 실행을 차단하고 기존 처리 상태를 안내한다."
+    }
+  ],
+  "process_details": [],
+  "function_details": [],
+  "final_check": [
+    {
+      "item": "범위 정합성",
+      "criteria": "추천이 전시 슬롯 설정이 아니라 추천 후보 이해, 실행 연결, 고객 제어, 운영 품질 기준으로 작성되었는지 확인한다."
+    },
+    {
+      "item": "고객 완결성",
+      "criteria": "고객이 추천 이유 확인, 비교, 실행, 숨김, 실패 복구까지 한 흐름으로 처리할 수 있는지 확인한다."
+    },
+    {
+      "item": "유즈케이스 입자도",
+      "criteria": "홈 추천, 상세 추천, 관심 없음 같은 절차 항목이 상위 유즈케이스가 아니라 프로세스·기능·정책으로 내려갔는지 확인한다."
+    },
+    {
+      "item": "상태 전이 정합성",
+      "criteria": "추천 가능, 보류, 제한, 숨김, 피드백 반영, 배포·회수 상태가 고객 후속 행동과 운영 처리 기준을 바꾸는지 확인한다."
+    },
+    {
+      "item": "프로세스 연결성",
+      "criteria": "각 고객·운영자 유즈케이스가 2개 이상의 의미 있는 프로세스로 분해되고 기능·정책에 연결되었는지 확인한다."
+    },
+    {
+      "item": "정책 구체성",
+      "criteria": "노출 빈도, 차단시간, 우선순위, 보류 기준, 검증 기준, 이력 저장 기준 등 실제 판단값이 포함되었는지 확인한다."
+    },
+    {
+      "item": "고객 제어성",
+      "criteria": "숨김, 관심 없음, 설정 진입, 초기화, 피드백 이력이 고객이 이해하고 실행할 수 있는 기준으로 작성되었는지 확인한다."
+    },
+    {
+      "item": "BSS 기준 정보 포함성",
+      "criteria": "BSS가 제공하는 고객 상태, 보유 상품, 실행 가능 여부, 제한 조건 기준과 추천 연계 시스템의 반영 책임이 분리되어 있는지 확인한다."
+    },
+    {
+      "item": "운영 품질 루프",
+      "criteria": "추천 성과, 부정 반응, 룰 위반, 실험, 개선안 승인, 배포·회수·롤백이 운영 루프로 연결되었는지 확인한다."
+    },
+    {
+      "item": "요구사항 반영 여부",
+      "criteria": "상세 요구사항명과 상세 요구사항 설명 기준의 78건이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상으로 재구성되었는지 확인한다."
+    }
+  ],
+  "trace_matrix": [
+    {
+      "requirement_group": "추천 정보 통합·슬롯 표준화",
+      "detail_requirement_count": 10,
+      "sample_detail_requirements": [
+        "추천 정보 통합 제공",
+        "추천 슬롯 표준화 (슬롯ID)",
+        "추천 슬롯 노출 관리",
+        "추천 전시 유형/UI 구성 관리",
+        "상품 리스트 내 AI PICK 캡션 고도화"
+      ],
+      "mapped_to": [
+        "US-REC-CUS-001",
+        "PR-REC-CUS-001",
+        "PR-REC-OPS-001",
+        "FN-REC-SLOT-001",
+        "FN-REC-REASON-001",
+        "PG-REC-SCOPE-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "개인화 추천·비개인화 폴백·추천 근거",
+      "detail_requirement_count": 13,
+      "sample_detail_requirements": [
+        "추천 슬롯 구성(개인화/비개인화 폴백)",
+        "추천 근거 생성",
+        "AI 개인화 콘텐츠 라벨 명확화",
+        "추천 근거 노출 및 소셜 프루프 시각화",
+        "Customer 360 기반 맞춤 추천"
+      ],
+      "mapped_to": [
+        "US-REC-CUS-001",
+        "PR-REC-CUS-002",
+        "FN-REC-CAND-001",
+        "FN-REC-REASON-001",
+        "PG-REC-PERSONAL-001",
+        "PG-REC-REASON-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "Next Action·비교·실행 연결",
+      "detail_requirement_count": 13,
+      "sample_detail_requirements": [
+        "상세 연관 추천",
+        "컨시어지 카드: 상황 감지 & 다음 행동",
+        "추천→비교→실행 연속 플로우 제공",
+        "도메인 간 맥락 기반 크로스셀 넛지 제공",
+        "스크린 어웨어 맥락 인식 기반 AI 선제적 넛지 제공"
+      ],
+      "mapped_to": [
+        "US-REC-CUS-002",
+        "PR-REC-CUS-003",
+        "PR-REC-CUS-004",
+        "PR-REC-CUS-005",
+        "FN-REC-COMP-001",
+        "FN-REC-ACTION-001",
+        "PG-REC-ACTION-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "고객 제어·숨김·피드백",
+      "detail_requirement_count": 7,
+      "sample_detail_requirements": [
+        "개인화 추천 제어 설정 진입",
+        "추천 카드 관심 없음/숨기기",
+        "개인화 제어: 숨김/수정/학습 피드백",
+        "소비 성향 테스트 기반 게이미피케이션 온보딩 도입"
+      ],
+      "mapped_to": [
+        "US-REC-CUS-003",
+        "PR-REC-CUS-007",
+        "PR-REC-CUS-008",
+        "FN-REC-CTRL-001",
+        "FN-REC-SET-001",
+        "FN-REC-CTX-001",
+        "PG-REC-CONTROL-001",
+        "PG-REC-LIMIT-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "비즈니스 룰·제약·사전 검증",
+      "detail_requirement_count": 13,
+      "sample_detail_requirements": [
+        "AI 추천 비즈니스/수익성 가이드라인 프레임 정의",
+        "추천 제약 룰 설정",
+        "추천 결과 사전 검증",
+        "추천결과 비즈니스 룰 적용 범위 매트릭스",
+        "채널·오퍼링 조합 자동 추천"
+      ],
+      "mapped_to": [
+        "US-REC-OPS-001",
+        "PR-REC-OPS-002",
+        "PR-REC-OPS-003",
+        "FN-REC-RULE-001",
+        "FN-REC-VALID-001",
+        "PG-REC-RULE-001",
+        "PG-REC-VALID-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "운영 슬롯·컨텍스트·자산 관리",
+      "detail_requirement_count": 9,
+      "sample_detail_requirements": [
+        "추천 슬롯 구성(개인화/비개인화 폴백)",
+        "개인화 컨텍스트 관리 CRUD",
+        "개인화 항목 관리 및 그룹 관리",
+        "캠페인 생성 및 분석 기능 제공",
+        "캠페인 대상 관리"
+      ],
+      "mapped_to": [
+        "US-REC-OPS-001",
+        "US-REC-CON-001",
+        "PR-REC-OPS-001",
+        "PR-REC-OPS-004",
+        "PR-REC-CON-001",
+        "PR-REC-CON-002",
+        "FN-REC-ASSET-001",
+        "FN-REC-DEPLOY-001",
+        "FN-REC-RULE-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "성과 분석·실험·개선 루프",
+      "detail_requirement_count": 9,
+      "sample_detail_requirements": [
+        "추천 결과 개선 루프",
+        "추천 품질·전환 지표",
+        "추천 성과 분석 및 반응 이력 관리",
+        "추천 영향도 및 비교 분석 체계",
+        "추천 개선안 자동 제안 및 운영자 승인 관리"
+      ],
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PR-REC-OPS-005",
+        "PR-REC-OPS-006",
+        "PR-REC-OPS-007",
+        "FN-REC-METRIC-001",
+        "FN-REC-IMPROVE-001",
+        "PG-REC-METRIC-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "데이터 투명성·BSS·비식별 고객 연계",
+      "detail_requirement_count": 4,
+      "sample_detail_requirements": [
+        "개인화 데이터 활용 범위·투명성 고지",
+        "고객 상태 및 맥락 기반 추천 노출 제어",
+        "비식별 고객 검색어 기반 오퍼링 제안 및 이력 저장",
+        "휴대폰 리스트 AI 추천 Case 분기 적용"
+      ],
+      "mapped_to": [
+        "US-REC-SYS-002",
+        "US-REC-SYS-003",
+        "PR-REC-CUS-001",
+        "PR-REC-CUS-004",
+        "FN-REC-BSS-001",
+        "FN-REC-HIST-001",
+        "FN-REC-CTX-001",
+        "PG-REC-DATA-001",
+        "PG-REC-BSS-001",
+        "PG-REC-SEGMENT-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-001",
+      "source_number": "179",
+      "requirement_id": "6RCM-H01-001",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 정보 통합 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-001",
+        "PI-REC-RSN-001",
+        "PI-REC-SCP-004",
+        "PG-REC-SCOPE-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-001",
+        "179",
+        "REQ-6RCM-H01-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-002",
+      "source_number": "254",
+      "requirement_id": "6RCM-H01-002",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 슬롯 표준화 (슬롯ID)",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-001",
+        "PI-REC-SCP-004",
+        "PG-REC-SCOPE-001",
+        "PI-REC-EXC-002"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-002",
+        "254",
+        "REQ-6RCM-H01-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-002",
+      "source_number": "256",
+      "requirement_id": "6RCM-H02-002",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "상세 연관 추천",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-SEG-002",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "FN-REC-CAND-001",
+        "PI-REC-BSS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-002",
+        "256",
+        "REQ-6RCM-H02-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-008",
+      "source_number": "258",
+      "requirement_id": "6RCM-H01-008",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "개인화 추천 제어 설정 진입",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-REC-SLOT-001",
+        "FN-REC-SET-001",
+        "PI-REC-SCP-001",
+        "PI-REC-SCP-004",
+        "PG-REC-SCOPE-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-008",
+        "258",
+        "REQ-6RCM-H01-008"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-009",
+      "source_number": "259",
+      "requirement_id": "6RCM-H01-009",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 카드 ‘관심 없음/숨기기’",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-SCP-004",
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-001",
+        "PG-REC-SCOPE-001",
+        "PR-REC-CUS-007"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-009",
+        "259",
+        "REQ-6RCM-H01-009"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-003",
+      "source_number": "260",
+      "requirement_id": "6RCM-H02-003",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "추천 근거 생성",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "FN-REC-CAND-001",
+        "FN-REC-REASON-001",
+        "PG-REC-REASON-001",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-003",
+        "260",
+        "REQ-6RCM-H02-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-010",
+      "source_number": "261",
+      "requirement_id": "6RCM-H01-010",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 슬롯 구성(개인화/비개인화 폴백)",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-CAND-001",
+        "PI-REC-OPR-005",
+        "PI-REC-PRS-002",
+        "FN-REC-SLOT-001",
+        "PG-REC-PERSONAL-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-010",
+        "261",
+        "REQ-6RCM-H01-010"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-003",
+      "source_number": "262",
+      "requirement_id": "6RCM-H01-003",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 영역 '모아보기/더보기' 랜딩 제공",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PG-REC-SCOPE-001",
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-001",
+        "PI-REC-SCP-003",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-003",
+        "262",
+        "REQ-6RCM-H01-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-004",
+      "source_number": "263",
+      "requirement_id": "6RCM-H01-004",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "개인화 데이터 활용 범위·투명성 고지",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-DAT-001",
+        "PI-REC-SCP-001",
+        "PG-REC-DATA-001",
+        "PG-REC-SCOPE-001",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-004",
+        "263",
+        "REQ-6RCM-H01-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-004",
+      "source_number": "265",
+      "requirement_id": "6RCM-H02-004",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "큐레이션 피드: 목적 기반 추천 묶음",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-HIS-002",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "FN-REC-HIST-001",
+        "PI-REC-SEG-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-004",
+        "265",
+        "REQ-6RCM-H02-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-008",
+      "source_number": "266",
+      "requirement_id": "6RCM-H02-008",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "컨시어지 카드: 상황 감지 & 다음 행동",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-REC-CUS-005",
+        "PI-REC-SCP-004",
+        "US-REC-CUS-002",
+        "PI-REC-ACT-005",
+        "PI-REC-ACT-006"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-008",
+        "266",
+        "REQ-6RCM-H02-008"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-001",
+      "source_number": "268",
+      "requirement_id": "6RCM-H03-001",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "개인화 제어: 숨김/수정/학습 피드백",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-CUS-003",
+        "PI-REC-RSN-003",
+        "PI-REC-SEG-005",
+        "PG-REC-CONTROL-001",
+        "US-REC-OPS-002"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-001",
+        "268",
+        "REQ-6RCM-H03-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-002",
+      "source_number": "272",
+      "requirement_id": "6RCM-H03-002",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 결과 개선 루프",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PG-REC-METRIC-001",
+        "FN-REC-IMPROVE-001",
+        "FN-REC-REASON-001",
+        "PG-REC-REASON-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-002",
+        "272",
+        "REQ-6RCM-H03-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-016",
+      "source_number": "273",
+      "requirement_id": "6RCM-H02-016",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "AI 추천 비즈니스/수익성 가이드라인(룰) 프레임 정의",
+      "requirement_type": "비기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-SEG-005",
+        "PG-REC-REASON-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-016",
+        "273",
+        "REQ-6RCM-H02-016"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-003",
+      "source_number": "274",
+      "requirement_id": "6RCM-H03-003",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 제약 룰 설정(하한/차액/금칙)",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-RULE-001",
+        "US-REC-OPS-002",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PG-REC-REASON-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-003",
+        "274",
+        "REQ-6RCM-H03-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-004",
+      "source_number": "275",
+      "requirement_id": "6RCM-H03-004",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 결과/룰 우선순위 조정 및 운영자 제어",
+      "requirement_type": "비기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-SCP-004",
+        "PI-REC-MET-005",
+        "PI-REC-RSN-003",
+        "PI-REC-RSN-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-004",
+        "275",
+        "REQ-6RCM-H03-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-005",
+      "source_number": "276",
+      "requirement_id": "6RCM-H03-005",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 결과 사전 검증(Validation)",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-VAL-001",
+        "PG-REC-VALID-001",
+        "PI-REC-MET-005",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-005",
+        "276",
+        "REQ-6RCM-H03-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-006",
+      "source_number": "278",
+      "requirement_id": "6RCM-H03-006",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 룰 변경 이력/버전관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-HIS-003",
+        "PI-REC-PRS-006",
+        "FN-REC-HIST-001",
+        "PI-REC-DAT-006"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-006",
+        "278",
+        "REQ-6RCM-H03-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-007",
+      "source_number": "279",
+      "requirement_id": "6RCM-H03-007",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 시뮬레이션/테스트(샌드박스)",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-SCP-004",
+        "FN-REC-IMPROVE-001",
+        "PI-REC-DAT-006",
+        "PI-REC-MET-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-007",
+        "279",
+        "REQ-6RCM-H03-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-008",
+      "source_number": "280",
+      "requirement_id": "6RCM-H03-008",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 룰 위반 탐지 리포트/감사",
+      "requirement_type": "비기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PR-REC-OPS-007",
+        "PI-REC-HIS-003",
+        "PI-REC-SCP-004",
+        "FN-REC-VALID-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-008",
+        "280",
+        "REQ-6RCM-H03-008"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-009",
+      "source_number": "281",
+      "requirement_id": "6RCM-H03-009",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 결과 Override 및 예외 처리 관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-SCP-004",
+        "FN-REC-IMPROVE-001",
+        "PI-REC-DAT-006",
+        "PI-REC-MET-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-009",
+        "281",
+        "REQ-6RCM-H03-009"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-017",
+      "source_number": "282",
+      "requirement_id": "6RCM-H02-017",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "추천결과 비즈니스 룰 적용 범위 매트릭스(홈/검색/AI 등)",
+      "requirement_type": "비기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-SEG-002",
+        "PI-REC-PRS-001",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SCP-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-017",
+        "282",
+        "REQ-6RCM-H02-017"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-010",
+      "source_number": "283",
+      "requirement_id": "6RCM-H03-010",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "세그먼트별 추천 룰 분기",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-001",
+        "FN-REC-SLOT-001",
+        "PI-REC-DAT-006"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-010",
+        "283",
+        "REQ-6RCM-H03-010"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-011",
+      "source_number": "284",
+      "requirement_id": "6RCM-H03-011",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "개인화 컨텍스트 관리(운영자 BO) CRUD",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "US-REC-OPS-002",
+        "FN-REC-ASSET-001",
+        "PI-REC-MET-005",
+        "PI-REC-OPR-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-011",
+        "284",
+        "REQ-6RCM-H03-011"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-009",
+      "source_number": "285",
+      "requirement_id": "6RCM-H02-009",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "개인화 컨텍스트 발행/회수 및 변경 이력",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-OPR-004",
+        "PI-REC-HIS-003",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-009",
+        "285",
+        "REQ-6RCM-H02-009"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-012",
+      "source_number": "286",
+      "requirement_id": "6RCM-H03-012",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "개인화 항목 관리 및 그룹 관리(운영자 BO)",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-OPR-005",
+        "PI-REC-RSN-003",
+        "US-REC-OPS-002",
+        "FN-REC-ASSET-001",
+        "PR-REC-OPS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-012",
+        "286",
+        "REQ-6RCM-H03-012"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-013",
+      "source_number": "288",
+      "requirement_id": "6RCM-H03-013",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "개인화 컨텍스트 성과 지표/리포트(운영자)",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-REC-METRIC-001",
+        "US-REC-OPS-002",
+        "PI-REC-MET-005",
+        "PI-REC-RSN-003",
+        "PR-REC-OPS-005"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-013",
+        "288",
+        "REQ-6RCM-H03-013"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-005",
+      "source_number": "293",
+      "requirement_id": "6RCM-H02-005",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "개인화 인사이트/추천 연결",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-PRS-005",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-SEG-003"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-005",
+        "293",
+        "REQ-6RCM-H02-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-010",
+      "source_number": "294",
+      "requirement_id": "6RCM-H02-010",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "보유 상품 기준 추가 혜택/번들 연결",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-BSS-001",
+        "PI-REC-SEG-002",
+        "PI-REC-PRS-005",
+        "PI-REC-RSN-003",
+        "US-REC-CUS-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-010",
+        "294",
+        "REQ-6RCM-H02-010"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-011",
+      "source_number": "295",
+      "requirement_id": "6RCM-H02-011",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "채널 연결형 Next Action/오퍼 오케스트레이션",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-ACT-005",
+        "PI-REC-ACT-006",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-002",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-011",
+        "295",
+        "REQ-6RCM-H02-011"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-007",
+      "source_number": "296",
+      "requirement_id": "6RCM-H01-007",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 제공 구조 재설계",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-001",
+        "PI-REC-SCP-004",
+        "PG-REC-SCOPE-001",
+        "US-REC-OPS-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-007",
+        "296",
+        "REQ-6RCM-H01-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-006",
+      "source_number": "297",
+      "requirement_id": "6RCM-H02-006",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "개인화 교차 추천",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "FN-REC-CAND-001",
+        "PI-REC-BSS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-006",
+        "297",
+        "REQ-6RCM-H02-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-007",
+      "source_number": "298",
+      "requirement_id": "6RCM-H02-007",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "보유 관계 기반 번들 추천",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-BSS-001",
+        "PI-REC-SEG-002",
+        "PI-REC-PRS-005",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-007",
+        "298",
+        "REQ-6RCM-H02-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-018",
+      "source_number": "301",
+      "requirement_id": "6RCM-H02-018",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "계약 조건 기반 연관상품 추천",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-PRS-005",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-018",
+        "301",
+        "REQ-6RCM-H02-018"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-012",
+      "source_number": "305",
+      "requirement_id": "6RCM-H02-012",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "통합 추천 결과 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001",
+        "PI-REC-PRS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-012",
+        "305",
+        "REQ-6RCM-H02-012"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-013",
+      "source_number": "307",
+      "requirement_id": "6RCM-H02-013",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "조건 입력형 추천",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-PRS-005",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-013",
+        "307",
+        "REQ-6RCM-H02-013"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-005",
+      "source_number": "308",
+      "requirement_id": "6RCM-H01-005",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "AI 개인화 콘텐츠 라벨 명확화",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "FN-REC-SLOT-001",
+        "PG-REC-SCOPE-001",
+        "PI-REC-OPR-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-005",
+        "308",
+        "REQ-6RCM-H01-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-014",
+      "source_number": "309",
+      "requirement_id": "6RCM-H02-014",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "가입불가 사유 안내 및 대체 상품 추천",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-EXC-002",
+        "PI-REC-PRS-005",
+        "PI-REC-RSN-001",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-014",
+        "309",
+        "REQ-6RCM-H02-014"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-006",
+      "source_number": "310",
+      "requirement_id": "6RCM-H01-006",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "Customer 360 기반 맞춤 추천",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-SCP-004",
+        "FN-REC-SLOT-001",
+        "PI-REC-PRS-006",
+        "PI-REC-SCP-001",
+        "FN-REC-CAND-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-006",
+        "310",
+        "REQ-6RCM-H01-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-019",
+      "source_number": "311",
+      "requirement_id": "6RCM-H02-019",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "채널·오퍼링 조합 자동 추천",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-RUL-005",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "FN-REC-RULE-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-019",
+        "311",
+        "REQ-6RCM-H02-019"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-020",
+      "source_number": "312",
+      "requirement_id": "6RCM-H02-020",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "비식별 고객 검색어 기반 오퍼링 제안 및 이력 저장",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-SEG-002",
+        "PI-REC-HIS-001",
+        "PI-REC-HIS-002",
+        "PI-REC-PRS-006",
+        "PI-REC-RSN-003"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-020",
+        "312",
+        "REQ-6RCM-H02-020"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-021",
+      "source_number": "313",
+      "requirement_id": "6RCM-H02-021",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "비식별 고객 이력 연동",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-SEG-002",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-BSS-001",
+        "PI-REC-PRS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-021",
+        "313",
+        "REQ-6RCM-H02-021"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-015",
+      "source_number": "314",
+      "requirement_id": "6RCM-H02-015",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "추천→비교→실행 연속 플로우 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-REC-CUS-002",
+        "PI-REC-HIS-001",
+        "PI-REC-MET-004",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-015",
+        "314",
+        "REQ-6RCM-H02-015"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-011",
+      "source_number": "315",
+      "requirement_id": "6RCM-H01-011",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 실패 시 대체 경로 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PG-REC-EXCEPTION-001",
+        "PR-REC-CUS-009",
+        "PI-REC-EXC-002",
+        "PI-REC-VAL-003",
+        "FN-REC-SLOT-001"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-011",
+        "315",
+        "REQ-6RCM-H01-011"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-001",
+      "source_number": "455",
+      "requirement_id": "6RCM-H02-001",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "Customer 360 기반 이탈 방지 혜택 제공",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-PRS-006",
+        "FN-REC-CAND-001",
+        "PI-REC-SEG-002",
+        "PI-REC-SEG-005",
+        "PG-REC-PERSONAL-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-001",
+        "455",
+        "REQ-6RCM-H02-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-015",
+      "source_number": "474",
+      "requirement_id": "6RCM-H03-015",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 성과 분석 및 반응 이력 관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-MET-005",
+        "FN-REC-METRIC-001",
+        "PG-REC-METRIC-001",
+        "PI-REC-MET-002"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-015",
+        "474",
+        "REQ-6RCM-H03-015"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-014",
+      "source_number": "541",
+      "requirement_id": "6RCM-H03-014",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 품질·전환 지표",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-MET-002",
+        "FN-REC-METRIC-001",
+        "PG-REC-METRIC-001",
+        "PR-REC-OPS-005"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-014",
+        "541",
+        "REQ-6RCM-H03-014"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-022",
+      "source_number": "2125",
+      "requirement_id": "6RCM-H02-022",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "상품 추천 로직 통합 관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001",
+        "PI-REC-PRS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-022",
+        "2125",
+        "REQ-6RCM-H02-022"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-023",
+      "source_number": "2127",
+      "requirement_id": "6RCM-H02-023",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "캠페인 생성 및 분석 기능 제공",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-MET-005",
+        "PI-REC-RSN-003",
+        "FN-REC-CAND-001",
+        "PI-REC-RUL-004",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-023",
+        "2127",
+        "REQ-6RCM-H02-023"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-024",
+      "source_number": "2130",
+      "requirement_id": "6RCM-H02-024",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "캠페인 대상 관리",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001",
+        "PI-REC-MET-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-024",
+        "2130",
+        "REQ-6RCM-H02-024"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-029",
+      "source_number": "2133",
+      "requirement_id": "6RCM-H02-029",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "고객 서비스 이용 행태 분석",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-DAT-006",
+        "FN-REC-CTX-001",
+        "PI-REC-PRS-006",
+        "PG-REC-DATA-001",
+        "PR-REC-OPS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-029",
+        "2133",
+        "REQ-6RCM-H02-029"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-025",
+      "source_number": "2153",
+      "requirement_id": "6RCM-H02-025",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "해지 의향 고객 대상 캠페인 자동 생성",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-RUL-004",
+        "PI-REC-MET-005",
+        "FN-REC-RULE-001",
+        "PI-REC-PRS-006",
+        "PI-REC-RSN-003"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-025",
+        "2153",
+        "REQ-6RCM-H02-025"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-016",
+      "source_number": "3092",
+      "requirement_id": "6RCM-H03-016",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 영향도 및 비교 분석 체계",
+      "requirement_type": "기능",
+      "priority": "",
+      "mapped_to": [
+        "PI-REC-MET-004",
+        "US-REC-OPS-002",
+        "PG-REC-METRIC-001",
+        "PI-REC-SCP-004",
+        "FN-REC-METRIC-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-016",
+        "3092",
+        "REQ-6RCM-H03-016"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-013",
+      "source_number": "3095",
+      "requirement_id": "6RCM-H01-013",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 슬롯 노출 관리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-SLOT-001",
+        "PR-REC-OPS-001",
+        "PI-REC-SCP-001",
+        "US-REC-OPS-001",
+        "PI-REC-RSN-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-013",
+        "3095",
+        "REQ-6RCM-H01-013"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-017",
+      "source_number": "3096",
+      "requirement_id": "6RCM-H03-017",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "고객 상태 및 맥락 기반 추천 노출 제어",
+      "requirement_type": "기능",
+      "priority": "",
+      "mapped_to": [
+        "PI-REC-PRS-005",
+        "PI-REC-RSN-004",
+        "PI-REC-SCP-004",
+        "FN-REC-CTX-001",
+        "US-REC-OPS-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-017",
+        "3096",
+        "REQ-6RCM-H03-017"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-014",
+      "source_number": "3097",
+      "requirement_id": "6RCM-H01-014",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 전시 유형/UI 구성 관리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-SCP-004",
+        "FN-REC-SLOT-001",
+        "PG-REC-SCOPE-001",
+        "PI-REC-SCP-001",
+        "PI-REC-SCP-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-014",
+        "3097",
+        "REQ-6RCM-H01-014"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-015",
+      "source_number": "3098",
+      "requirement_id": "6RCM-H01-015",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 영역 간 충돌/우선순위 관리",
+      "requirement_type": "기능",
+      "priority": "",
+      "mapped_to": [
+        "PG-REC-PRIORITY-001",
+        "FN-REC-SLOT-001",
+        "PG-REC-SCOPE-001",
+        "PI-REC-SCP-001",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-015",
+        "3098",
+        "REQ-6RCM-H01-015"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-030",
+      "source_number": "3099",
+      "requirement_id": "6RCM-H02-030",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "추천 다양성·최신성·중복 제어",
+      "requirement_type": "기능",
+      "priority": "",
+      "mapped_to": [
+        "PI-REC-SEG-005",
+        "US-REC-CUS-003",
+        "PI-REC-PRS-005",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-030",
+        "3099",
+        "REQ-6RCM-H02-030"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-031",
+      "source_number": "3100",
+      "requirement_id": "6RCM-H02-031",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "고객 세그먼트 기반 추천",
+      "requirement_type": "비기능",
+      "priority": "",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001",
+        "PI-REC-PRS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-031",
+        "3100",
+        "REQ-6RCM-H02-031"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-032",
+      "source_number": "3101",
+      "requirement_id": "6RCM-H02-032",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "고객 상태·이력·맥락 기반 개인화 추천",
+      "requirement_type": "비기능",
+      "priority": "",
+      "mapped_to": [
+        "PI-REC-SEG-002",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-005",
+        "FN-REC-CTX-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-032",
+        "3101",
+        "REQ-6RCM-H02-032"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-018",
+      "source_number": "3102",
+      "requirement_id": "6RCM-H03-018",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 효용 실험(A/B 테스트) 프레임워크",
+      "requirement_type": "기능",
+      "priority": "",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "PI-REC-SCP-004",
+        "FN-REC-IMPROVE-001",
+        "PI-REC-DAT-006",
+        "PI-REC-MET-004"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-018",
+        "3102",
+        "REQ-6RCM-H03-018"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H03-019",
+      "source_number": "3103",
+      "requirement_id": "6RCM-H03-019",
+      "parent_requirement_id": "6RCM-H03",
+      "parent_name": "추천 운영 관리(Admin) 및 추천 품질 분석/모니터링",
+      "detail_name": "추천 개선안 자동 제안 및 운영자 승인 관리",
+      "requirement_type": "기능",
+      "priority": "",
+      "mapped_to": [
+        "US-REC-OPS-002",
+        "FN-REC-IMPROVE-001",
+        "PR-REC-OPS-006",
+        "PI-REC-MET-005",
+        "PI-REC-PRS-006"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H03-019",
+        "3103",
+        "REQ-6RCM-H03-019"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-012",
+      "source_number": "3113",
+      "requirement_id": "6RCM-H01-012",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "상품/서비스/혜택 탐색 중 추천 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-SCP-001",
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-004",
+        "PG-REC-SCOPE-001",
+        "PI-REC-PRS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-012",
+        "3113",
+        "REQ-6RCM-H01-012"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-033",
+      "source_number": "3137",
+      "requirement_id": "6RCM-H02-033",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "상품 리스트 내 AI PICK 캡션 고도화",
+      "requirement_type": "비기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-SCP-004",
+        "PI-REC-RSN-004",
+        "PI-REC-RSN-003",
+        "PI-REC-SEG-002",
+        "FN-REC-REASON-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-033",
+        "3137",
+        "REQ-6RCM-H02-033"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-034",
+      "source_number": "3140",
+      "requirement_id": "6RCM-H02-034",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "구독 중인 상품 기반 선물 추천",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-PRS-005",
+        "FN-REC-CAND-001",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-034",
+        "3140",
+        "REQ-6RCM-H02-034"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-026",
+      "source_number": "3147",
+      "requirement_id": "6RCM-H02-026",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "로밍 요금제 추천 제공",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001",
+        "PI-REC-PRS-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-026",
+        "3147",
+        "REQ-6RCM-H02-026"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-027",
+      "source_number": "3150",
+      "requirement_id": "6RCM-H02-027",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "고객 개인화 기반 오퍼링 조합 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-RUL-005",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "PI-REC-BSS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-027",
+        "3150",
+        "REQ-6RCM-H02-027"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-035",
+      "source_number": "3184",
+      "requirement_id": "6RCM-H02-035",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "무료 혜택 이용 현황 기반의 유료 전환 개인화 추천 영역",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-PRS-004",
+        "FN-REC-CAND-001",
+        "PI-REC-PRS-005",
+        "PI-REC-PRS-006",
+        "PG-REC-PERSONAL-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-035",
+        "3184",
+        "REQ-6RCM-H02-035"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-028",
+      "source_number": "3187",
+      "requirement_id": "6RCM-H02-028",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "관심상품 기반 추천",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "FN-REC-CAND-001",
+        "PI-REC-BSS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-028",
+        "3187",
+        "REQ-6RCM-H02-028"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-036",
+      "source_number": "3191",
+      "requirement_id": "6RCM-H02-036",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "사용자 활동 반경 내 오프라인 제휴처 접근성 기반 추천 로직 고도화",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "FN-REC-CAND-001",
+        "PI-REC-SCP-005",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-036",
+        "3191",
+        "REQ-6RCM-H02-036"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-037",
+      "source_number": "3208",
+      "requirement_id": "6RCM-H02-037",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "라이프스타일 분석 기반 AI 혜택 큐레이션",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-PRS-006",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-005",
+        "PI-REC-SEG-002",
+        "PI-REC-SEG-005"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-037",
+        "3208",
+        "REQ-6RCM-H02-037"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-038",
+      "source_number": "3217",
+      "requirement_id": "6RCM-H02-038",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "위치·소비패턴 기반 AI 혜택 추천 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-SEG-002",
+        "FN-REC-CTX-001",
+        "FN-REC-REASON-001",
+        "PI-REC-BSS-001",
+        "PI-REC-DAT-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-038",
+        "3217",
+        "REQ-6RCM-H02-038"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-039",
+      "source_number": "3236",
+      "requirement_id": "6RCM-H02-039",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "소비 성향 테스트 기반 게이미피케이션 온보딩 도입",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-REC-DAT-005",
+        "PI-REC-SEG-005",
+        "FN-REC-CTX-001",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-039",
+        "3236",
+        "REQ-6RCM-H02-039"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-016",
+      "source_number": "3238",
+      "requirement_id": "6RCM-H01-016",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "추천 근거 노출 및 소셜 프루프 시각화",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-REC-SLOT-001",
+        "PG-REC-REASON-001",
+        "PI-REC-RSN-002",
+        "PI-REC-SCP-001",
+        "FN-REC-REASON-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-016",
+        "3238",
+        "REQ-6RCM-H01-016"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H01-017",
+      "source_number": "3244",
+      "requirement_id": "6RCM-H01-017",
+      "parent_requirement_id": "6RCM-H01",
+      "parent_name": "추천 슬롯 전시/관리",
+      "detail_name": "도메인 간 맥락 기반 크로스셀 넛지 제공",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-ACT-004",
+        "PI-REC-SCP-004",
+        "FN-REC-ACTION-001",
+        "FN-REC-SLOT-001",
+        "PI-REC-SCP-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H01-017",
+        "3244",
+        "REQ-6RCM-H01-017"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-040",
+      "source_number": "3253",
+      "requirement_id": "6RCM-H02-040",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "스크린 어웨어 맥락 인식 기반 AI 선제적 넛지 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-REC-ACT-005",
+        "FN-REC-CTX-001",
+        "PI-REC-SEG-002",
+        "PI-REC-SEG-005",
+        "PI-REC-ACT-004"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-040",
+        "3253",
+        "REQ-6RCM-H02-040"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-041",
+      "source_number": "3259",
+      "requirement_id": "6RCM-H02-041",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "통합 데이터 기반 AI 요금제·구독 추천",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-PRS-005",
+        "PI-REC-RSN-003",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "FN-REC-CAND-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-041",
+        "3259",
+        "REQ-6RCM-H02-041"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "6RCM-H02-042",
+      "source_number": "3298",
+      "requirement_id": "6RCM-H02-042",
+      "parent_requirement_id": "6RCM-H02",
+      "parent_name": "개인화 및 비즈니스 정책 기반 AI 추천 제공",
+      "detail_name": "휴대폰 리스트 AI 추천 Case 분기 적용",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-REC-SEG-004",
+        "PI-REC-SCP-004",
+        "PI-REC-SEG-002",
+        "FN-REC-SLOT-001",
+        "PI-REC-PRS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "6RCM-H02-042",
+        "3298",
+        "REQ-6RCM-H02-042"
+      ]
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "gap": "추천 모델의 내부 랭킹 수식, 피처 가중치, 프롬프트 원문은 첨부 요구사항에서 정책서 작성 범위로 확인되지 않았다.",
+      "handling": "본 문서는 고객 노출 기준, 추천 보류 기준, 운영 검증·롤백 기준만 정책화하고 알고리즘 상세는 후속 상세 설계로 둔다."
+    },
+    {
+      "gap": "개인화 데이터별 보관 기간과 비식별 고객 이력 결합의 세부 법무 기준은 최종 개인정보 정책과 정합성 확인이 필요하다.",
+      "handling": "추천 문서에는 활용 데이터 범주, 고지, 설정 진입, 이력 분리 원칙을 남기고 확정 보관 기간은 개인정보 정책과 연결한다."
+    }
+  ],
+  "policies": [
+    {
+      "id": "PG-REC-SCOPE-001",
+      "name": "추천 범위·슬롯 정책",
+      "description": "추천 영역, 슬롯, 추천 유형, 더보기 랜딩의 범위를 정의한다.",
+      "items": [
+        "추천 슬롯 범위",
+        "추천 유형 구분",
+        "더보기 랜딩 기준"
+      ]
+    },
+    {
+      "id": "PG-REC-PERSONAL-001",
+      "name": "개인화 적용·폴백 정책",
+      "description": "개인화 추천 적용 조건과 비개인화 폴백 기준을 정의한다.",
+      "items": [
+        "개인화 적용 조건",
+        "비개인화 폴백",
+        "신뢰도 부족 처리"
+      ]
+    },
+    {
+      "id": "PG-REC-REASON-001",
+      "name": "추천 근거·투명성 정책",
+      "description": "추천 이유, 라벨, 반영 기준, 공식 정보와 보조 정보의 구분을 정의한다.",
+      "items": [
+        "추천 사유 노출",
+        "근거 노출 제한",
+        "AI·개인화 라벨"
+      ]
+    },
+    {
+      "id": "PG-REC-PRIORITY-001",
+      "name": "추천 우선순위·충돌 정책",
+      "description": "여러 추천 룰과 슬롯이 충돌할 때 우선순위와 안전 처리 기준을 정의한다.",
+      "items": [
+        "우선순위 축",
+        "충돌 처리",
+        "고객 불이익 방지"
+      ]
+    },
+    {
+      "id": "PG-REC-LIMIT-001",
+      "name": "노출 빈도·피로도 정책",
+      "description": "추천 반복 노출, 차단시간, 최신성, 다양성, 중복 제한 기준을 정의한다.",
+      "items": [
+        "노출 빈도 제한",
+        "차단시간 적용",
+        "중복 추천 제한"
+      ]
+    },
+    {
+      "id": "PG-REC-ACTION-001",
+      "name": "추천 실행 연결 정책",
+      "description": "추천 결과를 비교, 상세, 가입, 변경, 혜택 사용, 상담으로 연결하는 기준을 정의한다.",
+      "items": [
+        "CTA 연결 기준",
+        "비교 연결 기준",
+        "실행 전 확인"
+      ]
+    },
+    {
+      "id": "PG-REC-CONTROL-001",
+      "name": "고객 제어·피드백 정책",
+      "description": "관심 없음, 숨김, 피드백, 설정 진입, 초기화 기준을 정의한다.",
+      "items": [
+        "숨김 즉시 반영",
+        "피드백 사유 수집",
+        "제어 이력 확인"
+      ]
+    },
+    {
+      "id": "PG-REC-RULE-001",
+      "name": "비즈니스 룰·제약 정책",
+      "description": "수익성, 업셀·다운셀, 금칙, 타겟 제외, 세그먼트 룰을 정의한다.",
+      "items": [
+        "수익성 가드레일",
+        "다운셀 제한",
+        "세그먼트 룰"
+      ]
+    },
+    {
+      "id": "PG-REC-VALID-001",
+      "name": "사전 검증·보류 정책",
+      "description": "추천 후보 검증, 보류, 대체 추천, 상담 전환 기준을 정의한다.",
+      "items": [
+        "사전 검증 기준",
+        "추천 보류 기준",
+        "대체 경로 제공"
+      ]
+    },
+    {
+      "id": "PG-REC-OPERATION-001",
+      "name": "슬롯 운영·배포 정책",
+      "description": "추천 슬롯과 룰의 등록, 검수, 배포, 회수, 롤백 기준을 정의한다.",
+      "items": [
+        "등록 필수값",
+        "검수·승인 기준",
+        "배포·회수 기준"
+      ]
+    },
+    {
+      "id": "PG-REC-METRIC-001",
+      "name": "성과 측정·개선 정책",
+      "description": "추천 성과, 고객 반응, 실험, 개선안 승인 기준을 정의한다.",
+      "items": [
+        "전환 퍼널",
+        "부정 반응 지표",
+        "실험·개선 기준"
+      ]
+    },
+    {
+      "id": "PG-REC-DATA-001",
+      "name": "데이터 활용·고지 정책",
+      "description": "개인화 데이터 범위, 활용 고지, 보관·삭제 안내 기준을 정의한다.",
+      "items": [
+        "활용 데이터·투명성 고지",
+        "삭제·초기화 안내",
+        "설정 소유권"
+      ]
+    },
+    {
+      "id": "PG-REC-BSS-001",
+      "name": "BSS·연계 판정 정책",
+      "description": "고객 상태, 보유 관계, 실행 가능 여부, 원장·이력 연계 기준을 정의한다.",
+      "items": [
+        "상태·보유 관계 판정",
+        "실행 가능 회신",
+        "연계 실패 처리"
+      ]
+    },
+    {
+      "id": "PG-REC-EXCEPTION-001",
+      "name": "실패·대체 경로 정책",
+      "description": "추천 실패, 무결과, 부적합, 제한, 상담 대체 경로 기준을 정의한다.",
+      "items": [
+        "무결과 처리",
+        "부적합 안내와 대체 추천",
+        "추천 실패 복구"
+      ]
+    },
+    {
+      "id": "PG-REC-HISTORY-001",
+      "name": "이력·감사 정책",
+      "description": "추천 노출, 실행, 피드백, 룰 변경, 배포·회수 이력 저장 기준을 정의한다.",
+      "items": [
+        "노출 이력",
+        "피드백 이력",
+        "룰 변경 감사"
+      ]
+    },
+    {
+      "id": "PG-REC-SEGMENT-001",
+      "name": "세그먼트·비식별 고객 정책",
+      "description": "고객 세그먼트와 비식별 고객 맥락 기반 추천의 제한 기준을 정의한다.",
+      "items": [
+        "세그먼트 분기",
+        "비식별 추천 제한",
+        "로그인 후 연결"
+      ]
+    }
+  ],
+  "version": "v0.10"
+}

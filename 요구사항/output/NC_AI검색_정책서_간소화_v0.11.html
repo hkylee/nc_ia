@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>AI 검색 정책서 간소화 버전 v0.11</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { display: inline-flex; align-items: center; border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; text-decoration: none; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>AI 검색 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-AIS</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.11</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-09</td></tr>
+<tr><th>작성 기준</th><td>PM-05 상세 요구사항명과 상세 요구사항 설명은 최신 요구사항 DB 101건을 기준으로 확인했고, 검색 진입, 입력, 결과, 비교, 실행 연결, 실패 복구, 운영 품질 기준으로 재구성했다.<br/>AI 검색은 키워드 검색이 아니라 정보 탐색, 의사결정, 업무 실행, 문제 해결을 연결하는 원스톱 경험이라는 Topic Knowledge 지향점을 Core Design 기준으로 사용했다.<br/>요구사항 문구를 그대로 복사하지 않고 고객 과업, 운영 과업, 시스템 판정, 정책 판단 기준으로 분리했다.<br/>상담사는 상담 전환의 수신자에 그치지 않도록 검색 맥락 기반 상담 응대 유즈케이스와 상담 접수·결과 회신 프로세스로 연결했다.<br/>유즈케이스는 검색 여정의 세부 단계가 아니라 고객·상담사·운영자의 완결 업무 목표로 재정리했고, 상세 단계는 프로세스로 내렸다.<br/>20260509 요구사항 DB 최신 기준 101건을 다시 확인했고, 추가·수정 요구사항 중 검색 매칭 기준, 0건 상태 구분, 선택동의, RAG 개인화, 크로스 도메인 실행, 액션 위젯, 필터 구간값을 정책 판단축으로 보강했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.11</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 고객이 하나의 검색·질문 진입점으로 정보 탐색, 비교, 업무 실행, 문제 해결을 시작하고 완료 경로를 선택할 수 있도록 하는 AI 검색 기준을 정의한다.<br/></p><p class="plain-text">• 포함 범위는 전역 검색 진입, 전시 내 검색 진입, 검색 입력 표준, 질의 정규화, 자동완성, 연관 검색어, 최근·인기 검색어, 통합 결과 탭, 필터·정렬, 결과 내 재검색, 상세 복귀 상태 유지, 무결과 폴백이다.<br/></p><p class="plain-text">• AI 확장 범위는 자연어·질문형 의도 해석, 조건·속성 파라미터 추출, 고객 상태 기반 Answer Card, 비교·추천 요약, 실행 경로 안내, 상담 전환 맥락 전달이다.<br/></p><p class="plain-text">• 운영 범위는 통합 검색 대상, 대표 엔티티, 동의어·축약어·오타·금칙어 사전, 랭킹 가중치, AI 추천어·응답 후보 검수, 배포·롤백, 품질·성과 지표, 실패 케이스 분석 기준을 포함한다.<br/></p><p class="plain-text">• BSS는 고객 상태, 가입 상태, 보유 상품, 권한, 대상 조건, 실행 가능 여부의 기준 정보를 제공하고, 검색 연계 시스템은 해당 기준 정보를 검색 결과와 실행 연결 판정에 반영한다.<br/></p><p class="plain-text">• 책임 경계는 통합채널 FO가 입력·표시·실행 경로를 담당하고, 검색 연계 시스템이 의도 해석·후보 생성·권한 판정을 담당하며, BSS는 고객 상태·보유 상품·업무 가능 여부의 기준 정보를 제공하는 구조로 구분한다.<br/></p><p class="plain-text">• 제외 범위는 검색 엔진 알고리즘 상세, 모델 파라미터, 프롬프트 원문, API 필드, DB 컬럼, 화면 상세 디자인, 개별 상품·요금·혜택의 상세 정책값이다.<br/></p><p class="plain-text">• 검색 결과는 앱·웹에서 동일한 기준으로 정렬·제공하되 화면 특성에 따른 표시 차이는 정책 판단이 아닌 표현 차이로 관리한다.<br/></p><p class="plain-text">• 상세 요구사항 101건은 요구사항 Trace 기준으로 유즈케이스, 상태, 프로세스, 기능, 정책 또는 정책 항목 중 하나 이상에 매핑한다.<br/></p><p class="plain-text">• 상품·전시·콘텐츠 메타데이터, 페이지네이션·무한스크롤, 응답 시간·렌더링 지연·호출 실패율은 고객 탐색 완결성과 운영 품질 판단 기준으로 포함한다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• <b>Intent to Action</b>: AI 검색은 단순 결과 목록이 아니라 고객 의도를 해석해 비교, 실행, 상담, 도움말 중 다음 행동으로 이어지게 한다.<br/></p><p class="principle-text">• <b>Customer Control</b>: AI는 고객 대신 가입, 변경, 해지, 결제 결정을 내리지 않으며 주요 실행은 고객의 명시적 선택과 최종 확인 후에만 연결한다.<br/></p><p class="principle-text">• <b>Grounded Result</b>: 검색·추천 결과에는 출처, 적용 조건, 미충족 사유, 한계, 대체 경로를 함께 제공해 고객이 스스로 판단할 수 있게 한다.<br/></p><p class="principle-text">• <b>Unified Search Scope</b>: 상품, 혜택, 메뉴, FAQ, 공지, 콘텐츠, 상담 진입은 하나의 검색 범위에서 다루되 대표 결과와 유형별 결과를 구분한다.<br/></p><p class="principle-text">• <b>Recoverable Search Failure</b>: 무결과, 근거 부족, 오류, 권한 제한은 고객이 재검색, 조건 보완, 상담 전환, 대체 경로를 선택할 수 있는 상태로 전환한다.<br/></p><p class="principle-text">• <b>Quality Loop</b>: 검색 정확도, 실행 완료율, 무결과율, 상담 전환율, 피드백, 정책 위반 의심 항목을 운영 루프로 관리한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-AIS-001</td><td>AI 검색</td><td>고객의 키워드·문장형 질의를 의도, 조건, 실행 가능성 기준으로 해석해 정보, 비교, 실행 경로, 상담 전환을 제공하는 탐색 체계다.<br/></td></tr><tr><td class="mono">TM-AIS-002</td><td>통합 검색 범위</td><td>상품, 혜택, 제휴처, 이벤트, 전시·콘텐츠, 메뉴·기능, FAQ·공지·가이드, 상담 진입을 하나의 검색 대상으로 관리하는 범위다.<br/></td></tr><tr><td class="mono">TM-AIS-003</td><td>의도 해석</td><td>질의를 정보 조회, 기능 실행, 비교·추천, 문제 해결, 상담 전환 중 어떤 업무 유형으로 처리할지 판단하는 기준이다.<br/></td></tr><tr><td class="mono">TM-AIS-004</td><td>Answer Card</td><td>이번 달 요금, 남은 데이터, 주문 상태처럼 고객 상태를 반영해 즉답과 실행 경로를 함께 제공하는 결과 카드다.<br/></td></tr><tr><td class="mono">TM-AIS-005</td><td>Quick Action</td><td>검색 결과에서 고객이 메뉴 구조를 몰라도 바로 처리 화면, 신청 화면, 상담 전환으로 이동할 수 있게 하는 실행 경로다.<br/></td></tr><tr><td class="mono">TM-AIS-006</td><td>대표 엔티티</td><td>동일 목적의 메뉴, 상품, 혜택, 콘텐츠가 여러 명칭이나 채널에 있을 때 검색 결과에서 우선 노출하는 기준 결과다.<br/></td></tr><tr><td class="mono">TM-AIS-007</td><td>검색 컨텍스트</td><td>검색어, 의도, 필터, 정렬, 선택 결과, 고객 상태, 실패 이력처럼 후속 실행이나 상담 전환에 재사용하는 탐색 맥락이다.<br/></td></tr><tr><td class="mono">TM-AIS-008</td><td>근거 고지</td><td>AI가 제시한 결과나 추천이 어떤 공식 정보, 고객 조건, 제한 사유, 비교 기준에 근거했는지 고객에게 설명하는 기준이다.<br/></td></tr><tr><td class="mono">TM-AIS-009</td><td>무결과 폴백</td><td>검색 결과가 없거나 신뢰도가 낮을 때 연관 검색어, 인기 카테고리, FAQ, 상담 연결, 대체 경로를 제공하는 복구 구조다.<br/></td></tr><tr><td class="mono">TM-AIS-010</td><td>금칙어·정책 필터</td><td>검색어 또는 결과가 법무, 브랜드, 유해어, 민감정보, 차별 표현 기준에 걸릴 때 차단, 치환, 안내, 검수 큐로 전환하는 기준이다.<br/></td></tr><tr><td class="mono">TM-AIS-011</td><td>운영 검수 큐</td><td>AI가 자동 생성한 추천어, 자동완성, 응답 후보, 정책 위반 의심 항목을 운영자가 승인·반려·회수하는 작업 목록이다.<br/></td></tr><tr><td class="mono">TM-AIS-012</td><td>검색 품질 지표</td><td>검색 성공률, 즉답 해결률, 실행 완료율, 재검색률, 무결과율, 이탈률, 상담 전환율, 신고·피드백을 포함하는 품질 관리 기준이다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-AIS-001</td><td>고객</td><td>AI 검색을 통해 질문, 탐색, 결과 이해, 후속 행동을 수행하는 주체다.<br/></td></tr><tr><td class="mono">ACT-AIS-002</td><td>운영자</td><td>검색·AI, 콘텐츠·상품 기준, 검색 품질과 성과 개선을 운영하는 주체다.<br/></td></tr><tr><td class="mono">ACT-AIS-003</td><td>상담사</td><td>AI 검색 실패 또는 상담 전환 문맥을 이어받아 고객 문의를 지원하는 주체다.<br/></td></tr><tr><td class="mono">ACT-AIS-004</td><td>채널 업무 시스템</td><td>검색 진입, 결과 표시, 후속 행동 연결, 상담 전환을 처리하는 채널 시스템이다.<br/></td></tr><tr><td class="mono">ACT-AIS-005</td><td>검색 연계 시스템</td><td>검색 의도 해석, 결과 후보 생성, 고객 상태·권한 판정에 필요한 BSS 기준 정보와 상품·콘텐츠 기준 정보를 검색 결과 생성에 반영하는 시스템이다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-AIS-CUS-001</td><td>고객</td><td>AI 검색으로 정보 탐색 완료</td><td>고객이 하나의 검색·질문 진입점에서 원하는 정보, 메뉴, 상품, 혜택, 도움말을 찾고 결과의 출처와 적용 조건을 이해한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-AIS-CUS-002</td><td>고객</td><td>AI 검색 기반 의사결정 및 실행 연결</td><td>고객이 AI가 정리한 비교·추천 근거를 검토하고 가입, 변경, 해지, 납부, 상담 등 다음 행동으로 안전하게 이동한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-AIS-CUS-003</td><td>고객</td><td>검색 실패 복구 및 상담 전환</td><td>고객이 무결과, 근거 부족, 오류, 제한 상황에서 재검색, 조건 보완, 대체 경로, 상담 전환으로 문제를 이어서 해결한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-AIS-CS-001</td><td>상담사</td><td>검색 맥락 기반 상담 응대</td><td>상담사가 AI 검색에서 전달된 검색어, 선택 결과, 실패 이력, 고객 상태 요약을 확인하고 문제 해결 또는 후속 업무 경로를 안내한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-AIS-CON-001</td><td>운영자</td><td>검색 대상 자산 기준 관리</td><td>운영자가 상품, 혜택, 전시, FAQ, 공지, 가이드 등 검색 대상 자산의 노출 가능성, 메타데이터, 대표 엔티티 기준을 관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-AIS-OPR-001</td><td>운영자</td><td>검색 기준·AI 품질 운영</td><td>운영자가 랭킹, 사전, 금칙어, AI 응답 후보, 배포·롤백, 품질 지표, 실패 케이스를 관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-AIS-SYS-001</td><td>검색 연계 시스템</td><td>의도 해석·조건 추출·결과 후보 생성</td><td>검색 연계 시스템이 질의에서 의도, 조건, 속성, 대상 유형을 추출하고 결과 후보와 추천 질의를 생성한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-AIS-SYS-002</td><td>검색 연계 시스템</td><td>고객 상태·권한·대상 조건 판정</td><td>검색 연계 시스템이 고객 상태와 대상 조건을 판정해 결과 노출 가능 여부와 실행 가능 여부를 회신한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-AIS-SYS-003</td><td>채널 업무 시스템</td><td>실행 경로·상담 컨텍스트 전달</td><td>채널 업무 시스템이 선택 결과에서 실행 화면, 비교 화면, 상담 채널로 필요한 검색 컨텍스트를 전달한다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="AI 검색 유즈케이스 다이어그램" height="811" role="img" viewBox="0 0 1120 811" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="729" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">AI 검색 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="187"></line><line class="conn" x1="144" x2="442" y1="172" y2="259"></line><line class="conn" x1="144" x2="442" y1="693" y2="331"></line><line class="conn" x1="144" x2="442" y1="432" y2="403"></line><line class="conn" x1="144" x2="442" y1="432" y2="475"></line><line class="conn" x1="678" x2="976" y1="547" y2="693"></line><line class="conn" x1="678" x2="976" y1="619" y2="693"></line><line class="conn" x1="678" x2="976" y1="691" y2="172"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">AI 검색으로 정보 탐색 완료</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-AIS-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="187" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="177">AI 검색 기반 의사결정 및</text><text class="uc-text" text-anchor="middle" x="560" y="191">실행 연결</text><text class="uc-sub" text-anchor="middle" x="560" y="209">US-AIS-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="259" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="256">검색 실패 복구 및 상담 전환</text><text class="uc-sub" text-anchor="middle" x="560" y="281">US-AIS-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="331" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="328">검색 맥락 기반 상담 응대</text><text class="uc-sub" text-anchor="middle" x="560" y="353">US-AIS-CS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="403" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="400">검색 대상 자산 기준 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="425">US-AIS-CON-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="475" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="472">검색 기준·AI 품질 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="497">US-AIS-OPR-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="547" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="537">의도 해석·조건 추출·결과</text><text class="uc-text" text-anchor="middle" x="560" y="551">후보 생성</text><text class="uc-sub" text-anchor="middle" x="560" y="569">US-AIS-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="619" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="609">고객 상태·권한·대상 조건</text><text class="uc-text" text-anchor="middle" x="560" y="623">판정</text><text class="uc-sub" text-anchor="middle" x="560" y="641">US-AIS-SYS-002 · 프로세스 N</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">실행 경로·상담 컨텍스트 전달</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-AIS-SYS-003 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="380" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="398" y2="445"></line><line class="actor-line" x1="86" x2="138" y1="415" y2="415"></line><line class="actor-line" x1="112" x2="92" y1="445" y2="480"></line><line class="actor-line" x1="112" x2="132" y1="445" y2="480"></line><text class="actor-text" text-anchor="middle" x="112" y="506">운영자</text><circle class="actor-line" cx="112" cy="641" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="659" y2="706"></line><line class="actor-line" x1="86" x2="138" y1="676" y2="676"></line><line class="actor-line" x1="112" x2="92" y1="706" y2="741"></line><line class="actor-line" x1="112" x2="132" y1="706" y2="741"></line><text class="actor-text" text-anchor="middle" x="112" y="767">상담사</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="641" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="659" y2="706"></line><line class="system-actor-line" x1="982" x2="1034" y1="676" y2="676"></line><line class="system-actor-line" x1="1008" x2="988" y1="706" y2="741"></line><line class="system-actor-line" x1="1008" x2="1028" y1="706" y2="741"></line><text class="actor-text" text-anchor="middle" x="1008" y="767">검색 연계 시스템</text><text class="legend" x="304" y="785">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-AIS-001</td><td>검색 전</td><td>고객이 공통 검색 진입점을 선택하기 전 상태다.<br/></td><td>현재 화면 맥락에 맞는 placeholder, 추천어, 검색 진입 버튼을 제공한다.<br/></td></tr><tr><td class="mono">ST-AIS-002</td><td>질의 입력 중</td><td>고객이 키워드 또는 문장형 질문을 입력하고 있는 상태다.<br/></td><td>입력 정규화, 자동완성, 바로가기, 최근·인기 검색어를 제공한다.<br/></td></tr><tr><td class="mono">ST-AIS-003</td><td>의도 해석 중</td><td>입력 질의를 의도, 대상, 조건, 속성으로 해석하는 상태다.<br/></td><td>충분하면 결과 구성으로 전환하고 부족하면 조건 보완을 요청한다.<br/></td></tr><tr><td class="mono">ST-AIS-004</td><td>조건 보완 필요</td><td>검색 의도나 실행 조건이 모호해 추가 질문이 필요한 상태다.<br/></td><td>고객에게 필요한 최소 질문을 제시하고 재해석한다.<br/></td></tr><tr><td class="mono">ST-AIS-005</td><td>결과 구성 중</td><td>통합 결과, 유형별 결과, Answer Card, 비교 후보를 구성하는 상태다.<br/></td><td>고객 상태와 권한 조건을 반영해 결과 제공 완료로 전환한다.<br/></td></tr><tr><td class="mono">ST-AIS-006</td><td>결과 제공 완료</td><td>고객 표시 상태는 결과 제공 완료이며, 내부 처리 상태는 결과 출처 검증, 고객 조건 적용, 실행 가능 여부 판정 완료 여부로 구분한다.<br/></td><td>상세, 비교, 실행, 도움말, 상담 중 다음 행동을 선택하게 한다.<br/></td></tr><tr><td class="mono">ST-AIS-007</td><td>비교 검토 중</td><td>고객이 선택한 상품, 혜택, 업무 경로의 차이와 추천 근거를 확인하는 상태다.<br/></td><td>추천 한계와 대안까지 확인한 뒤 실행 확인 대기로 전환한다.<br/></td></tr><tr><td class="mono">ST-AIS-008</td><td>실행 확인 대기</td><td>가입, 변경, 해지, 납부 등 주요 실행 전 고객의 명시적 최종 확인을 기다리는 상태다.<br/></td><td>필수 인증, 동의, 유의사항 확인 후 실행 전환 완료로 전환한다.<br/></td></tr><tr><td class="mono">ST-AIS-009</td><td>실행 전환 완료</td><td>고객 표시 상태는 실행 화면 이동 완료이며, 내부 처리 상태는 검색 컨텍스트 전달, 후속 업무 접수, 이력 저장 완료 여부로 구분한다.<br/></td><td>검색 컨텍스트와 선택 결과를 후속 화면에 전달하고 복귀 기준을 유지한다.<br/></td></tr><tr><td class="mono">ST-AIS-010</td><td>근거 부족</td><td>AI 결과의 출처, 조건, 정확도가 고객 판단에 충분하지 않은 상태다.<br/></td><td>근거 부족 사유, 원본 확인, 대체 결과, 상담 전환을 제공한다.<br/></td></tr><tr><td class="mono">ST-AIS-011</td><td>결과 없음</td><td>검색 대상에서 직접 결과와 연관 결과가 모두 없는 상태다.<br/></td><td>연관어, 인기 카테고리, FAQ, 상담, 재검색 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-AIS-012</td><td>오류·복구 필요</td><td>고객 표시 상태는 오류·복구 필요이며, 내부 처리 상태는 검색 호출 실패, 권한 제한, 결과 로딩 실패, 연계 회신 실패 유형으로 구분한다.<br/></td><td>오류 유형별 재시도, 홈 이동, 상담 연결, 대체 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-AIS-013</td><td>상담 전환 대기</td><td>검색 맥락을 상담으로 넘기기 전 고객 동의와 전달 범위를 확인하는 상태다.<br/></td><td>검색어, 선택 결과, 실패 이력 전달 범위를 고지하고 상담 전환한다.<br/></td></tr><tr><td class="mono">ST-AIS-014</td><td>피드백 접수</td><td>고객 신고, 만족도, 오류 제보, 무결과 피드백이 접수된 상태다.<br/></td><td>피드백 유형을 품질 개선 큐 또는 운영 검수 큐로 분류한다.<br/></td></tr><tr><td class="mono">ST-AIS-015</td><td>운영 검수 대기</td><td>AI 생성 후보나 정책 위반 의심 항목이 운영자 확인을 기다리는 상태다.<br/></td><td>승인, 반려, 수정, 차단 중 하나로 결정한다.<br/></td></tr><tr><td class="mono">ST-AIS-016</td><td>운영 반영 완료</td><td>검수된 검색 기준, 추천어, 응답 후보, 사전, 랭킹 정책이 운영에 반영된 상태다.<br/></td><td>성과 지표와 오류 지표를 모니터링한다.<br/></td></tr><tr><td class="mono">ST-AIS-017</td><td>운영 회수 필요</td><td>오답, 정책 위반, 장애, 성과 악화로 반영 항목을 중단하거나 롤백해야 하는 상태다.<br/></td><td>노출 차단, 이전 버전 롤백, 대체 안내를 적용한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>검색 전</td><td>통합 검색 진입 및 질의 입력</td><td>질의 입력 중</td><td>고객이 공통 검색 진입점을 선택하면 현재 화면 맥락을 유지한 채 질의 입력 상태로 전환한다.<br/></td></tr><tr><td>질의 입력 중</td><td>검색어 입력 검증과 정규화</td><td>의도 해석 중</td><td>공백·특수문자·오타·동의어를 정규화하고 최소 글자 수와 금칙어 기준을 통과하면 의도 해석을 시작한다.<br/></td></tr><tr><td>의도 해석 중</td><td>추가 질문 기반 조건 보완</td><td>조건 보완 필요</td><td>대상, 기간, 금액, 지역, 상태 등 필수 조건이 부족하면 고객에게 최소 질문만 제시한다.<br/></td></tr><tr><td>조건 보완 필요</td><td>조건 보완 후 재해석</td><td>결과 구성 중</td><td>고객이 추가 조건을 선택하거나 입력하면 기존 검색 컨텍스트와 함께 재해석한다.<br/></td></tr><tr><td>의도 해석 중</td><td>AI 검색 결과 이해 및 다음 행동 선택</td><td>결과 구성 중</td><td>의도, 대상 유형, 고객 상태, 권한 조건이 충분히 확인되면 결과 후보를 구성한다.<br/></td></tr><tr><td>결과 구성 중</td><td>고객 상태와 적용 조건 반영</td><td>결과 제공 완료</td><td>정확일치, 대표 결과, Answer Card, 유형별 결과, 제한 사유, 대체 추천을 반영해 결과를 제공한다.<br/></td></tr><tr><td>결과 제공 완료</td><td>근거 부족 또는 신뢰도 부족 확인</td><td>근거 부족</td><td>출처가 없거나 고객 조건을 확인할 수 없어 추천 근거를 명확히 제시할 수 없으면 근거 부족으로 전환한다.<br/></td></tr><tr><td>근거 부족</td><td>검색 실패·불확실 결과 복구</td><td>조건 보완 필요</td><td>고객이 원본 확인 대신 조건 보완 또는 재검색을 선택하면 기존 맥락을 유지해 조건 보완으로 전환한다.<br/></td></tr><tr><td>결과 구성 중</td><td>제로결과 폴백</td><td>결과 없음</td><td>직접 결과와 연관 결과가 없으면 빈 화면이 아니라 연관어, 인기 카테고리, FAQ, 상담 경로를 제공한다.<br/></td></tr><tr><td>결과 없음</td><td>대체 경로 선택</td><td>질의 입력 중</td><td>고객이 연관 검색어, 인기 키워드, 재검색을 선택하면 질의 입력 중 상태로 돌아간다.<br/></td></tr><tr><td>결과 제공 완료</td><td>비교·추천 결과 검토 및 실행 전 확인</td><td>비교 검토 중</td><td>고객이 비교 가능한 상품, 혜택, 업무 경로를 2개 이상 선택하면 비교 검토 상태로 전환한다.<br/></td></tr><tr><td>비교 검토 중</td><td>추천 근거와 한계 확인</td><td>실행 확인 대기</td><td>추천 사유, 적용 조건, 유의사항, 대체 선택지를 확인한 뒤 고객이 실행을 선택하면 최종 확인을 대기한다.<br/></td></tr><tr><td>실행 확인 대기</td><td>고객 통제 기반 최종 실행 확인</td><td>실행 전환 완료</td><td>고객이 필수 인증, 동의, 유의사항, 최종 실행 버튼을 명시적으로 완료한 경우에만 실행 화면으로 전환한다.<br/></td></tr><tr><td>결과 제공 완료</td><td>검색 상담 전환 및 맥락 이어가기</td><td>상담 전환 대기</td><td>검색 결과로 해결되지 않아 상담 전환을 선택하면 전달할 검색 컨텍스트를 고객에게 고지한다.<br/></td></tr><tr><td>상담 전환 대기</td><td>상담 컨텍스트 전달 동의</td><td>실행 전환 완료</td><td>고객이 검색어, 선택 결과, 실패 이력 전달에 동의하면 상담 채널로 전환한다.<br/></td></tr><tr><td>결과 제공 완료</td><td>오류·실패·중단 복구</td><td>오류·복구 필요</td><td>검색 호출 실패, 결과 로딩 실패, 권한 제한, 외부 연동 실패가 발생하면 오류 유형별 복구 상태로 전환한다.<br/></td></tr><tr><td>운영 검수 대기</td><td>AI 응답 후보 검수·배포·롤백</td><td>운영 반영 완료</td><td>운영자가 AI 후보의 금칙어, 근거, 브랜드, 법무, 편향 위험을 확인하고 승인하면 반영 완료로 전환한다.<br/></td></tr><tr><td>운영 반영 완료</td><td>품질 이상 징후 감지</td><td>운영 회수 필요</td><td>오답률, 정책 위반률, 오류율, 상담 전환율이 기준치를 초과하면 회수 필요로 전환한다.<br/></td></tr><tr><td>운영 회수 필요</td><td>롤백 및 대체 기준 반영</td><td>운영 검수 대기</td><td>문제 후보를 차단하거나 이전 버전으로 롤백한 뒤 개선 후보를 운영 검수 큐에 등록한다.<br/></td></tr><tr><td>상담 전환 대기</td><td>검색 맥락 기반 상담 접수</td><td>실행 전환 완료</td><td>상담사가 검색어, 선택 결과, 실패 이력, 고객 상태 요약을 확인하면 상담이 중복 질문 없이 시작된다.<br/></td></tr><tr><td>실행 전환 완료</td><td>상담 처리 결과 회신 및 복귀 안내</td><td>피드백 접수</td><td>상담사가 해결 결과와 후속 행동을 안내하고 고객 피드백 또는 추가 개선 필요 이력을 남기면 피드백 접수로 전환한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="862" role="img" viewBox="0 0 1120 862" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="784" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="224.0" x2="246.0" y1="134.0" y2="134.0"></line><line class="flow" x1="354.0" x2="376.0" y1="134.0" y2="134.0"></line><line class="flow" x1="484.0" x2="506.0" y1="134.0" y2="134.0"></line><line class="flow" x1="614.0" x2="636.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M484.0 134.0 C560.0 206.0, 560.0 206.0, 636.0 134.0"></path><line class="flow" x1="744.0" x2="766.0" y1="134.0" y2="134.0"></line><line class="flow" x1="874.0" x2="896.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M896.0 134.0 C755.0 206.0, 755.0 206.0, 614.0 134.0"></path><path class="flow-dash" d="M636.0 134.0 C636.0 204.0, 234.0 246.0, 234.0 316.0"></path><path class="flow-dash" d="M180.0 284.0 C180.0 214.0, 300.0 236.0, 300.0 166.0"></path><path class="flow-dash" d="M766.0 134.0 C766.0 204.0, 487.3 246.0, 487.3 316.0"></path><path class="flow-dash" d="M487.3 316.0 C560.0 244.0, 560.0 244.0, 632.7 316.0"></path><path class="flow-dash" d="M740.7 316.0 C813.3 244.0, 813.3 244.0, 886.0 316.0"></path><path class="flow-dash" d="M766.0 134.0 C766.0 204.0, 234.0 400.0, 234.0 470.0"></path><path class="flow-dash" d="M234.0 470.0 C234.0 400.0, 886.0 386.0, 886.0 316.0"></path><path class="flow-dash" d="M766.0 134.0 C766.0 204.0, 487.3 400.0, 487.3 470.0"></path><path class="flow-dash" d="M740.7 470.0 C813.3 398.0, 813.3 398.0, 886.0 470.0"></path><path class="flow-dash" d="M886.0 470.0 C886.0 540.0, 234.0 554.0, 234.0 624.0"></path><path class="flow-dash" d="M234.0 624.0 C234.0 554.0, 632.7 540.0, 632.7 470.0"></path><path class="flow-dash" d="M234.0 470.0 C234.0 400.0, 886.0 386.0, 886.0 316.0"></path><path class="flow-dash" d="M940.0 348.0 C940.0 418.0, 940.0 522.0, 940.0 592.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="108" x="116.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">검색 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-AIS-001</text><rect class="state" height="64" rx="29" ry="29" width="108" x="246.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="300" y="128">질의 입력 중</text><text class="state-sub" text-anchor="middle" x="300" y="151">ST-AIS-002</text><rect class="state" height="64" rx="29" ry="29" width="108" x="376.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="430" y="128">의도 해석 중</text><text class="state-sub" text-anchor="middle" x="430" y="151">ST-AIS-003</text><rect class="state" height="64" rx="29" ry="29" width="108" x="506.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="560" y="128">조건 보완 필요</text><text class="state-sub" text-anchor="middle" x="560" y="151">ST-AIS-004</text><rect class="state" height="64" rx="29" ry="29" width="108" x="636.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="690" y="128">결과 구성 중</text><text class="state-sub" text-anchor="middle" x="690" y="151">ST-AIS-005</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="766.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="820" y="128">결과 제공 완료</text><text class="state-sub" text-anchor="middle" x="820" y="151">ST-AIS-006</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="896.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">근거 부족</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-AIS-010</text><rect class="state" height="64" rx="29" ry="29" width="108" x="126.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">결과 없음</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-AIS-011</text><rect class="state" height="64" rx="29" ry="29" width="108" x="379.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">비교 검토 중</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-AIS-007</text><rect class="state" height="64" rx="29" ry="29" width="108" x="632.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">실행 확인 대기</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-AIS-008</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="886.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">실행 전환 완료</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-AIS-009</text><rect class="state" height="64" rx="29" ry="29" width="108" x="126.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">상담 전환 대기</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-AIS-013</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="379.3" y="438.0"></rect><text class="state-text" text-anchor="middle" x="433" y="464">오류·복구 필요</text><text class="state-sub" text-anchor="middle" x="433" y="487">ST-AIS-012</text><rect class="state" height="64" rx="29" ry="29" width="108" x="632.7" y="438.0"></rect><text class="state-text" text-anchor="middle" x="686" y="464">운영 검수 대기</text><text class="state-sub" text-anchor="middle" x="686" y="487">ST-AIS-015</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="886.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">운영 반영 완료</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-AIS-016</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="126.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="180" y="618">운영 회수 필요</text><text class="state-sub" text-anchor="middle" x="180" y="641">ST-AIS-017</text><rect class="state" height="64" rx="29" ry="29" width="108" x="886.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="940" y="618">피드백 접수</text><text class="state-sub" text-anchor="middle" x="940" y="641">ST-AIS-014</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="189.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="235.0" y="77.0">통합 검색 진입 및</text><text class="flow-label" text-anchor="middle" x="235.0" y="91.0">질의 입력</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="319.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="365.0" y="77.0">검색어 입력 검증과</text><text class="flow-label" text-anchor="middle" x="365.0" y="91.0">정규화</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="445.5" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="495.0" y="77.0">추가 질문 기반 조건</text><text class="flow-label" text-anchor="middle" x="495.0" y="91.0">보완</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="575.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="625.0" y="91.0">조건 보완 후 재해석</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="510.5" y="200.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="217.0">AI 검색 결과 이해</text><text class="flow-label" text-anchor="middle" x="560.0" y="231.0">및 다음 행동 선택</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="702.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="755.0" y="77.0">고객 상태와 적용 조건</text><text class="flow-label" text-anchor="middle" x="755.0" y="91.0">반영</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="832.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="885.0" y="77.0">근거 부족 또는 신뢰도</text><text class="flow-label" text-anchor="middle" x="885.0" y="91.0">부족 확인</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="702.0" y="200.0"></rect><text class="flow-label" text-anchor="middle" x="755.0" y="217.0">검색 실패·불확실 결과</text><text class="flow-label" text-anchor="middle" x="755.0" y="231.0">복구</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="398.0" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="196.0">제로결과 폴백</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="201.0" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="240.0" y="232.0">대체 경로 선택</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="113" x="570.2" y="165.0"></rect><text class="flow-label" text-anchor="middle" x="626.7" y="182.0">비교·추천 결과 검토 및</text><text class="flow-label" text-anchor="middle" x="626.7" y="196.0">실행 전 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="106" x="507.0" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="233.0">추천 근거와 한계 확인</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="763.8" y="202.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="219.0">고객 통제 기반 최종</text><text class="flow-label" text-anchor="middle" x="813.3" y="233.0">실행 확인</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="113" x="443.5" y="278.0"></rect><text class="flow-label" text-anchor="middle" x="500.0" y="295.0">검색 상담 전환 및 맥락</text><text class="flow-label" text-anchor="middle" x="500.0" y="309.0">이어가기</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="503.5" y="347.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="364.0">상담 컨텍스트 전달 동의</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="577.2" y="292.0"></rect><text class="flow-label" text-anchor="middle" x="626.7" y="309.0">오류·실패·중단 복구</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="78" x="774.3" y="356.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="373.0">AI 응답 후보</text><text class="flow-label" text-anchor="middle" x="813.3" y="387.0">검수·배포·롤백</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="510.5" y="537.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="554.0">품질 이상 징후 감지</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="376.8" y="501.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="518.0">롤백 및 대체 기준 반영</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="510.5" y="369.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="386.0">검색 맥락 기반 상담</text><text class="flow-label" text-anchor="middle" x="560.0" y="400.0">접수</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="113" x="883.5" y="410.0"></rect><text class="flow-label" text-anchor="middle" x="940.0" y="427.0">상담 처리 결과 회신 및</text><text class="flow-label" text-anchor="middle" x="940.0" y="441.0">복귀 안내</text><text class="note" x="78" y="808">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+		
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) AI 검색으로 정보 탐색 완료 (US-AIS-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-AIS-CUS-001</td><td>공통 검색 진입 및 입력 표준 적용</td><td>고객이 홈, 전시, 상품상세, 내서비스, CS 등 주요 화면에서 동일한 검색 진입 구조로 탐색을 시작하고, 검색어 삭제·초기화와 초기 추천·상황 도움 진입을 확인하게 한다.<br/></td><td>FN-AIS-ENT-001 검색 진입점 구성<br/>FN-AIS-INP-001 질의 입력·정규화 처리</td><td>PG-AIS-SCOPE-001 통합 검색 범위 정책<br/>PG-AIS-INPUT-001 입력·정규화 정책</td></tr><tr><td class="mono">PR-AIS-CUS-002</td><td>질의 정규화·자동완성 보조</td><td>고객 입력을 정규화하고 자동완성, 바로가기, 최근·인기 검색어로 검색 부담을 낮춘다.<br/></td><td>FN-AIS-INP-001 질의 입력·정규화 처리<br/>FN-AIS-SUG-001 자동완성·연관어 제공</td><td>PG-AIS-INPUT-001 입력·정규화 정책<br/>PG-AIS-SUGGEST-001 검색어 보조 정책<br/>PG-AIS-HISTORY-001 검색 이력·상태 유지 정책</td></tr><tr><td class="mono">PR-AIS-CUS-003</td><td>의도 기반 통합 결과 구성</td><td>질의 의도와 고객 상태를 바탕으로 통합 결과, 유형별 탭, Answer Card, Quick Action, 상품 핵심 속성, 매칭 기준 안내, 페이지네이션·무한스크롤 기준을 구성한다.<br/></td><td>FN-AIS-INT-001 의도 분류·조건 추출<br/>FN-AIS-SRC-001 통합 검색 범위 조회<br/>FN-AIS-RNK-001 랭킹·대표 결과 통합<br/>FN-AIS-ANS-001 Answer Card·결과 카드 구성</td><td>PG-AIS-SCOPE-001 통합 검색 범위 정책<br/>PG-AIS-RANK-001 결과 랭킹·우선순위 정책<br/>PG-AIS-CARD-001 결과 카드·출처 고지 정책</td></tr><tr><td class="mono">PR-AIS-CUS-004</td><td>출처·조건·미충족 사유 확인</td><td>검색 결과의 출처, 매칭 근거, 하이라이트, 적용 가능 조건, 제한 사유, 대체 추천을 고객이 이해할 수 있게 제공한다.<br/></td><td>FN-AIS-CND-001 고객 상태·대상 조건 판정<br/>FN-AIS-ANS-001 Answer Card·결과 카드 구성</td><td>PG-AIS-CARD-001 결과 카드·출처 고지 정책<br/>PG-AIS-CONDITION-001 고객 상태·노출 제한 정책</td></tr></tbody>
+</table>
+
+<h4>2) AI 검색 기반 의사결정 및 실행 연결 (US-AIS-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-AIS-CUS-005</td><td>비교 대상 선택 및 차이 요약 확인</td><td>고객이 검색 결과에서 비교 대상을 선택하고 AI 요약을 통해 차이점과 추천 근거를 확인한다.<br/></td><td>FN-AIS-CMP-001 비교·추천 근거 요약<br/>FN-AIS-CND-001 고객 상태·대상 조건 판정</td><td>PG-AIS-COMPARE-001 비교·추천 통제 정책<br/>PG-AIS-CONDITION-001 고객 상태·노출 제한 정책</td></tr><tr><td class="mono">PR-AIS-CUS-006</td><td>실행 전 고객 통제 확인 및 전환</td><td>주요 업무 실행 전 고객의 명시적 선택, 인증, 선택동의, 유의사항 확인을 거쳐 단일 실행 또는 크로스 도메인 실행 후보로 연결한다.<br/></td><td>FN-AIS-ACT-001 실행 경로·최종확인 연결<br/>FN-AIS-CND-001 고객 상태·대상 조건 판정</td><td>PG-AIS-ACTION-001 실행 연결·최종 확인 정책<br/>PG-AIS-COMPARE-001 비교·추천 통제 정책</td></tr></tbody>
+</table>
+
+<h4>3) 검색 실패 복구 및 상담 전환 (US-AIS-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-AIS-CUS-007</td><td>무결과·근거 부족 원인 안내</td><td>결과 없음, 조건 불일치, 데이터 부재, 근거 부족, 노출 제한, 오류의 원인을 구분해 고객에게 현재 상태와 이유를 안내한다.<br/></td><td>FN-AIS-FBK-001 실패·무결과 폴백<br/>FN-AIS-ANS-001 Answer Card·결과 카드 구성</td><td>PG-AIS-FAIL-001 실패·무결과 복구 정책<br/>PG-AIS-CARD-001 결과 카드·출처 고지 정책</td></tr><tr><td class="mono">PR-AIS-CUS-008</td><td>재검색·조건 보완·대체 경로 선택</td><td>연관 검색어, 유사어, 추가 질문, FAQ, 인기 카테고리, 상담 연결로 고객이 이탈하지 않고 다음 행동을 이어가게 한다.<br/></td><td>FN-AIS-FBK-001 실패·무결과 폴백<br/>FN-AIS-SUG-001 자동완성·연관어 제공<br/>FN-AIS-CS-001 상담 전환 컨텍스트 전달</td><td>PG-AIS-FAIL-001 실패·무결과 복구 정책<br/>PG-AIS-SUGGEST-001 검색어 보조 정책<br/>PG-AIS-CS-001 상담 전환 정책</td></tr><tr><td class="mono">PR-AIS-CUS-009</td><td>상담 전환 필요성 확인</td><td>AI 검색으로 해결되지 않는 사유를 확인하고 상담 전환 전에 전달 정보와 고객 동의를 안내한다.<br/></td><td>FN-AIS-CS-001 상담 전환 컨텍스트 전달<br/>FN-AIS-ACT-001 실행 경로·최종확인 연결</td><td>PG-AIS-CS-001 상담 전환 정책<br/>PG-AIS-DATA-001 로그·개인정보 보호 정책</td></tr><tr><td class="mono">PR-AIS-CUS-010</td><td>검색 컨텍스트 상담 전달 및 복귀 안내</td><td>검색어, 선택 결과, 실패 이력, 고객 상태를 상담에 전달하고 상담 후 검색 흐름으로 복귀할 수 있게 한다.<br/></td><td>FN-AIS-CS-001 상담 전환 컨텍스트 전달<br/>FN-AIS-MON-001 품질·성과·로그 모니터링</td><td>PG-AIS-CS-001 상담 전환 정책<br/>PG-AIS-HISTORY-001 검색 이력·상태 유지 정책</td></tr></tbody>
+</table>
+
+<h4>4) 검색 맥락 기반 상담 응대 (US-AIS-CS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-AIS-CS-001</td><td>검색 맥락 기반 상담 접수</td><td>상담사가 검색어, 선택 결과, 실패 이력, 고객 상태 요약, 상황 인지형 도움 요청 맥락을 확인하고 중복 질문 없이 상담을 시작한다.<br/></td><td>FN-AIS-CS-001 상담 전환 컨텍스트 전달<br/>FN-AIS-MON-001 품질·성과·로그 모니터링</td><td>PG-AIS-CS-001 상담 전환 정책<br/>PG-AIS-DATA-001 로그·개인정보 보호 정책</td></tr><tr><td class="mono">PR-AIS-CS-002</td><td>상담 처리 결과 회신 및 복귀 안내</td><td>상담사가 해결 결과, 추가 확인 사항, 검색 또는 업무 화면 복귀 경로를 고객에게 안내하고 상담 결과 이력을 남긴다.<br/></td><td>FN-AIS-CS-001 상담 전환 컨텍스트 전달<br/>FN-AIS-ACT-001 실행 경로·최종확인 연결</td><td>PG-AIS-CS-001 상담 전환 정책<br/>PG-AIS-HISTORY-001 검색 이력·상태 유지 정책</td></tr></tbody>
+</table>
+
+<h4>5) 검색 대상 자산 기준 관리 (US-AIS-CON-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-AIS-CON-001</td><td>검색 대상 자산 등록 기준 점검</td><td>운영자가 상품, 혜택, FAQ, 공지, 전시 등 검색 대상 자산의 노출 가능성, 메타데이터, 대표 엔티티 등록 기준을 점검한다.<br/></td><td>FN-AIS-OPS-001 검색 사전·금칙어·대표 엔티티 관리<br/>FN-AIS-SRC-001 통합 검색 범위 조회</td><td>PG-AIS-SCOPE-001 통합 검색 범위 정책<br/>PG-AIS-OPS-001 운영 사전·금칙어 정책</td></tr><tr><td class="mono">PR-AIS-CON-002</td><td>대표 엔티티·실행 경로 반영 확인</td><td>운영자가 대표 결과, 동의어, 축약어, 오타, 채널별 실행 경로가 검색 결과와 실행 연결에 반영되는지 확인하고 변경 이력을 남긴다.<br/></td><td>FN-AIS-OPS-001 검색 사전·금칙어·대표 엔티티 관리<br/>FN-AIS-ACT-001 실행 경로·최종확인 연결</td><td>PG-AIS-SCOPE-001 통합 검색 범위 정책<br/>PG-AIS-HISTORY-001 검색 이력·상태 유지 정책</td></tr></tbody>
+</table>
+
+<h4>6) 검색 기준·AI 품질 운영 (US-AIS-OPR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-AIS-OPR-002</td><td>랭킹·노출 제한·금칙어 기준 관리</td><td>운영자가 결과 랭킹, 금칙어, 노출 제한, 대상 조건, 필터 구간값, 대체 추천 기준을 관리한다.<br/></td><td>FN-AIS-RNK-001 랭킹·대표 결과 통합<br/>FN-AIS-OPS-001 검색 사전·금칙어·대표 엔티티 관리<br/>FN-AIS-CND-001 고객 상태·대상 조건 판정</td><td>PG-AIS-RANK-001 결과 랭킹·우선순위 정책<br/>PG-AIS-CONDITION-001 고객 상태·노출 제한 정책<br/>PG-AIS-OPS-001 운영 사전·금칙어 정책</td></tr><tr><td class="mono">PR-AIS-OPR-003</td><td>AI 추천어·응답 후보 검수</td><td>AI가 생성한 자동완성, 추천어, 응답 후보, 요약 후보를 금칙어, 법무, 브랜드, 근거 기준으로 검수한다.<br/></td><td>FN-AIS-QA-001 AI 후보 검수·배포·롤백<br/>FN-AIS-OPS-001 검색 사전·금칙어·대표 엔티티 관리</td><td>PG-AIS-QA-001 AI 후보 검수·배포 정책<br/>PG-AIS-OPS-001 운영 사전·금칙어 정책</td></tr><tr><td class="mono">PR-AIS-OPR-004</td><td>배포·회수·롤백 관리</td><td>승인된 후보를 배포하고 오류, 정책 위반, 성과 악화가 발생하면 회수 또는 롤백한다.<br/></td><td>FN-AIS-QA-001 AI 후보 검수·배포·롤백<br/>FN-AIS-MON-001 품질·성과·로그 모니터링</td><td>PG-AIS-QA-001 AI 후보 검수·배포 정책<br/>PG-AIS-METRIC-001 품질·성과 운영 정책</td></tr><tr><td class="mono">PR-AIS-OPR-005</td><td>검색 품질 지표 모니터링</td><td>검색 성공률, 즉답 해결률, 실행 완료율, 무결과율, 이탈률, 상담 전환율, 응답 시간, 렌더링 지연, 호출 실패율, 모델·룰 기반 성과 차이를 모니터링한다.<br/></td><td>FN-AIS-MON-001 품질·성과·로그 모니터링</td><td>PG-AIS-METRIC-001 품질·성과 운영 정책<br/>PG-AIS-DATA-001 로그·개인정보 보호 정책</td></tr><tr><td class="mono">PR-AIS-OPR-006</td><td>실패 케이스 분석 및 개선 반영</td><td>반복 실패, 미해결 질의, 사용자 신고, 정책 차단 케이스를 분류하고 개선 후보를 운영 검수 큐로 보낸다.<br/></td><td>FN-AIS-MON-001 품질·성과·로그 모니터링<br/>FN-AIS-QA-001 AI 후보 검수·배포·롤백</td><td>PG-AIS-METRIC-001 품질·성과 운영 정책<br/>PG-AIS-QA-001 AI 후보 검수·배포 정책</td></tr></tbody>
+</table>
+
+	
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+	
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<a class="bpmn-download-button" href="NC_AI검색_정책서_간소화_v0.11_전체업무흐름도.bpmn" download="NC_AI검색_정책서_간소화_v0.11_전체업무흐름도.bpmn">BPMN XML 다운로드</a>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_AI\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_AI\" name=\"AI 검색 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_AIS_CUS_001\" name=\"US-AIS-CUS-001 AI 검색으로 정보 탐색 완료\">\n        <bpmn:flowNodeRef>Start_US_AIS_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_AIS_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_AIS_CUS_002\" name=\"US-AIS-CUS-002 AI 검색 기반 의사결정 및 실행 연결\">\n        <bpmn:flowNodeRef>Start_US_AIS_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_AIS_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_AIS_CUS_003\" name=\"US-AIS-CUS-003 검색 실패 복구 및 상담 전환\">\n        <bpmn:flowNodeRef>Start_US_AIS_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_009<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CUS_010<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_AIS_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_AIS_CS_001\" name=\"US-AIS-CS-001 검색 맥락 기반 상담 응대\">\n        <bpmn:flowNodeRef>Start_US_AIS_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_AIS_CS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_AIS_CON_001\" name=\"US-AIS-CON-001 검색 대상 자산 기준 관리\">\n        <bpmn:flowNodeRef>Start_US_AIS_CON_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CON_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_CON_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_AIS_CON_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_AIS_OPR_001\" name=\"US-AIS-OPR-001 검색 기준·AI 품질 운영\">\n        <bpmn:flowNodeRef>Start_US_AIS_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_OPR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_OPR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_OPR_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_OPR_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_AIS_OPR_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_AIS_OPR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_AIS_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_AIS_CUS_001_Task_PR_AIS_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_AIS_CUS_001\" name=\"PR-AIS-CUS-001 공통 검색 진입 및 입력 표준 적용\">\n      <bpmn:incoming>Flow_Start_US_AIS_CUS_001_Task_PR_AIS_CUS_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_001_Task_PR_AIS_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_002\" name=\"PR-AIS-CUS-002 질의 정규화·자동완성 보조\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_001_Task_PR_AIS_CUS_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_002_Task_PR_AIS_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_003\" name=\"PR-AIS-CUS-003 의도 기반 통합 결과 구성\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_002_Task_PR_AIS_CUS_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_003_Task_PR_AIS_CUS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_004\" name=\"PR-AIS-CUS-004 출처·조건·미충족 사유 확인\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_003_Task_PR_AIS_CUS_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_004_End_US_AIS_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_AIS_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_004_End_US_AIS_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_AIS_CUS_001_Task_PR_AIS_CUS_001\" sourceRef=\"Start_US_AIS_CUS_001\" targetRef=\"Task_PR_AIS_CUS_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_001_Task_PR_AIS_CUS_002\" sourceRef=\"Task_PR_AIS_CUS_001\" targetRef=\"Task_PR_AIS_CUS_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_002_Task_PR_AIS_CUS_003\" sourceRef=\"Task_PR_AIS_CUS_002\" targetRef=\"Task_PR_AIS_CUS_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_003_Task_PR_AIS_CUS_004\" sourceRef=\"Task_PR_AIS_CUS_003\" targetRef=\"Task_PR_AIS_CUS_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_004_End_US_AIS_CUS_001\" sourceRef=\"Task_PR_AIS_CUS_004\" targetRef=\"End_US_AIS_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_AIS_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_AIS_CUS_002_Task_PR_AIS_CUS_005<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_AIS_CUS_005\" name=\"PR-AIS-CUS-005 비교 대상 선택 및 차이 요약 확인\">\n      <bpmn:incoming>Flow_Start_US_AIS_CUS_002_Task_PR_AIS_CUS_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_005_Task_PR_AIS_CUS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_006\" name=\"PR-AIS-CUS-006 실행 전 고객 통제 확인 및 전환\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_005_Task_PR_AIS_CUS_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_006_End_US_AIS_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_AIS_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_006_End_US_AIS_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_AIS_CUS_002_Task_PR_AIS_CUS_005\" sourceRef=\"Start_US_AIS_CUS_002\" targetRef=\"Task_PR_AIS_CUS_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_005_Task_PR_AIS_CUS_006\" sourceRef=\"Task_PR_AIS_CUS_005\" targetRef=\"Task_PR_AIS_CUS_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_006_End_US_AIS_CUS_002\" sourceRef=\"Task_PR_AIS_CUS_006\" targetRef=\"End_US_AIS_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_AIS_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_AIS_CUS_003_Task_PR_AIS_CUS_007<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_AIS_CUS_007\" name=\"PR-AIS-CUS-007 무결과·근거 부족 원인 안내\">\n      <bpmn:incoming>Flow_Start_US_AIS_CUS_003_Task_PR_AIS_CUS_007<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_007_Task_PR_AIS_CUS_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_008\" name=\"PR-AIS-CUS-008 재검색·조건 보완·대체 경로 선택\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_007_Task_PR_AIS_CUS_008<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_008_Task_PR_AIS_CUS_009<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_009\" name=\"PR-AIS-CUS-009 상담 전환 필요성 확인\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_008_Task_PR_AIS_CUS_009<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_009_Task_PR_AIS_CUS_010<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CUS_010\" name=\"PR-AIS-CUS-010 검색 컨텍스트 상담 전달 및 복귀 안내\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_009_Task_PR_AIS_CUS_010<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CUS_010_End_US_AIS_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_AIS_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CUS_010_End_US_AIS_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_AIS_CUS_003_Task_PR_AIS_CUS_007\" sourceRef=\"Start_US_AIS_CUS_003\" targetRef=\"Task_PR_AIS_CUS_007\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_007_Task_PR_AIS_CUS_008\" sourceRef=\"Task_PR_AIS_CUS_007\" targetRef=\"Task_PR_AIS_CUS_008\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_008_Task_PR_AIS_CUS_009\" sourceRef=\"Task_PR_AIS_CUS_008\" targetRef=\"Task_PR_AIS_CUS_009\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_009_Task_PR_AIS_CUS_010\" sourceRef=\"Task_PR_AIS_CUS_009\" targetRef=\"Task_PR_AIS_CUS_010\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CUS_010_End_US_AIS_CUS_003\" sourceRef=\"Task_PR_AIS_CUS_010\" targetRef=\"End_US_AIS_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_AIS_CS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_AIS_CS_001_Task_PR_AIS_CS_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_AIS_CS_001\" name=\"PR-AIS-CS-001 검색 맥락 기반 상담 접수\">\n      <bpmn:incoming>Flow_Start_US_AIS_CS_001_Task_PR_AIS_CS_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CS_001_Task_PR_AIS_CS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CS_002\" name=\"PR-AIS-CS-002 상담 처리 결과 회신 및 복귀 안내\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CS_001_Task_PR_AIS_CS_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CS_002_End_US_AIS_CS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_AIS_CS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CS_002_End_US_AIS_CS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_AIS_CS_001_Task_PR_AIS_CS_001\" sourceRef=\"Start_US_AIS_CS_001\" targetRef=\"Task_PR_AIS_CS_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CS_001_Task_PR_AIS_CS_002\" sourceRef=\"Task_PR_AIS_CS_001\" targetRef=\"Task_PR_AIS_CS_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CS_002_End_US_AIS_CS_001\" sourceRef=\"Task_PR_AIS_CS_002\" targetRef=\"End_US_AIS_CS_001\"/>\n    <bpmn:startEvent id=\"Start_US_AIS_CON_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_AIS_CON_001_Task_PR_AIS_CON_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_AIS_CON_001\" name=\"PR-AIS-CON-001 검색 대상 자산 등록 기준 점검\">\n      <bpmn:incoming>Flow_Start_US_AIS_CON_001_Task_PR_AIS_CON_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CON_001_Task_PR_AIS_CON_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_CON_002\" name=\"PR-AIS-CON-002 대표 엔티티·실행 경로 반영 확인\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CON_001_Task_PR_AIS_CON_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_CON_002_End_US_AIS_CON_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_AIS_CON_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_AIS_CON_002_End_US_AIS_CON_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_AIS_CON_001_Task_PR_AIS_CON_001\" sourceRef=\"Start_US_AIS_CON_001\" targetRef=\"Task_PR_AIS_CON_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CON_001_Task_PR_AIS_CON_002\" sourceRef=\"Task_PR_AIS_CON_001\" targetRef=\"Task_PR_AIS_CON_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_CON_002_End_US_AIS_CON_001\" sourceRef=\"Task_PR_AIS_CON_002\" targetRef=\"End_US_AIS_CON_001\"/>\n    <bpmn:startEvent id=\"Start_US_AIS_OPR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_AIS_OPR_001_Task_PR_AIS_OPR_002<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_AIS_OPR_002\" name=\"PR-AIS-OPR-002 랭킹·노출 제한·금칙어 기준 관리\">\n      <bpmn:incoming>Flow_Start_US_AIS_OPR_001_Task_PR_AIS_OPR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_OPR_002_Task_PR_AIS_OPR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_OPR_003\" name=\"PR-AIS-OPR-003 AI 추천어·응답 후보 검수\">\n      <bpmn:incoming>Flow_Task_PR_AIS_OPR_002_Task_PR_AIS_OPR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_OPR_003_Task_PR_AIS_OPR_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_OPR_004\" name=\"PR-AIS-OPR-004 배포·회수·롤백 관리\">\n      <bpmn:incoming>Flow_Task_PR_AIS_OPR_003_Task_PR_AIS_OPR_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_OPR_004_Task_PR_AIS_OPR_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_OPR_005\" name=\"PR-AIS-OPR-005 검색 품질 지표 모니터링\">\n      <bpmn:incoming>Flow_Task_PR_AIS_OPR_004_Task_PR_AIS_OPR_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_OPR_005_Task_PR_AIS_OPR_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_AIS_OPR_006\" name=\"PR-AIS-OPR-006 실패 케이스 분석 및 개선 반영\">\n      <bpmn:incoming>Flow_Task_PR_AIS_OPR_005_Task_PR_AIS_OPR_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_AIS_OPR_006_End_US_AIS_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_AIS_OPR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_AIS_OPR_006_End_US_AIS_OPR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_AIS_OPR_001_Task_PR_AIS_OPR_002\" sourceRef=\"Start_US_AIS_OPR_001\" targetRef=\"Task_PR_AIS_OPR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_OPR_002_Task_PR_AIS_OPR_003\" sourceRef=\"Task_PR_AIS_OPR_002\" targetRef=\"Task_PR_AIS_OPR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_OPR_003_Task_PR_AIS_OPR_004\" sourceRef=\"Task_PR_AIS_OPR_003\" targetRef=\"Task_PR_AIS_OPR_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_OPR_004_Task_PR_AIS_OPR_005\" sourceRef=\"Task_PR_AIS_OPR_004\" targetRef=\"Task_PR_AIS_OPR_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_OPR_005_Task_PR_AIS_OPR_006\" sourceRef=\"Task_PR_AIS_OPR_005\" targetRef=\"Task_PR_AIS_OPR_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_AIS_OPR_006_End_US_AIS_OPR_001\" sourceRef=\"Task_PR_AIS_OPR_006\" targetRef=\"End_US_AIS_OPR_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_AI\">\n      <bpmndi:BPMNShape id=\"Lane_US_AIS_CUS_001_di\" bpmnElement=\"Lane_US_AIS_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_AIS_CUS_001_di\" bpmnElement=\"Start_US_AIS_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_001_di\" bpmnElement=\"Task_PR_AIS_CUS_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_002_di\" bpmnElement=\"Task_PR_AIS_CUS_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_003_di\" bpmnElement=\"Task_PR_AIS_CUS_003\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_004_di\" bpmnElement=\"Task_PR_AIS_CUS_004\">\n        <dc:Bounds x=\"900\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_AIS_CUS_001_di\" bpmnElement=\"End_US_AIS_CUS_001\">\n        <dc:Bounds x=\"1120\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_AIS_CUS_002_di\" bpmnElement=\"Lane_US_AIS_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_AIS_CUS_002_di\" bpmnElement=\"Start_US_AIS_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_005_di\" bpmnElement=\"Task_PR_AIS_CUS_005\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_006_di\" bpmnElement=\"Task_PR_AIS_CUS_006\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_AIS_CUS_002_di\" bpmnElement=\"End_US_AIS_CUS_002\">\n        <dc:Bounds x=\"680\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_AIS_CUS_003_di\" bpmnElement=\"Lane_US_AIS_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_AIS_CUS_003_di\" bpmnElement=\"Start_US_AIS_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_007_di\" bpmnElement=\"Task_PR_AIS_CUS_007\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_008_di\" bpmnElement=\"Task_PR_AIS_CUS_008\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_009_di\" bpmnElement=\"Task_PR_AIS_CUS_009\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CUS_010_di\" bpmnElement=\"Task_PR_AIS_CUS_010\">\n        <dc:Bounds x=\"900\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_AIS_CUS_003_di\" bpmnElement=\"End_US_AIS_CUS_003\">\n        <dc:Bounds x=\"1120\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_AIS_CS_001_di\" bpmnElement=\"Lane_US_AIS_CS_001\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_AIS_CS_001_di\" bpmnElement=\"Start_US_AIS_CS_001\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CS_001_di\" bpmnElement=\"Task_PR_AIS_CS_001\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CS_002_di\" bpmnElement=\"Task_PR_AIS_CS_002\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_AIS_CS_001_di\" bpmnElement=\"End_US_AIS_CS_001\">\n        <dc:Bounds x=\"680\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_AIS_CON_001_di\" bpmnElement=\"Lane_US_AIS_CON_001\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_AIS_CON_001_di\" bpmnElement=\"Start_US_AIS_CON_001\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CON_001_di\" bpmnElement=\"Task_PR_AIS_CON_001\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_CON_002_di\" bpmnElement=\"Task_PR_AIS_CON_002\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_AIS_CON_001_di\" bpmnElement=\"End_US_AIS_CON_001\">\n        <dc:Bounds x=\"680\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_AIS_OPR_001_di\" bpmnElement=\"Lane_US_AIS_OPR_001\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_AIS_OPR_001_di\" bpmnElement=\"Start_US_AIS_OPR_001\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_OPR_002_di\" bpmnElement=\"Task_PR_AIS_OPR_002\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_OPR_003_di\" bpmnElement=\"Task_PR_AIS_OPR_003\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_OPR_004_di\" bpmnElement=\"Task_PR_AIS_OPR_004\">\n        <dc:Bounds x=\"680\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_OPR_005_di\" bpmnElement=\"Task_PR_AIS_OPR_005\">\n        <dc:Bounds x=\"900\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_AIS_OPR_006_di\" bpmnElement=\"Task_PR_AIS_OPR_006\">\n        <dc:Bounds x=\"1120\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_AIS_OPR_001_di\" bpmnElement=\"End_US_AIS_OPR_001\">\n        <dc:Bounds x=\"1340\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_AIS_CUS_001_Task_PR_AIS_CUS_001_di\" bpmnElement=\"Flow_Start_US_AIS_CUS_001_Task_PR_AIS_CUS_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_001_Task_PR_AIS_CUS_002_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_001_Task_PR_AIS_CUS_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_002_Task_PR_AIS_CUS_003_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_002_Task_PR_AIS_CUS_003\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_003_Task_PR_AIS_CUS_004_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_003_Task_PR_AIS_CUS_004\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_004_End_US_AIS_CUS_001_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_004_End_US_AIS_CUS_001\">\n        <di:waypoint x=\"1070\" y=\"70\"/>\n        <di:waypoint x=\"1120\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_AIS_CUS_002_Task_PR_AIS_CUS_005_di\" bpmnElement=\"Flow_Start_US_AIS_CUS_002_Task_PR_AIS_CUS_005\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_005_Task_PR_AIS_CUS_006_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_005_Task_PR_AIS_CUS_006\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_006_End_US_AIS_CUS_002_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_006_End_US_AIS_CUS_002\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_AIS_CUS_003_Task_PR_AIS_CUS_007_di\" bpmnElement=\"Flow_Start_US_AIS_CUS_003_Task_PR_AIS_CUS_007\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_007_Task_PR_AIS_CUS_008_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_007_Task_PR_AIS_CUS_008\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_008_Task_PR_AIS_CUS_009_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_008_Task_PR_AIS_CUS_009\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_009_Task_PR_AIS_CUS_010_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_009_Task_PR_AIS_CUS_010\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CUS_010_End_US_AIS_CUS_003_di\" bpmnElement=\"Flow_Task_PR_AIS_CUS_010_End_US_AIS_CUS_003\">\n        <di:waypoint x=\"1070\" y=\"410\"/>\n        <di:waypoint x=\"1120\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_AIS_CS_001_Task_PR_AIS_CS_001_di\" bpmnElement=\"Flow_Start_US_AIS_CS_001_Task_PR_AIS_CS_001\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CS_001_Task_PR_AIS_CS_002_di\" bpmnElement=\"Flow_Task_PR_AIS_CS_001_Task_PR_AIS_CS_002\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CS_002_End_US_AIS_CS_001_di\" bpmnElement=\"Flow_Task_PR_AIS_CS_002_End_US_AIS_CS_001\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_AIS_CON_001_Task_PR_AIS_CON_001_di\" bpmnElement=\"Flow_Start_US_AIS_CON_001_Task_PR_AIS_CON_001\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CON_001_Task_PR_AIS_CON_002_di\" bpmnElement=\"Flow_Task_PR_AIS_CON_001_Task_PR_AIS_CON_002\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_CON_002_End_US_AIS_CON_001_di\" bpmnElement=\"Flow_Task_PR_AIS_CON_002_End_US_AIS_CON_001\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_AIS_OPR_001_Task_PR_AIS_OPR_002_di\" bpmnElement=\"Flow_Start_US_AIS_OPR_001_Task_PR_AIS_OPR_002\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_OPR_002_Task_PR_AIS_OPR_003_di\" bpmnElement=\"Flow_Task_PR_AIS_OPR_002_Task_PR_AIS_OPR_003\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_OPR_003_Task_PR_AIS_OPR_004_di\" bpmnElement=\"Flow_Task_PR_AIS_OPR_003_Task_PR_AIS_OPR_004\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_OPR_004_Task_PR_AIS_OPR_005_di\" bpmnElement=\"Flow_Task_PR_AIS_OPR_004_Task_PR_AIS_OPR_005\">\n        <di:waypoint x=\"850\" y=\"920\"/>\n        <di:waypoint x=\"900\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_OPR_005_Task_PR_AIS_OPR_006_di\" bpmnElement=\"Flow_Task_PR_AIS_OPR_005_Task_PR_AIS_OPR_006\">\n        <di:waypoint x=\"1070\" y=\"920\"/>\n        <di:waypoint x=\"1120\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_AIS_OPR_006_End_US_AIS_OPR_001_di\" bpmnElement=\"Flow_Task_PR_AIS_OPR_006_End_US_AIS_OPR_001\">\n        <di:waypoint x=\"1290\" y=\"920\"/>\n        <di:waypoint x=\"1340\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="1052" role="img" viewBox="0 0 1362 1052" width="1362" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="77">US-AIS-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="93">AI 검색으로 정보 탐색</text><text class="pool-title" text-anchor="middle" x="145" y="109">완료</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-AIS-CUS-001</text><text class="task-text" text-anchor="middle" x="410" y="112">공통 검색 진입 및 입력</text><text class="task-text" text-anchor="middle" x="410" y="126">표준 적용</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-AIS-CUS-002</text><text class="task-text" text-anchor="middle" x="595" y="119">질의 정규화·자동완성 보조</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-AIS-CUS-003</text><text class="task-text" text-anchor="middle" x="780" y="119">의도 기반 통합 결과 구성</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="75"></rect><text class="task-text" text-anchor="middle" x="965" y="96">PR-AIS-CUS-004</text><text class="task-text" text-anchor="middle" x="965" y="119">출처·조건·미충족 사유 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="108" y2="108"></line><circle class="end" cx="1103" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="245">US-AIS-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="261">AI 검색 기반 의사결정 및</text><text class="pool-title" text-anchor="middle" x="145" y="277">실행 연결</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-AIS-CUS-005</text><text class="task-text" text-anchor="middle" x="410" y="280">비교 대상 선택 및 차이</text><text class="task-text" text-anchor="middle" x="410" y="294">요약 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-AIS-CUS-006</text><text class="task-text" text-anchor="middle" x="595" y="280">실행 전 고객 통제 확인 및</text><text class="task-text" text-anchor="middle" x="595" y="294">전환</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="276" y2="276"></line><circle class="end" cx="733" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="413">US-AIS-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="429">검색 실패 복구 및 상담</text><text class="pool-title" text-anchor="middle" x="145" y="445">전환</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-AIS-CUS-007</text><text class="task-text" text-anchor="middle" x="410" y="455">무결과·근거 부족 원인 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-AIS-CUS-008</text><text class="task-text" text-anchor="middle" x="595" y="448">재검색·조건 보완·대체 경로</text><text class="task-text" text-anchor="middle" x="595" y="462">선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-AIS-CUS-009</text><text class="task-text" text-anchor="middle" x="780" y="455">상담 전환 필요성 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="411"></rect><text class="task-text" text-anchor="middle" x="965" y="432">PR-AIS-CUS-010</text><text class="task-text" text-anchor="middle" x="965" y="448">검색 컨텍스트 상담 전달 및</text><text class="task-text" text-anchor="middle" x="965" y="462">복귀 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="444" y2="444"></line><circle class="end" cx="1103" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-AIS-CS-001</text><text class="pool-title" text-anchor="middle" x="145" y="605">검색 맥락 기반 상담 응대</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-AIS-CS-001</text><text class="task-text" text-anchor="middle" x="410" y="623">검색 맥락 기반 상담 접수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-AIS-CS-002</text><text class="task-text" text-anchor="middle" x="595" y="616">상담 처리 결과 회신 및</text><text class="task-text" text-anchor="middle" x="595" y="630">복귀 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="612" y2="612"></line><circle class="end" cx="733" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-AIS-CON-001</text><text class="pool-title" text-anchor="middle" x="145" y="773">검색 대상 자산 기준 관리</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-AIS-CON-001</text><text class="task-text" text-anchor="middle" x="410" y="784">검색 대상 자산 등록 기준</text><text class="task-text" text-anchor="middle" x="410" y="798">점검</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-AIS-CON-002</text><text class="task-text" text-anchor="middle" x="595" y="784">대표 엔티티·실행 경로 반영</text><text class="task-text" text-anchor="middle" x="595" y="798">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="780" y2="780"></line><circle class="end" cx="733" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="925">US-AIS-OPR-001</text><text class="pool-title" text-anchor="middle" x="145" y="941">검색 기준·AI 품질 운영</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-AIS-OPR-002</text><text class="task-text" text-anchor="middle" x="410" y="952">랭킹·노출 제한·금칙어 기준</text><text class="task-text" text-anchor="middle" x="410" y="966">관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-AIS-OPR-003</text><text class="task-text" text-anchor="middle" x="595" y="959">AI 추천어·응답 후보 검수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="915"></rect><text class="task-text" text-anchor="middle" x="780" y="936">PR-AIS-OPR-004</text><text class="task-text" text-anchor="middle" x="780" y="959">배포·회수·롤백 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="885" y="915"></rect><text class="task-text" text-anchor="middle" x="965" y="936">PR-AIS-OPR-005</text><text class="task-text" text-anchor="middle" x="965" y="959">검색 품질 지표 모니터링</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="1070" y="915"></rect><text class="task-text" text-anchor="middle" x="1150" y="936">PR-AIS-OPR-006</text><text class="task-text" text-anchor="middle" x="1150" y="952">실패 케이스 분석 및 개선</text><text class="task-text" text-anchor="middle" x="1150" y="966">반영</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1064" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1234" x2="1267" y1="948" y2="948"></line><circle class="end" cx="1288" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="1288" y="952">End</text></svg></div></div>
+</div>
+
+	
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 공통 검색 진입 및 입력 표준 적용 (PR-AIS-CUS-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-ENT-001</td><td>검색 진입점 구성</td><td>주요 화면에서 같은 검색 진입 경험을 제공한다.<br/></td><td>전역 검색 아이콘 제공<br/>화면 맥락 placeholder 표시<br/>검색 진입 위치 표준화<br/>진입 화면 상태 유지<br/>개인화 초기 추천 영역 구성<br/>상황 인지형 AI 도움 진입 제공<br/>검색어 삭제·초기화 상태 처리<br/>TPO 맥락 기반 검색창 문구 제공</td></tr><tr><td class="mono">FN-AIS-INP-001</td><td>질의 입력·정규화 처리</td><td>고객 입력을 검색 가능한 질의로 정제하고 검증한다.<br/></td><td>공백·특수문자 정리<br/>오타·동의어 인식<br/>최소·최대 길이 확인<br/>금칙어 사전 확인</td></tr></tbody>
+</table>
+
+<h4>2) 질의 정규화·자동완성 보조 (PR-AIS-CUS-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-INP-001</td><td>질의 입력·정규화 처리</td><td>고객 입력을 검색 가능한 질의로 정제하고 검증한다.<br/></td><td>공백·특수문자 정리<br/>오타·동의어 인식<br/>최소·최대 길이 확인<br/>금칙어 사전 확인</td></tr><tr><td class="mono">FN-AIS-SUG-001</td><td>자동완성·연관어 제공</td><td>탐색 부담을 줄이는 추천 검색어와 바로가기를 제공한다.<br/></td><td>자동완성 후보 생성<br/>기능 바로가기 제안<br/>연관 검색어 표시<br/>최근·인기 검색어 제공<br/>개인화 추천 검색어 선별<br/>동의어·축약어·오타 후보 반영</td></tr></tbody>
+</table>
+
+<h4>3) 의도 기반 통합 결과 구성 (PR-AIS-CUS-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-INT-001</td><td>의도 분류·조건 추출</td><td>질의를 업무 유형과 조건 정보로 해석한다.<br/></td><td>정보 조회 의도 분류<br/>비교·추천 의도 분류<br/>실행 요청 의도 분류<br/>조건·속성 파라미터 추출</td></tr><tr><td class="mono">FN-AIS-SRC-001</td><td>통합 검색 범위 조회</td><td>검색 대상 자산을 대표 결과와 유형별 결과로 조회한다.<br/></td><td>상품·혜택 조회<br/>메뉴·기능 조회<br/>FAQ·공지 조회<br/>콘텐츠·전시 조회<br/>상품 핵심 속성·전시 메타데이터 조회<br/>앱·웹 결과 기준 동기화<br/>페이지네이션·무한스크롤 추가 로딩</td></tr><tr><td class="mono">FN-AIS-RNK-001</td><td>랭킹·대표 결과 통합</td><td>검색 결과를 고객 목적과 실행 가능성 기준으로 정렬한다.<br/></td><td>정확일치 우선 적용<br/>대표 엔티티 통합<br/>유형별 우선순위 반영<br/>고객 상태 가중치 적용<br/>의도별 랭킹 가중치 적용<br/>정확일치·연관 결과 분리<br/>고객 행동명 기반 결과명 보정<br/>매칭 근거·하이라이트 표시<br/>부분일치·완전일치 기준 안내<br/>필터 구간값 변경 반영</td></tr><tr><td class="mono">FN-AIS-ANS-001</td><td>Answer Card·결과 카드 구성</td><td>고객이 결과와 근거를 이해할 수 있는 카드 정보를 구성한다.<br/></td><td>Answer Card 생성<br/>출처·근거 표시<br/>적용 조건 표시<br/>CTA·대체 경로 표시<br/>상품 핵심 정보 요약<br/>매칭 근거·하이라이트 표시<br/>유형별 결과 카드 템플릿 적용<br/>NO_MATCH·NO_DATA 구분 안내</td></tr></tbody>
+</table>
+
+<h4>4) 출처·조건·미충족 사유 확인 (PR-AIS-CUS-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-ANS-001</td><td>Answer Card·결과 카드 구성</td><td>고객이 결과와 근거를 이해할 수 있는 카드 정보를 구성한다.<br/></td><td>Answer Card 생성<br/>출처·근거 표시<br/>적용 조건 표시<br/>CTA·대체 경로 표시<br/>상품 핵심 정보 요약<br/>매칭 근거·하이라이트 표시<br/>유형별 결과 카드 템플릿 적용<br/>NO_MATCH·NO_DATA 구분 안내</td></tr><tr><td class="mono">FN-AIS-CND-001</td><td>고객 상태·대상 조건 판정</td><td>결과 노출과 실행 가능 여부를 고객 상태 기준으로 판단한다.<br/></td><td>가입 상태 확인<br/>보유 상품 확인<br/>연령·권한 조건 확인<br/>미충족 사유 생성<br/>선택동의 상태 확인<br/>개인화 데이터 결합 가능 여부 판정</td></tr></tbody>
+</table>
+
+<h4>5) 비교 대상 선택 및 차이 요약 확인 (PR-AIS-CUS-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-CND-001</td><td>고객 상태·대상 조건 판정</td><td>결과 노출과 실행 가능 여부를 고객 상태 기준으로 판단한다.<br/></td><td>가입 상태 확인<br/>보유 상품 확인<br/>연령·권한 조건 확인<br/>미충족 사유 생성<br/>선택동의 상태 확인<br/>개인화 데이터 결합 가능 여부 판정</td></tr><tr><td class="mono">FN-AIS-CMP-001</td><td>비교·추천 근거 요약</td><td>선택 대상의 차이와 추천 근거를 고객 판단에 맞게 정리한다.<br/></td><td>차이점 요약<br/>추천 사유 표시<br/>한계·유의사항 표시<br/>대안 결과 표시</td></tr></tbody>
+</table>
+
+<h4>6) 실행 전 고객 통제 확인 및 전환 (PR-AIS-CUS-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-CND-001</td><td>고객 상태·대상 조건 판정</td><td>결과 노출과 실행 가능 여부를 고객 상태 기준으로 판단한다.<br/></td><td>가입 상태 확인<br/>보유 상품 확인<br/>연령·권한 조건 확인<br/>미충족 사유 생성<br/>선택동의 상태 확인<br/>개인화 데이터 결합 가능 여부 판정</td></tr><tr><td class="mono">FN-AIS-ACT-001</td><td>실행 경로·최종확인 연결</td><td>검색 결과에서 업무 실행으로 전환하기 전 필수 확인을 연결한다.<br/></td><td>실행 가능 경로 연결<br/>인증·동의 연계<br/>최종 확인 화면 연결<br/>복귀 경로 유지<br/>크로스 도메인 실행 후보 번들링<br/>액션 위젯 실행 전 확인</td></tr></tbody>
+</table>
+
+<h4>7) 무결과·근거 부족 원인 안내 (PR-AIS-CUS-007)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-ANS-001</td><td>Answer Card·결과 카드 구성</td><td>고객이 결과와 근거를 이해할 수 있는 카드 정보를 구성한다.<br/></td><td>Answer Card 생성<br/>출처·근거 표시<br/>적용 조건 표시<br/>CTA·대체 경로 표시<br/>상품 핵심 정보 요약<br/>매칭 근거·하이라이트 표시<br/>유형별 결과 카드 템플릿 적용<br/>NO_MATCH·NO_DATA 구분 안내</td></tr><tr><td class="mono">FN-AIS-FBK-001</td><td>실패·무결과 폴백</td><td>검색 실패 후 고객이 재탐색하거나 도움을 받을 수 있게 한다.<br/></td><td>무결과 안내<br/>추가 질문 제공<br/>재검색 경로 제공<br/>FAQ·상담 대체 경로 제공<br/>유사어·제휴처 후보 제안<br/>추가 로딩 실패 재시도<br/>조건 불일치와 데이터 부재 구분<br/>대체 탐색 추천 리스트 제공</td></tr></tbody>
+</table>
+
+<h4>8) 재검색·조건 보완·대체 경로 선택 (PR-AIS-CUS-008)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-SUG-001</td><td>자동완성·연관어 제공</td><td>탐색 부담을 줄이는 추천 검색어와 바로가기를 제공한다.<br/></td><td>자동완성 후보 생성<br/>기능 바로가기 제안<br/>연관 검색어 표시<br/>최근·인기 검색어 제공<br/>개인화 추천 검색어 선별<br/>동의어·축약어·오타 후보 반영</td></tr><tr><td class="mono">FN-AIS-FBK-001</td><td>실패·무결과 폴백</td><td>검색 실패 후 고객이 재탐색하거나 도움을 받을 수 있게 한다.<br/></td><td>무결과 안내<br/>추가 질문 제공<br/>재검색 경로 제공<br/>FAQ·상담 대체 경로 제공<br/>유사어·제휴처 후보 제안<br/>추가 로딩 실패 재시도<br/>조건 불일치와 데이터 부재 구분<br/>대체 탐색 추천 리스트 제공</td></tr><tr><td class="mono">FN-AIS-CS-001</td><td>상담 전환 컨텍스트 전달</td><td>검색 흐름을 상담으로 넘길 때 반복 설명을 줄인다.<br/></td><td>검색어 전달<br/>선택 결과 전달<br/>실패 이력 전달<br/>상담 후 복귀 안내<br/>상황 인지형 도움/LLM 상담 진입<br/>인앱 자가 해결 액션 위젯 연결</td></tr></tbody>
+</table>
+
+<h4>9) 상담 전환 필요성 확인 (PR-AIS-CUS-009)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-ACT-001</td><td>실행 경로·최종확인 연결</td><td>검색 결과에서 업무 실행으로 전환하기 전 필수 확인을 연결한다.<br/></td><td>실행 가능 경로 연결<br/>인증·동의 연계<br/>최종 확인 화면 연결<br/>복귀 경로 유지<br/>크로스 도메인 실행 후보 번들링<br/>액션 위젯 실행 전 확인</td></tr><tr><td class="mono">FN-AIS-CS-001</td><td>상담 전환 컨텍스트 전달</td><td>검색 흐름을 상담으로 넘길 때 반복 설명을 줄인다.<br/></td><td>검색어 전달<br/>선택 결과 전달<br/>실패 이력 전달<br/>상담 후 복귀 안내<br/>상황 인지형 도움/LLM 상담 진입<br/>인앱 자가 해결 액션 위젯 연결</td></tr></tbody>
+</table>
+
+<h4>10) 검색 컨텍스트 상담 전달 및 복귀 안내 (PR-AIS-CUS-010)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-CS-001</td><td>상담 전환 컨텍스트 전달</td><td>검색 흐름을 상담으로 넘길 때 반복 설명을 줄인다.<br/></td><td>검색어 전달<br/>선택 결과 전달<br/>실패 이력 전달<br/>상담 후 복귀 안내<br/>상황 인지형 도움/LLM 상담 진입<br/>인앱 자가 해결 액션 위젯 연결</td></tr><tr><td class="mono">FN-AIS-MON-001</td><td>품질·성과·로그 모니터링</td><td>검색과 AI 응답의 품질, 성과, 실패 케이스를 운영 지표로 관리한다.<br/></td><td>상호작용 로그 수집<br/>성공·실패 지표 집계<br/>이상 징후 알림<br/>개선 과제 리포트 생성<br/>응답 시간·렌더링 지연 측정<br/>호출 실패율·추가 로딩 실패율 집계<br/>모델·룰 기반 결과 성과 비교</td></tr></tbody>
+</table>
+
+<h4>11) 검색 맥락 기반 상담 접수 (PR-AIS-CS-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-CS-001</td><td>상담 전환 컨텍스트 전달</td><td>검색 흐름을 상담으로 넘길 때 반복 설명을 줄인다.<br/></td><td>검색어 전달<br/>선택 결과 전달<br/>실패 이력 전달<br/>상담 후 복귀 안내<br/>상황 인지형 도움/LLM 상담 진입<br/>인앱 자가 해결 액션 위젯 연결</td></tr><tr><td class="mono">FN-AIS-MON-001</td><td>품질·성과·로그 모니터링</td><td>검색과 AI 응답의 품질, 성과, 실패 케이스를 운영 지표로 관리한다.<br/></td><td>상호작용 로그 수집<br/>성공·실패 지표 집계<br/>이상 징후 알림<br/>개선 과제 리포트 생성<br/>응답 시간·렌더링 지연 측정<br/>호출 실패율·추가 로딩 실패율 집계<br/>모델·룰 기반 결과 성과 비교</td></tr></tbody>
+</table>
+
+<h4>12) 상담 처리 결과 회신 및 복귀 안내 (PR-AIS-CS-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-ACT-001</td><td>실행 경로·최종확인 연결</td><td>검색 결과에서 업무 실행으로 전환하기 전 필수 확인을 연결한다.<br/></td><td>실행 가능 경로 연결<br/>인증·동의 연계<br/>최종 확인 화면 연결<br/>복귀 경로 유지<br/>크로스 도메인 실행 후보 번들링<br/>액션 위젯 실행 전 확인</td></tr><tr><td class="mono">FN-AIS-CS-001</td><td>상담 전환 컨텍스트 전달</td><td>검색 흐름을 상담으로 넘길 때 반복 설명을 줄인다.<br/></td><td>검색어 전달<br/>선택 결과 전달<br/>실패 이력 전달<br/>상담 후 복귀 안내<br/>상황 인지형 도움/LLM 상담 진입<br/>인앱 자가 해결 액션 위젯 연결</td></tr></tbody>
+</table>
+
+<h4>13) 검색 대상 자산 등록 기준 점검 (PR-AIS-CON-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-SRC-001</td><td>통합 검색 범위 조회</td><td>검색 대상 자산을 대표 결과와 유형별 결과로 조회한다.<br/></td><td>상품·혜택 조회<br/>메뉴·기능 조회<br/>FAQ·공지 조회<br/>콘텐츠·전시 조회<br/>상품 핵심 속성·전시 메타데이터 조회<br/>앱·웹 결과 기준 동기화<br/>페이지네이션·무한스크롤 추가 로딩</td></tr><tr><td class="mono">FN-AIS-OPS-001</td><td>검색 사전·금칙어·대표 엔티티 관리</td><td>운영자가 검색 기준 자산을 등록하고 변경 이력을 관리한다.<br/></td><td>동의어·오타 사전 관리<br/>금칙어·차단어 관리<br/>대표 엔티티 관리<br/>변경 이력 저장<br/>필터 구간값 갱신 관리<br/>기획전 배너 정렬 기준 관리</td></tr></tbody>
+</table>
+
+<h4>14) 대표 엔티티·실행 경로 반영 확인 (PR-AIS-CON-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-ACT-001</td><td>실행 경로·최종확인 연결</td><td>검색 결과에서 업무 실행으로 전환하기 전 필수 확인을 연결한다.<br/></td><td>실행 가능 경로 연결<br/>인증·동의 연계<br/>최종 확인 화면 연결<br/>복귀 경로 유지<br/>크로스 도메인 실행 후보 번들링<br/>액션 위젯 실행 전 확인</td></tr><tr><td class="mono">FN-AIS-OPS-001</td><td>검색 사전·금칙어·대표 엔티티 관리</td><td>운영자가 검색 기준 자산을 등록하고 변경 이력을 관리한다.<br/></td><td>동의어·오타 사전 관리<br/>금칙어·차단어 관리<br/>대표 엔티티 관리<br/>변경 이력 저장<br/>필터 구간값 갱신 관리<br/>기획전 배너 정렬 기준 관리</td></tr></tbody>
+</table>
+
+<h4>15) 랭킹·노출 제한·금칙어 기준 관리 (PR-AIS-OPR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-RNK-001</td><td>랭킹·대표 결과 통합</td><td>검색 결과를 고객 목적과 실행 가능성 기준으로 정렬한다.<br/></td><td>정확일치 우선 적용<br/>대표 엔티티 통합<br/>유형별 우선순위 반영<br/>고객 상태 가중치 적용<br/>의도별 랭킹 가중치 적용<br/>정확일치·연관 결과 분리<br/>고객 행동명 기반 결과명 보정<br/>매칭 근거·하이라이트 표시<br/>부분일치·완전일치 기준 안내<br/>필터 구간값 변경 반영</td></tr><tr><td class="mono">FN-AIS-CND-001</td><td>고객 상태·대상 조건 판정</td><td>결과 노출과 실행 가능 여부를 고객 상태 기준으로 판단한다.<br/></td><td>가입 상태 확인<br/>보유 상품 확인<br/>연령·권한 조건 확인<br/>미충족 사유 생성<br/>선택동의 상태 확인<br/>개인화 데이터 결합 가능 여부 판정</td></tr><tr><td class="mono">FN-AIS-OPS-001</td><td>검색 사전·금칙어·대표 엔티티 관리</td><td>운영자가 검색 기준 자산을 등록하고 변경 이력을 관리한다.<br/></td><td>동의어·오타 사전 관리<br/>금칙어·차단어 관리<br/>대표 엔티티 관리<br/>변경 이력 저장<br/>필터 구간값 갱신 관리<br/>기획전 배너 정렬 기준 관리</td></tr></tbody>
+</table>
+
+<h4>16) AI 추천어·응답 후보 검수 (PR-AIS-OPR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-OPS-001</td><td>검색 사전·금칙어·대표 엔티티 관리</td><td>운영자가 검색 기준 자산을 등록하고 변경 이력을 관리한다.<br/></td><td>동의어·오타 사전 관리<br/>금칙어·차단어 관리<br/>대표 엔티티 관리<br/>변경 이력 저장<br/>필터 구간값 갱신 관리<br/>기획전 배너 정렬 기준 관리</td></tr><tr><td class="mono">FN-AIS-QA-001</td><td>AI 후보 검수·배포·롤백</td><td>AI 생성 후보를 검수하고 안전하게 운영 반영한다.<br/></td><td>후보 검수 큐 생성<br/>승인·반려 처리<br/>배포 버전 관리<br/>회수·롤백 처리</td></tr></tbody>
+</table>
+
+<h4>17) 배포·회수·롤백 관리 (PR-AIS-OPR-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-QA-001</td><td>AI 후보 검수·배포·롤백</td><td>AI 생성 후보를 검수하고 안전하게 운영 반영한다.<br/></td><td>후보 검수 큐 생성<br/>승인·반려 처리<br/>배포 버전 관리<br/>회수·롤백 처리</td></tr><tr><td class="mono">FN-AIS-MON-001</td><td>품질·성과·로그 모니터링</td><td>검색과 AI 응답의 품질, 성과, 실패 케이스를 운영 지표로 관리한다.<br/></td><td>상호작용 로그 수집<br/>성공·실패 지표 집계<br/>이상 징후 알림<br/>개선 과제 리포트 생성<br/>응답 시간·렌더링 지연 측정<br/>호출 실패율·추가 로딩 실패율 집계<br/>모델·룰 기반 결과 성과 비교</td></tr></tbody>
+</table>
+
+<h4>18) 검색 품질 지표 모니터링 (PR-AIS-OPR-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-MON-001</td><td>품질·성과·로그 모니터링</td><td>검색과 AI 응답의 품질, 성과, 실패 케이스를 운영 지표로 관리한다.<br/></td><td>상호작용 로그 수집<br/>성공·실패 지표 집계<br/>이상 징후 알림<br/>개선 과제 리포트 생성<br/>응답 시간·렌더링 지연 측정<br/>호출 실패율·추가 로딩 실패율 집계<br/>모델·룰 기반 결과 성과 비교</td></tr></tbody>
+</table>
+
+<h4>19) 실패 케이스 분석 및 개선 반영 (PR-AIS-OPR-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-AIS-QA-001</td><td>AI 후보 검수·배포·롤백</td><td>AI 생성 후보를 검수하고 안전하게 운영 반영한다.<br/></td><td>후보 검수 큐 생성<br/>승인·반려 처리<br/>배포 버전 관리<br/>회수·롤백 처리</td></tr><tr><td class="mono">FN-AIS-MON-001</td><td>품질·성과·로그 모니터링</td><td>검색과 AI 응답의 품질, 성과, 실패 케이스를 운영 지표로 관리한다.<br/></td><td>상호작용 로그 수집<br/>성공·실패 지표 집계<br/>이상 징후 알림<br/>개선 과제 리포트 생성<br/>응답 시간·렌더링 지연 측정<br/>호출 실패율·추가 로딩 실패율 집계<br/>모델·룰 기반 결과 성과 비교</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 공통 검색 진입 및 입력 표준 적용 (PR-AIS-CUS-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-SCOPE-001</td><td>통합 검색 범위 정책</td><td>검색 대상과 대표 결과, 유형별 결과의 범위를 정의한다.<br/></td><td>검색 대상 범위<br/>대표 결과 통합<br/>인접 업무 경계<br/>앱·웹 결과 일관성<br/>상품·전시 메타데이터<br/>기획전 배너 노출 기준</td></tr><tr><td class="mono">PG-AIS-INPUT-001</td><td>입력·정규화 정책</td><td>검색 입력, 질의 정규화, 금칙어 안내 기준을 정의한다.<br/></td><td>입력 최소 기준<br/>질의 정규화<br/>제한 입력 안내<br/>검색어 삭제·초기화</td></tr></tbody>
+</table>
+
+<h4>2) 질의 정규화·자동완성 보조 (PR-AIS-CUS-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-INPUT-001</td><td>입력·정규화 정책</td><td>검색 입력, 질의 정규화, 금칙어 안내 기준을 정의한다.<br/></td><td>입력 최소 기준<br/>질의 정규화<br/>제한 입력 안내<br/>검색어 삭제·초기화</td></tr><tr><td class="mono">PG-AIS-SUGGEST-001</td><td>검색어 보조 정책</td><td>자동완성, 연관 검색어, 최근·인기 검색어 제공 기준을 정의한다.<br/></td><td>자동완성 제공<br/>최근 검색어 관리<br/>인기 검색어 갱신<br/>개인화 추천검색어<br/>동의어·오타 인식<br/>검색창 초기화면 개인화<br/>개인화된 추천검색어 노출</td></tr><tr><td class="mono">PG-AIS-HISTORY-001</td><td>검색 이력·상태 유지 정책</td><td>최근 검색어, 검색 컨텍스트, 상세 복귀 상태 유지 기준을 정의한다.<br/></td><td>최근 검색어 보관<br/>상세 복귀 유지<br/>검색 컨텍스트 재사용</td></tr></tbody>
+</table>
+
+<h4>3) 의도 기반 통합 결과 구성 (PR-AIS-CUS-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-SCOPE-001</td><td>통합 검색 범위 정책</td><td>검색 대상과 대표 결과, 유형별 결과의 범위를 정의한다.<br/></td><td>검색 대상 범위<br/>대표 결과 통합<br/>인접 업무 경계<br/>앱·웹 결과 일관성<br/>상품·전시 메타데이터<br/>기획전 배너 노출 기준</td></tr><tr><td class="mono">PG-AIS-RANK-001</td><td>결과 랭킹·우선순위 정책</td><td>정확일치, 실행 가능성, 고객 상태, 유형별 우선순위 기준을 정의한다.<br/></td><td>정확일치 우선<br/>유형별 우선순위<br/>상태 기반 가중치<br/>의도별 랭킹 가중치<br/>정확·연관 결과 구분<br/>검색 매칭 기준 안내<br/>필터 구간값 갱신<br/>사용자 행위 중심 검색 결과</td></tr><tr><td class="mono">PG-AIS-CARD-001</td><td>결과 카드·출처 고지 정책</td><td>Answer Card, 결과 카드, 출처, 근거, CTA 표시 기준을 정의한다.<br/></td><td>출처·근거 표시<br/>Answer Card 우선<br/>카드 필수 정보<br/>매칭 근거·하이라이트<br/>상품 핵심 정보 요약<br/>유형별 카드 템플릿</td></tr></tbody>
+</table>
+
+<h4>4) 출처·조건·미충족 사유 확인 (PR-AIS-CUS-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-CARD-001</td><td>결과 카드·출처 고지 정책</td><td>Answer Card, 결과 카드, 출처, 근거, CTA 표시 기준을 정의한다.<br/></td><td>출처·근거 표시<br/>Answer Card 우선<br/>카드 필수 정보<br/>매칭 근거·하이라이트<br/>상품 핵심 정보 요약<br/>유형별 카드 템플릿</td></tr><tr><td class="mono">PG-AIS-CONDITION-001</td><td>고객 상태·노출 제한 정책</td><td>고객 상태, 권한, 대상 조건에 따른 노출과 제한 기준을 정의한다.<br/></td><td>대상 조건 반영<br/>미충족 사유 표시<br/>일부 결과 제외 안내<br/>선택동의 분기<br/>개인화 데이터 결합 제한</td></tr></tbody>
+</table>
+
+<h4>5) 비교 대상 선택 및 차이 요약 확인 (PR-AIS-CUS-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-COMPARE-001</td><td>비교·추천 통제 정책</td><td>AI 비교·추천이 고객 판단을 보조하고 고객 통제를 유지하는 기준을 정의한다.<br/></td><td>비교 대상 기준<br/>추천 근거 고지<br/>AI 결정 금지</td></tr><tr><td class="mono">PG-AIS-CONDITION-001</td><td>고객 상태·노출 제한 정책</td><td>고객 상태, 권한, 대상 조건에 따른 노출과 제한 기준을 정의한다.<br/></td><td>대상 조건 반영<br/>미충족 사유 표시<br/>일부 결과 제외 안내<br/>선택동의 분기<br/>개인화 데이터 결합 제한</td></tr></tbody>
+</table>
+
+<h4>6) 실행 전 고객 통제 확인 및 전환 (PR-AIS-CUS-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-ACTION-001</td><td>실행 연결·최종 확인 정책</td><td>검색 결과에서 가입, 변경, 해지, 납부 등 실행으로 연결하는 기준을 정의한다.<br/></td><td>실행 전 최종 확인<br/>필수 절차 연계<br/>실행 컨텍스트 전달<br/>크로스 도메인 실행 번들링<br/>액션 위젯 실행<br/>중복 실행 방지</td></tr><tr><td class="mono">PG-AIS-COMPARE-001</td><td>비교·추천 통제 정책</td><td>AI 비교·추천이 고객 판단을 보조하고 고객 통제를 유지하는 기준을 정의한다.<br/></td><td>비교 대상 기준<br/>추천 근거 고지<br/>AI 결정 금지</td></tr></tbody>
+</table>
+
+<h4>7) 무결과·근거 부족 원인 안내 (PR-AIS-CUS-007)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-FAIL-001</td><td>실패·무결과 복구 정책</td><td>무결과, 오류, 근거 부족, 제한 상황의 복구 기준을 정의한다.<br/></td><td>무결과 폴백<br/>추가 질문 기준<br/>오류 유형별 복구<br/>검색 이탈 방지<br/>추가 로딩 실패 복구<br/>0건 상태 구분</td></tr><tr><td class="mono">PG-AIS-CARD-001</td><td>결과 카드·출처 고지 정책</td><td>Answer Card, 결과 카드, 출처, 근거, CTA 표시 기준을 정의한다.<br/></td><td>출처·근거 표시<br/>Answer Card 우선<br/>카드 필수 정보<br/>매칭 근거·하이라이트<br/>상품 핵심 정보 요약<br/>유형별 카드 템플릿</td></tr></tbody>
+</table>
+
+<h4>8) 재검색·조건 보완·대체 경로 선택 (PR-AIS-CUS-008)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-FAIL-001</td><td>실패·무결과 복구 정책</td><td>무결과, 오류, 근거 부족, 제한 상황의 복구 기준을 정의한다.<br/></td><td>무결과 폴백<br/>추가 질문 기준<br/>오류 유형별 복구<br/>검색 이탈 방지<br/>추가 로딩 실패 복구<br/>0건 상태 구분</td></tr><tr><td class="mono">PG-AIS-SUGGEST-001</td><td>검색어 보조 정책</td><td>자동완성, 연관 검색어, 최근·인기 검색어 제공 기준을 정의한다.<br/></td><td>자동완성 제공<br/>최근 검색어 관리<br/>인기 검색어 갱신<br/>개인화 추천검색어<br/>동의어·오타 인식<br/>검색창 초기화면 개인화<br/>개인화된 추천검색어 노출</td></tr><tr><td class="mono">PG-AIS-CS-001</td><td>상담 전환 정책</td><td>검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.<br/></td><td>상담 전환 조건<br/>전달 정보 고지<br/>상담 후 복귀 안내<br/>상황 인지형 도움 전환<br/>LLM 상담봇 연결<br/>인앱 자가 해결 연결</td></tr></tbody>
+</table>
+
+<h4>9) 상담 전환 필요성 확인 (PR-AIS-CUS-009)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-CS-001</td><td>상담 전환 정책</td><td>검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.<br/></td><td>상담 전환 조건<br/>전달 정보 고지<br/>상담 후 복귀 안내<br/>상황 인지형 도움 전환<br/>LLM 상담봇 연결<br/>인앱 자가 해결 연결</td></tr><tr><td class="mono">PG-AIS-DATA-001</td><td>로그·개인정보 보호 정책</td><td>검색 상호작용 로그, 상담 전달 정보, 개인정보 보호 기준을 정의한다.<br/></td><td>최소 로그 수집<br/>민감정보 마스킹<br/>보관·파기 기준</td></tr></tbody>
+</table>
+
+<h4>10) 검색 컨텍스트 상담 전달 및 복귀 안내 (PR-AIS-CUS-010)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-CS-001</td><td>상담 전환 정책</td><td>검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.<br/></td><td>상담 전환 조건<br/>전달 정보 고지<br/>상담 후 복귀 안내<br/>상황 인지형 도움 전환<br/>LLM 상담봇 연결<br/>인앱 자가 해결 연결</td></tr><tr><td class="mono">PG-AIS-HISTORY-001</td><td>검색 이력·상태 유지 정책</td><td>최근 검색어, 검색 컨텍스트, 상세 복귀 상태 유지 기준을 정의한다.<br/></td><td>최근 검색어 보관<br/>상세 복귀 유지<br/>검색 컨텍스트 재사용</td></tr></tbody>
+</table>
+
+<h4>11) 검색 맥락 기반 상담 접수 (PR-AIS-CS-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-CS-001</td><td>상담 전환 정책</td><td>검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.<br/></td><td>상담 전환 조건<br/>전달 정보 고지<br/>상담 후 복귀 안내<br/>상황 인지형 도움 전환<br/>LLM 상담봇 연결<br/>인앱 자가 해결 연결</td></tr><tr><td class="mono">PG-AIS-DATA-001</td><td>로그·개인정보 보호 정책</td><td>검색 상호작용 로그, 상담 전달 정보, 개인정보 보호 기준을 정의한다.<br/></td><td>최소 로그 수집<br/>민감정보 마스킹<br/>보관·파기 기준</td></tr></tbody>
+</table>
+
+<h4>12) 상담 처리 결과 회신 및 복귀 안내 (PR-AIS-CS-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-CS-001</td><td>상담 전환 정책</td><td>검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.<br/></td><td>상담 전환 조건<br/>전달 정보 고지<br/>상담 후 복귀 안내<br/>상황 인지형 도움 전환<br/>LLM 상담봇 연결<br/>인앱 자가 해결 연결</td></tr><tr><td class="mono">PG-AIS-HISTORY-001</td><td>검색 이력·상태 유지 정책</td><td>최근 검색어, 검색 컨텍스트, 상세 복귀 상태 유지 기준을 정의한다.<br/></td><td>최근 검색어 보관<br/>상세 복귀 유지<br/>검색 컨텍스트 재사용</td></tr></tbody>
+</table>
+
+<h4>13) 검색 대상 자산 등록 기준 점검 (PR-AIS-CON-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-SCOPE-001</td><td>통합 검색 범위 정책</td><td>검색 대상과 대표 결과, 유형별 결과의 범위를 정의한다.<br/></td><td>검색 대상 범위<br/>대표 결과 통합<br/>인접 업무 경계<br/>앱·웹 결과 일관성<br/>상품·전시 메타데이터<br/>기획전 배너 노출 기준</td></tr><tr><td class="mono">PG-AIS-OPS-001</td><td>운영 사전·금칙어 정책</td><td>동의어, 축약어, 오타, 금칙어, 대표 엔티티 관리 기준을 정의한다.<br/></td><td>사전 변경 관리<br/>금칙어 차단<br/>대표 엔티티 관리</td></tr></tbody>
+</table>
+
+<h4>14) 대표 엔티티·실행 경로 반영 확인 (PR-AIS-CON-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-SCOPE-001</td><td>통합 검색 범위 정책</td><td>검색 대상과 대표 결과, 유형별 결과의 범위를 정의한다.<br/></td><td>검색 대상 범위<br/>대표 결과 통합<br/>인접 업무 경계<br/>앱·웹 결과 일관성<br/>상품·전시 메타데이터<br/>기획전 배너 노출 기준</td></tr><tr><td class="mono">PG-AIS-HISTORY-001</td><td>검색 이력·상태 유지 정책</td><td>최근 검색어, 검색 컨텍스트, 상세 복귀 상태 유지 기준을 정의한다.<br/></td><td>최근 검색어 보관<br/>상세 복귀 유지<br/>검색 컨텍스트 재사용</td></tr></tbody>
+</table>
+
+<h4>15) 랭킹·노출 제한·금칙어 기준 관리 (PR-AIS-OPR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-RANK-001</td><td>결과 랭킹·우선순위 정책</td><td>정확일치, 실행 가능성, 고객 상태, 유형별 우선순위 기준을 정의한다.<br/></td><td>정확일치 우선<br/>유형별 우선순위<br/>상태 기반 가중치<br/>의도별 랭킹 가중치<br/>정확·연관 결과 구분<br/>검색 매칭 기준 안내<br/>필터 구간값 갱신<br/>사용자 행위 중심 검색 결과</td></tr><tr><td class="mono">PG-AIS-CONDITION-001</td><td>고객 상태·노출 제한 정책</td><td>고객 상태, 권한, 대상 조건에 따른 노출과 제한 기준을 정의한다.<br/></td><td>대상 조건 반영<br/>미충족 사유 표시<br/>일부 결과 제외 안내<br/>선택동의 분기<br/>개인화 데이터 결합 제한</td></tr><tr><td class="mono">PG-AIS-OPS-001</td><td>운영 사전·금칙어 정책</td><td>동의어, 축약어, 오타, 금칙어, 대표 엔티티 관리 기준을 정의한다.<br/></td><td>사전 변경 관리<br/>금칙어 차단<br/>대표 엔티티 관리</td></tr></tbody>
+</table>
+
+<h4>16) AI 추천어·응답 후보 검수 (PR-AIS-OPR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-QA-001</td><td>AI 후보 검수·배포 정책</td><td>AI 생성 추천어, 자동완성, 응답 후보의 검수, 배포, 롤백 기준을 정의한다.<br/></td><td>운영 검수 큐<br/>승인·반려<br/>배포·롤백</td></tr><tr><td class="mono">PG-AIS-OPS-001</td><td>운영 사전·금칙어 정책</td><td>동의어, 축약어, 오타, 금칙어, 대표 엔티티 관리 기준을 정의한다.<br/></td><td>사전 변경 관리<br/>금칙어 차단<br/>대표 엔티티 관리</td></tr></tbody>
+</table>
+
+<h4>17) 배포·회수·롤백 관리 (PR-AIS-OPR-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-QA-001</td><td>AI 후보 검수·배포 정책</td><td>AI 생성 추천어, 자동완성, 응답 후보의 검수, 배포, 롤백 기준을 정의한다.<br/></td><td>운영 검수 큐<br/>승인·반려<br/>배포·롤백</td></tr><tr><td class="mono">PG-AIS-METRIC-001</td><td>품질·성과 운영 정책</td><td>검색과 AI 응답의 품질·성과 지표와 개선 루프를 정의한다.<br/></td><td>품질 지표 관리<br/>이상 징후 알림<br/>실패 케이스 개선<br/>성능 기준 관리<br/>모델·룰 성과 비교</td></tr></tbody>
+</table>
+
+<h4>18) 검색 품질 지표 모니터링 (PR-AIS-OPR-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-METRIC-001</td><td>품질·성과 운영 정책</td><td>검색과 AI 응답의 품질·성과 지표와 개선 루프를 정의한다.<br/></td><td>품질 지표 관리<br/>이상 징후 알림<br/>실패 케이스 개선<br/>성능 기준 관리<br/>모델·룰 성과 비교</td></tr><tr><td class="mono">PG-AIS-DATA-001</td><td>로그·개인정보 보호 정책</td><td>검색 상호작용 로그, 상담 전달 정보, 개인정보 보호 기준을 정의한다.<br/></td><td>최소 로그 수집<br/>민감정보 마스킹<br/>보관·파기 기준</td></tr></tbody>
+</table>
+
+<h4>19) 실패 케이스 분석 및 개선 반영 (PR-AIS-OPR-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-AIS-METRIC-001</td><td>품질·성과 운영 정책</td><td>검색과 AI 응답의 품질·성과 지표와 개선 루프를 정의한다.<br/></td><td>품질 지표 관리<br/>이상 징후 알림<br/>실패 케이스 개선<br/>성능 기준 관리<br/>모델·룰 성과 비교</td></tr><tr><td class="mono">PG-AIS-QA-001</td><td>AI 후보 검수·배포 정책</td><td>AI 생성 추천어, 자동완성, 응답 후보의 검수, 배포, 롤백 기준을 정의한다.<br/></td><td>운영 검수 큐<br/>승인·반려<br/>배포·롤백</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 통합 검색 범위 정책 (PG-AIS-SCOPE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 검색 대상 범위 <span class="mono">(PI-AIS-SCP-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합 검색 대상은 상품, 혜택, 제휴처, 이벤트, 전시·콘텐츠, 메뉴·기능, FAQ·공지·가이드, 상담 진입을 기본 범위로 둔다.<br/></span><span class="policy-item-line">- 단, 개별 상품 가격이나 약관 상세는 원천 상세 화면으로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대표 결과 통합 <span class="mono">(PI-AIS-SCP-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 목적의 메뉴·상품·혜택이 여러 채널과 명칭으로 존재하면 대표 엔티티 1개를 우선 노출하고 채널별 실행 경로는 하위 선택지로 묶어 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인접 업무 경계 <span class="mono">(PI-AIS-SCP-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 주문, 결제, 해지, 환불의 세부 정책값은 각 정책서가 우선하며 AI 검색 문서는 검색 결과 노출, 실행 연결, 최종 확인 조건까지만 정의한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 앱·웹 결과 일관성 <span class="mono">(PI-AIS-SCP-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 검색어는 앱과 웹에서 같은 대표 결과, 유형별 우선순위, 노출 제한 기준을 적용한다.<br/></span><span class="policy-item-line">- 화면 폭이나 컴포넌트 차이로 표시 순서가 달라질 수는 있으나 정책 판단 기준은 동일해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상품·전시 메타데이터 <span class="mono">(PI-AIS-SCP-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품, 단말, 전시, 콘텐츠 결과는 검색 결과 단계에서 고객 판단에 필요한 핵심 속성과 전시 가능 메타데이터를 포함한다.<br/></span><span class="policy-item-line">- 상품 상세 정책값은 원천 상세 화면으로 연결하되 제조사, 모델명, 출시일, 주요 속성, 전시 상태, 실행 경로는 검색 결과에서 확인 가능해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 기획전 배너 노출 기준 <span class="mono">(PI-AIS-SCP-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 결과의 기획전 탭과 초기 검색 화면은 현재 진행 중인 기획전, 전시 상태, 고객 대상 조건, 운영 우선순위 기준으로 배너 카드를 노출한다.<br/></span><span class="policy-item-line">- 종료·중지·대상 제외 기획전은 추천 검색어와 결과 카드에서 제외한다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 입력·정규화 정책 (PG-AIS-INPUT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 입력 최소 기준 <span class="mono">(PI-AIS-INP-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 질의는 공백 제거 후 1자 이상이면 접수한다.<br/></span><span class="policy-item-line">- 50자를 초과하는 질의는 앞 50자 기준으로 해석하되 고객에게 긴 질의가 요약 처리될 수 있음을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 질의 정규화 <span class="mono">(PI-AIS-INP-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 공백, 반복 특수문자, 이모지는 의미 보존 범위에서 정규화한다.<br/></span><span class="policy-item-line">- 동의어, 축약어, 오타는 사전 기준으로 원 질의와 매칭 질의를 함께 보관한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제한 입력 안내 <span class="mono">(PI-AIS-INP-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 금칙어, 민감정보, 법무·브랜드 제한어가 포함되면 차단 사유와 대체 입력 예시를 안내한다.<br/></span><span class="policy-item-line">- 차단 이력은 운영자 품질 분석 대상에 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 검색어 삭제·초기화 <span class="mono">(PI-AIS-INP-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색어가 1자 이상 입력되면 삭제 동작을 제공하고, 삭제 시 입력값, 자동완성 후보, 오류 안내를 초기화한다.<br/></span><span class="policy-item-line">- 다만 최근 검색어와 개인화 추천 영역은 고객 삭제 요청 전까지 보관 기준을 유지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 검색어 보조 정책 (PG-AIS-SUGGEST-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 자동완성 제공 <span class="mono">(PI-AIS-SGG-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동완성은 입력 시작 후 1자 이상에서 제공할 수 있으며 메뉴·기능 바로가기, 추천 검색어, 연관 키워드를 구분해 최대 8개까지 우선 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 최근 검색어 관리 <span class="mono">(PI-AIS-SGG-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 최근 검색어는 고객 단말 또는 계정 기준으로 보관하며 개별 삭제와 전체 삭제를 제공한다.<br/></span><span class="policy-item-line">- 저장 기간은 기본 30일로 두고 비로그인 상태 검색은 세션 종료 시 삭제한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인기 검색어 갱신 <span class="mono">(PI-AIS-SGG-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인기·트렌드 검색어는 운영 기준 집계 주기별로 갱신하며 금칙어, 민감어, 법무 제한어는 노출 대상에서 제외한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인화 추천검색어 <span class="mono">(PI-AIS-SGG-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 추천 검색어는 고객의 동의, 이용 맥락, 보유 상품, 진행 중 혜택, 현재 화면을 기준으로 노출할 수 있다.<br/></span><span class="policy-item-line">- 개인화 조건이 없거나 동의가 없으면 공통 추천어와 인기 검색어로 대체한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의어·오타 인식 <span class="mono">(PI-AIS-SGG-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동의어, 축약어, 브랜드 별칭, 상품 약칭, 빈번한 오타는 사전 기준으로 동일하거나 유사한 의도로 매핑한다.<br/></span><span class="policy-item-line">- 운영자가 승인하지 않은 신규 후보는 고객 노출 전 운영 검수 큐를 거친다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 검색창 초기화면 개인화 <span class="mono">(PI-AIS-SGG-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색창 초기화면은 고객 맥락, 진행 중인 기획전, 최근 탐색, 이용 가능 혜택을 기준으로 추천 후보를 제공하되 인기 검색어만 단독 노출하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인화된 추천검색어 노출 <span class="mono">(PI-AIS-SGG-007)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 추천검색어는 고객 상태, 가입 상품, 대상 혜택, 최근 이용 맥락을 충족하는 경우에만 노출한다.<br/></span><span class="policy-item-line">- 대상자가 아닌 혜택 키워드는 추천검색어에서 제외한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 결과 랭킹·우선순위 정책 (PG-AIS-RANK-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 정확일치 우선 <span class="mono">(PI-AIS-RNK-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전체 탭은 정확일치, 고객 업무 완결 가능성, 고객 상태 적합성, 최신성, 이용 빈도 순으로 기본 우선순위를 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 유형별 우선순위 <span class="mono">(PI-AIS-RNK-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 질의가 메뉴·업무 실행 의도이면 Quick Action을 상품·콘텐츠보다 우선한다.<br/></span><span class="policy-item-line">- 질의가 비교·구매 의도이면 상품, 혜택, 비교 가능 결과를 우선한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상태 기반 가중치 <span class="mono">(PI-AIS-RNK-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 가입 상태, 보유 상품, 멤버십 조건, 위치, 시간 맥락으로 이용 불가한 결과는 숨기지 않고 제한 사유와 대체 결과를 함께 제공할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 의도별 랭킹 가중치 <span class="mono">(PI-AIS-RNK-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 리필, 요금제, 혜택, 상담, 주문, 변경, 해지처럼 의도가 특정되면 메뉴, FAQ, 상품, 이벤트, 콘텐츠, 실행 경로의 가중치를 다르게 적용한다.<br/></span><span class="policy-item-line">- 고객이 바로 완료할 수 있는 업무 실행 결과는 설명 콘텐츠보다 우선하며, 운영자는 의도별 기본 가중치와 변경 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 정확·연관 결과 구분 <span class="mono">(PI-AIS-RNK-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색어가 직접 포함되거나 동일 의미로 매칭된 결과와 연관 추천 결과는 구분해 표시한다.<br/></span><span class="policy-item-line">- 연관 추천은 정확 결과를 대체하지 않으며 고객이 추천 근거를 확인할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 검색 매칭 기준 안내 <span class="mono">(PI-AIS-RNK-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 검색 입력 또는 결과 관리 화면에서 부분일치, 완전일치, 동의어 매칭, 연관 추천 중 어떤 기준이 적용되는지 확인할 수 있어야 한다.<br/></span><span class="policy-item-line">- 고객 화면에는 필요한 경우 직접 매칭과 연관 추천 라벨로 단순화해 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 필터 구간값 갱신 <span class="mono">(PI-AIS-RNK-007)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 화면크기, 배터리용량, 저장공간, 가격대처럼 조건 검색에 쓰이는 구간값은 신규 상품 스펙과 고객 선택 분포를 기준으로 운영자가 갱신할 수 있다.<br/></span><span class="policy-item-line">- 구간값 변경은 검색 결과 수, 필터 선택 이력, 변경 일시를 함께 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 사용자 행위 중심 검색 결과 <span class="mono">(PI-AIS-RNK-008)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 결과 명칭은 내부 메뉴명보다 고객이 수행하려는 행동과 목적을 우선한다.<br/></span><span class="policy-item-line">- 내부 용어가 필요한 경우 고객 언어로 변환한 라벨과 함께 제공하고, 동일 의미의 결과명은 운영 승인 후 하나의 대표 라벨로 통합한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 결과 카드·출처 고지 정책 (PG-AIS-CARD-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 출처·근거 표시 <span class="mono">(PI-AIS-CRD-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI 요약과 추천에는 공식 정보 출처, 적용 조건, 생성 기준 시점, 한계 또는 확인 필요 범위를 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• Answer Card 우선 <span class="mono">(PI-AIS-CRD-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금, 잔여 데이터, 주문 상태, 멤버십 사용 가능 여부처럼 고객 상태 기반 즉답이 가능한 질의는 일반 목록보다 Answer Card를 우선 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 카드 필수 정보 <span class="mono">(PI-AIS-CRD-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결과 카드는 제목, 요약, 유형, 적용 조건, 상태 배지, 주요 CTA, 원본 상세 이동 경로를 포함한다.<br/></span><span class="policy-item-line">- 기간이나 제한이 있는 결과는 만료 또는 제한 사유를 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 매칭 근거·하이라이트 <span class="mono">(PI-AIS-CRD-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색어와 결과가 매칭된 제목, 속성, FAQ 문장, 상품 속성은 가능한 경우 하이라이트하거나 근거 문구로 표시한다.<br/></span><span class="policy-item-line">- 매칭 근거가 없으면 AI 요약만으로 결과를 상단 노출하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상품 핵심 정보 요약 <span class="mono">(PI-AIS-CRD-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 탐색 결과는 고객이 상세 진입 전 판단할 수 있도록 제조사, 모델, 출시일, 주요 사양, 혜택·가격 표시 가능 여부, 재고 또는 전시 상태 중 해당되는 핵심 정보를 요약한다.<br/></span><span class="policy-item-line">- 표시할 수 없는 항목은 숨기지 말고 상세 확인 필요로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 유형별 카드 템플릿 <span class="mono">(PI-AIS-CRD-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품, 이벤트, 콘텐츠, 메뉴, FAQ 결과는 각 유형별 필수 필드와 CTA를 가진 카드 템플릿으로 표시한다.<br/></span><span class="policy-item-line">- 전체 탭에서도 같은 템플릿 기준을 재사용해 고객이 결과 유형을 혼동하지 않게 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 고객 상태·노출 제한 정책 (PG-AIS-CONDITION-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 대상 조건 반영 <span class="mono">(PI-AIS-CND-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 연령, 회선, 가입 상태, 보유 상품, 멤버십 등급, 위치 조건이 있는 결과는 고객 상태를 확인한 뒤 즉시 이용 가능, 조건 필요, 이용 불가 중 하나로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미충족 사유 표시 <span class="mono">(PI-AIS-CND-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 조건 미충족 결과는 단순 미노출하지 않고 고객이 이해할 수 있는 사유와 충족 방법 또는 대체 경로를 함께 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 일부 결과 제외 안내 <span class="mono">(PI-AIS-CND-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 권한·대상 제한으로 결과 일부를 제외하면 전체 결과 영역 상단 또는 해당 섹션에 일부 결과 제외 안내와 대표 사유를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선택동의 분기 <span class="mono">(PI-AIS-CND-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI 개인화 또는 고객 데이터 결합이 필요한 결과는 선택동의 상태를 먼저 확인한다.<br/></span><span class="policy-item-line">- 동의 전에는 공통 결과를 제공하고, 동의 완료 후에는 개인화 결과 또는 AI 서비스 활성화 흐름으로 분기한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인화 데이터 결합 제한 <span class="mono">(PI-AIS-CND-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 멤버십 등급, 쿠폰, 포인트, 최근 이용내역, 결제 이력 등 고객 데이터는 고객 동의와 업무 목적이 충족된 경우에만 AI 응답에 결합한다.<br/></span><span class="policy-item-line">- 민감정보와 인증값은 RAG 컨텍스트에 저장하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 비교·추천 통제 정책 (PG-AIS-COMPARE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 비교 대상 기준 <span class="mono">(PI-AIS-CMP-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 비교 가능한 상품, 요금제, 혜택을 2개 이상 선택해 비교 화면으로 이동할 수 있다.<br/></span><span class="policy-item-line">- 비교 진입 시 검색어, 필터, 정렬 상태를 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 추천 근거 고지 <span class="mono">(PI-AIS-CMP-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI 추천안은 추천 사유, 조건, 유의사항, 대체 선택지를 함께 제공한다.<br/></span><span class="policy-item-line">- 추천 사유가 고객 상태에 기반하면 사용한 상태 항목을 고객이 이해 가능한 표현으로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• AI 결정 금지 <span class="mono">(PI-AIS-CMP-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI는 가입, 변경, 해지, 결제, 환불을 고객 대신 확정하지 않는다.<br/></span><span class="policy-item-line">- 주요 실행은 고객의 명시적 선택과 최종 확인 이후에만 연결한다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 실행 연결·최종 확인 정책 (PG-AIS-ACTION-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 실행 전 최종 확인 <span class="mono">(PI-AIS-ACT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입, 변경, 해지, 납부, 결제, 예약, 신청은 실행 전 대상, 영향, 적용 시점, 취소 가능 여부를 고객에게 확인시킨다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 필수 절차 연계 <span class="mono">(PI-AIS-ACT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 본인 확인, 약관 동의, 추가 인증, 유의사항 확인이 필요한 업무는 실행 연결 전 또는 실행 화면 진입 직후 필수 절차로 연계한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실행 컨텍스트 전달 <span class="mono">(PI-AIS-ACT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실행 화면에는 검색어, 선택 결과, 비교 기준, 고객이 선택한 조건을 전달한다.<br/></span><span class="policy-item-line">- 고객이 같은 조건을 반복 입력하지 않도록 하며, 전달된 컨텍스트는 실행 결과 이력과 연결 가능한 요청 키로 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 크로스 도메인 실행 번들링 <span class="mono">(PI-AIS-ACT-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 의도가 여러 도메인에 걸쳐 있으면 관련 과업 후보를 묶어 제안할 수 있다.<br/></span><span class="policy-item-line">- 단, 가입, 주문, 결제, 해지, 쿠폰 사용처럼 실제 실행이 필요한 항목은 도메인별 최종 확인과 필수 인증을 분리해 처리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 액션 위젯 실행 <span class="mono">(PI-AIS-ACT-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI 응답 안의 쿠폰 재발급, 포인트 복구, 바코드 열기, 결제수단 등록, 혜택 적용 같은 액션 위젯은 실행 전 대상, 영향, 취소 가능 여부를 표시한다.<br/></span><span class="policy-item-line">- 원터치 실행이 가능한 경우에도 고객 명시 선택과 결과 이력 저장을 필수로 둔다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중복 실행 방지 <span class="mono">(PI-AIS-ACT-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 고객, 동일 검색 컨텍스트, 동일 대상의 실행 연결 요청이 2회 이상 반복되면 하나의 요청 키로 묶어 후속 업무 요청은 1건만 생성한다.<br/></span><span class="policy-item-line">- 이미 실행 전환 완료 상태이면 중복 요청을 차단하고 고객에게 기존 처리 상태와 확인 경로를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 실패·무결과 복구 정책 (PG-AIS-FAIL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 무결과 폴백 <span class="mono">(PI-AIS-ERR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 무결과 상태에서는 빈 화면만 표시하지 않는다.<br/></span><span class="policy-item-line">- 연관 검색어, 인기 카테고리, FAQ, 메뉴 바로가기, 상담 연결 중 2개 이상의 대체 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 추가 질문 기준 <span class="mono">(PI-AIS-ERR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 질의가 모호하면 추가 질문은 최대 2단계까지 제공한다.<br/></span><span class="policy-item-line">- 2단계 이후에도 의도가 특정되지 않으면 검색 결과 목록 또는 상담 전환을 제안한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 오류 유형별 복구 <span class="mono">(PI-AIS-ERR-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 네트워크 오류, 검색 호출 실패, 권한 제한, 결과 로딩 실패는 오류 유형별로 재시도, 홈 이동, 상담 연결, 나중에 다시 시도 중 가능한 복구 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 검색 이탈 방지 <span class="mono">(PI-AIS-ERR-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 무결과 또는 낮은 신뢰도 상태에서는 유사어, 제휴처 후보, 인기 카테고리, 현재 화면 관련 도움, 상담 연결 중 최소 2개 이상의 다음 행동을 제공한다.<br/></span><span class="policy-item-line">- 동일 무결과가 2회 반복되면 재검색보다 조건 보완 또는 상담 전환을 우선 제안한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 추가 로딩 실패 복구 <span class="mono">(PI-AIS-ERR-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 페이지네이션 또는 무한스크롤 추가 로딩이 실패하면 현재까지 표시된 결과를 유지하고 재시도, 필터 축소, 상담 또는 나중에 다시 시도 중 가능한 복구 경로를 안내한다.<br/></span><span class="policy-item-line">- 실패 횟수와 구간은 품질 지표에 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 0건 상태 구분 <span class="mono">(PI-AIS-ERR-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 결과 0건은 조건 불일치(NO_MATCH)와 실제 데이터 부재(NO_DATA)를 구분한다.<br/></span><span class="policy-item-line">- 조건 불일치이면 필터 완화와 유사어를 우선 제안하고, 데이터 부재이면 대체 카테고리, FAQ, 상담 또는 운영 개선 후보 등록을 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) 검색 이력·상태 유지 정책 (PG-AIS-HISTORY-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 최근 검색어 보관 <span class="mono">(PI-AIS-HIS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 계정 기준 최근 검색어는 기본 30일 보관하고 고객이 개별 삭제 또는 전체 삭제하면 즉시 검색 화면에서 제외한다.<br/></span><span class="policy-item-line">- 비로그인 상태 검색 이력은 세션 종료 시 보관하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상세 복귀 유지 <span class="mono">(PI-AIS-HIS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 결과에서 상세 화면으로 이동한 뒤 복귀하면 검색어, 탭, 필터, 정렬, 스크롤 위치를 유지한다.<br/></span><span class="policy-item-line">- 단, 세션이 만료되면 검색어와 기본 탭만 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 검색 컨텍스트 재사용 <span class="mono">(PI-AIS-HIS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 컨텍스트는 후속 실행과 상담 전환에 필요한 범위로만 재사용한다.<br/></span><span class="policy-item-line">- 민감정보나 인증값은 컨텍스트에 저장하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 상담 전환 정책 (PG-AIS-CS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상담 전환 조건 <span class="mono">(PI-AIS-CS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 실패, 근거 부족, 고객 불만 피드백, 실행 제한, 복구 실패가 발생하면 상담 전환을 제공한다.<br/></span><span class="policy-item-line">- 자동 전환은 하지 않고 고객 선택을 받아야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전달 정보 고지 <span class="mono">(PI-AIS-CS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담 전환 전 검색어, 선택 결과, 실패 이력, 고객 상태 요약이 전달될 수 있음을 고지한다.<br/></span><span class="policy-item-line">- 고객이 동의하지 않으면 최소 정보만 전달한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상담 후 복귀 안내 <span class="mono">(PI-AIS-CS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담 연결 후 고객이 검색 결과로 돌아올 수 있도록 이전 검색어와 선택 결과 복귀 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상황 인지형 도움 전환 <span class="mono">(PI-AIS-CS-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 특정 화면이나 단계에서 기준 시간 이상 머무르거나 반복 실패하면 현재 화면 맥락에 맞는 도움말, 추가 질문, AI Assist, 상담 전환을 제안할 수 있다.<br/></span><span class="policy-item-line">- 자동 전환은 하지 않고 고객 선택을 우선한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• LLM 상담봇 연결 <span class="mono">(PI-AIS-CS-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- LLM 상담봇은 전역 진입과 상황별 진입을 모두 제공할 수 있으나, 가입·변경·결제·해지 같은 주요 업무 확정은 고객 최종 확인과 필수 인증 절차 이후 업무 화면에서 처리한다.<br/></span><span class="policy-item-line">- 봇이 해결하지 못한 경우 검색 컨텍스트를 상담사에게 전달한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인앱 자가 해결 연결 <span class="mono">(PI-AIS-CS-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 쿠폰 사용 실패, 혜택 조건 확인, 포인트 소멸 조회처럼 반복 문의가 많은 항목은 AI 상담에서 자가 해결 경로와 액션 위젯을 우선 제공한다.<br/></span><span class="policy-item-line">- AI로 해결하지 못하면 대화 이력, 고객 상태, 시도한 조치를 상담사에게 승계한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 운영 사전·금칙어 정책 (PG-AIS-OPS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 사전 변경 관리 <span class="mono">(PI-AIS-OPS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동의어, 축약어, 오타, 대표 엔티티 변경은 버전, 변경자, 적용 시점, 회수 가능 여부를 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 금칙어 차단 <span class="mono">(PI-AIS-OPS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 금칙어와 정책 제한어는 차단, 치환, 안내, 운영 검수 큐 전환 중 하나의 처리 기준을 가져야 한다.<br/></span><span class="policy-item-line">- 고객에게는 사유와 대체 입력 예시를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대표 엔티티 관리 <span class="mono">(PI-AIS-OPS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 목적 결과가 여러 채널에 있으면 대표 엔티티, 채널별 실행 경로, 예외 노출 조건을 운영자가 관리한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) AI 후보 검수·배포 정책 (PG-AIS-QA-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 운영 검수 큐 <span class="mono">(PI-AIS-QA-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI가 자동 생성한 추천어, 자동완성, 응답 후보 중 근거 누락, 정책 위반 의심, 민감 표현, 법무 위험이 있는 항목은 운영 검수 큐로 보낸다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 승인·반려 <span class="mono">(PI-AIS-QA-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 검수 큐 항목은 승인, 수정 승인, 반려, 차단 중 하나로 처리한다.<br/></span><span class="policy-item-line">- 승인 전 항목은 고객에게 직접 노출하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 배포·롤백 <span class="mono">(PI-AIS-QA-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 배포된 후보는 버전 단위로 관리한다.<br/></span><span class="policy-item-line">- 오답률, 신고, 정책 위반이 기준치를 넘으면 즉시 회수하고 이전 정상 버전으로 롤백한다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) 품질·성과 운영 정책 (PG-AIS-METRIC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 품질 지표 관리 <span class="mono">(PI-AIS-MET-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 성공률, 즉답 해결률, 실행 완료율, 재검색률, 무결과율, 검색 이탈률, 상담 전환율을 공통 지표로 관리한다.<br/></span><span class="policy-item-line">- 지표는 일 단위로 집계하고 운영 기준치를 벗어나면 개선 후보로 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이상 징후 알림 <span class="mono">(PI-AIS-MET-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 오답률, 정책 위반률, 오류율, 상담 전환율이 운영 기준치를 초과하면 운영자에게 알림과 대응 가이드를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 케이스 개선 <span class="mono">(PI-AIS-MET-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 무결과, 반복 재검색, 상담 전환, 신고, 실행 실패 케이스는 주 1회 이상 개선 후보로 분류하고 사전, 랭킹, 폴백 기준 개선에 반영한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 성능 기준 관리 <span class="mono">(PI-AIS-MET-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 응답 시간, 첫 결과 렌더링 지연, 검색 API 호출 실패율, 추가 로딩 실패율, 캐시·프리페치 적용 여부를 품질 지표로 관리한다.<br/></span><span class="policy-item-line">- 운영 기준치를 초과하면 검색 품질 이상 징후로 분류하고 개선 후보를 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 모델·룰 성과 비교 <span class="mono">(PI-AIS-MET-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- AI 응답, 룰 기반 결과, 기존 검색 결과의 정확도, 해결률, 전환율, 상담 전환율을 비교 분석한다.<br/></span><span class="policy-item-line">- 특정 방식이 기준 이하로 떨어지면 운영 검수 큐에 개선 후보로 등록한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 로그·개인정보 보호 정책 (PG-AIS-DATA-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 최소 로그 수집 <span class="mono">(PI-AIS-DAT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 검색 로그는 질의, 의도, 결과 유형, 선택 결과, 성공·실패, 상담 전환, 피드백 등 품질 개선에 필요한 최소 항목만 수집한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 민감정보 마스킹 <span class="mono">(PI-AIS-DAT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주민번호, 계좌, 카드번호, 인증값, 비밀번호 등 민감정보가 질의에 포함되면 저장 전 마스킹하거나 저장 대상에서 제외한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보관·파기 기준 <span class="mono">(PI-AIS-DAT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 분석용 검색 로그는 기본 13개월 이내로 보관하고 법적·감사 목적이 없는 원문 질의는 목적 달성 후 비식별화하거나 파기한다.<br/></span></div>
+</div>
+</div>
+
+	
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">AI 검색 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 범위 정합성</div>AI 검색이 검색 진입, 결과 이해, 실행 연결, 실패 복구, 운영 품질 기준으로 작성되었고 인접 정책서 상세 업무를 침범하지 않았는지 확인한다.<br/><div class="guide-section-title">2. 고객 완결성</div>고객이 검색어 입력부터 결과 확인, 비교, 실행, 상담 전환, 실패 복구까지 다음 행동을 선택할 수 있는지 확인한다.<br/><div class="guide-section-title">3. 의도 해석 정합성</div>키워드 검색, 질문형 검색, 업무 실행 요청, 상담 요청이 하나의 입력 구조에서 분기되도록 작성되었는지 확인한다.<br/><div class="guide-section-title">4. 상태 전이 정합성</div>검색 전, 질의 입력 중, 의도 해석 중, 결과 제공, 근거 부족, 결과 없음, 오류·복구, 상담 전환 상태가 전이표와 일치하는지 확인한다.<br/><div class="guide-section-title">5. 프로세스-기능-정책 연결성</div>모든 프로세스가 관련 기능과 관련 정책을 가지고, 기능과 정책이 검색 흐름의 판단 기준으로 연결되는지 확인한다.<br/><div class="guide-section-title">6. 정책 구체성</div>정책 항목에 입력 길이, 보관 기간, 추가 질문 단계, 랭킹 우선순위, 실행 전 확인, 로그 보관 기준 등 판단값이 있는지 확인한다.<br/><div class="guide-section-title">7. AI 통제 원칙</div>AI가 고객 대신 계약·변경·해지·결제를 확정하지 않고 고객 최종 확인과 원본 확인 경로를 제공하는지 확인한다.<br/><div class="guide-section-title">8. BSS 기준 정보 포함성</div>BSS가 제공하는 고객 상태, 보유 상품, 권한, 대상 조건, 실행 가능 여부 기준과 검색 연계 시스템의 반영 책임이 분리되어 있는지 확인한다.<br/><div class="guide-section-title">9. 액터 책임 연결성</div>고객, 상담사, 운영자, 채널 업무 시스템이 각각 유즈케이스와 프로세스에 직접 연결되어 있는지 확인한다.<br/><div class="guide-section-title">10. 실패·복구 가능성</div>무결과, 근거 부족, 오류, 제한, 상담 전환에서 고객이 재검색 또는 대체 경로를 선택할 수 있는지 확인한다.<br/><div class="guide-section-title">11. 운영 관리 가능성</div>사전, 금칙어, 대표 엔티티, 랭킹, AI 후보 검수, 배포·롤백, 품질 지표 개선 루프가 운영 가능한 수준인지 확인한다.<br/><div class="guide-section-title">12. 요구사항 반영 여부</div>PM-05 상세 요구사항 101건이 검색 진입, 결과 구성, 비교·실행, 복구, 운영 품질 기준 중 하나 이상에 매핑되었는지 확인한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

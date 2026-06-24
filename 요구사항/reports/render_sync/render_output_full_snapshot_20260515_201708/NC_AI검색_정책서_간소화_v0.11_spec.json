@@ -1,0 +1,2570 @@
+{
+  "meta": {
+    "topic": "AI검색",
+    "topic_display": "AI 검색",
+    "topic_slug": "AI검색",
+    "business_code": "AIS",
+    "document_id": "POL-AIS",
+    "document_type": "간소화 버전",
+    "status": "작성중",
+    "version": "v0.11",
+    "author": "Codex",
+    "date": "2026-05-09",
+    "template_type": "simple",
+    "requirements_count": 101,
+    "references_count": 54,
+    "usecase_diagram": {
+      "lines": [
+        "[고객] → (AI 검색으로 정보 탐색 완료) → include: 공통 검색 진입, 질의 정규화, 통합 결과 확인, 출처·조건 확인",
+        "[고객] → (AI 검색 기반 의사결정 및 실행 연결) → include: 비교 요약, 추천 근거 확인, 최종 실행 확인, 실행 경로 이동",
+        "[고객] → (검색 실패 복구 및 상담 전환) → include: 무결과 폴백, 추가 질문, 재검색, 상담 전환",
+        "[상담사] → (검색 맥락 기반 상담 응대) → include: 상담 접수, 검색 맥락 확인, 해결 경로 안내, 결과 회신",
+        "[운영자] → (검색 대상 자산 기준 관리) → include: 검색 대상, 대표 엔티티, 메타데이터, 실행 경로 관리",
+        "[운영자] → (검색 기준·AI 품질 운영) → include: 사전·금칙어, 랭킹, AI 후보 검수, 배포·롤백, 품질 개선",
+        "[검색 연계 시스템] → (의도 해석·조건 추출·결과 후보 생성)",
+        "[채널 업무 시스템] → (실행 경로·상담 컨텍스트 전달)",
+        "[검색 연계 시스템] → (고객 상태·권한·대상 조건 판정)"
+      ]
+    },
+    "authoring_basis": [
+      "PM-05 상세 요구사항명과 상세 요구사항 설명은 최신 요구사항 DB 101건을 기준으로 확인했고, 검색 진입, 입력, 결과, 비교, 실행 연결, 실패 복구, 운영 품질 기준으로 재구성했다.",
+      "AI 검색은 키워드 검색이 아니라 정보 탐색, 의사결정, 업무 실행, 문제 해결을 연결하는 원스톱 경험이라는 Topic Knowledge 지향점을 Core Design 기준으로 사용했다.",
+      "요구사항 문구를 그대로 복사하지 않고 고객 과업, 운영 과업, 시스템 판정, 정책 판단 기준으로 분리했다.",
+      "상담사는 상담 전환의 수신자에 그치지 않도록 검색 맥락 기반 상담 응대 유즈케이스와 상담 접수·결과 회신 프로세스로 연결했다.",
+      "유즈케이스는 검색 여정의 세부 단계가 아니라 고객·상담사·운영자의 완결 업무 목표로 재정리했고, 상세 단계는 프로세스로 내렸다.",
+      "20260509 요구사항 DB 최신 기준 101건을 다시 확인했고, 추가·수정 요구사항 중 검색 매칭 기준, 0건 상태 구분, 선택동의, RAG 개인화, 크로스 도메인 실행, 액션 위젯, 필터 구간값을 정책 판단축으로 보강했다."
+    ],
+    "module_id": "PM-05",
+    "document_status": "작성중",
+    "created_at": "2026-05-09",
+    "updated_at": "2026-05-15",
+    "requirements_count_changed": {
+      "old": 96,
+      "new": 101
+    },
+    "history": [
+      {
+        "version": "v0.11",
+        "change": "품질 검수 및 구조 보완 반영",
+        "date": "2026-05-11",
+        "author": "Codex"
+      }
+    ],
+    "template_label": "간소화",
+    "version_spec_file": "NC_AI검색_정책서_간소화_v0.11_spec.json",
+    "version_spec_saved_at": "2026-05-11T20:09:44",
+    "version_spec_reason": "backfill_existing_output",
+    "version_spec_source": "AI검색_policy_spec.json"
+  },
+  "history": [
+    {
+      "version": "v0.10",
+      "change": "Codex 기반 초안 작성",
+      "date": "2026-05-10",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.11",
+      "change": "품질 검수 및 구조 보완 반영",
+      "date": "2026-05-11",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.11",
+      "change": "bpmn.io viewer 산출물 생성 및 문서 재렌더링",
+      "date": "2026-05-15",
+      "author": "Codex"
+    }
+  ],
+  "overview": {
+    "scope": [
+      "본 정책서는 통합채널에서 고객이 하나의 검색·질문 진입점으로 정보 탐색, 비교, 업무 실행, 문제 해결을 시작하고 완료 경로를 선택할 수 있도록 하는 AI 검색 기준을 정의한다.",
+      "포함 범위는 전역 검색 진입, 전시 내 검색 진입, 검색 입력 표준, 질의 정규화, 자동완성, 연관 검색어, 최근·인기 검색어, 통합 결과 탭, 필터·정렬, 결과 내 재검색, 상세 복귀 상태 유지, 무결과 폴백이다.",
+      "AI 확장 범위는 자연어·질문형 의도 해석, 조건·속성 파라미터 추출, 고객 상태 기반 Answer Card, 비교·추천 요약, 실행 경로 안내, 상담 전환 맥락 전달이다.",
+      "운영 범위는 통합 검색 대상, 대표 엔티티, 동의어·축약어·오타·금칙어 사전, 랭킹 가중치, AI 추천어·응답 후보 검수, 배포·롤백, 품질·성과 지표, 실패 케이스 분석 기준을 포함한다.",
+      "BSS는 고객 상태, 가입 상태, 보유 상품, 권한, 대상 조건, 실행 가능 여부의 기준 정보를 제공하고, 검색 연계 시스템은 해당 기준 정보를 검색 결과와 실행 연결 판정에 반영한다.",
+      "책임 경계는 통합채널 FO가 입력·표시·실행 경로를 담당하고, 검색 연계 시스템이 의도 해석·후보 생성·권한 판정을 담당하며, BSS는 고객 상태·보유 상품·업무 가능 여부의 기준 정보를 제공하는 구조로 구분한다.",
+      "제외 범위는 검색 엔진 알고리즘 상세, 모델 파라미터, 프롬프트 원문, API 필드, DB 컬럼, 화면 상세 디자인, 개별 상품·요금·혜택의 상세 정책값이다.",
+      "검색 결과는 앱·웹에서 동일한 기준으로 정렬·제공하되 화면 특성에 따른 표시 차이는 정책 판단이 아닌 표현 차이로 관리한다.",
+      "상세 요구사항 101건은 요구사항 Trace 기준으로 유즈케이스, 상태, 프로세스, 기능, 정책 또는 정책 항목 중 하나 이상에 매핑한다.",
+      "상품·전시·콘텐츠 메타데이터, 페이지네이션·무한스크롤, 응답 시간·렌더링 지연·호출 실패율은 고객 탐색 완결성과 운영 품질 판단 기준으로 포함한다."
+    ],
+    "principles": [
+      {
+        "name": "Intent to Action",
+        "description": "AI 검색은 단순 결과 목록이 아니라 고객 의도를 해석해 비교, 실행, 상담, 도움말 중 다음 행동으로 이어지게 한다."
+      },
+      {
+        "name": "Customer Control",
+        "description": "AI는 고객 대신 가입, 변경, 해지, 결제 결정을 내리지 않으며 주요 실행은 고객의 명시적 선택과 최종 확인 후에만 연결한다."
+      },
+      {
+        "name": "Grounded Result",
+        "description": "검색·추천 결과에는 출처, 적용 조건, 미충족 사유, 한계, 대체 경로를 함께 제공해 고객이 스스로 판단할 수 있게 한다."
+      },
+      {
+        "name": "Unified Search Scope",
+        "description": "상품, 혜택, 메뉴, FAQ, 공지, 콘텐츠, 상담 진입은 하나의 검색 범위에서 다루되 대표 결과와 유형별 결과를 구분한다."
+      },
+      {
+        "name": "Recoverable Search Failure",
+        "description": "무결과, 근거 부족, 오류, 권한 제한은 고객이 재검색, 조건 보완, 상담 전환, 대체 경로를 선택할 수 있는 상태로 전환한다."
+      },
+      {
+        "name": "Quality Loop",
+        "description": "검색 정확도, 실행 완료율, 무결과율, 상담 전환율, 피드백, 정책 위반 의심 항목을 운영 루프로 관리한다."
+      }
+    ]
+  },
+  "terms": [
+    {
+      "id": "TM-AIS-001",
+      "name": "AI 검색",
+      "description": "고객의 키워드·문장형 질의를 의도, 조건, 실행 가능성 기준으로 해석해 정보, 비교, 실행 경로, 상담 전환을 제공하는 탐색 체계다."
+    },
+    {
+      "id": "TM-AIS-002",
+      "name": "통합 검색 범위",
+      "description": "상품, 혜택, 제휴처, 이벤트, 전시·콘텐츠, 메뉴·기능, FAQ·공지·가이드, 상담 진입을 하나의 검색 대상으로 관리하는 범위다."
+    },
+    {
+      "id": "TM-AIS-003",
+      "name": "의도 해석",
+      "description": "질의를 정보 조회, 기능 실행, 비교·추천, 문제 해결, 상담 전환 중 어떤 업무 유형으로 처리할지 판단하는 기준이다."
+    },
+    {
+      "id": "TM-AIS-004",
+      "name": "Answer Card",
+      "description": "이번 달 요금, 남은 데이터, 주문 상태처럼 고객 상태를 반영해 즉답과 실행 경로를 함께 제공하는 결과 카드다."
+    },
+    {
+      "id": "TM-AIS-005",
+      "name": "Quick Action",
+      "description": "검색 결과에서 고객이 메뉴 구조를 몰라도 바로 처리 화면, 신청 화면, 상담 전환으로 이동할 수 있게 하는 실행 경로다."
+    },
+    {
+      "id": "TM-AIS-006",
+      "name": "대표 엔티티",
+      "description": "동일 목적의 메뉴, 상품, 혜택, 콘텐츠가 여러 명칭이나 채널에 있을 때 검색 결과에서 우선 노출하는 기준 결과다."
+    },
+    {
+      "id": "TM-AIS-007",
+      "name": "검색 컨텍스트",
+      "description": "검색어, 의도, 필터, 정렬, 선택 결과, 고객 상태, 실패 이력처럼 후속 실행이나 상담 전환에 재사용하는 탐색 맥락이다."
+    },
+    {
+      "id": "TM-AIS-008",
+      "name": "근거 고지",
+      "description": "AI가 제시한 결과나 추천이 어떤 공식 정보, 고객 조건, 제한 사유, 비교 기준에 근거했는지 고객에게 설명하는 기준이다."
+    },
+    {
+      "id": "TM-AIS-009",
+      "name": "무결과 폴백",
+      "description": "검색 결과가 없거나 신뢰도가 낮을 때 연관 검색어, 인기 카테고리, FAQ, 상담 연결, 대체 경로를 제공하는 복구 구조다."
+    },
+    {
+      "id": "TM-AIS-010",
+      "name": "금칙어·정책 필터",
+      "description": "검색어 또는 결과가 법무, 브랜드, 유해어, 민감정보, 차별 표현 기준에 걸릴 때 차단, 치환, 안내, 검수 큐로 전환하는 기준이다."
+    },
+    {
+      "id": "TM-AIS-011",
+      "name": "운영 검수 큐",
+      "description": "AI가 자동 생성한 추천어, 자동완성, 응답 후보, 정책 위반 의심 항목을 운영자가 승인·반려·회수하는 작업 목록이다."
+    },
+    {
+      "id": "TM-AIS-012",
+      "name": "검색 품질 지표",
+      "description": "검색 성공률, 즉답 해결률, 실행 완료율, 재검색률, 무결과율, 이탈률, 상담 전환율, 신고·피드백을 포함하는 품질 관리 기준이다."
+    }
+  ],
+  "actors": [
+    {
+      "id": "ACT-AIS-001",
+      "name": "고객",
+      "description": "AI 검색을 통해 질문, 탐색, 결과 이해, 후속 행동을 수행하는 주체다."
+    },
+    {
+      "id": "ACT-AIS-002",
+      "name": "운영자",
+      "description": "검색·AI, 콘텐츠·상품 기준, 검색 품질과 성과 개선을 운영하는 주체다."
+    },
+    {
+      "id": "ACT-AIS-003",
+      "name": "상담사",
+      "description": "AI 검색 실패 또는 상담 전환 문맥을 이어받아 고객 문의를 지원하는 주체다."
+    },
+    {
+      "id": "ACT-AIS-004",
+      "name": "채널 업무 시스템",
+      "description": "검색 진입, 결과 표시, 후속 행동 연결, 상담 전환을 처리하는 채널 시스템이다."
+    },
+    {
+      "id": "ACT-AIS-005",
+      "name": "검색 연계 시스템",
+      "description": "검색 의도 해석, 결과 후보 생성, 고객 상태·권한 판정에 필요한 BSS 기준 정보와 상품·콘텐츠 기준 정보를 검색 결과 생성에 반영하는 시스템이다."
+    }
+  ],
+  "usecases": [
+    {
+      "id": "US-AIS-CUS-001",
+      "actor": "고객",
+      "name": "AI 검색으로 정보 탐색 완료",
+      "description": "고객이 하나의 검색·질문 진입점에서 원하는 정보, 메뉴, 상품, 혜택, 도움말을 찾고 결과의 출처와 적용 조건을 이해한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-AIS-CUS-002",
+      "actor": "고객",
+      "name": "AI 검색 기반 의사결정 및 실행 연결",
+      "description": "고객이 AI가 정리한 비교·추천 근거를 검토하고 가입, 변경, 해지, 납부, 상담 등 다음 행동으로 안전하게 이동한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-AIS-CUS-003",
+      "actor": "고객",
+      "name": "검색 실패 복구 및 상담 전환",
+      "description": "고객이 무결과, 근거 부족, 오류, 제한 상황에서 재검색, 조건 보완, 대체 경로, 상담 전환으로 문제를 이어서 해결한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-AIS-CS-001",
+      "actor": "상담사",
+      "name": "검색 맥락 기반 상담 응대",
+      "description": "상담사가 AI 검색에서 전달된 검색어, 선택 결과, 실패 이력, 고객 상태 요약을 확인하고 문제 해결 또는 후속 업무 경로를 안내한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-AIS-CON-001",
+      "actor": "운영자",
+      "name": "검색 대상 자산 기준 관리",
+      "description": "운영자가 상품, 혜택, 전시, FAQ, 공지, 가이드 등 검색 대상 자산의 노출 가능성, 메타데이터, 대표 엔티티 기준을 관리한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-AIS-OPR-001",
+      "actor": "운영자",
+      "name": "검색 기준·AI 품질 운영",
+      "description": "운영자가 랭킹, 사전, 금칙어, AI 응답 후보, 배포·롤백, 품질 지표, 실패 케이스를 관리한다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-AIS-SYS-001",
+      "actor": "검색 연계 시스템",
+      "name": "의도 해석·조건 추출·결과 후보 생성",
+      "description": "검색 연계 시스템이 질의에서 의도, 조건, 속성, 대상 유형을 추출하고 결과 후보와 추천 질의를 생성한다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-AIS-SYS-002",
+      "actor": "검색 연계 시스템",
+      "name": "고객 상태·권한·대상 조건 판정",
+      "description": "검색 연계 시스템이 고객 상태와 대상 조건을 판정해 결과 노출 가능 여부와 실행 가능 여부를 회신한다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-AIS-SYS-003",
+      "actor": "채널 업무 시스템",
+      "name": "실행 경로·상담 컨텍스트 전달",
+      "description": "채널 업무 시스템이 선택 결과에서 실행 화면, 비교 화면, 상담 채널로 필요한 검색 컨텍스트를 전달한다.",
+      "process_target": "N"
+    }
+  ],
+  "states": [
+    {
+      "id": "ST-AIS-001",
+      "name": "검색 전",
+      "description": "고객이 공통 검색 진입점을 선택하기 전 상태다.",
+      "next_action": "현재 화면 맥락에 맞는 placeholder, 추천어, 검색 진입 버튼을 제공한다."
+    },
+    {
+      "id": "ST-AIS-002",
+      "name": "질의 입력 중",
+      "description": "고객이 키워드 또는 문장형 질문을 입력하고 있는 상태다.",
+      "next_action": "입력 정규화, 자동완성, 바로가기, 최근·인기 검색어를 제공한다."
+    },
+    {
+      "id": "ST-AIS-003",
+      "name": "의도 해석 중",
+      "description": "입력 질의를 의도, 대상, 조건, 속성으로 해석하는 상태다.",
+      "next_action": "충분하면 결과 구성으로 전환하고 부족하면 조건 보완을 요청한다."
+    },
+    {
+      "id": "ST-AIS-004",
+      "name": "조건 보완 필요",
+      "description": "검색 의도나 실행 조건이 모호해 추가 질문이 필요한 상태다.",
+      "next_action": "고객에게 필요한 최소 질문을 제시하고 재해석한다."
+    },
+    {
+      "id": "ST-AIS-005",
+      "name": "결과 구성 중",
+      "description": "통합 결과, 유형별 결과, Answer Card, 비교 후보를 구성하는 상태다.",
+      "next_action": "고객 상태와 권한 조건을 반영해 결과 제공 완료로 전환한다."
+    },
+    {
+      "id": "ST-AIS-006",
+      "name": "결과 제공 완료",
+      "description": "고객 표시 상태는 결과 제공 완료이며, 내부 처리 상태는 결과 출처 검증, 고객 조건 적용, 실행 가능 여부 판정 완료 여부로 구분한다.",
+      "next_action": "상세, 비교, 실행, 도움말, 상담 중 다음 행동을 선택하게 한다."
+    },
+    {
+      "id": "ST-AIS-007",
+      "name": "비교 검토 중",
+      "description": "고객이 선택한 상품, 혜택, 업무 경로의 차이와 추천 근거를 확인하는 상태다.",
+      "next_action": "추천 한계와 대안까지 확인한 뒤 실행 확인 대기로 전환한다."
+    },
+    {
+      "id": "ST-AIS-008",
+      "name": "실행 확인 대기",
+      "description": "가입, 변경, 해지, 납부 등 주요 실행 전 고객의 명시적 최종 확인을 기다리는 상태다.",
+      "next_action": "필수 인증, 동의, 유의사항 확인 후 실행 전환 완료로 전환한다."
+    },
+    {
+      "id": "ST-AIS-009",
+      "name": "실행 전환 완료",
+      "description": "고객 표시 상태는 실행 화면 이동 완료이며, 내부 처리 상태는 검색 컨텍스트 전달, 후속 업무 접수, 이력 저장 완료 여부로 구분한다.",
+      "next_action": "검색 컨텍스트와 선택 결과를 후속 화면에 전달하고 복귀 기준을 유지한다."
+    },
+    {
+      "id": "ST-AIS-010",
+      "name": "근거 부족",
+      "description": "AI 결과의 출처, 조건, 정확도가 고객 판단에 충분하지 않은 상태다.",
+      "next_action": "근거 부족 사유, 원본 확인, 대체 결과, 상담 전환을 제공한다."
+    },
+    {
+      "id": "ST-AIS-011",
+      "name": "결과 없음",
+      "description": "검색 대상에서 직접 결과와 연관 결과가 모두 없는 상태다.",
+      "next_action": "연관어, 인기 카테고리, FAQ, 상담, 재검색 경로를 제공한다."
+    },
+    {
+      "id": "ST-AIS-012",
+      "name": "오류·복구 필요",
+      "description": "고객 표시 상태는 오류·복구 필요이며, 내부 처리 상태는 검색 호출 실패, 권한 제한, 결과 로딩 실패, 연계 회신 실패 유형으로 구분한다.",
+      "next_action": "오류 유형별 재시도, 홈 이동, 상담 연결, 대체 경로를 안내한다."
+    },
+    {
+      "id": "ST-AIS-013",
+      "name": "상담 전환 대기",
+      "description": "검색 맥락을 상담으로 넘기기 전 고객 동의와 전달 범위를 확인하는 상태다.",
+      "next_action": "검색어, 선택 결과, 실패 이력 전달 범위를 고지하고 상담 전환한다."
+    },
+    {
+      "id": "ST-AIS-014",
+      "name": "피드백 접수",
+      "description": "고객 신고, 만족도, 오류 제보, 무결과 피드백이 접수된 상태다.",
+      "next_action": "피드백 유형을 품질 개선 큐 또는 운영 검수 큐로 분류한다."
+    },
+    {
+      "id": "ST-AIS-015",
+      "name": "운영 검수 대기",
+      "description": "AI 생성 후보나 정책 위반 의심 항목이 운영자 확인을 기다리는 상태다.",
+      "next_action": "승인, 반려, 수정, 차단 중 하나로 결정한다."
+    },
+    {
+      "id": "ST-AIS-016",
+      "name": "운영 반영 완료",
+      "description": "검수된 검색 기준, 추천어, 응답 후보, 사전, 랭킹 정책이 운영에 반영된 상태다.",
+      "next_action": "성과 지표와 오류 지표를 모니터링한다."
+    },
+    {
+      "id": "ST-AIS-017",
+      "name": "운영 회수 필요",
+      "description": "오답, 정책 위반, 장애, 성과 악화로 반영 항목을 중단하거나 롤백해야 하는 상태다.",
+      "next_action": "노출 차단, 이전 버전 롤백, 대체 안내를 적용한다."
+    }
+  ],
+  "state_transitions": [
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001"
+      ],
+      "current_state": "검색 전",
+      "event": "통합 검색 진입 및 질의 입력",
+      "next_state": "질의 입력 중",
+      "criteria": "고객이 공통 검색 진입점을 선택하면 현재 화면 맥락을 유지한 채 질의 입력 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001",
+        "US-AIS-SYS-001"
+      ],
+      "current_state": "질의 입력 중",
+      "event": "검색어 입력 검증과 정규화",
+      "next_state": "의도 해석 중",
+      "criteria": "공백·특수문자·오타·동의어를 정규화하고 최소 글자 수와 금칙어 기준을 통과하면 의도 해석을 시작한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001",
+        "US-AIS-SYS-001"
+      ],
+      "current_state": "의도 해석 중",
+      "event": "추가 질문 기반 조건 보완",
+      "next_state": "조건 보완 필요",
+      "criteria": "대상, 기간, 금액, 지역, 상태 등 필수 조건이 부족하면 고객에게 최소 질문만 제시한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001",
+        "US-AIS-SYS-001"
+      ],
+      "current_state": "조건 보완 필요",
+      "event": "조건 보완 후 재해석",
+      "next_state": "결과 구성 중",
+      "criteria": "고객이 추가 조건을 선택하거나 입력하면 기존 검색 컨텍스트와 함께 재해석한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001",
+        "US-AIS-SYS-001",
+        "US-AIS-SYS-002"
+      ],
+      "current_state": "의도 해석 중",
+      "event": "AI 검색 결과 이해 및 다음 행동 선택",
+      "next_state": "결과 구성 중",
+      "criteria": "의도, 대상 유형, 고객 상태, 권한 조건이 충분히 확인되면 결과 후보를 구성한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001",
+        "US-AIS-SYS-002"
+      ],
+      "current_state": "결과 구성 중",
+      "event": "고객 상태와 적용 조건 반영",
+      "next_state": "결과 제공 완료",
+      "criteria": "정확일치, 대표 결과, Answer Card, 유형별 결과, 제한 사유, 대체 추천을 반영해 결과를 제공한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-001"
+      ],
+      "current_state": "결과 제공 완료",
+      "event": "근거 부족 또는 신뢰도 부족 확인",
+      "next_state": "근거 부족",
+      "criteria": "출처가 없거나 고객 조건을 확인할 수 없어 추천 근거를 명확히 제시할 수 없으면 근거 부족으로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-003"
+      ],
+      "current_state": "근거 부족",
+      "event": "검색 실패·불확실 결과 복구",
+      "next_state": "조건 보완 필요",
+      "criteria": "고객이 원본 확인 대신 조건 보완 또는 재검색을 선택하면 기존 맥락을 유지해 조건 보완으로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-003"
+      ],
+      "current_state": "결과 구성 중",
+      "event": "제로결과 폴백",
+      "next_state": "결과 없음",
+      "criteria": "직접 결과와 연관 결과가 없으면 빈 화면이 아니라 연관어, 인기 카테고리, FAQ, 상담 경로를 제공한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-003"
+      ],
+      "current_state": "결과 없음",
+      "event": "대체 경로 선택",
+      "next_state": "질의 입력 중",
+      "criteria": "고객이 연관 검색어, 인기 키워드, 재검색을 선택하면 질의 입력 중 상태로 돌아간다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-002"
+      ],
+      "current_state": "결과 제공 완료",
+      "event": "비교·추천 결과 검토 및 실행 전 확인",
+      "next_state": "비교 검토 중",
+      "criteria": "고객이 비교 가능한 상품, 혜택, 업무 경로를 2개 이상 선택하면 비교 검토 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-002"
+      ],
+      "current_state": "비교 검토 중",
+      "event": "추천 근거와 한계 확인",
+      "next_state": "실행 확인 대기",
+      "criteria": "추천 사유, 적용 조건, 유의사항, 대체 선택지를 확인한 뒤 고객이 실행을 선택하면 최종 확인을 대기한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-002",
+        "US-AIS-SYS-003"
+      ],
+      "current_state": "실행 확인 대기",
+      "event": "고객 통제 기반 최종 실행 확인",
+      "next_state": "실행 전환 완료",
+      "criteria": "고객이 필수 인증, 동의, 유의사항, 최종 실행 버튼을 명시적으로 완료한 경우에만 실행 화면으로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-003",
+        "US-AIS-SYS-003"
+      ],
+      "current_state": "결과 제공 완료",
+      "event": "검색 상담 전환 및 맥락 이어가기",
+      "next_state": "상담 전환 대기",
+      "criteria": "검색 결과로 해결되지 않아 상담 전환을 선택하면 전달할 검색 컨텍스트를 고객에게 고지한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-003",
+        "US-AIS-SYS-003"
+      ],
+      "current_state": "상담 전환 대기",
+      "event": "상담 컨텍스트 전달 동의",
+      "next_state": "실행 전환 완료",
+      "criteria": "고객이 검색어, 선택 결과, 실패 이력 전달에 동의하면 상담 채널로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CUS-003"
+      ],
+      "current_state": "결과 제공 완료",
+      "event": "오류·실패·중단 복구",
+      "next_state": "오류·복구 필요",
+      "criteria": "검색 호출 실패, 결과 로딩 실패, 권한 제한, 외부 연동 실패가 발생하면 오류 유형별 복구 상태로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-OPR-001"
+      ],
+      "current_state": "운영 검수 대기",
+      "event": "AI 응답 후보 검수·배포·롤백",
+      "next_state": "운영 반영 완료",
+      "criteria": "운영자가 AI 후보의 금칙어, 근거, 브랜드, 법무, 편향 위험을 확인하고 승인하면 반영 완료로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-OPR-001"
+      ],
+      "current_state": "운영 반영 완료",
+      "event": "품질 이상 징후 감지",
+      "next_state": "운영 회수 필요",
+      "criteria": "오답률, 정책 위반률, 오류율, 상담 전환율이 기준치를 초과하면 회수 필요로 전환한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-OPR-001"
+      ],
+      "current_state": "운영 회수 필요",
+      "event": "롤백 및 대체 기준 반영",
+      "next_state": "운영 검수 대기",
+      "criteria": "문제 후보를 차단하거나 이전 버전으로 롤백한 뒤 개선 후보를 운영 검수 큐에 등록한다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CS-001",
+        "US-AIS-SYS-003"
+      ],
+      "current_state": "상담 전환 대기",
+      "event": "검색 맥락 기반 상담 접수",
+      "next_state": "실행 전환 완료",
+      "criteria": "상담사가 검색어, 선택 결과, 실패 이력, 고객 상태 요약을 확인하면 상담이 중복 질문 없이 시작된다."
+    },
+    {
+      "usecase_ids": [
+        "US-AIS-CS-001"
+      ],
+      "current_state": "실행 전환 완료",
+      "event": "상담 처리 결과 회신 및 복귀 안내",
+      "next_state": "피드백 접수",
+      "criteria": "상담사가 해결 결과와 후속 행동을 안내하고 고객 피드백 또는 추가 개선 필요 이력을 남기면 피드백 접수로 전환한다."
+    }
+  ],
+  "processes": [
+    {
+      "id": "PR-AIS-CUS-001",
+      "usecase_id": "US-AIS-CUS-001",
+      "name": "공통 검색 진입 및 입력 표준 적용",
+      "description": "고객이 홈, 전시, 상품상세, 내서비스, CS 등 주요 화면에서 동일한 검색 진입 구조로 탐색을 시작하고, 검색어 삭제·초기화와 초기 추천·상황 도움 진입을 확인하게 한다.",
+      "related_functions": [
+        "FN-AIS-ENT-001",
+        "FN-AIS-INP-001"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-INPUT-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-002",
+      "usecase_id": "US-AIS-CUS-001",
+      "name": "질의 정규화·자동완성 보조",
+      "description": "고객 입력을 정규화하고 자동완성, 바로가기, 최근·인기 검색어로 검색 부담을 낮춘다.",
+      "related_functions": [
+        "FN-AIS-INP-001",
+        "FN-AIS-SUG-001"
+      ],
+      "related_policies": [
+        "PG-AIS-INPUT-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-003",
+      "usecase_id": "US-AIS-CUS-001",
+      "name": "의도 기반 통합 결과 구성",
+      "description": "질의 의도와 고객 상태를 바탕으로 통합 결과, 유형별 탭, Answer Card, Quick Action, 상품 핵심 속성, 매칭 기준 안내, 페이지네이션·무한스크롤 기준을 구성한다.",
+      "related_functions": [
+        "FN-AIS-INT-001",
+        "FN-AIS-SRC-001",
+        "FN-AIS-RNK-001",
+        "FN-AIS-ANS-001"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CARD-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-004",
+      "usecase_id": "US-AIS-CUS-001",
+      "name": "출처·조건·미충족 사유 확인",
+      "description": "검색 결과의 출처, 매칭 근거, 하이라이트, 적용 가능 조건, 제한 사유, 대체 추천을 고객이 이해할 수 있게 제공한다.",
+      "related_functions": [
+        "FN-AIS-CND-001",
+        "FN-AIS-ANS-001"
+      ],
+      "related_policies": [
+        "PG-AIS-CARD-001",
+        "PG-AIS-CONDITION-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-005",
+      "usecase_id": "US-AIS-CUS-002",
+      "name": "비교 대상 선택 및 차이 요약 확인",
+      "description": "고객이 검색 결과에서 비교 대상을 선택하고 AI 요약을 통해 차이점과 추천 근거를 확인한다.",
+      "related_functions": [
+        "FN-AIS-CMP-001",
+        "FN-AIS-CND-001"
+      ],
+      "related_policies": [
+        "PG-AIS-COMPARE-001",
+        "PG-AIS-CONDITION-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-006",
+      "usecase_id": "US-AIS-CUS-002",
+      "name": "실행 전 고객 통제 확인 및 전환",
+      "description": "주요 업무 실행 전 고객의 명시적 선택, 인증, 선택동의, 유의사항 확인을 거쳐 단일 실행 또는 크로스 도메인 실행 후보로 연결한다.",
+      "related_functions": [
+        "FN-AIS-ACT-001",
+        "FN-AIS-CND-001"
+      ],
+      "related_policies": [
+        "PG-AIS-ACTION-001",
+        "PG-AIS-COMPARE-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-007",
+      "usecase_id": "US-AIS-CUS-003",
+      "name": "무결과·근거 부족 원인 안내",
+      "description": "결과 없음, 조건 불일치, 데이터 부재, 근거 부족, 노출 제한, 오류의 원인을 구분해 고객에게 현재 상태와 이유를 안내한다.",
+      "related_functions": [
+        "FN-AIS-FBK-001",
+        "FN-AIS-ANS-001"
+      ],
+      "related_policies": [
+        "PG-AIS-FAIL-001",
+        "PG-AIS-CARD-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-008",
+      "usecase_id": "US-AIS-CUS-003",
+      "name": "재검색·조건 보완·대체 경로 선택",
+      "description": "연관 검색어, 유사어, 추가 질문, FAQ, 인기 카테고리, 상담 연결로 고객이 이탈하지 않고 다음 행동을 이어가게 한다.",
+      "related_functions": [
+        "FN-AIS-FBK-001",
+        "FN-AIS-SUG-001",
+        "FN-AIS-CS-001"
+      ],
+      "related_policies": [
+        "PG-AIS-FAIL-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-CS-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-009",
+      "usecase_id": "US-AIS-CUS-003",
+      "name": "상담 전환 필요성 확인",
+      "description": "AI 검색으로 해결되지 않는 사유를 확인하고 상담 전환 전에 전달 정보와 고객 동의를 안내한다.",
+      "related_functions": [
+        "FN-AIS-CS-001",
+        "FN-AIS-ACT-001"
+      ],
+      "related_policies": [
+        "PG-AIS-CS-001",
+        "PG-AIS-DATA-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CUS-010",
+      "usecase_id": "US-AIS-CUS-003",
+      "name": "검색 컨텍스트 상담 전달 및 복귀 안내",
+      "description": "검색어, 선택 결과, 실패 이력, 고객 상태를 상담에 전달하고 상담 후 검색 흐름으로 복귀할 수 있게 한다.",
+      "related_functions": [
+        "FN-AIS-CS-001",
+        "FN-AIS-MON-001"
+      ],
+      "related_policies": [
+        "PG-AIS-CS-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CS-001",
+      "usecase_id": "US-AIS-CS-001",
+      "name": "검색 맥락 기반 상담 접수",
+      "description": "상담사가 검색어, 선택 결과, 실패 이력, 고객 상태 요약, 상황 인지형 도움 요청 맥락을 확인하고 중복 질문 없이 상담을 시작한다.",
+      "related_functions": [
+        "FN-AIS-CS-001",
+        "FN-AIS-MON-001"
+      ],
+      "related_policies": [
+        "PG-AIS-CS-001",
+        "PG-AIS-DATA-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CS-002",
+      "usecase_id": "US-AIS-CS-001",
+      "name": "상담 처리 결과 회신 및 복귀 안내",
+      "description": "상담사가 해결 결과, 추가 확인 사항, 검색 또는 업무 화면 복귀 경로를 고객에게 안내하고 상담 결과 이력을 남긴다.",
+      "related_functions": [
+        "FN-AIS-CS-001",
+        "FN-AIS-ACT-001"
+      ],
+      "related_policies": [
+        "PG-AIS-CS-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CON-001",
+      "usecase_id": "US-AIS-CON-001",
+      "name": "검색 대상 자산 등록 기준 점검",
+      "description": "운영자가 상품, 혜택, FAQ, 공지, 전시 등 검색 대상 자산의 노출 가능성, 메타데이터, 대표 엔티티 등록 기준을 점검한다.",
+      "related_functions": [
+        "FN-AIS-OPS-001",
+        "FN-AIS-SRC-001"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-CON-002",
+      "usecase_id": "US-AIS-CON-001",
+      "name": "대표 엔티티·실행 경로 반영 확인",
+      "description": "운영자가 대표 결과, 동의어, 축약어, 오타, 채널별 실행 경로가 검색 결과와 실행 연결에 반영되는지 확인하고 변경 이력을 남긴다.",
+      "related_functions": [
+        "FN-AIS-OPS-001",
+        "FN-AIS-ACT-001"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-OPR-002",
+      "usecase_id": "US-AIS-OPR-001",
+      "name": "랭킹·노출 제한·금칙어 기준 관리",
+      "description": "운영자가 결과 랭킹, 금칙어, 노출 제한, 대상 조건, 필터 구간값, 대체 추천 기준을 관리한다.",
+      "related_functions": [
+        "FN-AIS-RNK-001",
+        "FN-AIS-OPS-001",
+        "FN-AIS-CND-001"
+      ],
+      "related_policies": [
+        "PG-AIS-RANK-001",
+        "PG-AIS-CONDITION-001",
+        "PG-AIS-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-OPR-003",
+      "usecase_id": "US-AIS-OPR-001",
+      "name": "AI 추천어·응답 후보 검수",
+      "description": "AI가 생성한 자동완성, 추천어, 응답 후보, 요약 후보를 금칙어, 법무, 브랜드, 근거 기준으로 검수한다.",
+      "related_functions": [
+        "FN-AIS-QA-001",
+        "FN-AIS-OPS-001"
+      ],
+      "related_policies": [
+        "PG-AIS-QA-001",
+        "PG-AIS-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-OPR-004",
+      "usecase_id": "US-AIS-OPR-001",
+      "name": "배포·회수·롤백 관리",
+      "description": "승인된 후보를 배포하고 오류, 정책 위반, 성과 악화가 발생하면 회수 또는 롤백한다.",
+      "related_functions": [
+        "FN-AIS-QA-001",
+        "FN-AIS-MON-001"
+      ],
+      "related_policies": [
+        "PG-AIS-QA-001",
+        "PG-AIS-METRIC-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-OPR-005",
+      "usecase_id": "US-AIS-OPR-001",
+      "name": "검색 품질 지표 모니터링",
+      "description": "검색 성공률, 즉답 해결률, 실행 완료율, 무결과율, 이탈률, 상담 전환율, 응답 시간, 렌더링 지연, 호출 실패율, 모델·룰 기반 성과 차이를 모니터링한다.",
+      "related_functions": [
+        "FN-AIS-MON-001"
+      ],
+      "related_policies": [
+        "PG-AIS-METRIC-001",
+        "PG-AIS-DATA-001"
+      ]
+    },
+    {
+      "id": "PR-AIS-OPR-006",
+      "usecase_id": "US-AIS-OPR-001",
+      "name": "실패 케이스 분석 및 개선 반영",
+      "description": "반복 실패, 미해결 질의, 사용자 신고, 정책 차단 케이스를 분류하고 개선 후보를 운영 검수 큐로 보낸다.",
+      "related_functions": [
+        "FN-AIS-MON-001",
+        "FN-AIS-QA-001"
+      ],
+      "related_policies": [
+        "PG-AIS-METRIC-001",
+        "PG-AIS-QA-001"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "id": "FN-AIS-ENT-001",
+      "process_ids": [
+        "PR-AIS-CUS-001"
+      ],
+      "name": "검색 진입점 구성",
+      "description": "주요 화면에서 같은 검색 진입 경험을 제공한다.",
+      "details": [
+        "전역 검색 아이콘 제공",
+        "화면 맥락 placeholder 표시",
+        "검색 진입 위치 표준화",
+        "진입 화면 상태 유지",
+        "개인화 초기 추천 영역 구성",
+        "상황 인지형 AI 도움 진입 제공",
+        "검색어 삭제·초기화 상태 처리",
+        "TPO 맥락 기반 검색창 문구 제공"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-INPUT-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-INP-001",
+      "process_ids": [
+        "PR-AIS-CUS-001",
+        "PR-AIS-CUS-002"
+      ],
+      "name": "질의 입력·정규화 처리",
+      "description": "고객 입력을 검색 가능한 질의로 정제하고 검증한다.",
+      "details": [
+        "공백·특수문자 정리",
+        "오타·동의어 인식",
+        "최소·최대 길이 확인",
+        "금칙어 사전 확인"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-INPUT-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-SUG-001",
+      "process_ids": [
+        "PR-AIS-CUS-002",
+        "PR-AIS-CUS-008"
+      ],
+      "name": "자동완성·연관어 제공",
+      "description": "탐색 부담을 줄이는 추천 검색어와 바로가기를 제공한다.",
+      "details": [
+        "자동완성 후보 생성",
+        "기능 바로가기 제안",
+        "연관 검색어 표시",
+        "최근·인기 검색어 제공",
+        "개인화 추천 검색어 선별",
+        "동의어·축약어·오타 후보 반영"
+      ],
+      "related_policies": [
+        "PG-AIS-INPUT-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-HISTORY-001",
+        "PG-AIS-FAIL-001",
+        "PG-AIS-CS-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-INT-001",
+      "process_ids": [
+        "PR-AIS-CUS-003"
+      ],
+      "name": "의도 분류·조건 추출",
+      "description": "질의를 업무 유형과 조건 정보로 해석한다.",
+      "details": [
+        "정보 조회 의도 분류",
+        "비교·추천 의도 분류",
+        "실행 요청 의도 분류",
+        "조건·속성 파라미터 추출"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CARD-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-SRC-001",
+      "process_ids": [
+        "PR-AIS-CUS-003",
+        "PR-AIS-CON-001"
+      ],
+      "name": "통합 검색 범위 조회",
+      "description": "검색 대상 자산을 대표 결과와 유형별 결과로 조회한다.",
+      "details": [
+        "상품·혜택 조회",
+        "메뉴·기능 조회",
+        "FAQ·공지 조회",
+        "콘텐츠·전시 조회",
+        "상품 핵심 속성·전시 메타데이터 조회",
+        "앱·웹 결과 기준 동기화",
+        "페이지네이션·무한스크롤 추가 로딩"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CARD-001",
+        "PG-AIS-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-RNK-001",
+      "process_ids": [
+        "PR-AIS-CUS-003",
+        "PR-AIS-OPR-002"
+      ],
+      "name": "랭킹·대표 결과 통합",
+      "description": "검색 결과를 고객 목적과 실행 가능성 기준으로 정렬한다.",
+      "details": [
+        "정확일치 우선 적용",
+        "대표 엔티티 통합",
+        "유형별 우선순위 반영",
+        "고객 상태 가중치 적용",
+        "의도별 랭킹 가중치 적용",
+        "정확일치·연관 결과 분리",
+        "고객 행동명 기반 결과명 보정",
+        "매칭 근거·하이라이트 표시",
+        "부분일치·완전일치 기준 안내",
+        "필터 구간값 변경 반영"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CARD-001",
+        "PG-AIS-CONDITION-001",
+        "PG-AIS-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-ANS-001",
+      "process_ids": [
+        "PR-AIS-CUS-003",
+        "PR-AIS-CUS-004",
+        "PR-AIS-CUS-007"
+      ],
+      "name": "Answer Card·결과 카드 구성",
+      "description": "고객이 결과와 근거를 이해할 수 있는 카드 정보를 구성한다.",
+      "details": [
+        "Answer Card 생성",
+        "출처·근거 표시",
+        "적용 조건 표시",
+        "CTA·대체 경로 표시",
+        "상품 핵심 정보 요약",
+        "매칭 근거·하이라이트 표시",
+        "유형별 결과 카드 템플릿 적용",
+        "NO_MATCH·NO_DATA 구분 안내"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CARD-001",
+        "PG-AIS-CONDITION-001",
+        "PG-AIS-FAIL-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-CND-001",
+      "process_ids": [
+        "PR-AIS-CUS-004",
+        "PR-AIS-CUS-005",
+        "PR-AIS-CUS-006",
+        "PR-AIS-OPR-002"
+      ],
+      "name": "고객 상태·대상 조건 판정",
+      "description": "결과 노출과 실행 가능 여부를 고객 상태 기준으로 판단한다.",
+      "details": [
+        "가입 상태 확인",
+        "보유 상품 확인",
+        "연령·권한 조건 확인",
+        "미충족 사유 생성",
+        "선택동의 상태 확인",
+        "개인화 데이터 결합 가능 여부 판정"
+      ],
+      "related_policies": [
+        "PG-AIS-CARD-001",
+        "PG-AIS-CONDITION-001",
+        "PG-AIS-COMPARE-001",
+        "PG-AIS-ACTION-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-CMP-001",
+      "process_ids": [
+        "PR-AIS-CUS-005"
+      ],
+      "name": "비교·추천 근거 요약",
+      "description": "선택 대상의 차이와 추천 근거를 고객 판단에 맞게 정리한다.",
+      "details": [
+        "차이점 요약",
+        "추천 사유 표시",
+        "한계·유의사항 표시",
+        "대안 결과 표시"
+      ],
+      "related_policies": [
+        "PG-AIS-COMPARE-001",
+        "PG-AIS-CONDITION-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-ACT-001",
+      "process_ids": [
+        "PR-AIS-CUS-006",
+        "PR-AIS-CUS-009",
+        "PR-AIS-CS-002",
+        "PR-AIS-CON-002"
+      ],
+      "name": "실행 경로·최종확인 연결",
+      "description": "검색 결과에서 업무 실행으로 전환하기 전 필수 확인을 연결한다.",
+      "details": [
+        "실행 가능 경로 연결",
+        "인증·동의 연계",
+        "최종 확인 화면 연결",
+        "복귀 경로 유지",
+        "크로스 도메인 실행 후보 번들링",
+        "액션 위젯 실행 전 확인"
+      ],
+      "related_policies": [
+        "PG-AIS-ACTION-001",
+        "PG-AIS-COMPARE-001",
+        "PG-AIS-CS-001",
+        "PG-AIS-DATA-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-FBK-001",
+      "process_ids": [
+        "PR-AIS-CUS-007",
+        "PR-AIS-CUS-008"
+      ],
+      "name": "실패·무결과 폴백",
+      "description": "검색 실패 후 고객이 재탐색하거나 도움을 받을 수 있게 한다.",
+      "details": [
+        "무결과 안내",
+        "추가 질문 제공",
+        "재검색 경로 제공",
+        "FAQ·상담 대체 경로 제공",
+        "유사어·제휴처 후보 제안",
+        "추가 로딩 실패 재시도",
+        "조건 불일치와 데이터 부재 구분",
+        "대체 탐색 추천 리스트 제공"
+      ],
+      "related_policies": [
+        "PG-AIS-FAIL-001",
+        "PG-AIS-CARD-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-CS-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-CS-001",
+      "process_ids": [
+        "PR-AIS-CUS-008",
+        "PR-AIS-CUS-009",
+        "PR-AIS-CUS-010",
+        "PR-AIS-CS-001",
+        "PR-AIS-CS-002"
+      ],
+      "name": "상담 전환 컨텍스트 전달",
+      "description": "검색 흐름을 상담으로 넘길 때 반복 설명을 줄인다.",
+      "details": [
+        "검색어 전달",
+        "선택 결과 전달",
+        "실패 이력 전달",
+        "상담 후 복귀 안내",
+        "상황 인지형 도움/LLM 상담 진입",
+        "인앱 자가 해결 액션 위젯 연결"
+      ],
+      "related_policies": [
+        "PG-AIS-FAIL-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-CS-001",
+        "PG-AIS-DATA-001",
+        "PG-AIS-HISTORY-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-OPS-001",
+      "process_ids": [
+        "PR-AIS-CON-001",
+        "PR-AIS-CON-002",
+        "PR-AIS-OPR-002",
+        "PR-AIS-OPR-003"
+      ],
+      "name": "검색 사전·금칙어·대표 엔티티 관리",
+      "description": "운영자가 검색 기준 자산을 등록하고 변경 이력을 관리한다.",
+      "details": [
+        "동의어·오타 사전 관리",
+        "금칙어·차단어 관리",
+        "대표 엔티티 관리",
+        "변경 이력 저장",
+        "필터 구간값 갱신 관리",
+        "기획전 배너 정렬 기준 관리"
+      ],
+      "related_policies": [
+        "PG-AIS-SCOPE-001",
+        "PG-AIS-OPS-001",
+        "PG-AIS-HISTORY-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CONDITION-001",
+        "PG-AIS-QA-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-QA-001",
+      "process_ids": [
+        "PR-AIS-OPR-003",
+        "PR-AIS-OPR-004",
+        "PR-AIS-OPR-006"
+      ],
+      "name": "AI 후보 검수·배포·롤백",
+      "description": "AI 생성 후보를 검수하고 안전하게 운영 반영한다.",
+      "details": [
+        "후보 검수 큐 생성",
+        "승인·반려 처리",
+        "배포 버전 관리",
+        "회수·롤백 처리"
+      ],
+      "related_policies": [
+        "PG-AIS-QA-001",
+        "PG-AIS-OPS-001",
+        "PG-AIS-METRIC-001"
+      ]
+    },
+    {
+      "id": "FN-AIS-MON-001",
+      "process_ids": [
+        "PR-AIS-CUS-010",
+        "PR-AIS-OPR-004",
+        "PR-AIS-OPR-005",
+        "PR-AIS-OPR-006",
+        "PR-AIS-CS-001"
+      ],
+      "name": "품질·성과·로그 모니터링",
+      "description": "검색과 AI 응답의 품질, 성과, 실패 케이스를 운영 지표로 관리한다.",
+      "details": [
+        "상호작용 로그 수집",
+        "성공·실패 지표 집계",
+        "이상 징후 알림",
+        "개선 과제 리포트 생성",
+        "응답 시간·렌더링 지연 측정",
+        "호출 실패율·추가 로딩 실패율 집계",
+        "모델·룰 기반 결과 성과 비교"
+      ],
+      "related_policies": [
+        "PG-AIS-CS-001",
+        "PG-AIS-HISTORY-001",
+        "PG-AIS-QA-001",
+        "PG-AIS-METRIC-001",
+        "PG-AIS-DATA-001"
+      ]
+    }
+  ],
+  "policy_groups": [
+    {
+      "id": "PG-AIS-SCOPE-001",
+      "name": "통합 검색 범위 정책",
+      "description": "검색 대상과 대표 결과, 유형별 결과의 범위를 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-SCP-001",
+          "name": "검색 대상 범위"
+        },
+        {
+          "id": "PI-AIS-SCP-002",
+          "name": "대표 결과 통합"
+        },
+        {
+          "id": "PI-AIS-SCP-003",
+          "name": "인접 업무 경계"
+        },
+        {
+          "id": "PI-AIS-SCP-004",
+          "name": "앱·웹 결과 일관성"
+        },
+        {
+          "id": "PI-AIS-SCP-005",
+          "name": "상품·전시 메타데이터"
+        },
+        {
+          "id": "PI-AIS-SCP-006",
+          "name": "기획전 배너 노출 기준"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-INPUT-001",
+      "name": "입력·정규화 정책",
+      "description": "검색 입력, 질의 정규화, 금칙어 안내 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-INP-001",
+          "name": "입력 최소 기준"
+        },
+        {
+          "id": "PI-AIS-INP-002",
+          "name": "질의 정규화"
+        },
+        {
+          "id": "PI-AIS-INP-003",
+          "name": "제한 입력 안내"
+        },
+        {
+          "id": "PI-AIS-INP-004",
+          "name": "검색어 삭제·초기화"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-SUGGEST-001",
+      "name": "검색어 보조 정책",
+      "description": "자동완성, 연관 검색어, 최근·인기 검색어 제공 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-SGG-001",
+          "name": "자동완성 제공"
+        },
+        {
+          "id": "PI-AIS-SGG-002",
+          "name": "최근 검색어 관리"
+        },
+        {
+          "id": "PI-AIS-SGG-003",
+          "name": "인기 검색어 갱신"
+        },
+        {
+          "id": "PI-AIS-SGG-004",
+          "name": "개인화 추천검색어"
+        },
+        {
+          "id": "PI-AIS-SGG-005",
+          "name": "동의어·오타 인식"
+        },
+        {
+          "id": "PI-AIS-SGG-006",
+          "name": "검색창 초기화면 개인화"
+        },
+        {
+          "id": "PI-AIS-SGG-007",
+          "name": "개인화된 추천검색어 노출"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-RANK-001",
+      "name": "결과 랭킹·우선순위 정책",
+      "description": "정확일치, 실행 가능성, 고객 상태, 유형별 우선순위 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-RNK-001",
+          "name": "정확일치 우선"
+        },
+        {
+          "id": "PI-AIS-RNK-002",
+          "name": "유형별 우선순위"
+        },
+        {
+          "id": "PI-AIS-RNK-003",
+          "name": "상태 기반 가중치"
+        },
+        {
+          "id": "PI-AIS-RNK-004",
+          "name": "의도별 랭킹 가중치"
+        },
+        {
+          "id": "PI-AIS-RNK-005",
+          "name": "정확·연관 결과 구분"
+        },
+        {
+          "id": "PI-AIS-RNK-006",
+          "name": "검색 매칭 기준 안내"
+        },
+        {
+          "id": "PI-AIS-RNK-007",
+          "name": "필터 구간값 갱신"
+        },
+        {
+          "id": "PI-AIS-RNK-008",
+          "name": "사용자 행위 중심 검색 결과"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-CARD-001",
+      "name": "결과 카드·출처 고지 정책",
+      "description": "Answer Card, 결과 카드, 출처, 근거, CTA 표시 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-CRD-001",
+          "name": "출처·근거 표시"
+        },
+        {
+          "id": "PI-AIS-CRD-002",
+          "name": "Answer Card 우선"
+        },
+        {
+          "id": "PI-AIS-CRD-003",
+          "name": "카드 필수 정보"
+        },
+        {
+          "id": "PI-AIS-CRD-004",
+          "name": "매칭 근거·하이라이트"
+        },
+        {
+          "id": "PI-AIS-CRD-005",
+          "name": "상품 핵심 정보 요약"
+        },
+        {
+          "id": "PI-AIS-CRD-006",
+          "name": "유형별 카드 템플릿"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-CONDITION-001",
+      "name": "고객 상태·노출 제한 정책",
+      "description": "고객 상태, 권한, 대상 조건에 따른 노출과 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-CND-001",
+          "name": "대상 조건 반영"
+        },
+        {
+          "id": "PI-AIS-CND-002",
+          "name": "미충족 사유 표시"
+        },
+        {
+          "id": "PI-AIS-CND-003",
+          "name": "일부 결과 제외 안내"
+        },
+        {
+          "id": "PI-AIS-CND-004",
+          "name": "선택동의 분기"
+        },
+        {
+          "id": "PI-AIS-CND-005",
+          "name": "개인화 데이터 결합 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-COMPARE-001",
+      "name": "비교·추천 통제 정책",
+      "description": "AI 비교·추천이 고객 판단을 보조하고 고객 통제를 유지하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-CMP-001",
+          "name": "비교 대상 기준"
+        },
+        {
+          "id": "PI-AIS-CMP-002",
+          "name": "추천 근거 고지"
+        },
+        {
+          "id": "PI-AIS-CMP-003",
+          "name": "AI 결정 금지"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-ACTION-001",
+      "name": "실행 연결·최종 확인 정책",
+      "description": "검색 결과에서 가입, 변경, 해지, 납부 등 실행으로 연결하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-ACT-001",
+          "name": "실행 전 최종 확인"
+        },
+        {
+          "id": "PI-AIS-ACT-002",
+          "name": "필수 절차 연계"
+        },
+        {
+          "id": "PI-AIS-ACT-003",
+          "name": "실행 컨텍스트 전달"
+        },
+        {
+          "id": "PI-AIS-ACT-004",
+          "name": "크로스 도메인 실행 번들링"
+        },
+        {
+          "id": "PI-AIS-ACT-005",
+          "name": "액션 위젯 실행"
+        },
+        {
+          "id": "PI-AIS-ACT-006",
+          "name": "중복 실행 방지"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-FAIL-001",
+      "name": "실패·무결과 복구 정책",
+      "description": "무결과, 오류, 근거 부족, 제한 상황의 복구 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-ERR-001",
+          "name": "무결과 폴백"
+        },
+        {
+          "id": "PI-AIS-ERR-002",
+          "name": "추가 질문 기준"
+        },
+        {
+          "id": "PI-AIS-ERR-003",
+          "name": "오류 유형별 복구"
+        },
+        {
+          "id": "PI-AIS-ERR-004",
+          "name": "검색 이탈 방지"
+        },
+        {
+          "id": "PI-AIS-ERR-005",
+          "name": "추가 로딩 실패 복구"
+        },
+        {
+          "id": "PI-AIS-ERR-006",
+          "name": "0건 상태 구분"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-HISTORY-001",
+      "name": "검색 이력·상태 유지 정책",
+      "description": "최근 검색어, 검색 컨텍스트, 상세 복귀 상태 유지 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-HIS-001",
+          "name": "최근 검색어 보관"
+        },
+        {
+          "id": "PI-AIS-HIS-002",
+          "name": "상세 복귀 유지"
+        },
+        {
+          "id": "PI-AIS-HIS-003",
+          "name": "검색 컨텍스트 재사용"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-CS-001",
+      "name": "상담 전환 정책",
+      "description": "검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-CS-001",
+          "name": "상담 전환 조건"
+        },
+        {
+          "id": "PI-AIS-CS-002",
+          "name": "전달 정보 고지"
+        },
+        {
+          "id": "PI-AIS-CS-003",
+          "name": "상담 후 복귀 안내"
+        },
+        {
+          "id": "PI-AIS-CS-004",
+          "name": "상황 인지형 도움 전환"
+        },
+        {
+          "id": "PI-AIS-CS-005",
+          "name": "LLM 상담봇 연결"
+        },
+        {
+          "id": "PI-AIS-CS-006",
+          "name": "인앱 자가 해결 연결"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-OPS-001",
+      "name": "운영 사전·금칙어 정책",
+      "description": "동의어, 축약어, 오타, 금칙어, 대표 엔티티 관리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-OPS-001",
+          "name": "사전 변경 관리"
+        },
+        {
+          "id": "PI-AIS-OPS-002",
+          "name": "금칙어 차단"
+        },
+        {
+          "id": "PI-AIS-OPS-003",
+          "name": "대표 엔티티 관리"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-QA-001",
+      "name": "AI 후보 검수·배포 정책",
+      "description": "AI 생성 추천어, 자동완성, 응답 후보의 검수, 배포, 롤백 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-QA-001",
+          "name": "운영 검수 큐"
+        },
+        {
+          "id": "PI-AIS-QA-002",
+          "name": "승인·반려"
+        },
+        {
+          "id": "PI-AIS-QA-003",
+          "name": "배포·롤백"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-METRIC-001",
+      "name": "품질·성과 운영 정책",
+      "description": "검색과 AI 응답의 품질·성과 지표와 개선 루프를 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-MET-001",
+          "name": "품질 지표 관리"
+        },
+        {
+          "id": "PI-AIS-MET-002",
+          "name": "이상 징후 알림"
+        },
+        {
+          "id": "PI-AIS-MET-003",
+          "name": "실패 케이스 개선"
+        },
+        {
+          "id": "PI-AIS-MET-004",
+          "name": "성능 기준 관리"
+        },
+        {
+          "id": "PI-AIS-MET-005",
+          "name": "모델·룰 성과 비교"
+        }
+      ]
+    },
+    {
+      "id": "PG-AIS-DATA-001",
+      "name": "로그·개인정보 보호 정책",
+      "description": "검색 상호작용 로그, 상담 전달 정보, 개인정보 보호 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-AIS-DAT-001",
+          "name": "최소 로그 수집"
+        },
+        {
+          "id": "PI-AIS-DAT-002",
+          "name": "민감정보 마스킹"
+        },
+        {
+          "id": "PI-AIS-DAT-003",
+          "name": "보관·파기 기준"
+        }
+      ]
+    }
+  ],
+  "policy_details": [
+    {
+      "id": "PI-AIS-SCP-001",
+      "policy_id": "PG-AIS-SCOPE-001",
+      "name": "검색 대상 범위",
+      "content": "통합 검색 대상은 상품, 혜택, 제휴처, 이벤트, 전시·콘텐츠, 메뉴·기능, FAQ·공지·가이드, 상담 진입을 기본 범위로 둔다. 단, 개별 상품 가격이나 약관 상세는 원천 상세 화면으로 연결한다."
+    },
+    {
+      "id": "PI-AIS-SCP-002",
+      "policy_id": "PG-AIS-SCOPE-001",
+      "name": "대표 결과 통합",
+      "content": "동일 목적의 메뉴·상품·혜택이 여러 채널과 명칭으로 존재하면 대표 엔티티 1개를 우선 노출하고 채널별 실행 경로는 하위 선택지로 묶어 제공한다."
+    },
+    {
+      "id": "PI-AIS-SCP-003",
+      "policy_id": "PG-AIS-SCOPE-001",
+      "name": "인접 업무 경계",
+      "content": "상품 주문, 결제, 해지, 환불의 세부 정책값은 각 정책서가 우선하며 AI 검색 문서는 검색 결과 노출, 실행 연결, 최종 확인 조건까지만 정의한다."
+    },
+    {
+      "id": "PI-AIS-SCP-004",
+      "policy_id": "PG-AIS-SCOPE-001",
+      "name": "앱·웹 결과 일관성",
+      "content": "동일 검색어는 앱과 웹에서 같은 대표 결과, 유형별 우선순위, 노출 제한 기준을 적용한다. 화면 폭이나 컴포넌트 차이로 표시 순서가 달라질 수는 있으나 정책 판단 기준은 동일해야 한다."
+    },
+    {
+      "id": "PI-AIS-SCP-005",
+      "policy_id": "PG-AIS-SCOPE-001",
+      "name": "상품·전시 메타데이터",
+      "content": "상품, 단말, 전시, 콘텐츠 결과는 검색 결과 단계에서 고객 판단에 필요한 핵심 속성과 전시 가능 메타데이터를 포함한다. 상품 상세 정책값은 원천 상세 화면으로 연결하되 제조사, 모델명, 출시일, 주요 속성, 전시 상태, 실행 경로는 검색 결과에서 확인 가능해야 한다."
+    },
+    {
+      "id": "PI-AIS-SCP-006",
+      "policy_id": "PG-AIS-SCOPE-001",
+      "name": "기획전 배너 노출 기준",
+      "content": "검색 결과의 기획전 탭과 초기 검색 화면은 현재 진행 중인 기획전, 전시 상태, 고객 대상 조건, 운영 우선순위 기준으로 배너 카드를 노출한다. 종료·중지·대상 제외 기획전은 추천 검색어와 결과 카드에서 제외한다."
+    },
+    {
+      "id": "PI-AIS-INP-001",
+      "policy_id": "PG-AIS-INPUT-001",
+      "name": "입력 최소 기준",
+      "content": "검색 질의는 공백 제거 후 1자 이상이면 접수한다. 50자를 초과하는 질의는 앞 50자 기준으로 해석하되 고객에게 긴 질의가 요약 처리될 수 있음을 안내한다."
+    },
+    {
+      "id": "PI-AIS-INP-002",
+      "policy_id": "PG-AIS-INPUT-001",
+      "name": "질의 정규화",
+      "content": "공백, 반복 특수문자, 이모지는 의미 보존 범위에서 정규화한다. 동의어, 축약어, 오타는 사전 기준으로 원 질의와 매칭 질의를 함께 보관한다."
+    },
+    {
+      "id": "PI-AIS-INP-003",
+      "policy_id": "PG-AIS-INPUT-001",
+      "name": "제한 입력 안내",
+      "content": "금칙어, 민감정보, 법무·브랜드 제한어가 포함되면 차단 사유와 대체 입력 예시를 안내한다. 차단 이력은 운영자 품질 분석 대상에 포함한다."
+    },
+    {
+      "id": "PI-AIS-INP-004",
+      "policy_id": "PG-AIS-INPUT-001",
+      "name": "검색어 삭제·초기화",
+      "content": "검색어가 1자 이상 입력되면 삭제 동작을 제공하고, 삭제 시 입력값, 자동완성 후보, 오류 안내를 초기화한다. 다만 최근 검색어와 개인화 추천 영역은 고객 삭제 요청 전까지 보관 기준을 유지한다."
+    },
+    {
+      "id": "PI-AIS-SGG-001",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "자동완성 제공",
+      "content": "자동완성은 입력 시작 후 1자 이상에서 제공할 수 있으며 메뉴·기능 바로가기, 추천 검색어, 연관 키워드를 구분해 최대 8개까지 우선 노출한다."
+    },
+    {
+      "id": "PI-AIS-SGG-002",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "최근 검색어 관리",
+      "content": "최근 검색어는 고객 단말 또는 계정 기준으로 보관하며 개별 삭제와 전체 삭제를 제공한다. 저장 기간은 기본 30일로 두고 비로그인 상태 검색은 세션 종료 시 삭제한다."
+    },
+    {
+      "id": "PI-AIS-SGG-003",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "인기 검색어 갱신",
+      "content": "인기·트렌드 검색어는 운영 기준 집계 주기별로 갱신하며 금칙어, 민감어, 법무 제한어는 노출 대상에서 제외한다."
+    },
+    {
+      "id": "PI-AIS-SGG-004",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "개인화 추천검색어",
+      "content": "추천 검색어는 고객의 동의, 이용 맥락, 보유 상품, 진행 중 혜택, 현재 화면을 기준으로 노출할 수 있다. 개인화 조건이 없거나 동의가 없으면 공통 추천어와 인기 검색어로 대체한다."
+    },
+    {
+      "id": "PI-AIS-SGG-005",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "동의어·오타 인식",
+      "content": "동의어, 축약어, 브랜드 별칭, 상품 약칭, 빈번한 오타는 사전 기준으로 동일하거나 유사한 의도로 매핑한다. 운영자가 승인하지 않은 신규 후보는 고객 노출 전 운영 검수 큐를 거친다."
+    },
+    {
+      "id": "PI-AIS-RNK-001",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "정확일치 우선",
+      "content": "전체 탭은 정확일치, 고객 업무 완결 가능성, 고객 상태 적합성, 최신성, 이용 빈도 순으로 기본 우선순위를 적용한다."
+    },
+    {
+      "id": "PI-AIS-RNK-002",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "유형별 우선순위",
+      "content": "질의가 메뉴·업무 실행 의도이면 Quick Action을 상품·콘텐츠보다 우선한다. 질의가 비교·구매 의도이면 상품, 혜택, 비교 가능 결과를 우선한다."
+    },
+    {
+      "id": "PI-AIS-RNK-003",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "상태 기반 가중치",
+      "content": "고객 가입 상태, 보유 상품, 멤버십 조건, 위치, 시간 맥락으로 이용 불가한 결과는 숨기지 않고 제한 사유와 대체 결과를 함께 제공할 수 있다."
+    },
+    {
+      "id": "PI-AIS-RNK-004",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "의도별 랭킹 가중치",
+      "content": "리필, 요금제, 혜택, 상담, 주문, 변경, 해지처럼 의도가 특정되면 메뉴, FAQ, 상품, 이벤트, 콘텐츠, 실행 경로의 가중치를 다르게 적용한다. 고객이 바로 완료할 수 있는 업무 실행 결과는 설명 콘텐츠보다 우선하며, 운영자는 의도별 기본 가중치와 변경 이력을 저장한다."
+    },
+    {
+      "id": "PI-AIS-RNK-005",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "정확·연관 결과 구분",
+      "content": "검색어가 직접 포함되거나 동일 의미로 매칭된 결과와 연관 추천 결과는 구분해 표시한다. 연관 추천은 정확 결과를 대체하지 않으며 고객이 추천 근거를 확인할 수 있어야 한다."
+    },
+    {
+      "id": "PI-AIS-RNK-006",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "검색 매칭 기준 안내",
+      "content": "운영자는 검색 입력 또는 결과 관리 화면에서 부분일치, 완전일치, 동의어 매칭, 연관 추천 중 어떤 기준이 적용되는지 확인할 수 있어야 한다. 고객 화면에는 필요한 경우 직접 매칭과 연관 추천 라벨로 단순화해 표시한다."
+    },
+    {
+      "id": "PI-AIS-RNK-007",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "필터 구간값 갱신",
+      "content": "화면크기, 배터리용량, 저장공간, 가격대처럼 조건 검색에 쓰이는 구간값은 신규 상품 스펙과 고객 선택 분포를 기준으로 운영자가 갱신할 수 있다. 구간값 변경은 검색 결과 수, 필터 선택 이력, 변경 일시를 함께 저장한다."
+    },
+    {
+      "id": "PI-AIS-CRD-001",
+      "policy_id": "PG-AIS-CARD-001",
+      "name": "출처·근거 표시",
+      "content": "AI 요약과 추천에는 공식 정보 출처, 적용 조건, 생성 기준 시점, 한계 또는 확인 필요 범위를 함께 표시한다."
+    },
+    {
+      "id": "PI-AIS-CRD-002",
+      "policy_id": "PG-AIS-CARD-001",
+      "name": "Answer Card 우선",
+      "content": "요금, 잔여 데이터, 주문 상태, 멤버십 사용 가능 여부처럼 고객 상태 기반 즉답이 가능한 질의는 일반 목록보다 Answer Card를 우선 제공한다."
+    },
+    {
+      "id": "PI-AIS-CRD-003",
+      "policy_id": "PG-AIS-CARD-001",
+      "name": "카드 필수 정보",
+      "content": "결과 카드는 제목, 요약, 유형, 적용 조건, 상태 배지, 주요 CTA, 원본 상세 이동 경로를 포함한다. 기간이나 제한이 있는 결과는 만료 또는 제한 사유를 함께 표시한다."
+    },
+    {
+      "id": "PI-AIS-CRD-004",
+      "policy_id": "PG-AIS-CARD-001",
+      "name": "매칭 근거·하이라이트",
+      "content": "검색어와 결과가 매칭된 제목, 속성, FAQ 문장, 상품 속성은 가능한 경우 하이라이트하거나 근거 문구로 표시한다. 매칭 근거가 없으면 AI 요약만으로 결과를 상단 노출하지 않는다."
+    },
+    {
+      "id": "PI-AIS-CRD-005",
+      "policy_id": "PG-AIS-CARD-001",
+      "name": "상품 핵심 정보 요약",
+      "content": "상품 탐색 결과는 고객이 상세 진입 전 판단할 수 있도록 제조사, 모델, 출시일, 주요 사양, 혜택·가격 표시 가능 여부, 재고 또는 전시 상태 중 해당되는 핵심 정보를 요약한다. 표시할 수 없는 항목은 숨기지 말고 상세 확인 필요로 안내한다."
+    },
+    {
+      "id": "PI-AIS-CRD-006",
+      "policy_id": "PG-AIS-CARD-001",
+      "name": "유형별 카드 템플릿",
+      "content": "상품, 이벤트, 콘텐츠, 메뉴, FAQ 결과는 각 유형별 필수 필드와 CTA를 가진 카드 템플릿으로 표시한다. 전체 탭에서도 같은 템플릿 기준을 재사용해 고객이 결과 유형을 혼동하지 않게 한다."
+    },
+    {
+      "id": "PI-AIS-CND-001",
+      "policy_id": "PG-AIS-CONDITION-001",
+      "name": "대상 조건 반영",
+      "content": "연령, 회선, 가입 상태, 보유 상품, 멤버십 등급, 위치 조건이 있는 결과는 고객 상태를 확인한 뒤 즉시 이용 가능, 조건 필요, 이용 불가 중 하나로 표시한다."
+    },
+    {
+      "id": "PI-AIS-CND-002",
+      "policy_id": "PG-AIS-CONDITION-001",
+      "name": "미충족 사유 표시",
+      "content": "조건 미충족 결과는 단순 미노출하지 않고 고객이 이해할 수 있는 사유와 충족 방법 또는 대체 경로를 함께 제공한다."
+    },
+    {
+      "id": "PI-AIS-CND-003",
+      "policy_id": "PG-AIS-CONDITION-001",
+      "name": "일부 결과 제외 안내",
+      "content": "권한·대상 제한으로 결과 일부를 제외하면 전체 결과 영역 상단 또는 해당 섹션에 일부 결과 제외 안내와 대표 사유를 표시한다."
+    },
+    {
+      "id": "PI-AIS-CND-004",
+      "policy_id": "PG-AIS-CONDITION-001",
+      "name": "선택동의 분기",
+      "content": "AI 개인화 또는 고객 데이터 결합이 필요한 결과는 선택동의 상태를 먼저 확인한다. 동의 전에는 공통 결과를 제공하고, 동의 완료 후에는 개인화 결과 또는 AI 서비스 활성화 흐름으로 분기한다."
+    },
+    {
+      "id": "PI-AIS-CND-005",
+      "policy_id": "PG-AIS-CONDITION-001",
+      "name": "개인화 데이터 결합 제한",
+      "content": "멤버십 등급, 쿠폰, 포인트, 최근 이용내역, 결제 이력 등 고객 데이터는 고객 동의와 업무 목적이 충족된 경우에만 AI 응답에 결합한다. 민감정보와 인증값은 RAG 컨텍스트에 저장하지 않는다."
+    },
+    {
+      "id": "PI-AIS-CMP-001",
+      "policy_id": "PG-AIS-COMPARE-001",
+      "name": "비교 대상 기준",
+      "content": "고객은 비교 가능한 상품, 요금제, 혜택을 2개 이상 선택해 비교 화면으로 이동할 수 있다. 비교 진입 시 검색어, 필터, 정렬 상태를 유지한다."
+    },
+    {
+      "id": "PI-AIS-CMP-002",
+      "policy_id": "PG-AIS-COMPARE-001",
+      "name": "추천 근거 고지",
+      "content": "AI 추천안은 추천 사유, 조건, 유의사항, 대체 선택지를 함께 제공한다. 추천 사유가 고객 상태에 기반하면 사용한 상태 항목을 고객이 이해 가능한 표현으로 표시한다."
+    },
+    {
+      "id": "PI-AIS-CMP-003",
+      "policy_id": "PG-AIS-COMPARE-001",
+      "name": "AI 결정 금지",
+      "content": "AI는 가입, 변경, 해지, 결제, 환불을 고객 대신 확정하지 않는다. 주요 실행은 고객의 명시적 선택과 최종 확인 이후에만 연결한다."
+    },
+    {
+      "id": "PI-AIS-ACT-001",
+      "policy_id": "PG-AIS-ACTION-001",
+      "name": "실행 전 최종 확인",
+      "content": "가입, 변경, 해지, 납부, 결제, 예약, 신청은 실행 전 대상, 영향, 적용 시점, 취소 가능 여부를 고객에게 확인시킨다."
+    },
+    {
+      "id": "PI-AIS-ACT-002",
+      "policy_id": "PG-AIS-ACTION-001",
+      "name": "필수 절차 연계",
+      "content": "본인 확인, 약관 동의, 추가 인증, 유의사항 확인이 필요한 업무는 실행 연결 전 또는 실행 화면 진입 직후 필수 절차로 연계한다."
+    },
+    {
+      "id": "PI-AIS-ACT-003",
+      "policy_id": "PG-AIS-ACTION-001",
+      "name": "실행 컨텍스트 전달",
+      "content": "실행 화면에는 검색어, 선택 결과, 비교 기준, 고객이 선택한 조건을 전달한다. 고객이 같은 조건을 반복 입력하지 않도록 하며, 전달된 컨텍스트는 실행 결과 이력과 연결 가능한 요청 키로 관리한다."
+    },
+    {
+      "id": "PI-AIS-ACT-004",
+      "policy_id": "PG-AIS-ACTION-001",
+      "name": "크로스 도메인 실행 번들링",
+      "content": "고객 의도가 여러 도메인에 걸쳐 있으면 관련 과업 후보를 묶어 제안할 수 있다. 단, 가입, 주문, 결제, 해지, 쿠폰 사용처럼 실제 실행이 필요한 항목은 도메인별 최종 확인과 필수 인증을 분리해 처리한다."
+    },
+    {
+      "id": "PI-AIS-ACT-005",
+      "policy_id": "PG-AIS-ACTION-001",
+      "name": "액션 위젯 실행",
+      "content": "AI 응답 안의 쿠폰 재발급, 포인트 복구, 바코드 열기, 결제수단 등록, 혜택 적용 같은 액션 위젯은 실행 전 대상, 영향, 취소 가능 여부를 표시한다. 원터치 실행이 가능한 경우에도 고객 명시 선택과 결과 이력 저장을 필수로 둔다."
+    },
+    {
+      "id": "PI-AIS-ERR-001",
+      "policy_id": "PG-AIS-FAIL-001",
+      "name": "무결과 폴백",
+      "content": "무결과 상태에서는 빈 화면만 표시하지 않는다. 연관 검색어, 인기 카테고리, FAQ, 메뉴 바로가기, 상담 연결 중 2개 이상의 대체 경로를 제공한다."
+    },
+    {
+      "id": "PI-AIS-ERR-002",
+      "policy_id": "PG-AIS-FAIL-001",
+      "name": "추가 질문 기준",
+      "content": "질의가 모호하면 추가 질문은 최대 2단계까지 제공한다. 2단계 이후에도 의도가 특정되지 않으면 검색 결과 목록 또는 상담 전환을 제안한다."
+    },
+    {
+      "id": "PI-AIS-ERR-003",
+      "policy_id": "PG-AIS-FAIL-001",
+      "name": "오류 유형별 복구",
+      "content": "네트워크 오류, 검색 호출 실패, 권한 제한, 결과 로딩 실패는 오류 유형별로 재시도, 홈 이동, 상담 연결, 나중에 다시 시도 중 가능한 복구 경로를 안내한다."
+    },
+    {
+      "id": "PI-AIS-ERR-004",
+      "policy_id": "PG-AIS-FAIL-001",
+      "name": "검색 이탈 방지",
+      "content": "무결과 또는 낮은 신뢰도 상태에서는 유사어, 제휴처 후보, 인기 카테고리, 현재 화면 관련 도움, 상담 연결 중 최소 2개 이상의 다음 행동을 제공한다. 동일 무결과가 2회 반복되면 재검색보다 조건 보완 또는 상담 전환을 우선 제안한다."
+    },
+    {
+      "id": "PI-AIS-ERR-005",
+      "policy_id": "PG-AIS-FAIL-001",
+      "name": "추가 로딩 실패 복구",
+      "content": "페이지네이션 또는 무한스크롤 추가 로딩이 실패하면 현재까지 표시된 결과를 유지하고 재시도, 필터 축소, 상담 또는 나중에 다시 시도 중 가능한 복구 경로를 안내한다. 실패 횟수와 구간은 품질 지표에 저장한다."
+    },
+    {
+      "id": "PI-AIS-ERR-006",
+      "policy_id": "PG-AIS-FAIL-001",
+      "name": "0건 상태 구분",
+      "content": "검색 결과 0건은 조건 불일치(NO_MATCH)와 실제 데이터 부재(NO_DATA)를 구분한다. 조건 불일치이면 필터 완화와 유사어를 우선 제안하고, 데이터 부재이면 대체 카테고리, FAQ, 상담 또는 운영 개선 후보 등록을 안내한다."
+    },
+    {
+      "id": "PI-AIS-HIS-001",
+      "policy_id": "PG-AIS-HISTORY-001",
+      "name": "최근 검색어 보관",
+      "content": "계정 기준 최근 검색어는 기본 30일 보관하고 고객이 개별 삭제 또는 전체 삭제하면 즉시 검색 화면에서 제외한다. 비로그인 상태 검색 이력은 세션 종료 시 보관하지 않는다."
+    },
+    {
+      "id": "PI-AIS-HIS-002",
+      "policy_id": "PG-AIS-HISTORY-001",
+      "name": "상세 복귀 유지",
+      "content": "검색 결과에서 상세 화면으로 이동한 뒤 복귀하면 검색어, 탭, 필터, 정렬, 스크롤 위치를 유지한다. 단, 세션이 만료되면 검색어와 기본 탭만 유지한다."
+    },
+    {
+      "id": "PI-AIS-HIS-003",
+      "policy_id": "PG-AIS-HISTORY-001",
+      "name": "검색 컨텍스트 재사용",
+      "content": "검색 컨텍스트는 후속 실행과 상담 전환에 필요한 범위로만 재사용한다. 민감정보나 인증값은 컨텍스트에 저장하지 않는다."
+    },
+    {
+      "id": "PI-AIS-CS-001",
+      "policy_id": "PG-AIS-CS-001",
+      "name": "상담 전환 조건",
+      "content": "검색 실패, 근거 부족, 고객 불만 피드백, 실행 제한, 복구 실패가 발생하면 상담 전환을 제공한다. 자동 전환은 하지 않고 고객 선택을 받아야 한다."
+    },
+    {
+      "id": "PI-AIS-CS-002",
+      "policy_id": "PG-AIS-CS-001",
+      "name": "전달 정보 고지",
+      "content": "상담 전환 전 검색어, 선택 결과, 실패 이력, 고객 상태 요약이 전달될 수 있음을 고지한다. 고객이 동의하지 않으면 최소 정보만 전달한다."
+    },
+    {
+      "id": "PI-AIS-CS-003",
+      "policy_id": "PG-AIS-CS-001",
+      "name": "상담 후 복귀 안내",
+      "content": "상담 연결 후 고객이 검색 결과로 돌아올 수 있도록 이전 검색어와 선택 결과 복귀 경로를 제공한다."
+    },
+    {
+      "id": "PI-AIS-CS-004",
+      "policy_id": "PG-AIS-CS-001",
+      "name": "상황 인지형 도움 전환",
+      "content": "고객이 특정 화면이나 단계에서 기준 시간 이상 머무르거나 반복 실패하면 현재 화면 맥락에 맞는 도움말, 추가 질문, AI Assist, 상담 전환을 제안할 수 있다. 자동 전환은 하지 않고 고객 선택을 우선한다."
+    },
+    {
+      "id": "PI-AIS-CS-005",
+      "policy_id": "PG-AIS-CS-001",
+      "name": "LLM 상담봇 연결",
+      "content": "LLM 상담봇은 전역 진입과 상황별 진입을 모두 제공할 수 있으나, 가입·변경·결제·해지 같은 주요 업무 확정은 고객 최종 확인과 필수 인증 절차 이후 업무 화면에서 처리한다. 봇이 해결하지 못한 경우 검색 컨텍스트를 상담사에게 전달한다."
+    },
+    {
+      "id": "PI-AIS-CS-006",
+      "policy_id": "PG-AIS-CS-001",
+      "name": "인앱 자가 해결 연결",
+      "content": "쿠폰 사용 실패, 혜택 조건 확인, 포인트 소멸 조회처럼 반복 문의가 많은 항목은 AI 상담에서 자가 해결 경로와 액션 위젯을 우선 제공한다. AI로 해결하지 못하면 대화 이력, 고객 상태, 시도한 조치를 상담사에게 승계한다."
+    },
+    {
+      "id": "PI-AIS-OPS-001",
+      "policy_id": "PG-AIS-OPS-001",
+      "name": "사전 변경 관리",
+      "content": "동의어, 축약어, 오타, 대표 엔티티 변경은 버전, 변경자, 적용 시점, 회수 가능 여부를 이력으로 저장한다."
+    },
+    {
+      "id": "PI-AIS-OPS-002",
+      "policy_id": "PG-AIS-OPS-001",
+      "name": "금칙어 차단",
+      "content": "금칙어와 정책 제한어는 차단, 치환, 안내, 운영 검수 큐 전환 중 하나의 처리 기준을 가져야 한다. 고객에게는 사유와 대체 입력 예시를 제공한다."
+    },
+    {
+      "id": "PI-AIS-OPS-003",
+      "policy_id": "PG-AIS-OPS-001",
+      "name": "대표 엔티티 관리",
+      "content": "동일 목적 결과가 여러 채널에 있으면 대표 엔티티, 채널별 실행 경로, 예외 노출 조건을 운영자가 관리한다."
+    },
+    {
+      "id": "PI-AIS-QA-001",
+      "policy_id": "PG-AIS-QA-001",
+      "name": "운영 검수 큐",
+      "content": "AI가 자동 생성한 추천어, 자동완성, 응답 후보 중 근거 누락, 정책 위반 의심, 민감 표현, 법무 위험이 있는 항목은 운영 검수 큐로 보낸다."
+    },
+    {
+      "id": "PI-AIS-QA-002",
+      "policy_id": "PG-AIS-QA-001",
+      "name": "승인·반려",
+      "content": "운영 검수 큐 항목은 승인, 수정 승인, 반려, 차단 중 하나로 처리한다. 승인 전 항목은 고객에게 직접 노출하지 않는다."
+    },
+    {
+      "id": "PI-AIS-QA-003",
+      "policy_id": "PG-AIS-QA-001",
+      "name": "배포·롤백",
+      "content": "배포된 후보는 버전 단위로 관리한다. 오답률, 신고, 정책 위반이 기준치를 넘으면 즉시 회수하고 이전 정상 버전으로 롤백한다."
+    },
+    {
+      "id": "PI-AIS-MET-001",
+      "policy_id": "PG-AIS-METRIC-001",
+      "name": "품질 지표 관리",
+      "content": "검색 성공률, 즉답 해결률, 실행 완료율, 재검색률, 무결과율, 검색 이탈률, 상담 전환율을 공통 지표로 관리한다. 지표는 일 단위로 집계하고 운영 기준치를 벗어나면 개선 후보로 등록한다."
+    },
+    {
+      "id": "PI-AIS-MET-002",
+      "policy_id": "PG-AIS-METRIC-001",
+      "name": "이상 징후 알림",
+      "content": "오답률, 정책 위반률, 오류율, 상담 전환율이 운영 기준치를 초과하면 운영자에게 알림과 대응 가이드를 제공한다."
+    },
+    {
+      "id": "PI-AIS-MET-003",
+      "policy_id": "PG-AIS-METRIC-001",
+      "name": "실패 케이스 개선",
+      "content": "무결과, 반복 재검색, 상담 전환, 신고, 실행 실패 케이스는 주 1회 이상 개선 후보로 분류하고 사전, 랭킹, 폴백 기준 개선에 반영한다."
+    },
+    {
+      "id": "PI-AIS-MET-004",
+      "policy_id": "PG-AIS-METRIC-001",
+      "name": "성능 기준 관리",
+      "content": "검색 응답 시간, 첫 결과 렌더링 지연, 검색 API 호출 실패율, 추가 로딩 실패율, 캐시·프리페치 적용 여부를 품질 지표로 관리한다. 운영 기준치를 초과하면 검색 품질 이상 징후로 분류하고 개선 후보를 등록한다."
+    },
+    {
+      "id": "PI-AIS-MET-005",
+      "policy_id": "PG-AIS-METRIC-001",
+      "name": "모델·룰 성과 비교",
+      "content": "AI 응답, 룰 기반 결과, 기존 검색 결과의 정확도, 해결률, 전환율, 상담 전환율을 비교 분석한다. 특정 방식이 기준 이하로 떨어지면 운영 검수 큐에 개선 후보로 등록한다."
+    },
+    {
+      "id": "PI-AIS-DAT-001",
+      "policy_id": "PG-AIS-DATA-001",
+      "name": "최소 로그 수집",
+      "content": "검색 로그는 질의, 의도, 결과 유형, 선택 결과, 성공·실패, 상담 전환, 피드백 등 품질 개선에 필요한 최소 항목만 수집한다."
+    },
+    {
+      "id": "PI-AIS-DAT-002",
+      "policy_id": "PG-AIS-DATA-001",
+      "name": "민감정보 마스킹",
+      "content": "주민번호, 계좌, 카드번호, 인증값, 비밀번호 등 민감정보가 질의에 포함되면 저장 전 마스킹하거나 저장 대상에서 제외한다."
+    },
+    {
+      "id": "PI-AIS-DAT-003",
+      "policy_id": "PG-AIS-DATA-001",
+      "name": "보관·파기 기준",
+      "content": "운영 분석용 검색 로그는 기본 13개월 이내로 보관하고 법적·감사 목적이 없는 원문 질의는 목적 달성 후 비식별화하거나 파기한다."
+    },
+    {
+      "id": "PI-AIS-RNK-008",
+      "policy_id": "PG-AIS-RANK-001",
+      "name": "사용자 행위 중심 검색 결과",
+      "content": "검색 결과 명칭은 내부 메뉴명보다 고객이 수행하려는 행동과 목적을 우선한다. 내부 용어가 필요한 경우 고객 언어로 변환한 라벨과 함께 제공하고, 동일 의미의 결과명은 운영 승인 후 하나의 대표 라벨로 통합한다."
+    },
+    {
+      "id": "PI-AIS-SGG-006",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "검색창 초기화면 개인화",
+      "content": "검색창 초기화면은 고객 맥락, 진행 중인 기획전, 최근 탐색, 이용 가능 혜택을 기준으로 추천 후보를 제공하되 인기 검색어만 단독 노출하지 않는다."
+    },
+    {
+      "id": "PI-AIS-SGG-007",
+      "policy_id": "PG-AIS-SUGGEST-001",
+      "name": "개인화된 추천검색어 노출",
+      "content": "추천검색어는 고객 상태, 가입 상품, 대상 혜택, 최근 이용 맥락을 충족하는 경우에만 노출한다. 대상자가 아닌 혜택 키워드는 추천검색어에서 제외한다."
+    },
+    {
+      "id": "PI-AIS-ACT-006",
+      "policy_id": "PG-AIS-ACTION-001",
+      "name": "중복 실행 방지",
+      "content": "동일 고객, 동일 검색 컨텍스트, 동일 대상의 실행 연결 요청이 2회 이상 반복되면 하나의 요청 키로 묶어 후속 업무 요청은 1건만 생성한다. 이미 실행 전환 완료 상태이면 중복 요청을 차단하고 고객에게 기존 처리 상태와 확인 경로를 안내한다."
+    }
+  ],
+  "process_details": [],
+  "function_details": [],
+  "final_check": [
+    {
+      "item": "범위 정합성",
+      "criteria": "AI 검색이 검색 진입, 결과 이해, 실행 연결, 실패 복구, 운영 품질 기준으로 작성되었고 인접 정책서 상세 업무를 침범하지 않았는지 확인한다."
+    },
+    {
+      "item": "고객 완결성",
+      "criteria": "고객이 검색어 입력부터 결과 확인, 비교, 실행, 상담 전환, 실패 복구까지 다음 행동을 선택할 수 있는지 확인한다."
+    },
+    {
+      "item": "의도 해석 정합성",
+      "criteria": "키워드 검색, 질문형 검색, 업무 실행 요청, 상담 요청이 하나의 입력 구조에서 분기되도록 작성되었는지 확인한다."
+    },
+    {
+      "item": "상태 전이 정합성",
+      "criteria": "검색 전, 질의 입력 중, 의도 해석 중, 결과 제공, 근거 부족, 결과 없음, 오류·복구, 상담 전환 상태가 전이표와 일치하는지 확인한다."
+    },
+    {
+      "item": "프로세스-기능-정책 연결성",
+      "criteria": "모든 프로세스가 관련 기능과 관련 정책을 가지고, 기능과 정책이 검색 흐름의 판단 기준으로 연결되는지 확인한다."
+    },
+    {
+      "item": "정책 구체성",
+      "criteria": "정책 항목에 입력 길이, 보관 기간, 추가 질문 단계, 랭킹 우선순위, 실행 전 확인, 로그 보관 기준 등 판단값이 있는지 확인한다."
+    },
+    {
+      "item": "AI 통제 원칙",
+      "criteria": "AI가 고객 대신 계약·변경·해지·결제를 확정하지 않고 고객 최종 확인과 원본 확인 경로를 제공하는지 확인한다."
+    },
+    {
+      "item": "BSS 기준 정보 포함성",
+      "criteria": "BSS가 제공하는 고객 상태, 보유 상품, 권한, 대상 조건, 실행 가능 여부 기준과 검색 연계 시스템의 반영 책임이 분리되어 있는지 확인한다."
+    },
+    {
+      "item": "액터 책임 연결성",
+      "criteria": "고객, 상담사, 운영자, 채널 업무 시스템이 각각 유즈케이스와 프로세스에 직접 연결되어 있는지 확인한다."
+    },
+    {
+      "item": "실패·복구 가능성",
+      "criteria": "무결과, 근거 부족, 오류, 제한, 상담 전환에서 고객이 재검색 또는 대체 경로를 선택할 수 있는지 확인한다."
+    },
+    {
+      "item": "운영 관리 가능성",
+      "criteria": "사전, 금칙어, 대표 엔티티, 랭킹, AI 후보 검수, 배포·롤백, 품질 지표 개선 루프가 운영 가능한 수준인지 확인한다."
+    },
+    {
+      "item": "요구사항 반영 여부",
+      "criteria": "PM-05 상세 요구사항 101건이 검색 진입, 결과 구성, 비교·실행, 복구, 운영 품질 기준 중 하나 이상에 매핑되었는지 확인한다."
+    }
+  ],
+  "trace_matrix": [
+    {
+      "requirement_group": "검색 진입·입력 표준",
+      "detail_requirement_count": 18,
+      "sample_detail_requirements": [
+        "전시 내 검색 진입",
+        "전역 검색 진입(공통)",
+        "검색 입력 UI 표준 정의",
+        "검색어 입력 검증/정규화",
+        "통합 검색·상담 입력창",
+        "단일 검색 방식 제공",
+        "TDS 검색어 입력 화면 노출 대상 변경",
+        "검색창 초기화면 개선",
+        "검색어 입력·삭제 상태별 동작 기준 제공"
+      ],
+      "mapped_to": [
+        "US-AIS-CUS-001",
+        "PR-AIS-CUS-001",
+        "PR-AIS-CUS-002",
+        "FN-AIS-ENT-001",
+        "FN-AIS-INP-001",
+        "PG-AIS-INPUT-001",
+        "PI-AIS-SGG-004",
+        "PI-AIS-CS-004",
+        "PI-AIS-INP-004"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "자동완성·최근·인기·연관 검색어",
+      "detail_requirement_count": 9,
+      "sample_detail_requirements": [
+        "자동완성(검색어/바로가기)",
+        "연관 검색어/추천 키워드",
+        "최근 검색어 저장/관리",
+        "인기 검색어/트렌드",
+        "최근·인기 검색어 제공",
+        "운영자: 금칙어/동의어 사전(선택)",
+        "AI 기반 추천 검색어/자동완성 자동 생성(운영자 개입 최소화)",
+        "개인화된 추천검색어 노출"
+      ],
+      "mapped_to": [
+        "PR-AIS-CUS-002",
+        "FN-AIS-SUG-001",
+        "FN-AIS-OPS-001",
+        "PG-AIS-SUGGEST-001",
+        "PG-AIS-HISTORY-001",
+        "PI-AIS-SGG-004",
+        "PI-AIS-SGG-005",
+        "PI-AIS-OPS-001"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "통합 결과·탭·필터·정렬·카드",
+      "detail_requirement_count": 36,
+      "sample_detail_requirements": [
+        "매칭 하이라이트(선택)",
+        "통합검색 대상 정의(Universal Scope)",
+        "검색 필터 용어 보조설명",
+        "비교 중심 검색 결과 제공",
+        "검색 결과 탭(유형별/전체)",
+        "검색 결과 필터/정렬",
+        "페이지네이션/무한스크롤",
+        "금칙어/정책 필터링 UX",
+        "검색 매칭 기준 안내 제공",
+        "검색결과 0건 상태 구분 제공",
+        "타입별 결과 카드 템플릿",
+        "기획전 탭 배너 카드 노출 기준 적용"
+      ],
+      "mapped_to": [
+        "US-AIS-CUS-001",
+        "PR-AIS-CUS-003",
+        "PR-AIS-CUS-004",
+        "FN-AIS-RNK-001",
+        "FN-AIS-ANS-001",
+        "PG-AIS-RANK-001",
+        "PG-AIS-CARD-001",
+        "PI-AIS-SCP-004",
+        "PI-AIS-SCP-005",
+        "PI-AIS-RNK-005",
+        "PI-AIS-CRD-004",
+        "PI-AIS-CRD-005",
+        "PI-AIS-ERR-005",
+        "PI-AIS-RNK-006",
+        "PI-AIS-RNK-007",
+        "PI-AIS-CRD-006",
+        "PI-AIS-ERR-006",
+        "PI-AIS-SCP-006"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "AI 의도 해석·조건 추출·Answer Card",
+      "detail_requirement_count": 19,
+      "sample_detail_requirements": [
+        "멤버십 제휴처·혜택 검색 및 위치·조건 기반 탐색 제공",
+        "AI Agent 비교·추천 기본 원칙",
+        "자연어·질문형 검색 의도 해석",
+        "권한/대상 조건 반영(검색 결과)",
+        "검색 결과 적용 가능 조건/미충족 사유 표시",
+        "고객 상태 기반 Answer Card 제공",
+        "결과 랭킹 정책(타입/의도)",
+        "AI 컨시어지: 찾아·비교·정리·실행 경로 안내"
+      ],
+      "mapped_to": [
+        "US-AIS-SYS-001",
+        "FN-AIS-INT-001",
+        "FN-AIS-ANS-001",
+        "PG-AIS-CARD-001",
+        "PI-AIS-RNK-004",
+        "PI-AIS-CRD-004",
+        "PI-AIS-CS-004",
+        "PI-AIS-CND-004",
+        "PI-AIS-CND-005"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "비교·추천·실행 연결",
+      "detail_requirement_count": 20,
+      "sample_detail_requirements": [
+        "연관 검색어/추천 키워드",
+        "검색/추천 오류 표준 UI",
+        "검색/추천 화면별 오류·빈상태 메시지 세분화",
+        "AI Agent 비교·추천 기본 원칙",
+        "비교 중심 검색 결과 제공",
+        "비교·분석형 탐색 지원",
+        "검색/추천 접근성",
+        "검색 결과 비교 선택 및 비교 진입"
+      ],
+      "mapped_to": [
+        "US-AIS-CUS-002",
+        "PR-AIS-CUS-005",
+        "PR-AIS-CUS-006",
+        "FN-AIS-CMP-001",
+        "FN-AIS-ACT-001",
+        "PG-AIS-COMPARE-001",
+        "PG-AIS-ACTION-001",
+        "PI-AIS-ACT-004",
+        "PI-AIS-ACT-005"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "상태 유지·상담 전환·맥락 전달",
+      "detail_requirement_count": 5,
+      "sample_detail_requirements": [
+        "검색→상담 전환 시 검색 컨텍스트 전달",
+        "상태 유지(상세→복귀)",
+        "TDS 자체 LLM 상담 봇 배치",
+        "AI 도움 상시 진입(Assist)",
+        "검색 컨텍스트 유지 및 재활용"
+      ],
+      "mapped_to": [
+        "US-AIS-CUS-003",
+        "PR-AIS-CUS-009",
+        "PR-AIS-CUS-010",
+        "FN-AIS-CS-001",
+        "PG-AIS-CS-001",
+        "PG-AIS-HISTORY-001",
+        "US-AIS-CS-001",
+        "PR-AIS-CS-001",
+        "PR-AIS-CS-002",
+        "PI-AIS-CS-004",
+        "PI-AIS-CS-005",
+        "PI-AIS-CS-006"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "무결과·오류·노출 제한·폴백",
+      "detail_requirement_count": 9,
+      "sample_detail_requirements": [
+        "검색/추천 오류 표준 UI",
+        "검색/추천 화면별 오류·빈상태 메시지 세분화",
+        "금칙어/정책 필터링 UX",
+        "제로결과(빈 결과) 폴백",
+        "검색 결과 노출 제한 처리",
+        "운영자: 금칙어/동의어 사전(선택)",
+        "검색 이탈 방지",
+        "오류·실패·중단 시 재처리 및 대체 경로 제공"
+      ],
+      "mapped_to": [
+        "US-AIS-CUS-003",
+        "PR-AIS-CUS-007",
+        "PR-AIS-CUS-008",
+        "FN-AIS-FBK-001",
+        "PG-AIS-FAIL-001",
+        "PG-AIS-CONDITION-001",
+        "PI-AIS-ERR-004",
+        "PI-AIS-ERR-005"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "requirement_group": "운영 관리·랭킹·품질·로그",
+      "detail_requirement_count": 21,
+      "sample_detail_requirements": [
+        "운영자: 검색어/추천어 관리(선택)",
+        "운영자: 금칙어/동의어 사전(선택)",
+        "결과 랭킹 정책(타입/의도)",
+        "AI 기반 추천 검색어/자동완성 자동 생성(운영자 개입 최소화)",
+        "검색 랭킹 관리",
+        "AI Agent 검색 성과 대시보드",
+        "AI 품질·이상 징후 탐지 및 운영 알림 관리",
+        "검색 정확도 평가셋/품질 운영 기준"
+      ],
+      "mapped_to": [
+        "US-AIS-CON-001",
+        "US-AIS-OPR-001",
+        "PR-AIS-CON-001",
+        "PR-AIS-CON-002",
+        "PR-AIS-OPR-006",
+        "FN-AIS-MON-001",
+        "PG-AIS-METRIC-001",
+        "PG-AIS-QA-001",
+        "PI-AIS-MET-004",
+        "PI-AIS-MET-005"
+      ],
+      "coverage": "반영"
+    },
+    {
+      "item_type": "requirement_trace",
+      "item_id": "REQ-233",
+      "item_name": "사용자 행위 중심 검색 결과",
+      "detail_name": "사용자 행위 중심 검색 결과",
+      "detail_description": "검색 결과는 내부 메뉴명보다 고객이 찾는 행동과 목적 중심의 이름으로 재구성해 제공한다.",
+      "links": {
+        "policy_item": "PI-AIS-RNK-008"
+      },
+      "evidence_ids": [
+        "REQ-233"
+      ]
+    },
+    {
+      "item_type": "requirement_trace",
+      "item_id": "REQ-2128",
+      "item_name": "검색창 초기화면 개선",
+      "detail_name": "검색창 초기화면 개선",
+      "detail_description": "검색창 초기화면에 사용자 개인화 정보와 맥락을 고려해 필요 시 현재 진행 중인 기획전을 노출한다.",
+      "links": {
+        "policy_item": "PI-AIS-SGG-006"
+      },
+      "evidence_ids": [
+        "REQ-2128"
+      ]
+    },
+    {
+      "item_type": "requirement_trace",
+      "item_id": "REQ-3324",
+      "item_name": "개인화된 추천검색어 노출",
+      "detail_name": "개인화된 추천검색어 노출",
+      "detail_description": "고객 맥락과 상황에 적합한 개인화된 추천검색어를 노출하고 비대상자에게는 미노출한다.",
+      "links": {
+        "policy_item": "PI-AIS-SGG-007"
+      },
+      "evidence_ids": [
+        "REQ-3324"
+      ]
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "gap": "AI 모델별 세부 알고리즘, 프롬프트 원문, 랭킹 수식은 정책서 범위가 아니므로 상세 설계에서 확정한다.",
+      "handling": "정책서에는 결과 우선순위, 검수, 롤백, 고객 고지 기준만 남긴다."
+    },
+    {
+      "gap": "검색 로그 보관 기간과 비식별화 세부 기준은 보안·개인정보 정책과 최종 정합성 확인이 필요하다.",
+      "handling": "본 문서는 기본 보관 기간과 민감정보 마스킹 원칙을 정책 항목으로 제시한다."
+    }
+  ],
+  "policies": [
+    {
+      "id": "PG-AIS-SCOPE-001",
+      "name": "통합 검색 범위 정책",
+      "description": "검색 대상과 대표 결과, 유형별 결과의 범위를 정의한다.",
+      "items": [
+        "검색 대상 범위",
+        "대표 결과 통합",
+        "인접 업무 경계",
+        "앱·웹 결과 일관성",
+        "상품·전시 메타데이터",
+        "기획전 배너 노출 기준"
+      ]
+    },
+    {
+      "id": "PG-AIS-INPUT-001",
+      "name": "입력·정규화 정책",
+      "description": "검색 입력, 질의 정규화, 금칙어 안내 기준을 정의한다.",
+      "items": [
+        "입력 최소 기준",
+        "질의 정규화",
+        "제한 입력 안내",
+        "검색어 삭제·초기화"
+      ]
+    },
+    {
+      "id": "PG-AIS-SUGGEST-001",
+      "name": "검색어 보조 정책",
+      "description": "자동완성, 연관 검색어, 최근·인기 검색어 제공 기준을 정의한다.",
+      "items": [
+        "자동완성 제공",
+        "최근 검색어 관리",
+        "인기 검색어 갱신",
+        "개인화 추천검색어",
+        "동의어·오타 인식"
+      ]
+    },
+    {
+      "id": "PG-AIS-RANK-001",
+      "name": "결과 랭킹·우선순위 정책",
+      "description": "정확일치, 실행 가능성, 고객 상태, 유형별 우선순위 기준을 정의한다.",
+      "items": [
+        "정확일치 우선",
+        "유형별 우선순위",
+        "상태 기반 가중치",
+        "의도별 랭킹 가중치",
+        "정확·연관 결과 구분",
+        "검색 매칭 기준 안내",
+        "필터 구간값 갱신"
+      ]
+    },
+    {
+      "id": "PG-AIS-CARD-001",
+      "name": "결과 카드·출처 고지 정책",
+      "description": "Answer Card, 결과 카드, 출처, 근거, CTA 표시 기준을 정의한다.",
+      "items": [
+        "출처·근거 표시",
+        "Answer Card 우선",
+        "카드 필수 정보",
+        "매칭 근거·하이라이트",
+        "상품 핵심 정보 요약",
+        "유형별 카드 템플릿"
+      ]
+    },
+    {
+      "id": "PG-AIS-CONDITION-001",
+      "name": "고객 상태·노출 제한 정책",
+      "description": "고객 상태, 권한, 대상 조건에 따른 노출과 제한 기준을 정의한다.",
+      "items": [
+        "대상 조건 반영",
+        "미충족 사유 표시",
+        "일부 결과 제외 안내",
+        "선택동의 분기",
+        "개인화 데이터 결합 제한"
+      ]
+    },
+    {
+      "id": "PG-AIS-COMPARE-001",
+      "name": "비교·추천 통제 정책",
+      "description": "AI 비교·추천이 고객 판단을 보조하고 고객 통제를 유지하는 기준을 정의한다.",
+      "items": [
+        "비교 대상 기준",
+        "추천 근거 고지",
+        "AI 결정 금지"
+      ]
+    },
+    {
+      "id": "PG-AIS-ACTION-001",
+      "name": "실행 연결·최종 확인 정책",
+      "description": "검색 결과에서 가입, 변경, 해지, 납부 등 실행으로 연결하는 기준을 정의한다.",
+      "items": [
+        "실행 전 최종 확인",
+        "필수 절차 연계",
+        "실행 컨텍스트 전달",
+        "크로스 도메인 실행 번들링",
+        "액션 위젯 실행"
+      ]
+    },
+    {
+      "id": "PG-AIS-FAIL-001",
+      "name": "실패·무결과 복구 정책",
+      "description": "무결과, 오류, 근거 부족, 제한 상황의 복구 기준을 정의한다.",
+      "items": [
+        "무결과 폴백",
+        "추가 질문 기준",
+        "오류 유형별 복구",
+        "검색 이탈 방지",
+        "추가 로딩 실패 복구",
+        "0건 상태 구분"
+      ]
+    },
+    {
+      "id": "PG-AIS-HISTORY-001",
+      "name": "검색 이력·상태 유지 정책",
+      "description": "최근 검색어, 검색 컨텍스트, 상세 복귀 상태 유지 기준을 정의한다.",
+      "items": [
+        "최근 검색어 보관",
+        "상세 복귀 유지",
+        "검색 컨텍스트 재사용"
+      ]
+    },
+    {
+      "id": "PG-AIS-CS-001",
+      "name": "상담 전환 정책",
+      "description": "검색에서 상담으로 전환할 때 맥락 전달과 고객 고지 기준을 정의한다.",
+      "items": [
+        "상담 전환 조건",
+        "전달 정보 고지",
+        "상담 후 복귀 안내",
+        "상황 인지형 도움 전환",
+        "LLM 상담봇 연결",
+        "인앱 자가 해결 연결"
+      ]
+    },
+    {
+      "id": "PG-AIS-OPS-001",
+      "name": "운영 사전·금칙어 정책",
+      "description": "동의어, 축약어, 오타, 금칙어, 대표 엔티티 관리 기준을 정의한다.",
+      "items": [
+        "사전 변경 관리",
+        "금칙어 차단",
+        "대표 엔티티 관리"
+      ]
+    },
+    {
+      "id": "PG-AIS-QA-001",
+      "name": "AI 후보 검수·배포 정책",
+      "description": "AI 생성 추천어, 자동완성, 응답 후보의 검수, 배포, 롤백 기준을 정의한다.",
+      "items": [
+        "운영 검수 큐",
+        "승인·반려",
+        "배포·롤백"
+      ]
+    },
+    {
+      "id": "PG-AIS-METRIC-001",
+      "name": "품질·성과 운영 정책",
+      "description": "검색과 AI 응답의 품질·성과 지표와 개선 루프를 정의한다.",
+      "items": [
+        "품질 지표 관리",
+        "이상 징후 알림",
+        "실패 케이스 개선",
+        "성능 기준 관리",
+        "모델·룰 성과 비교"
+      ]
+    },
+    {
+      "id": "PG-AIS-DATA-001",
+      "name": "로그·개인정보 보호 정책",
+      "description": "검색 상호작용 로그, 상담 전달 정보, 개인정보 보호 기준을 정의한다.",
+      "items": [
+        "최소 로그 수집",
+        "민감정보 마스킹",
+        "보관·파기 기준"
+      ]
+    }
+  ],
+  "version": "v0.11"
+}

@@ -1,0 +1,2734 @@
+{
+  "generated_at": "2026-05-15T20:19:06",
+  "base_url": "https://ncstudio.onrender.com",
+  "remote_policy_count": 81,
+  "staging_dir": "reports/render_sync/render_output_full_snapshot_20260515_201708",
+  "downloaded_count": 306,
+  "missing_sidecar_count": 18,
+  "remote_only_after_copy": [],
+  "local_only_policy_html": [
+    "NC_상품상세담기_정책서_Full_v0.11.html"
+  ],
+  "policy_hash_comparison": [
+    {
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "remoteHash": "d1b90aa63aa33399e554ddd187dbe62878799fb6e98ddfde181632ae6af6b704",
+      "localHash": "d1b90aa63aa33399e554ddd187dbe62878799fb6e98ddfde181632ae6af6b704",
+      "same": true
+    },
+    {
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "remoteHash": "4fbcbe79b6d380977bd0bc2e6276fa0f0a9b9b96fada8f1a9aec60e9bbe75b94",
+      "localHash": "4fbcbe79b6d380977bd0bc2e6276fa0f0a9b9b96fada8f1a9aec60e9bbe75b94",
+      "same": true
+    },
+    {
+      "name": "NC_선물주문_정책서_간소화_v0.10.html",
+      "remoteHash": "dedbacb96c97f574f6592dbcbbab2528884eb98d31664c512e0c403a7e99a3e6",
+      "localHash": "dedbacb96c97f574f6592dbcbbab2528884eb98d31664c512e0c403a7e99a3e6",
+      "same": true
+    },
+    {
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "remoteHash": "df0fb291c4fa56298b7b83a7d1972641a458f4c616304bf842224d27a752b295",
+      "localHash": "df0fb291c4fa56298b7b83a7d1972641a458f4c616304bf842224d27a752b295",
+      "same": true
+    },
+    {
+      "name": "NC_결제_정책서_간소화_v0.10.html",
+      "remoteHash": "7ae1c674113abc4a78ce5c53493c940059696394e0abe570b7034c15242dd13d",
+      "localHash": "7ae1c674113abc4a78ce5c53493c940059696394e0abe570b7034c15242dd13d",
+      "same": true
+    },
+    {
+      "name": "NC_회선변경관리_정책서_간소화_v0.10.html",
+      "remoteHash": "3f8f58b6331a4f578e037330df2230f634030d21affcca2ae2bb6202eac1409b",
+      "localHash": "3f8f58b6331a4f578e037330df2230f634030d21affcca2ae2bb6202eac1409b",
+      "same": true
+    },
+    {
+      "name": "NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "remoteHash": "b2898c3a7c8797035b73d9163abafcc43af6cfcf99377a4bdac329ff9c33c05f",
+      "localHash": "b2898c3a7c8797035b73d9163abafcc43af6cfcf99377a4bdac329ff9c33c05f",
+      "same": true
+    },
+    {
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "remoteHash": "ce3c7206b8bcd00592c1567063dabcf928161e78346a6037e6c68a3b77b75ce6",
+      "localHash": "ce3c7206b8bcd00592c1567063dabcf928161e78346a6037e6c68a3b77b75ce6",
+      "same": true
+    },
+    {
+      "name": "NC_나의가입정보_정책서_간소화_v0.10.html",
+      "remoteHash": "92fee1f52f39b5a1e9a2a644e8b2660da5df7b2054a91c45acd82dcc47d871de",
+      "localHash": "92fee1f52f39b5a1e9a2a644e8b2660da5df7b2054a91c45acd82dcc47d871de",
+      "same": true
+    },
+    {
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "remoteHash": "24a36ef0f9fb5020d4dfca04b79f93e734a9a70f9ee1caab87650bae56948359",
+      "localHash": "24a36ef0f9fb5020d4dfca04b79f93e734a9a70f9ee1caab87650bae56948359",
+      "same": true
+    },
+    {
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "remoteHash": "ab5c45d08233dee377242eea33255f4d8b1494a8764d21c2ba9ed3b43e3d560f",
+      "localHash": "ab5c45d08233dee377242eea33255f4d8b1494a8764d21c2ba9ed3b43e3d560f",
+      "same": true
+    },
+    {
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "remoteHash": "928b8a44250886305b46221103a987f6971ab16e3738a803355fd17459effc92",
+      "localHash": "928b8a44250886305b46221103a987f6971ab16e3738a803355fd17459effc92",
+      "same": true
+    },
+    {
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "remoteHash": "8010a9e45f156ef465cf3c583c8ddd46ff9af6a60d7aa84d33d53bf065b037e9",
+      "localHash": "8010a9e45f156ef465cf3c583c8ddd46ff9af6a60d7aa84d33d53bf065b037e9",
+      "same": true
+    },
+    {
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "remoteHash": "a4c5c01fa3839c17f470d5ccfb11a946f4313f8ccc8df1aa59531edeb0de0a71",
+      "localHash": "a4c5c01fa3839c17f470d5ccfb11a946f4313f8ccc8df1aa59531edeb0de0a71",
+      "same": true
+    },
+    {
+      "name": "NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "remoteHash": "0fdd5e34b1894e83d457fd3cb373a9473a24c749621f962e8c4613950c3160a8",
+      "localHash": "0fdd5e34b1894e83d457fd3cb373a9473a24c749621f962e8c4613950c3160a8",
+      "same": true
+    },
+    {
+      "name": "NC_설정_정책서_간소화_v0.11.html",
+      "remoteHash": "b6257b41b0cb2c244f5f26143b4ba61451ff9d4c56cb1414b8e30dd36ac40066",
+      "localHash": "b6257b41b0cb2c244f5f26143b4ba61451ff9d4c56cb1414b8e30dd36ac40066",
+      "same": true
+    },
+    {
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "remoteHash": "a4a584d5e58fdbd2537c6e133aacc627f228a4e0d36421f22c6d8fba928147bb",
+      "localHash": "a4a584d5e58fdbd2537c6e133aacc627f228a4e0d36421f22c6d8fba928147bb",
+      "same": true
+    },
+    {
+      "name": "NC_통합약관_정책서_간소화_v0.10.html",
+      "remoteHash": "e68dc368b1385cc350647cd902919fa94ea3949fa280f56f3af57bc936c18031",
+      "localHash": "e68dc368b1385cc350647cd902919fa94ea3949fa280f56f3af57bc936c18031",
+      "same": true
+    },
+    {
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "remoteHash": "90d4f134095361a8e1d8233033244ff3910be61da0e5cff53e1944a5908736aa",
+      "localHash": "90d4f134095361a8e1d8233033244ff3910be61da0e5cff53e1944a5908736aa",
+      "same": true
+    },
+    {
+      "name": "NC_주문계약가입_정책서_간소화_v0.11.html",
+      "remoteHash": "a6a68c3ef52c07a948b221ba22a63df0d0ecbe1efbbf824b06487d9f296e716f",
+      "localHash": "a6a68c3ef52c07a948b221ba22a63df0d0ecbe1efbbf824b06487d9f296e716f",
+      "same": true
+    },
+    {
+      "name": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "remoteHash": "9d557fb9a313a6e1be2b03b407ce378a76e4031ac134da86109d5acef0cd8e9b",
+      "localHash": "9d557fb9a313a6e1be2b03b407ce378a76e4031ac134da86109d5acef0cd8e9b",
+      "same": true
+    },
+    {
+      "name": "NC_통합약관_정책서_간소화_v0.11.html",
+      "remoteHash": "1b2d75675ed29c2d553ab470060ba911560cc4248704637d59de56575c614f38",
+      "localHash": "1b2d75675ed29c2d553ab470060ba911560cc4248704637d59de56575c614f38",
+      "same": true
+    },
+    {
+      "name": "NC_전시관리기능_정책서_간소화_v0.11.html",
+      "remoteHash": "5629053afe80a8a45102bccff4c07b8bd179e137f3ba7d5d4f5942b7ee47ef83",
+      "localHash": "5629053afe80a8a45102bccff4c07b8bd179e137f3ba7d5d4f5942b7ee47ef83",
+      "same": true
+    },
+    {
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "remoteHash": "42b120f56057110832451059c4977da1b5ca46754756b4eef14faa167e77184c",
+      "localHash": "42b120f56057110832451059c4977da1b5ca46754756b4eef14faa167e77184c",
+      "same": true
+    },
+    {
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "remoteHash": "1c35e2636452bd395ad4028a6ba148099e2db25566fa6467289e11cdab705f65",
+      "localHash": "1c35e2636452bd395ad4028a6ba148099e2db25566fa6467289e11cdab705f65",
+      "same": true
+    },
+    {
+      "name": "NC_회선변경관리_정책서_간소화_v0.11.html",
+      "remoteHash": "2f8efc16229779240b5cbbe8b4609a5d4feb1a2a60ab68bd18fa90647c541332",
+      "localHash": "2f8efc16229779240b5cbbe8b4609a5d4feb1a2a60ab68bd18fa90647c541332",
+      "same": true
+    },
+    {
+      "name": "NC_설정_정책서_간소화_v0.10.html",
+      "remoteHash": "73afc322f6bffae14776f5bd0c9361dcdbd420931f32d8c4d6a2a2fba9b35447",
+      "localHash": "73afc322f6bffae14776f5bd0c9361dcdbd420931f32d8c4d6a2a2fba9b35447",
+      "same": true
+    },
+    {
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "remoteHash": "5c2086e3e993eec34cc99fbbc34a9b849643b77bf163fb7d83fa030b77c23bc5",
+      "localHash": "5c2086e3e993eec34cc99fbbc34a9b849643b77bf163fb7d83fa030b77c23bc5",
+      "same": true
+    },
+    {
+      "name": "NC_나의가입정보_정책서_간소화_v0.11.html",
+      "remoteHash": "cb29115b12bca1c7613938c65f446b875f9b13ea1001fb4433013d19a00dad8e",
+      "localHash": "cb29115b12bca1c7613938c65f446b875f9b13ea1001fb4433013d19a00dad8e",
+      "same": true
+    },
+    {
+      "name": "NC_상품변경_정책서_간소화_v0.10.html",
+      "remoteHash": "a48e20173ce788c781f82e089eeecbbf78724e77f6896c551a81b9f1b5f1c7de",
+      "localHash": "a48e20173ce788c781f82e089eeecbbf78724e77f6896c551a81b9f1b5f1c7de",
+      "same": true
+    },
+    {
+      "name": "NC_선물주문_정책서_간소화_v0.11.html",
+      "remoteHash": "273c0708e3affc252a8f1bd20cbd815e61afc042b2b52972e696c10f3c354d75",
+      "localHash": "273c0708e3affc252a8f1bd20cbd815e61afc042b2b52972e696c10f3c354d75",
+      "same": true
+    },
+    {
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "remoteHash": "9622213795e5ecd6b93ada1838bc2893ac4a6ee3b076053240c83241f88867cf",
+      "localHash": "9622213795e5ecd6b93ada1838bc2893ac4a6ee3b076053240c83241f88867cf",
+      "same": true
+    },
+    {
+      "name": "NC_해지환불취소_정책서_간소화_v0.11.html",
+      "remoteHash": "20a364c74405f2e84342cf50f73c9ad98803708801c9ae52a91412aa4ae09555",
+      "localHash": "20a364c74405f2e84342cf50f73c9ad98803708801c9ae52a91412aa4ae09555",
+      "same": true
+    },
+    {
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "remoteHash": "8b0c009fe2cd3decd39ab1b10d914c6b35e44c33c8f4a130cfac2a8809baea05",
+      "localHash": "8b0c009fe2cd3decd39ab1b10d914c6b35e44c33c8f4a130cfac2a8809baea05",
+      "same": true
+    },
+    {
+      "name": "NC_주문계약가입_정책서_간소화_v0.10.html",
+      "remoteHash": "919e9cc17e1644225a9828fd4caa4d29a1b74dc0e1f6c7883fc38b87c15008de",
+      "localHash": "919e9cc17e1644225a9828fd4caa4d29a1b74dc0e1f6c7883fc38b87c15008de",
+      "same": true
+    },
+    {
+      "name": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "remoteHash": "f1646e1aaf01ed26eb972cb132790928d6517867c3e7dc7d6c0690fe21531477",
+      "localHash": "f1646e1aaf01ed26eb972cb132790928d6517867c3e7dc7d6c0690fe21531477",
+      "same": true
+    },
+    {
+      "name": "NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "remoteHash": "0b9244bddfd40274280c2f5794bcf90e6f73e4b518e356693d081f4ae3a220d8",
+      "localHash": "0b9244bddfd40274280c2f5794bcf90e6f73e4b518e356693d081f4ae3a220d8",
+      "same": true
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.10.html",
+      "remoteHash": "14e12c711932d0dfe08becb9b9050f7c49232a6655547ea6ae5d3de63a6316c0",
+      "localHash": "14e12c711932d0dfe08becb9b9050f7c49232a6655547ea6ae5d3de63a6316c0",
+      "same": true
+    },
+    {
+      "name": "NC_상품상세담기_정책서_Full_v0.10.html",
+      "remoteHash": "913711ae13d5bd0215192649ed603495ca981fc1fcc957c0d94e8b7d11aaa019",
+      "localHash": "913711ae13d5bd0215192649ed603495ca981fc1fcc957c0d94e8b7d11aaa019",
+      "same": true
+    },
+    {
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "remoteHash": "451bb0fdd44fa856809d456d677e97825316a7a73703f96bda76b2cac23dfff6",
+      "localHash": "451bb0fdd44fa856809d456d677e97825316a7a73703f96bda76b2cac23dfff6",
+      "same": true
+    },
+    {
+      "name": "NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "remoteHash": "548d31bcbab5e1eae42348d21880374d5c4dc1bd432042d5c19e1b865a0b579c",
+      "localHash": "548d31bcbab5e1eae42348d21880374d5c4dc1bd432042d5c19e1b865a0b579c",
+      "same": true
+    },
+    {
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "remoteHash": "f52ee035625c9369b4e8b9a4cd7f02436ec2c822a13de09d2bfb66f21218374c",
+      "localHash": "f52ee035625c9369b4e8b9a4cd7f02436ec2c822a13de09d2bfb66f21218374c",
+      "same": true
+    },
+    {
+      "name": "NC_상품목록_정책서_간소화_v0.11.html",
+      "remoteHash": "34ab21100eb9400053f9471b4bf41da69d963c7428ebefeee35542c68ce33942",
+      "localHash": "34ab21100eb9400053f9471b4bf41da69d963c7428ebefeee35542c68ce33942",
+      "same": true
+    },
+    {
+      "name": "NC_상품변경_정책서_간소화_v0.11.html",
+      "remoteHash": "6590010a4ecbc7586025696f51861bf1a9f0f1ffb06c96d86aed85a5ba2b5228",
+      "localHash": "6590010a4ecbc7586025696f51861bf1a9f0f1ffb06c96d86aed85a5ba2b5228",
+      "same": true
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.11.html",
+      "remoteHash": "fa9675134e2ed84add6472e919c85232ef75d260679620c86025bce13abb8f59",
+      "localHash": "fa9675134e2ed84add6472e919c85232ef75d260679620c86025bce13abb8f59",
+      "same": true
+    },
+    {
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "remoteHash": "00aa1526cc3a5203b8194e8546dfb9cafcd9298b136444666fb2a35a1cdde555",
+      "localHash": "00aa1526cc3a5203b8194e8546dfb9cafcd9298b136444666fb2a35a1cdde555",
+      "same": true
+    },
+    {
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "remoteHash": "85b59a1df1a39b7050ca762af8e55c60b52044b068616888faacb45a01100be1",
+      "localHash": "85b59a1df1a39b7050ca762af8e55c60b52044b068616888faacb45a01100be1",
+      "same": true
+    },
+    {
+      "name": "NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "remoteHash": "e76005da96d83ef5f5e12a0425372e6334f53d5c3ff3ae832a87738e0141814d",
+      "localHash": "e76005da96d83ef5f5e12a0425372e6334f53d5c3ff3ae832a87738e0141814d",
+      "same": true
+    },
+    {
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "remoteHash": "96d4ad3638c62ea224a3d8157d4c09e4cf42ea64382c08761713e8f5b61251f4",
+      "localHash": "96d4ad3638c62ea224a3d8157d4c09e4cf42ea64382c08761713e8f5b61251f4",
+      "same": true
+    },
+    {
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "remoteHash": "2ab551945dcb2e489b7f51497045b5b061934f52a696979a5d3da980d2d6e7f7",
+      "localHash": "2ab551945dcb2e489b7f51497045b5b061934f52a696979a5d3da980d2d6e7f7",
+      "same": true
+    },
+    {
+      "name": "NC_결제_정책서_간소화_v0.11.html",
+      "remoteHash": "bf72431fe63161bc40bf5644ae01313a13a5c26775482e25e96fa13c6bd790c2",
+      "localHash": "bf72431fe63161bc40bf5644ae01313a13a5c26775482e25e96fa13c6bd790c2",
+      "same": true
+    },
+    {
+      "name": "NC_상품목록_정책서_간소화_v0.10.html",
+      "remoteHash": "23264e241e7844857836a4262d22b7849456f615d34953e4c80662a133d62153",
+      "localHash": "23264e241e7844857836a4262d22b7849456f615d34953e4c80662a133d62153",
+      "same": true
+    },
+    {
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "remoteHash": "7a714aed76a3cf483b529591e36832c78e70d81827a469aa33a8e391a9be1869",
+      "localHash": "7a714aed76a3cf483b529591e36832c78e70d81827a469aa33a8e391a9be1869",
+      "same": true
+    },
+    {
+      "name": "NC_추천_정책서_간소화_v0.10.html",
+      "remoteHash": "ab33e828de068fc76b7b800b74d50cb268741a83aadf8c29abd35b1a09e1e006",
+      "localHash": "ab33e828de068fc76b7b800b74d50cb268741a83aadf8c29abd35b1a09e1e006",
+      "same": true
+    },
+    {
+      "name": "NC_카트장바구니_정책서_간소화_v0.10.html",
+      "remoteHash": "bd1c4b961d2901c8245d1fd9ff9cae01b54f3502a7368fd7b207adb11c672ea6",
+      "localHash": "bd1c4b961d2901c8245d1fd9ff9cae01b54f3502a7368fd7b207adb11c672ea6",
+      "same": true
+    },
+    {
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "remoteHash": "87f89759a4fc506b0ef74481db7722e0c681254de6917af08a75157baf7854ca",
+      "localHash": "87f89759a4fc506b0ef74481db7722e0c681254de6917af08a75157baf7854ca",
+      "same": true
+    },
+    {
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "remoteHash": "2804986c724fb8262f90b812f2f0e255e2252386f58a5bdfb60e9a45c5a6ffa5",
+      "localHash": "2804986c724fb8262f90b812f2f0e255e2252386f58a5bdfb60e9a45c5a6ffa5",
+      "same": true
+    },
+    {
+      "name": "NC_전시관리기능_정책서_간소화_v0.10.html",
+      "remoteHash": "932ebc428ee2c5114b76c31fa225c902d98571966ce206436f2bf44ae67f427e",
+      "localHash": "932ebc428ee2c5114b76c31fa225c902d98571966ce206436f2bf44ae67f427e",
+      "same": true
+    },
+    {
+      "name": "NC_추천_정책서_간소화_v0.11.html",
+      "remoteHash": "5e4bfb8e27a4b1b63a163fd6af8d4fba3f454a01062e99c79937e464ac3e2d53",
+      "localHash": "5e4bfb8e27a4b1b63a163fd6af8d4fba3f454a01062e99c79937e464ac3e2d53",
+      "same": true
+    },
+    {
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "remoteHash": "c8cfed2e11759c7ea935076cf9a8b73456757cbed9fcc44cf77d3f9f6fd8fc49",
+      "localHash": "c8cfed2e11759c7ea935076cf9a8b73456757cbed9fcc44cf77d3f9f6fd8fc49",
+      "same": true
+    },
+    {
+      "name": "NC_AI검색_정책서_간소화_v0.10.html",
+      "remoteHash": "c4f8679a7709e00d7427cffe9e6ebd379c4078a5edf56dc3fc764c522bda45bd",
+      "localHash": "c4f8679a7709e00d7427cffe9e6ebd379c4078a5edf56dc3fc764c522bda45bd",
+      "same": true
+    },
+    {
+      "name": "NC_AI검색_정책서_간소화_v0.11.html",
+      "remoteHash": "6a5e0621183d03decd5436e83930631717a985c3bf89f51829c0b204cc9dbb63",
+      "localHash": "6a5e0621183d03decd5436e83930631717a985c3bf89f51829c0b204cc9dbb63",
+      "same": true
+    },
+    {
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "remoteHash": "41249f645573d4a8d4e261532de97cacc9eee646a18de6d7c77b1c127d1af2df",
+      "localHash": "41249f645573d4a8d4e261532de97cacc9eee646a18de6d7c77b1c127d1af2df",
+      "same": true
+    },
+    {
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "remoteHash": "2f2f3c2f9ac216c9eb267bfe8fd2a75c8c878728466c04b5662750227fc54619",
+      "localHash": "2f2f3c2f9ac216c9eb267bfe8fd2a75c8c878728466c04b5662750227fc54619",
+      "same": true
+    },
+    {
+      "name": "NC_통합알림_정책서_간소화_v0.10.html",
+      "remoteHash": "9a008addd56b8acde81cec47dbe2d57d51fec2c7f9ba6bfd367b291e8cfc5c00",
+      "localHash": "9a008addd56b8acde81cec47dbe2d57d51fec2c7f9ba6bfd367b291e8cfc5c00",
+      "same": true
+    },
+    {
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "remoteHash": "34d3878e255f972e67aa8792464ac3979316cc76fec95e8c97788cae01855735",
+      "localHash": "34d3878e255f972e67aa8792464ac3979316cc76fec95e8c97788cae01855735",
+      "same": true
+    },
+    {
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "remoteHash": "f499f36afbd45638e5a680742ae99fc121928ad3c22bd99543a3fcbe22985ecc",
+      "localHash": "f499f36afbd45638e5a680742ae99fc121928ad3c22bd99543a3fcbe22985ecc",
+      "same": true
+    },
+    {
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "remoteHash": "93f98f9c597b96d778ad859f81c61b215a039dec2b423121fd022f886bcb3187",
+      "localHash": "93f98f9c597b96d778ad859f81c61b215a039dec2b423121fd022f886bcb3187",
+      "same": true
+    },
+    {
+      "name": "NC_통합알림_정책서_간소화_v0.11.html",
+      "remoteHash": "12bcce5275cb511267c4845c4b15e452e018cdf6c7fc2abf4d720f6447646489",
+      "localHash": "12bcce5275cb511267c4845c4b15e452e018cdf6c7fc2abf4d720f6447646489",
+      "same": true
+    },
+    {
+      "name": "NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "remoteHash": "69eb51126955de2eb08e06569bab6297bbae7a1f05ad189d27effb8dc7aae6bd",
+      "localHash": "69eb51126955de2eb08e06569bab6297bbae7a1f05ad189d27effb8dc7aae6bd",
+      "same": true
+    },
+    {
+      "name": "NC_해지환불취소_정책서_간소화_v0.10.html",
+      "remoteHash": "8d932f55885d97ffd85f5cb5048754d62df8dd8032594a8ce7efe9be6383c7a8",
+      "localHash": "8d932f55885d97ffd85f5cb5048754d62df8dd8032594a8ce7efe9be6383c7a8",
+      "same": true
+    },
+    {
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "remoteHash": "604a14b7b45cc63ce7b720a527557f0f78cb10ac2d49398733e00612da56c6d2",
+      "localHash": "604a14b7b45cc63ce7b720a527557f0f78cb10ac2d49398733e00612da56c6d2",
+      "same": true
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "remoteHash": "093449af72ba6e235bd44ca1fecd04bd91d671b5c869536e7a3041f977749ec1",
+      "localHash": "7f7de03cebf523dc93e906f55a7e5c18ccc3a7e46cb2629f51949814b3dfa986",
+      "same": false
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "remoteHash": "5d1274173181cb218c56b500d0c7bacec2f55d873e7ca007d7497bf58488d1af",
+      "localHash": "7573caa8d4f071a4f4a7510a87066e849f6d02c30d51a1561f131044961f4789",
+      "same": false
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "remoteHash": "cf4a78860384dc9659a31b0cec1c78fb96f5f938c8765eca3b57d2fa5d4e7045",
+      "localHash": "7d3fcb243641423d0a7d1058735a8f540650b1d6bde7cd3162d90bd72349e46d",
+      "same": false
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "remoteHash": "16a9c00beaa895f4fa64db3e6a984b8ebd71869a05bf4742c17c37aed215f53c",
+      "localHash": "afdfe9cbb9a6e36d80cf98cddd90f9799e7f204300d9ccfb3864ccf144c7b4e5",
+      "same": false
+    },
+    {
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "remoteHash": "e51ef5a85b2a2c7648e85fce7ef77b85f1d89b8f64ec810af5bd1f66324b8781",
+      "localHash": "3f77ad9a2bfa331281634b4f029761672865d67018acdef30b6be5b7cab262e3",
+      "same": false
+    },
+    {
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "remoteHash": "26e1e47864a71126637a010509a63cf29c1a0c658b73eedee0d9f0c65987e1ff",
+      "localHash": "972c89d1940083a0ba24196b9d0e2ce0918c18d5f3ad8c77dd77f23e46d5feaf",
+      "same": false
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "remoteHash": "cd5b82423a84ef291ba9d3ae6503de8d002b2d1ff4c925aa192360b4405b99db",
+      "localHash": "f5a025663b4dfa7efa7cb25655227b6bd69a8885a451a00361fc0494d7738bc7",
+      "same": false
+    },
+    {
+      "name": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "remoteHash": "a57a18bab9321709972cc7edf002427951c3abbd641230a6df2cebf1bb5a1ad8",
+      "localHash": "55b32cc42c96d8cf8676c70af86ab8a1e59ce7808b6cef15ee87d02fbff56653",
+      "same": false
+    },
+    {
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "remoteHash": "62c12f71934f65e117b680a29be6b74fec4d01510f366f13c4f66d2d0f081d94",
+      "localHash": "a21f62983cdc0b20d4ba1e61c74b5999fcdab31d294e0ef3742fa935a64097ce",
+      "same": false
+    }
+  ],
+  "downloads": [
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 259875,
+      "sha256": "d1b90aa63aa33399e554ddd187dbe62878799fb6e98ddfde181632ae6af6b704"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 118159,
+      "sha256": "7593f2f02173a51a9d931dfd64869c3199f0a7b6f951cb3405ef781d897524f2"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 44966,
+      "sha256": "889eb32b6939dfacf472f07786ad74fc28a275f2e809c452685588b753714018"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 51751,
+      "sha256": "3b47e977ac0fefc7a575e9b76a3743a9c43852d402085c4207e0ef8477f4ac00"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 196041,
+      "sha256": "4fbcbe79b6d380977bd0bc2e6276fa0f0a9b9b96fada8f1a9aec60e9bbe75b94"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 98866,
+      "sha256": "34c1401e957ff6f21a3a990ce930cdcba9d9ae79661dc8fdc8b22dc1c0257663"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 30041,
+      "sha256": "27d2f082f6001de36864422c68b5932827ef8818e1857f72731940e03b3e9625"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 35869,
+      "sha256": "1ffec03e3b54ec11ece48fcb3193c22ef455e93b5b142eb1a6a5f715a48335f2"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.10.html",
+      "name": "NC_선물주문_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 232032,
+      "sha256": "dedbacb96c97f574f6592dbcbbab2528884eb98d31664c512e0c403a7e99a3e6"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.10.html",
+      "name": "NC_선물주문_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 118621,
+      "sha256": "3468dd92377acc14b720942ca93a12f031ece255d12d17345047f08a96aea00d"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.10.html",
+      "name": "NC_선물주문_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 43369,
+      "sha256": "9d5760c0642c9f82075f44ec9b4e94a9fdf3ae34fbb99691ccd2dae473b35c43"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.10.html",
+      "name": "NC_선물주문_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 49938,
+      "sha256": "8873deec8c985383a96dda9541a3957b5f81c87676a39732d7f680774cfa865b"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 131878,
+      "sha256": "df0fb291c4fa56298b7b83a7d1972641a458f4c616304bf842224d27a752b295"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 62928,
+      "sha256": "6a976fe80f7dc3626746a329f2bdd97f6435b0fbaee3590c850d4913af1501f6"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 20410,
+      "sha256": "4ced0498bfdf4f4f13a65ffcb50599036f8ee2868332dfc8f801b283c4e3b7e0"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 25670,
+      "sha256": "f60dcd94e65cd8b8af2878cc40d6197ee7838eb8e3da8a8ca89694624ca86e6f"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.10.html",
+      "name": "NC_결제_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 242652,
+      "sha256": "7ae1c674113abc4a78ce5c53493c940059696394e0abe570b7034c15242dd13d"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.10.html",
+      "name": "NC_결제_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 199981,
+      "sha256": "92913592e86c244ff4a546436691b3bd36a74700752e5be397a32af45dda71e3"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.10.html",
+      "name": "NC_결제_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 44615,
+      "sha256": "7e89accf2d07ab58715a628d5cb4d228e164b2818b6d45bacc179161c1f5617d"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.10.html",
+      "name": "NC_결제_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 51267,
+      "sha256": "05da8bac0f3d8292177d356fe653d522079f9e31657b5ee09671ba1c5c13013c"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.10.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 255796,
+      "sha256": "3f8f58b6331a4f578e037330df2230f634030d21affcca2ae2bb6202eac1409b"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.10.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 178919,
+      "sha256": "8a0a5fdcae62c37b5eb38b5cc7fc14cea42d8d038cafccff739a9395df93b283"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.10.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 47408,
+      "sha256": "1f1adb8381aef8e3a0a3e29d570ff27312231a5a625430d0503a21bcd6476ae5"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.10.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 54250,
+      "sha256": "2819305e3a1d0d31e42ada37fb0b4be7356fbb8d2a3d257f407759da933b65d9"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 229036,
+      "sha256": "b2898c3a7c8797035b73d9163abafcc43af6cfcf99377a4bdac329ff9c33c05f"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 275579,
+      "sha256": "00d2fada447ecbd35e08e3e4a40f1a18616628af8a5eda429b3756129867df9f"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 41534,
+      "sha256": "a571a4d49de370d09bfafc956419b79a57d8217a56c7f608f5cd807c294e01fc"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 48067,
+      "sha256": "029049657abe5563df0aa6eaa1bd5da4e54c25ae4eb84cf9f3bd4bf8058a17d3"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 186261,
+      "sha256": "ce3c7206b8bcd00592c1567063dabcf928161e78346a6037e6c68a3b77b75ce6"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 1841581,
+      "sha256": "8d8bd9d7dab6408c7fd5bdcc423440a51d7df025172234f86c5ec21a845c97bf"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 20942,
+      "sha256": "70bd482e9e3bd0db31c0c8bd22a68b2599479cd4956e430e202bafe5fc4ba3f9"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 26174,
+      "sha256": "f6a70348258b2e376cae1b664a2e97d157af2d0823ec8eb0d2d9890b09f9b17e"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.10.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 285037,
+      "sha256": "92fee1f52f39b5a1e9a2a644e8b2660da5df7b2054a91c45acd82dcc47d871de"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.10.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 245082,
+      "sha256": "0ae24f3dd3a9edd99788960956b5cf34c1f4818dc4d80e3ae3f53ab6ea5f085e"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.10.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 54299,
+      "sha256": "d162f4e0b558800e94218257291e3d5de338856e5ee4d2c687a7423282d6a0bc"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.10.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 61564,
+      "sha256": "644dff8c8d6e977247c187dd66217f50457a91c2dd8e5ec0f96514584ec0206c"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 199640,
+      "sha256": "24a36ef0f9fb5020d4dfca04b79f93e734a9a70f9ee1caab87650bae56948359"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 2604584,
+      "sha256": "8d31ee76be7390bfe27d43f854bfc44331a014b354c6d607894714987da427a6"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 22992,
+      "sha256": "033f9be56e382009f4c5c7077fa50f97697fcb74855fd74533b831d1745839c2"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 28295,
+      "sha256": "02b538d943e5a36e1f241125a2a6fb6152708264b5602510da996fddb54aafaf"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 280759,
+      "sha256": "ab5c45d08233dee377242eea33255f4d8b1494a8764d21c2ba9ed3b43e3d560f"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 293091,
+      "sha256": "70b4a70c2ba688c3a0442757030fe0f2944923901b29cd4a74c4f0c6d2315962"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 49215,
+      "sha256": "4c1ea73c5a16dca2895ff8b64b6d5a5819487ce5d46c36edcdc5cbfb239f7209"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 56192,
+      "sha256": "ec8f76017e5a9bec5670882460941ced906d549d12b1d60a1d8bc46e5927a296"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 261530,
+      "sha256": "928b8a44250886305b46221103a987f6971ab16e3738a803355fd17459effc92"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 147361,
+      "sha256": "38cffa96594e035f5fe2ae12b6d883e5e4b90f8b1dd52b98eb56e1e34559eecd"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 48540,
+      "sha256": "9845ebbb637c211d1c7e518602890e86b26e66c929119d27a62b6e2840e78dc9"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 55659,
+      "sha256": "76afcfed8d65da2d5a9f14ed3e3fe4cf763ca705fd2fcdacc938612a143a9b50"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 218744,
+      "sha256": "8010a9e45f156ef465cf3c583c8ddd46ff9af6a60d7aa84d33d53bf065b037e9"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 163029,
+      "sha256": "e434493756047a062a0eadf545e2b0f910c81a9753659ec1cd4e59bacdc8b9f5"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 38247,
+      "sha256": "4a3f9beef325a3ade057704bb96fc02a927788069824c8cc22aa07482911020d"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 44725,
+      "sha256": "80fe261ff78d08c8c6b2d54012529bd88eaf15a7efb71155a6ee25d3442219d3"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 156466,
+      "sha256": "a4c5c01fa3839c17f470d5ccfb11a946f4313f8ccc8df1aa59531edeb0de0a71"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 977220,
+      "sha256": "21746bae61646eb1ae4f58840db028a4b4480177f85b7f6184d0fc940feff93e"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 16162,
+      "sha256": "f72cb9043110d0918ee72ed199692e2513378f2aa66c191cbb03d3c17bf919b7"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 21094,
+      "sha256": "c59e743ff890710fc82b95307fb44edf0fad6bfb41c180e73cfd1c72e6ac48f5"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 224640,
+      "sha256": "0fdd5e34b1894e83d457fd3cb373a9473a24c749621f962e8c4613950c3160a8"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 231893,
+      "sha256": "b561c224668a784df3d70458e9af96f11a964ffdc4c86a49036f03262e025337"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 39690,
+      "sha256": "705774454bf1c4156671516fc8b48c4a41d88768c351cd6bd79e96358b17beac"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 46223,
+      "sha256": "c0be533556c3e9676c4f1247dc2550a51b11ec02b7d4b70fa45b1ea4df28c2fa"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.11.html",
+      "name": "NC_설정_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 196856,
+      "sha256": "b6257b41b0cb2c244f5f26143b4ba61451ff9d4c56cb1414b8e30dd36ac40066"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.11.html",
+      "name": "NC_설정_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 2387218,
+      "sha256": "3473b8e8254b1762f12ee5e039970d61098501e7ed8eb3ea47b5781c0cbbbf72"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.11.html",
+      "name": "NC_설정_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 21879,
+      "sha256": "56226cd68140b588f9ce38d6fc6118b5d59f2f02e4a9f394aaad4c55087f35ec"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.11.html",
+      "name": "NC_설정_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 27072,
+      "sha256": "666b61d97af75aaf61357dff7cedc78e190014d6d164552792e3fba26ebe6e04"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 280759,
+      "sha256": "a4a584d5e58fdbd2537c6e133aacc627f228a4e0d36421f22c6d8fba928147bb"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 293091,
+      "sha256": "a2254ec6df991859c933d3bb311d588f1c71594611fd55e5261ad3951bb08b96"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 49215,
+      "sha256": "4c1ea73c5a16dca2895ff8b64b6d5a5819487ce5d46c36edcdc5cbfb239f7209"
+    },
+    {
+      "policy": "NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "name": "NC_주문상태사후관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 56192,
+      "sha256": "8c2332c1c1637cf6442057da31cf961b8b9f3dd5a2bbdc144a69a2ece79a9131"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.10.html",
+      "name": "NC_통합약관_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 215829,
+      "sha256": "e68dc368b1385cc350647cd902919fa94ea3949fa280f56f3af57bc936c18031"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.10.html",
+      "name": "NC_통합약관_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 2288726,
+      "sha256": "a79636de36435d615d46645ae582fe8b8c71271b44a4386284d604fc63845201"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.10.html",
+      "name": "NC_통합약관_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 20843,
+      "sha256": "2f2f7aedb67ba4005f38a6c138d3a430a2b6daf8bba396ea1052c4a9516afb52"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.10.html",
+      "name": "NC_통합약관_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 26003,
+      "sha256": "efd87996c780e40b677f1171c310b81372e727b94c5359d93d7d4a9faf5838e8"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 218744,
+      "sha256": "90d4f134095361a8e1d8233033244ff3910be61da0e5cff53e1944a5908736aa"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 163029,
+      "sha256": "021a36c50bf528e4113880ec11b8b9c6b78c7060ffebeab36f6595622bf909d8"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 38247,
+      "sha256": "4a3f9beef325a3ade057704bb96fc02a927788069824c8cc22aa07482911020d"
+    },
+    {
+      "policy": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "name": "NC_상품서비스혜택이용공유_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 44725,
+      "sha256": "8575c1ef8ffb06dc7fe3cf1597e4eef21b7dfb6f64410f635b7ac745d114d238"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.11.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 320694,
+      "sha256": "a6a68c3ef52c07a948b221ba22a63df0d0ecbe1efbbf824b06487d9f296e716f"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.11.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 210035,
+      "sha256": "9980d598a2d4d2d4ff5591a4d2327216a79d96bd2eeed8bd8ea7dde50dd210ea"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.11.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 54406,
+      "sha256": "dc4c15e6a39a2072b78c25826de9f86acf7af162aa6bb7af0781682fa76f9cf6"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.11.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 61681,
+      "sha256": "9cdebdf2389d02be0b31d01527f3ea5bad89abc889a52f41dcc09f7a0ffa9d6a"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "status": "downloaded",
+      "bytes": 175414,
+      "sha256": "9d557fb9a313a6e1be2b03b407ce378a76e4031ac134da86109d5acef0cd8e9b"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.12_spec.json",
+      "status": "downloaded",
+      "bytes": 89541,
+      "sha256": "a82115ca354182691cfbbeab86f4155be61f6f6a901c402526559e3bbc374dc7"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24557,
+      "sha256": "611de60e1ef2d71b7d78ef528895ab4b91a7526d87d3d58112e588c7d836a9bd"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 29997,
+      "sha256": "6bc0051aaa58667d7b414c7eee07f4920c892ebccd366c7f9d7bda2244afe81d"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.11.html",
+      "name": "NC_통합약관_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 215829,
+      "sha256": "1b2d75675ed29c2d553ab470060ba911560cc4248704637d59de56575c614f38"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.11.html",
+      "name": "NC_통합약관_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 2288726,
+      "sha256": "ddcb1c10ec1f23a6c058af4966823f1a8709ed05801eb0c1aef03b433dd8c6e9"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.11.html",
+      "name": "NC_통합약관_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 20843,
+      "sha256": "2f2f7aedb67ba4005f38a6c138d3a430a2b6daf8bba396ea1052c4a9516afb52"
+    },
+    {
+      "policy": "NC_통합약관_정책서_간소화_v0.11.html",
+      "name": "NC_통합약관_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 26003,
+      "sha256": "c7751e1c2ff9771a6af55788744f7827a17dff6c057f956dc85471afe53852fa"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.11.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 175414,
+      "sha256": "5629053afe80a8a45102bccff4c07b8bd179e137f3ba7d5d4f5942b7ee47ef83"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.11.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 89539,
+      "sha256": "0fef3bba802ec90bdf625d85b2089afa55c42825e385769566361420a3839ac3"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.11.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24557,
+      "sha256": "611de60e1ef2d71b7d78ef528895ab4b91a7526d87d3d58112e588c7d836a9bd"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.11.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 29997,
+      "sha256": "f21e622da7e11ed30caf09b2184911faef47c1b7ba9b2d022b611d404232f51b"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 177754,
+      "sha256": "42b120f56057110832451059c4977da1b5ca46754756b4eef14faa167e77184c"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 143851,
+      "sha256": "9447cc160571a401242791ccda417a2bfdee93dfc38ea732907144289f2c9215"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 30797,
+      "sha256": "af935d15a3014699a6f7dfa7136510397afd504c1d560df11ec061129586da6e"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 36656,
+      "sha256": "9832677b955f2eb09ad39bf4df1d8aee9403aa0967398c47726476d393acda0b"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 194363,
+      "sha256": "1c35e2636452bd395ad4028a6ba148099e2db25566fa6467289e11cdab705f65"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 99948,
+      "sha256": "f05cd4478bf6b7e1f8d9c3b0730febf83b50ec64508e8df42d1a936c8970e731"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24914,
+      "sha256": "2ec2ee9d9d07901cfb76ab652eb48fbe130b164ac8bbb2686b98b26fa7be1b27"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 30420,
+      "sha256": "1a0f6a304e81c20ec6b0fb5f5c5ab995dadf701f909e364d3b6e5eae0fe7850b"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.11.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 255796,
+      "sha256": "2f8efc16229779240b5cbbe8b4609a5d4feb1a2a60ab68bd18fa90647c541332"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.11.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 178919,
+      "sha256": "72dec99aedfa4c787b757de8f93840adaf4b864fd9b124e4b8128017ceb4f9e3"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.11.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 47408,
+      "sha256": "1f1adb8381aef8e3a0a3e29d570ff27312231a5a625430d0503a21bcd6476ae5"
+    },
+    {
+      "policy": "NC_회선변경관리_정책서_간소화_v0.11.html",
+      "name": "NC_회선변경관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 54250,
+      "sha256": "a62a2ad2c2b6e69f5cd2a1801429c963306878ac2af5b168279043010c83e964"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.10.html",
+      "name": "NC_설정_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 196856,
+      "sha256": "73afc322f6bffae14776f5bd0c9361dcdbd420931f32d8c4d6a2a2fba9b35447"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.10.html",
+      "name": "NC_설정_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 2387218,
+      "sha256": "b4aed6ed5ee47c52c7e377cca927b9ac3818e7dc0289a59664379bdc9971fb40"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.10.html",
+      "name": "NC_설정_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 21879,
+      "sha256": "56226cd68140b588f9ce38d6fc6118b5d59f2f02e4a9f394aaad4c55087f35ec"
+    },
+    {
+      "policy": "NC_설정_정책서_간소화_v0.10.html",
+      "name": "NC_설정_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 27072,
+      "sha256": "51ccc0db7f382cfdacab4ee6e8f50e6d7455ce5165b3664c882f38bec67bc2aa"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "status": "downloaded",
+      "bytes": 188465,
+      "sha256": "5c2086e3e993eec34cc99fbbc34a9b849643b77bf163fb7d83fa030b77c23bc5"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 136169,
+      "sha256": "ca0e4cbedbeee46966911a5c5144b5829245ea9780168be72c6315ca23e2974c"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24683,
+      "sha256": "66869e1b2048719b96c669a529e93c06216efdd02c4c49e337d9642da4b14ecd"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 30163,
+      "sha256": "b5c52ddce56bd18292631b7eec2427cff82767056d8592af0cecfc94aff6fcea"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.11.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 285037,
+      "sha256": "cb29115b12bca1c7613938c65f446b875f9b13ea1001fb4433013d19a00dad8e"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.11.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 245082,
+      "sha256": "18109f41942238359b5b182a22a470b46cb32ad876be11a4d02ee23216440f7a"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.11.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 54299,
+      "sha256": "d162f4e0b558800e94218257291e3d5de338856e5ee4d2c687a7423282d6a0bc"
+    },
+    {
+      "policy": "NC_나의가입정보_정책서_간소화_v0.11.html",
+      "name": "NC_나의가입정보_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 61564,
+      "sha256": "a98379b281be57d8227fe522aebb6e90e82f57886eafe99758a9c7951f8d971f"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.10.html",
+      "name": "NC_상품변경_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 205795,
+      "sha256": "a48e20173ce788c781f82e089eeecbbf78724e77f6896c551a81b9f1b5f1c7de"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.10.html",
+      "name": "NC_상품변경_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 175127,
+      "sha256": "e8e51af7f8feb429e8b224a833835bac0a0eed3b4a6649236f6de8d63d4c4a0f"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.10.html",
+      "name": "NC_상품변경_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 36685,
+      "sha256": "9b8af5e6a69a39c98f0c4f5ea7525ba10f2309ceff7fecd44f36d33194e72670"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.10.html",
+      "name": "NC_상품변경_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 42883,
+      "sha256": "7baab5287e4aefaa45c7d31f00e140f0fa676af39bffa4ba25668b5d2656ec48"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.11.html",
+      "name": "NC_선물주문_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 232032,
+      "sha256": "273c0708e3affc252a8f1bd20cbd815e61afc042b2b52972e696c10f3c354d75"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.11.html",
+      "name": "NC_선물주문_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 118621,
+      "sha256": "a99c87aec4375e925f7f62096e748a8eb350d16f44d6e0557de7e429ad95f582"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.11.html",
+      "name": "NC_선물주문_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 43369,
+      "sha256": "9d5760c0642c9f82075f44ec9b4e94a9fdf3ae34fbb99691ccd2dae473b35c43"
+    },
+    {
+      "policy": "NC_선물주문_정책서_간소화_v0.11.html",
+      "name": "NC_선물주문_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 49938,
+      "sha256": "bcd6e2ce27dc6dc2c5d7bfd24d446222f7f76f4684b211cb20257f22891a0a7f"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 186261,
+      "sha256": "9622213795e5ecd6b93ada1838bc2893ac4a6ee3b076053240c83241f88867cf"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 1841581,
+      "sha256": "b31deae4bffc32f3a803ca4d52fffe45d505cf5fedd175ad41f080484835710a"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 20942,
+      "sha256": "70bd482e9e3bd0db31c0c8bd22a68b2599479cd4956e430e202bafe5fc4ba3f9"
+    },
+    {
+      "policy": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 26174,
+      "sha256": "b0297a6e4414bcc13f592070c147a2c80dc9e2769684df1a03e5c7d80e92d6ac"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.11.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 135223,
+      "sha256": "20a364c74405f2e84342cf50f73c9ad98803708801c9ae52a91412aa4ae09555"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.11.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 74499,
+      "sha256": "5f70d9fb4f30722e6b19a3253b5472df379e30d844884761adeb810db59ed8b3"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.11.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 19057,
+      "sha256": "d084e89e1af69b75606fcf88b12dc38007fef943ca6396fda5345f9721778b1a"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.11.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 24183,
+      "sha256": "492c28a01e81fbf4dc3ef74241d4fedf26f6eeaf1d2dec747e6b58eb6439cfba"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 139909,
+      "sha256": "8b0c009fe2cd3decd39ab1b10d914c6b35e44c33c8f4a130cfac2a8809baea05"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 97735,
+      "sha256": "157bb4e55fa3c50040a1ba9ad2e625621ad17ec1d2afc82ffdfd626838d54926"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24683,
+      "sha256": "66869e1b2048719b96c669a529e93c06216efdd02c4c49e337d9642da4b14ecd"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 30168,
+      "sha256": "738fd0bde8ccb92b3346e469f33ccb257b33b91c3bac84e8a0b5518ffe7f1a87"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.10.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 320694,
+      "sha256": "919e9cc17e1644225a9828fd4caa4d29a1b74dc0e1f6c7883fc38b87c15008de"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.10.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 210035,
+      "sha256": "3327cfc6cfaa7ab8172b73e4631b6c4063999a173fed9c340c37bca7b341c54f"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.10.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 54406,
+      "sha256": "dc4c15e6a39a2072b78c25826de9f86acf7af162aa6bb7af0781682fa76f9cf6"
+    },
+    {
+      "policy": "NC_주문계약가입_정책서_간소화_v0.10.html",
+      "name": "NC_주문계약가입_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 61681,
+      "sha256": "174fcc2a1877f05d708ffa54c7090a67d97f291a5583f89f0efd1da9b2c61029"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 236461,
+      "sha256": "f1646e1aaf01ed26eb972cb132790928d6517867c3e7dc7d6c0690fe21531477"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 108787,
+      "sha256": "c15e103e32d15d5aa42a9f8d8f7fc70675ee555d74100676e7738b9c141d2561"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 46845,
+      "sha256": "f39ef31b1683a597070b8ea6726a08060e74c9c794852269c2926b6c63e8d8ee"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 53679,
+      "sha256": "322103db67d8010634ad41e2d2f98d62f41fdcc97efb7ef2bce247e970d1b399"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 229036,
+      "sha256": "0b9244bddfd40274280c2f5794bcf90e6f73e4b518e356693d081f4ae3a220d8"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 275579,
+      "sha256": "912d3af0e50e3d06478ff78a780072677b9f73fa9c42962b3c36c16f5c9621bd"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 41534,
+      "sha256": "a571a4d49de370d09bfafc956419b79a57d8217a56c7f608f5cd807c294e01fc"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 48067,
+      "sha256": "2fb396bbe8e4b8ba3a6f8e3cf7c8c362a546d188a99c606bf66864978d5c2415"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.10.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 302629,
+      "sha256": "14e12c711932d0dfe08becb9b9050f7c49232a6655547ea6ae5d3de63a6316c0"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.10.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 258093,
+      "sha256": "d8e74647994857b2e30c02215c43f471ffd15cbdd5fa3573d67e91e4865cf1ba"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.10.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 52938,
+      "sha256": "652a31e12793768d556e26660be27fa966e1268e5a60d03c0adebbd6878069c4"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.10.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 60148,
+      "sha256": "b4d260738dd714a6c90d3f85a0f9826f9bcb5c288f7b810626c8bfa2c6eb02d0"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_Full_v0.10.html",
+      "name": "NC_상품상세담기_정책서_Full_v0.10.html",
+      "status": "downloaded",
+      "bytes": 496322,
+      "sha256": "913711ae13d5bd0215192649ed603495ca981fc1fcc957c0d94e8b7d11aaa019"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_Full_v0.10.html",
+      "name": "NC_상품상세담기_정책서_Full_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 423950,
+      "sha256": "1d01abf2dbbaa584739172de4d89a00acaefca4ef57408f60f449e72263b1166"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_Full_v0.10.html",
+      "name": "NC_상품상세담기_정책서_Full_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 52939,
+      "sha256": "cdcf583cd3b014cbde611548615bc3643d3fb6913c4fdfdf2888033950102b6c"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_Full_v0.10.html",
+      "name": "NC_상품상세담기_정책서_Full_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 60146,
+      "sha256": "90284b0247b13c52e6885ba5e283bd28e7fddbe968bc8b18079c780b93f7a19a"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 196041,
+      "sha256": "451bb0fdd44fa856809d456d677e97825316a7a73703f96bda76b2cac23dfff6"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 98866,
+      "sha256": "2b641e8234d8cce7b922394cf2c9c4cf9067daacbc29c81b898954e126e03f2c"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 30041,
+      "sha256": "27d2f082f6001de36864422c68b5932827ef8818e1857f72731940e03b3e9625"
+    },
+    {
+      "policy": "NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "name": "NC_이벤트미션프로그램_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 35869,
+      "sha256": "38b8116451a503248e095c6d739c160e3d92333e89f9bccb1771db349cb16547"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 195778,
+      "sha256": "548d31bcbab5e1eae42348d21880374d5c4dc1bd432042d5c19e1b865a0b579c"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 88702,
+      "sha256": "eadada4bda0a317ae2d011a25520246e9452b17c88336714c2d4168d36a86034"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 32280,
+      "sha256": "8d551b8b8e9bf6240ea46af73c6e0b1060b09f26c01ea2435cd4f80b7c5cf2da"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 38215,
+      "sha256": "ebef8d55f42303992fdf6c65c5f2121803c5c35ab89a9ba39b71dadd32fb21b1"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 240919,
+      "sha256": "f52ee035625c9369b4e8b9a4cd7f02436ec2c822a13de09d2bfb66f21218374c"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 145001,
+      "sha256": "5cca5b9f07125c6b3dbd2ad1729dba3d14dc659dadefa0b8fab762976fa9d683"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 36255,
+      "sha256": "4ac65c761a1ed8bc04269fb9122229938c43a970714ab8f3c1e968b0415d981c"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 42434,
+      "sha256": "4a0f06112a862e1a123d59e204c790c4d7aa1fa38feadd83cd9eab8339ab7075"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.11.html",
+      "name": "NC_상품목록_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 170688,
+      "sha256": "34ab21100eb9400053f9471b4bf41da69d963c7428ebefeee35542c68ce33942"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.11.html",
+      "name": "NC_상품목록_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 84692,
+      "sha256": "04c6db6cbe7380c8325ca96610873f7a559b07397e2fda568715b6e92b98dd36"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.11.html",
+      "name": "NC_상품목록_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 25653,
+      "sha256": "a0c5c6edd533374a38488913b49d92535abef655395125381d283f1dba6bf7cf"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.11.html",
+      "name": "NC_상품목록_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 31174,
+      "sha256": "891a1a43d79bf9efbaba8b9ebd280552943dd9e0c0f8e44b15aed722cf50079b"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.11.html",
+      "name": "NC_상품변경_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 205795,
+      "sha256": "6590010a4ecbc7586025696f51861bf1a9f0f1ffb06c96d86aed85a5ba2b5228"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.11.html",
+      "name": "NC_상품변경_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 175127,
+      "sha256": "d622e276b1234272f93961c26f6bbe20ff3d43329e0e537d2796ebf917c2547c"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.11.html",
+      "name": "NC_상품변경_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 36685,
+      "sha256": "9b8af5e6a69a39c98f0c4f5ea7525ba10f2309ceff7fecd44f36d33194e72670"
+    },
+    {
+      "policy": "NC_상품변경_정책서_간소화_v0.11.html",
+      "name": "NC_상품변경_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 42883,
+      "sha256": "96473f1091b6832730b6f74ec5c063954493103938e7b605e7c774642b5586dc"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.11.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 302629,
+      "sha256": "fa9675134e2ed84add6472e919c85232ef75d260679620c86025bce13abb8f59"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.11.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 258093,
+      "sha256": "f8864b9f8f452fa678674fa02270b2ea3b62da3780c8a215281bc4239cfce2d7"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.11.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 52938,
+      "sha256": "652a31e12793768d556e26660be27fa966e1268e5a60d03c0adebbd6878069c4"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.11.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 60148,
+      "sha256": "a6d094bfeb7f125fc9ba3f03019cfdc46b32a85a17b9af5996d7a052ed975417"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 259875,
+      "sha256": "00aa1526cc3a5203b8194e8546dfb9cafcd9298b136444666fb2a35a1cdde555"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 118159,
+      "sha256": "e1e37c04f598a15edca3e37a6c3bec59c8e1234b87166e7de1a9ca26acf9161b"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 44966,
+      "sha256": "889eb32b6939dfacf472f07786ad74fc28a275f2e809c452685588b753714018"
+    },
+    {
+      "policy": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 51751,
+      "sha256": "186052a509a476c0bb307b0a58fa89c56efb99cd0463d695ee6e7e60af06f3ae"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 194363,
+      "sha256": "85b59a1df1a39b7050ca762af8e55c60b52044b068616888faacb45a01100be1"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 99948,
+      "sha256": "0aee76a7a7dbe26bcfa0fca6e3639fdbf7e8683a3b16d213698d3cdf1c6597d4"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24914,
+      "sha256": "2ec2ee9d9d07901cfb76ab652eb48fbe130b164ac8bbb2686b98b26fa7be1b27"
+    },
+    {
+      "policy": "NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "name": "NC_데이터트래킹체계_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 30420,
+      "sha256": "b98e7ae25a5a961bbd93ed49cbf426a1a731170b517d1320721f3e252a1320a9"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 195778,
+      "sha256": "e76005da96d83ef5f5e12a0425372e6334f53d5c3ff3ae832a87738e0141814d"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 88702,
+      "sha256": "6d481dfabab644a7d15ec071a6d9aae6416a0226a5487e028d7f494d3d9eb591"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 32280,
+      "sha256": "8d551b8b8e9bf6240ea46af73c6e0b1060b09f26c01ea2435cd4f80b7c5cf2da"
+    },
+    {
+      "policy": "NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "name": "NC_외부쿠폰_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 38215,
+      "sha256": "8ab24aba0c6be74c5f6984c328df00d8637a398cbf36cce10c49887682e34a22"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 131878,
+      "sha256": "96d4ad3638c62ea224a3d8157d4c09e4cf42ea64382c08761713e8f5b61251f4"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 62928,
+      "sha256": "03b497e4cc63858cab01562e433aae8447055e64644da076d3ed058051e9a111"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 20410,
+      "sha256": "4ced0498bfdf4f4f13a65ffcb50599036f8ee2868332dfc8f801b283c4e3b7e0"
+    },
+    {
+      "policy": "NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "name": "NC_외부BP서비스관리체계_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 25670,
+      "sha256": "49fec126ef720379782e210fe678e3cc200649f95f91537c71d569adaf365c66"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 240919,
+      "sha256": "2ab551945dcb2e489b7f51497045b5b061934f52a696979a5d3da980d2d6e7f7"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 145001,
+      "sha256": "9406b91b0d1d1c1bee276e8fdabd97b2d5df6405ef6d4c87ea835ce78a1b44ec"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 36255,
+      "sha256": "4ac65c761a1ed8bc04269fb9122229938c43a970714ab8f3c1e968b0415d981c"
+    },
+    {
+      "policy": "NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "name": "NC_할인시뮬레이션_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 42434,
+      "sha256": "0520333407b62b9d770acf47c0cb028794f714e7903e1ad93035e1eb61e5a7d1"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.11.html",
+      "name": "NC_결제_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 242652,
+      "sha256": "bf72431fe63161bc40bf5644ae01313a13a5c26775482e25e96fa13c6bd790c2"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.11.html",
+      "name": "NC_결제_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 199981,
+      "sha256": "5d76b09cb3f9c1694c81a36478a1d0efc2ea780acd4dd53cf2e3db79405166b5"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.11.html",
+      "name": "NC_결제_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 44615,
+      "sha256": "7e89accf2d07ab58715a628d5cb4d228e164b2818b6d45bacc179161c1f5617d"
+    },
+    {
+      "policy": "NC_결제_정책서_간소화_v0.11.html",
+      "name": "NC_결제_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 51267,
+      "sha256": "cbc06b6534c2afd79be467b7b467cebb104593c718355a4c8357c5779e92c052"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.10.html",
+      "name": "NC_상품목록_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 170688,
+      "sha256": "23264e241e7844857836a4262d22b7849456f615d34953e4c80662a133d62153"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.10.html",
+      "name": "NC_상품목록_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 84692,
+      "sha256": "0b038f6fd265fbb1d39ce57ce7a9871b5383120762aa740d2ca1aaafb70987fe"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.10.html",
+      "name": "NC_상품목록_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 25653,
+      "sha256": "a0c5c6edd533374a38488913b49d92535abef655395125381d283f1dba6bf7cf"
+    },
+    {
+      "policy": "NC_상품목록_정책서_간소화_v0.10.html",
+      "name": "NC_상품목록_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 31174,
+      "sha256": "de20ca56d1df069c7d139bbc2998c857d71b53e32c88f8032526046eebbf30e4"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 196226,
+      "sha256": "7a714aed76a3cf483b529591e36832c78e70d81827a469aa33a8e391a9be1869"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 2411988,
+      "sha256": "5efb7e95957a75ae6d46b96a42878c36e11f6aac9f4c78658d129625757a399f"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 21989,
+      "sha256": "42bc473ec164f1eda7db64ee5e3fb838104f2410be6c3a466b5aff19d441edfc"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 27242,
+      "sha256": "6b30e4204e19855c86a8832df1874f2ce92f95ce9cc872eefa198a4532af254f"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.10.html",
+      "name": "NC_추천_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 189159,
+      "sha256": "ab33e828de068fc76b7b800b74d50cb268741a83aadf8c29abd35b1a09e1e006"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.10.html",
+      "name": "NC_추천_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 98514,
+      "sha256": "689f62673d40da02f9e56174f97a2abbcede2c55f42892ff78d29641290d95de"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.10.html",
+      "name": "NC_추천_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 26540,
+      "sha256": "11a7b288eab675d8802bb9730c06c23ea6aa3337f78d5a3ef99056172c4047c1"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.10.html",
+      "name": "NC_추천_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 32094,
+      "sha256": "aa98d75c7d26c6249057f44b1bebdea30fec788a8b503add0bc95c984c7e9f38"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.10.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 236461,
+      "sha256": "bd1c4b961d2901c8245d1fd9ff9cae01b54f3502a7368fd7b207adb11c672ea6"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.10.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 108787,
+      "sha256": "ed5a286da7225b6c9244d79510cf1579d894eca68610d5e4261ce62cd5c5d341"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.10.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 46845,
+      "sha256": "f39ef31b1683a597070b8ea6726a08060e74c9c794852269c2926b6c63e8d8ee"
+    },
+    {
+      "policy": "NC_카트장바구니_정책서_간소화_v0.10.html",
+      "name": "NC_카트장바구니_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 53679,
+      "sha256": "197ca9e6ab9364c657572c6d1a874fbaa7511ad04feb9c8f9d232e74ff2e9797"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 199640,
+      "sha256": "87f89759a4fc506b0ef74481db7722e0c681254de6917af08a75157baf7854ca"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 2604584,
+      "sha256": "b1e1e3f443ebe2d36a2893d3ec0fdb764fec273cc845eb938c50afe8753f5e6f"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 22992,
+      "sha256": "033f9be56e382009f4c5c7077fa50f97697fcb74855fd74533b831d1745839c2"
+    },
+    {
+      "policy": "NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "name": "NC_고객센터_통합허브_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 28295,
+      "sha256": "437ef5bf56d3c48c0d92505ea57a212a4a15502c21114401f30e939df72d961d"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 202356,
+      "sha256": "2804986c724fb8262f90b812f2f0e255e2252386f58a5bdfb60e9a45c5a6ffa5"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 104539,
+      "sha256": "9e81978b1126aae997c68243737ca0ebfffba2d27521b987e6377a3b2366df14"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 27087,
+      "sha256": "91323c38404f98be977631f97f05bbe23ff58ea189b1774967c3a06a52c47a4c"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 32785,
+      "sha256": "f18f368485d4d646bcb25ce239b02bf19009805c5f8160fcbc50f34418e1b62a"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.10.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 175414,
+      "sha256": "932ebc428ee2c5114b76c31fa225c902d98571966ce206436f2bf44ae67f427e"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.10.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 89539,
+      "sha256": "0981b20a8ac3ca4c053a543c991b48dd7af0a1228395b663166c655ed9079b88"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.10.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24557,
+      "sha256": "611de60e1ef2d71b7d78ef528895ab4b91a7526d87d3d58112e588c7d836a9bd"
+    },
+    {
+      "policy": "NC_전시관리기능_정책서_간소화_v0.10.html",
+      "name": "NC_전시관리기능_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 29997,
+      "sha256": "310d15172e91b57c2aae48474ce5915232f8d0ad8351d5bf62ab877e83c08d0c"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.11.html",
+      "name": "NC_추천_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 189159,
+      "sha256": "5e4bfb8e27a4b1b63a163fd6af8d4fba3f454a01062e99c79937e464ac3e2d53"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.11.html",
+      "name": "NC_추천_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 98514,
+      "sha256": "c19ccfeb9ebc4ce3bc3ef936bcc317722d23e8e893fa5ac2cd111f4afe143186"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.11.html",
+      "name": "NC_추천_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 26540,
+      "sha256": "11a7b288eab675d8802bb9730c06c23ea6aa3337f78d5a3ef99056172c4047c1"
+    },
+    {
+      "policy": "NC_추천_정책서_간소화_v0.11.html",
+      "name": "NC_추천_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 32094,
+      "sha256": "df44f75ec05f374c130d11bbe73f6be08c568c34c9a8495afa653335e2a8d56f"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 139909,
+      "sha256": "c8cfed2e11759c7ea935076cf9a8b73456757cbed9fcc44cf77d3f9f6fd8fc49"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 97735,
+      "sha256": "07f0b0c798857102aa7100a9f89bce60ef3536e02842aeacabc9391c0e0ff1d2"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24683,
+      "sha256": "66869e1b2048719b96c669a529e93c06216efdd02c4c49e337d9642da4b14ecd"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 30168,
+      "sha256": "9229245b5068a461ef5a78a1f6c0500ec9dcf745bfc4d0dd5368c3c39a39ffc6"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.10.html",
+      "name": "NC_AI검색_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 196791,
+      "sha256": "c4f8679a7709e00d7427cffe9e6ebd379c4078a5edf56dc3fc764c522bda45bd"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.10.html",
+      "name": "NC_AI검색_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 104825,
+      "sha256": "c16d44d37e566db2a84d53b3d01e6c6f020dcf06c88adf5cc0a3765574a90071"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.10.html",
+      "name": "NC_AI검색_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 26621,
+      "sha256": "833191e270e987cd8e3c6e850e3b0347b74ad43fa1395fbd8213540ea945259a"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.10.html",
+      "name": "NC_AI검색_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 32183,
+      "sha256": "6415007c1022cf39332fc039bf68639c01883a339ece59ee9ddf438c7a7fe111"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.11.html",
+      "name": "NC_AI검색_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 196791,
+      "sha256": "6a5e0621183d03decd5436e83930631717a985c3bf89f51829c0b204cc9dbb63"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.11.html",
+      "name": "NC_AI검색_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 104825,
+      "sha256": "5432fd58680708402b2d0dbe3a6d6eac77dd6b6d3234b3ae1723cc303e983324"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.11.html",
+      "name": "NC_AI검색_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 26621,
+      "sha256": "833191e270e987cd8e3c6e850e3b0347b74ad43fa1395fbd8213540ea945259a"
+    },
+    {
+      "policy": "NC_AI검색_정책서_간소화_v0.11.html",
+      "name": "NC_AI검색_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 32183,
+      "sha256": "e990593016fa7c36df43bd50939ee3b62dccd0f6d84445baa9b19259c9ddb80f"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 156466,
+      "sha256": "41249f645573d4a8d4e261532de97cacc9eee646a18de6d7c77b1c127d1af2df"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 977220,
+      "sha256": "055f498b06b6e2153c6af723949d43e3a323fe1209b83812d1d5a860b32af33b"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 16162,
+      "sha256": "f72cb9043110d0918ee72ed199692e2513378f2aa66c191cbb03d3c17bf919b7"
+    },
+    {
+      "policy": "NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "name": "NC_고객센터_매장안내_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 21094,
+      "sha256": "d287b7b4fc31731d89a11e4a460cc6f369f4a374d702c53d57d825162982c6f7"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 177754,
+      "sha256": "2f2f3c2f9ac216c9eb267bfe8fd2a75c8c878728466c04b5662750227fc54619"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 143851,
+      "sha256": "e1b884bc0bd0266a237eab2ccc427070401f6a7c7fd05aabbdea807c6e579781"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 30797,
+      "sha256": "af935d15a3014699a6f7dfa7136510397afd504c1d560df11ec061129586da6e"
+    },
+    {
+      "policy": "NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "name": "NC_멤버십카드관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 36656,
+      "sha256": "76d0a2a1d103e72a3cf7b962fb43e020e29533d1d437068fb988f248b0b49c8c"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.10.html",
+      "name": "NC_통합알림_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 196372,
+      "sha256": "9a008addd56b8acde81cec47dbe2d57d51fec2c7f9ba6bfd367b291e8cfc5c00"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.10.html",
+      "name": "NC_통합알림_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 2344449,
+      "sha256": "c1fd0655307c7a1b85d7e64950eb0958b1ef2448152c970fef5cab1f32067a6a"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.10.html",
+      "name": "NC_통합알림_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 21956,
+      "sha256": "bfdb818ef9556c8eb00ec28a1b9187d1976b3c2e34868a1c15cae656d887f4c1"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.10.html",
+      "name": "NC_통합알림_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 27169,
+      "sha256": "8f02ee56f195ed675a3150bb67104323e429215ce6eba996841af61d636921b5"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 261530,
+      "sha256": "34d3878e255f972e67aa8792464ac3979316cc76fec95e8c97788cae01855735"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 147361,
+      "sha256": "62f0242bc62dc9152769f1416fcd51dd78983f7b0162f7d4144cafaa4b0bd6a6"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 48540,
+      "sha256": "9845ebbb637c211d1c7e518602890e86b26e66c929119d27a62b6e2840e78dc9"
+    },
+    {
+      "policy": "NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "name": "NC_통합쿠폰이용권함_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 55659,
+      "sha256": "f8a03e88445bba320d5a878c62e3f962d013633da92b7402fd4eaedebf489053"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 196226,
+      "sha256": "f499f36afbd45638e5a680742ae99fc121928ad3c22bd99543a3fcbe22985ecc"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 2411988,
+      "sha256": "48efb3e63cc00023e7aa945a16f75318de7ad8c190a8617456dd4e233ce78437"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 21989,
+      "sha256": "42bc473ec164f1eda7db64ee5e3fb838104f2410be6c3a466b5aff19d441edfc"
+    },
+    {
+      "policy": "NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "name": "NC_회원정보조회변경_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 27242,
+      "sha256": "fec878d32355fedbacb67f6af48553854ca8e8ecc414945ca576566adcbb780b"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "status": "downloaded",
+      "bytes": 193768,
+      "sha256": "93f98f9c597b96d778ad859f81c61b215a039dec2b423121fd022f886bcb3187"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 141045,
+      "sha256": "49530fdcb02cdd5a53175d7cc0aa1980e7ba82a9a9bcb0c5d0a6902741c7c55e"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 24683,
+      "sha256": "66869e1b2048719b96c669a529e93c06216efdd02c4c49e337d9642da4b14ecd"
+    },
+    {
+      "policy": "NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "name": "NC_회원가입탈퇴_정책서_Full_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 30163,
+      "sha256": "edf8586be3fd4c38bcb1e968a1ec4ea497449d509f6da5748d9e099e6bf2d1bb"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.11.html",
+      "name": "NC_통합알림_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 196372,
+      "sha256": "12bcce5275cb511267c4845c4b15e452e018cdf6c7fc2abf4d720f6447646489"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.11.html",
+      "name": "NC_통합알림_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 2344449,
+      "sha256": "281f42f93c6e247b2899e6f47db5cb491cbcd79d3267f816f193859cceef5bae"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.11.html",
+      "name": "NC_통합알림_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 21956,
+      "sha256": "bfdb818ef9556c8eb00ec28a1b9187d1976b3c2e34868a1c15cae656d887f4c1"
+    },
+    {
+      "policy": "NC_통합알림_정책서_간소화_v0.11.html",
+      "name": "NC_통합알림_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 27169,
+      "sha256": "af763ea5e89f0bd871896c5e3d34ec858a2e00915265faf6ae584aa999c78ad3"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "status": "downloaded",
+      "bytes": 224640,
+      "sha256": "69eb51126955de2eb08e06569bab6297bbae7a1f05ad189d27effb8dc7aae6bd"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.11_spec.json",
+      "status": "downloaded",
+      "bytes": 231893,
+      "sha256": "2422a6b514bdee3753aa4fede842b9f1464fc7083389b89ac578ad26dadd6a54"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 39690,
+      "sha256": "705774454bf1c4156671516fc8b48c4a41d88768c351cd6bd79e96358b17beac"
+    },
+    {
+      "policy": "NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "name": "NC_나의데이터통화_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 46223,
+      "sha256": "63b9f91b31e667e84c50ab74e2da44256a40403215308a90941065d9982c9075"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.10.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 135223,
+      "sha256": "8d932f55885d97ffd85f5cb5048754d62df8dd8032594a8ce7efe9be6383c7a8"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.10.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 74499,
+      "sha256": "f5df99646d707624f66ec79131ea02d95d04962ad3763925641fc360f694cdc3"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.10.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 19057,
+      "sha256": "d084e89e1af69b75606fcf88b12dc38007fef943ca6396fda5345f9721778b1a"
+    },
+    {
+      "policy": "NC_해지환불취소_정책서_간소화_v0.10.html",
+      "name": "NC_해지환불취소_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 24183,
+      "sha256": "8ead9478314cc361ba022ac9a3f7f897e0c0b089906deee47b2f1159d3800f53"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "status": "downloaded",
+      "bytes": 202356,
+      "sha256": "604a14b7b45cc63ce7b720a527557f0f78cb10ac2d49398733e00612da56c6d2"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10_spec.json",
+      "status": "downloaded",
+      "bytes": 104539,
+      "sha256": "408b0a8d591d454cd3546f359a48bae4aec72df2244dd100384ac37596f6f9c6"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "status": "downloaded",
+      "bytes": 27087,
+      "sha256": "91323c38404f98be977631f97f05bbe23ff58ea189b1774967c3a06a52c47a4c"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "status": "downloaded",
+      "bytes": 32785,
+      "sha256": "0f33f090e86034cf5a5a99889cf7fc95e67eb6a4ebeb25af5aac8e8018aa752f"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "status": "downloaded",
+      "bytes": 331518,
+      "sha256": "093449af72ba6e235bd44ca1fecd04bd91d671b5c869536e7a3041f977749ec1"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.17_spec.json",
+      "status": "downloaded",
+      "bytes": 257981,
+      "sha256": "9ac8a5de62de3811944797df7010ca0b3cc6dcff8c0cec2aa0ec134d5e4edd1e"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.17_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.17.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.17_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "status": "downloaded",
+      "bytes": 492513,
+      "sha256": "5d1274173181cb218c56b500d0c7bacec2f55d873e7ca007d7497bf58488d1af"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.16_spec.json",
+      "status": "downloaded",
+      "bytes": 257981,
+      "sha256": "ef290aa2cb1bfeeadb42c6fd015e05147b9166f4041b78e594297413443a87f4"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.16_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.16.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.16_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "status": "downloaded",
+      "bytes": 245717,
+      "sha256": "cf4a78860384dc9659a31b0cec1c78fb96f5f938c8765eca3b57d2fa5d4e7045"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.15_spec.json",
+      "status": "downloaded",
+      "bytes": 257991,
+      "sha256": "0c00b3ddc39dafb2f5ae25bc3f7ebf6c12b22ca9cd1668b2634b7a4338a6ccf6"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.15_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.15.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.15_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "status": "downloaded",
+      "bytes": 246786,
+      "sha256": "16a9c00beaa895f4fa64db3e6a984b8ebd71869a05bf4742c17c37aed215f53c"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.14_spec.json",
+      "status": "downloaded",
+      "bytes": 257991,
+      "sha256": "8f15ad61d1f729f5396df6f25e15ca398afcfc4502f0e7aa48dfb592db1f84f9"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.14_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.14.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.14_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "status": "downloaded",
+      "bytes": 169511,
+      "sha256": "e51ef5a85b2a2c7648e85fce7ef77b85f1d89b8f64ec810af5bd1f66324b8781"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13_spec.json",
+      "status": "downloaded",
+      "bytes": 104375,
+      "sha256": "5c577142ac75cdcb30855163612103d387f0fcbfc7f5e277f13040b86d1b7be6"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.13_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "status": "downloaded",
+      "bytes": 169313,
+      "sha256": "26e1e47864a71126637a010509a63cf29c1a0c658b73eedee0d9f0c65987e1ff"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12_spec.json",
+      "status": "downloaded",
+      "bytes": 104375,
+      "sha256": "f0af4ede3c090747491d54e4af695fb6fee6983b7eca6733409fc19da885622e"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12.html",
+      "name": "NC_가이드라인공통품질적응형_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "status": "downloaded",
+      "bytes": 246028,
+      "sha256": "cd5b82423a84ef291ba9d3ae6503de8d002b2d1ff4c925aa192360b4405b99db"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.13_spec.json",
+      "status": "downloaded",
+      "bytes": 257970,
+      "sha256": "612a4187cd9a610d23a370e2a0d0d95a81e0b495458e324d0ebc65615e5f2884"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.13_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.13.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.13_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "status": "downloaded",
+      "bytes": 245265,
+      "sha256": "a57a18bab9321709972cc7edf002427951c3abbd641230a6df2cebf1bb5a1ad8"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.12_spec.json",
+      "status": "downloaded",
+      "bytes": 257993,
+      "sha256": "382f693c37154e65ff4ad89fe33cb78983eb7286bfb9223834ea1395cfba4c99"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_상품상세담기_정책서_간소화_v0.12.html",
+      "name": "NC_상품상세담기_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "status": "downloaded",
+      "bytes": 180977,
+      "sha256": "62c12f71934f65e117b680a29be6b74fec4d01510f366f13c4f66d2d0f081d94"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12_spec.json",
+      "status": "downloaded",
+      "bytes": 275425,
+      "sha256": "2b2be0d7b1f81bed56850702dbc334f60c34adaebcad7893373a16b12224fb44"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "status": "missing"
+    },
+    {
+      "policy": "NC_청구및수납관리_정책서_간소화_v0.12.html",
+      "name": "NC_청구및수납관리_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "status": "missing"
+    }
+  ]
+}

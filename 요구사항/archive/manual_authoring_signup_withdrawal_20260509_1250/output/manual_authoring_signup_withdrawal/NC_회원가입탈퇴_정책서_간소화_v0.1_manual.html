@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>회원 가입·탈퇴 정책서 간소화 버전 v0.1</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">NC 통합채널 정책서 간소화 버전</div>
+<h1>회원 가입·탈퇴 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-MBR</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.1</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex Manual Authoring</td></tr>
+<tr><th>작성일</th><td>2026-05-08</td></tr>
+<tr><th>작성 기준</th><td>요구사항 통합 list의 회원 가입/탈퇴 상세 요구사항 162건을 상세 요구사항명·설명 기준으로 분석해 업무 구조와 정책 판단 기준으로 재구성한다.<br/>샘플 회원가입·회원탈퇴 정책서의 장 구성, 표 밀도, 상태 전이 기준, 정책 상세 작성 방식을 양식 기준으로 참고한다.<br/>채널 방향성, 개인정보·동의·보관 지식, T월드 회원정보 보조지식, T우주 회원 자격 정책 축은 보조 근거로 사용하되 요구사항과 상충하면 요구사항을 우선한다.</td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.1</td><td>34개 정책서 기준 회원 가입·탈퇴 요구사항을 반영한 수동 작성 초안을 생성하였다.</td><td>2026-05-08</td><td>Codex Manual Authoring</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="principle-text">• 본 정책서는 NC 통합채널에서 고객이 하나의 계정으로 서비스를 시작하고 종료하는 회원 가입·탈퇴 업무 기준을 정의한다.</p><p class="principle-text">• 대상 업무는 회원가입·통합회원 전환, 본인확인·재인증, 로그인·계정 복구, 소셜·간편 로그인 연결, 중복 계정 병합, 외국인·미성년 예외 가입, 그룹·법인 회원 전환, 회원 탈퇴·재가입 제한을 포함한다.</p><p class="principle-text">• 대상 채널은 앱·웹 FO이며 고객이 직접 진입, 신청, 인증, 영향 확인, 처리 요청, 결과 확인을 수행하는 셀프 처리 흐름을 포함한다.</p><p class="principle-text">• BSS, 회원계정 시스템, 외부 인증기관, 약관·동의 관리 시스템이 수행하는 자격 판정, 권한 확인, 상태 변경, 이력 저장, 결과 회신은 정책 판단 기준에 포함한다.</p><p class="principle-text">• 회선 가입, 주문 계약, 결제, 상품 해지, 약관 원문 관리, 회원정보 세부 변경은 별도 정책서에서 상세화하되 회원 가입·탈퇴 가능 여부에 영향을 주는 선행 조건과 안내 기준은 본 문서에 포함한다.</p><p class="principle-text">• 화면 UI 상세, API 필드, DB 컬럼, 인증기관별 상세 전문, 운영자 화면 상세는 제외하되 고객 판단과 개발·QA 테스트에 필요한 정책값은 정책 항목으로 남긴다.</p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• <b>통합 시작점</b>: 회원 가입은 서비스별 반복 가입을 줄이고 통합회원 상태에서 필요한 서비스만 추가 동의로 확장하는 시작점으로 설계한다.</p><p class="principle-text">• <b>가치 선제 안내</b>: 고객에게 가입 또는 로그인 요구 전에 얻는 가치, 필요한 정보, 제한 사유, 다음 행동을 먼저 설명한다.</p><p class="principle-text">• <b>점진 수집</b>: 가입 완료에 필수인 정보만 먼저 수집하고 추가 정보는 서비스 이용 시점에 목적과 필수 여부를 밝힌 뒤 수집한다.</p><p class="principle-text">• <b>인증 최소화</b>: 동일 세션에서 유효한 본인확인 결과는 재사용하되 민감 행위, 위험 신호, 탈퇴 확정은 재인증 예외로 관리한다.</p><p class="principle-text">• <b>상태 기반 탈퇴</b>: 탈퇴는 처리 중 주문, 잔여 혜택, 그룹 대표자 권한, 법정 보관 대상 등 선행 조건을 확인한 뒤 상태 기반으로 처리한다.</p><p class="principle-text">• <b>복구 가능성 고지</b>: 중단, 실패, 탈퇴, 계정 병합처럼 되돌리기 어려운 행위는 실행 전에 영향과 복구 가능성을 명확히 안내한다.</p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.</p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-MBR-001</td><td>통합회원</td><td>약관 동의, 본인확인, 계정 생성이 완료되어 NC 통합채널의 기본 서비스를 이용할 수 있는 회원 상태</td></tr><tr><td class="mono">TM-MBR-002</td><td>라이트회원</td><td>최소 식별정보와 제한된 동의만으로 탐색·혜택 안내 등 일부 기능을 이용하는 단계형 회원 상태</td></tr><tr><td class="mono">TM-MBR-003</td><td>부분가입 상태</td><td>필수 정보 또는 인증 일부가 미완료되어 제한된 기능만 이용 가능한 가입 진행 상태</td></tr><tr><td class="mono">TM-MBR-004</td><td>회원 전환</td><td>기존 고객, 오프라인 가입 고객, 비통합 고객이 통합회원 체계로 권한과 정보를 연결하는 처리</td></tr><tr><td class="mono">TM-MBR-005</td><td>본인확인</td><td>외부 인증기관 또는 내부 인증수단으로 가입자 본인 여부와 식별정보를 확인하는 절차</td></tr><tr><td class="mono">TM-MBR-006</td><td>인증 세션</td><td>인증 시작부터 결과 수신 또는 만료까지 이어지는 단일 인증 처리 단위</td></tr><tr><td class="mono">TM-MBR-007</td><td>재인증</td><td>민감 정보 변경, 탈퇴 확정, 위험 로그인 등 추가 확인이 필요한 업무에서 다시 수행하는 인증 절차</td></tr><tr><td class="mono">TM-MBR-008</td><td>소셜 로그인</td><td>외부 OAuth 계정을 이용해 로그인 진입을 간소화하는 방식. 민감 업무 권한은 별도 본인확인 기준을 따른다.</td></tr><tr><td class="mono">TM-MBR-009</td><td>간편 로그인</td><td>PIN, 생체인증, 패턴 등 고객 기기에 등록된 수단으로 로그인 또는 재인증을 간소화하는 방식</td></tr><tr><td class="mono">TM-MBR-010</td><td>회원 유형</td><td>개인, 라이트, 그룹, 법인 등 이용 가능한 기능과 권한 범위가 달라지는 회원 구분</td></tr><tr><td class="mono">TM-MBR-011</td><td>그룹 대표자</td><td>그룹 가입을 생성하고 구성원 초대, 권한 관리, 대표자 변경 요청을 수행하는 책임 주체</td></tr><tr><td class="mono">TM-MBR-012</td><td>구성원</td><td>그룹 초대를 수락하고 그룹 범위의 서비스를 이용하는 회원</td></tr><tr><td class="mono">TM-MBR-013</td><td>법정대리인 동의</td><td>미성년자 또는 정책상 대리 확인이 필요한 가입에서 대리인 자격과 동의 의사를 검증하는 절차</td></tr><tr><td class="mono">TM-MBR-014</td><td>중복 계정</td><td>동일 고객 식별정보 또는 인증 결과로 둘 이상의 계정 후보가 확인되는 상태</td></tr><tr><td class="mono">TM-MBR-015</td><td>계정 병합</td><td>고객이 확인한 복수 계정의 이용 이력, 동의, 연결 정보를 기준에 따라 하나로 정리하는 처리</td></tr><tr><td class="mono">TM-MBR-016</td><td>탈퇴 보류</td><td>탈퇴 요청은 접수되었으나 처리 중 주문, 미정산, 그룹 대표자 권한, 법정 보관 사유로 완료되지 않은 상태</td></tr><tr><td class="mono">TM-MBR-017</td><td>재가입 제한</td><td>탈퇴, 제재, 부정 가입, 동일 식별정보 재사용 제한 등으로 일정 기간 또는 조건 충족 전 가입이 제한되는 상태</td></tr><tr><td class="mono">TM-MBR-018</td><td>보관 예외</td><td>탈퇴 후에도 법령, 정산, 분쟁, 부정 이용 방지 목적에 따라 즉시 파기하지 않고 별도 보관하는 정보 범위</td></tr><tr><td class="mono">TM-MBR-019</td><td>이상 로그인</td><td>새 기기, 비정상 위치, 반복 실패, 위험 패턴 등 추가 인증이나 알림이 필요한 로그인 징후</td></tr><tr><td class="mono">TM-MBR-020</td><td>가입 진행 상태</td><td>가입 단계, 입력값, 인증 결과, 동의 결과, 오류 사유를 재진입 시 복원하기 위해 관리하는 임시 상태</td></tr><tr><td class="mono">TM-MBR-021</td><td>회원 상태</td><td>가입 전, 가입 진행 중, 인증 완료, 가입 완료, 이용 제한, 탈퇴 보류, 탈퇴 완료 등 업무 가능 여부를 판단하는 상태</td></tr><tr><td class="mono">TM-MBR-022</td><td>탈퇴 영향도</td><td>탈퇴 시 소멸·제한·보관·해지 연계가 발생하는 혜택, 쿠폰, 구독, 주문, 개인정보, 로그인 권한의 영향 범위</td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.</p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-MBR-001</td><td>고객</td><td>회원 가입, 로그인, 계정 복구, 탈퇴, 재가입을 직접 수행하는 자연인 고객</td></tr><tr><td class="mono">ACT-MBR-002</td><td>법정대리인</td><td>미성년자 또는 대리 동의가 필요한 가입에서 동의와 대리권 확인을 수행하는 주체</td></tr><tr><td class="mono">ACT-MBR-003</td><td>그룹 대표자</td><td>그룹 가입 생성, 구성원 초대, 대표자 변경, 그룹 탈퇴 선행 처리를 수행하는 주체</td></tr><tr><td class="mono">ACT-MBR-004</td><td>운영자</td><td>회원 자격 기준, 예외 처리, 보안 알림, 탈퇴 보류 사유, 품질 지표를 관리하는 내부 담당자</td></tr><tr><td class="mono">ACT-MBR-005</td><td>회원계정 시스템</td><td>계정 생성, 로그인, 세션, 소셜 연결, 계정 병합, 탈퇴 상태 변경을 처리하는 시스템</td></tr><tr><td class="mono">ACT-MBR-006</td><td>BSS</td><td>회선 보유 여부, 고객 상태, 미납·제한, 가입 가능 조건, 서비스 이용 상태를 판정하고 결과를 회신하는 시스템</td></tr><tr><td class="mono">ACT-MBR-007</td><td>외부 인증기관</td><td>휴대폰 본인확인, PASS, 간편인증, 외국인 대체 인증 등 인증 결과를 제공하는 연계 기관</td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.</p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-MBR-CS-001</td><td>고객</td><td>회원가입·로그인 진입</td><td>고객이 가입 또는 로그인 진입 전에 가입 가치, 현재 로그인 상태, 필요한 인증 수준을 확인하고 다음 행동을 선택한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-002</td><td>고객</td><td>통합회원 가입·전환 신청</td><td>고객이 필수 정보, 약관 동의, 본인확인을 완료하고 통합회원 또는 전환 회원 상태를 만든다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-003</td><td>고객</td><td>계정 접근 권한 확인 및 보안 복구</td><td>고객이 가입, 계정 복구, 민감 행위, 탈퇴 확정에 필요한 접근 권한을 확인하고 실패 시 대체 경로로 복구한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-004</td><td>고객</td><td>소셜·간편 로그인 연결 관리</td><td>고객이 소셜 계정 또는 간편 로그인 수단을 등록, 연결, 해제, 재설정하고 대체 로그인 경로를 확보한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-005</td><td>고객</td><td>계정 찾기·복구</td><td>고객이 아이디, 비밀번호, 식별정보 불일치 상황에서 계정을 찾고 로그인 가능 상태로 복구한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-006</td><td>고객</td><td>중복 계정 병합 신청</td><td>고객이 중복 계정 후보와 병합 영향을 확인한 뒤 병합 또는 별도 유지, CS 전환을 선택한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-007</td><td>고객</td><td>외국인·미성년 예외 가입</td><td>외국인, 미성년자, 법정대리인 동의 대상 고객이 대상별 인증과 증빙 기준에 따라 가입을 진행한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-008</td><td>그룹 대표자</td><td>그룹·법인 회원 가입·전환</td><td>그룹 대표자 또는 법인 사용자가 그룹 생성, 초대 참여, 역할 권한 확인, 대표자 변경 선행 처리를 수행한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-009</td><td>고객</td><td>회원 탈퇴 요청</td><td>고객이 탈퇴 영향, 선행 조치, 최종 본인확인을 거쳐 회원 자격 종료를 요청한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-CS-010</td><td>고객</td><td>탈퇴 후 재가입 가능성 확인</td><td>고객이 탈퇴 완료 후 재가입 제한, 동일 식별정보 재사용, 복구 가능 범위를 확인하고 재가입을 시도한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-OPR-001</td><td>운영자</td><td>회원 정책 운영 관리</td><td>운영자가 회원 자격, 인증, 탈퇴, 보안, 보관 기준을 관리하고 예외 이슈를 점검한다.</td><td class="center">Y</td></tr><tr><td class="mono">US-MBR-SYS-001</td><td>회원계정 시스템</td><td>회원 상태·권한 판정</td><td>시스템이 회원 유형, 인증 결과, 세션, 가입 상태, 탈퇴 보류 사유를 판정해 채널에 회신한다.</td><td class="center">N</td></tr><tr><td class="mono">US-MBR-BSS-001</td><td>BSS</td><td>회선·고객 조건 검증</td><td>BSS가 회선 보유, 모회선 인증, 미납, 서비스 이용 상태, 제한 조건을 판정해 가입·탈퇴 가능 여부를 회신한다.</td><td class="center">N</td></tr><tr><td class="mono">US-MBR-AUTH-001</td><td>외부 인증기관</td><td>본인확인 결과 제공</td><td>외부 인증기관이 인증 성공, 실패, 만료, 대체 인증 필요 여부를 채널과 회원계정 시스템에 제공한다.</td><td class="center">N</td></tr><tr><td class="mono">US-MBR-LGR-001</td><td>법정대리인</td><td>법정대리인 동의 및 대리권 확인</td><td>법정대리인이 미성년 또는 대리 동의 대상 고객의 가입·변경·탈퇴 가능 여부를 확인하고 필요한 동의를 완료한다.</td><td class="center">Y</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.</p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="회원 가입·탈퇴 유즈케이스 다이어그램" height="1131" role="img" viewBox="0 0 1120 1131" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="1049" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">회원 가입·탈퇴 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="179"></line><line class="conn" x1="144" x2="442" y1="172" y2="243"></line><line class="conn" x1="144" x2="442" y1="172" y2="307"></line><line class="conn" x1="144" x2="442" y1="172" y2="371"></line><line class="conn" x1="144" x2="442" y1="172" y2="435"></line><line class="conn" x1="144" x2="442" y1="172" y2="499"></line><line class="conn" x1="144" x2="442" y1="732" y2="563"></line><line class="conn" x1="144" x2="442" y1="172" y2="627"></line><line class="conn" x1="144" x2="442" y1="172" y2="691"></line><line class="conn" x1="144" x2="442" y1="1013" y2="755"></line><line class="conn" x1="678" x2="976" y1="819" y2="172"></line><line class="conn" x1="678" x2="976" y1="883" y2="592"></line><line class="conn" x1="678" x2="976" y1="947" y2="1013"></line><line class="conn" x1="144" x2="442" y1="452" y2="1011"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">회원가입·로그인 진입</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-MBR-CS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="179" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="176">통합회원 가입·전환 신청</text><text class="uc-sub" text-anchor="middle" x="560" y="201">US-MBR-CS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="243" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="233">계정 접근 권한 확인 및 보안</text><text class="uc-text" text-anchor="middle" x="560" y="247">복구</text><text class="uc-sub" text-anchor="middle" x="560" y="265">US-MBR-CS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="307" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="304">소셜·간편 로그인 연결 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="329">US-MBR-CS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="371" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="368">계정 찾기·복구</text><text class="uc-sub" text-anchor="middle" x="560" y="393">US-MBR-CS-005 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="435" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="432">중복 계정 병합 신청</text><text class="uc-sub" text-anchor="middle" x="560" y="457">US-MBR-CS-006 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="499" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="496">외국인·미성년 예외 가입</text><text class="uc-sub" text-anchor="middle" x="560" y="521">US-MBR-CS-007 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="563" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="560">그룹·법인 회원 가입·전환</text><text class="uc-sub" text-anchor="middle" x="560" y="585">US-MBR-CS-008 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="627" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="624">회원 탈퇴 요청</text><text class="uc-sub" text-anchor="middle" x="560" y="649">US-MBR-CS-009 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">탈퇴 후 재가입 가능성 확인</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-MBR-CS-010 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="755" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="752">회원 정책 운영 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="777">US-MBR-OPR-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="819" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="816">회원 상태·권한 판정</text><text class="uc-sub" text-anchor="middle" x="560" y="841">US-MBR-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="883" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="880">회선·고객 조건 검증</text><text class="uc-sub" text-anchor="middle" x="560" y="905">US-MBR-BSS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="947" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="944">본인확인 결과 제공</text><text class="uc-sub" text-anchor="middle" x="560" y="969">US-MBR-AUTH-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="1011" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="1001">법정대리인 동의 및 대리권</text><text class="uc-text" text-anchor="middle" x="560" y="1015">확인</text><text class="uc-sub" text-anchor="middle" x="560" y="1033">US-MBR-LGR-001 · 프로세스 Y</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="400" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="418" y2="465"></line><line class="actor-line" x1="86" x2="138" y1="435" y2="435"></line><line class="actor-line" x1="112" x2="92" y1="465" y2="500"></line><line class="actor-line" x1="112" x2="132" y1="465" y2="500"></line><text class="actor-text" text-anchor="middle" x="112" y="526">법정대리인</text><circle class="actor-line" cx="112" cy="680" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="698" y2="745"></line><line class="actor-line" x1="86" x2="138" y1="715" y2="715"></line><line class="actor-line" x1="112" x2="92" y1="745" y2="780"></line><line class="actor-line" x1="112" x2="132" y1="745" y2="780"></line><text class="actor-text" text-anchor="middle" x="112" y="806">그룹 대표자</text><circle class="actor-line" cx="112" cy="961" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="979" y2="1026"></line><line class="actor-line" x1="86" x2="138" y1="996" y2="996"></line><line class="actor-line" x1="112" x2="92" y1="1026" y2="1061"></line><line class="actor-line" x1="112" x2="132" y1="1026" y2="1061"></line><text class="actor-text" text-anchor="middle" x="112" y="1087">운영자</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">회원계정 시스템</text><circle class="system-actor-line" cx="1008" cy="540" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="558" y2="605"></line><line class="system-actor-line" x1="982" x2="1034" y1="575" y2="575"></line><line class="system-actor-line" x1="1008" x2="988" y1="605" y2="640"></line><line class="system-actor-line" x1="1008" x2="1028" y1="605" y2="640"></line><text class="actor-text" text-anchor="middle" x="1008" y="666">BSS</text><circle class="system-actor-line" cx="1008" cy="961" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="979" y2="1026"></line><line class="system-actor-line" x1="982" x2="1034" y1="996" y2="996"></line><line class="system-actor-line" x1="1008" x2="988" y1="1026" y2="1061"></line><line class="system-actor-line" x1="1008" x2="1028" y1="1026" y2="1061"></line><text class="actor-text" text-anchor="middle" x="1008" y="1087">외부 인증기관</text><text class="legend" x="304" y="1105">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.</p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-MBR-001</td><td>가입 전</td><td>고객이 회원가입 또는 로그인을 시작하기 전 상태이다.</td><td>가입 가치와 필요 인증 수준을 확인한다.</td></tr><tr><td class="mono">ST-MBR-002</td><td>가입 진행 중</td><td>고객이 정보 입력, 약관 동의, 인증을 진행하는 상태이다.</td><td>입력 상태를 저장하고 다음 단계를 안내한다.</td></tr><tr><td class="mono">ST-MBR-003</td><td>인증 완료</td><td>본인확인 또는 재인증 결과가 유효한 상태이다.</td><td>유효 범위 안에서 가입·복구·탈퇴 처리를 이어간다.</td></tr><tr><td class="mono">ST-MBR-004</td><td>추가 확인 필요</td><td>연령, 외국인, 법정대리인, 위험 로그인, 중복 계정 등으로 추가 확인이 필요한 상태이다.</td><td>필요 증빙, 대체 인증, CS 전환 경로를 안내한다.</td></tr><tr><td class="mono">ST-MBR-005</td><td>가입 완료</td><td>계정 생성과 필수 동의가 완료되어 통합회원 기능을 이용할 수 있는 상태이다.</td><td>첫 로그인 가이드와 추가 설정을 안내한다.</td></tr><tr><td class="mono">ST-MBR-006</td><td>이용 제한</td><td>보안, 자격, 미납, 정책 제한 등으로 일부 또는 전체 기능 이용이 제한된 상태이다.</td><td>제한 사유와 해제 경로를 안내한다.</td></tr><tr><td class="mono">ST-MBR-007</td><td>탈퇴 요청</td><td>고객이 탈퇴를 시작하고 영향도와 선행 조치를 확인하는 상태이다.</td><td>탈퇴 가능 여부와 최종 확인 절차를 안내한다.</td></tr><tr><td class="mono">ST-MBR-008</td><td>탈퇴 보류</td><td>미완료 주문, 잔여 서비스, 그룹 대표자 권한, 보관 사유 등으로 탈퇴 완료가 보류된 상태이다.</td><td>선행 조치와 재시도 가능 시점을 안내한다.</td></tr><tr><td class="mono">ST-MBR-009</td><td>탈퇴 완료</td><td>회원 자격이 종료되고 로그인 권한이 소멸된 상태이다.</td><td>재가입 제한과 보관 예외를 안내한다.</td></tr><tr><td class="mono">ST-MBR-010</td><td>재가입 제한</td><td>동일 식별정보 또는 제재 이력 등으로 재가입이 제한된 상태이다.</td><td>제한 사유, 종료일, 문의 경로를 안내한다.</td></tr><tr><td class="mono">ST-MBR-011</td><td>복구 불가</td><td>탈퇴 완료 또는 병합 확정 후 고객 셀프 복구가 불가능한 상태이다.</td><td>복구 불가 사유와 상담 가능 범위를 안내한다.</td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>가입 전</td><td>회원가입·로그인 진입</td><td>가입 진행 중</td><td>가입 가치, 현재 로그인 상태, 필요한 인증 수준을 안내하고 고객이 가입 또는 로그인 경로를 선택한다.</td></tr><tr><td>가입 진행 중</td><td>통합회원 가입·전환 신청</td><td>인증 완료</td><td>필수 입력, 약관 동의, 본인확인이 완료되면 인증 완료 상태로 전환한다.</td></tr><tr><td>가입 진행 중</td><td>외국인·미성년 예외 가입</td><td>추가 확인 필요</td><td>외국인 대체 인증, 법정대리인 동의, 연령 제한, 증빙 확인이 필요한 경우 추가 확인 상태로 전환한다.</td></tr><tr><td>추가 확인 필요</td><td>본인확인·재인증 수행</td><td>인증 완료</td><td>대체 인증 또는 법정대리인 동의가 완료되면 기존 가입 흐름으로 복귀한다.</td></tr><tr><td>인증 완료</td><td>통합회원 가입·전환 신청</td><td>가입 완료</td><td>중복 계정, 제한 조건, 필수 동의, 정보 저장이 모두 통과되면 가입 완료로 전환한다.</td></tr><tr><td>인증 완료</td><td>중복 계정 병합 신청</td><td>추가 확인 필요</td><td>동일 식별정보 계정이 발견되면 병합 영향도 확인 또는 별도 유지 선택 전까지 추가 확인 상태로 둔다.</td></tr><tr><td>가입 완료</td><td>소셜·간편 로그인 연결 관리</td><td>가입 완료</td><td>소셜 또는 간편 로그인 연결·해제 결과를 저장하고 로그인 가능 수단 목록을 갱신한다.</td></tr><tr><td>가입 완료</td><td>계정 찾기·복구</td><td>인증 완료</td><td>계정 복구가 필요한 경우 본인확인 후 로그인 가능 상태로 복구한다.</td></tr><tr><td>가입 완료</td><td>이상 로그인 감지</td><td>이용 제한</td><td>새 기기, 반복 실패, 위험 위치 등 위험 신호가 확인되면 접근을 제한하고 재인증 또는 비밀번호 변경을 요구한다.</td></tr><tr><td>가입 완료</td><td>회원 탈퇴 요청</td><td>탈퇴 요청</td><td>고객이 탈퇴 메뉴에 진입하면 영향도, 선행 조치, 최종 인증 필요 여부를 표시한다.</td></tr><tr><td>탈퇴 요청</td><td>회원 탈퇴 요청</td><td>탈퇴 보류</td><td>진행 중 주문, 미정산, 이용 중 서비스, 그룹 대표자 권한이 남아 있으면 탈퇴 완료를 보류한다.</td></tr><tr><td>탈퇴 요청</td><td>회원 탈퇴 요청</td><td>탈퇴 완료</td><td>선행 조건이 없고 최종 본인확인이 완료되면 회원 상태를 탈퇴 완료로 전환한다.</td></tr><tr><td>탈퇴 완료</td><td>탈퇴 후 재가입 가능성 확인</td><td>재가입 제한</td><td>재가입 제한 기간, 부정 이용 이력, 동일 식별정보 제한이 있으면 재가입 제한 상태를 안내한다.</td></tr><tr><td>탈퇴 완료</td><td>탈퇴 후 재가입 가능성 확인</td><td>가입 진행 중</td><td>재가입 제한이 없으면 신규 가입 또는 계정 재생성 기준에 따라 가입 진행 상태로 전환한다.</td></tr><tr><td>탈퇴 완료</td><td>보관 기간 만료</td><td>복구 불가</td><td>법정 보관 또는 유예가 종료되어 셀프 복구가 불가능하면 복구 불가 상태로 관리한다.</td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.</p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="708" role="img" viewBox="0 0 1120 708" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="630" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="245.0" x2="355.0" y1="134.0" y2="134.0"></line><line class="flow" x1="505.0" x2="615.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M355.0 134.0 C355.0 204.0, 255.0 246.0, 255.0 316.0"></path><path class="flow-dash" d="M255.0 316.0 C255.0 246.0, 615.0 204.0, 615.0 134.0"></path><line class="flow" x1="765.0" x2="875.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M615.0 134.0 C615.0 204.0, 255.0 246.0, 255.0 316.0"></path><path class="flow-dash" d="M1025.0 134.0 C1097.0 72.0, 1097.0 196.0, 1025.0 142.0"></path><path class="flow-dash" d="M875.0 134.0 C820.0 206.0, 820.0 206.0, 765.0 134.0"></path><path class="flow-dash" d="M875.0 134.0 C875.0 204.0, 508.3 246.0, 508.3 316.0"></path><path class="flow-dash" d="M875.0 134.0 C875.0 204.0, 761.7 246.0, 761.7 316.0"></path><path class="flow-dash" d="M761.7 316.0 C813.3 244.0, 813.3 244.0, 865.0 316.0"></path><path class="flow-dash" d="M611.7 316.0 C611.7 386.0, 255.0 400.0, 255.0 470.0"></path><path class="flow-dash" d="M255.0 470.0 C370.0 398.0, 370.0 398.0, 485.0 470.0"></path><path class="flow-dash" d="M180.0 438.0 C180.0 368.0, 430.0 236.0, 430.0 166.0"></path><path class="flow-dash" d="M255.0 470.0 C560.0 398.0, 560.0 398.0, 865.0 470.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="150" x="95.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">가입 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-MBR-001</text><rect class="state" height="64" rx="29" ry="29" width="150" x="355.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="430" y="128">가입 진행 중</text><text class="state-sub" text-anchor="middle" x="430" y="151">ST-MBR-002</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="615.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="690" y="128">인증 완료</text><text class="state-sub" text-anchor="middle" x="690" y="151">ST-MBR-003</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="875.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">가입 완료</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-MBR-005</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">추가 확인 필요</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-MBR-004</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="358.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">이용 제한</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-MBR-006</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="611.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">탈퇴 요청</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-MBR-007</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="865.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">탈퇴 보류</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-MBR-008</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="105.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">탈퇴 완료</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-MBR-009</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="485.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="560" y="464">재가입 제한</text><text class="state-sub" text-anchor="middle" x="560" y="487">ST-MBR-010</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="865.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">복구 불가</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-MBR-011</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="250.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="300.0" y="91.0">회원가입·로그인 진입</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="514.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="77.0">통합회원 가입·전환</text><text class="flow-label" text-anchor="middle" x="560.0" y="91.0">신청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="248.5" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="305.0" y="196.0">외국인·미성년 예외 가입</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="385.5" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="232.0">본인확인·재인증 수행</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="774.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="820.0" y="77.0">통합회원 가입·전환</text><text class="flow-label" text-anchor="middle" x="820.0" y="91.0">신청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="385.5" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="232.0">중복 계정 병합 신청</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="1034.0" y="48.0"></rect><text class="flow-label" text-anchor="middle" x="1087.0" y="65.0">소셜·간편 로그인 연결</text><text class="flow-label" text-anchor="middle" x="1087.0" y="79.0">관리</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="781.0" y="214.0"></rect><text class="flow-label" text-anchor="middle" x="820.0" y="231.0">계정 찾기·복구</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="649.2" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="691.7" y="196.0">이상 로그인 감지</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="779.3" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="818.3" y="232.0">회원 탈퇴 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="774.3" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="233.0">회원 탈퇴 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="394.3" y="383.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="400.0">회원 탈퇴 요청</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="317.0" y="356.0"></rect><text class="flow-label" text-anchor="middle" x="370.0" y="373.0">탈퇴 후 재가입 가능성</text><text class="flow-label" text-anchor="middle" x="370.0" y="387.0">확인</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="252.0" y="278.0"></rect><text class="flow-label" text-anchor="middle" x="305.0" y="295.0">탈퇴 후 재가입 가능성</text><text class="flow-label" text-anchor="middle" x="305.0" y="309.0">확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="370.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="387.0">보관 기간 만료</text><text class="note" x="78" y="654">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+		
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.</p>
+
+<h4>1) 회원가입·로그인 진입 (US-MBR-CS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-001-01</td><td>진입 상태 확인</td><td>로그인 여부, 회원 유형, 현재 세션 상태를 확인하고 가입·로그인·복구 경로를 분기한다.</td><td>FN-MBR-001-001 진입 상태 확인 처리</td><td>PG-MBR-ELG-001 가입 자격·회원 유형 정책<br/>PG-MBR-STS-001 상태·세션 정책</td></tr><tr><td class="mono">PR-MBR-001-02</td><td>가입 가치 및 필요 조건 안내</td><td>가입하면 이용 가능한 서비스, 추가 인증이 필요한 업무, 미가입 상태에서 가능한 탐색 범위를 안내한다.</td><td>FN-MBR-001-002 가입 가치 및 필요 조건 안내 처리</td><td>PG-MBR-ELG-001 가입 자격·회원 유형 정책<br/>PG-MBR-AGR-001 약관·동의 정책</td></tr><tr><td class="mono">PR-MBR-001-03</td><td>진행 상태 저장</td><td>가입 시작 후 이탈에 대비해 현재 단계와 입력 가능 정보를 임시 저장한다.</td><td>FN-MBR-001-003 진행 상태 저장 처리</td><td>PG-MBR-INP-001 입력·정보 재사용 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr></tbody>
+</table>
+
+<h4>2) 통합회원 가입·전환 신청 (US-MBR-CS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-002-01</td><td>가입 유형 분기</td><td>신규, 통합회원 전환, 오프라인 가입 연계, 라이트회원 전환 여부를 판정한다.</td><td>FN-MBR-002-001 가입 유형 분기 처리</td><td>PG-MBR-ELG-001 가입 자격·회원 유형 정책<br/>PG-MBR-INP-001 입력·정보 재사용 정책</td></tr><tr><td class="mono">PR-MBR-002-02</td><td>필수 정보 입력</td><td>본인확인 결과와 기존 고객 정보를 우선 재사용하고 부족한 필수 정보만 입력받는다.</td><td>FN-MBR-002-002 필수 정보 입력 처리</td><td>PG-MBR-INP-001 입력·정보 재사용 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr><tr><td class="mono">PR-MBR-002-03</td><td>약관 및 서비스별 동의</td><td>통합회원 필수 약관과 이용 서비스별 추가 동의를 분리해 수집한다.</td><td>FN-MBR-002-003 약관 및 서비스별 동의 처리</td><td>PG-MBR-AGR-001 약관·동의 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr><tr><td class="mono">PR-MBR-002-04</td><td>가입 가능 여부 검증</td><td>중복 계정, 연령, 법인·그룹 권한, 회선·모회선 조건, 제한 상태를 확인한다.</td><td>FN-MBR-002-004 가입 가능 여부 검증 처리</td><td>PG-MBR-ELG-001 가입 자격·회원 유형 정책<br/>PG-MBR-MRG-001 중복 계정·병합 정책</td></tr><tr><td class="mono">PR-MBR-002-05</td><td>계정 생성 및 완료 안내</td><td>회원 상태를 가입 완료로 변경하고 첫 로그인, 초기 설정, 연결 가능한 서비스를 안내한다.</td><td>FN-MBR-002-005 계정 생성 및 완료 안내 처리</td><td>PG-MBR-STS-001 상태·세션 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr></tbody>
+</table>
+
+<h4>3) 계정 접근 권한 확인 및 보안 복구 (US-MBR-CS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-003-01</td><td>인증수단 선택</td><td>휴대폰 본인확인, PASS, 간편인증, 대체 인증 중 업무에 허용된 수단을 제시한다.</td><td>FN-MBR-003-001 인증수단 선택 처리</td><td>PG-MBR-IDN-001 본인확인·인증 정책</td></tr><tr><td class="mono">PR-MBR-003-02</td><td>인증 결과 재사용 판정</td><td>동일 세션의 인증 결과가 유효하면 재사용하고 만료·위험 행위면 재인증을 요구한다.</td><td>FN-MBR-003-002 인증 결과 재사용 판정 처리</td><td>PG-MBR-IDN-001 본인확인·인증 정책<br/>PG-MBR-STS-001 상태·세션 정책</td></tr><tr><td class="mono">PR-MBR-003-03</td><td>인증 실패 복구</td><td>입력 오류, 시간 초과, 기관 실패, 외국인 미지원 등 실패 사유별 재시도와 대체 경로를 안내한다.</td><td>FN-MBR-003-003 인증 실패 복구 처리</td><td>PG-MBR-IDN-001 본인확인·인증 정책<br/>PG-MBR-FGN-001 외국인·미성년 예외 정책</td></tr></tbody>
+</table>
+
+<h4>4) 소셜·간편 로그인 연결 관리 (US-MBR-CS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-004-01</td><td>소셜 계정 연결 분기</td><td>최초 OAuth 로그인 시 신규 가입, 기존 계정 연결, 중복 계정 확인으로 분기한다.</td><td>FN-MBR-004-001 소셜 계정 연결 분기 처리</td><td>PG-MBR-SOC-001 소셜·간편 로그인 정책<br/>PG-MBR-MRG-001 중복 계정·병합 정책</td></tr><tr><td class="mono">PR-MBR-004-02</td><td>간편 로그인 등록·해제</td><td>PIN, 생체, 패턴 등 간편 로그인 수단을 등록·해제하고 대체 로그인 수단을 유지한다.</td><td>FN-MBR-004-002 간편 로그인 등록·해제 처리</td><td>PG-MBR-SOC-001 소셜·간편 로그인 정책<br/>PG-MBR-SEC-001 보안·위험 알림 정책</td></tr><tr><td class="mono">PR-MBR-004-03</td><td>연결 오류 및 대체 로그인</td><td>외부 계정 삭제, 제공자 오류, 기기 미지원 시 비밀번호 또는 본인확인 기반 복구 경로를 제공한다.</td><td>FN-MBR-004-003 연결 오류 및 대체 로그인 처리</td><td>PG-MBR-SOC-001 소셜·간편 로그인 정책<br/>PG-MBR-LGN-001 로그인·계정 복구 정책</td></tr></tbody>
+</table>
+
+<h4>5) 계정 찾기·복구 (US-MBR-CS-005)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-005-01</td><td>계정 후보 조회</td><td>아이디, 휴대폰 번호, 이메일, CI 등 식별정보로 계정 후보를 조회한다.</td><td>FN-MBR-005-001 계정 후보 조회 처리</td><td>PG-MBR-LGN-001 로그인·계정 복구 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr><tr><td class="mono">PR-MBR-005-02</td><td>마스킹 결과 안내</td><td>계정 찾기 결과는 일부 마스킹하여 제공하고 다음 행동을 로그인 또는 비밀번호 재설정으로 연결한다.</td><td>FN-MBR-005-002 마스킹 결과 안내 처리</td><td>PG-MBR-LGN-001 로그인·계정 복구 정책<br/>PG-MBR-SEC-001 보안·위험 알림 정책</td></tr><tr><td class="mono">PR-MBR-005-03</td><td>비밀번호 재설정</td><td>본인확인 후 비밀번호 정책을 충족하는 새 비밀번호를 설정하고 실패 사유를 구체적으로 안내한다.</td><td>FN-MBR-005-003 비밀번호 재설정 처리</td><td>PG-MBR-LGN-001 로그인·계정 복구 정책<br/>PG-MBR-IDN-001 본인확인·인증 정책</td></tr></tbody>
+</table>
+
+<h4>6) 중복 계정 병합 신청 (US-MBR-CS-006)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-006-01</td><td>중복 계정 감지</td><td>가입·로그인·본인확인 과정에서 동일 고객 후보가 발견되면 중복 가능성을 안내한다.</td><td>FN-MBR-006-001 중복 계정 감지 처리</td><td>PG-MBR-MRG-001 중복 계정·병합 정책</td></tr><tr><td class="mono">PR-MBR-006-02</td><td>병합 영향도 확인</td><td>승계되는 정보, 정리되는 정보, 복구 불가 항목, 서비스 연결 영향을 병합 전 표시한다.</td><td>FN-MBR-006-002 병합 영향도 확인 처리</td><td>PG-MBR-MRG-001 중복 계정·병합 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr><tr><td class="mono">PR-MBR-006-03</td><td>병합 처리 또는 CS 전환</td><td>명의 불일치, 데이터 충돌, 병합 불가 사유가 있으면 별도 유지 또는 CS 전환을 제공한다.</td><td>FN-MBR-006-003 병합 처리 또는 CS 전환 처리</td><td>PG-MBR-MRG-001 중복 계정·병합 정책<br/>PG-MBR-LGN-001 로그인·계정 복구 정책</td></tr></tbody>
+</table>
+
+<h4>7) 외국인·미성년 예외 가입 (US-MBR-CS-007)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-007-01</td><td>대상 및 제한 조건 판정</td><td>외국인 체류 상태, 연령 제한, 법정대리인 필요 여부, 성혼 예외 여부를 판정한다.</td><td>FN-MBR-007-001 대상 및 제한 조건 판정 처리</td><td>PG-MBR-FGN-001 외국인·미성년 예외 정책<br/>PG-MBR-ELG-001 가입 자격·회원 유형 정책</td></tr><tr><td class="mono">PR-MBR-007-02</td><td>대체 인증 및 증빙 접수</td><td>외국인등록번호, 여권, 문서·셀피, 법정대리인 동의 등 필요한 대체 인증과 증빙을 수집한다.</td><td>FN-MBR-007-002 대체 인증 및 증빙 접수 처리</td><td>PG-MBR-FGN-001 외국인·미성년 예외 정책<br/>PG-MBR-IDN-001 본인확인·인증 정책</td></tr><tr><td class="mono">PR-MBR-007-03</td><td>예외 실패 복구</td><td>인증 실패, 정보 불일치, 증빙 미충족 시 재시도, 다른 수단, 고객센터 연결을 단계적으로 제공한다.</td><td>FN-MBR-007-003 예외 실패 복구 처리</td><td>PG-MBR-FGN-001 외국인·미성년 예외 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr></tbody>
+</table>
+
+<h4>8) 그룹·법인 회원 가입·전환 (US-MBR-CS-008)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-008-01</td><td>그룹·법인 진입 게이트</td><td>로그인 상태, 연령, 실명, 법인 사용자 여부, 대표자 권한을 확인한다.</td><td>FN-MBR-008-001 그룹·법인 진입 게이트 처리</td><td>PG-MBR-GRP-001 그룹·법인 회원 정책<br/>PG-MBR-ELG-001 가입 자격·회원 유형 정책</td></tr><tr><td class="mono">PR-MBR-008-02</td><td>그룹 생성 또는 초대 참여</td><td>그룹 최초 생성과 초대 참여를 분기하고 각 유형에 필요한 입력과 동의만 노출한다.</td><td>FN-MBR-008-002 그룹 생성 또는 초대 참여 처리</td><td>PG-MBR-GRP-001 그룹·법인 회원 정책<br/>PG-MBR-AGR-001 약관·동의 정책</td></tr><tr><td class="mono">PR-MBR-008-03</td><td>역할 권한 및 대표자 변경</td><td>대표자, 관리자, 구성원 역할별 조회·수정 범위와 대표자 변경 선행 조건을 안내한다.</td><td>FN-MBR-008-003 역할 권한 및 대표자 변경 처리</td><td>PG-MBR-GRP-001 그룹·법인 회원 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr></tbody>
+</table>
+
+<h4>9) 회원 탈퇴 요청 (US-MBR-CS-009)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-009-01</td><td>탈퇴 선행 조치 확인</td><td>이용 중 서비스, 미처리 주문, 미정산, 잔여 혜택, 그룹 대표자 권한을 체크리스트로 확인한다.</td><td>FN-MBR-009-001 탈퇴 선행 조치 확인 처리</td><td>PG-MBR-OUT-001 회원 탈퇴 정책<br/>PG-MBR-GRP-001 그룹·법인 회원 정책</td></tr><tr><td class="mono">PR-MBR-009-02</td><td>탈퇴 영향도 및 유지 제안</td><td>소멸 혜택, 쿠폰, 이력, 재가입 제한, 대체 혜택을 탈퇴 확정 전에 안내한다.</td><td>FN-MBR-009-002 탈퇴 영향도 및 유지 제안 처리</td><td>PG-MBR-OUT-001 회원 탈퇴 정책<br/>PG-MBR-RET-001 재가입·복구 정책</td></tr><tr><td class="mono">PR-MBR-009-03</td><td>탈퇴 최종 인증 및 처리</td><td>최종 본인확인 후 회원 상태를 탈퇴 완료 또는 탈퇴 보류로 변경하고 결과를 안내한다.</td><td>FN-MBR-009-003 탈퇴 최종 인증 및 처리 처리</td><td>PG-MBR-OUT-001 회원 탈퇴 정책<br/>PG-MBR-IDN-001 본인확인·인증 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr></tbody>
+</table>
+
+<h4>10) 탈퇴 후 재가입 가능성 확인 (US-MBR-CS-010)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-010-01</td><td>재가입 제한 확인</td><td>동일 식별정보, 제재 이력, 탈퇴 보류, 보관 예외에 따른 재가입 제한 여부를 확인한다.</td><td>FN-MBR-010-001 재가입 제한 확인 처리</td><td>PG-MBR-RET-001 재가입·복구 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr><tr><td class="mono">PR-MBR-010-02</td><td>재가입 방식 결정</td><td>계정 복구, 신규 생성, 라이트회원 재시작 중 허용된 방식을 안내하고 필요한 인증을 요구한다.</td><td>FN-MBR-010-002 재가입 방식 결정 처리</td><td>PG-MBR-RET-001 재가입·복구 정책<br/>PG-MBR-IDN-001 본인확인·인증 정책</td></tr><tr><td class="mono">PR-MBR-010-03</td><td>재가입 결과 안내</td><td>재가입 완료, 제한 유지, 복구 불가, 상담 필요 상태를 안내하고 후속 행동을 제공한다.</td><td>FN-MBR-010-003 재가입 결과 안내 처리</td><td>PG-MBR-RET-001 재가입·복구 정책<br/>PG-MBR-LGN-001 로그인·계정 복구 정책</td></tr></tbody>
+</table>
+
+<h4>11) 회원 정책 운영 관리 (US-MBR-OPR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-OPR-001</td><td>정책 기준 관리</td><td>회원 유형, 인증 수단, 재가입 제한, 탈퇴 보류 사유, 보관 예외 기준을 운영자가 관리한다.</td><td>FN-MBR-OPR-001 정책 기준 관리 처리</td><td>PG-MBR-ELG-001 가입 자격·회원 유형 정책<br/>PG-MBR-HIS-001 이력·보관 정책<br/>PG-MBR-SEC-001 보안·위험 알림 정책</td></tr><tr><td class="mono">PR-MBR-OPR-002</td><td>보안·품질 모니터링</td><td>이상 로그인, 인증 실패, 병합 실패, 탈퇴 실패, 고객센터 전환 지표를 모니터링한다.</td><td>FN-MBR-OPR-002 보안·품질 모니터링 처리</td><td>PG-MBR-SEC-001 보안·위험 알림 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr><tr><td class="mono">PR-MBR-OPR-003</td><td>예외 승인 및 이력 관리</td><td>법인·외국인·미성년·그룹 대표자 변경 등 예외 승인 결과와 사유를 저장한다.</td><td>FN-MBR-OPR-003 예외 승인 및 이력 관리 처리</td><td>PG-MBR-FGN-001 외국인·미성년 예외 정책<br/>PG-MBR-GRP-001 그룹·법인 회원 정책<br/>PG-MBR-HIS-001 이력·보관 정책<br/>PG-MBR-SEC-001 보안·위험 알림 정책</td></tr></tbody>
+</table>
+
+<h4>12) 법정대리인 동의 및 대리권 확인 (US-MBR-LGR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-MBR-LGR-001</td><td>대리 동의 대상과 권한 확인</td><td>고객의 대리 동의 필요 여부와 법정대리인 권한을 확인하고 처리 가능 범위를 판정한다.</td><td>FN-MBR-LGR-001 법정대리인 권한 확인</td><td>PG-MBR-FGN-001 외국인·미성년 예외 정책<br/>PG-MBR-AGR-001 약관·동의 정책<br/>PG-MBR-IDN-001 본인확인·인증 정책</td></tr><tr><td class="mono">PR-MBR-LGR-002</td><td>대리 동의 결과 저장과 실패 복구</td><td>법정대리인 동의 결과를 저장하고 실패 또는 철회 시 후속 복구 경로를 안내한다.</td><td>FN-MBR-LGR-002 대리 동의 이력 관리</td><td>PG-MBR-FGN-001 외국인·미성년 예외 정책<br/>PG-MBR-AGR-001 약관·동의 정책<br/>PG-MBR-HIS-001 이력·보관 정책</td></tr></tbody>
+</table>
+
+	
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.</p>
+	
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_회원가입탈퇴_정책서_간소화_v0.1_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"회원 가입·탈퇴 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_MBR_CS_001\" name=\"US-MBR-CS-001 회원가입·로그인 진입\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_001_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_001_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_001_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_002\" name=\"US-MBR-CS-002 통합회원 가입·전환 신청\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_002_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_002_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_002_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_002_04<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_002_05<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_003\" name=\"US-MBR-CS-003 계정 접근 권한 확인 및 보안 복구\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_003_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_003_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_003_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_004\" name=\"US-MBR-CS-004 소셜·간편 로그인 연결 관리\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_004_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_004_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_004_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_005\" name=\"US-MBR-CS-005 계정 찾기·복구\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_005_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_005_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_005_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_005<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_006\" name=\"US-MBR-CS-006 중복 계정 병합 신청\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_006_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_006_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_006_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_006<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_007\" name=\"US-MBR-CS-007 외국인·미성년 예외 가입\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_007_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_007_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_007_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_007<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_008\" name=\"US-MBR-CS-008 그룹·법인 회원 가입·전환\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_008_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_008_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_008_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_008<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_009\" name=\"US-MBR-CS-009 회원 탈퇴 요청\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_009<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_009_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_009_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_009_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_009<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_CS_010\" name=\"US-MBR-CS-010 탈퇴 후 재가입 가능성 확인\">\n        <bpmn:flowNodeRef>Start_US_MBR_CS_010<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_010_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_010_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_010_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_CS_010<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_OPR_001\" name=\"US-MBR-OPR-001 회원 정책 운영 관리\">\n        <bpmn:flowNodeRef>Start_US_MBR_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_OPR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_OPR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_OPR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_MBR_LGR_001\" name=\"US-MBR-LGR-001 법정대리인 동의 및 대리권 확인\">\n        <bpmn:flowNodeRef>Start_US_MBR_LGR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_LGR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_MBR_LGR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_MBR_LGR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_001_Task_PR_MBR_001_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_001_01\" name=\"PR-MBR-001-01 진입 상태 확인\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_001_Task_PR_MBR_001_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_001_01_Task_PR_MBR_001_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_001_02\" name=\"PR-MBR-001-02 가입 가치 및 필요 조건 안내\">\n      <bpmn:incoming>Flow_Task_PR_MBR_001_01_Task_PR_MBR_001_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_001_02_Task_PR_MBR_001_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_001_03\" name=\"PR-MBR-001-03 진행 상태 저장\">\n      <bpmn:incoming>Flow_Task_PR_MBR_001_02_Task_PR_MBR_001_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_001_03_End_US_MBR_CS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_001_03_End_US_MBR_CS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_001_Task_PR_MBR_001_01\" sourceRef=\"Start_US_MBR_CS_001\" targetRef=\"Task_PR_MBR_001_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_001_01_Task_PR_MBR_001_02\" sourceRef=\"Task_PR_MBR_001_01\" targetRef=\"Task_PR_MBR_001_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_001_02_Task_PR_MBR_001_03\" sourceRef=\"Task_PR_MBR_001_02\" targetRef=\"Task_PR_MBR_001_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_001_03_End_US_MBR_CS_001\" sourceRef=\"Task_PR_MBR_001_03\" targetRef=\"End_US_MBR_CS_001\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_002_Task_PR_MBR_002_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_002_01\" name=\"PR-MBR-002-01 가입 유형 분기\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_002_Task_PR_MBR_002_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_002_01_Task_PR_MBR_002_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_002_02\" name=\"PR-MBR-002-02 필수 정보 입력\">\n      <bpmn:incoming>Flow_Task_PR_MBR_002_01_Task_PR_MBR_002_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_002_02_Task_PR_MBR_002_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_002_03\" name=\"PR-MBR-002-03 약관 및 서비스별 동의\">\n      <bpmn:incoming>Flow_Task_PR_MBR_002_02_Task_PR_MBR_002_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_002_03_Task_PR_MBR_002_04<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_002_04\" name=\"PR-MBR-002-04 가입 가능 여부 검증\">\n      <bpmn:incoming>Flow_Task_PR_MBR_002_03_Task_PR_MBR_002_04<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_002_04_Task_PR_MBR_002_05<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_002_05\" name=\"PR-MBR-002-05 계정 생성 및 완료 안내\">\n      <bpmn:incoming>Flow_Task_PR_MBR_002_04_Task_PR_MBR_002_05<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_002_05_End_US_MBR_CS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_002_05_End_US_MBR_CS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_002_Task_PR_MBR_002_01\" sourceRef=\"Start_US_MBR_CS_002\" targetRef=\"Task_PR_MBR_002_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_002_01_Task_PR_MBR_002_02\" sourceRef=\"Task_PR_MBR_002_01\" targetRef=\"Task_PR_MBR_002_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_002_02_Task_PR_MBR_002_03\" sourceRef=\"Task_PR_MBR_002_02\" targetRef=\"Task_PR_MBR_002_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_002_03_Task_PR_MBR_002_04\" sourceRef=\"Task_PR_MBR_002_03\" targetRef=\"Task_PR_MBR_002_04\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_002_04_Task_PR_MBR_002_05\" sourceRef=\"Task_PR_MBR_002_04\" targetRef=\"Task_PR_MBR_002_05\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_002_05_End_US_MBR_CS_002\" sourceRef=\"Task_PR_MBR_002_05\" targetRef=\"End_US_MBR_CS_002\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_003_Task_PR_MBR_003_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_003_01\" name=\"PR-MBR-003-01 인증수단 선택\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_003_Task_PR_MBR_003_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_003_01_Task_PR_MBR_003_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_003_02\" name=\"PR-MBR-003-02 인증 결과 재사용 판정\">\n      <bpmn:incoming>Flow_Task_PR_MBR_003_01_Task_PR_MBR_003_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_003_02_Task_PR_MBR_003_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_003_03\" name=\"PR-MBR-003-03 인증 실패 복구\">\n      <bpmn:incoming>Flow_Task_PR_MBR_003_02_Task_PR_MBR_003_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_003_03_End_US_MBR_CS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_003_03_End_US_MBR_CS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_003_Task_PR_MBR_003_01\" sourceRef=\"Start_US_MBR_CS_003\" targetRef=\"Task_PR_MBR_003_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_003_01_Task_PR_MBR_003_02\" sourceRef=\"Task_PR_MBR_003_01\" targetRef=\"Task_PR_MBR_003_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_003_02_Task_PR_MBR_003_03\" sourceRef=\"Task_PR_MBR_003_02\" targetRef=\"Task_PR_MBR_003_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_003_03_End_US_MBR_CS_003\" sourceRef=\"Task_PR_MBR_003_03\" targetRef=\"End_US_MBR_CS_003\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_004_Task_PR_MBR_004_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_004_01\" name=\"PR-MBR-004-01 소셜 계정 연결 분기\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_004_Task_PR_MBR_004_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_004_01_Task_PR_MBR_004_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_004_02\" name=\"PR-MBR-004-02 간편 로그인 등록·해제\">\n      <bpmn:incoming>Flow_Task_PR_MBR_004_01_Task_PR_MBR_004_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_004_02_Task_PR_MBR_004_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_004_03\" name=\"PR-MBR-004-03 연결 오류 및 대체 로그인\">\n      <bpmn:incoming>Flow_Task_PR_MBR_004_02_Task_PR_MBR_004_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_004_03_End_US_MBR_CS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_004_03_End_US_MBR_CS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_004_Task_PR_MBR_004_01\" sourceRef=\"Start_US_MBR_CS_004\" targetRef=\"Task_PR_MBR_004_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_004_01_Task_PR_MBR_004_02\" sourceRef=\"Task_PR_MBR_004_01\" targetRef=\"Task_PR_MBR_004_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_004_02_Task_PR_MBR_004_03\" sourceRef=\"Task_PR_MBR_004_02\" targetRef=\"Task_PR_MBR_004_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_004_03_End_US_MBR_CS_004\" sourceRef=\"Task_PR_MBR_004_03\" targetRef=\"End_US_MBR_CS_004\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_005\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_005_Task_PR_MBR_005_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_005_01\" name=\"PR-MBR-005-01 계정 후보 조회\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_005_Task_PR_MBR_005_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_005_01_Task_PR_MBR_005_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_005_02\" name=\"PR-MBR-005-02 마스킹 결과 안내\">\n      <bpmn:incoming>Flow_Task_PR_MBR_005_01_Task_PR_MBR_005_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_005_02_Task_PR_MBR_005_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_005_03\" name=\"PR-MBR-005-03 비밀번호 재설정\">\n      <bpmn:incoming>Flow_Task_PR_MBR_005_02_Task_PR_MBR_005_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_005_03_End_US_MBR_CS_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_005\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_005_03_End_US_MBR_CS_005<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_005_Task_PR_MBR_005_01\" sourceRef=\"Start_US_MBR_CS_005\" targetRef=\"Task_PR_MBR_005_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_005_01_Task_PR_MBR_005_02\" sourceRef=\"Task_PR_MBR_005_01\" targetRef=\"Task_PR_MBR_005_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_005_02_Task_PR_MBR_005_03\" sourceRef=\"Task_PR_MBR_005_02\" targetRef=\"Task_PR_MBR_005_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_005_03_End_US_MBR_CS_005\" sourceRef=\"Task_PR_MBR_005_03\" targetRef=\"End_US_MBR_CS_005\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_006\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_006_Task_PR_MBR_006_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_006_01\" name=\"PR-MBR-006-01 중복 계정 감지\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_006_Task_PR_MBR_006_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_006_01_Task_PR_MBR_006_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_006_02\" name=\"PR-MBR-006-02 병합 영향도 확인\">\n      <bpmn:incoming>Flow_Task_PR_MBR_006_01_Task_PR_MBR_006_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_006_02_Task_PR_MBR_006_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_006_03\" name=\"PR-MBR-006-03 병합 처리 또는 CS 전환\">\n      <bpmn:incoming>Flow_Task_PR_MBR_006_02_Task_PR_MBR_006_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_006_03_End_US_MBR_CS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_006\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_006_03_End_US_MBR_CS_006<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_006_Task_PR_MBR_006_01\" sourceRef=\"Start_US_MBR_CS_006\" targetRef=\"Task_PR_MBR_006_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_006_01_Task_PR_MBR_006_02\" sourceRef=\"Task_PR_MBR_006_01\" targetRef=\"Task_PR_MBR_006_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_006_02_Task_PR_MBR_006_03\" sourceRef=\"Task_PR_MBR_006_02\" targetRef=\"Task_PR_MBR_006_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_006_03_End_US_MBR_CS_006\" sourceRef=\"Task_PR_MBR_006_03\" targetRef=\"End_US_MBR_CS_006\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_007\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_007_Task_PR_MBR_007_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_007_01\" name=\"PR-MBR-007-01 대상 및 제한 조건 판정\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_007_Task_PR_MBR_007_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_007_01_Task_PR_MBR_007_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_007_02\" name=\"PR-MBR-007-02 대체 인증 및 증빙 접수\">\n      <bpmn:incoming>Flow_Task_PR_MBR_007_01_Task_PR_MBR_007_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_007_02_Task_PR_MBR_007_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_007_03\" name=\"PR-MBR-007-03 예외 실패 복구\">\n      <bpmn:incoming>Flow_Task_PR_MBR_007_02_Task_PR_MBR_007_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_007_03_End_US_MBR_CS_007<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_007\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_007_03_End_US_MBR_CS_007<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_007_Task_PR_MBR_007_01\" sourceRef=\"Start_US_MBR_CS_007\" targetRef=\"Task_PR_MBR_007_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_007_01_Task_PR_MBR_007_02\" sourceRef=\"Task_PR_MBR_007_01\" targetRef=\"Task_PR_MBR_007_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_007_02_Task_PR_MBR_007_03\" sourceRef=\"Task_PR_MBR_007_02\" targetRef=\"Task_PR_MBR_007_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_007_03_End_US_MBR_CS_007\" sourceRef=\"Task_PR_MBR_007_03\" targetRef=\"End_US_MBR_CS_007\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_008\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_008_Task_PR_MBR_008_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_008_01\" name=\"PR-MBR-008-01 그룹·법인 진입 게이트\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_008_Task_PR_MBR_008_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_008_01_Task_PR_MBR_008_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_008_02\" name=\"PR-MBR-008-02 그룹 생성 또는 초대 참여\">\n      <bpmn:incoming>Flow_Task_PR_MBR_008_01_Task_PR_MBR_008_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_008_02_Task_PR_MBR_008_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_008_03\" name=\"PR-MBR-008-03 역할 권한 및 대표자 변경\">\n      <bpmn:incoming>Flow_Task_PR_MBR_008_02_Task_PR_MBR_008_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_008_03_End_US_MBR_CS_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_008\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_008_03_End_US_MBR_CS_008<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_008_Task_PR_MBR_008_01\" sourceRef=\"Start_US_MBR_CS_008\" targetRef=\"Task_PR_MBR_008_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_008_01_Task_PR_MBR_008_02\" sourceRef=\"Task_PR_MBR_008_01\" targetRef=\"Task_PR_MBR_008_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_008_02_Task_PR_MBR_008_03\" sourceRef=\"Task_PR_MBR_008_02\" targetRef=\"Task_PR_MBR_008_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_008_03_End_US_MBR_CS_008\" sourceRef=\"Task_PR_MBR_008_03\" targetRef=\"End_US_MBR_CS_008\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_009\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_009_Task_PR_MBR_009_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_009_01\" name=\"PR-MBR-009-01 탈퇴 선행 조치 확인\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_009_Task_PR_MBR_009_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_009_01_Task_PR_MBR_009_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_009_02\" name=\"PR-MBR-009-02 탈퇴 영향도 및 유지 제안\">\n      <bpmn:incoming>Flow_Task_PR_MBR_009_01_Task_PR_MBR_009_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_009_02_Task_PR_MBR_009_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_009_03\" name=\"PR-MBR-009-03 탈퇴 최종 인증 및 처리\">\n      <bpmn:incoming>Flow_Task_PR_MBR_009_02_Task_PR_MBR_009_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_009_03_End_US_MBR_CS_009<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_009\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_009_03_End_US_MBR_CS_009<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_009_Task_PR_MBR_009_01\" sourceRef=\"Start_US_MBR_CS_009\" targetRef=\"Task_PR_MBR_009_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_009_01_Task_PR_MBR_009_02\" sourceRef=\"Task_PR_MBR_009_01\" targetRef=\"Task_PR_MBR_009_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_009_02_Task_PR_MBR_009_03\" sourceRef=\"Task_PR_MBR_009_02\" targetRef=\"Task_PR_MBR_009_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_009_03_End_US_MBR_CS_009\" sourceRef=\"Task_PR_MBR_009_03\" targetRef=\"End_US_MBR_CS_009\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_CS_010\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_CS_010_Task_PR_MBR_010_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_010_01\" name=\"PR-MBR-010-01 재가입 제한 확인\">\n      <bpmn:incoming>Flow_Start_US_MBR_CS_010_Task_PR_MBR_010_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_010_01_Task_PR_MBR_010_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_010_02\" name=\"PR-MBR-010-02 재가입 방식 결정\">\n      <bpmn:incoming>Flow_Task_PR_MBR_010_01_Task_PR_MBR_010_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_010_02_Task_PR_MBR_010_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_010_03\" name=\"PR-MBR-010-03 재가입 결과 안내\">\n      <bpmn:incoming>Flow_Task_PR_MBR_010_02_Task_PR_MBR_010_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_010_03_End_US_MBR_CS_010<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_CS_010\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_010_03_End_US_MBR_CS_010<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_CS_010_Task_PR_MBR_010_01\" sourceRef=\"Start_US_MBR_CS_010\" targetRef=\"Task_PR_MBR_010_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_010_01_Task_PR_MBR_010_02\" sourceRef=\"Task_PR_MBR_010_01\" targetRef=\"Task_PR_MBR_010_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_010_02_Task_PR_MBR_010_03\" sourceRef=\"Task_PR_MBR_010_02\" targetRef=\"Task_PR_MBR_010_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_010_03_End_US_MBR_CS_010\" sourceRef=\"Task_PR_MBR_010_03\" targetRef=\"End_US_MBR_CS_010\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_OPR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_OPR_001_Task_PR_MBR_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_OPR_001\" name=\"PR-MBR-OPR-001 정책 기준 관리\">\n      <bpmn:incoming>Flow_Start_US_MBR_OPR_001_Task_PR_MBR_OPR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_OPR_001_Task_PR_MBR_OPR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_OPR_002\" name=\"PR-MBR-OPR-002 보안·품질 모니터링\">\n      <bpmn:incoming>Flow_Task_PR_MBR_OPR_001_Task_PR_MBR_OPR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_OPR_002_Task_PR_MBR_OPR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_OPR_003\" name=\"PR-MBR-OPR-003 예외 승인 및 이력 관리\">\n      <bpmn:incoming>Flow_Task_PR_MBR_OPR_002_Task_PR_MBR_OPR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_OPR_003_End_US_MBR_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_OPR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_OPR_003_End_US_MBR_OPR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_OPR_001_Task_PR_MBR_OPR_001\" sourceRef=\"Start_US_MBR_OPR_001\" targetRef=\"Task_PR_MBR_OPR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_OPR_001_Task_PR_MBR_OPR_002\" sourceRef=\"Task_PR_MBR_OPR_001\" targetRef=\"Task_PR_MBR_OPR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_OPR_002_Task_PR_MBR_OPR_003\" sourceRef=\"Task_PR_MBR_OPR_002\" targetRef=\"Task_PR_MBR_OPR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_OPR_003_End_US_MBR_OPR_001\" sourceRef=\"Task_PR_MBR_OPR_003\" targetRef=\"End_US_MBR_OPR_001\"/>\n    <bpmn:startEvent id=\"Start_US_MBR_LGR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_MBR_LGR_001_Task_PR_MBR_LGR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_MBR_LGR_001\" name=\"PR-MBR-LGR-001 대리 동의 대상과 권한 확인\">\n      <bpmn:incoming>Flow_Start_US_MBR_LGR_001_Task_PR_MBR_LGR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_LGR_001_Task_PR_MBR_LGR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_MBR_LGR_002\" name=\"PR-MBR-LGR-002 대리 동의 결과 저장과 실패 복구\">\n      <bpmn:incoming>Flow_Task_PR_MBR_LGR_001_Task_PR_MBR_LGR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_MBR_LGR_002_End_US_MBR_LGR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_MBR_LGR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_MBR_LGR_002_End_US_MBR_LGR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_MBR_LGR_001_Task_PR_MBR_LGR_001\" sourceRef=\"Start_US_MBR_LGR_001\" targetRef=\"Task_PR_MBR_LGR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_LGR_001_Task_PR_MBR_LGR_002\" sourceRef=\"Task_PR_MBR_LGR_001\" targetRef=\"Task_PR_MBR_LGR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_MBR_LGR_002_End_US_MBR_LGR_001\" sourceRef=\"Task_PR_MBR_LGR_002\" targetRef=\"End_US_MBR_LGR_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_001_di\" bpmnElement=\"Lane_US_MBR_CS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_001_di\" bpmnElement=\"Start_US_MBR_CS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_001_01_di\" bpmnElement=\"Task_PR_MBR_001_01\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_001_02_di\" bpmnElement=\"Task_PR_MBR_001_02\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_001_03_di\" bpmnElement=\"Task_PR_MBR_001_03\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_001_di\" bpmnElement=\"End_US_MBR_CS_001\">\n        <dc:Bounds x=\"900\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_002_di\" bpmnElement=\"Lane_US_MBR_CS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_002_di\" bpmnElement=\"Start_US_MBR_CS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_002_01_di\" bpmnElement=\"Task_PR_MBR_002_01\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_002_02_di\" bpmnElement=\"Task_PR_MBR_002_02\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_002_03_di\" bpmnElement=\"Task_PR_MBR_002_03\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_002_04_di\" bpmnElement=\"Task_PR_MBR_002_04\">\n        <dc:Bounds x=\"900\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_002_05_di\" bpmnElement=\"Task_PR_MBR_002_05\">\n        <dc:Bounds x=\"1120\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_002_di\" bpmnElement=\"End_US_MBR_CS_002\">\n        <dc:Bounds x=\"1340\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_003_di\" bpmnElement=\"Lane_US_MBR_CS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_003_di\" bpmnElement=\"Start_US_MBR_CS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_003_01_di\" bpmnElement=\"Task_PR_MBR_003_01\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_003_02_di\" bpmnElement=\"Task_PR_MBR_003_02\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_003_03_di\" bpmnElement=\"Task_PR_MBR_003_03\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_003_di\" bpmnElement=\"End_US_MBR_CS_003\">\n        <dc:Bounds x=\"900\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_004_di\" bpmnElement=\"Lane_US_MBR_CS_004\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_004_di\" bpmnElement=\"Start_US_MBR_CS_004\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_004_01_di\" bpmnElement=\"Task_PR_MBR_004_01\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_004_02_di\" bpmnElement=\"Task_PR_MBR_004_02\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_004_03_di\" bpmnElement=\"Task_PR_MBR_004_03\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_004_di\" bpmnElement=\"End_US_MBR_CS_004\">\n        <dc:Bounds x=\"900\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_005_di\" bpmnElement=\"Lane_US_MBR_CS_005\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_005_di\" bpmnElement=\"Start_US_MBR_CS_005\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_005_01_di\" bpmnElement=\"Task_PR_MBR_005_01\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_005_02_di\" bpmnElement=\"Task_PR_MBR_005_02\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_005_03_di\" bpmnElement=\"Task_PR_MBR_005_03\">\n        <dc:Bounds x=\"680\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_005_di\" bpmnElement=\"End_US_MBR_CS_005\">\n        <dc:Bounds x=\"900\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_006_di\" bpmnElement=\"Lane_US_MBR_CS_006\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_006_di\" bpmnElement=\"Start_US_MBR_CS_006\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_006_01_di\" bpmnElement=\"Task_PR_MBR_006_01\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_006_02_di\" bpmnElement=\"Task_PR_MBR_006_02\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_006_03_di\" bpmnElement=\"Task_PR_MBR_006_03\">\n        <dc:Bounds x=\"680\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_006_di\" bpmnElement=\"End_US_MBR_CS_006\">\n        <dc:Bounds x=\"900\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_007_di\" bpmnElement=\"Lane_US_MBR_CS_007\">\n        <dc:Bounds x=\"40\" y=\"1045\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_007_di\" bpmnElement=\"Start_US_MBR_CS_007\">\n        <dc:Bounds x=\"112\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_007_01_di\" bpmnElement=\"Task_PR_MBR_007_01\">\n        <dc:Bounds x=\"240\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_007_02_di\" bpmnElement=\"Task_PR_MBR_007_02\">\n        <dc:Bounds x=\"460\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_007_03_di\" bpmnElement=\"Task_PR_MBR_007_03\">\n        <dc:Bounds x=\"680\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_007_di\" bpmnElement=\"End_US_MBR_CS_007\">\n        <dc:Bounds x=\"900\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_008_di\" bpmnElement=\"Lane_US_MBR_CS_008\">\n        <dc:Bounds x=\"40\" y=\"1215\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_008_di\" bpmnElement=\"Start_US_MBR_CS_008\">\n        <dc:Bounds x=\"112\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_008_01_di\" bpmnElement=\"Task_PR_MBR_008_01\">\n        <dc:Bounds x=\"240\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_008_02_di\" bpmnElement=\"Task_PR_MBR_008_02\">\n        <dc:Bounds x=\"460\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_008_03_di\" bpmnElement=\"Task_PR_MBR_008_03\">\n        <dc:Bounds x=\"680\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_008_di\" bpmnElement=\"End_US_MBR_CS_008\">\n        <dc:Bounds x=\"900\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_009_di\" bpmnElement=\"Lane_US_MBR_CS_009\">\n        <dc:Bounds x=\"40\" y=\"1385\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_009_di\" bpmnElement=\"Start_US_MBR_CS_009\">\n        <dc:Bounds x=\"112\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_009_01_di\" bpmnElement=\"Task_PR_MBR_009_01\">\n        <dc:Bounds x=\"240\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_009_02_di\" bpmnElement=\"Task_PR_MBR_009_02\">\n        <dc:Bounds x=\"460\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_009_03_di\" bpmnElement=\"Task_PR_MBR_009_03\">\n        <dc:Bounds x=\"680\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_009_di\" bpmnElement=\"End_US_MBR_CS_009\">\n        <dc:Bounds x=\"900\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_CS_010_di\" bpmnElement=\"Lane_US_MBR_CS_010\">\n        <dc:Bounds x=\"40\" y=\"1555\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_CS_010_di\" bpmnElement=\"Start_US_MBR_CS_010\">\n        <dc:Bounds x=\"112\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_010_01_di\" bpmnElement=\"Task_PR_MBR_010_01\">\n        <dc:Bounds x=\"240\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_010_02_di\" bpmnElement=\"Task_PR_MBR_010_02\">\n        <dc:Bounds x=\"460\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_010_03_di\" bpmnElement=\"Task_PR_MBR_010_03\">\n        <dc:Bounds x=\"680\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_CS_010_di\" bpmnElement=\"End_US_MBR_CS_010\">\n        <dc:Bounds x=\"900\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_OPR_001_di\" bpmnElement=\"Lane_US_MBR_OPR_001\">\n        <dc:Bounds x=\"40\" y=\"1725\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_OPR_001_di\" bpmnElement=\"Start_US_MBR_OPR_001\">\n        <dc:Bounds x=\"112\" y=\"1752\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_OPR_001_di\" bpmnElement=\"Task_PR_MBR_OPR_001\">\n        <dc:Bounds x=\"240\" y=\"1730\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_OPR_002_di\" bpmnElement=\"Task_PR_MBR_OPR_002\">\n        <dc:Bounds x=\"460\" y=\"1730\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_OPR_003_di\" bpmnElement=\"Task_PR_MBR_OPR_003\">\n        <dc:Bounds x=\"680\" y=\"1730\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_OPR_001_di\" bpmnElement=\"End_US_MBR_OPR_001\">\n        <dc:Bounds x=\"900\" y=\"1752\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_MBR_LGR_001_di\" bpmnElement=\"Lane_US_MBR_LGR_001\">\n        <dc:Bounds x=\"40\" y=\"1895\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_MBR_LGR_001_di\" bpmnElement=\"Start_US_MBR_LGR_001\">\n        <dc:Bounds x=\"112\" y=\"1922\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_LGR_001_di\" bpmnElement=\"Task_PR_MBR_LGR_001\">\n        <dc:Bounds x=\"240\" y=\"1900\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_MBR_LGR_002_di\" bpmnElement=\"Task_PR_MBR_LGR_002\">\n        <dc:Bounds x=\"460\" y=\"1900\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_MBR_LGR_001_di\" bpmnElement=\"End_US_MBR_LGR_001\">\n        <dc:Bounds x=\"680\" y=\"1922\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_001_Task_PR_MBR_001_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_001_Task_PR_MBR_001_01\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_001_01_Task_PR_MBR_001_02_di\" bpmnElement=\"Flow_Task_PR_MBR_001_01_Task_PR_MBR_001_02\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_001_02_Task_PR_MBR_001_03_di\" bpmnElement=\"Flow_Task_PR_MBR_001_02_Task_PR_MBR_001_03\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_001_03_End_US_MBR_CS_001_di\" bpmnElement=\"Flow_Task_PR_MBR_001_03_End_US_MBR_CS_001\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_002_Task_PR_MBR_002_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_002_Task_PR_MBR_002_01\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_002_01_Task_PR_MBR_002_02_di\" bpmnElement=\"Flow_Task_PR_MBR_002_01_Task_PR_MBR_002_02\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_002_02_Task_PR_MBR_002_03_di\" bpmnElement=\"Flow_Task_PR_MBR_002_02_Task_PR_MBR_002_03\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_002_03_Task_PR_MBR_002_04_di\" bpmnElement=\"Flow_Task_PR_MBR_002_03_Task_PR_MBR_002_04\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_002_04_Task_PR_MBR_002_05_di\" bpmnElement=\"Flow_Task_PR_MBR_002_04_Task_PR_MBR_002_05\">\n        <di:waypoint x=\"1070\" y=\"240\"/>\n        <di:waypoint x=\"1120\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_002_05_End_US_MBR_CS_002_di\" bpmnElement=\"Flow_Task_PR_MBR_002_05_End_US_MBR_CS_002\">\n        <di:waypoint x=\"1290\" y=\"240\"/>\n        <di:waypoint x=\"1340\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_003_Task_PR_MBR_003_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_003_Task_PR_MBR_003_01\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_003_01_Task_PR_MBR_003_02_di\" bpmnElement=\"Flow_Task_PR_MBR_003_01_Task_PR_MBR_003_02\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_003_02_Task_PR_MBR_003_03_di\" bpmnElement=\"Flow_Task_PR_MBR_003_02_Task_PR_MBR_003_03\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_003_03_End_US_MBR_CS_003_di\" bpmnElement=\"Flow_Task_PR_MBR_003_03_End_US_MBR_CS_003\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_004_Task_PR_MBR_004_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_004_Task_PR_MBR_004_01\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_004_01_Task_PR_MBR_004_02_di\" bpmnElement=\"Flow_Task_PR_MBR_004_01_Task_PR_MBR_004_02\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_004_02_Task_PR_MBR_004_03_di\" bpmnElement=\"Flow_Task_PR_MBR_004_02_Task_PR_MBR_004_03\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_004_03_End_US_MBR_CS_004_di\" bpmnElement=\"Flow_Task_PR_MBR_004_03_End_US_MBR_CS_004\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_005_Task_PR_MBR_005_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_005_Task_PR_MBR_005_01\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_005_01_Task_PR_MBR_005_02_di\" bpmnElement=\"Flow_Task_PR_MBR_005_01_Task_PR_MBR_005_02\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_005_02_Task_PR_MBR_005_03_di\" bpmnElement=\"Flow_Task_PR_MBR_005_02_Task_PR_MBR_005_03\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_005_03_End_US_MBR_CS_005_di\" bpmnElement=\"Flow_Task_PR_MBR_005_03_End_US_MBR_CS_005\">\n        <di:waypoint x=\"850\" y=\"750\"/>\n        <di:waypoint x=\"900\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_006_Task_PR_MBR_006_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_006_Task_PR_MBR_006_01\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_006_01_Task_PR_MBR_006_02_di\" bpmnElement=\"Flow_Task_PR_MBR_006_01_Task_PR_MBR_006_02\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_006_02_Task_PR_MBR_006_03_di\" bpmnElement=\"Flow_Task_PR_MBR_006_02_Task_PR_MBR_006_03\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_006_03_End_US_MBR_CS_006_di\" bpmnElement=\"Flow_Task_PR_MBR_006_03_End_US_MBR_CS_006\">\n        <di:waypoint x=\"850\" y=\"920\"/>\n        <di:waypoint x=\"900\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_007_Task_PR_MBR_007_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_007_Task_PR_MBR_007_01\">\n        <di:waypoint x=\"148\" y=\"1090\"/>\n        <di:waypoint x=\"240\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_007_01_Task_PR_MBR_007_02_di\" bpmnElement=\"Flow_Task_PR_MBR_007_01_Task_PR_MBR_007_02\">\n        <di:waypoint x=\"410\" y=\"1090\"/>\n        <di:waypoint x=\"460\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_007_02_Task_PR_MBR_007_03_di\" bpmnElement=\"Flow_Task_PR_MBR_007_02_Task_PR_MBR_007_03\">\n        <di:waypoint x=\"630\" y=\"1090\"/>\n        <di:waypoint x=\"680\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_007_03_End_US_MBR_CS_007_di\" bpmnElement=\"Flow_Task_PR_MBR_007_03_End_US_MBR_CS_007\">\n        <di:waypoint x=\"850\" y=\"1090\"/>\n        <di:waypoint x=\"900\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_008_Task_PR_MBR_008_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_008_Task_PR_MBR_008_01\">\n        <di:waypoint x=\"148\" y=\"1260\"/>\n        <di:waypoint x=\"240\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_008_01_Task_PR_MBR_008_02_di\" bpmnElement=\"Flow_Task_PR_MBR_008_01_Task_PR_MBR_008_02\">\n        <di:waypoint x=\"410\" y=\"1260\"/>\n        <di:waypoint x=\"460\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_008_02_Task_PR_MBR_008_03_di\" bpmnElement=\"Flow_Task_PR_MBR_008_02_Task_PR_MBR_008_03\">\n        <di:waypoint x=\"630\" y=\"1260\"/>\n        <di:waypoint x=\"680\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_008_03_End_US_MBR_CS_008_di\" bpmnElement=\"Flow_Task_PR_MBR_008_03_End_US_MBR_CS_008\">\n        <di:waypoint x=\"850\" y=\"1260\"/>\n        <di:waypoint x=\"900\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_009_Task_PR_MBR_009_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_009_Task_PR_MBR_009_01\">\n        <di:waypoint x=\"148\" y=\"1430\"/>\n        <di:waypoint x=\"240\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_009_01_Task_PR_MBR_009_02_di\" bpmnElement=\"Flow_Task_PR_MBR_009_01_Task_PR_MBR_009_02\">\n        <di:waypoint x=\"410\" y=\"1430\"/>\n        <di:waypoint x=\"460\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_009_02_Task_PR_MBR_009_03_di\" bpmnElement=\"Flow_Task_PR_MBR_009_02_Task_PR_MBR_009_03\">\n        <di:waypoint x=\"630\" y=\"1430\"/>\n        <di:waypoint x=\"680\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_009_03_End_US_MBR_CS_009_di\" bpmnElement=\"Flow_Task_PR_MBR_009_03_End_US_MBR_CS_009\">\n        <di:waypoint x=\"850\" y=\"1430\"/>\n        <di:waypoint x=\"900\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_CS_010_Task_PR_MBR_010_01_di\" bpmnElement=\"Flow_Start_US_MBR_CS_010_Task_PR_MBR_010_01\">\n        <di:waypoint x=\"148\" y=\"1600\"/>\n        <di:waypoint x=\"240\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_010_01_Task_PR_MBR_010_02_di\" bpmnElement=\"Flow_Task_PR_MBR_010_01_Task_PR_MBR_010_02\">\n        <di:waypoint x=\"410\" y=\"1600\"/>\n        <di:waypoint x=\"460\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_010_02_Task_PR_MBR_010_03_di\" bpmnElement=\"Flow_Task_PR_MBR_010_02_Task_PR_MBR_010_03\">\n        <di:waypoint x=\"630\" y=\"1600\"/>\n        <di:waypoint x=\"680\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_010_03_End_US_MBR_CS_010_di\" bpmnElement=\"Flow_Task_PR_MBR_010_03_End_US_MBR_CS_010\">\n        <di:waypoint x=\"850\" y=\"1600\"/>\n        <di:waypoint x=\"900\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_OPR_001_Task_PR_MBR_OPR_001_di\" bpmnElement=\"Flow_Start_US_MBR_OPR_001_Task_PR_MBR_OPR_001\">\n        <di:waypoint x=\"148\" y=\"1770\"/>\n        <di:waypoint x=\"240\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_OPR_001_Task_PR_MBR_OPR_002_di\" bpmnElement=\"Flow_Task_PR_MBR_OPR_001_Task_PR_MBR_OPR_002\">\n        <di:waypoint x=\"410\" y=\"1770\"/>\n        <di:waypoint x=\"460\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_OPR_002_Task_PR_MBR_OPR_003_di\" bpmnElement=\"Flow_Task_PR_MBR_OPR_002_Task_PR_MBR_OPR_003\">\n        <di:waypoint x=\"630\" y=\"1770\"/>\n        <di:waypoint x=\"680\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_OPR_003_End_US_MBR_OPR_001_di\" bpmnElement=\"Flow_Task_PR_MBR_OPR_003_End_US_MBR_OPR_001\">\n        <di:waypoint x=\"850\" y=\"1770\"/>\n        <di:waypoint x=\"900\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_MBR_LGR_001_Task_PR_MBR_LGR_001_di\" bpmnElement=\"Flow_Start_US_MBR_LGR_001_Task_PR_MBR_LGR_001\">\n        <di:waypoint x=\"148\" y=\"1940\"/>\n        <di:waypoint x=\"240\" y=\"1940\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_LGR_001_Task_PR_MBR_LGR_002_di\" bpmnElement=\"Flow_Task_PR_MBR_LGR_001_Task_PR_MBR_LGR_002\">\n        <di:waypoint x=\"410\" y=\"1940\"/>\n        <di:waypoint x=\"460\" y=\"1940\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_MBR_LGR_002_End_US_MBR_LGR_001_di\" bpmnElement=\"Flow_Task_PR_MBR_LGR_002_End_US_MBR_LGR_001\">\n        <di:waypoint x=\"630\" y=\"1940\"/>\n        <di:waypoint x=\"680\" y=\"1940\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="2946" role="img" viewBox="0 0 1120 2946" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="32"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="32"></rect><text class="pool-index" x="58" y="68">01</text><text class="pool-title" text-anchor="middle" x="135" y="92">US-MBR-CS-001</text><text class="pool-title" text-anchor="middle" x="135" y="108">회원가입·로그인 진입</text><circle class="start" cx="276" cy="104" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="108">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="75"></rect><text class="task-text" text-anchor="middle" x="430" y="95">PR-MBR-001-01 진입</text><text class="task-text" text-anchor="middle" x="430" y="109">상태 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="104" y2="104"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="75"></rect><text class="task-text" text-anchor="middle" x="655" y="95">PR-MBR-001-02 가입</text><text class="task-text" text-anchor="middle" x="655" y="109">가치 및 필요 조건 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="104" y2="104"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="75"></rect><text class="task-text" text-anchor="middle" x="880" y="95">PR-MBR-001-03 진행</text><text class="task-text" text-anchor="middle" x="880" y="109">상태 저장</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="104" y2="104"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="104" y2="104"></line><circle class="end" cx="1010" cy="104" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="108">End</text><rect class="pool" height="304" rx="14" ry="14" width="1060" x="30" y="266"></rect><rect class="pool-head" height="304" rx="14" ry="14" width="210" x="30" y="266"></rect><text class="pool-index" x="58" y="302">02</text><text class="pool-title" text-anchor="middle" x="135" y="326">US-MBR-CS-002</text><text class="pool-title" text-anchor="middle" x="135" y="342">통합회원 가입·전환 신청</text><circle class="start" cx="276" cy="338" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="342">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="309"></rect><text class="task-text" text-anchor="middle" x="430" y="329">PR-MBR-002-01 가입</text><text class="task-text" text-anchor="middle" x="430" y="343">유형 분기</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="338" y2="338"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="309"></rect><text class="task-text" text-anchor="middle" x="655" y="329">PR-MBR-002-02 필수</text><text class="task-text" text-anchor="middle" x="655" y="343">정보 입력</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="338" y2="338"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="790" y="309"></rect><text class="task-text" text-anchor="middle" x="880" y="329">PR-MBR-002-03 약관 및</text><text class="task-text" text-anchor="middle" x="880" y="343">서비스별 동의</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="338" y2="338"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="340" y="403"></rect><text class="task-text" text-anchor="middle" x="430" y="423">PR-MBR-002-04 가입</text><text class="task-text" text-anchor="middle" x="430" y="437">가능 여부 검증</text><path class="flow" marker-end="url(#bpmn-arrow)" d="M 972 338 L 1010 338 L 1010 432 L 334 432"></path><rect class="task-key" height="58" rx="12" ry="12" width="180" x="565" y="403"></rect><text class="task-text" text-anchor="middle" x="655" y="423">PR-MBR-002-05 계정</text><text class="task-text" text-anchor="middle" x="655" y="437">생성 및 완료 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="432" y2="432"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="789" y1="432" y2="432"></line><circle class="end" cx="810" cy="432" r="17"></circle><text class="start-text" text-anchor="middle" x="810" y="436">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="594"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="594"></rect><text class="pool-index" x="58" y="630">03</text><text class="pool-title" text-anchor="middle" x="135" y="646">US-MBR-CS-003</text><text class="pool-title" text-anchor="middle" x="135" y="662">계정 접근 권한 확인 및</text><text class="pool-title" text-anchor="middle" x="135" y="678">보안 복구</text><circle class="start" cx="276" cy="666" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="670">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="637"></rect><text class="task-text" text-anchor="middle" x="430" y="657">PR-MBR-003-01 인증수단</text><text class="task-text" text-anchor="middle" x="430" y="671">선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="666" y2="666"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="637"></rect><text class="task-text" text-anchor="middle" x="655" y="657">PR-MBR-003-02 인증</text><text class="task-text" text-anchor="middle" x="655" y="671">결과 재사용 판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="666" y2="666"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="637"></rect><text class="task-text" text-anchor="middle" x="880" y="657">PR-MBR-003-03 인증</text><text class="task-text" text-anchor="middle" x="880" y="671">실패 복구</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="666" y2="666"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="666" y2="666"></line><circle class="end" cx="1010" cy="666" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="670">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="828"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="828"></rect><text class="pool-index" x="58" y="864">04</text><text class="pool-title" text-anchor="middle" x="135" y="888">US-MBR-CS-004</text><text class="pool-title" text-anchor="middle" x="135" y="904">소셜·간편 로그인 연결 관리</text><circle class="start" cx="276" cy="900" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="904">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="871"></rect><text class="task-text" text-anchor="middle" x="430" y="891">PR-MBR-004-01 소셜</text><text class="task-text" text-anchor="middle" x="430" y="905">계정 연결 분기</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="900" y2="900"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="871"></rect><text class="task-text" text-anchor="middle" x="655" y="891">PR-MBR-004-02 간편</text><text class="task-text" text-anchor="middle" x="655" y="905">로그인 등록·해제</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="900" y2="900"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="871"></rect><text class="task-text" text-anchor="middle" x="880" y="891">PR-MBR-004-03 연결</text><text class="task-text" text-anchor="middle" x="880" y="905">오류 및 대체 로그인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="900" y2="900"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="900" y2="900"></line><circle class="end" cx="1010" cy="900" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="904">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="1062"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="1062"></rect><text class="pool-index" x="58" y="1098">05</text><text class="pool-title" text-anchor="middle" x="135" y="1122">US-MBR-CS-005</text><text class="pool-title" text-anchor="middle" x="135" y="1138">계정 찾기·복구</text><circle class="start" cx="276" cy="1134" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="1138">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="1105"></rect><text class="task-text" text-anchor="middle" x="430" y="1125">PR-MBR-005-01 계정</text><text class="task-text" text-anchor="middle" x="430" y="1139">후보 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="1134" y2="1134"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="1105"></rect><text class="task-text" text-anchor="middle" x="655" y="1125">PR-MBR-005-02 마스킹</text><text class="task-text" text-anchor="middle" x="655" y="1139">결과 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="1134" y2="1134"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="1105"></rect><text class="task-text" text-anchor="middle" x="880" y="1125">PR-MBR-005-03 비밀번호</text><text class="task-text" text-anchor="middle" x="880" y="1139">재설정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="1134" y2="1134"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="1134" y2="1134"></line><circle class="end" cx="1010" cy="1134" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="1138">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="1296"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="1296"></rect><text class="pool-index" x="58" y="1332">06</text><text class="pool-title" text-anchor="middle" x="135" y="1356">US-MBR-CS-006</text><text class="pool-title" text-anchor="middle" x="135" y="1372">중복 계정 병합 신청</text><circle class="start" cx="276" cy="1368" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="1372">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="1339"></rect><text class="task-text" text-anchor="middle" x="430" y="1359">PR-MBR-006-01 중복</text><text class="task-text" text-anchor="middle" x="430" y="1373">계정 감지</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="1368" y2="1368"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="1339"></rect><text class="task-text" text-anchor="middle" x="655" y="1359">PR-MBR-006-02 병합</text><text class="task-text" text-anchor="middle" x="655" y="1373">영향도 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="1368" y2="1368"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="1339"></rect><text class="task-text" text-anchor="middle" x="880" y="1359">PR-MBR-006-03 병합</text><text class="task-text" text-anchor="middle" x="880" y="1373">처리 또는 CS 전환</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="1368" y2="1368"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="1368" y2="1368"></line><circle class="end" cx="1010" cy="1368" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="1372">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="1530"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="1530"></rect><text class="pool-index" x="58" y="1566">07</text><text class="pool-title" text-anchor="middle" x="135" y="1590">US-MBR-CS-007</text><text class="pool-title" text-anchor="middle" x="135" y="1606">외국인·미성년 예외 가입</text><circle class="start" cx="276" cy="1602" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="1606">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="1573"></rect><text class="task-text" text-anchor="middle" x="430" y="1593">PR-MBR-007-01 대상 및</text><text class="task-text" text-anchor="middle" x="430" y="1607">제한 조건 판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="1602" y2="1602"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="1573"></rect><text class="task-text" text-anchor="middle" x="655" y="1593">PR-MBR-007-02 대체</text><text class="task-text" text-anchor="middle" x="655" y="1607">인증 및 증빙 접수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="1602" y2="1602"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="1573"></rect><text class="task-text" text-anchor="middle" x="880" y="1593">PR-MBR-007-03 예외</text><text class="task-text" text-anchor="middle" x="880" y="1607">실패 복구</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="1602" y2="1602"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="1602" y2="1602"></line><circle class="end" cx="1010" cy="1602" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="1606">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="1764"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="1764"></rect><text class="pool-index" x="58" y="1800">08</text><text class="pool-title" text-anchor="middle" x="135" y="1824">US-MBR-CS-008</text><text class="pool-title" text-anchor="middle" x="135" y="1840">그룹·법인 회원 가입·전환</text><circle class="start" cx="276" cy="1836" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="1840">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="1807"></rect><text class="task-text" text-anchor="middle" x="430" y="1827">PR-MBR-008-01</text><text class="task-text" text-anchor="middle" x="430" y="1841">그룹·법인 진입 게이트</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="1836" y2="1836"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="1807"></rect><text class="task-text" text-anchor="middle" x="655" y="1827">PR-MBR-008-02 그룹</text><text class="task-text" text-anchor="middle" x="655" y="1841">생성 또는 초대 참여</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="1836" y2="1836"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="1807"></rect><text class="task-text" text-anchor="middle" x="880" y="1827">PR-MBR-008-03 역할</text><text class="task-text" text-anchor="middle" x="880" y="1841">권한 및 대표자 변경</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="1836" y2="1836"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="1836" y2="1836"></line><circle class="end" cx="1010" cy="1836" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="1840">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="1998"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="1998"></rect><text class="pool-index" x="58" y="2034">09</text><text class="pool-title" text-anchor="middle" x="135" y="2058">US-MBR-CS-009</text><text class="pool-title" text-anchor="middle" x="135" y="2074">회원 탈퇴 요청</text><circle class="start" cx="276" cy="2070" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="2074">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="2041"></rect><text class="task-text" text-anchor="middle" x="430" y="2061">PR-MBR-009-01 탈퇴</text><text class="task-text" text-anchor="middle" x="430" y="2075">선행 조치 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="2070" y2="2070"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="2041"></rect><text class="task-text" text-anchor="middle" x="655" y="2061">PR-MBR-009-02 탈퇴</text><text class="task-text" text-anchor="middle" x="655" y="2075">영향도 및 유지 제안</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="2070" y2="2070"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="2041"></rect><text class="task-text" text-anchor="middle" x="880" y="2061">PR-MBR-009-03 탈퇴</text><text class="task-text" text-anchor="middle" x="880" y="2075">최종 인증 및 처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="2070" y2="2070"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="2070" y2="2070"></line><circle class="end" cx="1010" cy="2070" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="2074">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="2232"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="2232"></rect><text class="pool-index" x="58" y="2268">10</text><text class="pool-title" text-anchor="middle" x="135" y="2292">US-MBR-CS-010</text><text class="pool-title" text-anchor="middle" x="135" y="2308">탈퇴 후 재가입 가능성 확인</text><circle class="start" cx="276" cy="2304" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="2308">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="2275"></rect><text class="task-text" text-anchor="middle" x="430" y="2295">PR-MBR-010-01 재가입</text><text class="task-text" text-anchor="middle" x="430" y="2309">제한 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="2304" y2="2304"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="2275"></rect><text class="task-text" text-anchor="middle" x="655" y="2295">PR-MBR-010-02 재가입</text><text class="task-text" text-anchor="middle" x="655" y="2309">방식 결정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="2304" y2="2304"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="2275"></rect><text class="task-text" text-anchor="middle" x="880" y="2295">PR-MBR-010-03 재가입</text><text class="task-text" text-anchor="middle" x="880" y="2309">결과 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="2304" y2="2304"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="2304" y2="2304"></line><circle class="end" cx="1010" cy="2304" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="2308">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="2466"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="2466"></rect><text class="pool-index" x="58" y="2502">11</text><text class="pool-title" text-anchor="middle" x="135" y="2526">US-MBR-OPR-001</text><text class="pool-title" text-anchor="middle" x="135" y="2542">회원 정책 운영 관리</text><circle class="start" cx="276" cy="2538" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="2542">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="2509"></rect><text class="task-text" text-anchor="middle" x="430" y="2529">PR-MBR-OPR-001 정책</text><text class="task-text" text-anchor="middle" x="430" y="2543">기준 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="2538" y2="2538"></line><rect class="task" height="58" rx="12" ry="12" width="180" x="565" y="2509"></rect><text class="task-text" text-anchor="middle" x="655" y="2529">PR-MBR-OPR-002</text><text class="task-text" text-anchor="middle" x="655" y="2543">보안·품질 모니터링</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="2538" y2="2538"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="790" y="2509"></rect><text class="task-text" text-anchor="middle" x="880" y="2529">PR-MBR-OPR-003 예외</text><text class="task-text" text-anchor="middle" x="880" y="2543">승인 및 이력 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="784" y1="2538" y2="2538"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="972" x2="989" y1="2538" y2="2538"></line><circle class="end" cx="1010" cy="2538" r="17"></circle><text class="start-text" text-anchor="middle" x="1010" y="2542">End</text><rect class="pool" height="210" rx="14" ry="14" width="1060" x="30" y="2700"></rect><rect class="pool-head" height="210" rx="14" ry="14" width="210" x="30" y="2700"></rect><text class="pool-index" x="58" y="2736">12</text><text class="pool-title" text-anchor="middle" x="135" y="2752">US-MBR-LGR-001</text><text class="pool-title" text-anchor="middle" x="135" y="2768">법정대리인 동의 및 대리권</text><text class="pool-title" text-anchor="middle" x="135" y="2784">확인</text><circle class="start" cx="276" cy="2772" r="17"></circle><text class="start-text" text-anchor="middle" x="276" y="2776">Start</text><rect class="task-key" height="58" rx="12" ry="12" width="180" x="340" y="2743"></rect><text class="task-text" text-anchor="middle" x="430" y="2763">PR-MBR-LGR-001 대리</text><text class="task-text" text-anchor="middle" x="430" y="2777">동의 대상과 권한 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="293" x2="334" y1="2772" y2="2772"></line><rect class="task-key" height="58" rx="12" ry="12" width="180" x="565" y="2743"></rect><text class="task-text" text-anchor="middle" x="655" y="2763">PR-MBR-LGR-002 대리</text><text class="task-text" text-anchor="middle" x="655" y="2777">동의 결과 저장과 실패 복구</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="522" x2="559" y1="2772" y2="2772"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="747" x2="789" y1="2772" y2="2772"></line><circle class="end" cx="810" cy="2772" r="17"></circle><text class="start-text" text-anchor="middle" x="810" y="2776">End</text></svg></div></div>
+</div>
+
+	
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.</p>
+
+<h4>1) 진입 상태 확인 (PR-MBR-001-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-001-001</td><td>진입 상태 확인 처리</td><td>진입 상태 확인 처리 기능은 로그인 여부, 회원 유형, 현재 세션 상태를 확인하고 가입·로그인·복구 경로를 분기한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>진입 상태 확인 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>2) 가입 가치 및 필요 조건 안내 (PR-MBR-001-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-001-002</td><td>가입 가치 및 필요 조건 안내 처리</td><td>가입 가치 및 필요 조건 안내 처리 기능은 가입하면 이용 가능한 서비스, 추가 인증이 필요한 업무, 미가입 상태에서 가능한 탐색 범위를 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>가입 가치 및 필요 조건 안내 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>3) 진행 상태 저장 (PR-MBR-001-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-001-003</td><td>진행 상태 저장 처리</td><td>진행 상태 저장 처리 기능은 가입 시작 후 이탈에 대비해 현재 단계와 입력 가능 정보를 임시 저장한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>진행 상태 저장 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>4) 가입 유형 분기 (PR-MBR-002-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-002-001</td><td>가입 유형 분기 처리</td><td>가입 유형 분기 처리 기능은 신규, 통합회원 전환, 오프라인 가입 연계, 라이트회원 전환 여부를 판정한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>가입 유형 분기 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>5) 필수 정보 입력 (PR-MBR-002-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-002-002</td><td>필수 정보 입력 처리</td><td>필수 정보 입력 처리 기능은 본인확인 결과와 기존 고객 정보를 우선 재사용하고 부족한 필수 정보만 입력받는다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>필수 정보 입력 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>6) 약관 및 서비스별 동의 (PR-MBR-002-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-002-003</td><td>약관 및 서비스별 동의 처리</td><td>약관 및 서비스별 동의 처리 기능은 통합회원 필수 약관과 이용 서비스별 추가 동의를 분리해 수집한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>약관 및 서비스별 동의 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>7) 가입 가능 여부 검증 (PR-MBR-002-04)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-002-004</td><td>가입 가능 여부 검증 처리</td><td>가입 가능 여부 검증 처리 기능은 중복 계정, 연령, 법인·그룹 권한, 회선·모회선 조건, 제한 상태를 확인한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>가입 가능 여부 검증 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>8) 계정 생성 및 완료 안내 (PR-MBR-002-05)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-002-005</td><td>계정 생성 및 완료 안내 처리</td><td>계정 생성 및 완료 안내 처리 기능은 회원 상태를 가입 완료로 변경하고 첫 로그인, 초기 설정, 연결 가능한 서비스를 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>계정 생성 및 완료 안내 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>9) 인증수단 선택 (PR-MBR-003-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-003-001</td><td>인증수단 선택 처리</td><td>인증수단 선택 처리 기능은 휴대폰 본인확인, PASS, 간편인증, 대체 인증 중 업무에 허용된 수단을 제시한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>인증수단 선택 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>10) 인증 결과 재사용 판정 (PR-MBR-003-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-003-002</td><td>인증 결과 재사용 판정 처리</td><td>인증 결과 재사용 판정 처리 기능은 동일 세션의 인증 결과가 유효하면 재사용하고 만료·위험 행위면 재인증을 요구한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>인증 결과 재사용 판정 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>11) 인증 실패 복구 (PR-MBR-003-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-003-003</td><td>인증 실패 복구 처리</td><td>인증 실패 복구 처리 기능은 입력 오류, 시간 초과, 기관 실패, 외국인 미지원 등 실패 사유별 재시도와 대체 경로를 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>인증 실패 복구 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>12) 소셜 계정 연결 분기 (PR-MBR-004-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-004-001</td><td>소셜 계정 연결 분기 처리</td><td>소셜 계정 연결 분기 처리 기능은 최초 OAuth 로그인 시 신규 가입, 기존 계정 연결, 중복 계정 확인으로 분기한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>소셜 계정 연결 분기 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>13) 간편 로그인 등록·해제 (PR-MBR-004-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-004-002</td><td>간편 로그인 등록·해제 처리</td><td>간편 로그인 등록·해제 처리 기능은 PIN, 생체, 패턴 등 간편 로그인 수단을 등록·해제하고 대체 로그인 수단을 유지한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>간편 로그인 등록·해제 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>14) 연결 오류 및 대체 로그인 (PR-MBR-004-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-004-003</td><td>연결 오류 및 대체 로그인 처리</td><td>연결 오류 및 대체 로그인 처리 기능은 외부 계정 삭제, 제공자 오류, 기기 미지원 시 비밀번호 또는 본인확인 기반 복구 경로를 제공한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>연결 오류 및 대체 로그인 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>15) 계정 후보 조회 (PR-MBR-005-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-005-001</td><td>계정 후보 조회 처리</td><td>계정 후보 조회 처리 기능은 아이디, 휴대폰 번호, 이메일, CI 등 식별정보로 계정 후보를 조회한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>계정 후보 조회 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>16) 마스킹 결과 안내 (PR-MBR-005-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-005-002</td><td>마스킹 결과 안내 처리</td><td>마스킹 결과 안내 처리 기능은 계정 찾기 결과는 일부 마스킹하여 제공하고 다음 행동을 로그인 또는 비밀번호 재설정으로 연결한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>마스킹 결과 안내 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>17) 비밀번호 재설정 (PR-MBR-005-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-005-003</td><td>비밀번호 재설정 처리</td><td>비밀번호 재설정 처리 기능은 본인확인 후 비밀번호 정책을 충족하는 새 비밀번호를 설정하고 실패 사유를 구체적으로 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>비밀번호 재설정 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>18) 중복 계정 감지 (PR-MBR-006-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-006-001</td><td>중복 계정 감지 처리</td><td>중복 계정 감지 처리 기능은 가입·로그인·본인확인 과정에서 동일 고객 후보가 발견되면 중복 가능성을 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>중복 계정 감지 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>19) 병합 영향도 확인 (PR-MBR-006-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-006-002</td><td>병합 영향도 확인 처리</td><td>병합 영향도 확인 처리 기능은 승계되는 정보, 정리되는 정보, 복구 불가 항목, 서비스 연결 영향을 병합 전 표시한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>병합 영향도 확인 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>20) 병합 처리 또는 CS 전환 (PR-MBR-006-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-006-003</td><td>병합 처리 또는 CS 전환 처리</td><td>병합 처리 또는 CS 전환 처리 기능은 명의 불일치, 데이터 충돌, 병합 불가 사유가 있으면 별도 유지 또는 CS 전환을 제공한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>병합 처리 또는 CS 전환 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>21) 대상 및 제한 조건 판정 (PR-MBR-007-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-007-001</td><td>대상 및 제한 조건 판정 처리</td><td>대상 및 제한 조건 판정 처리 기능은 외국인 체류 상태, 연령 제한, 법정대리인 필요 여부, 성혼 예외 여부를 판정한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>대상 및 제한 조건 판정 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>22) 대체 인증 및 증빙 접수 (PR-MBR-007-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-007-002</td><td>대체 인증 및 증빙 접수 처리</td><td>대체 인증 및 증빙 접수 처리 기능은 외국인등록번호, 여권, 문서·셀피, 법정대리인 동의 등 필요한 대체 인증과 증빙을 수집한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>대체 인증 및 증빙 접수 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>23) 예외 실패 복구 (PR-MBR-007-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-007-003</td><td>예외 실패 복구 처리</td><td>예외 실패 복구 처리 기능은 인증 실패, 정보 불일치, 증빙 미충족 시 재시도, 다른 수단, 고객센터 연결을 단계적으로 제공한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>예외 실패 복구 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>24) 그룹·법인 진입 게이트 (PR-MBR-008-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-008-001</td><td>그룹·법인 진입 게이트 처리</td><td>그룹·법인 진입 게이트 처리 기능은 로그인 상태, 연령, 실명, 법인 사용자 여부, 대표자 권한을 확인한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>그룹·법인 진입 게이트 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>25) 그룹 생성 또는 초대 참여 (PR-MBR-008-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-008-002</td><td>그룹 생성 또는 초대 참여 처리</td><td>그룹 생성 또는 초대 참여 처리 기능은 그룹 최초 생성과 초대 참여를 분기하고 각 유형에 필요한 입력과 동의만 노출한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>그룹 생성 또는 초대 참여 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>26) 역할 권한 및 대표자 변경 (PR-MBR-008-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-008-003</td><td>역할 권한 및 대표자 변경 처리</td><td>역할 권한 및 대표자 변경 처리 기능은 대표자, 관리자, 구성원 역할별 조회·수정 범위와 대표자 변경 선행 조건을 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>역할 권한 및 대표자 변경 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>27) 탈퇴 선행 조치 확인 (PR-MBR-009-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-009-001</td><td>탈퇴 선행 조치 확인 처리</td><td>탈퇴 선행 조치 확인 처리 기능은 이용 중 서비스, 미처리 주문, 미정산, 잔여 혜택, 그룹 대표자 권한을 체크리스트로 확인한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>탈퇴 선행 조치 확인 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>28) 탈퇴 영향도 및 유지 제안 (PR-MBR-009-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-009-002</td><td>탈퇴 영향도 및 유지 제안 처리</td><td>탈퇴 영향도 및 유지 제안 처리 기능은 소멸 혜택, 쿠폰, 이력, 재가입 제한, 대체 혜택을 탈퇴 확정 전에 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>탈퇴 영향도 및 유지 제안 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>29) 탈퇴 최종 인증 및 처리 (PR-MBR-009-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-009-003</td><td>탈퇴 최종 인증 및 처리 처리</td><td>탈퇴 최종 인증 및 처리 처리 기능은 최종 본인확인 후 회원 상태를 탈퇴 완료 또는 탈퇴 보류로 변경하고 결과를 안내한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>탈퇴 최종 인증 및 처리 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>30) 재가입 제한 확인 (PR-MBR-010-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-010-001</td><td>재가입 제한 확인 처리</td><td>재가입 제한 확인 처리 기능은 동일 식별정보, 제재 이력, 탈퇴 보류, 보관 예외에 따른 재가입 제한 여부를 확인한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>재가입 제한 확인 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>31) 재가입 방식 결정 (PR-MBR-010-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-010-002</td><td>재가입 방식 결정 처리</td><td>재가입 방식 결정 처리 기능은 계정 복구, 신규 생성, 라이트회원 재시작 중 허용된 방식을 안내하고 필요한 인증을 요구한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>재가입 방식 결정 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>32) 재가입 결과 안내 (PR-MBR-010-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-010-003</td><td>재가입 결과 안내 처리</td><td>재가입 결과 안내 처리 기능은 재가입 완료, 제한 유지, 복구 불가, 상담 필요 상태를 안내하고 후속 행동을 제공한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>재가입 결과 안내 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>33) 정책 기준 관리 (PR-MBR-OPR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-OPR-001</td><td>정책 기준 관리 처리</td><td>정책 기준 관리 처리 기능은 회원 유형, 인증 수단, 재가입 제한, 탈퇴 보류 사유, 보관 예외 기준을 운영자가 관리한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>정책 기준 관리 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>34) 보안·품질 모니터링 (PR-MBR-OPR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-OPR-002</td><td>보안·품질 모니터링 처리</td><td>보안·품질 모니터링 처리 기능은 이상 로그인, 인증 실패, 병합 실패, 탈퇴 실패, 고객센터 전환 지표를 모니터링한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>보안·품질 모니터링 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>35) 예외 승인 및 이력 관리 (PR-MBR-OPR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-OPR-003</td><td>예외 승인 및 이력 관리 처리</td><td>예외 승인 및 이력 관리 처리 기능은 법인·외국인·미성년·그룹 대표자 변경 등 예외 승인 결과와 사유를 저장한다 결과를 고객에게 안내하고 후속 상태를 만든다.</td><td>예외 승인 및 이력 관리 기준 확인<br/>BSS·회원계정 시스템 결과 반영<br/>고객 안내 및 이력 저장</td></tr></tbody>
+</table>
+
+<h4>36) 대리 동의 대상과 권한 확인 (PR-MBR-LGR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-LGR-001</td><td>법정대리인 권한 확인</td><td>대리 동의 대상 여부와 법정대리인 권한을 검증하여 가입·변경 가능 범위를 산정한다.</td><td>대상 여부 판정<br/>대리인 인증 결과 확인<br/>동의 가능 범위 산정<br/>불가 사유 안내</td></tr></tbody>
+</table>
+
+<h4>37) 대리 동의 결과 저장과 실패 복구 (PR-MBR-LGR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-MBR-LGR-002</td><td>대리 동의 이력 관리</td><td>대리 동의 결과와 철회 이력을 저장하고 실패 시 재시도 또는 상담 전환 경로를 제공한다.</td><td>동의 버전 저장<br/>처리 주체 기록<br/>실패 사유 분류<br/>재시도 경로 제공</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.</p>
+
+<h4>1) 진입 상태 확인 (PR-MBR-001-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr><tr><td class="mono">PG-MBR-STS-001</td><td>상태·세션 정책</td><td>회원 상태, 로그인 세션, 자동 로그인, 만료·복구 기준을 정의한다.</td><td>상태 표시<br/>자동 로그인 해제<br/>세션 만료 복귀<br/>상태 변경 이력</td></tr></tbody>
+</table>
+
+<h4>2) 가입 가치 및 필요 조건 안내 (PR-MBR-001-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr><tr><td class="mono">PG-MBR-AGR-001</td><td>약관·동의 정책</td><td>필수·선택 약관, 서비스별 추가 동의, 동의 이력 기준을 정의한다.</td><td>필수 약관 동의<br/>선택 동의 처리<br/>서비스별 추가 동의<br/>동의 이력<br/>대리 동의 이력</td></tr></tbody>
+</table>
+
+<h4>3) 진행 상태 저장 (PR-MBR-001-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-INP-001</td><td>입력·정보 재사용 정책</td><td>필수 입력 최소화, 기존 정보 재사용, 진행 상태 저장 기준을 정의한다.</td><td>필수 입력 최소화<br/>정보 재사용<br/>진행 상태 저장<br/>복원 불가 안내</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>4) 가입 유형 분기 (PR-MBR-002-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr><tr><td class="mono">PG-MBR-INP-001</td><td>입력·정보 재사용 정책</td><td>필수 입력 최소화, 기존 정보 재사용, 진행 상태 저장 기준을 정의한다.</td><td>필수 입력 최소화<br/>정보 재사용<br/>진행 상태 저장<br/>복원 불가 안내</td></tr></tbody>
+</table>
+
+<h4>5) 필수 정보 입력 (PR-MBR-002-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-INP-001</td><td>입력·정보 재사용 정책</td><td>필수 입력 최소화, 기존 정보 재사용, 진행 상태 저장 기준을 정의한다.</td><td>필수 입력 최소화<br/>정보 재사용<br/>진행 상태 저장<br/>복원 불가 안내</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>6) 약관 및 서비스별 동의 (PR-MBR-002-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-AGR-001</td><td>약관·동의 정책</td><td>필수·선택 약관, 서비스별 추가 동의, 동의 이력 기준을 정의한다.</td><td>필수 약관 동의<br/>선택 동의 처리<br/>서비스별 추가 동의<br/>동의 이력<br/>대리 동의 이력</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>7) 가입 가능 여부 검증 (PR-MBR-002-04)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr><tr><td class="mono">PG-MBR-MRG-001</td><td>중복 계정·병합 정책</td><td>중복 계정 감지, 병합 영향도, 병합 제한, CS 전환 기준을 정의한다.</td><td>중복 감지 기준<br/>병합 전 영향 안내<br/>병합 제한<br/>병합 이력</td></tr></tbody>
+</table>
+
+<h4>8) 계정 생성 및 완료 안내 (PR-MBR-002-05)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-STS-001</td><td>상태·세션 정책</td><td>회원 상태, 로그인 세션, 자동 로그인, 만료·복구 기준을 정의한다.</td><td>상태 표시<br/>자동 로그인 해제<br/>세션 만료 복귀<br/>상태 변경 이력</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>9) 인증수단 선택 (PR-MBR-003-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr></tbody>
+</table>
+
+<h4>10) 인증 결과 재사용 판정 (PR-MBR-003-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr><tr><td class="mono">PG-MBR-STS-001</td><td>상태·세션 정책</td><td>회원 상태, 로그인 세션, 자동 로그인, 만료·복구 기준을 정의한다.</td><td>상태 표시<br/>자동 로그인 해제<br/>세션 만료 복귀<br/>상태 변경 이력</td></tr></tbody>
+</table>
+
+<h4>11) 인증 실패 복구 (PR-MBR-003-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr></tbody>
+</table>
+
+<h4>12) 소셜 계정 연결 분기 (PR-MBR-004-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-SOC-001</td><td>소셜·간편 로그인 정책</td><td>OAuth, 생체, PIN 등 편의 인증의 연결·분리·대체 경로를 정의한다.</td><td>OAuth 연결 분기<br/>소셜 연결 해제<br/>간편 로그인 등록<br/>외부 계정 오류</td></tr><tr><td class="mono">PG-MBR-MRG-001</td><td>중복 계정·병합 정책</td><td>중복 계정 감지, 병합 영향도, 병합 제한, CS 전환 기준을 정의한다.</td><td>중복 감지 기준<br/>병합 전 영향 안내<br/>병합 제한<br/>병합 이력</td></tr></tbody>
+</table>
+
+<h4>13) 간편 로그인 등록·해제 (PR-MBR-004-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-SOC-001</td><td>소셜·간편 로그인 정책</td><td>OAuth, 생체, PIN 등 편의 인증의 연결·분리·대체 경로를 정의한다.</td><td>OAuth 연결 분기<br/>소셜 연결 해제<br/>간편 로그인 등록<br/>외부 계정 오류</td></tr><tr><td class="mono">PG-MBR-SEC-001</td><td>보안·위험 알림 정책</td><td>이상 로그인, 계정 잠금, 위험 세션 차단, 보안 알림 기준을 정의한다.</td><td>이상 로그인 알림<br/>계정 잠금<br/>민감 화면 보호<br/>원격 세션 종료</td></tr></tbody>
+</table>
+
+<h4>14) 연결 오류 및 대체 로그인 (PR-MBR-004-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-SOC-001</td><td>소셜·간편 로그인 정책</td><td>OAuth, 생체, PIN 등 편의 인증의 연결·분리·대체 경로를 정의한다.</td><td>OAuth 연결 분기<br/>소셜 연결 해제<br/>간편 로그인 등록<br/>외부 계정 오류</td></tr><tr><td class="mono">PG-MBR-LGN-001</td><td>로그인·계정 복구 정책</td><td>아이디 찾기, 비밀번호 재설정, 계정 접근 복구 기준을 정의한다.</td><td>아이디 찾기 결과<br/>비밀번호 정책<br/>식별자 불일치<br/>복구 성공 처리</td></tr></tbody>
+</table>
+
+<h4>15) 계정 후보 조회 (PR-MBR-005-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-LGN-001</td><td>로그인·계정 복구 정책</td><td>아이디 찾기, 비밀번호 재설정, 계정 접근 복구 기준을 정의한다.</td><td>아이디 찾기 결과<br/>비밀번호 정책<br/>식별자 불일치<br/>복구 성공 처리</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>16) 마스킹 결과 안내 (PR-MBR-005-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-LGN-001</td><td>로그인·계정 복구 정책</td><td>아이디 찾기, 비밀번호 재설정, 계정 접근 복구 기준을 정의한다.</td><td>아이디 찾기 결과<br/>비밀번호 정책<br/>식별자 불일치<br/>복구 성공 처리</td></tr><tr><td class="mono">PG-MBR-SEC-001</td><td>보안·위험 알림 정책</td><td>이상 로그인, 계정 잠금, 위험 세션 차단, 보안 알림 기준을 정의한다.</td><td>이상 로그인 알림<br/>계정 잠금<br/>민감 화면 보호<br/>원격 세션 종료</td></tr></tbody>
+</table>
+
+<h4>17) 비밀번호 재설정 (PR-MBR-005-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-LGN-001</td><td>로그인·계정 복구 정책</td><td>아이디 찾기, 비밀번호 재설정, 계정 접근 복구 기준을 정의한다.</td><td>아이디 찾기 결과<br/>비밀번호 정책<br/>식별자 불일치<br/>복구 성공 처리</td></tr><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr></tbody>
+</table>
+
+<h4>18) 중복 계정 감지 (PR-MBR-006-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-MRG-001</td><td>중복 계정·병합 정책</td><td>중복 계정 감지, 병합 영향도, 병합 제한, CS 전환 기준을 정의한다.</td><td>중복 감지 기준<br/>병합 전 영향 안내<br/>병합 제한<br/>병합 이력</td></tr></tbody>
+</table>
+
+<h4>19) 병합 영향도 확인 (PR-MBR-006-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-MRG-001</td><td>중복 계정·병합 정책</td><td>중복 계정 감지, 병합 영향도, 병합 제한, CS 전환 기준을 정의한다.</td><td>중복 감지 기준<br/>병합 전 영향 안내<br/>병합 제한<br/>병합 이력</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>20) 병합 처리 또는 CS 전환 (PR-MBR-006-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-MRG-001</td><td>중복 계정·병합 정책</td><td>중복 계정 감지, 병합 영향도, 병합 제한, CS 전환 기준을 정의한다.</td><td>중복 감지 기준<br/>병합 전 영향 안내<br/>병합 제한<br/>병합 이력</td></tr><tr><td class="mono">PG-MBR-LGN-001</td><td>로그인·계정 복구 정책</td><td>아이디 찾기, 비밀번호 재설정, 계정 접근 복구 기준을 정의한다.</td><td>아이디 찾기 결과<br/>비밀번호 정책<br/>식별자 불일치<br/>복구 성공 처리</td></tr></tbody>
+</table>
+
+<h4>21) 대상 및 제한 조건 판정 (PR-MBR-007-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr></tbody>
+</table>
+
+<h4>22) 대체 인증 및 증빙 접수 (PR-MBR-007-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr></tbody>
+</table>
+
+<h4>23) 예외 실패 복구 (PR-MBR-007-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>24) 그룹·법인 진입 게이트 (PR-MBR-008-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-GRP-001</td><td>그룹·법인 회원 정책</td><td>그룹 생성, 초대, 역할 권한, 대표자 변경, 법인 이용 범위를 정의한다.</td><td>그룹 가입 게이트<br/>초대 상태 제어<br/>역할별 권한<br/>대표자 탈퇴 제한</td></tr><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr></tbody>
+</table>
+
+<h4>25) 그룹 생성 또는 초대 참여 (PR-MBR-008-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-GRP-001</td><td>그룹·법인 회원 정책</td><td>그룹 생성, 초대, 역할 권한, 대표자 변경, 법인 이용 범위를 정의한다.</td><td>그룹 가입 게이트<br/>초대 상태 제어<br/>역할별 권한<br/>대표자 탈퇴 제한</td></tr><tr><td class="mono">PG-MBR-AGR-001</td><td>약관·동의 정책</td><td>필수·선택 약관, 서비스별 추가 동의, 동의 이력 기준을 정의한다.</td><td>필수 약관 동의<br/>선택 동의 처리<br/>서비스별 추가 동의<br/>동의 이력<br/>대리 동의 이력</td></tr></tbody>
+</table>
+
+<h4>26) 역할 권한 및 대표자 변경 (PR-MBR-008-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-GRP-001</td><td>그룹·법인 회원 정책</td><td>그룹 생성, 초대, 역할 권한, 대표자 변경, 법인 이용 범위를 정의한다.</td><td>그룹 가입 게이트<br/>초대 상태 제어<br/>역할별 권한<br/>대표자 탈퇴 제한</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>27) 탈퇴 선행 조치 확인 (PR-MBR-009-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-OUT-001</td><td>회원 탈퇴 정책</td><td>탈퇴 진입, 선행 조치, 영향도 안내, 최종 확인, 완료 기준을 정의한다.</td><td>탈퇴 선행 조건<br/>탈퇴 영향도 안내<br/>탈퇴 최종 확인<br/>탈퇴 보류 처리</td></tr><tr><td class="mono">PG-MBR-GRP-001</td><td>그룹·법인 회원 정책</td><td>그룹 생성, 초대, 역할 권한, 대표자 변경, 법인 이용 범위를 정의한다.</td><td>그룹 가입 게이트<br/>초대 상태 제어<br/>역할별 권한<br/>대표자 탈퇴 제한</td></tr></tbody>
+</table>
+
+<h4>28) 탈퇴 영향도 및 유지 제안 (PR-MBR-009-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-OUT-001</td><td>회원 탈퇴 정책</td><td>탈퇴 진입, 선행 조치, 영향도 안내, 최종 확인, 완료 기준을 정의한다.</td><td>탈퇴 선행 조건<br/>탈퇴 영향도 안내<br/>탈퇴 최종 확인<br/>탈퇴 보류 처리</td></tr><tr><td class="mono">PG-MBR-RET-001</td><td>재가입·복구 정책</td><td>탈퇴 후 재가입, 복구 가능성, 동일 식별정보 재사용 제한을 정의한다.</td><td>재가입 가능 시점<br/>재이용 제한 안내<br/>복구 가능 범위<br/>복구 불가 고지</td></tr></tbody>
+</table>
+
+<h4>29) 탈퇴 최종 인증 및 처리 (PR-MBR-009-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-OUT-001</td><td>회원 탈퇴 정책</td><td>탈퇴 진입, 선행 조치, 영향도 안내, 최종 확인, 완료 기준을 정의한다.</td><td>탈퇴 선행 조건<br/>탈퇴 영향도 안내<br/>탈퇴 최종 확인<br/>탈퇴 보류 처리</td></tr><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>30) 재가입 제한 확인 (PR-MBR-010-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-RET-001</td><td>재가입·복구 정책</td><td>탈퇴 후 재가입, 복구 가능성, 동일 식별정보 재사용 제한을 정의한다.</td><td>재가입 가능 시점<br/>재이용 제한 안내<br/>복구 가능 범위<br/>복구 불가 고지</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>31) 재가입 방식 결정 (PR-MBR-010-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-RET-001</td><td>재가입·복구 정책</td><td>탈퇴 후 재가입, 복구 가능성, 동일 식별정보 재사용 제한을 정의한다.</td><td>재가입 가능 시점<br/>재이용 제한 안내<br/>복구 가능 범위<br/>복구 불가 고지</td></tr><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr></tbody>
+</table>
+
+<h4>32) 재가입 결과 안내 (PR-MBR-010-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-RET-001</td><td>재가입·복구 정책</td><td>탈퇴 후 재가입, 복구 가능성, 동일 식별정보 재사용 제한을 정의한다.</td><td>재가입 가능 시점<br/>재이용 제한 안내<br/>복구 가능 범위<br/>복구 불가 고지</td></tr><tr><td class="mono">PG-MBR-LGN-001</td><td>로그인·계정 복구 정책</td><td>아이디 찾기, 비밀번호 재설정, 계정 접근 복구 기준을 정의한다.</td><td>아이디 찾기 결과<br/>비밀번호 정책<br/>식별자 불일치<br/>복구 성공 처리</td></tr></tbody>
+</table>
+
+<h4>33) 정책 기준 관리 (PR-MBR-OPR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-ELG-001</td><td>가입 자격·회원 유형 정책</td><td>회원 유형, 가입 가능 조건, 전환 가능 조건, 제한 사유를 정의한다.</td><td>회원 유형 구분<br/>가입 가능 판정<br/>라이트회원 제한<br/>비통합 가입 처리</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr><tr><td class="mono">PG-MBR-SEC-001</td><td>보안·위험 알림 정책</td><td>이상 로그인, 계정 잠금, 위험 세션 차단, 보안 알림 기준을 정의한다.</td><td>이상 로그인 알림<br/>계정 잠금<br/>민감 화면 보호<br/>원격 세션 종료</td></tr></tbody>
+</table>
+
+<h4>34) 보안·품질 모니터링 (PR-MBR-OPR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-SEC-001</td><td>보안·위험 알림 정책</td><td>이상 로그인, 계정 잠금, 위험 세션 차단, 보안 알림 기준을 정의한다.</td><td>이상 로그인 알림<br/>계정 잠금<br/>민감 화면 보호<br/>원격 세션 종료</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h4>35) 예외 승인 및 이력 관리 (PR-MBR-OPR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr><tr><td class="mono">PG-MBR-GRP-001</td><td>그룹·법인 회원 정책</td><td>그룹 생성, 초대, 역할 권한, 대표자 변경, 법인 이용 범위를 정의한다.</td><td>그룹 가입 게이트<br/>초대 상태 제어<br/>역할별 권한<br/>대표자 탈퇴 제한</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr><tr><td class="mono">PG-MBR-SEC-001</td><td>보안·위험 알림 정책</td><td>이상 로그인, 계정 잠금, 위험 세션 차단, 보안 알림 기준을 정의한다.</td><td>이상 로그인 알림<br/>계정 잠금<br/>민감 화면 보호<br/>원격 세션 종료</td></tr></tbody>
+</table>
+
+<h4>36) 대리 동의 대상과 권한 확인 (PR-MBR-LGR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr><tr><td class="mono">PG-MBR-AGR-001</td><td>약관·동의 정책</td><td>필수·선택 약관, 서비스별 추가 동의, 동의 이력 기준을 정의한다.</td><td>필수 약관 동의<br/>선택 동의 처리<br/>서비스별 추가 동의<br/>동의 이력<br/>대리 동의 이력</td></tr><tr><td class="mono">PG-MBR-IDN-001</td><td>본인확인·인증 정책</td><td>가입, 복구, 민감 행위, 탈퇴에서 필요한 인증 수준과 유효 범위를 정의한다.</td><td>인증수단 허용<br/>인증 유효 시간<br/>재인증 대상<br/>인증 실패 제한</td></tr></tbody>
+</table>
+
+<h4>37) 대리 동의 결과 저장과 실패 복구 (PR-MBR-LGR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-MBR-FGN-001</td><td>외국인·미성년 예외 정책</td><td>외국인, 미성년, 법정대리인, 성혼 예외 가입 기준을 정의한다.</td><td>외국인 가입 대상<br/>외국인 입력 기준<br/>미성년 동의<br/>예외 인증 실패<br/>대리권 확인</td></tr><tr><td class="mono">PG-MBR-AGR-001</td><td>약관·동의 정책</td><td>필수·선택 약관, 서비스별 추가 동의, 동의 이력 기준을 정의한다.</td><td>필수 약관 동의<br/>선택 동의 처리<br/>서비스별 추가 동의<br/>동의 이력<br/>대리 동의 이력</td></tr><tr><td class="mono">PG-MBR-HIS-001</td><td>이력·보관 정책</td><td>가입, 인증, 동의, 탈퇴, 보관 예외, 감사 로그 기준을 정의한다.</td><td>가입 이력<br/>인증 로그<br/>탈퇴 보관 예외<br/>마스킹 및 접근 권한</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 가입 자격·회원 유형 정책 (PG-MBR-ELG-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 회원 유형 구분 <span class="mono">(PI-MBR-ELG-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 회원 유형은 비회원, 라이트회원, 부분가입, 통합회원, 그룹회원, 법인회원으로 구분한다.</span><span class="policy-item-line">- 각 유형별 허용 기능과 추가 인증 필요 업무를 가입 진입 전 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가입 가능 판정 <span class="mono">(PI-MBR-ELG-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입 가능 여부는 연령, 실명 여부, 기존 계정, 제한 이력, 필수 동의, 본인확인 결과가 모두 충족된 경우로 둔다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 라이트회원 제한 <span class="mono">(PI-MBR-ELG-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 라이트회원은 탐색, 혜택 안내, 마케팅 수신처럼 낮은 위험 업무만 허용하고 주문, 결제, 개인정보 변경, 탈퇴 확정은 통합회원 전환 후 허용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 비통합 가입 처리 <span class="mono">(PI-MBR-ELG-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합회원 전환을 거부한 고객은 정책상 허용된 제한 기능만 이용하게 하고 미지원 기능은 통합 전환 또는 대체 경로를 안내한다.</span></div>
+</div>
+</div>
+
+<h4>2) 본인확인·인증 정책 (PG-MBR-IDN-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 인증수단 허용 <span class="mono">(PI-MBR-IDN-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입 본인확인은 휴대폰 본인확인, PASS, 간편인증, 외국인 대체 인증 중 해당 고객 유형에 허용된 수단으로 수행한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 유효 시간 <span class="mono">(PI-MBR-IDN-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인증 결과의 기본 유효 시간은 동일 세션 10분으로 둔다.</span><span class="policy-item-line">- 만료되거나 민감 행위가 발생하면 재인증을 요구한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재인증 대상 <span class="mono">(PI-MBR-IDN-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 비밀번호 변경, 결제수단 변경, 계정 병합, 탈퇴 확정, 새 기기 위험 로그인은 재인증 대상이다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 실패 제한 <span class="mono">(PI-MBR-IDN-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 인증 단계에서 5회 연속 실패하면 해당 세션의 인증 시도를 중지하고 대체 인증 또는 고객센터 경로를 안내한다.</span></div>
+</div>
+</div>
+
+<h4>3) 약관·동의 정책 (PG-MBR-AGR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 필수 약관 동의 <span class="mono">(PI-MBR-AGR-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합회원 가입에 필요한 필수 약관은 모두 동의해야 가입 완료를 허용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선택 동의 처리 <span class="mono">(PI-MBR-AGR-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선택 동의 미동의는 회원가입 자체를 제한하지 않으며 맞춤 혜택, 마케팅 수신, 위치 기반 안내 등 해당 기능만 제한한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 서비스별 추가 동의 <span class="mono">(PI-MBR-AGR-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개별 서비스 이용 시 필요한 약관은 가입 시 일괄 강제하지 않고 해당 서비스 진입 시 추가 동의로 수집한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 이력 <span class="mono">(PI-MBR-AGR-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동의 결과는 약관 버전, 동의 일시, 채널, 철회 여부, 대리 동의 여부와 함께 이력으로 저장한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대리 동의 이력 <span class="mono">(PI-MBR-AGR-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 대리 동의는 약관 버전, 동의 항목, 대리인 식별값, 처리 일시, 철회 여부를 이력으로 저장한다.</span><span class="policy-item-line">- 고객이 성년이 된 이후에는 대리 동의 유지 여부와 직접 동의 전환 필요 여부를 안내한다.</span></div>
+</div>
+</div>
+
+<h4>4) 입력·정보 재사용 정책 (PG-MBR-INP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 필수 입력 최소화 <span class="mono">(PI-MBR-INP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입 완료에 필요한 입력은 이름, 연락처, 식별정보, 로그인 수단, 필수 동의처럼 필수 항목으로 제한한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 정보 재사용 <span class="mono">(PI-MBR-INP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 본인확인 결과, 기존 고객 정보, 오프라인 가입 정보, 기기 정보는 고객 확인 후 재사용하고 고객이 수정 가능한 항목을 구분한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 진행 상태 저장 <span class="mono">(PI-MBR-INP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입 진행 단계, 입력값, 인증 성공 여부, 동의 결과는 재진입 복원을 위해 임시 저장하되 민감 인증 원문은 저장하지 않는다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복원 불가 안내 <span class="mono">(PI-MBR-INP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 세션 만료, 인증 만료, 민감 정보 보호 사유로 복원이 불가하면 손실 범위와 다시 입력해야 하는 항목을 안내한다.</span></div>
+</div>
+</div>
+
+<h4>5) 상태·세션 정책 (PG-MBR-STS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상태 표시 <span class="mono">(PI-MBR-STS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객에게는 가입 진행 중, 추가 인증 필요, 가입 완료, 이용 제한, 탈퇴 보류, 탈퇴 완료 상태를 이해 가능한 문구로 표시한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자동 로그인 해제 <span class="mono">(PI-MBR-STS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로그아웃, 탈퇴 완료, 비밀번호 변경, 기기 변경, 위험 로그인 감지 시 자동 로그인과 간편 로그인 세션을 해제한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 세션 만료 복귀 <span class="mono">(PI-MBR-STS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 세션 만료 후 재로그인하면 직전 목적 화면으로 복귀시키되 민감 업무는 재인증 후 진행한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상태 변경 이력 <span class="mono">(PI-MBR-STS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 회원 상태 변경은 변경 전 상태, 변경 후 상태, 사유, 처리 주체, 처리 일시를 이력으로 저장한다.</span></div>
+</div>
+</div>
+
+<h4>6) 로그인·계정 복구 정책 (PG-MBR-LGN-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 아이디 찾기 결과 <span class="mono">(PI-MBR-LGN-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 아이디 찾기 결과는 일부 마스킹하여 제공하고, 고객이 바로 로그인하거나 비밀번호 재설정으로 이동할 수 있게 한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 비밀번호 정책 <span class="mono">(PI-MBR-LGN-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 새 비밀번호는 길이, 문자 조합, 이전 비밀번호 재사용 제한 기준을 충족해야 하며 실패 사유를 구체적으로 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 식별자 불일치 <span class="mono">(PI-MBR-LGN-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 휴대폰 번호, 이메일, CI가 기존 계정과 불일치하면 계정 찾기, 정정, 통합 절차 중 가능한 경로를 제시한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복구 성공 처리 <span class="mono">(PI-MBR-LGN-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 계정 복구 성공 후에는 최근 로그인 이력, 등록 인증수단, 추가 인증 필요 업무를 요약해 안내한다.</span></div>
+</div>
+</div>
+
+<h4>7) 소셜·간편 로그인 정책 (PG-MBR-SOC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• OAuth 연결 분기 <span class="mono">(PI-MBR-SOC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 소셜 최초 로그인은 신규 가입, 기존 계정 연결, 중복 계정 확인으로 분기하고 민감 업무는 별도 본인확인을 요구한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 소셜 연결 해제 <span class="mono">(PI-MBR-SOC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 소셜 계정 해제는 대체 로그인 수단이 1개 이상 등록된 경우에만 허용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 간편 로그인 등록 <span class="mono">(PI-MBR-SOC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 간편 로그인 등록은 해당 기기에서 본인확인이 완료된 세션에서만 허용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 외부 계정 오류 <span class="mono">(PI-MBR-SOC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외부 계정 삭제, 제공자 장애, 권한 철회로 로그인 실패 시 비밀번호 로그인 또는 본인확인 복구 경로를 안내한다.</span></div>
+</div>
+</div>
+
+<h4>8) 외국인·미성년 예외 정책 (PG-MBR-FGN-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 외국인 가입 대상 <span class="mono">(PI-MBR-FGN-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외국인 가입 대상은 국내 거주 외국인, 단기 체류자, 해외 거주자 중 정책상 지원 대상만 허용하고 미지원 대상은 대체 경로를 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 외국인 입력 기준 <span class="mono">(PI-MBR-FGN-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외국인 가입 정보는 외국인등록번호, 영문명, 생년월일, 국적, 체류정보 중 필수·선택 항목과 수집 목적을 구분한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미성년 동의 <span class="mono">(PI-MBR-FGN-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 만 14세 미만 또는 정책상 대리 동의가 필요한 고객은 법정대리인 인증과 동의가 완료된 경우에만 가입을 허용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예외 인증 실패 <span class="mono">(PI-MBR-FGN-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외국인·미성년 인증 실패는 재시도, 다른 인증수단, 서류 접수, 고객센터 연결 순서로 복구 경로를 제공한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대리권 확인 <span class="mono">(PI-MBR-FGN-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법정대리인 동의는 대리인 본인확인, 고객과의 관계 확인, 동의 대상 업무가 모두 충족된 경우에만 유효하다.</span><span class="policy-item-line">- 관계 확인에 실패하면 가입 또는 변경을 완료하지 않고 대체 인증 또는 고객센터 경로를 안내한다.</span></div>
+</div>
+</div>
+
+<h4>9) 그룹·법인 회원 정책 (PG-MBR-GRP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 그룹 가입 게이트 <span class="mono">(PI-MBR-GRP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 그룹 가입은 로그인 상태, 실명 여부, 연령, 대표자 권한, 법인 이용 가능 범위가 충족된 경우에만 진행한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 초대 상태 제어 <span class="mono">(PI-MBR-GRP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 그룹 초대는 발송, 대기, 수락, 만료, 취소, 재발송 상태별로 허용 행동과 안내 문구를 다르게 적용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 역할별 권한 <span class="mono">(PI-MBR-GRP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 대표자, 관리자, 구성원은 조회 가능한 정보, 수정 가능한 항목, 탈퇴 가능 여부를 역할별로 분리한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대표자 탈퇴 제한 <span class="mono">(PI-MBR-GRP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 대표자는 대표자 변경 또는 그룹 해산이 완료되기 전 구성원 탈퇴나 회원 탈퇴를 완료할 수 없다.</span></div>
+</div>
+</div>
+
+<h4>10) 중복 계정·병합 정책 (PG-MBR-MRG-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 중복 감지 기준 <span class="mono">(PI-MBR-MRG-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- CI, 휴대폰 번호, 이메일, 소셜 식별자 중 둘 이상이 기존 계정과 일치하면 중복 계정 후보로 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 병합 전 영향 안내 <span class="mono">(PI-MBR-MRG-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 병합 전에는 승계 정보, 삭제 또는 정리 정보, 복구 불가 항목, 서비스 연결 영향, 상담 필요 사유를 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 병합 제한 <span class="mono">(PI-MBR-MRG-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 명의 불일치, 법인·개인 혼재, 미성년 대리 동의 미확보, 데이터 충돌이 있으면 셀프 병합을 제한한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 병합 이력 <span class="mono">(PI-MBR-MRG-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 병합 결과는 병합 대상 계정, 고객 확인 결과, 처리 일시, 처리 후 대표 계정, 실패 사유와 함께 저장한다.</span></div>
+</div>
+</div>
+
+<h4>11) 회원 탈퇴 정책 (PG-MBR-OUT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 탈퇴 선행 조건 <span class="mono">(PI-MBR-OUT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 회원 탈퇴 전 미처리 주문, 미정산 금액, 이용 중 서비스, 잔여 혜택, 그룹 대표자 권한, 법정 보관 사유를 확인한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 탈퇴 영향도 안내 <span class="mono">(PI-MBR-OUT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 탈퇴 전 소멸 혜택, 쿠폰, 구독, 이용 이력, 로그인 권한, 재가입 제한, 보관 예외를 요약과 상세로 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 탈퇴 최종 확인 <span class="mono">(PI-MBR-OUT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 탈퇴 최종 단계는 비밀번호 재입력 또는 본인확인을 요구하고 복구 불가 항목을 확인한 뒤 처리한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 탈퇴 보류 처리 <span class="mono">(PI-MBR-OUT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선행 조치가 남아 있으면 탈퇴 완료 대신 탈퇴 보류 상태로 관리하고 해결 경로와 재시도 가능 시점을 안내한다.</span></div>
+</div>
+</div>
+
+<h4>12) 재가입·복구 정책 (PG-MBR-RET-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 재가입 가능 시점 <span class="mono">(PI-MBR-RET-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 재가입은 탈퇴 완료 상태, 제한 이력, 동일 식별정보 재사용 제한, 보관 예외가 모두 확인된 경우에만 허용한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재이용 제한 안내 <span class="mono">(PI-MBR-RET-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 재가입 후에도 일부 서비스, 혜택, 쿠폰, 이력은 복구되지 않을 수 있음을 가입 전 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복구 가능 범위 <span class="mono">(PI-MBR-RET-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 탈퇴 유예 또는 보류 상태에서는 본인확인 후 철회 또는 복구를 허용하되 탈퇴 완료 후에는 신규 가입 기준을 따른다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복구 불가 고지 <span class="mono">(PI-MBR-RET-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법정 보관 외 파기 완료, 병합 확정, 탈퇴 완료 후 유예 종료 항목은 고객 셀프 복구 불가로 고지한다.</span></div>
+</div>
+</div>
+
+<h4>13) 보안·위험 알림 정책 (PG-MBR-SEC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 이상 로그인 알림 <span class="mono">(PI-MBR-SEC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 새 기기, 이상 위치, 반복 실패, 위험 세션이 감지되면 고객에게 알림을 발송하고 본인 아님 신고 경로를 제공한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 계정 잠금 <span class="mono">(PI-MBR-SEC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 계정의 인증 또는 로그인 실패가 정책 기준을 초과하면 계정을 잠금 처리하고 해제 방법을 안내한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 민감 화면 보호 <span class="mono">(PI-MBR-SEC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 바코드, 쿠폰코드, 개인정보, 결제 관련 화면은 설정 또는 정책에 따라 생체·간편비밀번호 재인증 후 노출한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 원격 세션 종료 <span class="mono">(PI-MBR-SEC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 로그인 기기·세션 목록에서 선택 또는 전체 세션을 원격 로그아웃할 수 있다.</span></div>
+</div>
+</div>
+
+<h4>14) 이력·보관 정책 (PG-MBR-HIS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 가입 이력 <span class="mono">(PI-MBR-HIS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입과 전환 처리는 신청 경로, 인증 결과, 동의 버전, 회원 유형, 완료 여부를 이력으로 저장한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 로그 <span class="mono">(PI-MBR-HIS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인증기관 결과 로그는 성공 여부, 인증수단, 일시, 유효 범위, 실패 사유를 저장하고 신분증 이미지 직접 보관은 지양한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 탈퇴 보관 예외 <span class="mono">(PI-MBR-HIS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 탈퇴 후에도 법령, 정산, 분쟁, 부정 이용 방지 목적의 정보는 별도 보관 대상으로 분리한다.</span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 마스킹 및 접근 권한 <span class="mono">(PI-MBR-HIS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 회원 식별정보와 인증 이력은 조회 권한을 제한하고 고객 화면과 운영자 화면에서 필요한 범위만 마스킹해 노출한다.</span></div>
+</div>
+</div>
+
+	
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">회원 가입·탈퇴 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 회원 가입·탈퇴 범위가 계정 생성, 인증, 동의, 그룹·법인, 탈퇴, 재가입까지 고객 과업 기준으로 명확한지 확인한다.</div><div class="guide-section-title">2. 로그인 고객, 비로그인 고객, 정상 고객, 제한 고객을 액터로 분리하지 않고 상태와 정책 조건으로 관리했는지 확인한다.</div><div class="guide-section-title">3. 사람 액터 유즈케이스는 프로세스 정의 대상 Y, 시스템 액터 유즈케이스는 N으로 관리했는지 확인한다.</div><div class="guide-section-title">4. 상태 전이 이벤트가 유즈케이스 또는 고객 업무 이벤트로 작성되고 상태명은 상태 코드 목록과 일치하는지 확인한다.</div><div class="guide-section-title">5. 가입·탈퇴 프로세스마다 관련 기능과 관련 정책이 실제 ID와 정책명으로 연결되는지 확인한다.</div><div class="guide-section-title">6. 정책 항목이 허용 기준, 제한 조건, 시간, 횟수, 상태, 예외, 고지, 이력 중 하나 이상을 포함하는지 확인한다.</div><div class="guide-section-title">7. 탈퇴 전 선행 조치, 영향도, 보류, 재가입 제한, 복구 불가 기준이 고객에게 사전 안내되는지 확인한다.</div><div class="guide-section-title">8. 외국인, 미성년, 법정대리인, 그룹·법인, 중복 계정 같은 예외 흐름이 정책과 상태로 추적 가능한지 확인한다.</div><div class="guide-section-title">9. 요구사항 상세명과 설명에서 확인된 가입, 인증, 로그인, 탈퇴, 보안, 그룹·법인 요구가 프로세스·기능·정책 중 하나 이상에 반영되었는지 확인한다.</div><div class="guide-section-title">10. 개발자가 기능 설계 항목으로, QA가 테스트 조건과 기대 결과로 전환할 수 있는 수준인지 확인한다.</div>
+</div>
+
+</div>
+</body>
+</html>

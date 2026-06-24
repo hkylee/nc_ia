@@ -1,0 +1,64 @@
+{
+  "status": "pass",
+  "score": 100,
+  "scope": "02_terms",
+  "checked_at": "2026-05-08T11:48:39",
+  "summary": "검수 통과. 점수 100점이며 양식, 가이드, 샘플 수준 기준을 충족합니다.",
+  "findings": [],
+  "metrics": {
+    "input_mode": "json",
+    "scope": "02_terms",
+    "term_count": 15,
+    "actor_count": 0,
+    "usecase_count": 0,
+    "state_count": 0,
+    "transition_count": 0,
+    "process_count": 0,
+    "function_count": 0,
+    "process_detail_count": 0,
+    "function_detail_count": 0,
+    "policy_group_count": 0,
+    "policy_detail_count": 0,
+    "final_check_count": 0,
+    "local_precheck": {
+      "issue_count": 0,
+      "missing_link_count": 0,
+      "matrix_rows": 0,
+      "missing_policy_detail_groups": 0
+    },
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "input_mode": "json",
+      "model": "mock-policy-agent",
+      "reasoning_effort": "none",
+      "status": "strict_mock",
+      "summary": "LLM 미사용 모드에서 pass 응답 대신 로컬 strict 규칙으로 검수했습니다.",
+      "prompt_chars": 0,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "stage_inspector_profile": {
+        "role": "Terms Inspector",
+        "focus": "상태·권한·인증·동의·보관·정책 판단값 용어의 해석 기준",
+        "must_verify": [
+          "일반 명사가 아니라 정책 판단이나 상태/권한 조건에 쓰이는 용어인지",
+          "유사 용어 차이와 업무상 판단 기준이 설명에 포함됐는지",
+          "후속 상태·정책에서 같은 개념을 다른 이름으로 중복 정의하지 않도록 기준이 되는지"
+        ],
+        "do_not_flag": [
+          "상태성 용어가 용어 장에 먼저 정의되어 있다는 이유",
+          "후속 상태 코드 목록이 아직 완성되지 않은 단계의 자연스러운 후보 용어"
+        ],
+        "pass_condition": "후속 장에서 용어 해석 충돌을 줄이는 판단 기준 역할을 함"
+      },
+      "strict_findings": 0
+    },
+    "score_breakdown": {
+      "score": 100,
+      "total_penalty": 0,
+      "gate_blocker_count": 0,
+      "gate_blockers": [],
+      "items": []
+    }
+  }
+}

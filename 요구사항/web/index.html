@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
+  <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
+  <meta name="tdm-reservation" content="1"/>
+  <meta name="ai-train" content="no"/>
+  <title>NOVA 기획 studio</title>
+  <link rel="stylesheet" href="/styles.css?v=side-tree-collapsed-1"/>
+</head>
+<body class="access-locked">
+  <section id="accessGate" class="access-gate" aria-label="로그인">
+    <div class="access-gate-card">
+      <p class="eyebrow">NOVA Account</p>
+      <h1>NOVA 기획 studio 로그인</h1>
+      <p>회원 가입 후 이용 가능합니다.</p>
+      <div class="access-mode-tabs" role="tablist" aria-label="로그인 또는 회원가입">
+        <button id="accessModeLoginButton" class="active" type="button">로그인</button>
+        <button id="accessModeSignupButton" type="button">회원가입</button>
+        <button id="accessModeResetButton" type="button">비밀번호 재설정</button>
+      </div>
+      <form id="accessLoginForm" class="access-gate-form access-panel">
+        <label>
+          <span>사번</span>
+          <input id="loginEmployeeIdInput" type="text" autocomplete="username" placeholder="사번을 입력하세요"/>
+        </label>
+        <label>
+          <span>비밀번호</span>
+          <input id="loginPasswordInput" type="password" autocomplete="current-password" placeholder="비밀번호를 입력하세요"/>
+        </label>
+        <button id="accessLoginButton" type="submit">로그인</button>
+      </form>
+      <form id="accessSignupForm" class="access-gate-form access-panel" hidden>
+        <label>
+          <span>이름</span>
+          <input id="signupNameInput" type="text" autocomplete="name" placeholder="이름을 입력하세요"/>
+        </label>
+        <label>
+          <span>사번</span>
+          <input id="signupEmployeeIdInput" type="text" autocomplete="username" placeholder="사번을 입력하세요"/>
+        </label>
+        <label>
+          <span>비밀번호</span>
+          <input id="signupPasswordInput" type="password" autocomplete="new-password" placeholder="6자 이상 입력하세요"/>
+        </label>
+        <label>
+          <span>비밀번호 확인</span>
+          <input id="signupPasswordConfirmInput" type="password" autocomplete="new-password" placeholder="비밀번호를 한 번 더 입력하세요"/>
+        </label>
+        <label>
+          <span>입장 코드</span>
+          <input id="signupEntryCodeInput" type="password" inputmode="numeric" autocomplete="one-time-code" placeholder="입장 코드를 입력하세요"/>
+        </label>
+        <button id="accessSignupButton" type="submit">계정 만들기</button>
+      </form>
+      <form id="accessResetForm" class="access-gate-form access-panel" hidden>
+        <label>
+          <span>사번</span>
+          <input id="resetEmployeeIdInput" type="text" autocomplete="username" placeholder="사번을 입력하세요"/>
+        </label>
+        <label>
+          <span>새 비밀번호</span>
+          <input id="resetPasswordInput" type="password" autocomplete="new-password" placeholder="6자 이상 입력하세요"/>
+        </label>
+        <label>
+          <span>새 비밀번호 확인</span>
+          <input id="resetPasswordConfirmInput" type="password" autocomplete="new-password" placeholder="비밀번호를 한 번 더 입력하세요"/>
+        </label>
+        <label>
+          <span>입장 코드</span>
+          <input id="resetEntryCodeInput" type="password" inputmode="numeric" autocomplete="one-time-code" placeholder="입장 코드를 입력하세요"/>
+        </label>
+        <button id="accessResetButton" type="submit">비밀번호 재설정</button>
+      </form>
+      <p id="accessGateMessage" class="access-gate-message">사번과 비밀번호로 로그인하거나, 입장 코드로 계정을 만들어 주세요.</p>
+    </div>
+  </section>
+  <main class="app-shell">
+    <aside class="side-nav" aria-label="정책서 주제 현황">
+      <div class="side-nav-head">
+        <button id="brandHomeButton" class="brand-lockup" type="button" aria-label="웰컴 화면으로 이동">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <strong>NOVA 기획 studio</strong>
+            <small>기획서 작성 워크스페이스</small>
+          </div>
+        </button>
+        <button id="sideNavToggle" class="side-nav-toggle" type="button" aria-controls="policyTopicList" aria-expanded="true" title="주제 목록 접기">
+          <span class="side-nav-toggle-icon" aria-hidden="true"></span>
+          <span class="side-nav-toggle-text">접기</span>
+        </button>
+      </div>
+
+      <section class="topic-status-panel" aria-label="정책서 주제별 작성 상태">
+        <label class="topic-status-search">
+          <span class="sr-only">정책서 주제 검색</span>
+          <input id="topicStatusSearch" type="search" placeholder="주제, 상태, 버전 검색"/>
+        </label>
+        <div id="policyTopicList" class="policy-topic-list"></div>
+      </section>
+    </aside>
+
+    <section class="main-stage">
+      <section id="welcomeArea" class="welcome-panel">
+        <div class="welcome-top-actions">
+          <div id="signedInUserBadge" class="signed-in-user-badge" hidden>
+            <span id="signedInUserName">-</span>
+            <button id="accessLogoutButton" type="button">로그아웃</button>
+          </div>
+          <div class="llm-choice-panel welcome-llm-choice-panel" role="group" aria-label="LLM 사용 여부">
+            <p class="choice-group-title">LLM 사용 여부</p>
+            <div class="llm-choice-tabs">
+              <label>
+                <input type="radio" name="writerMode" value="llm"/>
+                <span>사용</span>
+              </label>
+              <label>
+                <input type="radio" name="writerMode" value="mock" checked/>
+                <span>미사용</span>
+              </label>
+            </div>
+          </div>
+          <button id="piCheckButton" class="ghost-button" type="button">PI Check</button>
+          <button id="channelPiStatusButton" class="ghost-button" type="button" hidden>채널 PI 현황</button>
+          <button id="userManagementButton" class="ghost-button" type="button" hidden>사용자 관리</button>
+          <button id="serviceHealthButton" class="ghost-button" type="button">서비스 관리</button>
+        </div>
+        <div class="welcome-hero">
+          <div class="welcome-copy">
+            <p class="eyebrow">Welcome</p>
+            <h1>AI와 함께 기획서를 작성하세요</h1>
+            <p>기획서 초안 작성에서 수정/보완까지 AI로 한 번에!</p>
+            <ol class="welcome-workflow" aria-label="정책서 작성 기본 흐름">
+              <li><span>1</span><strong>작성 주제 선택</strong></li>
+              <li><span>2</span><strong>AI로 초안 자동 또는 수동 생성</strong></li>
+              <li><span>3</span><strong>AI와 함께 수정/보완</strong></li>
+            </ol>
+          </div>
+          <div class="welcome-orbit" aria-hidden="true">
+            <span class="orbit-node node-a">Collect</span>
+            <span class="orbit-node node-b">Write</span>
+            <span class="orbit-node node-c">Inspect</span>
+            <span class="orbit-core">NOVA</span>
+          </div>
+        </div>
+
+        <details class="welcome-guide-card">
+          <summary>
+            <span class="welcome-guide-index">Guide</span>
+            <strong>정책서 작성은 어떻게 하는 건가요?</strong>
+            <small>작성 원칙과 품질 기준을 한눈에 확인합니다.</small>
+          </summary>
+          <figure class="welcome-guide-figure">
+            <img src="/assets/policy-writing-guide.png" alt="정책서는 방향이 깍듯 쓴다. 모호함 없이 예외까지 끝까지 책임진다는 정책서 작성 원칙 안내 이미지"/>
+          </figure>
+          <section class="welcome-commandments" aria-label="정책서 작성 10계명">
+            <div class="welcome-commandments-head">
+              <p class="eyebrow">Policy Writing Rules</p>
+              <h3>정책서 작성 10계명</h3>
+              <p>방망이 깎듯, 한 줄도 대충 쓰지 않습니다.</p>
+            </div>
+            <div class="welcome-commandments-grid">
+              <div class="welcome-commandments-column">
+                <article>
+                  <span>01</span>
+                  <h4>정상 프로세스를 먼저 정의하라</h4>
+                  <p>정책서는 예외부터 쓰는 문서가 아닙니다. 고객·운영자·시스템이 정상적으로 흘러가는 기본 경로를 먼저 명확히 정의합니다.</p>
+                </article>
+                <article>
+                  <span>02</span>
+                  <h4>예외와 실패 케이스를 끝까지 정의하라</h4>
+                  <p>정상만 정의된 정책은 반쪽짜리입니다. 오류, 중단, 취소, 실패, 미완료, 중복, 지연, 권한 없음, 데이터 없음까지 정의합니다.</p>
+                </article>
+                <article>
+                  <span>03</span>
+                  <h4>프로세스에 교착을 남기지 말라</h4>
+                  <p>고객이나 운영자가 다음 행동을 알 수 없는 상태에 빠지면 안 됩니다. 대기, 보류, 실패 상태에도 반드시 종료 조건과 후속 처리를 둡니다.</p>
+                </article>
+                <article>
+                  <span>04</span>
+                  <h4>불필요한 단계를 줄이라</h4>
+                  <p>프로세스는 길수록 비용이 커집니다. 고객 입력, 운영 승인, 시스템 처리, 화면 이동 중 줄일 수 있는 단계는 줄이고 합칠 수 있는 단계는 합칩니다.</p>
+                </article>
+                <article>
+                  <span>05</span>
+                  <h4>모든 절차에는 이유가 있어야 한다</h4>
+                  <p>“기존에 그렇게 했다”는 이유가 될 수 없습니다. 모든 단계는 고객 가치, 법·정책 준수, 보안, 운영 효율, 데이터 정합성 중 하나로 설명되어야 합니다.</p>
+                </article>
+              </div>
+              <div class="welcome-commandments-column">
+                <article>
+                  <span>06</span>
+                  <h4>화면, 입력, 처리, 출력을 빠짐없이 정의하라</h4>
+                  <p>정책은 말이 아니라 동작으로 완성됩니다. 각 단계마다 고객이 보는 화면, 입력하는 값, 시스템 처리, 결과 출력을 구체적으로 정의합니다.</p>
+                </article>
+                <article>
+                  <span>07</span>
+                  <h4>숫자와 데이터로 기준을 명확히 하라</h4>
+                  <p>“일정 기간”, “일부 고객”, “과도한 사용”, “빠른 처리”처럼 모호하게 쓰지 않습니다. 기간, 횟수, 금액, 비율, 상태값, 대상 조건을 숫자와 데이터 기준으로 씁니다.</p>
+                </article>
+                <article>
+                  <span>08</span>
+                  <h4>상태값과 판단 기준을 일관되게 관리하라</h4>
+                  <p>같은 의미를 다른 말로 쓰지 않습니다. 신청, 접수, 처리중, 완료, 실패, 취소, 철회, 만료 등 상태값은 문서 전체에서 일관되게 사용합니다.</p>
+                </article>
+                <article>
+                  <span>09</span>
+                  <h4>사람이 판단하지 않게 하라</h4>
+                  <p>좋은 정책은 사람의 해석에 기대지 않습니다. 사람이 매번 판단해야 하는 문장은 기준이 부족한 문장입니다. 판단 기준, 우선순위, 예외 처리 원칙을 명시합니다.</p>
+                </article>
+                <article>
+                  <span>10</span>
+                  <h4>정책의 끝은 실행과 검증이다</h4>
+                  <p>정책서는 작성되었다고 끝나는 문서가 아닙니다. 개발 가능성, 운영 가능성, 데이터 검증, 고객 안내, 모니터링 기준까지 확인되어야 완성됩니다.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </details>
+
+        <section class="welcome-secondary" aria-label="운영 현황·지식 구조·Agent 상세">
+          <div class="welcome-secondary-body">
+        <section class="dashboard-section" aria-label="정책서 및 에이전트 현황">
+          <div class="catalog-head">
+            <div>
+              <p class="eyebrow">Workspace Dashboard</p>
+              <h2>현황 한눈에 보기</h2>
+            </div>
+            <p>주제별 작성 상태와 Agent 호출·토큰 사용량을 집계합니다.</p>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="dashboard-card policy-dashboard-card">
+              <div class="dashboard-card-head">
+                <span class="dashboard-icon">P</span>
+                <div>
+                  <strong>작성 현황</strong>
+                  <p>좌측 주제 기준의 현재 작성 상태입니다.</p>
+                </div>
+              </div>
+              <div class="policy-stat-grid">
+                <div class="policy-stat total">
+                  <span>전체 주제</span>
+                  <strong id="dashboardTotalPolicies">-</strong>
+                </div>
+                <div class="policy-stat draft">
+                  <span>작성 중</span>
+                  <strong id="dashboardDraftPolicies">-</strong>
+                </div>
+                <div class="policy-stat done">
+                  <span>작성 완료</span>
+                  <strong id="dashboardCompletedPolicies">-</strong>
+                </div>
+                <div class="policy-stat todo">
+                  <span>작성 필요</span>
+                  <strong id="dashboardTodoPolicies">-</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="dashboard-card agent-dashboard-card">
+              <div class="dashboard-card-head">
+                <span class="dashboard-icon">A</span>
+                <div class="dashboard-card-copy">
+                  <strong>에이전트 현황</strong>
+                  <p id="agentDashboardMeta">LLM 호출 로그를 불러오고 있습니다.</p>
+                </div>
+                <div class="agent-usage-summary" aria-label="에이전트 호출 및 자원 사용 요약">
+                  <span>총 호출 <b id="agentTotalCalls">-</b></span>
+                  <span>총 토큰 <b id="agentTotalTokens">-</b></span>
+                  <span>총 비용 <b id="agentTotalCost">-</b></span>
+                  <span>디스크 현황 <b id="agentDiskUsage">-</b></span>
+                </div>
+              </div>
+              <div class="agent-usage-table-wrap">
+                <table class="agent-usage-table">
+                  <thead>
+                    <tr>
+                      <th>Agent</th>
+                      <th>호출</th>
+                      <th>토큰</th>
+                    </tr>
+                  </thead>
+                  <tbody id="agentDashboardRows">
+                    <tr><td colspan="3">집계 데이터를 준비 중입니다.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section" aria-label="Agent 카탈로그">
+          <div class="catalog-head">
+            <div>
+              <p class="eyebrow">Agent Catalog</p>
+              <h2>기획서를 나눠 맡는 전문 Agent</h2>
+            </div>
+            <p>자료를 수집하고, 주제 학습과 Blueprint 설계를 거쳐 장별 작성·검수·보완까지 연결합니다.</p>
+          </div>
+
+          <div class="agent-catalog-grid">
+            <article class="agent-product-card source-card">
+              <span class="agent-badge">Source</span>
+              <strong>Source Collector</strong>
+              <p>요구사항, 참고자료, 템플릿, 샘플 정책서를 읽고 작성 근거를 정리합니다.</p>
+              <small>자료 수집 · 파싱 · 표준화</small>
+            </article>
+            <article class="agent-product-card evidence-card">
+              <span class="agent-badge">Evidence</span>
+              <strong>Evidence Store</strong>
+              <p>참고자료 DB와 요구사항 근거를 Evidence 단위로 관리하고, 벡터 검색은 주제 근거가 있을 때만 보조합니다.</p>
+              <small>근거 DB · 하이브리드 검색 · 출처 보존</small>
+            </article>
+            <article class="agent-product-card learning-card">
+              <span class="agent-badge">Learn</span>
+              <strong>Topic Learning Agent</strong>
+              <p>작성 주제와 관련된 요구사항, 참고자료, 샘플 패턴을 먼저 학습해 작성 관점과 핵심 판단축을 도출합니다.</p>
+              <small>주제 이해 · 범위 감지 · 작성 방향</small>
+            </article>
+            <article class="agent-product-card blueprint-card">
+              <span class="agent-badge">Blueprint</span>
+              <strong>Blueprint Architect</strong>
+              <p>액터→유즈케이스→프로세스→기능→정책 계층과 장별 작성 기준을 먼저 설계합니다.</p>
+              <small>작성 전략 · 계층 설계 · Coverage 기준</small>
+            </article>
+            <article class="agent-product-card context-card">
+              <span class="agent-badge">Context</span>
+              <strong>Context Assembler</strong>
+              <p>각 Agent가 필요한 근거만 선별해 장별 Context Pack을 구성합니다.</p>
+              <small>근거 선별 · 토큰 최적화</small>
+            </article>
+            <article class="agent-product-card writer-card-summary">
+              <span class="agent-badge">Writer</span>
+              <strong>Chapter Writer Agents</strong>
+              <p>Overview부터 Terms Review, Full 버전 상세 장까지 각 장을 전문 Agent가 순서대로 작성합니다.</p>
+              <small>개요 · 상태 · 프로세스 · 기능 · 정책 · 상세</small>
+            </article>
+            <article class="agent-product-card inspector-summary-card">
+              <span class="agent-badge">Gate</span>
+              <strong>Inspector Agent</strong>
+              <p>각 장 작성 후 구조, 연결성, 정책 구체성, 샘플 수준을 검수하고 보완점을 도출합니다.</p>
+              <small>Quality Gate · 보완 루프</small>
+            </article>
+            <article class="agent-product-card devqa-summary-card">
+              <span class="agent-badge">Dev QA</span>
+              <strong>Development QA Review Agent</strong>
+              <p>완성된 정책서가 개발 상세 설계와 QA 테스트 케이스 도출에 충분한지 별도로 검수합니다.</p>
+              <small>개발 준비도 · QA 시나리오 · 보완 권고</small>
+            </article>
+            <article class="agent-product-card revision-summary-card">
+              <span class="agent-badge">Output</span>
+              <strong>Renderer & Custom Revision Agent</strong>
+              <p>검증된 JSON을 HTML 템플릿에 렌더링하고, 이후 수정 요청도 문서 정합성 기준으로 보완합니다.</p>
+              <small>HTML 생성 · 버전 관리 · 수정</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section sequence-section" aria-label="Agent 실행 순서">
+          <div class="catalog-head">
+            <div>
+              <p class="eyebrow">Run Sequence</p>
+              <h2>작성 순서</h2>
+            </div>
+            <p>각 단계 완료 후 Inspector가 전체 정합성을 확인하고, 기준 미달 시 해당 Agent가 보완합니다.</p>
+          </div>
+
+          <div class="agent-flow-diagram enhanced-flow" aria-label="Agent 동작 다이어그램">
+            <div class="flow-track" aria-label="전체 작성 트랙">
+              <div class="flow-track-step">
+                <span>01</span>
+                <strong>Source 수집</strong>
+                <p>요구사항, 참고자료, 템플릿, 샘플을 표준화합니다.</p>
+              </div>
+              <div class="flow-track-step">
+                <span>02</span>
+                <strong>학습·Blueprint</strong>
+                <p>주제 학습 후 작성 전략과 계층 기준을 설계합니다.</p>
+              </div>
+              <div class="flow-track-step">
+                <span>03</span>
+                <strong>Context 구성</strong>
+                <p>각 Agent 실행 직전에 필요한 근거만 선별합니다.</p>
+              </div>
+              <div class="flow-track-step active">
+                <span>04</span>
+                <strong>Chapter Loop</strong>
+                <p>Writer 작성, Inspector 검수, 보완을 반복합니다.</p>
+              </div>
+              <div class="flow-track-step">
+                <span>05</span>
+                <strong>HTML 저장</strong>
+                <p>검증된 JSON을 템플릿에 렌더링하고 버전 관리합니다.</p>
+              </div>
+            </div>
+
+            <div class="flow-lane input-lane expanded-input-lane">
+              <span class="flow-kicker">Prepare</span>
+              <div class="flow-node collector">
+                <strong>Source Collector</strong>
+                <p>요구사항 · 참고자료 · 템플릿 · 샘플 수집</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node evidence">
+                <strong>Evidence Store</strong>
+                <p>요구사항, VoC, IA, 샘플, 참고자료 DB를 근거 단위로 정리</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node learning">
+                <strong>Topic Learning Agent</strong>
+                <p>주제별 핵심 과업, 판단축, 제외 범위, 근거 Gap 도출</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node blueprint">
+                <strong>Blueprint Architect</strong>
+                <p>계층 구조, 장별 작성 기준, Coverage Matrix 설계</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node context">
+                <strong>Context Assembler</strong>
+                <p>현재 챕터에 필요한 Context Pack만 전달</p>
+              </div>
+            </div>
+
+            <div class="flow-lane writer-lane enhanced-writer-lane">
+              <span class="flow-kicker">Chapter Loop</span>
+              <div class="chapter-loop-map" aria-label="챕터 작성 및 검수 루프">
+                <div class="chapter-track-card">
+                  <div class="chapter-track-head">
+                    <span>Chapter Order</span>
+                    <strong>각 챕터를 순서대로 작성하고, 통과한 결과만 다음 챕터의 기준으로 넘깁니다.</strong>
+                  </div>
+                  <div class="chapter-track" aria-label="챕터별 작성 Agent">
+                    <span>Overview</span>
+                    <span>Terms</span>
+                    <span>Actors</span>
+                    <span>Usecase</span>
+                    <span>Diagram</span>
+                    <span>State</span>
+                    <span>Process</span>
+                    <span>Process Detail</span>
+                    <span>Functions</span>
+                    <span>Function Detail</span>
+                    <span>Policies</span>
+                    <span>Terms Review</span>
+                    <span>Final Check</span>
+                  </div>
+                </div>
+
+                <div class="loop-flow-row">
+                  <article class="loop-card writer-card">
+                    <span class="node-step">A</span>
+                    <strong>Writer Agent</strong>
+                    <p>Blueprint, 이전 장 Approved Contract, 현재 Context Pack을 보고 담당 챕터만 작성합니다.</p>
+                    <div class="loop-tags">
+                      <span>현재 장 한정</span>
+                      <span>Patch 보완 우선</span>
+                      <span>Full 상세 대응</span>
+                    </div>
+                  </article>
+                  <div class="loop-connector" aria-hidden="true">→</div>
+                  <article class="loop-card spec-card">
+                    <span class="node-step">B</span>
+                    <strong>JSON Spec</strong>
+                    <p>ID, 연결 관계, 근거, Evidence Gap을 구조화합니다.</p>
+                    <div class="loop-tags">
+                      <span>ID</span>
+                      <span>Link</span>
+                      <span>Evidence</span>
+                    </div>
+                  </article>
+                  <div class="loop-connector" aria-hidden="true">→</div>
+                  <article class="loop-card inspector-card">
+                    <span class="node-step">C</span>
+                    <strong>Inspector Gate</strong>
+                    <p>문서 전체 정합성과 현재 장 품질을 함께 보고, 수정 포인트를 구조화합니다.</p>
+                    <div class="loop-tags">
+                      <span>Pass</span>
+                      <span>Revise</span>
+                      <span>Risk Flag</span>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="loop-decision-row" aria-label="Inspector 통과 및 미통과 동작">
+                  <div class="decision-card fail">
+                    <span>미통과</span>
+                    <strong>Finding 배치 → 현재 장 Patch 보완 → 재검수</strong>
+                    <p>P1 필수 오류, P2 정합성·구체성, P3 표현·간결성 순서로 최대 3회 보완합니다.</p>
+                  </div>
+                  <div class="decision-return" aria-hidden="true">↺</div>
+                  <div class="decision-card pass">
+                    <span>통과</span>
+                    <strong>Approved Contract 확정</strong>
+                    <p>확정된 핵심 ID와 연결 기준만 다음 챕터 Agent에게 전달합니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-lane output-lane enhanced-output-lane">
+              <span class="flow-kicker">Finish</span>
+              <div class="flow-node contract">
+                <strong>Approved Contract</strong>
+                <p>통과한 챕터의 핵심 ID와 연결 기준을 다음 Agent에 전달</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node final">
+                <strong>Final Inspector</strong>
+                <p>유즈케이스 → 프로세스 → 기능 → 정책 연결성 최종 점검</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node renderer">
+                <strong>HTML Renderer</strong>
+                <p>템플릿에 렌더링하고 버전 저장</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">↔</div>
+              <div class="flow-node revision">
+                <strong>Custom Revision Agent</strong>
+                <p>수정 요청 의도 분석 후 관련 장만 보완</p>
+              </div>
+            </div>
+          </div>
+        </section>
+          </div>
+        </section>
+      </section>
+
+      <div id="channelPiArea" class="modal-backdrop channel-pi-backdrop" hidden>
+      <section class="channel-pi-panel channel-pi-modal" role="dialog" aria-modal="true" aria-labelledby="channelPiTitle">
+        <header class="channel-pi-hero">
+          <div>
+            <p class="eyebrow">Channel PI Status</p>
+            <h2 id="channelPiTitle">채널 PI 현황</h2>
+            <p id="channelPiSummary">현황 분석 자료와 정책서가 서로 잘 정렬되어 있는지 새 정렬 에이전트로 종합 진단합니다.</p>
+          </div>
+          <div class="channel-pi-actions">
+            <button id="channelPiHomeButton" class="modal-close" type="button" aria-label="채널 PI 현황 닫기">닫기</button>
+            <button id="channelPiDiagnoseButton" class="primary-button compact" type="button">재 진단</button>
+          </div>
+        </header>
+
+        <section id="channelPiStatusCard" class="channel-pi-status-card">
+          <span>진단 대기</span>
+          <strong>정렬 에이전트 준비</strong>
+          <p>채널 PI 현황 버튼을 누르면 최신 정책서와 현황 분석 지식을 기준으로 결과를 불러옵니다.</p>
+        </section>
+
+        <section id="channelPiProgress" class="channel-pi-progress" aria-live="polite" hidden>
+          <div class="channel-pi-progress-head">
+            <div>
+              <span id="channelPiProgressLabel">점검 준비</span>
+              <strong id="channelPiProgressTitle">정렬 에이전트가 진단을 준비하고 있습니다.</strong>
+            </div>
+            <em id="channelPiProgressPercent">0%</em>
+          </div>
+          <div class="channel-pi-progress-track" aria-hidden="true">
+            <span id="channelPiProgressBar"></span>
+          </div>
+          <div id="channelPiProgressSteps" class="channel-pi-progress-steps"></div>
+        </section>
+
+        <section class="channel-pi-stage-section" aria-label="기획 산출물 연결 단계">
+          <div class="channel-pi-stage-head">
+            <div>
+              <h3>기획 산출물 연결 단계</h3>
+              <p>현황 분석에서 정책서까지 이어지는 4단계 흐름을 기준으로 정렬 상태를 확인합니다.</p>
+            </div>
+          </div>
+          <div id="channelPiStageFlow" class="channel-pi-stage-flow">
+            <article>
+              <span>01</span>
+              <strong>현황 분석</strong>
+              <em>분석 근거</em>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>과제 정의</strong>
+              <em>전략 과제</em>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>요구사항</strong>
+              <em>상세 기준</em>
+            </article>
+            <article>
+              <span>04</span>
+              <strong>정책서</strong>
+              <em>실행 정책</em>
+            </article>
+          </div>
+        </section>
+
+        <div id="channelPiStats" class="channel-pi-stat-grid" aria-label="채널 PI 핵심 지표"></div>
+
+        <section class="channel-pi-section" aria-label="진단 영역">
+          <div class="channel-pi-section-head">
+            <div>
+              <h3>진단 영역</h3>
+              <p>분석 근거, 정책 판단, 요구사항 trace, 정책 구체성을 나누어 봅니다.</p>
+            </div>
+            <span id="channelPiDimensionCount">0개 축</span>
+          </div>
+          <div id="channelPiDimensionList" class="channel-pi-dimension-list empty">진단 결과를 기다리고 있습니다.</div>
+        </section>
+
+        <section class="channel-pi-section" aria-label="분석 출처별 반영도">
+          <div class="channel-pi-section-head">
+            <div>
+              <h3>분석 출처별 반영도</h3>
+              <p>현황 분석 지식이 정책서에 어느 정도 근거로 연결되는지 확인합니다.</p>
+            </div>
+            <span id="channelPiSourceCount">0개 출처</span>
+          </div>
+          <div id="channelPiSourceList" class="channel-pi-source-list empty">분석 출처별 결과를 기다리고 있습니다.</div>
+        </section>
+
+        <section class="channel-pi-section" aria-label="현황 분석 항목별 커버리지">
+          <div class="channel-pi-section-head">
+            <div>
+              <h3>현황 분석 항목별 커버리지</h3>
+              <p>분석 근거 1건마다 어떤 요구사항과 정책서 항목으로 다뤄졌는지 확인합니다.</p>
+            </div>
+            <span id="channelPiAnalysisItemCount">0건</span>
+          </div>
+          <div id="channelPiAnalysisItemList" class="channel-pi-analysis-list empty">현황 분석 항목별 진단 결과를 기다리고 있습니다.</div>
+        </section>
+
+        <section class="channel-pi-section" aria-label="양방향 교차검증">
+          <div class="channel-pi-section-head">
+            <div>
+              <h3>양방향 교차검증</h3>
+              <p>현황 분석에서 출발한 판단과 정책서에서 출발한 판단이 서로 맞는지 재확인합니다.</p>
+            </div>
+            <span id="channelPiCrossCount">0건</span>
+          </div>
+          <div id="channelPiCrossSummary" class="channel-pi-cross-summary">교차검증 결과를 기다리고 있습니다.</div>
+          <div id="channelPiCrossList" class="channel-pi-cross-list empty">교차검증 알림이 없습니다.</div>
+        </section>
+
+        <section class="channel-pi-section" aria-label="정책서별 정렬 현황">
+          <div class="channel-pi-section-head">
+            <div>
+              <h3>정책서별 정렬 현황</h3>
+              <p>점수가 낮은 정책서부터 우선 확인할 수 있게 정렬합니다.</p>
+            </div>
+            <span id="channelPiTopicCount">0개 정책서</span>
+          </div>
+          <div class="channel-pi-table-wrap">
+            <table class="channel-pi-table">
+              <thead>
+                <tr>
+                  <th>정책서</th>
+                  <th>점수</th>
+                  <th>현황→요구</th>
+                  <th>요구→정책</th>
+                  <th>현황→정책</th>
+                  <th>Trace 연결</th>
+                  <th>Trace 신뢰도</th>
+                  <th>상태</th>
+                </tr>
+              </thead>
+              <tbody id="channelPiTopicTableBody">
+                <tr>
+                  <td colspan="8">정책서별 정렬 현황을 기다리고 있습니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="channel-pi-section" aria-label="우선 보강 액션">
+          <div class="channel-pi-section-head">
+            <div>
+              <h3>우선 보강 액션</h3>
+              <p>정렬 에이전트가 찾은 보강 후보를 우선순위 기준으로 모았습니다.</p>
+            </div>
+            <span id="channelPiActionCount">0건</span>
+          </div>
+          <div id="channelPiActionList" class="channel-pi-action-list empty">우선 보강 액션이 없습니다.</div>
+        </section>
+      </section>
+      </div>
+
+      <section id="requestArea" class="request-panel" hidden>
+        <form id="policyForm">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Create</p>
+              <div class="request-title-row">
+                <h2>새 정책서 작성 요청</h2>
+                <p id="requestTopicSummary" class="request-topic-summary" hidden>
+                  <span>작성 주제</span>
+                  <strong id="requestTopicName">-</strong>
+                </p>
+              </div>
+            </div>
+            <div class="request-quick-actions">
+              <span>옵션 확인 후 바로 시작</span>
+              <button id="requestQuickSubmitButton" class="primary-button compact" type="submit">정책서 생성 시작</button>
+            </div>
+          </div>
+
+          <select id="topic" name="topic" class="topic-source-select" aria-hidden="true" tabindex="-1">
+            <option value="" selected disabled>좌측에서 정책서 주제를 선택하세요.</option>
+            <option value="가이드라인/ 공통/ 품질/ 적응형">가이드라인/ 공통/ 품질/ 적응형</option>
+            <option value="전시/관리 기능">전시/관리 기능</option>
+            <option value="상품 목록">상품 목록</option>
+            <option value="외부 BP 서비스 관리 체계">외부 BP 서비스 관리 체계</option>
+            <option value="AI 검색">AI 검색</option>
+            <option value="추천">추천</option>
+            <option value="데이터 트래킹 체계">데이터 트래킹 체계</option>
+            <option value="이벤트/미션 프로그램">이벤트/미션 프로그램</option>
+            <option value="외부 쿠폰">외부 쿠폰</option>
+            <option value="멤버십 혜택/T 플러스포인트">멤버십 혜택/T 플러스포인트</option>
+            <option value="상품상세/담기">상품상세/담기</option>
+            <option value="카트/장바구니">카트/장바구니</option>
+            <option value="할인/시뮬레이션">할인/시뮬레이션</option>
+            <option value="주문/계약/가입">주문/계약/가입</option>
+            <option value="선물주문">선물주문</option>
+            <option value="상품변경">상품변경</option>
+            <option value="결제">결제</option>
+            <option value="주문 상태/사후 관리">주문 상태/사후 관리</option>
+            <option value="해지/환불/취소">해지/환불/취소</option>
+            <option value="나의 가입 정보">나의 가입 정보</option>
+            <option value="회선 변경/관리">회선 변경/관리</option>
+            <option value="멤버십 카드 관리">멤버십 카드 관리</option>
+            <option value="청구 및 수납 관리">청구 및 수납 관리</option>
+            <option value="나의 데이터·통화">나의 데이터·통화</option>
+            <option value="상품·서비스 혜택 이용/공유">상품·서비스 혜택 이용/공유</option>
+            <option value="통합 쿠폰/이용권함">통합 쿠폰/이용권함</option>
+            <option value="회원 가입/탈퇴">회원 가입/탈퇴</option>
+            <option value="회원정보 조회/변경">회원정보 조회/변경</option>
+            <option value="통합 알림">통합 알림</option>
+            <option value="통합 약관">통합 약관</option>
+            <option value="설정">설정</option>
+            <option value="고객센터_통합허브">고객센터_통합허브</option>
+            <option value="고객센터_FAQ/공지/이용안내">고객센터_FAQ/공지/이용안내</option>
+            <option value="고객센터_매장안내">고객센터_매장안내</option>
+          </select>
+          <input id="author" name="author" type="hidden" value="Policy Web"/>
+          <input id="status" name="status" type="hidden" value="작성중"/>
+
+          <div class="request-flow-banner" aria-label="정책서 작성 방식 안내">
+            <div class="flow-banner-copy">
+              <strong>AI 정책서 작성 흐름</strong>
+              <span>자료를 수집하고, 주제 학습과 Blueprint 설계를 거쳐 장별 작성·검수·저장까지 이어집니다.</span>
+            </div>
+            <div class="request-flow-track">
+              <span class="request-flow-step"><b>01</b>Source 수집</span>
+              <span class="request-flow-arrow" aria-hidden="true">→</span>
+              <span class="request-flow-step"><b>02</b>학습·Blueprint</span>
+              <span class="request-flow-arrow" aria-hidden="true">→</span>
+              <span class="request-flow-step"><b>03</b>Context 구성</span>
+              <span class="request-flow-arrow" aria-hidden="true">→</span>
+              <span class="request-flow-step featured"><b>04</b>Chapter Loop</span>
+              <span class="request-flow-arrow" aria-hidden="true">→</span>
+              <span class="request-flow-step"><b>05</b>Inspector Loop</span>
+              <span class="request-flow-arrow" aria-hidden="true">→</span>
+              <span class="request-flow-step"><b>06</b>HTML 저장</span>
+            </div>
+          </div>
+
+          <div class="request-stack">
+            <div class="request-choice-row">
+              <div class="version-choice choice-group" role="group" aria-label="작성 버전">
+                <p class="choice-group-title">작성 버전 선택</p>
+                <div class="choice-visual version-visual" aria-hidden="true">
+                  <span class="doc-card large"></span>
+                  <span class="doc-card small"></span>
+                  <span class="visual-caption">Full / Simple</span>
+                </div>
+                <label class="choice-card">
+                  <input type="radio" name="templateType" value="full"/>
+                  <span>
+                    <strong>Full 버전</strong>
+                    <small>프로세스 상세와 기능 상세까지 넓게 작성합니다.</small>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="templateType" value="simple" checked/>
+                  <span>
+                    <strong>간소화 버전</strong>
+                    <small>핵심 구조와 정책 기준을 우선 작성합니다.</small>
+                  </span>
+                </label>
+              </div>
+
+              <div class="version-choice choice-group mode-choice" role="group" aria-label="진행 방식">
+                <p class="choice-group-title">진행 방식 선택</p>
+                <div class="choice-visual mode-visual" aria-hidden="true">
+                  <span class="flow-dot active"></span>
+                  <span class="flow-line"></span>
+                  <span class="flow-dot"></span>
+                  <span class="flow-line"></span>
+                  <span class="flow-dot"></span>
+                  <span class="visual-caption">Auto / Manual</span>
+                </div>
+                <label class="choice-card">
+                  <input type="radio" name="reviewMode" value="auto" checked/>
+                  <span>
+                    <strong>자동모드</strong>
+                    <small>Agent와 Inspector가 끝까지 순차 진행합니다.</small>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="reviewMode" value="manual"/>
+                  <span>
+                    <strong>수동모드</strong>
+                    <small>각 챕터 완료 후 HTML을 확인하고 진행 또는 보완을 선택합니다.</small>
+                  </span>
+                </label>
+              </div>
+
+              <div class="version-choice choice-group inspection-choice" role="group" aria-label="검수 방식">
+                <p class="choice-group-title">검수 방식 선택</p>
+                <div class="choice-visual gate-visual" aria-hidden="true">
+                  <span class="gate-shield"></span>
+                  <span class="gate-check"></span>
+                  <span class="visual-caption">Inspector Gate</span>
+                </div>
+                <label class="choice-card">
+                  <input type="radio" name="inspectionMode" value="chapter-final" checked/>
+                  <span>
+                    <strong>장별 + 최종 검수</strong>
+                    <small>각 장 작성 후 Inspector가 검수하고, 마지막에 전체 문서를 다시 봅니다.</small>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="inspectionMode" value="final-only"/>
+                  <span>
+                    <strong>최종 검수만</strong>
+                    <small>장별 Inspector는 생략하고, 전체 작성 완료 후 Final Inspector만 실행합니다.</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <label class="field request-memo">
+              <span>작성 요청 메모</span>
+              <textarea id="brief" name="brief" rows="5" placeholder="포함하고 싶은 관점이나 참고 요청을 적어주세요."></textarea>
+            </label>
+
+            <p id="message" class="message" role="status"></p>
+            <div class="request-submit-row">
+              <button id="submitButton" class="primary-button" type="submit">정책서 생성 시작</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section id="resultArea" class="result-panel" hidden>
+        <div class="section-title result-title">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h2>문서 작업실</h2>
+          </div>
+          <div class="workspace-title-actions">
+            <button id="documentQaReviewButton" class="ghost-button" type="button">개발/QA 검수</button>
+            <button id="healthCheckButton" class="ghost-button" type="button">Health Check</button>
+            <button id="alignmentCheckButton" class="ghost-button" type="button">분석 정렬 Check</button>
+            <button id="documentAnalysisButton" class="ghost-button" type="button">구조 분석</button>
+            <button id="refreshButton" class="ghost-button" type="button">새로고침</button>
+            <div class="llm-choice-panel workspace-cowork-choice-panel" role="group" aria-label="Co-work 사용 여부">
+              <p class="choice-group-title">Co-work 사용 여부</p>
+              <div class="llm-choice-tabs">
+                <label>
+                  <input type="radio" name="workspaceAssistMode" value="on" checked/>
+                  <span>사용</span>
+                </label>
+                <label>
+                  <input type="radio" name="workspaceAssistMode" value="off"/>
+                  <span>미사용</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-layout">
+          <section class="preview-card">
+            <div class="preview-head">
+              <div class="preview-title-block">
+                <span id="editorModeChip" class="editor-mode-chip" hidden>직접 편집 중</span>
+                <strong id="previewTitle">미리보기</strong>
+                <div class="preview-meta-row">
+                  <label id="versionSelectWrap" class="version-select-wrap" hidden>
+                    <span>버전</span>
+                    <select id="versionSelect" aria-label="정책서 버전 선택"></select>
+                  </label>
+                  <span id="previewTemplateBadge" class="preview-template-badge" hidden></span>
+                  <span id="previewMeta">생성된 파일을 선택하세요.</span>
+                  <span id="previewTemplateHint" class="preview-template-hint" hidden></span>
+                </div>
+              </div>
+              <div class="preview-actions">
+                <button id="resumeDraftButton" class="primary-button compact" type="button" hidden disabled>이어서 작성하기</button>
+                <button id="rewritePolicyButton" class="ghost-button" type="button" hidden disabled>다시 작성</button>
+                <button id="fullVersionButton" class="primary-button compact" type="button" hidden disabled>Full 버전 작성</button>
+                <button id="completionStatusButton" class="ghost-button complete" type="button" hidden disabled>작성 완료</button>
+                <button id="editButton" class="ghost-button" type="button" hidden disabled>직접 편집</button>
+                <button id="versionChangeToggle" class="ghost-button compact version-change-toggle" type="button" hidden disabled aria-pressed="false">변경 표시</button>
+                <button id="saveEditButton" class="ghost-button success" type="button" hidden>저장 검토</button>
+                <button id="cancelEditButton" class="ghost-button" type="button" hidden>취소</button>
+                <button id="devFormatExportButton" class="ghost-button" type="button" hidden>AI Input Export</button>
+                <details id="previewMoreActions" class="preview-more-actions" hidden>
+                  <summary>더보기</summary>
+                  <div class="preview-more-actions-menu">
+                    <a id="downloadLink" class="ghost-link" href="#" download hidden>HTML 다운로드</a>
+                    <a id="jsonDownloadLink" class="ghost-link" href="#" download hidden>JSON 다운로드</a>
+                    <button id="uploadHtmlButton" class="ghost-link" type="button">HTML 업로드</button>
+                    <input id="uploadHtmlInput" type="file" accept=".html,.htm,text/html" hidden/>
+                    <button id="uploadJsonButton" class="ghost-link" type="button">JSON 업로드</button>
+                    <input id="uploadJsonInput" type="file" accept=".json,application/json" hidden/>
+                    <button id="deleteSelectedButton" class="ghost-button danger" type="button" hidden disabled>삭제</button>
+                    <a id="openLink" class="ghost-link" href="#" target="_blank" rel="noreferrer" hidden>새 창으로 열기</a>
+                  </div>
+                </details>
+              </div>
+            </div>
+            <section id="workspaceTopicDirection" class="workspace-topic-direction" hidden aria-label="작성 지침"></section>
+            <div id="editorToolbar" class="editor-toolbar" hidden aria-label="문서 직접 편집 도구">
+              <div class="editor-toolbar-group">
+                <span class="editor-toolbar-label">기본 서식</span>
+                <button class="editor-tool-button" type="button" data-editor-command="bold">굵게</button>
+                <button class="editor-tool-button" type="button" data-editor-command="italic">기울임</button>
+                <button class="editor-tool-button" type="button" data-editor-command="underline">밑줄</button>
+                <button class="editor-tool-button highlight" type="button" data-editor-command="highlight">하이라이트</button>
+                <button class="editor-tool-button" type="button" data-editor-command="removeFormat">서식 해제</button>
+                <button class="editor-tool-button" type="button" data-editor-command="undo">되돌리기</button>
+                <button class="editor-tool-button" type="button" data-editor-command="redo">다시하기</button>
+              </div>
+              <div class="editor-toolbar-group editor-format-group">
+                <span class="editor-toolbar-label">문서 구조</span>
+                <button class="editor-tool-button" type="button" data-editor-command="insertUnorderedList">글머리</button>
+                <button class="editor-tool-button" type="button" data-editor-command="insertOrderedList">번호</button>
+                <button class="editor-tool-button" type="button" data-editor-command="insertLineBreak">줄바꿈</button>
+                <label class="editor-select-field">
+                  <span>크기</span>
+                  <select id="editorFontSizeSelect" aria-label="문서 폰트 크기">
+                    <option value="">선택</option>
+                    <option value="13">보조 13px</option>
+                    <option value="14">표/목록 14px</option>
+                    <option value="15">본문 15px</option>
+                    <option value="16">소제목 16px</option>
+                    <option value="21">장 제목 21px</option>
+                    <option value="31">표지 제목 31px</option>
+                  </select>
+                </label>
+                <label class="editor-select-field">
+                  <span>불릿</span>
+                  <select id="editorBulletStyleSelect" aria-label="문서 불릿 스타일">
+                    <option value="">선택</option>
+                    <option value="unordered">글머리 목록</option>
+                    <option value="ordered">번호 목록</option>
+                    <option value="policy-title">• 정책 항목</option>
+                    <option value="policy-line">- 정책 문장</option>
+                  </select>
+                </label>
+                <button class="editor-tool-button" type="button" data-editor-command="outdent">내어쓰기</button>
+                <button class="editor-tool-button" type="button" data-editor-command="indent">들여쓰기</button>
+              </div>
+              <div class="editor-toolbar-group">
+                <span class="editor-toolbar-label">표 편집</span>
+                <button class="editor-tool-button" type="button" data-editor-command="insertTableRowAbove" data-table-action="true">행 위 추가</button>
+                <button class="editor-tool-button" type="button" data-editor-command="insertTableRowBelow" data-table-action="true">행 아래 추가</button>
+                <button class="editor-tool-button danger" type="button" data-editor-command="deleteTableRow" data-table-action="true">행 삭제</button>
+              </div>
+            </div>
+            <div class="preview-canvas">
+              <button id="widePreviewButton" class="preview-wide-button" type="button" hidden disabled aria-label="와이드뷰 열기">
+                <span class="preview-wide-button-icon" aria-hidden="true"></span>
+              </button>
+              <section id="versionChangeSummary" class="version-change-summary" hidden aria-label="버전 변경 요약"></section>
+              <iframe id="previewFrame" title="정책서 미리보기" sandbox="allow-same-origin allow-downloads allow-popups allow-popups-to-escape-sandbox"></iframe>
+            </div>
+            <div id="selectionRevisionButton" class="selection-revision-panel" hidden>
+              <textarea id="selectionInlineRequest" rows="2" placeholder="선택 영역에 대한 수정 요청이나 코멘트를 입력해 주세요."></textarea>
+              <div class="selection-revision-inline-actions">
+                <button id="selectionInlineAiButton" class="primary-button" type="button">AI 수정</button>
+                <button id="selectionInlineCommentButton" class="ghost-button" type="button">코멘트</button>
+              </div>
+            </div>
+          </section>
+          <aside id="workspaceAssistPanel" class="workspace-assist-panel" hidden aria-label="공동작업 패널">
+            <div class="assist-head">
+              <div>
+                <p class="eyebrow">Co-work</p>
+                <strong>공동작업 패널</strong>
+              </div>
+            </div>
+
+            <div class="assist-tabs" role="tablist" aria-label="공동작업 유형">
+              <button id="assistAiTab" class="assist-tab active" type="button" role="tab" aria-selected="true" aria-controls="assistAiPane" data-assist-tab="ai">AI 공동작업</button>
+              <button id="assistHumanTab" class="assist-tab" type="button" role="tab" aria-selected="false" aria-controls="assistHumanPane" data-assist-tab="human">Human 공동작업</button>
+            </div>
+
+            <div id="commentWorkspaceTools" class="comment-workspace-tools" hidden>
+              <label class="comment-search-field">
+                <span>코멘트 검색</span>
+                <input id="editorCommentSearchInput" type="search" placeholder="Search"/>
+              </label>
+              <div class="comment-tool-actions">
+                <details id="editorCommentFilterMenu" class="comment-tool-menu comment-filter-menu">
+                  <summary aria-label="코멘트 필터" title="코멘트 필터">
+                    <span class="comment-tool-icon filter" aria-hidden="true"></span>
+                    <strong id="editorCommentFilterLabel">전체 상태</strong>
+                  </summary>
+                  <div class="comment-tool-popover">
+                    <label class="comment-status-option open">
+                      <input type="checkbox" value="Open" data-comment-status-filter checked/>
+                      <span>Open</span>
+                    </label>
+                    <label class="comment-status-option resolved">
+                      <input type="checkbox" value="반영됨" data-comment-status-filter checked/>
+                      <span>반영됨</span>
+                    </label>
+                    <label class="comment-status-option hold">
+                      <input type="checkbox" value="보류" data-comment-status-filter checked/>
+                      <span>보류</span>
+                    </label>
+                  </div>
+                </details>
+                <details id="editorCommentSortMenu" class="comment-tool-menu comment-sort-menu">
+                  <summary aria-label="코멘트 정렬" title="코멘트 정렬">
+                    <span class="comment-tool-icon more" aria-hidden="true"></span>
+                    <strong id="editorCommentSortLabel">최근 코멘트순</strong>
+                  </summary>
+                  <div class="comment-tool-popover">
+                    <button type="button" data-comment-sort="recent" aria-pressed="true">최근 코멘트순</button>
+                    <button type="button" data-comment-sort="oldest" aria-pressed="false">오래된 코멘트순</button>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div id="assistScrollArea" class="assist-scroll-area" aria-label="공동작업 상세 목록">
+              <div id="assistAiPane" class="assist-pane active" role="tabpanel" aria-labelledby="assistAiTab" data-assist-pane="ai">
+                <section class="assist-card">
+                  <div class="assist-card-head">
+                    <strong>AI 코멘트</strong>
+                    <span id="aiCommentCount">0</span>
+                  </div>
+                  <div id="aiCommentList" class="assist-list empty">문서 로딩 후 자동 점검합니다.</div>
+                </section>
+
+                <section class="assist-card">
+                  <div class="assist-card-head">
+                    <strong>AI 제안</strong>
+                    <span id="editorSuggestionCount">0</span>
+                  </div>
+                  <div id="editorSuggestionList" class="assist-list empty">선택 영역에서 제안만 생성하면 여기에 모입니다.</div>
+                </section>
+
+                <section class="assist-card">
+                  <div class="assist-card-head">
+                    <strong>정책값 보드</strong>
+                    <span id="policyValueCount">0</span>
+                  </div>
+                  <div id="policyValueList" class="policy-value-list empty">정책 상세 항목을 모아 보여줍니다.</div>
+                </section>
+
+                <section class="assist-card">
+                  <div class="assist-card-head">
+                    <strong>미정·보완 항목</strong>
+                    <span id="tbdCount">0</span>
+                  </div>
+                  <div id="tbdList" class="assist-list empty">TBD 또는 모호한 표현을 추적합니다.</div>
+                </section>
+
+                <section class="assist-card">
+                  <div class="assist-card-head">
+                    <strong>문서 히스토리</strong>
+                    <span id="historyCount">0</span>
+                  </div>
+                  <div id="historyList" class="assist-list empty">최근 변경 이력을 보여줍니다.</div>
+                </section>
+
+                <section id="revisionPanel" class="revision-panel assist-revision-panel" hidden>
+                  <label class="field">
+                    <span>Agent에게 수정 요청</span>
+                    <textarea id="revisionRequest" rows="3" placeholder="예: 정책 상세에서 예외 처리 기준을 더 구체화해줘."></textarea>
+                  </label>
+                  <button id="revisionButton" class="primary-button" type="button">수정 Agent 실행</button>
+                </section>
+              </div>
+
+              <div id="assistHumanPane" class="assist-pane" role="tabpanel" aria-labelledby="assistHumanTab" data-assist-pane="human" hidden>
+                <div class="human-comment-header">
+                  <div class="human-comment-title">
+                    <strong>검토 스레드</strong>
+                    <span id="editorCommentCount">0</span>
+                  </div>
+                </div>
+                <div id="editorCommentList" class="assist-list editor-comment-list empty">코멘트를 Open/반영됨/보류로 관리합니다.</div>
+
+                <section id="editorCommentStickyPanel" class="editor-comment-sticky-panel" hidden aria-label="코멘트 입력">
+                  <div id="editorCommentComposerSlot" class="editor-comment-composer-slot">
+                    <div id="editorCommentComposer" class="editor-comment-composer" aria-disabled="true">
+                      <div id="editorCommentTarget" class="editor-comment-target">문서를 선택하면 코멘트를 남길 수 있습니다.</div>
+                      <textarea id="editorCommentInput" rows="3" placeholder="검토 코멘트를 입력해 주세요."></textarea>
+                      <button id="editorCommentSubmitButton" class="primary-button" type="button">코멘트 추가</button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    <div id="topicConceptModal" class="modal-backdrop topic-concept-backdrop" hidden>
+      <section class="topic-concept-modal" role="dialog" aria-modal="true" aria-labelledby="topicConceptTitle">
+        <div class="topic-concept-head">
+          <div>
+            <p class="eyebrow">Concept Map</p>
+            <h2 id="topicConceptTitle">주제 체계도</h2>
+            <p id="topicConceptSummary">작성 지침과 정책서 구조를 한눈에 확인합니다.</p>
+          </div>
+          <button id="topicConceptCloseButton" class="modal-close" type="button" aria-label="주제 체계도 닫기">닫기</button>
+        </div>
+        <div id="topicConceptBody" class="topic-concept-body"></div>
+      </section>
+    </div>
+
+    <div id="selectionRevisionModal" class="modal-backdrop selection-revision-backdrop" hidden>
+      <section class="selection-revision-modal" role="dialog" aria-modal="true" aria-labelledby="selectionRevisionTitle">
+        <div class="selection-revision-head">
+          <div>
+            <p class="eyebrow">Selected Revision</p>
+            <h2 id="selectionRevisionTitle">선택 영역 수정 요청</h2>
+            <p id="selectionRevisionSection" class="selection-revision-section">선택한 영역을 기준으로 Agent가 수정합니다.</p>
+          </div>
+          <button id="selectionRevisionCloseButton" class="modal-close" type="button" aria-label="선택 영역 수정 요청 닫기">닫기</button>
+        </div>
+        <div class="selection-revision-body">
+          <div>
+            <span>선택한 내용</span>
+            <blockquote id="selectionRevisionExcerpt"></blockquote>
+          </div>
+          <label class="field">
+            <span>어떻게 수정할까요?</span>
+            <textarea id="selectionRevisionRequest" rows="4" placeholder="예: 이 조건은 고객 상태별로 더 명확히 구분해서 작성해줘."></textarea>
+          </label>
+          <div class="selection-revision-mode" role="group" aria-label="선택 영역 처리 방식">
+            <label class="recommended">
+              <input type="radio" name="selectionRevisionMode" value="suggestion" checked/>
+              <span>
+                <strong>제안만 생성</strong>
+                <em>현재 문서에는 바로 저장하지 않고 Co-work 패널에 제안 카드로 남깁니다.</em>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="selectionRevisionMode" value="agent"/>
+              <span>
+                <strong>Agent 수정 실행</strong>
+                <em>기존 수정 Agent를 실행해 새 버전 또는 보완 결과를 생성합니다.</em>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div class="selection-revision-actions">
+          <button id="selectionRevisionCancelButton" class="ghost-button" type="button">취소</button>
+          <button id="selectionRevisionSubmitButton" class="primary-button" type="button">선택 영역 처리</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="widePreviewModal" class="modal-backdrop wide-preview-backdrop" hidden>
+      <section class="wide-preview-modal" role="dialog" aria-modal="true" aria-labelledby="widePreviewTitle">
+        <div class="wide-preview-head">
+          <h2 id="widePreviewTitle" class="sr-only">정책서 와이드뷰</h2>
+          <button id="widePreviewCloseButton" class="modal-close wide-preview-close" type="button" aria-label="와이드뷰 닫기">×</button>
+        </div>
+        <div class="wide-preview-body">
+          <iframe id="widePreviewFrame" title="정책서 와이드 미리보기" sandbox="allow-same-origin"></iframe>
+        </div>
+      </section>
+    </div>
+
+    <div id="diagramEditorModal" class="modal-backdrop diagram-editor-backdrop" hidden>
+      <section class="diagram-editor-modal" role="dialog" aria-modal="true" aria-labelledby="diagramEditorTitle">
+        <div class="edit-save-mode-head">
+          <div>
+            <p class="eyebrow">Diagram Editor</p>
+            <h2 id="diagramEditorTitle">다이어그램 원천 데이터 편집</h2>
+            <p id="diagramEditorSummary" class="edit-save-mode-subcopy">정책서 JSON spec을 기준으로 유즈케이스, 상태 전이, BPMN 흐름을 수정합니다.</p>
+          </div>
+          <button id="diagramEditorCloseButton" class="modal-close" type="button" aria-label="다이어그램 편집 닫기">닫기</button>
+        </div>
+        <div class="diagram-editor-body">
+          <div class="diagram-editor-tabs" role="tablist" aria-label="다이어그램 편집 대상">
+            <button class="diagram-editor-tab active" type="button" data-diagram-tab="usecase">유즈케이스</button>
+            <button class="diagram-editor-tab" type="button" data-diagram-tab="state">상태 전이</button>
+            <button class="diagram-editor-tab" type="button" data-diagram-tab="process">BPMN 흐름</button>
+          </div>
+          <div class="diagram-editor-grid">
+            <section class="diagram-editor-pane active" data-diagram-pane="usecase">
+              <label class="field">
+                <span>액터 JSON</span>
+                <textarea id="diagramActorsInput" spellcheck="false"></textarea>
+              </label>
+              <label class="field">
+                <span>유즈케이스 JSON</span>
+                <textarea id="diagramUsecasesInput" spellcheck="false"></textarea>
+              </label>
+            </section>
+            <section class="diagram-editor-pane" data-diagram-pane="state">
+              <label class="field">
+                <span>상태 코드 JSON</span>
+                <textarea id="diagramStatesInput" spellcheck="false"></textarea>
+              </label>
+              <label class="field">
+                <span>상태 전이 JSON</span>
+                <textarea id="diagramTransitionsInput" spellcheck="false"></textarea>
+              </label>
+            </section>
+            <section class="diagram-editor-pane" data-diagram-pane="process">
+              <label class="field">
+                <span>프로세스 JSON</span>
+                <textarea id="diagramProcessesInput" spellcheck="false"></textarea>
+              </label>
+            </section>
+          </div>
+          <div class="diagram-editor-options">
+            <label class="field">
+              <span>저장 방식</span>
+              <select id="diagramEditorSaveMode">
+                <option value="new_version">새 버전으로 저장</option>
+                <option value="overwrite">기존 버전에 수정</option>
+              </select>
+            </label>
+            <div id="diagramEditorStatus" class="diagram-editor-status">편집할 정책서를 선택해 주세요.</div>
+          </div>
+        </div>
+        <div class="edit-save-mode-actions">
+          <button id="diagramEditorCancelButton" class="ghost-button" type="button">취소</button>
+          <button id="diagramEditorSaveButton" class="primary-button" type="button">다이어그램 저장</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="editSaveModeModal" class="modal-backdrop edit-save-mode-backdrop" hidden>
+      <section class="edit-save-mode-modal" role="dialog" aria-modal="true" aria-labelledby="editSaveModeTitle">
+        <div class="edit-save-mode-head">
+          <div>
+            <p class="eyebrow">Edit Save Mode</p>
+            <h2 id="editSaveModeTitle">편집 저장 방식을 선택해 주세요</h2>
+            <p class="edit-save-mode-subcopy">수정한 내용을 새 버전으로 남길지, 현재 버전에 바로 반영할지 선택할 수 있습니다.</p>
+          </div>
+          <button id="editSaveModeCloseButton" class="modal-close" type="button" aria-label="편집 저장 방식 선택 닫기">닫기</button>
+        </div>
+        <div id="editChangeReview" class="edit-change-review">
+          <div class="edit-change-summary">
+            <strong>저장 전 확인</strong>
+            <p id="editReviewSummary">저장 검토를 누르면 본문 길이와 저장 전 검증 결과를 확인합니다.</p>
+          </div>
+          <div>
+            <strong>저장 전 검증</strong>
+            <div id="editReviewFindings" class="edit-review-findings empty">아직 검증 결과가 없습니다.</div>
+          </div>
+        </div>
+        <div class="edit-save-mode-body">
+          <button id="editSaveModeNewVersionButton" class="edit-save-mode-option recommended" type="button">
+            <span>새 버전으로 저장</span>
+            <strong>기존 문서는 유지하고 다음 버전 파일을 새로 생성합니다.</strong>
+          </button>
+          <button id="editSaveModeOverwriteButton" class="edit-save-mode-option" type="button">
+            <span>기존 버전에 수정</span>
+            <strong>현재 버전 파일을 그대로 덮어쓰고 문서 히스토리에 수정 이력을 남깁니다.</strong>
+          </button>
+        </div>
+        <div class="edit-save-mode-actions">
+          <button id="editSaveModeCancelButton" class="ghost-button" type="button">취소</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="fullVersionModal" class="modal-backdrop edit-save-mode-backdrop" hidden>
+      <section class="edit-save-mode-modal full-version-modal" role="dialog" aria-modal="true" aria-labelledby="fullVersionTitle">
+        <div class="edit-save-mode-head">
+          <div>
+            <p class="eyebrow">Full Version</p>
+            <h2 id="fullVersionTitle">Full 버전 작성 방식을 선택해 주세요</h2>
+            <p class="edit-save-mode-subcopy">완료된 간소화 문서를 기준으로 프로세스 상세와 기능 상세 등 Full 전용 장만 이어서 작성합니다.</p>
+          </div>
+          <button id="fullVersionCloseButton" class="modal-close" type="button" aria-label="Full 버전 작성 방식 선택 닫기">닫기</button>
+        </div>
+        <div class="edit-save-mode-body full-version-body">
+          <fieldset class="full-version-field">
+            <legend>작성 모드</legend>
+            <label class="full-version-radio recommended">
+              <input type="radio" name="fullVersionReviewMode" value="auto" checked/>
+              <span>
+                <strong>자동 모드</strong>
+                <em>중간 검토 없이 Full 전용 장을 이어서 작성합니다.</em>
+              </span>
+            </label>
+            <label class="full-version-radio">
+              <input type="radio" name="fullVersionReviewMode" value="manual"/>
+              <span>
+                <strong>수동 모드</strong>
+                <em>각 장 완료 후 중간 산출물을 검토하고 이어서 진행합니다.</em>
+              </span>
+            </label>
+          </fieldset>
+          <fieldset class="full-version-field">
+            <legend>검수 모드</legend>
+            <label class="full-version-radio recommended">
+              <input type="radio" name="fullVersionInspectionMode" value="chapter-final" checked/>
+              <span>
+                <strong>장별 + 최종 검수</strong>
+                <em>Full 전용 장을 작성할 때마다 검수하고 마지막에 전체 정합성을 확인합니다.</em>
+              </span>
+            </label>
+            <label class="full-version-radio">
+              <input type="radio" name="fullVersionInspectionMode" value="final-only"/>
+              <span>
+                <strong>최종 검수만</strong>
+                <em>Full 전용 장을 먼저 작성한 뒤 최종 단계에서 전체를 한 번에 검수합니다.</em>
+              </span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="edit-save-mode-actions">
+          <button id="fullVersionCancelButton" class="ghost-button" type="button">취소</button>
+          <button id="fullVersionStartButton" class="primary-button" type="button">Full 버전 작성 시작</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="documentQaReviewModal" class="modal-backdrop document-qa-backdrop" hidden>
+      <section class="document-qa-modal" role="dialog" aria-modal="true" aria-labelledby="documentQaReviewTitle">
+        <div class="document-qa-head">
+          <div>
+            <p class="eyebrow">Development QA Review</p>
+            <h2 id="documentQaReviewTitle">개발/QA 검수</h2>
+            <p id="documentQaReviewSummary">개발/QA 관점에서 정책서가 충분한지 검수합니다.</p>
+          </div>
+          <div class="document-qa-head-actions">
+            <button id="documentQaReviewStartButton" class="primary-button compact" type="button">검수 시작</button>
+            <button id="documentQaActionCheckButton" class="ghost-button compact" type="button" hidden disabled>보완 여부 확인</button>
+            <button id="documentQaReviewCloseButton" class="modal-close" type="button" aria-label="개발/QA 검수 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="document-qa-body">
+          <section id="documentQaStatus" class="document-qa-status-card">
+            <span>검수 준비</span>
+            <strong>대기 중</strong>
+            <p>문서 작업실에서 정책서를 선택한 뒤 개발/QA 검수를 실행해 주세요.</p>
+          </section>
+
+          <section id="documentQaLoadingPanel" class="document-qa-loading-panel" hidden>
+            <div class="document-qa-loading-overview">
+              <div class="document-qa-loading-title">
+                <span>진행 경과</span>
+                <strong id="documentQaLoadingPercent">0%</strong>
+              </div>
+              <div class="document-qa-loading-bar" aria-label="개발/QA 검수 진행률">
+                <span id="documentQaLoadingBar"></span>
+              </div>
+              <div class="document-qa-loading-meta">
+                <span>검수 대상 <strong id="documentQaLoadingPolicy">-</strong></span>
+                <span>경과 시간 <strong id="documentQaLoadingElapsed">00:00</strong></span>
+                <span>현재 단계 <strong id="documentQaLoadingCurrent">준비 중</strong></span>
+              </div>
+            </div>
+            <ol id="documentQaLoadingSteps" class="document-qa-loading-steps"></ol>
+          </section>
+
+          <div id="documentQaResultStats" class="document-qa-result-stats" hidden></div>
+
+          <section id="documentQaResultSection" class="document-qa-section wide document-qa-result-section" hidden>
+            <div class="document-qa-section-head">
+              <strong>보완 필요 사항</strong>
+              <span id="documentQaResultCount">0건</span>
+            </div>
+            <div id="documentQaResultList" class="document-qa-list document-qa-result-list empty">검수 결과가 없습니다.</div>
+          </section>
+
+          <div class="document-qa-grid" data-qa-intro>
+            <section class="document-qa-section">
+              <div class="document-qa-section-head">
+                <strong>개발 관점</strong>
+                <span id="devFindingCount">0건</span>
+              </div>
+              <div id="devFindingList" class="document-qa-list empty">검수 결과를 기다리고 있습니다.</div>
+            </section>
+            <section class="document-qa-section">
+              <div class="document-qa-section-head">
+                <strong>QA 관점</strong>
+                <span id="qaFindingCount">0건</span>
+              </div>
+              <div id="qaFindingList" class="document-qa-list empty">검수 결과를 기다리고 있습니다.</div>
+            </section>
+          </div>
+
+          <section class="document-qa-section wide" data-qa-intro>
+            <div class="document-qa-section-head">
+              <strong>커버리지 체크</strong>
+              <span>개발·QA 준비도</span>
+            </div>
+            <div id="qaCoverageList" class="document-qa-check-grid"></div>
+          </section>
+
+        </div>
+        <div class="document-qa-footer">
+          <p id="documentQaSelectionSummary">검수 결과에서 보완할 항목을 선택하면 수정 Agent에게 전달할 수 있습니다.</p>
+          <button id="documentQaRevisionButton" class="primary-button compact" type="button" disabled>선택 항목 보완 요청</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="healthCheckModal" class="modal-backdrop health-check-backdrop" hidden>
+      <section class="health-check-modal" role="dialog" aria-modal="true" aria-labelledby="healthCheckTitle">
+        <div class="health-check-head">
+          <div>
+            <p class="eyebrow">Policy Health Check</p>
+            <h2 id="healthCheckTitle">Health Check</h2>
+            <p id="healthCheckSummary">정책서 설계 품질 점검표 기준으로 문서의 작성 품질을 점수화합니다.</p>
+          </div>
+          <div class="health-check-head-actions">
+            <button id="healthCheckStartButton" class="primary-button compact" type="button">Health Check 시작</button>
+            <button id="healthCheckCloseButton" class="modal-close" type="button" aria-label="Health Check 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="health-check-body">
+          <section id="healthCheckStatus" class="health-check-status-card">
+            <span>점검 준비</span>
+            <strong>대기 중</strong>
+            <p>문서 작업실에서 정책서를 선택한 뒤 Health Check를 실행해 주세요.</p>
+          </section>
+          <div id="healthCheckStats" class="health-check-stats"></div>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>영역별 결과</strong>
+              <span id="healthCheckSectionCount">0개 영역</span>
+            </div>
+            <div id="healthCheckSectionChart" class="health-check-section-chart" aria-label="Health Check 영역별 점수 그래프" hidden></div>
+            <div id="healthCheckSectionList" class="health-check-section-list empty">Health Check 결과를 기다리고 있습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>필수 게이트</strong>
+              <span id="healthCheckGateCount">0건</span>
+            </div>
+            <div id="healthCheckGateList" class="health-check-gate-list empty">필수 게이트 결과를 기다리고 있습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>주요 보완 항목</strong>
+              <span id="healthCheckItemCount">0건</span>
+            </div>
+            <div id="healthCheckItemList" class="health-check-item-list empty">보완 항목이 없습니다.</div>
+          </section>
+        </div>
+        <div class="health-check-footer" hidden>
+          <p id="healthCheckSelectionSummary">FAIL 항목을 체크하고, 필요하면 항목별 수정 방향 메모를 입력하세요.</p>
+          <div class="health-check-footer-actions">
+            <button id="healthCheckRecheckButton" class="ghost-button compact" type="button" disabled>선택 항목 재점검</button>
+            <button id="healthCheckExportButton" class="ghost-button compact" type="button" disabled>보고서 Export</button>
+            <button id="healthCheckArtifactRepairButton" class="ghost-button compact" type="button" hidden disabled>산출물 동기화 복구</button>
+            <button id="healthCheckRevisionButton" class="primary-button compact" type="button" disabled>선택 항목 자동 보완</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="devFormatExportModal" class="modal-backdrop health-check-backdrop" hidden>
+      <section class="health-check-modal dev-format-export-modal" role="dialog" aria-modal="true" aria-labelledby="devFormatExportTitle">
+        <div class="health-check-head">
+          <div>
+            <p class="eyebrow">AI Input Export</p>
+            <h2 id="devFormatExportTitle">디자인/개발팀용 Export</h2>
+            <p id="devFormatExportSummary">Full 정책서를 User Case별 AI input과 ID 추적 산출물로 변환합니다.</p>
+          </div>
+          <div class="health-check-head-actions">
+            <button id="devFormatExportStartButton" class="primary-button compact" type="button">Export 실행</button>
+            <button id="devFormatExportCloseButton" class="modal-close" type="button" aria-label="AI Input Export 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="health-check-body">
+          <section id="devFormatExportStatus" class="health-check-status-card">
+            <span>Export 준비</span>
+            <strong>Full 문서 대기</strong>
+            <p>문서 작업실에서 Full 정책서를 선택한 뒤 실행해 주세요.</p>
+          </section>
+          <div id="devFormatExportStats" class="dev-format-result-checklist"></div>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>ZIP 구성</strong>
+              <span id="devFormatExportArtifactCount">대기</span>
+            </div>
+            <div id="devFormatExportArtifactList" class="dev-format-zip-tree empty">Export 결과를 기다리고 있습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>검증 경고</strong>
+              <span id="devFormatExportWarningCount">0건</span>
+            </div>
+            <div id="devFormatExportWarningList" class="dev-format-warning-list empty">아직 검증 결과가 없습니다.</div>
+          </section>
+          <section id="devFormatExportDiagramNoteSection" class="health-check-section dev-format-diagram-note-section" hidden>
+            <div class="health-check-section-head">
+              <strong>다이어그램 안내</strong>
+              <span id="devFormatExportDiagramNoteCount">0건</span>
+            </div>
+            <div id="devFormatExportDiagramNoteList" class="dev-format-warning-list empty">다이어그램 보강 안내가 없습니다.</div>
+          </section>
+        </div>
+        <div class="health-check-footer dev-format-export-footer" hidden>
+          <p id="devFormatExportFooterSummary">ZIP 다운로드 파일이 준비되면 여기에 표시됩니다.</p>
+          <div class="health-check-footer-actions">
+            <a id="devFormatExportZipLink" class="primary-button compact" href="#" download>ZIP 다운로드</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="piCheckModal" class="modal-backdrop health-check-backdrop" hidden>
+      <section class="health-check-modal pi-check-modal" role="dialog" aria-modal="true" aria-labelledby="piCheckTitle">
+        <div class="health-check-head">
+          <div>
+            <p class="eyebrow">Process Innovation Check</p>
+            <h2 id="piCheckTitle">PI Check</h2>
+            <p id="piCheckSummary">PI Playbook과 To-be Flow &amp; KPI 혁신성 Rubric 기준으로 업로드 문서의 프로세스 혁신성, 요구사항 포괄성, KPI, Value Driver, 자동화·AI·CX 기여도를 점검합니다.</p>
+          </div>
+          <div class="health-check-head-actions">
+            <button id="piCheckStartButton" class="primary-button compact" type="button" disabled>PI Check 시작</button>
+            <button id="piCheckCloseButton" class="modal-close" type="button" aria-label="PI Check 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="health-check-body pi-check-body">
+          <section class="health-check-status-card pi-check-upload-card">
+            <span>점검 대상 업로드</span>
+            <strong>As-Is / To-Be 문서를 선택해 주세요</strong>
+            <p>To-Be 문서는 필수입니다. As-Is 문서를 함께 올리면 각각 PI Check용 JSON으로 정규화한 뒤 PI 수준 개선 폭을 비교합니다. 원본 문서는 서버에 저장하지 않고 결과만 화면에 표시합니다.</p>
+            <div class="pi-check-upload-grid">
+              <label class="pi-check-file-field optional">
+                <em>As-Is 선택</em>
+                <input id="piCheckAsIsFileInput" type="file" accept=".pptx,.docx,.pdf,.html,.htm,.bpmn,.md,.txt,.json,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,text/html,text/xml,application/xml,text/markdown,text/plain,application/json"/>
+                <span id="piCheckAsIsFileLabel">현재/기존 문서 업로드(선택)</span>
+              </label>
+              <label class="pi-check-file-field required">
+                <em>To-Be 필수</em>
+                <input id="piCheckToBeFileInput" type="file" accept=".pptx,.docx,.pdf,.html,.htm,.bpmn,.md,.txt,.json,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,text/html,text/xml,application/xml,text/markdown,text/plain,application/json"/>
+                <span id="piCheckToBeFileLabel">개선/목표 문서 업로드(필수)</span>
+              </label>
+            </div>
+          </section>
+          <section id="piCheckProgress" class="pi-check-progress" aria-live="polite" hidden>
+            <div class="pi-check-progress-head">
+              <strong id="piCheckProgressLabel">업로드 준비 중</strong>
+              <span id="piCheckProgressValue">0%</span>
+            </div>
+            <div class="pi-check-progress-track" aria-hidden="true">
+              <span id="piCheckProgressBar"></span>
+            </div>
+            <p id="piCheckProgressDetail">파일을 읽고 있습니다.</p>
+          </section>
+          <section id="piCheckStatus" class="health-check-status-card">
+            <span>PI Check 기준</span>
+            <strong>50개 체크 + 안티패턴</strong>
+            <p>As-Is 복사, 현업 받아쓰기, AI 끼워넣기, 예외 각주화, KPI 부재를 함께 확인합니다.</p>
+          </section>
+          <div id="piCheckStats" class="health-check-stats"></div>
+          <section class="health-check-section" id="piCheckComparisonSection" hidden>
+            <div class="health-check-section-head">
+              <strong>As-Is 대비 PI 수준 비교</strong>
+              <span id="piCheckComparisonBadge">비교 대기</span>
+            </div>
+            <div id="piCheckComparisonList" class="pi-check-list empty">As-Is 문서를 함께 업로드하면 비교 결과를 표시합니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>PI 체크 영역</strong>
+              <span id="piCheckItemCount">0건</span>
+            </div>
+            <div id="piCheckItemList" class="pi-check-list empty">문서를 업로드하면 검수 영역별 결과를 표시합니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>안티패턴</strong>
+              <span id="piCheckAntiPatternCount">0건</span>
+            </div>
+            <div id="piCheckAntiPatternList" class="pi-check-list empty">감지된 안티패턴이 없습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>보완 제안</strong>
+              <span id="piCheckRecommendationCount">0건</span>
+            </div>
+            <div id="piCheckRecommendationList" class="pi-check-list empty">PI Check 후 보완 제안을 표시합니다.</div>
+          </section>
+        </div>
+        <div class="health-check-footer pi-check-footer" hidden>
+          <p id="piCheckFooterSummary">PI Check 결과의 검수 항목, 검수 방식, GateKeeper 판단을 보고서로 내보낼 수 있습니다.</p>
+          <div class="health-check-footer-actions">
+            <button id="piCheckExportButton" class="ghost-button compact" type="button" disabled>보고서 Export</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="alignmentCheckModal" class="modal-backdrop health-check-backdrop" hidden>
+      <section class="health-check-modal alignment-check-modal" role="dialog" aria-modal="true" aria-labelledby="alignmentCheckTitle">
+        <div class="health-check-head">
+          <div>
+            <p class="eyebrow">Analysis Alignment</p>
+            <h2 id="alignmentCheckTitle">분석-정책 정렬 Check</h2>
+            <p id="alignmentCheckSummary">현황 분석 근거가 정책서에 반영되었는지, 정책 판단이 분석 근거로 설명되는지 양방향으로 점검합니다.</p>
+          </div>
+          <div class="health-check-head-actions">
+            <button id="alignmentCheckStartButton" class="primary-button compact" type="button">정렬 Check 시작</button>
+            <button id="alignmentCheckCloseButton" class="modal-close" type="button" aria-label="분석-정책 정렬 Check 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="health-check-body alignment-check-body">
+          <section id="alignmentCheckStatus" class="health-check-status-card">
+            <span>점검 준비</span>
+            <strong>대기 중</strong>
+            <p>문서 작업실에서 정책서를 선택한 뒤 분석-정책 정렬 Check를 실행해 주세요.</p>
+          </section>
+          <div id="alignmentCheckStats" class="health-check-stats"></div>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>분석 출처별 반영도</strong>
+              <span id="alignmentCheckSourceCount">0개 출처</span>
+            </div>
+            <div id="alignmentCheckSourceList" class="alignment-check-source-list empty">정렬 Check 결과를 기다리고 있습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>분석 근거 → 정책 반영</strong>
+              <span id="alignmentCheckAnalysisCount">0건</span>
+            </div>
+            <div id="alignmentCheckAnalysisList" class="alignment-check-list empty">분석 근거 반영 결과를 기다리고 있습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>정책 요소 → 분석 근거</strong>
+              <span id="alignmentCheckPolicyCount">0건</span>
+            </div>
+            <div id="alignmentCheckPolicyList" class="alignment-check-list empty">정책 요소 근거 결과를 기다리고 있습니다.</div>
+          </section>
+          <section class="health-check-section">
+            <div class="health-check-section-head">
+              <strong>보강 액션</strong>
+              <span id="alignmentCheckActionCount">0건</span>
+            </div>
+            <div id="alignmentCheckActionList" class="alignment-check-list empty">보강 액션이 없습니다.</div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <div id="documentAnalysisModal" class="modal-backdrop document-analysis-backdrop" hidden>
+      <section class="document-analysis-modal" role="dialog" aria-modal="true" aria-labelledby="documentAnalysisTitle">
+        <div class="document-analysis-head">
+          <div>
+            <p class="eyebrow">Document Structure</p>
+            <h2 id="documentAnalysisTitle">문서 구조 분석</h2>
+            <p id="documentAnalysisSummary">현재 미리보기 문서의 장별 구조를 분석합니다.</p>
+          </div>
+          <button id="documentAnalysisCloseButton" class="modal-close" type="button" aria-label="문서 구조 분석 닫기">닫기</button>
+        </div>
+        <div class="document-analysis-body">
+          <div id="documentAnalysisGrid" class="document-analysis-grid" aria-label="문서 구조 분석 결과"></div>
+          <div class="document-health-section">
+            <div class="document-health-title">
+              <strong>문서 Health 지표</strong>
+              <span>연결 밀도와 상세화 수준을 평균값으로 확인합니다.</span>
+            </div>
+            <div id="documentHealthGrid" class="document-health-grid" aria-label="문서 Health 분석 결과"></div>
+          </div>
+          <p class="document-analysis-note">분석 값은 현재 열려 있는 HTML 미리보기에서 ID와 표 구조를 기준으로 계산합니다.</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="progressModal" class="modal-backdrop" hidden>
+      <section class="progress-modal" role="dialog" aria-modal="true" aria-labelledby="progressTitle">
+        <div class="progress-head">
+          <div>
+            <p class="eyebrow">Generation Flow</p>
+            <h2 id="progressTitle">문서를 작성하고 있습니다.</h2>
+            <p id="progressPolicyTarget" class="progress-target">작성 대상 문서를 확인하고 있습니다.</p>
+            <p id="progressMessage" class="progress-message">작업을 준비하고 있습니다.</p>
+          </div>
+          <div class="progress-head-actions">
+            <span id="jobStatus" class="job-status-pill">준비</span>
+            <button id="progressCloseButton" class="modal-close" type="button" aria-label="작성 현황 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="progress-body">
+          <aside class="progress-stage-panel">
+            <div class="progress-panel-title">
+              <strong>작성 진행 단계</strong>
+              <span id="progressStepCount">0/0</span>
+            </div>
+            <div id="progressSteps" class="progress-steps"></div>
+          </aside>
+
+          <section class="progress-focus">
+            <span class="current-stage-badge">현재 단계</span>
+            <h3><span id="currentStageName">대기</span></h3>
+            <p id="progressFocusDescription">Agent가 문서 작성을 준비하고 있습니다.</p>
+
+            <div class="progress-overview">
+              <div>
+                <span>전체 진행률</span>
+                <strong id="progressOverallPercent">0%</strong>
+              </div>
+              <div class="progress-overview-bar" aria-hidden="true"><i id="progressOverallBar"></i></div>
+            </div>
+
+            <div class="progress-focus-meta">
+              <div>
+                <span>예상 완료 시간</span>
+                <strong id="progressEta">계산 중</strong>
+              </div>
+              <div>
+                <span>Quality Gate</span>
+                <strong id="progressGate">검수 대기</strong>
+              </div>
+            </div>
+
+            <div id="progressManualReviewArea" class="progress-manual-review-area" hidden>
+              <div id="manualReviewPanel" class="manual-review-panel" hidden>
+                <div>
+                  <p class="eyebrow">Manual Review</p>
+                  <h4 id="manualReviewTitle">사용자 검수 대기</h4>
+                  <p id="manualReviewMessage">HTML 결과를 확인한 뒤 다음 단계를 선택해 주세요.</p>
+                </div>
+                <div id="manualReviewArtifact" class="manual-review-artifact"></div>
+                <label class="field">
+                  <span>다시 작성 의견</span>
+                  <textarea id="manualReviewInstruction" rows="4" placeholder="예: 이 챕터의 정책 기준을 더 구체적인 값과 예외 조건 중심으로 다시 작성해줘."></textarea>
+                </label>
+                <div class="manual-review-actions">
+                  <button id="manualContinueButton" class="primary-button" type="button">이어서 작성하기</button>
+                  <button id="manualReviseButton" class="ghost-button" type="button">의견 반영해 다시 작성</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="progressFocusCards" class="progress-focus-cards">
+              <article class="progress-life-feedback-card">
+                <div class="life-feedback-head">
+                  <div>
+                    <p class="eyebrow">Live feedback</p>
+                    <h4>진행 코멘트</h4>
+                  </div>
+                  <span id="progressLifeFeedbackTone">실시간</span>
+                </div>
+                <div id="progressLifeFeedbackList" class="life-feedback-list"></div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="progress-side-panel">
+            <section class="progress-work">
+              <div class="work-head">
+                <p class="eyebrow">Live Output</p>
+                <h3 id="progressActivityTitle">작업 내용</h3>
+                <p id="progressActivityMeta">진행 중인 단계의 임시 결과가 여기에 표시됩니다.</p>
+              </div>
+              <div id="progressActivityMessage" class="work-message">아직 표시할 작업 내용이 없습니다.</div>
+              <div id="progressArtifactList" class="artifact-list"></div>
+            </section>
+
+            <section class="progress-inspector-notes">
+              <div class="inspector-notes-head">
+                <h3>Inspector Notes</h3>
+                <span id="progressInspectorCount">0건</span>
+              </div>
+              <div id="progressInspectorNotes" class="inspector-note-list">
+                <div class="inspector-note muted">아직 표시할 검수 메모가 없습니다.</div>
+              </div>
+            </section>
+          </aside>
+        </div>
+        <div id="progressError" class="progress-error" hidden></div>
+        <div class="progress-footer">
+          <div class="progress-time-card">
+            <span>전체 경과 시간</span>
+            <strong id="totalElapsed">00:00</strong>
+          </div>
+          <div class="progress-time-card">
+            <span>현재 단계 경과 시간</span>
+            <strong id="currentStageElapsed">00:00</strong>
+          </div>
+          <p>AI Agent가 신중하게 작성 중입니다. 작성은 중단하지 않는 한 계속 진행됩니다.</p>
+          <button id="progressCancelButton" class="progress-cancel-button" type="button" hidden>작성 중단</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="serviceHealthModal" class="modal-backdrop service-health-backdrop" hidden>
+      <section class="service-health-modal" role="dialog" aria-modal="true" aria-labelledby="serviceHealthTitle">
+        <div class="service-health-head">
+          <div>
+            <p class="eyebrow">Service Steward</p>
+            <h2 id="serviceHealthTitle">서비스 관리</h2>
+            <p id="serviceHealthSummary">작업 점유 기록, 진행 중인 작업, LLM 오류, 디스크 사용량을 점검합니다.</p>
+          </div>
+          <div class="service-health-actions">
+            <button id="serviceHealthRefreshButton" class="ghost-button compact" type="button">상태 새로고침</button>
+            <button id="serviceLockCleanupButton" class="primary-button compact" type="button" disabled>오래된/종료 기록 정리</button>
+            <button id="serviceHealthCloseButton" class="modal-close" type="button" aria-label="서비스 관리 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="service-health-body">
+          <div id="serviceHealthStats" class="service-health-stats"></div>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>운영 권고</strong>
+              <span id="serviceRecommendationCount">0건</span>
+            </div>
+            <div id="serviceRecommendationList" class="service-health-list empty">서비스 상태를 불러오고 있습니다.</div>
+          </section>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>디스크 상세</strong>
+              <span id="serviceDiskCount">0개</span>
+            </div>
+            <div id="serviceDiskList" class="service-health-list empty">디스크 사용량을 확인합니다.</div>
+          </section>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>작업 점유 기록</strong>
+              <span id="serviceLockCount">0건</span>
+            </div>
+            <div id="serviceLockList" class="service-lock-list empty">작업 점유 기록을 불러오고 있습니다.</div>
+          </section>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>큐 현황 / 히스토리</strong>
+              <span id="serviceQueueCount">0건</span>
+            </div>
+            <div id="serviceQueueList" class="service-health-list empty">큐 상태를 확인합니다.</div>
+          </section>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>진행 작업 / LLM 이벤트</strong>
+              <span id="serviceRuntimeCount">0건</span>
+            </div>
+            <div id="serviceRuntimeList" class="service-health-list empty">진행 중인 작업과 최근 LLM 이벤트를 확인합니다.</div>
+          </section>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>사용 로그 / 오류 패턴</strong>
+              <span id="serviceUsageCount">0건</span>
+            </div>
+            <div id="serviceUsageList" class="service-health-list empty">사용자 행동과 오류 패턴을 확인합니다.</div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <div id="userManagementModal" class="modal-backdrop service-health-backdrop" hidden>
+      <section class="service-health-modal user-management-modal" role="dialog" aria-modal="true" aria-labelledby="userManagementTitle">
+        <div class="service-health-head">
+          <div>
+            <p class="eyebrow">User Directory</p>
+            <h2 id="userManagementTitle">사용자 관리</h2>
+            <p id="userManagementSummary">가입된 사용자와 승인·활성 상태를 확인합니다.</p>
+          </div>
+          <div class="service-health-actions">
+            <button id="userManagementRefreshButton" class="ghost-button compact" type="button">목록 새로고침</button>
+            <button id="userManagementCloseButton" class="modal-close" type="button" aria-label="사용자 관리 닫기">닫기</button>
+          </div>
+        </div>
+        <div class="service-health-body">
+          <div id="userManagementStats" class="service-health-stats user-management-stats"></div>
+          <section class="service-health-section">
+            <div class="service-health-section-head">
+              <strong>사용자 목록</strong>
+              <span id="userManagementCount">0명</span>
+            </div>
+            <div id="userManagementList" class="user-management-list empty">사용자 목록을 불러오고 있습니다.</div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="/app.js?v=side-tree-collapsed-1"></script>
+</body>
+</html>

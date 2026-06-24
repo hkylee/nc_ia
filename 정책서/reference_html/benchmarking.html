@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>벤치마킹 결과 · 현황 분석</title>
+  <style>
+    :root {
+      --ink:#141a28;
+      --sub:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#ffffff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --violet:#6d5bd0;
+      --amber:#d97706;
+      --rose:#be123c;
+      --green:#059669;
+      --black:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page {
+      width:calc(100% - 24px);
+      margin:0 auto;
+      padding:20px 0 36px;
+    }
+    .top-sheet {
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .title-block {
+      padding:24px;
+      background:#fff;
+      border-right:1px solid var(--line);
+    }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 {
+      margin:12px 0 14px;
+      font-size:30px;
+      line-height:1.16;
+      letter-spacing:0;
+    }
+    .lead {
+      max-width:760px;
+      color:var(--ink);
+      font-size:var(--fs-lead);
+      font-weight:780;
+    }
+    .brief-tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:22px;
+    }
+    .brief-tags span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .readout {
+      display:grid;
+      grid-template-rows:auto 1fr;
+      background:#101522;
+      color:#fff;
+    }
+    .readout-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .readout-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .readout-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .readout-body {
+      display:grid;
+      gap:12px;
+      align-content:center;
+      padding:18px 18px 20px;
+    }
+    .readout-body strong {
+      display:block;
+      font-size:22px;
+      line-height:1.28;
+    }
+    .readout-body p {
+      margin:0;
+      color:#d8e3f4;
+      font-size:var(--fs-body);
+      font-weight:740;
+    }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 {
+      margin:0;
+      font-size:var(--fs-title);
+      line-height:1.24;
+      letter-spacing:0;
+    }
+    .section-head p {
+      max-width:820px;
+      margin:6px 0 0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:740;
+    }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content {
+      padding:16px 18px 20px;
+    }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:180px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 {
+      margin:14px 0 8px;
+      font-size:var(--fs-body);
+      line-height:1.35;
+    }
+    .signal p {
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .metric-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .metric-card {
+      display:grid;
+      gap:8px;
+      min-height:132px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:16px;
+    }
+    .metric-card b {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .metric-card strong {
+      color:#111827;
+      font-size:22px;
+      line-height:1.18;
+    }
+    .metric-card p {
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .matrix-wrap {
+      overflow-x:auto;
+      border:1px solid var(--line);
+      border-radius:8px;
+    }
+    table {
+      width:100%;
+      min-width:980px;
+      border-collapse:separate;
+      border-spacing:0;
+      table-layout:fixed;
+      background:#fff;
+    }
+    th, td {
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:13px 14px;
+      vertical-align:top;
+      text-align:left;
+      font-size:var(--fs-body);
+    }
+    th:last-child, td:last-child { border-right:0; }
+    tr:last-child td { border-bottom:0; }
+    th {
+      background:#f1f5fb;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    td {
+      color:var(--ink);
+      font-weight:720;
+    }
+    .player-name {
+      color:#1d4ed8;
+      font-weight:950;
+    }
+    .score {
+      display:inline-flex;
+      align-items:center;
+      min-height:24px;
+      border-radius:999px;
+      padding:4px 8px;
+      color:#fff;
+      font-size:11px;
+      font-weight:950;
+    }
+    .score.high { background:var(--green); }
+    .score.mid { background:var(--amber); }
+    .score.low { background:var(--rose); }
+    .evidence-stack {
+      display:grid;
+      gap:8px;
+    }
+    .evidence-stack span {
+      display:block;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:720;
+      line-height:1.45;
+    }
+    .gap-board {
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+      gap:16px;
+      align-items:start;
+    }
+    .gap-list {
+      display:grid;
+      gap:10px;
+    }
+    .gap-row {
+      display:grid;
+      grid-template-columns:110px minmax(0,1fr) 90px;
+      gap:12px;
+      align-items:center;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .gap-row b {
+      color:#111827;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .gap-row p {
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .severity {
+      display:grid;
+      gap:5px;
+      justify-items:end;
+    }
+    .bar {
+      width:78px;
+      height:8px;
+      overflow:hidden;
+      border-radius:999px;
+      background:#e7edf5;
+    }
+    .bar i {
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:var(--blue);
+    }
+    .gap-row:nth-child(2) .bar i { background:var(--amber); }
+    .gap-row:nth-child(3) .bar i { background:var(--teal); }
+    .gap-row:nth-child(4) .bar i { background:var(--rose); }
+    .gap-row:nth-child(5) .bar i { background:var(--violet); }
+    .gap-row:nth-child(6) .bar i { background:var(--green); }
+    .severity span {
+      color:var(--muted);
+      font-size:11px;
+      font-weight:900;
+    }
+    .action-canvas {
+      display:grid;
+      gap:10px;
+    }
+    .action {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#f8fafc;
+      padding:14px;
+    }
+    .action b {
+      display:block;
+      color:#111827;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .action p {
+      margin:6px 0 0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .detail-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .detail-card {
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+    }
+    .detail-card header {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding:13px 14px;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+    .detail-card header b {
+      color:#111827;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .detail-card header span {
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:5px 8px;
+      font-size:11px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .detail-card ul {
+      display:grid;
+      gap:8px;
+      margin:0;
+      padding:14px 18px 16px 30px;
+    }
+    .detail-card li {
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+      line-height:1.5;
+    }
+    .flow-board {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .flow-card {
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+    }
+    .flow-card header {
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      gap:10px;
+      align-items:center;
+      padding:14px;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+    .flow-card header span {
+      display:inline-grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      border-radius:8px;
+      background:#111827;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .flow-card header strong {
+      color:#111827;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .flow-card div {
+      padding:14px;
+    }
+    .flow-card p {
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .design-principles {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .principle {
+      display:grid;
+      grid-template-columns:42px minmax(0,1fr);
+      gap:12px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+    }
+    .principle span {
+      display:inline-grid;
+      place-items:center;
+      width:34px;
+      height:34px;
+      border-radius:8px;
+      background:#eff6ff;
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .principle:nth-child(2) span { background:#ecfdf5; color:var(--teal); }
+    .principle:nth-child(3) span { background:#fff7ed; color:var(--amber); }
+    .principle:nth-child(4) span { background:#fff1f2; color:var(--rose); }
+    .principle:nth-child(5) span { background:#f4f0ff; color:var(--violet); }
+    .principle:nth-child(6) span { background:#ecfdf5; color:var(--green); }
+    .principle b {
+      display:block;
+      color:#111827;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .principle p {
+      margin:6px 0 0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .ticket-board {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .ticket {
+      display:grid;
+      gap:10px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .ticket-top {
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .ticket-top b {
+      color:#111827;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .priority {
+      border-radius:999px;
+      padding:5px 8px;
+      background:#101522;
+      color:#fff;
+      font-size:11px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .ticket p {
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .ticket footer {
+      border-top:1px solid var(--line);
+      padding-top:10px;
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    @media (max-width:980px) {
+      .top-sheet,
+      .gap-board,
+      .flow-board,
+      .metric-grid,
+      .detail-grid,
+      .design-principles,
+      .ticket-board {
+        grid-template-columns:1fr;
+      }
+      .title-block { border-right:0; border-bottom:1px solid var(--line); }
+      .signal-grid { grid-template-columns:1fr; }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .section-head { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .title-block, .readout-body, .content { padding:16px; }
+      .gap-row { grid-template-columns:1fr; }
+      .severity { justify-items:start; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-sheet">
+      <header class="title-block">
+        <div class="kicker">Benchmark dossier</div>
+        <h1>Next 플랫폼 채널 벤치마킹 결과</h1>
+        <p class="lead">통합채널은 여러 앱과 브랜드를 한 화면에 모으는 방식이 아니라, 고객 목적을 이해하고 실행까지 연결하는 하나의 운영 플랫폼으로 설계되어야 한다.<br/></p>
+        <div class="brief-tags">
+          <span>시장 플레이어 비교</span>
+          <span>현재 채널 Gap</span>
+          <span>가입 프로세스 비교</span>
+          <span>정책서 전환 기준</span>
+        </div>
+      </header>
+      <aside class="readout">
+        <div class="readout-head">
+          <b>Executive readout</b>
+          <span>2026-03-06</span>
+        </div>
+        <div class="readout-body">
+          <strong>고객이 찾고, 비교하고, 신청하고, 관리하는 과업을 기능 단위로 다시 묶어야 한다.</strong>
+          <p>AI 에이전트, 혜택 루프, 미니앱형 제휴 운영, 공통 인증·결제·주문 모듈이 통합채널의 핵심 설계 축이다.<br/></p>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 근거 수치 스냅샷</h2>
+          <p>PDF에서 확인되는 정량·사례 근거를 별도로 노출해 벤치마킹 판단의 근거를 빠르게 확인할 수 있게 했다.<br/>수치는 전략 방향을 보강하는 참고 근거이며, 서비스 정책값으로 확정하지 않는다.<br/></p>
+        </div>
+        <span class="section-label">Evidence snapshot</span>
+      </div>
+      <div class="content">
+        <div class="metric-grid">
+          <article class="metric-card">
+            <b>Toss scale</b>
+            <strong>가입자 3천만명</strong>
+            <p>2025년 기준 토스 가입자 수와 전 연령·직업군 확산을 통합 슈퍼앱의 규모 근거로 제시한다.<br/></p>
+          </article>
+          <article class="metric-card">
+            <b>MAU signal</b>
+            <strong>MAU 2,081만명</strong>
+            <p>2025년 5월 토스 MAU가 금융 부문 1위로 제시되어 단일 진입점의 집중 효과를 뒷받침한다.<br/></p>
+          </article>
+          <article class="metric-card">
+            <b>AI coverage</b>
+            <strong>셀프서비스 +8%</strong>
+            <p>T-Mobile의 AI 통합 효과로 셀프서비스 기능 커버리지 8% 향상이 제시되어 AI 실행 보조의 필요성을 보여준다.<br/></p>
+          </article>
+          <article class="metric-card">
+            <b>Personal offer</b>
+            <strong>전환율 +6%p</strong>
+            <p>T-Mobile 사례에서 교차·상향 판매 전환율 6%p 증가가 제시되어 개인화 추천과 번들 오퍼링의 효과를 보여준다.<br/></p>
+          </article>
+          <article class="metric-card">
+            <b>eSIM input</b>
+            <strong>20 · 19 · 20 · 15 · 16</strong>
+            <p>eSIM 가입 항목 수는 SKT 20개, U+ 19개, KT 20개, 토스 15개, 카카오 16개로 비교된다.<br/></p>
+          </article>
+          <article class="metric-card">
+            <b>New subscription</b>
+            <strong>34 · 31 · 35 · 28</strong>
+            <p>신규 가입 항목 수는 SKT 34개, U+ 31개, KT 35개, T-Mobile 28개로 비교된다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. 핵심 신호 5개</h2>
+          <p>벤치마킹 결과는 다섯 개 설계 신호로 압축된다.<br/>각 신호는 후속 정책서에서 기능, 프로세스, 정책 기준으로 전환되어야 한다.<br/></p>
+        </div>
+        <span class="section-label">Signal summary</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>단일 진입점</h3>
+            <p>고객이 기능 위치를 기억하지 않아도 목적을 입력하거나 선택해 업무를 시작해야 한다.<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>기능 단위 통합</h3>
+            <p>브랜드별 화면을 붙이는 방식보다 기능을 해체하고 고객 여정 기준으로 재그룹핑해야 한다.<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>AI 실행 보조</h3>
+            <p>검색, 고객센터, 기능 실행을 분리하지 않고 하나의 에이전트 흐름으로 연결해야 한다.<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>혜택·미션 루프</h3>
+            <p>혜택은 단발 배너가 아니라 가입, 사용, 재방문, 관계 확산으로 이어지는 참여 구조여야 한다.<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>모듈형 운영</h3>
+            <p>부서와 제휴 기능은 독립 운영되더라도 고객 경험 기준은 공통으로 통제해야 한다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. 플레이어 비교 매트릭스</h2>
+          <p>각 사례는 그대로 복제할 대상이 아니라 통합채널 설계에서 선택해야 할 구조적 옵션이다.<br/></p>
+        </div>
+        <span class="section-label">Benchmark matrix</span>
+      </div>
+      <div class="content">
+        <div class="matrix-wrap">
+          <table>
+            <colgroup>
+              <col style="width:130px"/>
+              <col style="width:190px"/>
+              <col style="width:190px"/>
+              <col style="width:190px"/>
+              <col style="width:280px"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>강한 패턴</th>
+                <th>통합 방식</th>
+                <th>자료 근거</th>
+                <th>통합채널 적용 포인트</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="player-name">토스</td>
+                <td>홈 중심 개인 맥락, 토스피드, 미니앱 확장.<br/></td>
+                <td>나의 뱅킹 정보, 받을 수 있는 혜택, 카드, 신용 정보를 하나의 흐름으로 연결.<br/></td>
+                <td><div class="evidence-stack"><span>가입자 3천만명.<br/></span><span>MAU 2,081만명.<br/></span><span>DAU 기존 대비 약 25% 향상 근거 제시.<br/></span></div></td>
+                <td>제휴 기능은 독립 운영하되 그래픽 요소, 진입, 종료, 복귀 기준을 공통화한다.<br/></td>
+              </tr>
+              <tr>
+                <td class="player-name">U+ One</td>
+                <td>MY, 스토어, 혜택 중심 통신 업무 통합.<br/></td>
+                <td>서비스를 기능 단위로 해체한 뒤 목적 영역으로 재그룹핑.<br/></td>
+                <td><div class="evidence-stack"><span>MY·스토어·혜택 단위 재구성.<br/></span><span>통신 관련 업무를 한 곳에서 완결하는 방향.<br/></span></div></td>
+                <td>브랜드 노출보다 고객이 처리하려는 업무 단위가 먼저 보이게 한다.<br/></td>
+              </tr>
+              <tr>
+                <td class="player-name">T-Mobile</td>
+                <td>Always-on AI assistant와 개인화 오퍼링.<br/></td>
+                <td>계정 조회, 요금제 비교, 기기 추천, 로밍·데이터 추가 같은 설정을 대화 흐름으로 연결.<br/></td>
+                <td><div class="evidence-stack"><span>셀프서비스 커버리지 8% 향상.<br/></span><span>교차·상향 판매 전환율 6%p 증가.<br/></span><span>Thought you might like 형태의 개인화 배너.<br/></span></div></td>
+                <td>AI는 단순 검색창이 아니라 조건 확인, 비교, 추천, 실행으로 이어져야 한다.<br/></td>
+              </tr>
+              <tr>
+                <td class="player-name">SSG</td>
+                <td>브랜드 병행형 통합 전시.<br/></td>
+                <td>통합 앱 안에 개별 브랜드와 배송 구조가 남는 방식.<br/></td>
+                <td><div class="evidence-stack"><span>상품마다 채널 구분 플래그 제공.<br/></span><span>통합 장바구니에 담아도 서비스별 배송 구조 유지.<br/></span></div></td>
+                <td>브랜드 경계가 남는 경우 상품, 배송, 결제, 책임 주체를 고객에게 명확히 고지한다.<br/></td>
+              </tr>
+              <tr>
+                <td class="player-name">SOL·모니모</td>
+                <td>혜택과 미션을 통한 방문 유도와 서비스 가입 연계.<br/></td>
+                <td>홈 메인 배너, 계좌 개설 후 혜택 수령, 장기 접속·일일 방문·관계 확산 미션을 조합.<br/></td>
+                <td><div class="evidence-stack"><span>키우기 게임, 오늘의 운세, 함께 토스 켜기 사례.<br/></span><span>현금, 실물 상품, 실물 가치가 느껴지는 포인트 보상.<br/></span></div></td>
+                <td>리워드는 포인트 적립 자체보다 고객이 바로 쓸 수 있는 가치와 사용 맥락을 함께 설계한다.<br/></td>
+              </tr>
+              <tr>
+                <td class="player-name">통신 3사·MVNO</td>
+                <td>가입 프로세스의 체감 속도 차이.<br/></td>
+                <td>입력 항목 수보다 정보 분절, 터치 동선, 설득 구조가 경험을 좌우.<br/></td>
+                <td><div class="evidence-stack"><span>eSIM 항목: SKT 20개, U+ 19개, KT 20개, 토스 15개, 카카오 16개.<br/></span><span>신규 가입 항목: SKT 34개, U+ 31개, KT 35개, T-Mobile 28개.<br/></span></div></td>
+                <td>가입은 항목 줄이기가 아니라 생각할 양과 행동할 양을 줄이는 방향으로 설계한다.<br/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. 현재 채널 Gap 진단</h2>
+          <p>현재 채널의 문제는 화면이 부족한 것이 아니라 기준이 분산되어 있다는 점이다.<br/>Gap은 고객 혼란, 처리 단절, 운영 복잡도로 이어진다.<br/></p>
+        </div>
+        <span class="section-label">Gap diagnosis</span>
+      </div>
+      <div class="content">
+        <div class="gap-board">
+          <div class="gap-list">
+            <article class="gap-row">
+              <b>링크 집합</b>
+              <p>채널 간 연결은 있으나 고객 여정이 하나로 이어지지 않는다.<br/></p>
+              <div class="severity"><div class="bar"><i style="width:92%"></i></div><span>Critical</span></div>
+            </article>
+            <article class="gap-row">
+              <b>정보 과다</b>
+              <p>반복 배너와 정책성 설명이 목록 단계부터 과도하게 노출되고, 작은 폰트와 낮은 대비로 가독성이 떨어진다.<br/></p>
+              <div class="severity"><div class="bar"><i style="width:78%"></i></div><span>High</span></div>
+            </article>
+            <article class="gap-row">
+              <b>용어 불일치</b>
+              <p>혜택과 쿠폰의 의미가 채널별로 달라 고객 해석이 흔들리고, 사업자 중심 워딩으로 제공 가치가 즉시 전달되지 않는다.<br/></p>
+              <div class="severity"><div class="bar"><i style="width:82%"></i></div><span>High</span></div>
+            </article>
+            <article class="gap-row">
+              <b>인증·결제</b>
+              <p>인증 수단, 인증 강도, 결제수단, 주문 순서가 서비스마다 달라 채널 이동 시 반복 인증과 결제 경험 단절이 발생한다.<br/></p>
+              <div class="severity"><div class="bar"><i style="width:88%"></i></div><span>Critical</span></div>
+            </article>
+            <article class="gap-row">
+              <b>MY·장바구니</b>
+              <p>T월드, T멤버십, T다이렉트, T우주의 MY와 장바구니가 분리되어 구매 맥락과 번들 판단이 끊긴다.<br/></p>
+              <div class="severity"><div class="bar"><i style="width:74%"></i></div><span>High</span></div>
+            </article>
+            <article class="gap-row">
+              <b>셀프 처리</b>
+              <p>요금 납부 전용 계좌 신청, 결합상품 해지, 유선 주문취소, T멤버십 카드 일시정지 취소처럼 앱 내 처리가 제한되는 업무가 남아 있다.<br/></p>
+              <div class="severity"><div class="bar"><i style="width:80%"></i></div><span>High</span></div>
+            </article>
+          </div>
+          <div class="action-canvas">
+            <article class="action">
+              <b>우선 전환 방향</b>
+              <p>고객 목적을 기준으로 홈, MY, 혜택, 주문, 고객지원, 설정을 재배치한다.<br/></p>
+            </article>
+            <article class="action">
+              <b>운영 기준</b>
+              <p>부서별 운영은 유지하되 디자인, 용어, 데이터, 배포, 롤백 기준을 공통화한다.<br/></p>
+            </article>
+            <article class="action">
+              <b>정책서 반영 방식</b>
+              <p>각 정책서에는 AI 연결, 공통 인증, 공통 결제, 셀프 처리, 예외 이관 기준을 남긴다.<br/></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. 세부 비교 근거</h2>
+          <p>현재 채널의 Gap을 정책서로 전환하려면 인증, 결제, 주문, 혜택, 제휴 운영의 구체 차이를 함께 남겨야 한다.<br/>아래 항목은 후속 정책서의 기능·정책 상세에서 누락되기 쉬운 판단축이다.<br/></p>
+        </div>
+        <span class="section-label">Detail evidence</span>
+      </div>
+      <div class="content">
+        <div class="detail-grid">
+          <article class="detail-card">
+            <header><b>인증 체계 차이</b><span>Auth</span></header>
+            <ul>
+              <li>채널별 본인인증 수단 범위가 PASS 인증서, 휴대폰 인증, KT/LG U+/알뜰폰 인증, 아이핀 인증, 신용카드 인증 등으로 다르게 운영된다.<br/></li>
+              <li>T월드 요금 납부는 휴대폰 인증 후 공동인증서가 필요하지만, T다이렉트샵 단말 주문은 공동인증서가 필요하지 않은 구조로 비교된다.<br/></li>
+              <li>PASS 외 네이버, 토스, 카카오 같은 간편인증 수단 미제공으로 PASS 미사용 고객의 인증 편의성이 낮아진다.<br/></li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <header><b>결제수단과 결제 UX 차이</b><span>Payment</span></header>
+            <ul>
+              <li>채널과 상품별로 신용·체크카드, 통신요금 합산 결제, 간편결제, 제휴포인트, 계좌이체, 가상계좌 지원 여부가 다르다.<br/></li>
+              <li>결제 모듈이 달라 고객의 선호 결제수단과 최근 사용 결제수단을 연속적으로 활용하기 어렵다.<br/></li>
+              <li>통합채널에서는 공통 결제창, 결제수단 우선순위, 실패 복구, 상품별 제한 조건을 함께 정의해야 한다.<br/></li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <header><b>주문 단계와 앱·웹 차이</b><span>Order</span></header>
+            <ul>
+              <li>T다이렉트 앱은 상품옵션, 배송방법, 가입조건, 본인인증, 신청서 작성 순서로 비교된다.<br/></li>
+              <li>T다이렉트 웹은 상품옵션, 본인인증, 가입조건·신청서 작성, 배송방법 순서로 비교되어 같은 업무의 체감 흐름이 다르다.<br/></li>
+              <li>외부 제휴사 상품은 별도 주문 UI/UX를 제공하므로 공통 컴포넌트와 제휴 예외 기준이 함께 필요하다.<br/></li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <header><b>혜택·쿠폰 의미 차이</b><span>Benefit</span></header>
+            <ul>
+              <li>T월드와 T다이렉트샵의 혜택은 장기우수고객 혜택, 결합할인, 선택약정할인, 제휴카드 할인처럼 할인 성격이 강하다.<br/></li>
+              <li>T멤버십은 미션, 상시 혜택, T day, VIP Pick 같은 멤버십 프로그램과 리워드 성격이 강하다.<br/></li>
+              <li>T우주는 플러스할인 혜택, 추가 혜택처럼 상품 구성 요소와 할인 의미가 섞여 있어 공통 용어 기준이 필요하다.<br/></li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <header><b>관리·장바구니 분리</b><span>MY · Cart</span></header>
+            <ul>
+              <li>T월드는 요금제와 단말 등 통신사 정보, T멤버십은 등급과 가입 기간, T다이렉트는 구매이력, T우주는 구독상품 중심으로 MY 성격이 다르다.<br/></li>
+              <li>T다이렉트 앱은 상품별 개별 장바구니, 웹은 탭 구조의 부분통합 장바구니로 비교된다.<br/></li>
+              <li>T우주는 통합 장바구니와 Validation 체크로 함께 구독할 수 없는 상품을 담지 못하게 하는 구조가 확인된다.<br/></li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <header><b>셀프 처리 제한 업무</b><span>Self-care</span></header>
+            <ul>
+              <li>요금 납부 전용 계좌 신청, 결합상품 해지, 유선 주문취소, T멤버십 카드 일시정지 취소 등 일부 업무는 앱 내 셀프 처리 한계가 있다.<br/></li>
+              <li>신청·주문이 앱 내 가능한 상품임에도 이후 변경, 해지, 취소 범위가 제한되어 고객 흐름이 중단된다.<br/></li>
+              <li>정책서에는 셀프 처리 가능, 상담 이관, 대리점 방문, 복구 가능 여부를 상태와 정책 기준으로 나누어야 한다.<br/></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 가입 프로세스 재설계 관점</h2>
+          <p>가입 편의성은 입력 항목의 절대 개수보다 고객이 한 번에 처리해야 하는 판단과 행동의 양에 더 크게 좌우된다.<br/></p>
+        </div>
+        <span class="section-label">Signup friction</span>
+      </div>
+      <div class="content">
+        <div class="flow-board">
+          <article class="flow-card">
+            <header><span>01</span><strong>생각할 양을 줄인다.</strong></header>
+            <div>
+              <p>한 화면에 여러 질문과 설명을 동시에 쏟아내면 실제 항목 수가 비슷해도 고객은 더 어렵게 느낀다.<br/>통신 3사 방식의 높은 시각 밀도와 롱폼 세로 스크롤보다, 한 화면당 하나의 질문을 제시하는 단계형 흐름이 체감 속도를 높인다.<br/></p>
+            </div>
+          </article>
+          <article class="flow-card">
+            <header><span>02</span><strong>행동할 양을 줄인다.</strong></header>
+            <div>
+              <p>약관 개별 체크, 선택 약관 해제, 입력 영역 직접 선택, 세로 스크롤, 요금제 제약사항 확인, 동일 정보 재확인이 누적되면 가입은 길고 무거운 작업으로 인식된다.<br/>고지 의무는 지키되 터치와 재확인을 줄여야 한다.<br/></p>
+            </div>
+          </article>
+          <article class="flow-card">
+            <header><span>03</span><strong>설득 논리를 제공한다.</strong></header>
+            <div>
+              <p>요금제 추천은 단순 나열이 아니라 현재 사용 조건, 절감액, 혜택 차이, 경쟁사 대비 장점을 함께 보여줘야 신뢰가 생긴다.<br/></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>7. 통합채널 설계 원칙</h2>
+          <p>벤치마킹 결과를 통합채널 정책서 작성 기준으로 바꾸면 아래 원칙이 된다.<br/></p>
+        </div>
+        <span class="section-label">Design principles</span>
+      </div>
+      <div class="content">
+        <div class="design-principles">
+          <article class="principle">
+            <span>01</span>
+            <div><b>목적 먼저, 브랜드는 나중.</b><p>고객이 무엇을 하려는지 먼저 드러나고 브랜드나 서비스 경계는 필요한 순간에만 보인다.<br/></p></div>
+          </article>
+          <article class="principle">
+            <span>02</span>
+            <div><b>기능은 공통화하고 예외는 정책화한다.</b><p>인증, 결제, 주문, 장바구니는 공통 모듈을 기본으로 하고 상품별 차이는 예외 기준으로 관리한다.<br/></p></div>
+          </article>
+          <article class="principle">
+            <span>03</span>
+            <div><b>AI는 탐색이 아니라 실행 보조다.</b><p>AI는 메뉴 안내에서 끝나지 않고 조건 확인, 비교, 처리 시작, 상담 이관까지 책임 범위를 가져야 한다.<br/></p></div>
+          </article>
+          <article class="principle">
+            <span>04</span>
+            <div><b>혜택은 루프로 설계한다.</b><p>고객이 혜택을 확인하고 실제 사용하며 다시 방문하도록 미션, 보상, 사용 경로, 소진 기준을 연결한다.<br/></p></div>
+          </article>
+          <article class="principle">
+            <span>05</span>
+            <div><b>제휴는 독립 운영, 경험은 통합 통제.</b><p>미니앱형 제휴는 운영 독립성을 보장하되 디자인, 진입, 종료, 복귀, 이력 기준은 통합한다.<br/></p></div>
+          </article>
+          <article class="principle">
+            <span>06</span>
+            <div><b>셀프 처리 실패도 경험이다.</b><p>처리 불가, 상담 이관, 대리점 방문이 필요한 경우에도 사유와 후속 행동을 명확히 안내해야 한다.<br/></p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>8. 정책서 전환 백로그</h2>
+          <p>아래 항목은 후속 요구사항과 정책서에 반드시 남겨야 할 검토 티켓이다.<br/></p>
+        </div>
+        <span class="section-label">Policy backlog</span>
+      </div>
+      <div class="content">
+        <div class="ticket-board">
+          <article class="ticket">
+            <div class="ticket-top"><b>목적 기반 IA</b><span class="priority">P1</span></div>
+            <p>고객 목적, 상태, 최근 행동을 기준으로 홈과 메뉴 진입 기준을 재정의한다.<br/></p>
+            <footer>산출물: IA 기준 · 홈 우선순위 정책</footer>
+          </article>
+          <article class="ticket">
+            <div class="ticket-top"><b>AI 에이전트 범위</b><span class="priority">P1</span></div>
+            <p>AI가 직접 처리할 업무, 고객 확인이 필요한 업무, 상담 이관 기준을 구분한다.<br/></p>
+            <footer>산출물: AI 처리 범위 · 이관 정책</footer>
+          </article>
+          <article class="ticket">
+            <div class="ticket-top"><b>공통 인증 기준</b><span class="priority">P1</span></div>
+            <p>인증 수단, 인증 강도, 세션 유지, 추가 인증 조건을 채널 공통 기준으로 정리한다.<br/></p>
+            <footer>산출물: 인증 상태 · 권한 정책</footer>
+          </article>
+          <article class="ticket">
+            <div class="ticket-top"><b>결제·주문 공통 모듈</b><span class="priority">P1</span></div>
+            <p>선호 결제수단, 최근 결제수단, 주문 단계, 실패 복구 기준을 공통화한다.<br/></p>
+            <footer>산출물: 주문 프로세스 · 결제 정책</footer>
+          </article>
+          <article class="ticket">
+            <div class="ticket-top"><b>혜택·쿠폰 용어</b><span class="priority">P2</span></div>
+            <p>혜택, 쿠폰, 리워드, 미션의 의미와 사용 조건, 소진, 환급, 만료 기준을 통합한다.<br/></p>
+            <footer>산출물: 용어 사전 · 혜택 정책</footer>
+          </article>
+          <article class="ticket">
+            <div class="ticket-top"><b>제휴 미니앱 운영</b><span class="priority">P2</span></div>
+            <p>제휴 화면의 디자인 요소, 진입, 종료, 복귀, 장애, 책임 주체 고지 기준을 정의한다.<br/></p>
+            <footer>산출물: 제휴 운영 · UX 가이드</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

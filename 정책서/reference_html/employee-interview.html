@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>임직원 인터뷰 · 현황 분석</title>
+  <style>
+    :root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:760px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body {
+      display:grid;
+      gap:12px;
+      align-content:center;
+      padding:18px 18px 20px;
+    }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:840px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .voice-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .voice-card {
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+    }
+    .voice-card header {
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      gap:12px;
+      align-items:center;
+      padding:16px;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+    .voice-card header span {
+      display:inline-grid;
+      place-items:center;
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      background:#111827;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .voice-card header b { color:#111827; font-size:var(--fs-body); font-weight:950; }
+    .voice-card ul {
+      display:grid;
+      gap:9px;
+      margin:0;
+      padding:16px 20px 18px 32px;
+    }
+    .voice-card li { color:var(--ink); font-size:var(--fs-body); font-weight:730; line-height:1.52; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:170px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .decision-map {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+    }
+    .decision {
+      position:relative;
+      min-height:168px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+    }
+    .decision:not(:last-child)::after {
+      content:"";
+      position:absolute;
+      top:34px;
+      right:-11px;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:#111827;
+      box-shadow:0 0 0 5px #fff;
+      z-index:2;
+    }
+    .decision:not(:last-child)::before {
+      content:"";
+      position:absolute;
+      top:41px;
+      right:-3px;
+      z-index:3;
+      width:7px;
+      height:7px;
+      border-top:2px solid #fff;
+      border-right:2px solid #fff;
+      transform:rotate(45deg);
+    }
+    .decision b {
+      display:inline-grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      border-radius:8px;
+      background:#eff6ff;
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .decision h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .decision p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .risk-board {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      gap:12px;
+    }
+    .risk {
+      display:grid;
+      grid-template-columns:120px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .risk b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .risk p {
+      align-self:center;
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .ai-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+    .ai-card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+    }
+    .ai-card b {
+      display:block;
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .ai-card strong { display:block; margin-top:8px; color:#111827; font-size:var(--fs-body); line-height:1.35; }
+    .ai-card p { margin:8px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .target-board {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .target {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:16px;
+    }
+    .target h3 { margin:0 0 8px; color:#111827; font-size:var(--fs-body); }
+    .target p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .evidence-board {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .evidence {
+      display:grid;
+      grid-template-columns:132px minmax(0,1fr);
+      gap:12px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .evidence b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .evidence p {
+      align-self:center;
+      margin:0;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .policy-board {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .policy {
+      display:grid;
+      gap:10px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .policy-top {
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .policy-top b { color:#111827; font-size:var(--fs-body); font-weight:950; }
+    .priority {
+      border-radius:999px;
+      padding:5px 8px;
+      background:#101522;
+      color:#fff;
+      font-size:11px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .policy p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .policy footer {
+      border-top:1px solid var(--line);
+      padding-top:10px;
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    @media (max-width:980px) {
+      .cover,
+      .voice-grid,
+      .signal-grid,
+      .decision-map,
+      .risk-board,
+      .ai-grid,
+      .target-board,
+      .evidence-board,
+      .policy-board {
+        grid-template-columns:1fr;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .decision::before, .decision::after { display:none; }
+      .section-head { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      .risk, .evidence { grid-template-columns:1fr; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">Interview synthesis</div>
+        <h1>임직원 인터뷰 기반 채널 방향성</h1>
+        <p class="lead">통합의 목표는 “한 앱” 자체가 아니라, 고객이 길을 잃지 않고 목적을 완결하는 하나의 경험과 뒤쪽의 오케스트레이션을 만드는 것이다.<br/></p>
+        <div class="chips">
+          <span>임원 인터뷰</span>
+          <span>팀장 인터뷰</span>
+          <span>채널 통합 방향</span>
+          <span>AI·운영·KPI 쟁점</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>2026-02-05</span>
+        </div>
+        <div class="side-body">
+          <strong>통합은 비용 절감 프로젝트가 아니라 고객 관계와 셀프완결을 재설계하는 전략 과제다.</strong>
+          <p>Connectivity, 목적 기반 UX, AI 실행 보조, BSS 중심 일관성, 조직·지표 재설계가 함께 결정되어야 한다.<br/></p>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 인터뷰에서 반복된 핵심 신호</h2>
+          <p>임원과 팀장 인터뷰는 표현은 다르지만 통합채널이 풀어야 할 문제를 같은 방향으로 가리킨다.<br/></p>
+        </div>
+        <span class="section-label">Repeated signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>가치는 요금제가 아니라 연결에서 출발한다.</h3>
+            <p>통신이 커머디티화되는 상황에서 고객이 쓸 이유, 자부심, 신뢰, 진정성을 다시 설계해야 한다.<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>한 앱보다 한 경험이 중요하다.</h3>
+            <p>겉으로 합치는 통합은 위험하며, 노드·컨시어지에서 시작해 목적별로 분기하고 뒤에서는 한 번에 응답해야 한다.<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>셀프 전환이 성공 지표다.</h3>
+            <p>전화와 오프라인 의존을 줄이고 50~60대까지 온라인 셀프완결로 끌어들이며, 중복 기획·개발·운영 비용을 줄이는 것이 핵심이다.<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>AI는 WOW보다 정확·실행·효율이다.</h3>
+            <p>AI는 마케팅 장식이 아니라 탐색 보조, 업무완결, 내부 생산성, 규정 정확성을 높이는 수단이어야 한다.<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>조직과 KPI도 같이 바뀌어야 한다.</h3>
+            <p>사일로, 오너십 불명확, MAU 중심 지표가 남아 있으면 통합 의사결정은 계속 흔들린다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. 임원 관점과 팀장 관점</h2>
+          <p>임원 인터뷰는 통합의 전략적 의미와 리스크를, 팀장 인터뷰는 실제 운영·개발·IA 병목을 더 구체적으로 드러낸다.<br/></p>
+        </div>
+        <span class="section-label">Two voice groups</span>
+      </div>
+      <div class="content">
+        <div class="voice-grid">
+          <article class="voice-card">
+            <header><span>EX</span><b>임원 인터뷰 요지</b></header>
+            <ul>
+              <li>가치의 출발점은 요금제가 아니라 관계와 Connectivity이며, 실체 없는 멋·패션·구독 포장은 실패 위험이 크다.<br/></li>
+              <li>통합은 하나의 앱이 아니라 컨시어지·인포데스크 같은 노드와 목적별 분기, 뒤쪽 오케스트레이션 구조에 가깝다.<br/></li>
+              <li>비용과 운영 효율화, CAPEX/OPEX 절감, 중복 기획·개발·운영 비용 감소, Self 전환, 타사 고객까지 포함하는 오픈 확장성을 기대한다.<br/></li>
+              <li>슈퍼앱식 통합으로 길찾기와 복잡도가 폭증하거나 채널 아이덴티티, 메시지, KPI가 뒤섞이는 것을 가장 민감한 리스크로 본다.<br/></li>
+              <li>우버·쿠팡처럼 목적이 뚜렷한 UX를 선호하며, 인증/전환의 작은 마찰 제거가 실제 체감 품질을 바꾼다고 본다.<br/></li>
+              <li>AI는 WOW보다 정확성과 실행성을 우선하며, 프라이싱·정책 영역의 할루시네이션과 신뢰 훼손을 강하게 경계한다.<br/></li>
+            </ul>
+          </article>
+          <article class="voice-card">
+            <header><span>TL</span><b>팀장 인터뷰 요지</b></header>
+            <ul>
+              <li>ID, 회원가입, 요금제 명칭, 용어가 분리되어 고객이 한 회사 서비스처럼 느끼기 어렵고 과업 완결성이 떨어진다는 문제에 공감한다.<br/></li>
+              <li>케어·CS, 판매·커머스, 혜택·구독의 코어가 달라 그대로 한 덩어리로 합치면 혼선이 생기며, 정체성 유지와 표준화의 경계가 필요하다고 본다.<br/></li>
+              <li>온보딩, 문자, 푸시, MMS 같은 피드백 그레이 영역을 BSS 중심으로 일관화하고 Seamless한 피드백 루프로 연결해야 한다고 본다.<br/></li>
+              <li>중복 기능·페이지 개발, 운영 리소스 분산, 복잡도와 Depth 폭증, 장애·핫픽스 영향 확대, 채널별 MAU와 푸시 KPI 충돌을 실제 실패 패턴으로 경고한다.<br/></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. 의사결정 질문 5개</h2>
+          <p>인터뷰에서 직접 도출되는 의사결정 질문은 후속 정책서와 요구사항의 상위 판단축으로 사용해야 한다.<br/></p>
+        </div>
+        <span class="section-label">Decision map</span>
+      </div>
+      <div class="content">
+        <div class="decision-map">
+          <article class="decision">
+            <b>01</b>
+            <h3>통합 구조</h3>
+            <p>하나의 앱인가, 하나의 노드와 목적별 분기인가.<br/></p>
+          </article>
+          <article class="decision">
+            <b>02</b>
+            <h3>홈의 1순위 목표</h3>
+            <p>CS 셀프완결, 판매, 관계·일상 진입 중 무엇을 우선할 것인가.<br/></p>
+          </article>
+          <article class="decision">
+            <b>03</b>
+            <h3>오픈 범위</h3>
+            <p>타사 고객 포함 범위와 보여주는 계위는 어디까지인가.<br/></p>
+          </article>
+          <article class="decision">
+            <b>04</b>
+            <h3>AI 페르소나</h3>
+            <p>비서, 상담, 가이드, 업무처리 에이전트 중 무엇인가.<br/></p>
+          </article>
+          <article class="decision">
+            <b>05</b>
+            <h3>성공 KPI</h3>
+            <p>MAU가 아니라 셀프처리율, 전환, 이탈·VoC, TTM, 안정성 중 무엇으로 합의할 것인가.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. 통합 리스크 레지스터</h2>
+          <p>인터뷰에서 반복된 리스크는 기능 문제가 아니라 통합 방향이 흔들릴 때 나타나는 구조적 실패 패턴이다.<br/></p>
+        </div>
+        <span class="section-label">Risk register</span>
+      </div>
+      <div class="content">
+        <div class="risk-board">
+          <article class="risk">
+            <b>길찾기 폭증</b>
+            <p>통합하면 고객이 더 헤맬 수 있으며, T월드처럼 깊은 Depth가 합쳐지면 탐색 부담이 헬게이트가 될 수 있다.<br/></p>
+          </article>
+          <article class="risk">
+            <b>정체성 붕괴</b>
+            <p>채널 아이덴티티와 메시지가 뒤섞이면 고객가치가 역행하고 내부 KPI도 더 꼬일 수 있다.<br/></p>
+          </article>
+          <article class="risk">
+            <b>무거운 앱</b>
+            <p>앱이 무거워지고 하나의 기능 이슈가 전체 장애, 핫픽스, 프리징으로 번질 수 있다.<br/></p>
+          </article>
+          <article class="risk">
+            <b>KPI 충돌</b>
+            <p>채널별 300~500만 MAU가 하나로 합쳐지면 1000만이 되어도 줄어 보이는 착시가 생기고, 방문수·MAU·푸시 중심 지표가 통합 의사결정을 방해한다.<br/></p>
+          </article>
+          <article class="risk">
+            <b>강제 통합 반감</b>
+            <p>T우주와 다이렉트처럼 사용자가 의도적으로 선택하지 않은 서비스까지 강제 통합하거나, 상담사 연결을 기대한 고객에게 AI만 연결하면 반감이 생길 수 있다.<br/></p>
+          </article>
+          <article class="risk">
+            <b>표준화의 역효과</b>
+            <p>기능을 과도하게 내려서 통합하면 경험이 얇아지고, 모든 기능을 다 가져오면 탐색과 AI 적용이 어려워지므로 표준화의 적정선을 정해야 한다.<br/></p>
+          </article>
+          <article class="risk">
+            <b>무지성 비용 절감</b>
+            <p>비용절감만으로 밀어붙이면 통합의 고객가치와 운영 철학이 사라지므로 의사결정 단계에서 챌린지가 필요하다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. AI 적용 관점</h2>
+          <p>인터뷰의 AI 관점은 전면 LLM 도입보다 정확성과 업무완결을 우선하는 현실론에 가깝다.<br/></p>
+        </div>
+        <span class="section-label">AI operating view</span>
+      </div>
+      <div class="content">
+        <div class="ai-grid">
+          <article class="ai-card">
+            <b>Persona</b>
+            <strong>상담원인가, 비서인가.</strong>
+            <p>AI 페르소나가 명확하지 않으면 챗봇은 메뉴와 경쟁만 하게 된다.<br/></p>
+          </article>
+          <article class="ai-card">
+            <b>Hybrid</b>
+            <strong>룰·정확성 기반에서 점진적 자비스로.</strong>
+            <p>단기간에는 정책과 가격처럼 오류가 치명적인 영역을 룰 기반으로 통제하고, 할루시네이션을 검증하면서 점진적으로 통합 비서화한다.<br/></p>
+          </article>
+          <article class="ai-card">
+            <b>Delivery</b>
+            <strong>탐색 보조와 오류 없는 딜리버리를 분리한다.</strong>
+            <p>제로 탐색 네비게이팅과 규정·가격 전달은 다른 품질 기준과 검증 기준을 가져야 한다.<br/></p>
+          </article>
+          <article class="ai-card">
+            <b>Workflow</b>
+            <strong>조직·QA·요구사항 자동화까지 바뀌어야 한다.</strong>
+            <p>기존 기능을 그대로 가져온 뒤 AI만 얹는 방식으로는 AI Native 경험이 나오기 어렵고, Agentic AI가 운영에 붙으려면 개발, QA, 요구사항 균일화와 자동화가 함께 필요하다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 타겟과 미래 변화</h2>
+          <p>통합채널은 단일 고객군만 보는 과제가 아니라 2040의 일상성과 5060의 셀프완결을 동시에 잡아야 하는 긴장 관계를 가진다.<br/></p>
+        </div>
+        <span class="section-label">Target & future</span>
+      </div>
+      <div class="content">
+        <div class="target-board">
+          <article class="target">
+            <h3>2040 · 일상으로 들어가는 채널</h3>
+            <p>2040에게 통합채널은 통신 요금 확인 앱이 아니라 일상에서 자연스럽게 들어오는 관계·혜택·관리 접점이 되어야 한다.<br/>개인화는 “쫓아오는 느낌”을 피하고 Right time / Right offer 기준으로 제한해야 한다.<br/></p>
+          </article>
+          <article class="target">
+            <h3>5060 · 오프 의존을 줄이는 셀프완결</h3>
+            <p>5060은 전화와 오프라인 의존을 줄이는 핵심 타겟이며, 온라인에서 길을 잃지 않게 하는 목적 기반 UX가 필요하다.<br/></p>
+          </article>
+          <article class="target">
+            <h3>eSIM·OS 레벨 변화</h3>
+            <p>eSIM과 OS 레벨 변화로 가입, 유통, 채널 의미가 바뀌고 디바이스와 OS를 가진 쪽이 주도권을 가질 가능성이 있다.<br/></p>
+          </article>
+          <article class="target">
+            <h3>기존 UI 확장의 한계</h3>
+            <p>지금 UI를 그대로 확장하는 방식에는 불안이 크며, 기존 페이지를 유지한 채 AI만 얹는 방식도 공수 대비 효과가 낮을 수 있다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>7. 운영·IA 세부 신호</h2>
+          <p>팀장 인터뷰에서 나온 세부 신호는 실제 설계에서 놓치기 쉬운 운영, IA, 톤, 지표의 보정 기준이다.<br/></p>
+        </div>
+        <span class="section-label">Operational evidence</span>
+      </div>
+      <div class="content">
+        <div class="evidence-board">
+          <article class="evidence">
+            <b>과업 완결</b>
+            <p>ID, 회원가입, 요금제 명칭, 용어, 일부 기능 미지원이 분절되어 고객이 어디에서 무엇을 끝낼 수 있는지 알기 어렵다.<br/>요구사항과 정책서는 화면 통합보다 고객 과업의 시작·진행·완료 기준을 먼저 정의해야 한다.<br/></p>
+          </article>
+          <article class="evidence">
+            <b>홈·IA</b>
+            <p>홈은 Personal Shopper처럼 빠르게 서빙하고 가변 구성과 추천을 제공하되, 설정 부담을 늘리지 않아야 한다.<br/>9-depth 같은 전통 IA와 분절된 검색/챗봇 경험은 통합채널 설계에서 정리해야 한다.<br/></p>
+          </article>
+          <article class="evidence">
+            <b>톤·이미지</b>
+            <p>통합채널은 기본앱처럼 가까이 있지만 강매 느낌이 없어야 하며, 친근하고 편안하고 기다려주는 인상을 가져야 한다.<br/>설명서나 매뉴얼을 읽게 하는 UX가 아니라 고객이 학습하지 않아도 되는 구조가 필요하다.<br/></p>
+          </article>
+          <article class="evidence">
+            <b>지표 착시</b>
+            <p>채널별 300~500만 MAU가 통합 후 1000만이 되어도 줄어 보일 수 있으며, 푸시 볼륨 감소도 KPI 충돌을 만들 수 있다.<br/>통합 성과는 MAU보다 셀프처리율, 전환, 이탈·VoC, TTM, 안정성으로 재설계해야 한다.<br/></p>
+          </article>
+          <article class="evidence">
+            <b>AI 전환</b>
+            <p>고객이 상담사 연결을 기대했는데 AI가 응대하면 셀프 지향이 반감으로 바뀔 수 있다.<br/>AI는 제로 탐색 네비게이팅과 정책/가격 딜리버리의 품질 기준을 분리해 적용해야 한다.<br/></p>
+          </article>
+          <article class="evidence">
+            <b>운영 루프</b>
+            <p>온보딩, 문자, 푸시, MMS, 상태 회신은 채널별로 흩어진 피드백 그레이 영역이다.<br/>BSS 중심으로 일관화하고 피드백 루프를 만들면 TTM과 데이터 기반 의사결정이 개선될 수 있다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>8. 정책서 전환 백로그</h2>
+          <p>인터뷰 결과는 후속 요구사항과 정책서에서 아래 판단 기준으로 남겨야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy backlog</span>
+      </div>
+      <div class="content">
+        <div class="policy-board">
+          <article class="policy">
+            <div class="policy-top"><b>통합 홈 역할</b><span class="priority">P1</span></div>
+            <p>통합 홈이 컨시어지, 인포데스크, 판매 허브, CS 셀프완결 허브 중 어떤 역할을 우선하는지 정의한다.<br/></p>
+            <footer>산출물: 홈 IA · 진입 정책</footer>
+          </article>
+          <article class="policy">
+            <div class="policy-top"><b>목적별 분기 기준</b><span class="priority">P1</span></div>
+            <p>고객 목적과 상태에 따라 판매, 관리, 혜택, 상담, 가입, 해지, 변경으로 분기하는 기준을 정의한다.<br/></p>
+            <footer>산출물: 라우팅 정책 · 상태 기준</footer>
+          </article>
+          <article class="policy">
+            <div class="policy-top"><b>AI 페르소나와 금지 영역</b><span class="priority">P1</span></div>
+            <p>AI의 역할, 직접 실행 가능 범위, 프라이싱·정책 안내 검증 기준, 할루시네이션 통제, 상담 이관 기준을 정의한다.<br/></p>
+            <footer>산출물: AI 처리 범위 · 검증 정책</footer>
+          </article>
+          <article class="policy">
+            <div class="policy-top"><b>BSS 중심 일관화</b><span class="priority">P1</span></div>
+            <p>가입 후 문자, 푸시, MMS, 상태 회신, 이력 저장 같은 그레이 영역을 BSS 중심으로 일관화한다.<br/></p>
+            <footer>산출물: 연계·알림·이력 정책</footer>
+          </article>
+          <article class="policy">
+            <div class="policy-top"><b>통합 KPI</b><span class="priority">P2</span></div>
+            <p>채널별 MAU 착시와 푸시 볼륨 감소를 보정하고, MAU 대신 셀프처리율, 전환율, 이탈·VoC, TTM, 안정성, 장애 영향도를 통합 성과 지표로 정의한다.<br/></p>
+            <footer>산출물: 품질·성과 지표</footer>
+          </article>
+          <article class="policy">
+            <div class="policy-top"><b>운영 오너십</b><span class="priority">P2</span></div>
+            <p>채널별 목적과 부서별 이해관계를 조정할 오너십, 배포 책임, 장애 대응, 표준화 예외 승인 기준을 정의한다.<br/></p>
+            <footer>산출물: 운영 거버넌스</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

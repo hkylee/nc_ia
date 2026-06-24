@@ -1,0 +1,230 @@
+{
+  "generatedAt": "2026-05-17T19:32:25",
+  "targets": [
+    {
+      "topic": "고객센터 FAQ·공지·이용안내",
+      "spec": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_spec.json",
+      "canonical": "output/고객센터_FAQ공지이용안내_policy_spec.json",
+      "requirementCount": 42,
+      "fallbackMappedAdditions": 23,
+      "analysisEvidenceRows": 42,
+      "unresolvedFallbackToOverview": [],
+      "beforeTrace": {
+        "requirementCount": 42,
+        "coverageRate": 100,
+        "rowCount": 42,
+        "mappedElementCount": 62,
+        "mappedIdResolveRate": 100,
+        "unresolvedMappedIdCount": 0,
+        "unresolvedMappedIds": [],
+        "explicitRequirementTraceRowCount": 42,
+        "groupedRequirementTraceRowCount": 0,
+        "evidenceRequirementTraceRowCount": 0,
+        "directRequirementIdCount": 42,
+        "evidenceRequirementIdCount": 0,
+        "uniqueRequirementTraceCount": 42,
+        "directRequirementTraceRate": 100,
+        "evidenceRequirementTraceRate": 0,
+        "uniqueRequirementTraceRate": 100,
+        "traceSchemaCompletenessRate": 80,
+        "traceConfidenceScore": 91,
+        "traceConfidenceLabel": "높음",
+        "coverageStatusCounts": {
+          "covered": 42,
+          "partial": 0,
+          "missing": 0,
+          "unknown": 0
+        }
+      },
+      "afterTrace": {
+        "requirementCount": 42,
+        "coverageRate": 100,
+        "rowCount": 42,
+        "mappedElementCount": 62,
+        "mappedIdResolveRate": 100,
+        "unresolvedMappedIdCount": 0,
+        "unresolvedMappedIds": [],
+        "explicitRequirementTraceRowCount": 42,
+        "groupedRequirementTraceRowCount": 0,
+        "evidenceRequirementTraceRowCount": 0,
+        "directRequirementIdCount": 42,
+        "evidenceRequirementIdCount": 0,
+        "uniqueRequirementTraceCount": 42,
+        "directRequirementTraceRate": 100,
+        "evidenceRequirementTraceRate": 0,
+        "uniqueRequirementTraceRate": 100,
+        "traceSchemaCompletenessRate": 80,
+        "traceConfidenceScore": 91,
+        "traceConfidenceLabel": "높음",
+        "coverageStatusCounts": {
+          "covered": 42,
+          "partial": 0,
+          "missing": 0,
+          "unknown": 0
+        }
+      },
+      "beforeBridge": {
+        "analysisRequirementCoverageRate": 60,
+        "requirementPolicyTraceRate": 97,
+        "traceContinuityRate": 79,
+        "dbRequirementMappingRate": 100
+      },
+      "afterBridge": {
+        "analysisRequirementCoverageRate": 60,
+        "requirementPolicyTraceRate": 97,
+        "traceContinuityRate": 100,
+        "dbRequirementMappingRate": 100
+      }
+    },
+    {
+      "topic": "상품 목록",
+      "spec": "output/NC_상품목록_정책서_간소화_v0.11_spec.json",
+      "canonical": "output/상품목록_policy_spec.json",
+      "requirementCount": 87,
+      "fallbackMappedAdditions": 0,
+      "analysisEvidenceRows": 87,
+      "unresolvedFallbackToOverview": [],
+      "beforeTrace": {
+        "requirementCount": 87,
+        "coverageRate": 100,
+        "rowCount": 95,
+        "mappedElementCount": 74,
+        "mappedIdResolveRate": 100,
+        "unresolvedMappedIdCount": 0,
+        "unresolvedMappedIds": [],
+        "explicitRequirementTraceRowCount": 87,
+        "groupedRequirementTraceRowCount": 0,
+        "evidenceRequirementTraceRowCount": 0,
+        "directRequirementIdCount": 87,
+        "evidenceRequirementIdCount": 0,
+        "uniqueRequirementTraceCount": 87,
+        "directRequirementTraceRate": 100,
+        "evidenceRequirementTraceRate": 0,
+        "uniqueRequirementTraceRate": 100,
+        "traceSchemaCompletenessRate": 79,
+        "traceConfidenceScore": 91,
+        "traceConfidenceLabel": "높음",
+        "coverageStatusCounts": {
+          "covered": 87,
+          "partial": 0,
+          "missing": 0,
+          "unknown": 0
+        }
+      },
+      "afterTrace": {
+        "requirementCount": 87,
+        "coverageRate": 100,
+        "rowCount": 87,
+        "mappedElementCount": 58,
+        "mappedIdResolveRate": 100,
+        "unresolvedMappedIdCount": 0,
+        "unresolvedMappedIds": [],
+        "explicitRequirementTraceRowCount": 87,
+        "groupedRequirementTraceRowCount": 0,
+        "evidenceRequirementTraceRowCount": 0,
+        "directRequirementIdCount": 87,
+        "evidenceRequirementIdCount": 0,
+        "uniqueRequirementTraceCount": 87,
+        "directRequirementTraceRate": 100,
+        "evidenceRequirementTraceRate": 0,
+        "uniqueRequirementTraceRate": 100,
+        "traceSchemaCompletenessRate": 80,
+        "traceConfidenceScore": 91,
+        "traceConfidenceLabel": "높음",
+        "coverageStatusCounts": {
+          "covered": 87,
+          "partial": 0,
+          "missing": 0,
+          "unknown": 0
+        }
+      },
+      "beforeBridge": {
+        "analysisRequirementCoverageRate": 61,
+        "requirementPolicyTraceRate": 97,
+        "traceContinuityRate": 79,
+        "dbRequirementMappingRate": 100
+      },
+      "afterBridge": {
+        "analysisRequirementCoverageRate": 61,
+        "requirementPolicyTraceRate": 97,
+        "traceContinuityRate": 100,
+        "dbRequirementMappingRate": 100
+      }
+    },
+    {
+      "topic": "통합 약관",
+      "spec": "output/NC_통합약관_정책서_간소화_v0.11_spec.json",
+      "canonical": "output/통합약관_policy_spec.json",
+      "requirementCount": 83,
+      "fallbackMappedAdditions": 22,
+      "analysisEvidenceRows": 81,
+      "unresolvedFallbackToOverview": [],
+      "beforeTrace": {
+        "requirementCount": 83,
+        "coverageRate": 100,
+        "rowCount": 83,
+        "mappedElementCount": 109,
+        "mappedIdResolveRate": 100,
+        "unresolvedMappedIdCount": 0,
+        "unresolvedMappedIds": [],
+        "explicitRequirementTraceRowCount": 83,
+        "groupedRequirementTraceRowCount": 0,
+        "evidenceRequirementTraceRowCount": 0,
+        "directRequirementIdCount": 83,
+        "evidenceRequirementIdCount": 0,
+        "uniqueRequirementTraceCount": 83,
+        "directRequirementTraceRate": 100,
+        "evidenceRequirementTraceRate": 0,
+        "uniqueRequirementTraceRate": 100,
+        "traceSchemaCompletenessRate": 80,
+        "traceConfidenceScore": 91,
+        "traceConfidenceLabel": "높음",
+        "coverageStatusCounts": {
+          "covered": 83,
+          "partial": 0,
+          "missing": 0,
+          "unknown": 0
+        }
+      },
+      "afterTrace": {
+        "requirementCount": 83,
+        "coverageRate": 100,
+        "rowCount": 83,
+        "mappedElementCount": 110,
+        "mappedIdResolveRate": 100,
+        "unresolvedMappedIdCount": 0,
+        "unresolvedMappedIds": [],
+        "explicitRequirementTraceRowCount": 83,
+        "groupedRequirementTraceRowCount": 0,
+        "evidenceRequirementTraceRowCount": 0,
+        "directRequirementIdCount": 83,
+        "evidenceRequirementIdCount": 0,
+        "uniqueRequirementTraceCount": 83,
+        "directRequirementTraceRate": 100,
+        "evidenceRequirementTraceRate": 0,
+        "uniqueRequirementTraceRate": 100,
+        "traceSchemaCompletenessRate": 80,
+        "traceConfidenceScore": 91,
+        "traceConfidenceLabel": "높음",
+        "coverageStatusCounts": {
+          "covered": 83,
+          "partial": 0,
+          "missing": 0,
+          "unknown": 0
+        }
+      },
+      "beforeBridge": {
+        "analysisRequirementCoverageRate": 55,
+        "requirementPolicyTraceRate": 97,
+        "traceContinuityRate": 78,
+        "dbRequirementMappingRate": 100
+      },
+      "afterBridge": {
+        "analysisRequirementCoverageRate": 55,
+        "requirementPolicyTraceRate": 97,
+        "traceContinuityRate": 99,
+        "dbRequirementMappingRate": 100
+      }
+    }
+  ]
+}

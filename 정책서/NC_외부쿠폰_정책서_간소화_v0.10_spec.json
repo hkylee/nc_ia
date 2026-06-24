@@ -1,0 +1,3108 @@
+{
+  "meta": {
+    "topic": "외부쿠폰",
+    "topic_display": "외부 쿠폰",
+    "topic_slug": "외부쿠폰",
+    "business_code": "CPN",
+    "document_id": "POL-CPN",
+    "document_type": "간소화 버전",
+    "status": "작성중",
+    "version": "v0.10",
+    "author": "Codex",
+    "date": "2026-05-09",
+    "template_type": "simple",
+    "requirements_count": 32,
+    "references_count": 32,
+    "authoring_basis": [
+      "PM-09 관련 최신 상세 요구사항명과 상세 요구사항 설명 32건을 기준으로 재구성했다.",
+      "외부 쿠폰 Topic Knowledge와 Core Design Map을 작성 작전서로 사용했다.",
+      "추가 요구사항은 위치 기반 안내, 자동 적용, 양도·회수, 택1 쿠폰, 기간·할인 기준을 기존 고객·운영 흐름 안에 통합했다."
+    ],
+    "writing_direction": [
+      "외부 쿠폰은 제휴 혜택을 단순 노출하는 영역이 아니라 고객이 발급 전 실제 사용 가능성을 판단하고, 발급·사용·쿠폰함 확인까지 끊김 없이 완료하는 혜택 실행 경험으로 정의한다.",
+      "고객에게는 사용처, 위치, 조건, 제외 기준, 시간, 보유 상태, 실패 사유, 다음 행동을 명확히 제공하고 운영자에게는 코드·재고·연동·회수·정산을 통제할 수 있는 기준을 제공한다.",
+      "제휴처 연동과 통합 쿠폰함을 연결하되 결제 할인, 포인트, 멤버십 혜택 자체 정책으로 범위를 확장하지 않는다."
+    ],
+    "usecase_diagram": {
+      "lines": [
+        "[고객] → (외부 쿠폰 혜택 탐색과 발급 준비) → include: 목록 탐색, 상세 조건 확인, 오픈 알림 설정",
+        "[고객] → (외부 쿠폰 발급 여정 완성) → include: 선택형 비교, 인증·동의, 발급·다운로드, 쿠폰함 저장",
+        "[고객] → (외부 쿠폰 사용 경험 완결) → include: 사용수단 표시, 제휴처 이동, 결과 확인, 실패 복구",
+        "[고객] → (보유 외부 쿠폰 재사용 관리) → include: 기보유 상태, 쿠폰함 이력, 재다운로드·재발급 확인",
+        "[운영자] → (쿠폰 기준 등록·검수·배포) → include: 기준정보 등록, 대상 조건 설정, 승인·배포",
+        "[운영자] → (쿠폰 코드·재고·연동 운영) → include: 코드 업로드, 제휴처 동기화, 상태 자동 전환",
+        "[운영자] → (쿠폰 중지·회수·재발급 및 고객 고지 관리) → include: 중지, 회수, 재발급, 고객 고지",
+        "[제휴처 운영자] → (제휴처 정산·오류 확인) → include: 실적 확인, 정산 보류, 오류 보정",
+        "[채널 업무 시스템] → (발급 조건·재고 판정)",
+        "[쿠폰 연계 시스템] → (제휴처 상태 동기화)",
+        "[쿠폰 연계 시스템] → (쿠폰함 저장·상태 제공)",
+        "[채널 업무 시스템] → (쿠폰 알림 발송·이력 처리)",
+        "[쿠폰 연계 시스템] → (고객·회선·등급 조건 제공)",
+        "[고객] → (외부 쿠폰 혜택 탐색과 발급 준비) → include: 주변 사용 가능 매장, 지오펜싱 알림, 상세 조건 확인",
+        "[고객] → (외부 쿠폰 사용 경험 완결) → include: 바코드·QR 제시, 결제 시 자동 적용, 사용 후 복귀·결과 확인",
+        "[고객] → (보유 외부 쿠폰 재사용 관리) → include: 양도, 미수령·미사용 회수, 재다운로드, 상호 배타 쿠폰 상태 확인",
+        "[운영자] → (쿠폰 기준 등록·검수·배포) → include: 사용기간 유형, 할인 적용 대상, 위치·매장 데이터 검증"
+      ]
+    },
+    "module_id": "PM-09",
+    "document_status": "작성중",
+    "created_at": "2026-05-09",
+    "updated_at": "2026-05-15",
+    "requirements_count_changed": {
+      "old": 25,
+      "new": 32
+    },
+    "history": [
+      {
+        "version": "v0.11",
+        "change": "품질 검수 및 구조 보완 반영",
+        "date": "2026-05-11",
+        "author": "Codex"
+      }
+    ],
+    "template_label": "간소화",
+    "version_spec_file": "NC_외부쿠폰_정책서_간소화_v0.10_spec.json",
+    "version_spec_saved_at": "2026-05-11T20:09:44",
+    "version_spec_reason": "backfill_existing_output",
+    "version_spec_source": "외부쿠폰_policy_spec.json"
+  },
+  "history": [
+    {
+      "version": "v0.10",
+      "change": "Codex 기반 초안 작성",
+      "date": "2026-05-10",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.11",
+      "change": "품질 검수 및 구조 보완 반영",
+      "date": "2026-05-11",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.10",
+      "change": "bpmn.io viewer 산출물 생성 및 문서 재렌더링",
+      "date": "2026-05-15",
+      "author": "Codex"
+    }
+  ],
+  "overview": {
+    "scope": [
+      "본 정책서는 통합채널에서 제공하는 외부 제휴처 쿠폰의 탐색, 상세 확인, 발급, 다운로드, 사용, 쿠폰함 저장, 상태·이력 확인, 운영 관리 기준을 정의한다.",
+      "고객이 발급 전 혜택 내용, 사용처, 사용 방식, 사용 가능 시간·요일, 제외 조건, 중복 사용 가능 여부, 온라인·오프라인 사용 범위를 판단할 수 있는 기준을 포함한다.",
+      "외부 쿠폰의 선택형 구조, 추가 인증·동의, 제휴처 연결, 발급 실패, 사용 불가, 오픈 알림, 쿠폰함 재진입, 사용 후 결과 확인과 복구 기준을 포함한다.",
+      "운영자가 쿠폰 기준정보, 발급 정책, 대상 조건, 코드 업로드, 재고, 상태 동기화, 발급 중지, 회수, 재발급, 실적, 정산, 승인·감사로그를 관리하는 기준을 포함한다.",
+      "결제 할인 산정, 멤버십 혜택 자체 사용, 포인트 적립·차감, 이벤트 보상 상세, 제휴 계약 정산 상세는 인접 정책서 또는 후속 산출물에서 상세화한다.",
+      "API 필드, DB 컬럼, 운영자 화면 상세, 배치 설계, 제휴처 내부 처리 로직은 제외하되 정책 판단에 필요한 상태, 조건, 제한, 이력 기준은 포함한다.",
+      "책임 경계는 통합채널 FO가 탐색·발급·사용·쿠폰함 상태 표시를 담당하고, 쿠폰 연계 시스템이 제휴처 재고·사용 승인·상태 동기화와 쿠폰함 상태 제공을 담당하며, BSS는 고객·회선·등급·상품 보유 기준 정보를 제공하는 구조로 구분한다.",
+      "고객 표시 상태와 시스템 내부 상태는 분리한다. 고객에게는 발급 가능, 기보유, 사용 가능, 사용 완료, 만료, 회수, 발급 실패를 보여주고, 내부적으로는 조건 판정, 코드 매핑, 제휴처 승인, 정산 보류, 재발급, 감사로그 상태를 관리한다.",
+      "고객이 앱·웹에서 직접 발급, 다운로드, 사용 경로 이동, 재다운로드, 양도 회수, 실패 복구 요청을 완료하게 하고, 운영자 수작업은 승인·보정·정산 예외로 제한한다."
+    ],
+    "principles": [
+      {
+        "name": "사용 가능성 사전 판단",
+        "description": "고객이 쿠폰을 발급받기 전에 지금 사용할 수 있는지, 왜 불가한지, 언제 가능해지는지 알 수 있게 한다."
+      },
+      {
+        "name": "발급 후 행동 연결",
+        "description": "발급 완료 후 즉시 사용, 쿠폰함 이동, 재다운로드, 다른 쿠폰 보기 중 고객에게 필요한 다음 행동을 끊김 없이 제공한다."
+      },
+      {
+        "name": "제휴처 연동 신뢰성",
+        "description": "외부 제휴처 재고, 사용 완료, 회수, 만료, 오류 상태를 동기화하고 불일치 시 운영 확인과 고객 안내 기준을 둔다."
+      },
+      {
+        "name": "통합 쿠폰함 중심 관리",
+        "description": "고객은 모든 외부 쿠폰의 상태와 이력을 통합 쿠폰함에서 확인하고, 운영자는 동일 상태 체계로 회수·재발급·정산을 관리한다."
+      },
+      {
+        "name": "운영 통제 내재화",
+        "description": "쿠폰 등록, 복제, 발급 조건 변경, 코드 업로드, 배포, 중지, 회수, 정산 확정은 승인과 감사 이력을 남긴다."
+      },
+      {
+        "name": "인접 정책 경계 유지",
+        "description": "쿠폰이 연결되는 혜택·결제·포인트·이벤트의 본 정책값은 해당 정책서에서 다루고 본 문서는 외부 쿠폰 실행과 운영 기준에 집중한다."
+      }
+    ]
+  },
+  "terms": [
+    {
+      "id": "TM-CPN-001",
+      "name": "외부 쿠폰",
+      "description": "외부 제휴처가 제공하고 통합채널에서 발급, 다운로드, 사용 연결, 상태 확인을 지원하는 할인권, 이용권, 교환권, 바코드·QR·코드·링크형 혜택이다."
+    },
+    {
+      "id": "TM-CPN-002",
+      "name": "통합 쿠폰함",
+      "description": "고객이 발급한 외부 쿠폰의 상태, 유효기간, 사용 방법, 사용·취소·회수 이력, 제휴처 연결 경로를 확인하는 통합 보관 영역이다."
+    },
+    {
+      "id": "TM-CPN-003",
+      "name": "발급 가능 상태",
+      "description": "고객 조건, 기간, 재고, 1인 한도, 제휴처 연동 상태가 모두 충족되어 발급 요청을 접수할 수 있는 상태다."
+    },
+    {
+      "id": "TM-CPN-004",
+      "name": "기보유 상태",
+      "description": "고객이 이미 해당 쿠폰을 발급받아 신규 발급 대신 쿠폰함, 즉시 사용, 재다운로드로 연결해야 하는 상태다."
+    },
+    {
+      "id": "TM-CPN-005",
+      "name": "선택형 쿠폰",
+      "description": "복수 쿠폰 또는 혜택 옵션 중 고객이 하나를 선택해야 발급 또는 다운로드가 확정되는 쿠폰 구조다."
+    },
+    {
+      "id": "TM-CPN-006",
+      "name": "쿠폰코드",
+      "description": "제휴처 사용을 위해 고객에게 표시되는 바코드, QR, 난수번호, 시리얼, 링크 식별값이다. 복제·공유 제한 여부에 따라 보호 수준이 달라진다."
+    },
+    {
+      "id": "TM-CPN-007",
+      "name": "제휴처 상태 동기화",
+      "description": "쿠폰 연계 시스템에서 제공하는 재고, 사용 완료, 회수, 만료, 오류 상태를 통합채널 쿠폰 상태와 맞추는 처리다."
+    },
+    {
+      "id": "TM-CPN-008",
+      "name": "회수",
+      "description": "오등록, 과발급, 제휴처 요청, 오류, 정책 변경 등으로 이미 발급된 쿠폰의 사용 가능 상태를 제한하거나 폐기하는 운영 조치다."
+    },
+    {
+      "id": "TM-CPN-009",
+      "name": "재다운로드",
+      "description": "이미 발급 완료된 미사용 쿠폰을 유효기간 내 다시 표시하거나 저장하는 고객 행동이다. 새 코드 발급과 기존 코드 재표시를 구분한다."
+    },
+    {
+      "id": "TM-CPN-010",
+      "name": "정산 보류",
+      "description": "사용 완료와 제휴처 승인 상태가 일치하지 않아 정산 확정을 미루고 오류 보정 또는 확인이 필요한 상태다."
+    },
+    {
+      "id": "TM-CPN-011",
+      "name": "지오펜싱 쿠폰 알림",
+      "description": "고객 위치가 쿠폰 사용 가능 매장 반경에 들어왔을 때 고객 동의와 발송 제한 기준에 따라 쿠폰 사용 가능성을 안내하는 위치 기반 알림이다."
+    },
+    {
+      "id": "TM-CPN-012",
+      "name": "쿠폰 자동 적용",
+      "description": "고객이 결제 또는 바코드 제시 단계에 진입했을 때 사용 가능한 보유 쿠폰을 조건 판정 후 별도 조작 없이 적용하는 처리다."
+    },
+    {
+      "id": "TM-CPN-013",
+      "name": "안심 회수",
+      "description": "양도한 쿠폰이 수신자 미수령, 미가입, 미사용 상태로 남아 있을 때 발송자가 유효기간 내 회수하여 재사용할 수 있게 하는 기준이다."
+    },
+    {
+      "id": "TM-CPN-014",
+      "name": "사용기간 유형",
+      "description": "쿠폰 유효기간을 고정 시작·종료일인 절대기간과 발급일 기준 상대기간으로 구분하는 정책 판단값이다."
+    }
+  ],
+  "actors": [
+    {
+      "id": "ACT-CPN-001",
+      "name": "고객",
+      "description": "외부 쿠폰을 탐색, 발급, 사용하고 보유 상태를 확인하는 주체다."
+    },
+    {
+      "id": "ACT-CPN-002",
+      "name": "운영자",
+      "description": "쿠폰 기준, 코드·재고, 발급·사용 정책, 중지·회수와 성과를 운영하는 주체다."
+    },
+    {
+      "id": "ACT-CPN-003",
+      "name": "제휴처 운영자",
+      "description": "제휴처 사용 승인, 정산, 오류 확인과 보정에 참여하는 외부 운영 주체다."
+    },
+    {
+      "id": "ACT-CPN-004",
+      "name": "채널 업무 시스템",
+      "description": "쿠폰 발급, 쿠폰함 저장 요청, 알림, 고객 표시 상태, 사용 경로 연결을 처리하는 채널 시스템이다."
+    },
+    {
+      "id": "ACT-CPN-005",
+      "name": "쿠폰 연계 시스템",
+      "description": "제휴처 재고·사용 승인·상태 결과, 쿠폰함 저장·상태 제공, BSS 기준 정보 연계를 처리하는 단일 책임 시스템이다."
+    }
+  ],
+  "usecases": [
+    {
+      "id": "US-CPN-CUS-001",
+      "name": "외부 쿠폰 혜택 탐색과 발급 준비",
+      "actor": "고객",
+      "description": "고객이 외부 쿠폰 혜택을 찾고 사용 가치, 조건, 제외 기준, 오픈 여부를 이해해 발급 행동을 준비하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-CUS-002",
+      "name": "외부 쿠폰 발급 여정 완성",
+      "actor": "고객",
+      "description": "고객이 선택형 쿠폰 비교, 인증·동의, 발급 또는 다운로드, 쿠폰함 저장까지 완료하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-CUS-003",
+      "name": "외부 쿠폰 사용 경험 완결",
+      "actor": "고객",
+      "description": "고객이 쿠폰코드나 제휴 링크로 외부 쿠폰을 사용하고 성공·실패 이후 행동까지 마무리하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-CUS-004",
+      "name": "보유 외부 쿠폰 재사용 관리",
+      "actor": "고객",
+      "description": "고객이 기보유 쿠폰, 재다운로드 가능 쿠폰, 회수·만료·사용 이력을 확인하고 다시 사용 단계로 이어가는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-OPS-001",
+      "name": "쿠폰 기준 등록·검수·배포",
+      "actor": "운영자",
+      "description": "운영자가 기준정보, 발급 조건, 대상 조건을 등록하고 검수·승인 후 배포하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-OPS-002",
+      "name": "쿠폰 코드·재고·연동 운영",
+      "actor": "운영자",
+      "description": "운영자가 쿠폰 코드, 재고, 제휴처 상태 동기화, 자동 전환, 운영 알림을 관리하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-OPS-003",
+      "name": "쿠폰 중지·회수·재발급 및 고객 고지 관리",
+      "actor": "운영자",
+      "description": "운영자가 오류·정책 변경·과발급 위험에 따라 중지, 회수, 재발급, 고객 고지를 처리하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-PTR-001",
+      "name": "제휴처 정산·오류 확인",
+      "actor": "제휴처 운영자",
+      "description": "제휴처 운영자가 사용 실적, 정산 보류, 오류 보정 요청을 확인하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-CPN-SYS-001",
+      "name": "발급 조건·재고 판정",
+      "actor": "채널 업무 시스템",
+      "description": "고객 조건, 재고, 한도, 상태를 기준으로 발급 가능 여부를 판정하는 시스템 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-CPN-SYS-002",
+      "name": "제휴처 상태 동기화",
+      "actor": "쿠폰 연계 시스템",
+      "description": "쿠폰 연계 시스템이 제휴처 재고, 사용 승인, 회수, 만료, 오류 상태를 통합채널 쿠폰 상태와 동기화하는 보조 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-CPN-SYS-003",
+      "name": "쿠폰함 저장·상태 제공",
+      "actor": "쿠폰 연계 시스템",
+      "description": "쿠폰 연계 시스템이 발급 완료 쿠폰을 쿠폰함에 저장하고 고객 표시 상태와 운영 이력을 제공하는 보조 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-CPN-SYS-004",
+      "name": "쿠폰 알림 발송·이력 처리",
+      "actor": "채널 업무 시스템",
+      "description": "오픈, 만료, 중단, 재진입 알림을 발송하고 이력을 저장하는 시스템 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-CPN-SYS-005",
+      "name": "고객·회선·등급 조건 제공",
+      "actor": "쿠폰 연계 시스템",
+      "description": "쿠폰 연계 시스템이 BSS 기준 정보를 받아 쿠폰 발급 대상 판정에 필요한 고객, 회선, 등급, 상품 보유, 제한 정보를 제공하는 보조 처리다.",
+      "process_target": "N"
+    }
+  ],
+  "states": [
+    {
+      "id": "ST-CPN-001",
+      "name": "전시 가능",
+      "description": "고객에게 쿠폰이 목록이나 상세로 노출될 수 있는 상태다.",
+      "next_action": "고객에게 상태 라벨과 발급 가능 여부를 함께 안내한다."
+    },
+    {
+      "id": "ST-CPN-002",
+      "name": "상세 확인 중",
+      "description": "고객이 쿠폰 혜택, 조건, 사용처, 유의사항을 확인하는 상태다.",
+      "next_action": "발급 가능 조건과 불가 사유를 판정한다."
+    },
+    {
+      "id": "ST-CPN-003",
+      "name": "오픈 예정",
+      "description": "발급 시작 전이거나 선착순 오픈 시점이 도래하지 않은 상태다.",
+      "next_action": "오픈 시각과 알림 신청을 안내한다."
+    },
+    {
+      "id": "ST-CPN-004",
+      "name": "조건 미충족",
+      "description": "고객 등급, 상품 보유, 채널, 지역, 기간, 인증 조건 중 하나 이상을 충족하지 못한 상태다.",
+      "next_action": "미충족 조건과 대체 쿠폰 또는 다음 가능 행동을 안내한다."
+    },
+    {
+      "id": "ST-CPN-005",
+      "name": "발급 가능",
+      "description": "고객 조건, 재고, 한도, 제휴처 상태가 모두 충족되어 발급 요청이 가능한 상태다.",
+      "next_action": "발급 또는 다운로드 요청을 접수한다."
+    },
+    {
+      "id": "ST-CPN-006",
+      "name": "발급 진행 중",
+      "description": "발급 요청이 접수되어 쿠폰 코드 매핑, 제휴처 확인, 쿠폰함 저장이 진행되는 상태다.",
+      "next_action": "중복 요청을 제한하고 완료 또는 실패 결과를 확정한다."
+    },
+    {
+      "id": "ST-CPN-007",
+      "name": "발급 완료",
+      "description": "쿠폰 코드 또는 사용 연결이 고객에게 배정된 상태다.",
+      "next_action": "즉시 사용 또는 쿠폰함 이동을 안내한다."
+    },
+    {
+      "id": "ST-CPN-008",
+      "name": "쿠폰함 저장",
+      "description": "발급 완료 쿠폰이 통합 쿠폰함에서 확인 가능한 상태다.",
+      "next_action": "사용 가능 상태, 만료일, 재다운로드 여부를 표시한다."
+    },
+    {
+      "id": "ST-CPN-009",
+      "name": "사용 가능",
+      "description": "유효기간, 시간·요일, 제휴처 상태가 충족되어 고객이 쿠폰을 사용할 수 있는 상태다.",
+      "next_action": "사용수단을 표시하고 제휴처 사용으로 연결한다."
+    },
+    {
+      "id": "ST-CPN-010",
+      "name": "사용 완료",
+      "description": "제휴처 또는 쿠폰함에서 사용 성공이 확인된 상태다.",
+      "next_action": "사용 이력과 정산 대상 여부를 저장한다."
+    },
+    {
+      "id": "ST-CPN-011",
+      "name": "발급 실패",
+      "description": "재고, 인증, 동의, 제휴처 오류, 중복 요청 등으로 발급이 완료되지 않은 상태다.",
+      "next_action": "재시도 가능 여부와 대체 행동을 안내한다."
+    },
+    {
+      "id": "ST-CPN-012",
+      "name": "재고 소진",
+      "description": "전체 또는 고객 대상 재고가 소진되어 신규 발급이 제한된 상태다.",
+      "next_action": "소진 안내와 다른 쿠폰 보기 또는 알림 신청을 제공한다."
+    },
+    {
+      "id": "ST-CPN-013",
+      "name": "사용 불가",
+      "description": "사용 시간 미도래, 등급 미충족, 제휴처 오류, 회수, 코드 오류 등으로 현재 사용할 수 없는 상태다.",
+      "next_action": "사유와 재시도, 상담, 제휴처 안내를 제공한다."
+    },
+    {
+      "id": "ST-CPN-014",
+      "name": "회수·중지",
+      "description": "운영 조치나 제휴처 요청으로 쿠폰 발급 또는 사용이 제한된 상태다.",
+      "next_action": "회수 사유와 대체 혜택 또는 문의 경로를 안내한다."
+    },
+    {
+      "id": "ST-CPN-015",
+      "name": "만료",
+      "description": "유효기간이 종료되어 발급 또는 사용이 불가한 상태다.",
+      "next_action": "만료 이력과 대체 쿠폰 탐색 경로를 안내한다."
+    },
+    {
+      "id": "ST-CPN-016",
+      "name": "운영 확인 필요",
+      "description": "연동 불일치, 정산 보류, 오류 원인 미확인으로 운영자 확인이 필요한 상태다.",
+      "next_action": "고객에게 지연 안내를 제공하고 운영자에게 확인 작업을 생성한다."
+    }
+  ],
+  "state_transitions": [
+    {
+      "current_state": "전시 가능",
+      "event": "외부 쿠폰 혜택 탐색과 발급 준비",
+      "next_state": "상세 확인 중",
+      "criteria": "고객이 목록, 허브, 알림, 딥링크에서 외부 쿠폰을 선택하면 상세 확인 중으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-001"
+      ]
+    },
+    {
+      "current_state": "상세 확인 중",
+      "event": "발급 조건·재고 판정",
+      "next_state": "발급 가능",
+      "criteria": "대상 조건, 기간, 재고, 1인 한도, 제휴처 상태가 충족되면 발급 가능으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-001",
+        "US-CPN-SYS-005"
+      ]
+    },
+    {
+      "current_state": "상세 확인 중",
+      "event": "외부 쿠폰 혜택 탐색과 발급 준비",
+      "next_state": "오픈 예정",
+      "criteria": "발급 시작 전이거나 오픈 시점이 미래이면 오픈 예정으로 전환하고 알림 신청을 허용한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-001",
+        "US-CPN-SYS-004"
+      ]
+    },
+    {
+      "current_state": "상세 확인 중",
+      "event": "대상 조건 불충족 확인",
+      "next_state": "조건 미충족",
+      "criteria": "등급, 상품 보유, 지역, 채널, 인증, 동의 조건이 충족되지 않으면 조건 미충족으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-001",
+        "US-CPN-SYS-005"
+      ]
+    },
+    {
+      "current_state": "발급 가능",
+      "event": "외부 쿠폰 발급 여정 완성",
+      "next_state": "발급 진행 중",
+      "criteria": "고객이 선택, 인증, 동의를 완료하고 발급 또는 다운로드를 요청하면 발급 진행 중으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-002"
+      ]
+    },
+    {
+      "current_state": "발급 진행 중",
+      "event": "쿠폰함 저장·상태 제공",
+      "next_state": "발급 완료",
+      "criteria": "쿠폰 코드 매핑과 쿠폰함 저장 요청이 성공하면 발급 완료로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-003",
+        "US-CPN-SYS-002"
+      ]
+    },
+    {
+      "current_state": "발급 진행 중",
+      "event": "외부 쿠폰 발급 여정 완성",
+      "next_state": "발급 실패",
+      "criteria": "인증 실패, 동의 미완료, 제휴처 오류, 코드 매핑 실패, 중복 요청 오류가 발생하면 발급 실패로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-002",
+        "US-CPN-SYS-002"
+      ]
+    },
+    {
+      "current_state": "발급 진행 중",
+      "event": "재고 소진 확인",
+      "next_state": "재고 소진",
+      "criteria": "요청 시점에 전체 재고 또는 고객 대상 재고가 0이면 재고 소진으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-001",
+        "US-CPN-SYS-002"
+      ]
+    },
+    {
+      "current_state": "발급 완료",
+      "event": "쿠폰함 저장·상태 제공",
+      "next_state": "쿠폰함 저장",
+      "criteria": "통합 쿠폰함에 쿠폰 ID와 상태가 저장되면 쿠폰함 저장으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-003",
+        "US-CPN-CUS-004"
+      ]
+    },
+    {
+      "current_state": "쿠폰함 저장",
+      "event": "외부 쿠폰 사용 경험 완결",
+      "next_state": "사용 가능",
+      "criteria": "유효기간, 시간·요일, 제휴처 상태가 충족되면 사용 가능으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-003",
+        "US-CPN-SYS-002"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "외부 쿠폰 사용 경험 완결",
+      "next_state": "사용 완료",
+      "criteria": "제휴처 사용 승인 또는 사용 완료 응답이 확인되면 사용 완료로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-003",
+        "US-CPN-SYS-002"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "제휴처 상태 동기화",
+      "next_state": "사용 불가",
+      "criteria": "시간 제한, 제휴처 오류, 코드 오류, 정책 변경, 고객 조건 변경으로 사용이 불가하면 사용 불가로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-002",
+        "US-CPN-CUS-003"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "쿠폰 중지·회수·재발급 및 고객 고지 관리",
+      "next_state": "회수·중지",
+      "criteria": "운영자가 중지 또는 회수를 승인하면 회수·중지로 전환하고 고객 고지 대상을 생성한다.",
+      "usecase_ids": [
+        "US-CPN-OPS-003",
+        "US-CPN-SYS-004"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "유효기간 종료 확인",
+      "next_state": "만료",
+      "criteria": "유효기간 종료 시점이 지나면 만료로 전환하고 쿠폰함 상태를 갱신한다.",
+      "usecase_ids": [
+        "US-CPN-SYS-003",
+        "US-CPN-SYS-004"
+      ]
+    },
+    {
+      "current_state": "사용 불가",
+      "event": "제휴처 정산·오류 확인",
+      "next_state": "운영 확인 필요",
+      "criteria": "오류 원인, 정산 보류, 반영 지연이 자동으로 판정되지 않으면 운영 확인 필요로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-PTR-001",
+        "US-CPN-SYS-002"
+      ]
+    },
+    {
+      "current_state": "운영 확인 필요",
+      "event": "쿠폰 중지·회수·재발급 및 고객 고지 관리",
+      "next_state": "사용 가능",
+      "criteria": "운영자가 재발급 또는 상태 보정을 완료하고 유효 조건이 충족되면 사용 가능으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-OPS-003",
+        "US-CPN-CUS-004"
+      ]
+    },
+    {
+      "current_state": "전시 가능",
+      "event": "지오펜싱 주변 혜택 매장 진입",
+      "next_state": "상세 확인 중",
+      "criteria": "고객 위치 동의와 알림 제한 기준이 충족되고 주변 사용 가능 매장이 확인되면 쿠폰 상세 확인으로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-001"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "결제 시 보유 쿠폰 자동 적용",
+      "next_state": "사용 완료",
+      "criteria": "사용처, 최소 구매금액, 적용 대상, 유효기간이 충족되면 결제 단계에서 보유 쿠폰을 자동 적용하고 사용 완료 상태로 전환한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-003"
+      ]
+    },
+    {
+      "current_state": "쿠폰함 저장",
+      "event": "쿠폰 양도 요청",
+      "next_state": "발급 완료",
+      "criteria": "발송자가 공유 허용·미사용 쿠폰을 양도하면 수신자 수령 전까지 발급 완료 상태로 유지하고 양도 이력을 저장한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-004"
+      ]
+    },
+    {
+      "current_state": "발급 완료",
+      "event": "양도 쿠폰 미수령·미사용 회수",
+      "next_state": "쿠폰함 저장",
+      "criteria": "수신자가 지정 기간 내 수령 또는 사용하지 않으면 발송자가 안심 회수할 수 있고 쿠폰함 저장 상태로 복구한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-004",
+        "US-CPN-OPS-003"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "2종 중 택1 쿠폰 사용 완료",
+      "next_state": "사용 완료",
+      "criteria": "상호 배타 쿠폰 중 하나가 사용 완료되면 선택되지 않은 쿠폰은 사용 제한 또는 소멸 처리하고 사유를 안내한다.",
+      "usecase_ids": [
+        "US-CPN-CUS-003"
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "id": "PR-CPN-CUS-001",
+      "usecase_id": "US-CPN-CUS-001",
+      "name": "외부 쿠폰 목록 탐색",
+      "description": "고객이 외부 쿠폰 허브에서 지금 사용 가능, 오픈 예정, 마감 임박, 주변 사용 가능 매장, 지오펜싱 알림 대상 쿠폰을 탐색한다.",
+      "related_functions": [
+        "FN-CPN-DISC-001",
+        "FN-CPN-DETAIL-001",
+        "FN-CPN-STORE-001"
+      ],
+      "related_policies": [
+        "PG-CPN-DISC-001",
+        "PG-CPN-SCOPE-001",
+        "PG-CPN-NOTI-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-CUS-002",
+      "usecase_id": "US-CPN-CUS-001",
+      "name": "상세 조건과 사용 가능성 확인",
+      "description": "고객이 혜택, 사용처, 사용 가능 매장, 시간·요일, 제외 조건, 할인 적용 대상, 사용기간 유형을 확인한다.",
+      "related_functions": [
+        "FN-CPN-DETAIL-001",
+        "FN-CPN-ELIG-001",
+        "FN-CPN-STORE-001"
+      ],
+      "related_policies": [
+        "PG-CPN-DISC-001",
+        "PG-CPN-ELIG-001",
+        "PG-CPN-USE-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-CUS-003",
+      "usecase_id": "US-CPN-CUS-001",
+      "name": "오픈 예정·선착순 알림 설정",
+      "description": "고객이 아직 발급 전이거나 선착순 쿠폰에 대해 오픈 알림과 다시 보기 대상을 설정한다.",
+      "related_functions": [
+        "FN-CPN-ALERT-001",
+        "FN-CPN-DISC-001"
+      ],
+      "related_policies": [
+        "PG-CPN-NOTI-001",
+        "PG-CPN-DISC-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-ISS-001",
+      "usecase_id": "US-CPN-CUS-002",
+      "name": "선택형 쿠폰 비교와 선택",
+      "description": "고객이 복수 선택지나 2종 중 택1 쿠폰의 차이, 상호 배타 사용 기준, 선택 후 잔여 쿠폰 상태를 비교한다.",
+      "related_functions": [
+        "FN-CPN-SELECT-001",
+        "FN-CPN-DETAIL-001"
+      ],
+      "related_policies": [
+        "PG-CPN-SELECT-001",
+        "PG-CPN-DISC-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-ISS-002",
+      "usecase_id": "US-CPN-CUS-002",
+      "name": "추가 인증·동의·외부 연결",
+      "description": "고객이 쿠폰 발급에 필요한 로그인, 추가 인증, 약관 동의, 외부 제휴 연결을 완료한다.",
+      "related_functions": [
+        "FN-CPN-AUTH-001",
+        "FN-CPN-ELIG-001"
+      ],
+      "related_policies": [
+        "PG-CPN-ELIG-001",
+        "PG-CPN-ISSUE-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-ISS-003",
+      "usecase_id": "US-CPN-CUS-002",
+      "name": "발급·다운로드와 쿠폰함 저장",
+      "description": "고객이 발급 또는 다운로드 요청을 완료하고 즉시 사용 또는 쿠폰함 이동으로 이어간다.",
+      "related_functions": [
+        "FN-CPN-ISSUE-001",
+        "FN-CPN-BOX-001"
+      ],
+      "related_policies": [
+        "PG-CPN-ISSUE-001",
+        "PG-CPN-BOX-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-USE-001",
+      "usecase_id": "US-CPN-CUS-003",
+      "name": "사용수단 표시와 제휴처 제시",
+      "description": "고객이 바코드·QR·코드·자동 적용 가능 여부와 주변 사용 가능 매장을 확인하고 제휴처에 쿠폰을 제시한다.",
+      "related_functions": [
+        "FN-CPN-USE-001",
+        "FN-CPN-BOX-001",
+        "FN-CPN-STORE-001",
+        "FN-CPN-AUTO-001"
+      ],
+      "related_policies": [
+        "PG-CPN-USE-001",
+        "PG-CPN-BOX-001",
+        "PG-CPN-NOTI-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-USE-002",
+      "usecase_id": "US-CPN-CUS-003",
+      "name": "사용 결과 확인과 맥락 복귀",
+      "description": "고객이 외부 제휴처, 인앱 브라우저, 매장 결제 후 복귀해 사용 성공, 실패, 미차감, 자동 적용 결과를 확인한다.",
+      "related_functions": [
+        "FN-CPN-RESULT-001",
+        "FN-CPN-SYNC-001",
+        "FN-CPN-AUTO-001"
+      ],
+      "related_policies": [
+        "PG-CPN-USE-001",
+        "PG-CPN-FAIL-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-USE-003",
+      "usecase_id": "US-CPN-CUS-003",
+      "name": "사용 실패 복구와 대체 행동 선택",
+      "description": "고객이 사용 불가 사유를 확인하고 재시도, 다른 쿠폰 보기, 상담 연결 중 가능한 대체 행동을 선택한다.",
+      "related_functions": [
+        "FN-CPN-RESULT-001",
+        "FN-CPN-ALERT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-FAIL-001",
+        "PG-CPN-NOTI-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-BOX-001",
+      "usecase_id": "US-CPN-CUS-004",
+      "name": "기보유·기발급 상태 확인",
+      "description": "고객이 이미 발급받은 쿠폰, 한도 초과, 재다운로드 가능 상태를 확인한다.",
+      "related_functions": [
+        "FN-CPN-BOX-001",
+        "FN-CPN-ELIG-001"
+      ],
+      "related_policies": [
+        "PG-CPN-BOX-001",
+        "PG-CPN-ELIG-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-BOX-002",
+      "usecase_id": "US-CPN-CUS-004",
+      "name": "이력·만료·재발급 확인",
+      "description": "고객이 쿠폰함에서 만료, 재발급, 양도, 미수령·미사용 회수 가능 여부와 이력을 확인한다.",
+      "related_functions": [
+        "FN-CPN-BOX-001",
+        "FN-CPN-CONTROL-001"
+      ],
+      "related_policies": [
+        "PG-CPN-BOX-001",
+        "PG-CPN-CONTROL-001",
+        "PG-CPN-SELECT-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-OPS-001",
+      "usecase_id": "US-CPN-OPS-001",
+      "name": "기준정보 등록·복제·버전 작성",
+      "description": "운영자가 쿠폰 기준정보, 사용기간 유형, 할인 적용 대상, 매장 데이터, 복제·버전 기준을 작성한다.",
+      "related_functions": [
+        "FN-CPN-OPS-001",
+        "FN-CPN-AUDIT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-OPS-001",
+        "PG-CPN-SCOPE-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-OPS-002",
+      "usecase_id": "US-CPN-OPS-001",
+      "name": "발급 정책·대상 조건 설정",
+      "description": "운영자가 발급 방식, 대상 조건, 사용기간, 최소 구매금액, 적용 대상, 자동 적용 허용 여부를 설정한다.",
+      "related_functions": [
+        "FN-CPN-POLICY-001",
+        "FN-CPN-ELIG-001",
+        "FN-CPN-AUTO-001"
+      ],
+      "related_policies": [
+        "PG-CPN-ELIG-001",
+        "PG-CPN-OPS-001",
+        "PG-CPN-USE-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-OPS-003",
+      "usecase_id": "US-CPN-OPS-001",
+      "name": "검수·승인·배포",
+      "description": "운영자가 상세 미리보기와 조건 검증을 거쳐 승인 후 외부 쿠폰을 배포한다.",
+      "related_functions": [
+        "FN-CPN-AUDIT-001",
+        "FN-CPN-DISC-001"
+      ],
+      "related_policies": [
+        "PG-CPN-OPS-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-OPS-004",
+      "usecase_id": "US-CPN-OPS-002",
+      "name": "쿠폰 코드 업로드와 오류 검증",
+      "description": "운영자가 외부 쿠폰 코드와 시리얼을 대량 업로드하고 오류 행을 분리한다.",
+      "related_functions": [
+        "FN-CPN-CODE-001",
+        "FN-CPN-AUDIT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-CODE-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-OPS-005",
+      "usecase_id": "US-CPN-OPS-002",
+      "name": "제휴처 재고·상태 동기화",
+      "description": "운영자가 제휴처 재고·상태·사용 완료 여부와 사용 가능·불가 매장 데이터를 동기화한다.",
+      "related_functions": [
+        "FN-CPN-SYNC-001",
+        "FN-CPN-MON-001",
+        "FN-CPN-STORE-001"
+      ],
+      "related_policies": [
+        "PG-CPN-CODE-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-OPS-006",
+      "usecase_id": "US-CPN-OPS-002",
+      "name": "상태 자동 전환과 운영 알림 조정",
+      "description": "시스템이 소진 임박, 오픈 예정, 주변 사용 가능 매장 진입, 정책 변경 알림을 자동 전환·발송하고 운영자에게 조정 대상을 안내한다.",
+      "related_functions": [
+        "FN-CPN-ALERT-001",
+        "FN-CPN-CONTROL-001"
+      ],
+      "related_policies": [
+        "PG-CPN-NOTI-001",
+        "PG-CPN-CONTROL-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-CTL-001",
+      "usecase_id": "US-CPN-OPS-003",
+      "name": "중지·회수 대상 확정",
+      "description": "운영자가 오류, 정책 변경, 과발급 위험에 따라 중지 또는 회수 대상 범위를 확정한다.",
+      "related_functions": [
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-AUDIT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-CONTROL-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-CTL-002",
+      "usecase_id": "US-CPN-OPS-003",
+      "name": "재발급·대체 혜택 처리",
+      "description": "운영자가 재발급, 대체 혜택, 양도 쿠폰 미수령·미사용 회수, 잔여 쿠폰 자동 소멸 처리를 수행한다.",
+      "related_functions": [
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-ALERT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-CONTROL-001",
+        "PG-CPN-NOTI-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-CTL-003",
+      "usecase_id": "US-CPN-OPS-003",
+      "name": "고객 고지와 롤백 이력 저장",
+      "description": "운영자가 중지, 회수, 재발급 결과를 고객에게 고지하고 변경 이력을 저장한다.",
+      "related_functions": [
+        "FN-CPN-AUDIT-001",
+        "FN-CPN-ALERT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-CONTROL-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-PTR-001",
+      "usecase_id": "US-CPN-PTR-001",
+      "name": "제휴처 사용 실적 확인",
+      "description": "제휴처 운영자가 발급, 사용, 실패, 반영 지연, 오류 현황을 확인한다.",
+      "related_functions": [
+        "FN-CPN-MON-001",
+        "FN-CPN-SYNC-001"
+      ],
+      "related_policies": [
+        "PG-CPN-MON-001",
+        "PG-CPN-CODE-001"
+      ]
+    },
+    {
+      "id": "PR-CPN-PTR-002",
+      "usecase_id": "US-CPN-PTR-001",
+      "name": "정산·오류 보정 요청",
+      "description": "제휴처 운영자가 미차감, 반영 지연, 코드 불일치 건의 정산 보류와 보정 요청을 처리한다.",
+      "related_functions": [
+        "FN-CPN-MON-001",
+        "FN-CPN-RESULT-001"
+      ],
+      "related_policies": [
+        "PG-CPN-MON-001",
+        "PG-CPN-FAIL-001"
+      ]
+    }
+  ],
+  "process_details": [],
+  "functions": [
+    {
+      "id": "FN-CPN-DISC-001",
+      "name": "쿠폰 허브·목록 탐색",
+      "description": "외부 쿠폰을 상태, 사용처, 내 주변, 카테고리, 등급, 사용 방식, 사용 가능 매장 기준으로 탐색하게 한다.",
+      "details": [
+        "상태별 목록",
+        "필터·정렬",
+        "섹션 우선순위",
+        "주변 사용 가능 매장 노출"
+      ],
+      "process_ids": [
+        "PR-CPN-CUS-001",
+        "PR-CPN-CUS-003",
+        "PR-CPN-OPS-003"
+      ],
+      "process_id": "PR-CPN-CUS-001",
+      "related_policies": [
+        "PG-CPN-DISC-001",
+        "PG-CPN-SCOPE-001",
+        "PG-CPN-NOTI-001",
+        "PG-CPN-OPS-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-DETAIL-001",
+      "name": "상세 핵심정보 구성",
+      "description": "혜택, 사용처, 사용 조건, 사용 가능 매장, 제외 조건, 사용기간 유형, 할인 적용 대상을 표준 템플릿으로 구성한다.",
+      "details": [
+        "혜택 요약",
+        "사용 조건",
+        "제외 조건",
+        "표준 라벨",
+        "사용기간·할인 적용 기준"
+      ],
+      "process_ids": [
+        "PR-CPN-CUS-001",
+        "PR-CPN-CUS-002",
+        "PR-CPN-ISS-001"
+      ],
+      "process_id": "PR-CPN-CUS-002",
+      "related_policies": [
+        "PG-CPN-DISC-001",
+        "PG-CPN-SCOPE-001",
+        "PG-CPN-ELIG-001",
+        "PG-CPN-SELECT-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-ELIG-001",
+      "name": "발급 가능 조건 판정",
+      "description": "고객 등급, 상품 보유, 채널, 지역, 기간, 재고, 한도를 기준으로 발급 가능 여부를 산정한다.",
+      "details": [
+        "대상 조건 판정",
+        "재고·한도 확인",
+        "불가 사유 산정"
+      ],
+      "process_ids": [
+        "PR-CPN-CUS-002",
+        "PR-CPN-ISS-002",
+        "PR-CPN-BOX-001",
+        "PR-CPN-OPS-002"
+      ],
+      "process_id": "PR-CPN-CUS-002",
+      "related_policies": [
+        "PG-CPN-DISC-001",
+        "PG-CPN-ELIG-001",
+        "PG-CPN-ISSUE-001",
+        "PG-CPN-BOX-001",
+        "PG-CPN-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-SELECT-001",
+      "name": "선택형 쿠폰 비교·선택",
+      "description": "선택형 쿠폰과 2종 중 택1 쿠폰의 차이, 변경 가능 여부, 상호 배타 적용 기준을 안내한다.",
+      "details": [
+        "선택지 비교",
+        "선택 확정",
+        "변경 가능 판정",
+        "상호 배타 쿠폰 상태 처리"
+      ],
+      "process_ids": [
+        "PR-CPN-ISS-001"
+      ],
+      "process_id": "PR-CPN-ISS-001",
+      "related_policies": [
+        "PG-CPN-SELECT-001",
+        "PG-CPN-DISC-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-AUTH-001",
+      "name": "추가 인증·동의·외부연계",
+      "description": "발급 전 필요한 인증, 동의, 외부 제휴 연결을 완료하고 원래 쿠폰 단계로 복귀시킨다.",
+      "details": [
+        "인증 요청",
+        "동의 수집",
+        "외부 연결",
+        "원위치 복귀"
+      ],
+      "process_ids": [
+        "PR-CPN-ISS-002"
+      ],
+      "process_id": "PR-CPN-ISS-002",
+      "related_policies": [
+        "PG-CPN-ELIG-001",
+        "PG-CPN-ISSUE-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-ISSUE-001",
+      "name": "발급·다운로드 요청",
+      "description": "쿠폰 발급 또는 다운로드 요청을 접수하고 멱등성, 완료, 실패 상태를 확정한다.",
+      "details": [
+        "발급 요청",
+        "중복 요청 제어",
+        "완료·실패 확정"
+      ],
+      "process_ids": [
+        "PR-CPN-ISS-003"
+      ],
+      "process_id": "PR-CPN-ISS-003",
+      "related_policies": [
+        "PG-CPN-ISSUE-001",
+        "PG-CPN-BOX-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-BOX-001",
+      "name": "쿠폰함 저장·상태 제공",
+      "description": "쿠폰함에 저장된 외부 쿠폰의 상태, 사용·취소·회수·양도 이력, 제휴처 사용 연결 경로를 제공한다.",
+      "details": [
+        "쿠폰 저장",
+        "상태 표시",
+        "이력 조회",
+        "양도·회수 상태 표시"
+      ],
+      "process_ids": [
+        "PR-CPN-ISS-003",
+        "PR-CPN-USE-001",
+        "PR-CPN-BOX-001",
+        "PR-CPN-BOX-002"
+      ],
+      "process_id": "PR-CPN-ISS-003",
+      "related_policies": [
+        "PG-CPN-ISSUE-001",
+        "PG-CPN-BOX-001",
+        "PG-CPN-USE-001",
+        "PG-CPN-ELIG-001",
+        "PG-CPN-CONTROL-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-USE-001",
+      "name": "사용수단 표시",
+      "description": "바코드, QR, 쿠폰코드, 제휴 링크, 자동 적용 가능 여부와 사용 가능 매장 안내를 제공한다.",
+      "details": [
+        "바코드·QR",
+        "쿠폰코드",
+        "제휴 링크",
+        "보호 표시",
+        "자동 적용 가능 여부"
+      ],
+      "process_ids": [
+        "PR-CPN-USE-001"
+      ],
+      "process_id": "PR-CPN-USE-001",
+      "related_policies": [
+        "PG-CPN-USE-001",
+        "PG-CPN-BOX-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-RESULT-001",
+      "name": "사용 결과·복구",
+      "description": "외부 사용 후 성공, 실패, 미차감, 반영 지연 상태를 해석하고 다음 행동을 제공한다.",
+      "details": [
+        "결과 해석",
+        "실패 분류",
+        "복구 행동"
+      ],
+      "process_ids": [
+        "PR-CPN-USE-002",
+        "PR-CPN-USE-003",
+        "PR-CPN-PTR-002"
+      ],
+      "process_id": "PR-CPN-USE-002",
+      "related_policies": [
+        "PG-CPN-USE-001",
+        "PG-CPN-FAIL-001",
+        "PG-CPN-NOTI-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-OPS-001",
+      "name": "운영 기준정보 관리",
+      "description": "쿠폰 기준정보, 사용기간 유형, 할인 적용 대상, 매장 데이터 기준, 복제와 버전 정보를 관리한다.",
+      "details": [
+        "기준정보 등록",
+        "사용기간 유형",
+        "할인 적용 대상",
+        "매장 데이터 검증",
+        "복제",
+        "버전 관리"
+      ],
+      "process_ids": [
+        "PR-CPN-OPS-001"
+      ],
+      "process_id": "PR-CPN-OPS-001",
+      "related_policies": [
+        "PG-CPN-OPS-001",
+        "PG-CPN-SCOPE-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-POLICY-001",
+      "name": "발급 정책·대상 조건 관리",
+      "description": "발급 방식, 대상 조건, 수량·한도, 사용기간, 최소 구매금액, 할인 적용 대상, 자동 적용 허용 여부를 관리한다.",
+      "details": [
+        "발급 방식",
+        "대상 조건",
+        "수량·한도",
+        "시간 제한",
+        "할인 적용 기준",
+        "자동 적용 기준"
+      ],
+      "process_ids": [
+        "PR-CPN-OPS-002"
+      ],
+      "process_id": "PR-CPN-OPS-002",
+      "related_policies": [
+        "PG-CPN-ELIG-001",
+        "PG-CPN-OPS-001",
+        "PG-CPN-USE-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-CODE-001",
+      "name": "코드 대량 업로드·검증",
+      "description": "쿠폰 코드와 시리얼을 대량 업로드하고 오류 항목을 사전 검증한다.",
+      "details": [
+        "파일 업로드",
+        "코드 검증",
+        "오류 리포트"
+      ],
+      "process_ids": [
+        "PR-CPN-OPS-004"
+      ],
+      "process_id": "PR-CPN-OPS-004",
+      "related_policies": [
+        "PG-CPN-CODE-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-SYNC-001",
+      "name": "제휴처 연동·상태 동기화",
+      "description": "외부 제휴처의 재고, 사용 완료, 회수, 만료, 오류 상태를 동기화한다.",
+      "details": [
+        "API 연동",
+        "파일 수집",
+        "상태 동기화",
+        "수동 재수집"
+      ],
+      "process_ids": [
+        "PR-CPN-USE-002",
+        "PR-CPN-OPS-005",
+        "PR-CPN-PTR-001"
+      ],
+      "process_id": "PR-CPN-OPS-005",
+      "related_policies": [
+        "PG-CPN-USE-001",
+        "PG-CPN-FAIL-001",
+        "PG-CPN-CODE-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-CONTROL-001",
+      "name": "중지·회수·재발급 제어",
+      "description": "쿠폰의 중지, 회수, 재발급, 양도 회수, 잔여 쿠폰 자동 소멸 상태 전환을 제어한다.",
+      "details": [
+        "발급 중지",
+        "회수",
+        "재발급",
+        "양도 안심 회수",
+        "상호 배타 쿠폰 소멸",
+        "상태 전환"
+      ],
+      "process_ids": [
+        "PR-CPN-BOX-002",
+        "PR-CPN-OPS-006",
+        "PR-CPN-CTL-001",
+        "PR-CPN-CTL-002"
+      ],
+      "process_id": "PR-CPN-CTL-001",
+      "related_policies": [
+        "PG-CPN-BOX-001",
+        "PG-CPN-CONTROL-001",
+        "PG-CPN-NOTI-001",
+        "PG-CPN-MON-001",
+        "PG-CPN-SELECT-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-MON-001",
+      "name": "실적·정산 모니터링",
+      "description": "발급, 다운로드, 사용, 실패, 잔량, 정산 상태를 집계하고 리포트로 제공한다.",
+      "details": [
+        "실적 집계",
+        "정산 보류",
+        "리포트 다운로드"
+      ],
+      "process_ids": [
+        "PR-CPN-OPS-005",
+        "PR-CPN-PTR-001",
+        "PR-CPN-PTR-002"
+      ],
+      "process_id": "PR-CPN-PTR-001",
+      "related_policies": [
+        "PG-CPN-CODE-001",
+        "PG-CPN-MON-001",
+        "PG-CPN-FAIL-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-AUDIT-001",
+      "name": "승인·배포·감사로그",
+      "description": "운영 변경의 승인, 배포, 롤백, 변경 이력을 감사 기준으로 저장한다.",
+      "details": [
+        "승인 워크플로",
+        "배포",
+        "롤백",
+        "감사로그"
+      ],
+      "process_ids": [
+        "PR-CPN-OPS-001",
+        "PR-CPN-OPS-003",
+        "PR-CPN-OPS-004",
+        "PR-CPN-CTL-001",
+        "PR-CPN-CTL-003"
+      ],
+      "process_id": "PR-CPN-OPS-003",
+      "related_policies": [
+        "PG-CPN-OPS-001",
+        "PG-CPN-SCOPE-001",
+        "PG-CPN-MON-001",
+        "PG-CPN-CODE-001",
+        "PG-CPN-CONTROL-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-ALERT-001",
+      "name": "쿠폰 알림·재진입",
+      "description": "오픈, 만료, 사용 중단, 제휴처 정책 변경, 주변 혜택 매장 진입 알림과 재진입 링크를 제공한다.",
+      "details": [
+        "오픈 알림",
+        "만료 알림",
+        "지오펜싱 알림",
+        "운영 알림",
+        "재진입 링크"
+      ],
+      "process_ids": [
+        "PR-CPN-CUS-003",
+        "PR-CPN-USE-003",
+        "PR-CPN-OPS-006",
+        "PR-CPN-CTL-002",
+        "PR-CPN-CTL-003"
+      ],
+      "process_id": "PR-CPN-CUS-003",
+      "related_policies": [
+        "PG-CPN-NOTI-001",
+        "PG-CPN-DISC-001",
+        "PG-CPN-FAIL-001",
+        "PG-CPN-CONTROL-001",
+        "PG-CPN-MON-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-STORE-001",
+      "name": "사용 가능 매장·위치 안내",
+      "description": "고객 위치와 제휴사 매장 데이터를 기준으로 사용 가능·불가 매장, 주변 매장 수, 방문 전 안내를 제공한다.",
+      "details": [
+        "사용 가능·불가 매장 표시",
+        "현재 위치 기준 주변 매장 수 산정",
+        "매장 데이터 정기 검증",
+        "사용불가 매장 방문 감지 안내"
+      ],
+      "process_ids": [
+        "PR-CPN-CUS-001",
+        "PR-CPN-CUS-002",
+        "PR-CPN-USE-001",
+        "PR-CPN-OPS-005"
+      ],
+      "process_id": "PR-CPN-CUS-001",
+      "related_policies": [
+        "PG-CPN-DISC-001",
+        "PG-CPN-USE-001",
+        "PG-CPN-NOTI-001",
+        "PG-CPN-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-CPN-AUTO-001",
+      "name": "결제 쿠폰 자동 적용",
+      "description": "매장 결제나 바코드 제시 단계에서 보유 쿠폰 중 사용 가능한 쿠폰을 감지하고 최적 혜택을 자동 적용한다.",
+      "details": [
+        "사용 가능 쿠폰 감지",
+        "할인 적용 대상 판정",
+        "자동 적용 우선순위 산정",
+        "적용 결과와 미적용 사유 표시"
+      ],
+      "process_ids": [
+        "PR-CPN-USE-001",
+        "PR-CPN-USE-002",
+        "PR-CPN-OPS-002"
+      ],
+      "process_id": "PR-CPN-USE-001",
+      "related_policies": [
+        "PG-CPN-USE-001",
+        "PG-CPN-ELIG-001",
+        "PG-CPN-FAIL-001"
+      ]
+    }
+  ],
+  "function_details": [],
+  "policy_groups": [
+    {
+      "id": "PG-CPN-SCOPE-001",
+      "name": "외부 쿠폰 범위·라벨 정책",
+      "description": "외부 제휴처 쿠폰의 범위, 유형, 표준 라벨, 인접 업무 경계를 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-SCOPE-001-01",
+          "name": "쿠폰 범위"
+        },
+        {
+          "id": "PI-CPN-SCOPE-001-02",
+          "name": "표준 라벨"
+        },
+        {
+          "id": "PI-CPN-SCOPE-001-03",
+          "name": "인접 업무 경계"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-DISC-001",
+      "name": "목록·상세 노출 정책",
+      "description": "목록, 상세, 위치 기반 매장 안내와 고객 탐색 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-DISC-001-01",
+          "name": "목록 상태 구분"
+        },
+        {
+          "id": "PI-CPN-DISC-001-02",
+          "name": "상세 핵심 정보"
+        },
+        {
+          "id": "PI-CPN-DISC-001-03",
+          "name": "필터·정렬 기준"
+        },
+        {
+          "id": "PI-CPN-DISC-001-04",
+          "name": "위치 기반 매장 안내"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-ELIG-001",
+      "name": "발급 가능 조건 정책",
+      "description": "대상 조건, 수량·횟수, 사용기간, 할인 적용 대상 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-ELIG-001-01",
+          "name": "대상 조건"
+        },
+        {
+          "id": "PI-CPN-ELIG-001-02",
+          "name": "수량·횟수 한도"
+        },
+        {
+          "id": "PI-CPN-ELIG-001-03",
+          "name": "시간·요일 제한"
+        },
+        {
+          "id": "PI-CPN-ELIG-001-04",
+          "name": "할인 적용 대상"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-SELECT-001",
+      "name": "선택형 쿠폰 정책",
+      "description": "복수 쿠폰 또는 혜택 옵션 중 하나를 선택하는 구조의 안내와 변경 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-SELECT-001-01",
+          "name": "선택지 비교"
+        },
+        {
+          "id": "PI-CPN-SELECT-001-02",
+          "name": "선택 확정"
+        },
+        {
+          "id": "PI-CPN-SELECT-001-03",
+          "name": "선택 변경 제한"
+        },
+        {
+          "id": "PI-CPN-SELECT-001-04",
+          "name": "2종 중 택1 상호 배타"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-ISSUE-001",
+      "name": "발급·다운로드 정책",
+      "description": "쿠폰 발급, 다운로드, 완료 안내, 재다운로드 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-ISSUE-001-01",
+          "name": "발급 요청"
+        },
+        {
+          "id": "PI-CPN-ISSUE-001-02",
+          "name": "완료 후 행동"
+        },
+        {
+          "id": "PI-CPN-ISSUE-001-03",
+          "name": "재다운로드"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-BOX-001",
+      "name": "쿠폰함 저장·상태 정책",
+      "description": "통합 쿠폰함에서 외부 쿠폰 상태, 이력, 사용 연결을 제공하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-BOX-001-01",
+          "name": "저장 기준"
+        },
+        {
+          "id": "PI-CPN-BOX-001-02",
+          "name": "상태 표시"
+        },
+        {
+          "id": "PI-CPN-BOX-001-03",
+          "name": "이력 제공"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-USE-001",
+      "name": "사용수단·보안 정책",
+      "description": "사용수단, 보안 표시, 오프라인 제시, 결제 자동 적용 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-USE-001-01",
+          "name": "사용수단 표시"
+        },
+        {
+          "id": "PI-CPN-USE-001-02",
+          "name": "오프라인 제시"
+        },
+        {
+          "id": "PI-CPN-USE-001-03",
+          "name": "코드 보호"
+        },
+        {
+          "id": "PI-CPN-USE-001-04",
+          "name": "결제 자동 적용"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-FAIL-001",
+      "name": "실패·사용불가·복구 정책",
+      "description": "발급 실패, 사용 불가, 제휴처 오류, 복구·대체 행동 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-FAIL-001-01",
+          "name": "실패 사유"
+        },
+        {
+          "id": "PI-CPN-FAIL-001-02",
+          "name": "재시도 기준"
+        },
+        {
+          "id": "PI-CPN-FAIL-001-03",
+          "name": "대체 행동"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-OPS-001",
+      "name": "운영 기준정보·버전 정책",
+      "description": "운영 기준정보, 사용기간 유형, 할인 적용 대상, 버전·승인 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-OPS-001-01",
+          "name": "기준정보 등록"
+        },
+        {
+          "id": "PI-CPN-OPS-001-02",
+          "name": "복제·버전"
+        },
+        {
+          "id": "PI-CPN-OPS-001-03",
+          "name": "검수·승인"
+        },
+        {
+          "id": "PI-CPN-OPS-001-04",
+          "name": "사용기간 유형"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-CODE-001",
+      "name": "코드·재고·연동 정책",
+      "description": "쿠폰 코드 업로드, 재고, 제휴처 연동, 상태 동기화 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-CODE-001-01",
+          "name": "코드 업로드"
+        },
+        {
+          "id": "PI-CPN-CODE-001-02",
+          "name": "사전 검증"
+        },
+        {
+          "id": "PI-CPN-CODE-001-03",
+          "name": "상태 동기화"
+        },
+        {
+          "id": "PI-CPN-CODE-001-04",
+          "name": "쿠폰 구매·적재 내재화"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-CONTROL-001",
+      "name": "중지·회수·재발급 정책",
+      "description": "중지, 회수, 재발급, 양도·안심 회수, 상호 배타 쿠폰 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-CONTROL-001-01",
+          "name": "중지 기준"
+        },
+        {
+          "id": "PI-CPN-CONTROL-001-02",
+          "name": "회수 기준"
+        },
+        {
+          "id": "PI-CPN-CONTROL-001-03",
+          "name": "재발급 기준"
+        },
+        {
+          "id": "PI-CPN-CONTROL-001-04",
+          "name": "양도·안심 회수"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-MON-001",
+      "name": "실적·정산·감사 정책",
+      "description": "발급·다운로드·사용 실적, 정산, 감사로그, 롤백 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-MON-001-01",
+          "name": "실적 집계"
+        },
+        {
+          "id": "PI-CPN-MON-001-02",
+          "name": "정산 기준"
+        },
+        {
+          "id": "PI-CPN-MON-001-03",
+          "name": "감사로그"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-NOTI-001",
+      "name": "알림·재진입 정책",
+      "description": "오픈, 만료, 중단, 위치 기반 알림과 재진입 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-NOTI-001-01",
+          "name": "오픈 알림"
+        },
+        {
+          "id": "PI-CPN-NOTI-001-02",
+          "name": "만료·중단 알림"
+        },
+        {
+          "id": "PI-CPN-NOTI-001-03",
+          "name": "재진입 경로"
+        },
+        {
+          "id": "PI-CPN-NOTI-001-04",
+          "name": "지오펜싱 주변 혜택 알림"
+        }
+      ]
+    }
+  ],
+  "policy_details": [
+    {
+      "id": "PI-CPN-SCOPE-001-01",
+      "policy_id": "PG-CPN-SCOPE-001",
+      "name": "쿠폰 범위",
+      "content": "외부 쿠폰은 통합채널과 연계된 외부 제휴처가 제공하는 할인권, 이용권, 교환권, 바코드형 쿠폰, 링크형 쿠폰을 포함한다. 내부 포인트, 멤버십 혜택 자체 사용 정책은 별도 정책서로 분리한다."
+    },
+    {
+      "id": "PI-CPN-SCOPE-001-02",
+      "policy_id": "PG-CPN-SCOPE-001",
+      "name": "표준 라벨",
+      "content": "쿠폰 카드와 상세에는 혜택 유형, 사용처, 사용 방식, 유효기간, 대상 등급, 조건 충족 여부를 6개 표준 라벨로 표시한다. 라벨명은 고객 문구와 운영 문구를 분리해 저장한다."
+    },
+    {
+      "id": "PI-CPN-SCOPE-001-03",
+      "policy_id": "PG-CPN-SCOPE-001",
+      "name": "인접 업무 경계",
+      "content": "상품 구매, 멤버십 혜택, 이벤트 보상은 외부 쿠폰 발급·사용 연결이 있는 경우에만 본 정책서에 포함한다. 결제 할인 산정과 포인트 정산은 해당 정책서에서 결정한다."
+    },
+    {
+      "id": "PI-CPN-DISC-001-01",
+      "policy_id": "PG-CPN-DISC-001",
+      "name": "목록 상태 구분",
+      "content": "목록은 지금 발급 가능, 오픈 예정, 마감 임박, 조건 미충족, 기보유, 재다운로드 가능, 소진 상태로 구분한다. 상태가 2개 이상 겹치면 기보유, 소진, 마감 임박 순서로 우선 표시한다."
+    },
+    {
+      "id": "PI-CPN-DISC-001-02",
+      "policy_id": "PG-CPN-DISC-001",
+      "name": "상세 핵심 정보",
+      "content": "상세 첫 화면에는 혜택 내용, 사용처, 사용 방식, 사용 가능 시간·요일, 주요 제외 조건, 중복 사용 가능 여부, 온라인/오프라인 범위를 모두 노출한다. 7개 항목 중 하나라도 없으면 운영 검수에서 배포를 보류한다."
+    },
+    {
+      "id": "PI-CPN-DISC-001-03",
+      "policy_id": "PG-CPN-DISC-001",
+      "name": "필터·정렬 기준",
+      "content": "필터는 사용처, 내 주변, 카테고리, 등급, 사용 방식, 사용 가능 상태를 제공한다. 정렬은 오늘 사용 가능, 만료 임박, 최신 발급, 혜택 큰 순을 기본 후보로 둔다."
+    },
+    {
+      "id": "PI-CPN-ELIG-001-01",
+      "policy_id": "PG-CPN-ELIG-001",
+      "name": "대상 조건",
+      "content": "발급 대상은 등급, 상품 보유, 지역, 채널, 기간, 본인확인 상태 중 운영자가 선택한 조건을 모두 충족한 고객으로 제한한다. 불충족 조건은 최대 3개까지 고객 문구로 안내한다."
+    },
+    {
+      "id": "PI-CPN-ELIG-001-02",
+      "policy_id": "PG-CPN-ELIG-001",
+      "name": "수량·횟수 한도",
+      "content": "발급 수량은 전체 재고, 고객 1인당 한도, 일 단위 한도, 기간 단위 한도로 판정한다. 한도 초과 시 발급 버튼은 노출하지 않고 기발급 또는 한도 초과 상태를 표시한다."
+    },
+    {
+      "id": "PI-CPN-ELIG-001-03",
+      "policy_id": "PG-CPN-ELIG-001",
+      "name": "시간·요일 제한",
+      "content": "사용 가능 시간·요일이 있는 쿠폰은 발급 전과 사용 전 모두 제한 상태를 판정한다. 제한 시간에는 사용 불가 사유와 다음 사용 가능 시각을 함께 안내한다."
+    },
+    {
+      "id": "PI-CPN-SELECT-001-01",
+      "policy_id": "PG-CPN-SELECT-001",
+      "name": "선택지 비교",
+      "content": "선택형 쿠폰은 각 선택지의 혜택, 사용처, 유효기간, 변경 가능 여부, 즉시 사용 가능 여부를 같은 행 기준으로 비교한다. 고객이 선택 전에 최소 2개 이상의 차이를 이해할 수 있어야 한다."
+    },
+    {
+      "id": "PI-CPN-SELECT-001-02",
+      "policy_id": "PG-CPN-SELECT-001",
+      "name": "선택 확정",
+      "content": "선택 완료 후에는 다운로드, 쿠폰함 이동, 즉시 사용 중 가능한 다음 행동을 1개 이상 제공한다. 발급이 완료된 선택지는 동일 기간 내 중복 선택을 제한한다."
+    },
+    {
+      "id": "PI-CPN-SELECT-001-03",
+      "policy_id": "PG-CPN-SELECT-001",
+      "name": "선택 변경 제한",
+      "content": "선택 변경은 발급 전 또는 제휴처 코드 미매핑 상태에서만 허용한다. 발급 완료, 사용 완료, 회수, 만료 상태에서는 변경을 제한하고 사유를 안내한다."
+    },
+    {
+      "id": "PI-CPN-ISSUE-001-01",
+      "policy_id": "PG-CPN-ISSUE-001",
+      "name": "발급 요청",
+      "content": "발급 요청은 로그인, 추가 인증, 필수 동의, 외부 제휴 연결, 재고 판정이 모두 완료된 경우에만 접수한다. 발급 처리 중 중복 클릭은 5초 이내 1건으로 멱등 처리한다."
+    },
+    {
+      "id": "PI-CPN-ISSUE-001-02",
+      "policy_id": "PG-CPN-ISSUE-001",
+      "name": "완료 후 행동",
+      "content": "발급 완료 시 즉시 사용 가능한 쿠폰은 즉시 사용을 1순위 행동으로 제공한다. 즉시 사용이 불가하면 쿠폰함 저장 완료와 사용 가능 시각을 안내한다."
+    },
+    {
+      "id": "PI-CPN-ISSUE-001-03",
+      "policy_id": "PG-CPN-ISSUE-001",
+      "name": "재다운로드",
+      "content": "재다운로드는 발급 완료, 미사용, 유효기간 내, 회수되지 않은 쿠폰에만 허용한다. 난수번호 또는 바코드가 재생성되는 경우 기존 코드 폐기 이력을 저장한다."
+    },
+    {
+      "id": "PI-CPN-BOX-001-01",
+      "policy_id": "PG-CPN-BOX-001",
+      "name": "저장 기준",
+      "content": "발급 완료 쿠폰은 통합 쿠폰함에 1건 이상 저장되어야 하며, 쿠폰 ID, 제휴처, 유효기간, 사용 상태, 발급 시각, 회수 여부를 조회 기준으로 남긴다."
+    },
+    {
+      "id": "PI-CPN-BOX-001-02",
+      "policy_id": "PG-CPN-BOX-001",
+      "name": "상태 표시",
+      "content": "쿠폰함 상태는 사용 가능, 사용 완료, 사용 불가, 만료, 회수, 발급 실패, 재다운로드 가능으로 표시한다. 고객 노출 상태와 운영 상태가 다르면 고객 노출 상태를 우선 설명한다."
+    },
+    {
+      "id": "PI-CPN-BOX-001-03",
+      "policy_id": "PG-CPN-BOX-001",
+      "name": "이력 제공",
+      "content": "쿠폰함은 발급, 다운로드, 사용 시도, 사용 완료, 실패, 회수, 재발급 이력을 시간순으로 보관한다. 고객에게는 최근 1년 이력을 기본 제공한다."
+    },
+    {
+      "id": "PI-CPN-USE-001-01",
+      "policy_id": "PG-CPN-USE-001",
+      "name": "사용수단 표시",
+      "content": "사용수단은 바코드, QR, 난수번호, 제휴 링크, 자동 적용 중 하나로 분류한다. 고객 화면에는 사용수단, 유효시간, 갱신 필요 여부, 제휴처 확인 문구를 함께 표시한다."
+    },
+    {
+      "id": "PI-CPN-USE-001-02",
+      "policy_id": "PG-CPN-USE-001",
+      "name": "오프라인 제시",
+      "content": "오프라인 제시형 쿠폰은 전체화면 보기와 화면 밝기 강화 선택을 제공한다. 바코드 또는 QR 유효 시간이 있는 경우 남은 시간을 분 단위로 안내한다."
+    },
+    {
+      "id": "PI-CPN-USE-001-03",
+      "policy_id": "PG-CPN-USE-001",
+      "name": "코드 보호",
+      "content": "쿠폰코드 복제·공유가 제한되는 쿠폰은 화면 캡처 제한 또는 부분 가림을 적용한다. 보호 적용 여부와 공유 불가 사유는 상세 유의사항에 고지한다."
+    },
+    {
+      "id": "PI-CPN-FAIL-001-01",
+      "policy_id": "PG-CPN-FAIL-001",
+      "name": "실패 사유",
+      "content": "발급 실패와 사용 불가는 재고 소진, 시간 미도래, 등급 미충족, 제휴처 오류, 코드 중복, 회수, 만료, 인증 실패로 분류한다. 사유가 확인되지 않으면 운영 확인 필요 상태로 전환한다."
+    },
+    {
+      "id": "PI-CPN-FAIL-001-02",
+      "policy_id": "PG-CPN-FAIL-001",
+      "name": "재시도 기준",
+      "content": "일시 오류는 최대 3회까지 재시도를 허용한다. 제휴처 오류가 5분 이상 지속되면 자동 재시도 안내 대신 다른 쿠폰 보기, 쿠폰함 이동, 상담 연결을 제공한다."
+    },
+    {
+      "id": "PI-CPN-FAIL-001-03",
+      "policy_id": "PG-CPN-FAIL-001",
+      "name": "대체 행동",
+      "content": "발급 또는 사용이 불가하면 재시도, 다른 외부 쿠폰 보기, 쿠폰함 이동, 제휴처 안내, 상담 연결 중 고객에게 가능한 행동을 1개 이상 제공한다."
+    },
+    {
+      "id": "PI-CPN-OPS-001-01",
+      "policy_id": "PG-CPN-OPS-001",
+      "name": "기준정보 등록",
+      "content": "운영자는 쿠폰명, 유형, 제휴처, 사용처, 혜택, 적용 방식, 유효기간, 대표 이미지, 안내 문구를 필수 기준정보로 등록한다. 필수 9개 항목 누락 시 저장은 임시저장까지만 허용한다."
+    },
+    {
+      "id": "PI-CPN-OPS-001-02",
+      "policy_id": "PG-CPN-OPS-001",
+      "name": "복제·버전",
+      "content": "기존 쿠폰을 복제할 때는 제휴처, 유효기간, 재고, 대상 조건을 새 버전에서 다시 확인해야 한다. 배포 이력이 있는 쿠폰 수정은 신규 버전으로 저장한다."
+    },
+    {
+      "id": "PI-CPN-OPS-001-03",
+      "policy_id": "PG-CPN-OPS-001",
+      "name": "검수·승인",
+      "content": "생성, 조건 변경, 회수, 종료, 상단 고정은 승인 대상 작업으로 관리한다. 승인자, 작업 시각, 변경 전후 값, 적용 범위는 감사로그에 저장한다."
+    },
+    {
+      "id": "PI-CPN-CODE-001-01",
+      "policy_id": "PG-CPN-CODE-001",
+      "name": "코드 업로드",
+      "content": "쿠폰 코드 대량 업로드는 쿠폰코드, 시리얼, 유효기간, 상태값을 포함해야 한다. 1회 업로드 파일은 운영 한도 내에서 분할 처리하고 오류 행은 정상 행과 분리한다."
+    },
+    {
+      "id": "PI-CPN-CODE-001-02",
+      "policy_id": "PG-CPN-CODE-001",
+      "name": "사전 검증",
+      "content": "업로드 전 중복, 형식 오류, 유효기간 오류, 상태 불일치, 이미 사용된 코드 여부를 검증한다. 오류 항목은 행 번호와 사유를 포함한 리포트로 제공한다."
+    },
+    {
+      "id": "PI-CPN-CODE-001-03",
+      "policy_id": "PG-CPN-CODE-001",
+      "name": "상태 동기화",
+      "content": "외부 제휴처 연동은 API 또는 파일 방식으로 수행하며 재고, 발급 가능 상태, 사용 완료, 회수, 만료 상태를 주기적으로 동기화한다. 연동 실패는 최대 3회 재시도 후 오류 로그, 수동 재수집, 고객 안내 대상으로 기록한다."
+    },
+    {
+      "id": "PI-CPN-CONTROL-001-01",
+      "policy_id": "PG-CPN-CONTROL-001",
+      "name": "중지 기준",
+      "content": "오류, 제휴처 요청, 조건 오등록, 재고 불일치, 과발급 위험이 확인되면 운영자는 발급 중지를 즉시 적용할 수 있다. 중지 상태에서는 신규 발급을 제한하고 기존 보유 쿠폰은 별도 회수 기준을 따른다."
+    },
+    {
+      "id": "PI-CPN-CONTROL-001-02",
+      "policy_id": "PG-CPN-CONTROL-001",
+      "name": "회수 기준",
+      "content": "회수는 대상 범위, 회수 사유, 고객 고지 여부, 대체 보상 여부가 승인된 경우에만 실행한다. 사용 완료 쿠폰은 회수 대상에서 제외하고 정산 보정 대상으로 분리한다."
+    },
+    {
+      "id": "PI-CPN-CONTROL-001-03",
+      "policy_id": "PG-CPN-CONTROL-001",
+      "name": "재발급 기준",
+      "content": "재발급은 제휴처 오류, 코드 불량, 고객 미사용, 유효기간 내 요청, 회수 사유가 고객 귀책이 아닌 경우에 허용한다. 재발급 시 기존 코드 폐기와 신규 코드 발급 이력을 모두 저장한다."
+    },
+    {
+      "id": "PI-CPN-MON-001-01",
+      "policy_id": "PG-CPN-MON-001",
+      "name": "실적 집계",
+      "content": "운영 실적은 발급 수, 다운로드 수, 사용 수, 미사용 잔량, 만료 수, 실패 수, 제휴처 오류 수를 기간, 제휴처, 유형, 고객군, 채널, 상품 기준으로 집계한다."
+    },
+    {
+      "id": "PI-CPN-MON-001-02",
+      "policy_id": "PG-CPN-MON-001",
+      "name": "정산 기준",
+      "content": "정산 대상은 사용 완료와 제휴처 사용 승인 상태가 일치한 건으로 한정한다. 미차감, 반영 지연, 제휴처 오류 건은 정산 보류 상태로 분리하고 보정 완료 후 확정한다."
+    },
+    {
+      "id": "PI-CPN-MON-001-03",
+      "policy_id": "PG-CPN-MON-001",
+      "name": "감사로그",
+      "content": "생성, 수정, 승인, 배포, 중지, 회수, 재발급, 정산 확정은 작업자, 승인자, 작업 시각, 변경 전후 값, 적용 범위를 최소 3년 보관한다."
+    },
+    {
+      "id": "PI-CPN-NOTI-001-01",
+      "policy_id": "PG-CPN-NOTI-001",
+      "name": "오픈 알림",
+      "content": "오픈 예정 또는 선착순 쿠폰은 고객이 알림을 신청할 수 있다. 오픈 시점 도래 시 알림은 쿠폰 상세 또는 발급 단계로 바로 재진입하는 링크를 포함한다."
+    },
+    {
+      "id": "PI-CPN-NOTI-001-02",
+      "policy_id": "PG-CPN-NOTI-001",
+      "name": "만료·중단 알림",
+      "content": "만료 임박, 사용 중단, 제휴처 정책 변경은 고객에게 사전 안내한다. 만료 임박 알림은 최소 1회 제공하며, 긴급 중단은 가능한 즉시 대체 행동을 함께 안내한다."
+    },
+    {
+      "id": "PI-CPN-NOTI-001-03",
+      "policy_id": "PG-CPN-NOTI-001",
+      "name": "재진입 경로",
+      "content": "알림, 쿠폰함, 목록, 상세에서 재진입할 때는 고객이 보던 쿠폰 맥락을 유지한다. 추가 인증이나 동의 완료 후에는 기존 상세 또는 발급 단계로 복귀한다."
+    },
+    {
+      "id": "PI-CPN-DISC-001-04",
+      "policy_id": "PG-CPN-DISC-001",
+      "name": "위치 기반 매장 안내",
+      "content": "쿠폰 상세에는 제휴사별 사용 가능 매장과 사용 불가 매장을 구분해 제공한다. 현재 위치 사용에 동의한 고객에게는 내 주변 사용 가능 매장 수를 우선 표시하고, 매장 데이터는 최소 1일 1회 검증 또는 제휴처 갱신 이력 기준으로 관리한다."
+    },
+    {
+      "id": "PI-CPN-NOTI-001-04",
+      "policy_id": "PG-CPN-NOTI-001",
+      "name": "지오펜싱 주변 혜택 알림",
+      "content": "고객이 위치 수신에 동의했고 보유 쿠폰의 사용 가능 매장 반경에 진입한 경우에만 주변 혜택 알림을 발송한다. 알림은 1일 1회, 동일 매장 7일 1회로 제한하고 수신 거부 이력을 즉시 반영한다."
+    },
+    {
+      "id": "PI-CPN-USE-001-04",
+      "policy_id": "PG-CPN-USE-001",
+      "name": "결제 자동 적용",
+      "content": "매장 결제 또는 바코드 제시 시 보유 쿠폰 중 사용처, 유효기간, 최소 구매금액, 적용 대상이 충족된 쿠폰을 자동 감지한다. 자동 적용 결과와 미적용 사유는 결제 직후 고객에게 안내하고, 오적용이 확인되면 취소·복구 이력을 저장한다."
+    },
+    {
+      "id": "PI-CPN-CONTROL-001-04",
+      "policy_id": "PG-CPN-CONTROL-001",
+      "name": "양도·안심 회수",
+      "content": "쿠폰 양도는 발송자 보유, 미사용, 유효기간 내, 공유 허용 상태에서만 가능하다. 수신자가 지정 기간 내 미수령 또는 미사용 상태이면 발송자는 쿠폰을 회수할 수 있고, 회수 후 기존 공유 링크는 즉시 무효화하며 양도·회수 이력을 저장한다."
+    },
+    {
+      "id": "PI-CPN-SELECT-001-04",
+      "policy_id": "PG-CPN-SELECT-001",
+      "name": "2종 중 택1 상호 배타",
+      "content": "2종 중 택1 쿠폰은 두 쿠폰을 일괄 지급하더라도 사용 시 하나의 쿠폰만 혜택을 적용한다. 한 쿠폰이 사용 완료되면 잔여 쿠폰은 자동 소멸 또는 사용 제한 상태로 전환하고 고객에게 사유를 안내한다."
+    },
+    {
+      "id": "PI-CPN-OPS-001-04",
+      "policy_id": "PG-CPN-OPS-001",
+      "name": "사용기간 유형",
+      "content": "외부 쿠폰 사용기간은 절대기간과 발행일 기준 기간으로 구분한다. 절대기간은 고정 시작·종료일을 따르고, 발행일 기준 기간은 발급일 또는 다운로드일 기준 유효 일수를 적용한다."
+    },
+    {
+      "id": "PI-CPN-ELIG-001-04",
+      "policy_id": "PG-CPN-ELIG-001",
+      "name": "할인 적용 대상",
+      "content": "할인 쿠폰은 할인금액, 최소 구매금액, 적용 대상 상품·서비스·매장, 중복 사용 가능 여부를 기준으로 적용 여부를 판단한다. 적용 대상이 불명확하면 자동 적용하지 않고 사용 전 확인 상태로 둔다."
+    },
+    {
+      "id": "PI-CPN-CODE-001-04",
+      "policy_id": "PG-CPN-CODE-001",
+      "name": "쿠폰 구매·적재 내재화",
+      "content": "외부 쿠폰 구매, 코드 적재, 발송 대상 고객과 쿠폰 번호 매핑은 권한 있는 운영자가 승인된 파일 또는 연동 결과 기준으로만 등록한다. 고객 정보 업로드·다운로드는 권한 있는 운영자만 수행하고 파일 생성·반출 이력을 감사로그에 남긴다."
+    }
+  ],
+  "final_check": [
+    {
+      "item": "범위 정합성",
+      "criteria": "외부 쿠폰 발급·사용·쿠폰함·운영 기준을 작성하고 멤버십 혜택, 결제 할인, 포인트 정책으로 범위를 확장하지 않았는지 확인한다."
+    },
+    {
+      "item": "고객 완결성",
+      "criteria": "고객이 탐색, 상세 확인, 조건 판단, 발급, 즉시 사용, 쿠폰함 확인, 실패 복구까지 완료할 수 있는지 확인한다."
+    },
+    {
+      "item": "고객 이해 가능성",
+      "criteria": "혜택, 사용처, 사용 방식, 제외 조건, 시간 제한, 기보유·한도초과 상태가 고객 문구로 설명되는지 확인한다."
+    },
+    {
+      "item": "BSS와 제휴처 연계 포함성",
+      "criteria": "고객·회선·등급 조건, 제휴처 재고·사용 승인 상태, 쿠폰함 저장, 알림 이력이 프로세스와 정책에 연결되고 FO·BSS·제휴처 책임 경계가 구분되는지 확인한다."
+    },
+    {
+      "item": "상태 전이 정합성",
+      "criteria": "전시 가능부터 발급, 쿠폰함 저장, 사용 가능, 사용 완료, 실패, 회수, 만료, 운영 확인 필요까지 상태 흐름이 연결되는지 확인한다."
+    },
+    {
+      "item": "프로세스-기능-정책 연결성",
+      "criteria": "각 프로세스에 관련 기능과 관련 정책이 ID 기준으로 연결되고 정책 상세가 누락되지 않았는지 확인한다."
+    },
+    {
+      "item": "정책 구체성",
+      "criteria": "정책 항목에 한도, 시간, 상태, 예외, 고지, 이력, 제휴처 연동 기준이 실제 판단값으로 작성되었는지 확인한다."
+    },
+    {
+      "item": "운영 관리 가능성",
+      "criteria": "기준정보 등록, 코드 업로드, 재고 동기화, 승인·배포, 회수·재발급, 정산, 감사로그 기준이 운영자가 실행 가능한 수준인지 확인한다."
+    },
+    {
+      "item": "요구사항 반영 여부",
+      "criteria": "32개 상세 요구사항이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상으로 재구성되어 반영되었는지 확인한다."
+    },
+    {
+      "item": "개발·QA 테스트 가능성",
+      "criteria": "발급 가능/불가, 기보유, 오픈 예정, 실패, 사용 완료, 회수, 정산 보류 등 테스트 조건과 기대 결과를 도출할 수 있는지 확인한다."
+    },
+    {
+      "item": "최신 요구사항 반영 여부",
+      "criteria": "위치 기반 매장 안내, 결제 자동 적용, 지오펜싱 알림, 쿠폰 양도·안심 회수, 2종 중 택1, 사용기간 유형, 할인 적용 대상이 기능 또는 정책 항목으로 반영되었는지 확인한다."
+    }
+  ],
+  "requirements_mapping_summary": {
+    "basis": "상세 요구사항명과 상세 요구사항 설명 기준",
+    "covered_count": 32,
+    "coverage_note": "외부 쿠폰 32건을 탐색, 발급, 사용, 쿠폰함, 위치 기반 안내, 자동 적용, 양도·회수, 운영 기준정보, 코드·연동, 정산·감사 기준으로 재구성했다."
+  },
+  "policies": [
+    {
+      "id": "PG-CPN-SCOPE-001",
+      "name": "외부 쿠폰 범위·라벨 정책",
+      "description": "외부 제휴처 쿠폰의 범위, 유형, 표준 라벨, 인접 업무 경계를 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-SCOPE-001-01",
+          "name": "쿠폰 범위"
+        },
+        {
+          "id": "PI-CPN-SCOPE-001-02",
+          "name": "표준 라벨"
+        },
+        {
+          "id": "PI-CPN-SCOPE-001-03",
+          "name": "인접 업무 경계"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-DISC-001",
+      "name": "목록·상세 노출 정책",
+      "description": "목록, 상세, 위치 기반 매장 안내와 고객 탐색 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-DISC-001-01",
+          "name": "목록 상태 구분"
+        },
+        {
+          "id": "PI-CPN-DISC-001-02",
+          "name": "상세 핵심 정보"
+        },
+        {
+          "id": "PI-CPN-DISC-001-03",
+          "name": "필터·정렬 기준"
+        },
+        {
+          "id": "PI-CPN-DISC-001-04",
+          "name": "위치 기반 매장 안내"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-ELIG-001",
+      "name": "발급 가능 조건 정책",
+      "description": "대상 조건, 수량·횟수, 사용기간, 할인 적용 대상 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-ELIG-001-01",
+          "name": "대상 조건"
+        },
+        {
+          "id": "PI-CPN-ELIG-001-02",
+          "name": "수량·횟수 한도"
+        },
+        {
+          "id": "PI-CPN-ELIG-001-03",
+          "name": "시간·요일 제한"
+        },
+        {
+          "id": "PI-CPN-ELIG-001-04",
+          "name": "할인 적용 대상"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-SELECT-001",
+      "name": "선택형 쿠폰 정책",
+      "description": "복수 쿠폰 또는 혜택 옵션 중 하나를 선택하는 구조의 안내와 변경 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-SELECT-001-01",
+          "name": "선택지 비교"
+        },
+        {
+          "id": "PI-CPN-SELECT-001-02",
+          "name": "선택 확정"
+        },
+        {
+          "id": "PI-CPN-SELECT-001-03",
+          "name": "선택 변경 제한"
+        },
+        {
+          "id": "PI-CPN-SELECT-001-04",
+          "name": "2종 중 택1 상호 배타"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-ISSUE-001",
+      "name": "발급·다운로드 정책",
+      "description": "쿠폰 발급, 다운로드, 완료 안내, 재다운로드 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-ISSUE-001-01",
+          "name": "발급 요청"
+        },
+        {
+          "id": "PI-CPN-ISSUE-001-02",
+          "name": "완료 후 행동"
+        },
+        {
+          "id": "PI-CPN-ISSUE-001-03",
+          "name": "재다운로드"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-BOX-001",
+      "name": "쿠폰함 저장·상태 정책",
+      "description": "통합 쿠폰함에서 외부 쿠폰 상태, 이력, 사용 연결을 제공하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-BOX-001-01",
+          "name": "저장 기준"
+        },
+        {
+          "id": "PI-CPN-BOX-001-02",
+          "name": "상태 표시"
+        },
+        {
+          "id": "PI-CPN-BOX-001-03",
+          "name": "이력 제공"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-USE-001",
+      "name": "사용수단·보안 정책",
+      "description": "사용수단, 보안 표시, 오프라인 제시, 결제 자동 적용 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-USE-001-01",
+          "name": "사용수단 표시"
+        },
+        {
+          "id": "PI-CPN-USE-001-02",
+          "name": "오프라인 제시"
+        },
+        {
+          "id": "PI-CPN-USE-001-03",
+          "name": "코드 보호"
+        },
+        {
+          "id": "PI-CPN-USE-001-04",
+          "name": "결제 자동 적용"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-FAIL-001",
+      "name": "실패·사용불가·복구 정책",
+      "description": "발급 실패, 사용 불가, 제휴처 오류, 복구·대체 행동 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-FAIL-001-01",
+          "name": "실패 사유"
+        },
+        {
+          "id": "PI-CPN-FAIL-001-02",
+          "name": "재시도 기준"
+        },
+        {
+          "id": "PI-CPN-FAIL-001-03",
+          "name": "대체 행동"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-OPS-001",
+      "name": "운영 기준정보·버전 정책",
+      "description": "운영 기준정보, 사용기간 유형, 할인 적용 대상, 버전·승인 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-OPS-001-01",
+          "name": "기준정보 등록"
+        },
+        {
+          "id": "PI-CPN-OPS-001-02",
+          "name": "복제·버전"
+        },
+        {
+          "id": "PI-CPN-OPS-001-03",
+          "name": "검수·승인"
+        },
+        {
+          "id": "PI-CPN-OPS-001-04",
+          "name": "사용기간 유형"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-CODE-001",
+      "name": "코드·재고·연동 정책",
+      "description": "쿠폰 코드 업로드, 재고, 제휴처 연동, 상태 동기화 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-CODE-001-01",
+          "name": "코드 업로드"
+        },
+        {
+          "id": "PI-CPN-CODE-001-02",
+          "name": "사전 검증"
+        },
+        {
+          "id": "PI-CPN-CODE-001-03",
+          "name": "상태 동기화"
+        },
+        {
+          "id": "PI-CPN-CODE-001-04",
+          "name": "쿠폰 구매·적재 내재화"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-CONTROL-001",
+      "name": "중지·회수·재발급 정책",
+      "description": "중지, 회수, 재발급, 양도·안심 회수, 상호 배타 쿠폰 처리 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-CONTROL-001-01",
+          "name": "중지 기준"
+        },
+        {
+          "id": "PI-CPN-CONTROL-001-02",
+          "name": "회수 기준"
+        },
+        {
+          "id": "PI-CPN-CONTROL-001-03",
+          "name": "재발급 기준"
+        },
+        {
+          "id": "PI-CPN-CONTROL-001-04",
+          "name": "양도·안심 회수"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-MON-001",
+      "name": "실적·정산·감사 정책",
+      "description": "발급·다운로드·사용 실적, 정산, 감사로그, 롤백 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-MON-001-01",
+          "name": "실적 집계"
+        },
+        {
+          "id": "PI-CPN-MON-001-02",
+          "name": "정산 기준"
+        },
+        {
+          "id": "PI-CPN-MON-001-03",
+          "name": "감사로그"
+        }
+      ]
+    },
+    {
+      "id": "PG-CPN-NOTI-001",
+      "name": "알림·재진입 정책",
+      "description": "오픈, 만료, 중단, 위치 기반 알림과 재진입 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-CPN-NOTI-001-01",
+          "name": "오픈 알림"
+        },
+        {
+          "id": "PI-CPN-NOTI-001-02",
+          "name": "만료·중단 알림"
+        },
+        {
+          "id": "PI-CPN-NOTI-001-03",
+          "name": "재진입 경로"
+        },
+        {
+          "id": "PI-CPN-NOTI-001-04",
+          "name": "지오펜싱 주변 혜택 알림"
+        }
+      ]
+    }
+  ],
+  "version": "v0.10",
+  "trace_matrix": [
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H01-001",
+      "source_number": "316",
+      "requirement_id": "7CPN-H01-001",
+      "parent_requirement_id": "7CPN-H01",
+      "parent_name": "외부 제휴처 쿠폰 탐색·이해",
+      "detail_name": "외부 제휴처 쿠폰 상세 미리보기 및 핵심 제외 조건 안내",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-CPN-CUS-001",
+        "PR-CPN-CUS-001",
+        "FN-CPN-DISC-001",
+        "PI-CPN-SCOPE-001-01",
+        "PG-CPN-SCOPE-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H01-001",
+        "316",
+        "REQ-7CPN-H01-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-001",
+      "source_number": "317",
+      "requirement_id": "7CPN-H02-001",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "기보유/기발급 외부 제휴처 쿠폰 상태 안내 및 외부 제휴처 쿠폰함 연결",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-CPN-BOX-001",
+        "FN-CPN-BOX-001",
+        "PI-CPN-CODE-001-03",
+        "PI-CPN-FAIL-001-03",
+        "PG-CPN-BOX-001"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-001",
+        "317",
+        "REQ-7CPN-H02-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-002",
+      "source_number": "318",
+      "requirement_id": "7CPN-H02-002",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "선택형 외부 제휴처 쿠폰 전시 및 선택 구조 개선",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-CPN-CUS-002",
+        "US-CPN-CUS-004",
+        "PR-CPN-ISS-001",
+        "PG-CPN-SELECT-001",
+        "US-CPN-CUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-002",
+        "318",
+        "REQ-7CPN-H02-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H01-002",
+      "source_number": "319",
+      "requirement_id": "7CPN-H01-002",
+      "parent_requirement_id": "7CPN-H01",
+      "parent_name": "외부 제휴처 쿠폰 탐색·이해",
+      "detail_name": "사용 가능 외부 제휴처 쿠폰 목록 및 필터/정렬 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-CPN-CUS-001",
+        "FN-CPN-DISC-001",
+        "US-CPN-CUS-002",
+        "PR-CPN-CUS-001",
+        "PI-CPN-DISC-001-03"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H01-002",
+        "319",
+        "REQ-7CPN-H01-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H01-003",
+      "source_number": "320",
+      "requirement_id": "7CPN-H01-003",
+      "parent_requirement_id": "7CPN-H01",
+      "parent_name": "외부 제휴처 쿠폰 탐색·이해",
+      "detail_name": "외부 제휴처 쿠폰 카드 표준 라벨 및 상태 정보 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-CPN-CUS-001",
+        "FN-CPN-DISC-001",
+        "FN-CPN-BOX-001",
+        "PG-CPN-SCOPE-001",
+        "PR-CPN-CUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H01-003",
+        "320",
+        "REQ-7CPN-H01-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-003",
+      "source_number": "321",
+      "requirement_id": "7CPN-H02-003",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "외부 제휴처 쿠폰 다운로드/발급 완료 후 다음 행동 연결",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-CPN-ISS-003",
+        "US-CPN-CUS-002",
+        "PI-CPN-FAIL-001-03",
+        "FN-CPN-BOX-001",
+        "FN-CPN-ISSUE-001"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-003",
+        "321",
+        "REQ-7CPN-H02-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H03-001",
+      "source_number": "322",
+      "requirement_id": "7CPN-H03-001",
+      "parent_requirement_id": "7CPN-H03",
+      "parent_name": "외부 제휴처 쿠폰 예외·인증·오픈대기 대응",
+      "detail_name": "외부 제휴처 쿠폰 발급 실패 및 사용 불가 안내",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-AUTH-001",
+        "US-CPN-CUS-001",
+        "US-CPN-CUS-002",
+        "PR-CPN-ISS-002",
+        "PI-CPN-DISC-001-04"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H03-001",
+        "322",
+        "REQ-7CPN-H03-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H03-002",
+      "source_number": "323",
+      "requirement_id": "7CPN-H03-002",
+      "parent_requirement_id": "7CPN-H03",
+      "parent_name": "외부 제휴처 쿠폰 예외·인증·오픈대기 대응",
+      "detail_name": "오픈 예정/선착순 외부 제휴처 쿠폰 알림 신청 및 재진입 지원",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-CPN-NOTI-001-01",
+        "FN-CPN-ALERT-001",
+        "FN-CPN-AUTH-001",
+        "PR-CPN-CUS-003",
+        "ST-CPN-003"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H03-002",
+        "323",
+        "REQ-7CPN-H03-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H03-003",
+      "source_number": "324",
+      "requirement_id": "7CPN-H03-003",
+      "parent_requirement_id": "7CPN-H03",
+      "parent_name": "외부 제휴처 쿠폰 예외·인증·오픈대기 대응",
+      "detail_name": "외부 제휴처 쿠폰 발급 전 추가 인증/동의/외부연계 안내 및 원위치 복귀",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-AUTH-001",
+        "PR-CPN-ISS-002",
+        "ST-CPN-011",
+        "US-CPN-CUS-002",
+        "PI-CPN-ISSUE-001-01"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H03-003",
+        "324",
+        "REQ-7CPN-H03-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-001",
+      "source_number": "325",
+      "requirement_id": "7CPN-H04-001",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "외부 제휴처 쿠폰 전시 기준 정보 생성/복제/버전 관리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PG-CPN-SCOPE-001",
+        "PI-CPN-OPS-001-02",
+        "PI-CPN-OPS-001-01",
+        "PI-CPN-OPS-001-04",
+        "FN-CPN-BOX-001"
+      ],
+      "mapping_type": "policy",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-001",
+        "325",
+        "REQ-7CPN-H04-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-002",
+      "source_number": "326",
+      "requirement_id": "7CPN-H04-002",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "외부 제휴처 쿠폰 발급 정책 및 대상 조건 관리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-POLICY-001",
+        "PR-CPN-OPS-002",
+        "FN-CPN-BOX-001",
+        "FN-CPN-ELIG-001",
+        "PG-CPN-SCOPE-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-002",
+        "326",
+        "REQ-7CPN-H04-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-003",
+      "source_number": "327",
+      "requirement_id": "7CPN-H04-003",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "외부 제휴처 쿠폰 코드 대량 업로드/다운로드 및 검증",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-CODE-001",
+        "PR-CPN-OPS-004",
+        "PI-CPN-CODE-001-01",
+        "PI-CPN-CODE-001-04",
+        "PI-CPN-ISSUE-001-03"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-003",
+        "327",
+        "REQ-7CPN-H04-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-001",
+      "source_number": "328",
+      "requirement_id": "7CPN-H05-001",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "외부 제휴처 쿠폰 연동 수집 및 상태 동기화",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-SYNC-001",
+        "PI-CPN-CODE-001-03",
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-BOX-001",
+        "PG-CPN-CONTROL-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-001",
+        "328",
+        "REQ-7CPN-H05-001"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-002",
+      "source_number": "329",
+      "requirement_id": "7CPN-H05-002",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "외부 제휴처 쿠폰 발급/중지/회수/재발급 처리",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-BOX-001",
+        "FN-CPN-SYNC-001",
+        "US-CPN-OPS-003",
+        "PI-CPN-CONTROL-001-01"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-002",
+        "329",
+        "REQ-7CPN-H05-002"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-003",
+      "source_number": "330",
+      "requirement_id": "7CPN-H05-003",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "외부 제휴처 쿠폰 발급/다운로드/사용 실적 모니터링/ 정산",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-BOX-001",
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-MON-001",
+        "US-CPN-OPS-003",
+        "FN-CPN-SYNC-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-003",
+        "330",
+        "REQ-7CPN-H05-003"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-004",
+      "source_number": "331",
+      "requirement_id": "7CPN-H05-004",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "외부 제휴처 쿠폰 운영 승인/배포/감사로그 관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-CPN-CONTROL-001",
+        "PI-CPN-MON-001-03",
+        "FN-CPN-BOX-001",
+        "FN-CPN-SYNC-001",
+        "US-CPN-OPS-003"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-004",
+        "331",
+        "REQ-7CPN-H05-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-004",
+      "source_number": "332",
+      "requirement_id": "7CPN-H04-004",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "외부 제휴처 쿠폰 전시 우선순위 및 섹션 구성 관리",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-CPN-DISC-001",
+        "PI-CPN-SCOPE-001-01",
+        "PG-CPN-SCOPE-001",
+        "US-CPN-CUS-001",
+        "US-CPN-CUS-002"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-004",
+        "332",
+        "REQ-7CPN-H04-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-005",
+      "source_number": "333",
+      "requirement_id": "7CPN-H05-005",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "외부 제휴처 쿠폰 소진 임박/오픈 예정 상태 자동 전환 및 운영 알림",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PR-CPN-OPS-006",
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-SYNC-001",
+        "US-CPN-OPS-002",
+        "FN-CPN-BOX-001"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-005",
+        "333",
+        "REQ-7CPN-H05-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H01-004",
+      "source_number": "1433",
+      "requirement_id": "7CPN-H01-004",
+      "parent_requirement_id": "7CPN-H01",
+      "parent_name": "외부 제휴처 쿠폰 탐색·이해",
+      "detail_name": "외부 제휴처 쿠폰 표준 템플릿",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-CPN-CUS-001",
+        "FN-CPN-DISC-001",
+        "US-CPN-CUS-002",
+        "PR-CPN-CUS-001",
+        "FN-CPN-BOX-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H01-004",
+        "1433",
+        "REQ-7CPN-H01-004"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H01-005",
+      "source_number": "1434",
+      "requirement_id": "7CPN-H01-005",
+      "parent_requirement_id": "7CPN-H01",
+      "parent_name": "외부 제휴처 쿠폰 탐색·이해",
+      "detail_name": "외부 제휴처 쿠폰 오프라인 활용 UX(바코드/QR/코드, 전체화면/갱신)",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "US-CPN-CUS-001",
+        "PI-CPN-SCOPE-001-01",
+        "PI-CPN-USE-001-02",
+        "US-CPN-CUS-003",
+        "PR-CPN-CUS-001"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H01-005",
+        "1434",
+        "REQ-7CPN-H01-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-005",
+      "source_number": "1437",
+      "requirement_id": "7CPN-H04-005",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "외부 제휴 바코드/쿠폰코드 표시(보안)",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-CPN-USE-001",
+        "FN-CPN-USE-001",
+        "PI-CPN-SCOPE-001-01",
+        "PI-CPN-USE-001-01",
+        "FN-CPN-BOX-001"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-005",
+        "1437",
+        "REQ-7CPN-H04-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-005",
+      "source_number": "1460",
+      "requirement_id": "7CPN-H02-005",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "외부 제휴처 쿠폰 사용 후 복귀 및 결과 확인",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-CPN-ISS-003",
+        "FN-CPN-BOX-001",
+        "US-CPN-CUS-002",
+        "PI-CPN-FAIL-001-03",
+        "ST-CPN-007"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-005",
+        "1460",
+        "REQ-7CPN-H02-005"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-006",
+      "source_number": "2166",
+      "requirement_id": "7CPN-H05-006",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "티다팩 쿠폰 관련 PS&M 위탁 업무 TDS로 내재화",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-SYNC-001",
+        "US-CPN-OPS-003",
+        "FN-CPN-BOX-001",
+        "PI-CPN-CODE-001-03"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-006",
+        "2166",
+        "REQ-7CPN-H05-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-006",
+      "source_number": "3215",
+      "requirement_id": "7CPN-H02-006",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "쿠폰 사용 가능·불가 매장 위치 기반 안내 제공",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PI-CPN-DISC-001-04",
+        "FN-CPN-STORE-001",
+        "PI-CPN-FAIL-001-03",
+        "US-CPN-CUS-004",
+        "US-CPN-CUS-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-006",
+        "3215",
+        "REQ-7CPN-H02-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-007",
+      "source_number": "3226",
+      "requirement_id": "7CPN-H02-007",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "결제 시 보유 쿠폰 자동 적용 기능",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-CPN-USE-001-04",
+        "FN-CPN-AUTO-001",
+        "FN-CPN-BOX-001",
+        "US-CPN-CUS-002",
+        "PG-CPN-BOX-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-007",
+        "3226",
+        "REQ-7CPN-H02-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H01-006",
+      "source_number": "3227",
+      "requirement_id": "7CPN-H01-006",
+      "parent_requirement_id": "7CPN-H01",
+      "parent_name": "외부 제휴처 쿠폰 탐색·이해",
+      "detail_name": "지오펜싱 기반 주변 혜택 매장 실시간 알림 제공",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "PI-CPN-NOTI-001-04",
+        "PR-CPN-CUS-001",
+        "FN-CPN-ALERT-001",
+        "US-CPN-CUS-001",
+        "FN-CPN-DISC-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H01-006",
+        "3227",
+        "REQ-7CPN-H01-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-008",
+      "source_number": "3257",
+      "requirement_id": "7CPN-H02-008",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "쿠폰 양도 및 안심 회수 기능",
+      "requirement_type": "기능",
+      "priority": "P3",
+      "mapped_to": [
+        "FN-CPN-BOX-001",
+        "PI-CPN-CONTROL-001-04",
+        "US-CPN-CUS-002",
+        "US-CPN-CUS-004",
+        "PG-CPN-BOX-001"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-008",
+        "3257",
+        "REQ-7CPN-H02-008"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-009",
+      "source_number": "3260",
+      "requirement_id": "7CPN-H02-009",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "쿠폰(2종 중 택1) 지급 방식 개편",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "US-CPN-CUS-004",
+        "US-CPN-CUS-001",
+        "US-CPN-CUS-002",
+        "PI-CPN-SELECT-001-04",
+        "US-CPN-CUS-003"
+      ],
+      "mapping_type": "usecase",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-009",
+        "3260",
+        "REQ-7CPN-H02-009"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-006",
+      "source_number": "3714",
+      "requirement_id": "7CPN-H04-006",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "쿠폰 사용기간 유형 구분 기준 적용",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-CPN-OPS-001-04",
+        "PG-CPN-SCOPE-001",
+        "PI-CPN-OPS-001-01",
+        "US-CPN-CUS-001",
+        "US-CPN-CUS-002"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-006",
+        "3714",
+        "REQ-7CPN-H04-006"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H04-007",
+      "source_number": "3715",
+      "requirement_id": "7CPN-H04-007",
+      "parent_requirement_id": "7CPN-H04",
+      "parent_name": "외부 제휴처 쿠폰 기준·정책 관리",
+      "detail_name": "쿠폰 할인 적용 대상 기준 적용",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "PI-CPN-ELIG-001-04",
+        "FN-CPN-AUTO-001",
+        "FN-CPN-POLICY-001",
+        "PI-CPN-SCOPE-001-01",
+        "PG-CPN-ELIG-001"
+      ],
+      "mapping_type": "policy_item",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H04-007",
+        "3715",
+        "REQ-7CPN-H04-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H05-007",
+      "source_number": "ROW776",
+      "requirement_id": "7CPN-H05-007",
+      "parent_requirement_id": "7CPN-H05",
+      "parent_name": "외부 제휴처 쿠폰 연동·운영·정산 관리",
+      "detail_name": "외부 제휴처 쿠폰 알림 발송",
+      "requirement_type": "기능",
+      "priority": "P2",
+      "mapped_to": [
+        "FN-CPN-CONTROL-001",
+        "FN-CPN-BOX-001",
+        "FN-CPN-SYNC-001",
+        "US-CPN-OPS-003",
+        "PI-CPN-CODE-001-03"
+      ],
+      "mapping_type": "function",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H05-007",
+        "ROW776",
+        "REQ-7CPN-H05-007"
+      ]
+    },
+    {
+      "item_type": "requirement",
+      "item_id": "7CPN-H02-004",
+      "source_number": "ROW762",
+      "requirement_id": "7CPN-H02-004",
+      "parent_requirement_id": "7CPN-H02",
+      "parent_name": "외부 제휴처 쿠폰 발급·보관·사용 연결",
+      "detail_name": "외부 제휴처 쿠폰함 노출",
+      "requirement_type": "기능",
+      "priority": "P1",
+      "mapped_to": [
+        "PR-CPN-ISS-003",
+        "FN-CPN-BOX-001",
+        "US-CPN-CUS-002",
+        "US-CPN-CUS-004",
+        "PG-CPN-BOX-001"
+      ],
+      "mapping_type": "process",
+      "coverage": "Y",
+      "rationale": "상세 요구사항명과 설명을 정책서 산출물의 유즈케이스, 프로세스, 기능, 정책 또는 정책 항목에 직접 연결했다.",
+      "evidence_ids": [
+        "7CPN-H02-004",
+        "ROW762",
+        "REQ-7CPN-H02-004"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>통합 약관 정책서 간소화 버전 v0.10</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>통합 약관 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-ZBC</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.10</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-10</td></tr>
+<tr><th>작성 기준</th><td>PM-30 관련 최신 상세 요구사항명과 상세 요구사항 설명 83건을 기준으로 요구사항을 재구성했다.<br/>요구사항 통합 list의 관련 4depth 항목 83건을 분석해 정책 판단 기준으로 재구성한다.<br/>references 폴더의 관련 참고자료 62건을 분석해 채널 전략, 고객 불편, IA, 벤치마킹 관점을 반영한다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.10</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 제공하는 통합 약관 업무의 처리 기준을 정의한다.<br/></p><p class="plain-text">• 요구사항에서 확인된 핵심 판단축은 약관 원문·요약 열람, 필수·선택 동의 구분, 목적별·서비스별 동의, 거부권 보장, 개인정보 제공·위탁·쿠키 고지, 약관 개정·재동의, 철회·재동의 이력과 운영 증적을 포함한다.<br/></p><p class="plain-text">• 대상 채널은 앱·웹 FO이며 고객이 직접 조회, 조건 확인, 처리 요청, 결과 확인을 수행하는 셀프 처리 흐름을 포함한다.<br/></p><p class="plain-text">• BSS와 연계 시스템이 수행하는 가능 여부 검증, 상태 판정, 처리 결과 회신은 정책 판단 기준에 포함한다.<br/></p><p class="plain-text">• 화면 UI 상세, API 필드, DB 컬럼, 운영자 화면 상세는 제외하되 정책 판단에 필요한 기준은 포함한다.<br/></p><p class="plain-text">• 상세 화면 설계, API 필드, DB 컬럼, 테스트 케이스는 후속 화면 설계서와 기능 상세 명세서에서 상세화한다.<br/></p><p class="plain-text">• 핵심 정책 질문은 누가 이 업무를 시작할 수 있는지, 어떤 조건에서 제한되는지, 중복 요청을 어떻게 처리하는지, 실패 시 어떤 상태와 후속 조치로 복구하는지를 기준으로 둔다.<br/></p><p class="plain-text">• 고객 표시 상태는 고객이 이해해야 하는 진행·완료·제한 상태로, 시스템 내부 상태는 BSS·연계 시스템의 판정·저장·회신 상태로 구분한다.<br/></p><p class="plain-text">• 개발·QA는 유즈케이스 ID, 프로세스 ID, 기능 ID, 정책/정책항목 ID를 기준으로 정상·제한·실패·복구 테스트 조건과 기대 결과를 도출한다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• <b>고객 과업 중심</b>: 통합 약관은 내부 시스템 단위가 아니라 고객이 완료하려는 목적을 기준으로 구성한다.<br/></p><p class="principle-text">• <b>셀프 처리 우선</b>: 고객이 앱·웹에서 직접 완료할 수 있는 업무는 상담 전환보다 셀프 처리 경로를 우선 제공한다.<br/></p><p class="principle-text">• <b>BSS 판단 통합</b>: 고객 상태, 가입 정보, 요금, 혜택, 제한 조건처럼 BSS 판단이 필요한 정보는 프로세스와 정책에 포함한다.<br/></p><p class="principle-text">• <b>영향도 사전 고지</b>: 비용, 혜택, 약정, 포인트, 쿠폰, 회선, 주문 상태에 영향이 있으면 처리 전에 안내한다.<br/></p><p class="principle-text">• <b>권한·보안 우선</b>: 민감정보 노출 또는 변경 처리는 본인확인, 동의, 권한 기준을 충족한 경우에만 허용한다.<br/></p><p class="principle-text">• <b>근거 기반 운영</b>: 요구사항과 참고자료에서 확인한 기준은 프로세스, 기능, 정책 중 하나 이상으로 추적 가능하게 관리한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-ZBC-001</td><td>통합 약관</td><td>통합채널에서 고객이 통합 약관을 조회, 확인, 선택, 신청, 변경 또는 관리하기 위해 수행하는 업무 단위</td></tr><tr><td class="mono">TM-ZBC-002</td><td>대상 고객</td><td>통합 약관 업무를 이용하는 고객.<br/>로그인 여부와 고객 상태는 액터가 아니라 권한 조건과 상태 기준으로 관리한다.<br/></td></tr><tr><td class="mono">TM-ZBC-003</td><td>처리 가능 상태</td><td>고객 상태와 업무 조건이 통합 약관 진행 기준을 충족한 상태</td></tr><tr><td class="mono">TM-ZBC-004</td><td>처리 제한 상태</td><td>정책 조건, 권한, 인증, 시스템 응답, 고객 상태 때문에 통합 약관을 완료할 수 없는 상태</td></tr><tr><td class="mono">TM-ZBC-005</td><td>BSS 검증 결과</td><td>BSS가 고객 상태, 가입 상품, 청구, 혜택, 약정, 제한 조건, 처리 가능 여부를 판정해 채널에 회신한 결과</td></tr><tr><td class="mono">TM-ZBC-006</td><td>연계 결과</td><td>외부 또는 내부 연계 시스템이 요청 처리 가능 여부, 처리 성공, 처리 실패, 보류 사유를 회신한 결과</td></tr><tr><td class="mono">TM-ZBC-007</td><td>영향도 고지</td><td>고객이 처리 전에 알아야 하는 비용, 혜택, 약정, 쿠폰, 포인트, 회선, 주문 상태, 이용 제한 영향을 안내하는 기준</td></tr><tr><td class="mono">TM-ZBC-008</td><td>처리 이력</td><td>고객 요청, 시스템 검증, 처리 결과, 실패 사유, 상담 전환, 운영 변경을 추적하기 위해 저장하는 기록</td></tr><tr><td class="mono">TM-ZBC-009</td><td>운영 확인 필요</td><td>자동 판단만으로 처리할 수 없어 운영자 확인, 상담 전환, 기준 보정이 필요한 상태</td></tr><tr><td class="mono">TM-ZBC-010</td><td>개인정보·제3자 고지 기준</td><td>고객이 업무를 확인하거나 후속 행동을 선택할 때 적용하는 개인정보·제3자 고지 기준의 정보·상태·권한 기준을 뜻한다.<br/></td></tr><tr><td class="mono">TM-ZBC-011</td><td>필수·선택 동의 영향 기준</td><td>고객이 업무를 확인하거나 후속 행동을 선택할 때 적용하는 필수·선택 동의 영향 기준의 정보·상태·권한 기준을 뜻한다.<br/></td></tr><tr><td class="mono">TM-ZBC-012</td><td>철회·재동의 구분 기준</td><td>고객이 업무를 확인하거나 후속 행동을 선택할 때 적용하는 철회·재동의 구분 기준의 정보·상태·권한 기준을 뜻한다.<br/></td></tr><tr><td class="mono">TM-ZBC-013</td><td>개인정보·제3자 고지 철회 기준</td><td>고객이 업무를 확인하거나 후속 행동을 선택할 때 적용하는 개인정보·제3자 고지 철회 기준의 정보·상태·권한 기준을 뜻한다.<br/></td></tr><tr><td class="mono">TM-ZBC-014</td><td>버전·증적 기준</td><td>고객이 업무를 확인하거나 후속 행동을 선택할 때 적용하는 버전·증적 기준의 정보·상태·권한 기준을 뜻한다.<br/></td></tr><tr><td class="mono">TM-ZBC-015</td><td>업무 시작 전</td><td>고객 또는 운영자가 업무를 시작하기 전 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-016</td><td>요청 접수</td><td>업무 요청이 접수되어 기본 정보를 확인하는 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-017</td><td>판정 중</td><td>채널과 연계 시스템이 업무 조건을 판정하는 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-018</td><td>처리 가능</td><td>필수 조건을 충족해 후속 처리를 진행할 수 있는 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-019</td><td>처리 제한</td><td>권한, 조건, 범위 문제로 처리를 제한하는 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-020</td><td>처리 보류</td><td>추가 확인이나 운영 검토가 필요해 처리를 멈춘 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-021</td><td>처리 실패</td><td>연계 실패나 조건 불일치로 요청을 완료하지 못한 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-022</td><td>처리 완료</td><td>업무 처리 결과가 확정되어 고객에게 안내된 상태이다.<br/></td></tr><tr><td class="mono">TM-ZBC-023</td><td>본인 인증</td><td>고객 또는 대리인의 처리 권한을 확인하기 위해 요구되는 인증 기준이다.<br/></td></tr><tr><td class="mono">TM-ZBC-024</td><td>동의</td><td>업무 처리 전 고객에게 고지하고 수락 여부를 확인해야 하는 의사 표시 기준이다.<br/></td></tr><tr><td class="mono">TM-ZBC-025</td><td>예외 처리</td><td>정상 흐름을 완료할 수 없을 때 재시도, 대체 경로, 상담 전환을 판단하는 기준이다.<br/></td></tr><tr><td class="mono">TM-ZBC-026</td><td>고객 고지</td><td>처리 결과, 제한 사유, 고객 영향도를 고객에게 명확히 알리는 기준이다.<br/></td></tr><tr><td class="mono">TM-ZBC-027</td><td>이력 저장</td><td>처리 요청, 판단 결과, 변경 내용을 추적 가능하게 남기는 관리 기준이다.<br/></td></tr><tr><td class="mono">TM-ZBC-028</td><td>BSS 연계</td><td>채널 요청에 대해 BSS가 검증, 판정, 상태 반영, 결과 회신을 수행하는 처리 기준이다.<br/></td></tr><tr><td class="mono">TM-ZBC-029</td><td>운영 검토</td><td>자동 처리로 확정하기 어려운 건을 운영자가 확인하거나 보정하는 기준이다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-ZBC-001</td><td>고객</td><td>통합 약관 정보를 확인하고 조건을 판단한 뒤 필요한 후속 업무를 직접 수행하는 주체</td></tr><tr><td class="mono">ACT-ZBC-002</td><td>운영자</td><td>통합 약관 기준 정보, 노출 조건, 제한 기준, 품질 지표를 관리하는 내부 담당자</td></tr><tr><td class="mono">ACT-ZBC-003</td><td>BSS</td><td>고객 상태, 가입 상품, 요금, 혜택, 약정, 회선, 제한 조건, 처리 결과를 판정하고 채널에 회신하는 시스템</td></tr><tr><td class="mono">ACT-ZBC-004</td><td>본인확인 시스템</td><td>약관 동의·철회·재동의 과정에서 본인확인, 법정대리인 확인, 인증 성공·실패 결과를 제공하는 인증 주체</td></tr><tr><td class="mono">ACT-ZBC-005</td><td>연계 시스템</td><td>통합 약관 업무 처리에 필요한 기준 정보와 연계 결과를 제공하는 시스템</td></tr><tr><td class="mono">ACT-ZBC-006</td><td>채널 업무 시스템</td><td>고객 입력, 세션, 상태 전환, 처리 요청, 결과 안내, 이력 저장을 담당하는 채널 시스템</td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-ZBC-CS-001</td><td>고객</td><td>통합 약관 권리 관리</td><td>고객이 약관 원문·요약 열람, 적용 서비스·채널 범위, 개인정보 제공·위탁·쿠키 고지, 거부권 보장 기준을 확인하고 다음 행동을 결정하는 유즈케이스</td><td class="center">Y</td></tr><tr><td class="mono">US-ZBC-CS-002</td><td>고객</td><td>통합 약관 필수·선택 동의 관리</td><td>고객이 필수·선택 동의 구분, 목적별·서비스별 동의, 미동의 제한 범위, 법정대리인·예외 동의를 적용해 필요한 요청 또는 선택을 완료하는 유즈케이스</td><td class="center">Y</td></tr><tr><td class="mono">US-ZBC-CS-003</td><td>고객</td><td>통합 약관 변경·철회 관리</td><td>고객이 동의 철회·재동의, 약관 개정 고지, 버전·시행일, 동의 증빙·감사 이력 등 결과 이후 후속 업무를 수행하는 유즈케이스</td><td class="center">Y</td></tr><tr><td class="mono">US-ZBC-OPR-001</td><td>운영자</td><td>통합 약관 운영 기준 및 품질 관리</td><td>운영자가 기준 정보, 제한 기준, 예외 기준, 품질 지표를 관리하는 유즈케이스</td><td class="center">Y</td></tr><tr><td class="mono">US-ZBC-BSS-001</td><td>BSS</td><td>통합 약관 고객·업무 조건 판정</td><td>BSS가 통합 약관에 필요한 고객 상태, 자격, 제한 조건, 처리 결과를 판정하는 유즈케이스</td><td class="center">N</td></tr><tr><td class="mono">US-ZBC-AUT-001</td><td>본인확인 시스템</td><td>통합 약관 본인확인 결과 제공</td><td>본인확인 시스템이 약관 동의, 철회, 재동의, 법정대리인 확인에 필요한 인증 결과를 제공하는 유즈케이스</td><td class="center">N</td></tr><tr><td class="mono">US-ZBC-EXT-001</td><td>연계 시스템</td><td>통합 약관 연계 결과 제공</td><td>연계 시스템이 통합 약관 업무 처리에 필요한 기준 정보와 처리 결과를 제공하는 유즈케이스</td><td class="center">N</td></tr><tr><td class="mono">US-ZBC-SYS-001</td><td>채널 업무 시스템</td><td>통합 약관 상태·이력 처리</td><td>채널 업무 시스템이 통합 약관 세션, 상태, 요청, 결과, 이력을 처리하는 유즈케이스</td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="통합 약관 유즈케이스 다이어그램" height="902" role="img" viewBox="0 0 1120 902" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="820" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">통합 약관 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="187"></line><line class="conn" x1="144" x2="442" y1="172" y2="259"></line><line class="conn" x1="144" x2="442" y1="784" y2="331"></line><line class="conn" x1="678" x2="976" y1="403" y2="172"></line><line class="conn" x1="678" x2="976" y1="475" y2="376"></line><line class="conn" x1="678" x2="976" y1="547" y2="580"></line><line class="conn" x1="678" x2="976" y1="619" y2="784"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">통합 약관 권리 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-ZBC-CS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="187" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="177">통합 약관 필수·선택 동의</text><text class="uc-text" text-anchor="middle" x="560" y="191">관리</text><text class="uc-sub" text-anchor="middle" x="560" y="209">US-ZBC-CS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="259" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="256">통합 약관 변경·철회 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="281">US-ZBC-CS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="331" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="321">통합 약관 운영 기준 및 품질</text><text class="uc-text" text-anchor="middle" x="560" y="335">관리</text><text class="uc-sub" text-anchor="middle" x="560" y="353">US-ZBC-OPR-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="403" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="393">통합 약관 고객·업무 조건</text><text class="uc-text" text-anchor="middle" x="560" y="407">판정</text><text class="uc-sub" text-anchor="middle" x="560" y="425">US-ZBC-BSS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="475" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="472">통합 약관 본인확인 결과 제공</text><text class="uc-sub" text-anchor="middle" x="560" y="497">US-ZBC-AUT-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="547" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="544">통합 약관 연계 결과 제공</text><text class="uc-sub" text-anchor="middle" x="560" y="569">US-ZBC-EXT-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="619" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="616">통합 약관 상태·이력 처리</text><text class="uc-sub" text-anchor="middle" x="560" y="641">US-ZBC-SYS-001 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="732" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="750" y2="797"></line><line class="actor-line" x1="86" x2="138" y1="767" y2="767"></line><line class="actor-line" x1="112" x2="92" y1="797" y2="832"></line><line class="actor-line" x1="112" x2="132" y1="797" y2="832"></line><text class="actor-text" text-anchor="middle" x="112" y="858">운영자</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">BSS</text><circle class="system-actor-line" cx="1008" cy="324" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="342" y2="389"></line><line class="system-actor-line" x1="982" x2="1034" y1="359" y2="359"></line><line class="system-actor-line" x1="1008" x2="988" y1="389" y2="424"></line><line class="system-actor-line" x1="1008" x2="1028" y1="389" y2="424"></line><text class="actor-text" text-anchor="middle" x="1008" y="450">본인확인 시스템</text><circle class="system-actor-line" cx="1008" cy="528" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="546" y2="593"></line><line class="system-actor-line" x1="982" x2="1034" y1="563" y2="563"></line><line class="system-actor-line" x1="1008" x2="988" y1="593" y2="628"></line><line class="system-actor-line" x1="1008" x2="1028" y1="593" y2="628"></line><text class="actor-text" text-anchor="middle" x="1008" y="654">연계 시스템</text><circle class="system-actor-line" cx="1008" cy="732" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="750" y2="797"></line><line class="system-actor-line" x1="982" x2="1034" y1="767" y2="767"></line><line class="system-actor-line" x1="1008" x2="988" y1="797" y2="832"></line><line class="system-actor-line" x1="1008" x2="1028" y1="797" y2="832"></line><text class="actor-text" text-anchor="middle" x="1008" y="858">채널 업무 시스템</text><text class="legend" x="304" y="876">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-ZBC-001</td><td>약관 확인 전</td><td>고객이 약관 원문, 요약, 적용 서비스, 동의 상태를 아직 확인하지 않은 상태이다.<br/></td><td>약관 목록과 적용 범위를 조회한다.<br/></td></tr><tr><td class="mono">ST-ZBC-002</td><td>약관 열람 중</td><td>고객이 약관 요약, 상세 원문, 제공·위탁·쿠키·위치정보 고지를 확인하는 상태이다.<br/></td><td>필수 동의 필요 여부와 선택 동의 가능 범위를 판단한다.<br/></td></tr><tr><td class="mono">ST-ZBC-003</td><td>필수 동의 필요</td><td>주문, 결제, 가입, 위치기반서비스 등 업무 진행에 필요한 필수 약관 동의가 완료되지 않은 상태이다.<br/></td><td>필수 동의 항목과 미동의 시 제한 범위를 안내한다.<br/></td></tr><tr><td class="mono">ST-ZBC-004</td><td>동의 완료</td><td>필수 동의 또는 고객이 선택한 선택 동의가 현재 버전 기준으로 반영된 상태이다.<br/></td><td>동의 결과와 적용 서비스 범위를 저장한다.<br/></td></tr><tr><td class="mono">ST-ZBC-005</td><td>선택 동의 거부·철회</td><td>고객이 마케팅, 개인화, 선택 알림, 채널별 수신 동의를 거부하거나 철회한 상태이다.<br/></td><td>핵심 서비스는 유지하고 제한되는 부가 기능만 안내한다.<br/></td></tr><tr><td class="mono">ST-ZBC-006</td><td>재동의 필요</td><td>약관 개정, 목적 변경, 버전 변경, 법정대리인 동의 만료로 재동의가 필요한 상태이다.<br/></td><td>변경 요약, 시행일, 영향 범위, 재동의 사유를 안내한다.<br/></td></tr><tr><td class="mono">ST-ZBC-007</td><td>예외 동의 확인 중</td><td>미성년자, 법정대리인, 외국인, 오프라인 SMS 링크, 외부채널 등 별도 동의 분기 확인이 필요한 상태이다.<br/></td><td>고객 유형과 채널 조건에 맞는 별도 동의 절차를 진행한다.<br/></td></tr><tr><td class="mono">ST-ZBC-008</td><td>증적 보관 완료</td><td>동의, 철회, 재동의, 고지 확인, 약관 버전 이력이 감사 가능한 증적으로 저장된 상태이다.<br/></td><td>고객 조회, 운영 감사, 분쟁 대응에 사용할 수 있게 보관한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>약관 확인 전</td><td>약관 목록·상세 진입</td><td>약관 열람 중</td><td>고객이 약관 목록, 요약, 상세 원문, 적용 서비스·채널 범위를 열람하면 약관 열람 중으로 전환한다.<br/></td></tr><tr><td>약관 열람 중</td><td>필수 동의 미완료 확인</td><td>필수 동의 필요</td><td>업무 진행에 필요한 필수 약관 또는 최신 버전 동의가 없으면 제한 범위와 동의 CTA를 안내한다.<br/></td></tr><tr><td>필수 동의 필요</td><td>필수 동의 완료</td><td>동의 완료</td><td>고객 본인확인, 약관 버전, 동의 항목, 처리 채널이 확인되면 동의 완료로 반영하고 이력을 저장한다.<br/></td></tr><tr><td>약관 열람 중</td><td>선택 동의 거부 또는 철회</td><td>선택 동의 거부·철회</td><td>선택 동의는 목적별·채널별로 거부 또는 철회할 수 있으며 핵심 서비스 이용은 유지한다.<br/></td></tr><tr><td>동의 완료</td><td>약관 개정·버전 변경·목적 변경</td><td>재동의 필요</td><td>시행일, 변경 요약, 영향 범위, 재동의 필요 사유가 확정되면 고객에게 재동의 필요 상태로 고지한다.<br/></td></tr><tr><td>재동의 필요</td><td>재동의 완료 또는 철회 반영</td><td>동의 완료</td><td>재동의 결과가 최신 약관 버전과 고객 상태에 반영되면 동의 완료로 복귀한다.<br/></td></tr><tr><td>필수 동의 필요</td><td>법정대리인·외국인·오프라인 연계 필요</td><td>예외 동의 확인 중</td><td>고객 유형, 가입 방식, 외부채널, SMS 링크 동의 조건이 일반 동의와 다르면 별도 절차로 분기한다.<br/></td></tr><tr><td>동의 완료</td><td>동의 증빙·감사 로그 저장</td><td>증적 보관 완료</td><td>동의 일시, 버전, 원문, 채널, 주체, 철회 여부가 저장되면 증빙과 감사 조회에 사용할 수 있게 보관한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="554" role="img" viewBox="0 0 1120 554" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="476" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="245.0" x2="290.0" y1="134.0" y2="134.0"></line><line class="flow" x1="440.0" x2="485.0" y1="134.0" y2="134.0"></line><line class="flow" x1="635.0" x2="680.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M290.0 134.0 C290.0 204.0, 255.0 246.0, 255.0 316.0"></path><line class="flow" x1="830.0" x2="875.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M875.0 134.0 C852.5 206.0, 852.5 206.0, 830.0 134.0"></path><path class="flow-dash" d="M560.0 166.0 C560.0 236.0, 560.0 214.0, 560.0 284.0"></path><path class="flow-dash" d="M830.0 134.0 C830.0 204.0, 865.0 246.0, 865.0 316.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="150" x="95.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">약관 확인 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-ZBC-001</text><rect class="state" height="64" rx="29" ry="29" width="150" x="290.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="365" y="128">약관 열람 중</text><text class="state-sub" text-anchor="middle" x="365" y="151">ST-ZBC-002</text><rect class="state" height="64" rx="29" ry="29" width="150" x="485.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="560" y="128">필수 동의 필요</text><text class="state-sub" text-anchor="middle" x="560" y="151">ST-ZBC-003</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="680.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="755" y="128">동의 완료</text><text class="state-sub" text-anchor="middle" x="755" y="151">ST-ZBC-004</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="875.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">재동의 필요</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-ZBC-006</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">선택 동의 거부·철회</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-ZBC-005</text><rect class="state" height="64" rx="29" ry="29" width="150" x="485.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="560" y="310">예외 동의 확인 중</text><text class="state-sub" text-anchor="middle" x="560" y="333">ST-ZBC-007</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="865.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">증적 보관 완료</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-ZBC-008</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="218.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="267.5" y="91.0">약관 목록·상세 진입</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="106" x="409.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="462.5" y="91.0">필수 동의 미완료 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="618.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="657.5" y="91.0">필수 동의 완료</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="223.0" y="201.0"></rect><text class="flow-label" text-anchor="middle" x="272.5" y="218.0">선택 동의 거부 또는</text><text class="flow-label" text-anchor="middle" x="272.5" y="232.0">철회</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="78" x="813.5" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="852.5" y="77.0">약관 개정·버전</text><text class="flow-label" text-anchor="middle" x="852.5" y="91.0">변경·목적 변경</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="799.5" y="200.0"></rect><text class="flow-label" text-anchor="middle" x="852.5" y="217.0">재동의 완료 또는 철회</text><text class="flow-label" text-anchor="middle" x="852.5" y="231.0">반영</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="120" x="500.0" y="165.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="182.0">법정대리인·외국인·오프라인</text><text class="flow-label" text-anchor="middle" x="560.0" y="196.0">연계 필요</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="798.0" y="201.0"></rect><text class="flow-label" text-anchor="middle" x="847.5" y="218.0">동의 증빙·감사 로그</text><text class="flow-label" text-anchor="middle" x="847.5" y="232.0">저장</text><text class="note" x="78" y="500">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 통합 약관 권리 관리 (US-ZBC-CS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-ZBC-CS-001-01</td><td>약관 원문·요약 열람</td><td>고객이 약관 원문, 요약, 적용 서비스와 채널 범위를 조회한다.<br/></td><td>FN-ZBC-AUTO-001 약관 원문·요약 열람<br/>FN-ZBC-AUX-001 약관 검색·주제별 탐색</td><td>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-INF-001 대상 정보 노출 정책<br/>PG-ZBC-RSLT-001 처리 결과·이력 정책<br/>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-DATA-001 데이터 보관·파기 정책</td></tr><tr><td class="mono">PR-ZBC-CS-001-02</td><td>개인정보 제공·위탁 고지 확인</td><td>채널이 제3자 제공, 처리 위탁, 쿠키, 위치정보 고지 범위를 구분해 안내한다.<br/></td><td>FN-ZBC-AUTO-001 약관 원문·요약 열람<br/>FN-ZBC-AUTO-002 개인정보 제공·위탁 고지 확인<br/>FN-ZBC-AUX-002 고지 확인 이력 구성</td><td>PG-ZBC-PRV-001 개인정보·로그 보호 정책<br/>PG-ZBC-INF-001 대상 정보 노출 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-STAT-001 상태 전환 정책</td></tr><tr><td class="mono">PR-ZBC-CS-001-03</td><td>거부권 및 미동의 영향 확인</td><td>고객이 선택 동의 거부권과 미동의 시 제한되는 기능 범위를 확인한다.<br/></td><td>FN-ZBC-AUTO-001 약관 원문·요약 열람<br/>FN-ZBC-AUTO-003 거부권 및 미동의 영향 확인<br/>FN-ZBC-AUX-003 기본 경험 보장·대체 경로 구성</td><td>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-AUT-001 인증·동의 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책</td></tr><tr><td class="mono">PR-ZBC-CS-001-RQCOV-001</td><td>개인정보·제3자 고지 기준 처리</td><td>개인정보·제3자 고지 기준에 필요한 상태·권한·후속 행동 기준을 확인한다.<br/></td><td>FN-ZBC-RQCOV-001-INF 개인정보·제3자 고지 구성 정보 구성<br/>FN-ZBC-RQCOV-001-CHK 개인정보·제3자 고지 구성 조건 확인</td><td>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-PRV-001 개인정보·로그 보호 정책<br/>PG-ZBC-INF-001 대상 정보 노출 정책</td></tr></tbody>
+</table>
+
+<h4>2) 통합 약관 필수·선택 동의 관리 (US-ZBC-CS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-ZBC-CS-002-01</td><td>업무 유형별 동의 항목 확인</td><td>고객이 주문, 가입, 위치, 마케팅, 개인화 등 업무 유형별 필요한 동의 항목을 확인한다.<br/></td><td>FN-ZBC-AUTO-004 업무 유형별 동의 항목 확인<br/>FN-ZBC-AUX-004 상품·서비스별 동의 묶음 구성</td><td>PG-ZBC-AUT-001 인증·동의 정책<br/>PG-ZBC-RSLT-001 처리 결과·이력 정책<br/>PG-ZBC-BSS-001 BSS 연계 판정 정책<br/>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-ERR-002 연계 오류·장애 처리 정책</td></tr><tr><td class="mono">PR-ZBC-CS-002-02</td><td>필수·선택 동의 구분</td><td>채널이 필수 약관과 선택 동의를 구분하고 선택 동의는 목적별·서비스별로 분리한다.<br/></td><td>FN-ZBC-AUTO-004 업무 유형별 동의 항목 확인<br/>FN-ZBC-AUTO-005 필수·선택 동의 구분 기준 검증<br/>FN-ZBC-AUX-005 체크박스 구조·채널 통합 구성</td><td>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-AUT-001 인증·동의 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-INF-001 대상 정보 노출 정책</td></tr><tr><td class="mono">PR-ZBC-CS-002-03</td><td>미동의 제한 범위 판정</td><td>필수 동의 미완료 시 제한되는 단계와 선택 동의 거부 후에도 유지되는 기본 경험을 판정한다.<br/></td><td>FN-ZBC-AUTO-004 업무 유형별 동의 항목 확인<br/>FN-ZBC-AUTO-006 미동의 제한 범위 판정<br/>FN-ZBC-AUX-006 법정대리인·외국인·오프라인 동의 분기</td><td>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-RSLT-001 처리 결과·이력 정책</td></tr><tr><td class="mono">PR-ZBC-CS-002-RQCOV-002</td><td>필수·선택 동의 영향 기준 처리</td><td>필수·선택 동의 영향 기준에 필요한 상태·권한·후속 행동 기준을 확인한다.<br/></td><td>FN-ZBC-RQCOV-001-INF 개인정보·제3자 고지 구성 정보 구성<br/>FN-ZBC-RQCOV-002-INF 필수·선택 동의 판정 정보 구성<br/>FN-ZBC-RQCOV-002-CHK 필수·선택 동의 판정 확인</td><td>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책</td></tr><tr><td class="mono">PR-ZBC-CS-002-RQCOV-006</td><td>버전·증적 기준 처리</td><td>버전·증적 기준에 필요한 상태·권한·후속 행동 기준을 확인한다.<br/></td><td>FN-ZBC-RQCOV-001-INF 개인정보·제3자 고지 구성 정보 구성<br/>FN-ZBC-RQCOV-006-INF 약관 버전·증적 관리 정보 구성<br/>FN-ZBC-RQCOV-006-CHK 약관 버전·증적 관리 조건 확인</td><td>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-ACC-001 접근·권한 정책</td></tr></tbody>
+</table>
+
+<h4>3) 통합 약관 변경·철회 관리 (US-ZBC-CS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-ZBC-CS-003-01</td><td>변경·철회 대상 선택</td><td>고객이 통합 약관 변경·철회 관리 대상 약관 또는 동의 목적을 선택한다.<br/></td><td>FN-ZBC-AUTO-007 변경·철회 대상 선택<br/>FN-ZBC-AUX-007 부분 철회·채널별 철회 구성</td><td>PG-ZBC-OPR-002 운영 변경 이력 관리 정책<br/>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-AUT-001 인증·동의 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-REQMAP-001 요구사항 반영 관리 정책</td></tr><tr><td class="mono">PR-ZBC-CS-003-02</td><td>철회 가능 여부 판정</td><td>채널이 필수·선택 구분, 서비스 영향, 재동의 필요 여부를 판정한다.<br/></td><td>FN-ZBC-AUTO-007 변경·철회 대상 선택<br/>FN-ZBC-AUTO-008 철회 가능 여부 판정<br/>FN-ZBC-AUX-008 재동의 필요 여부·사유 안내</td><td>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-NEXT-001 후속 업무 연결 정책</td></tr><tr><td class="mono">PR-ZBC-CS-003-03</td><td>변경·철회 요청 접수</td><td>고객 확인 후 변경·철회 요청을 접수하고 적용 결과를 구분한다.<br/></td><td>FN-ZBC-AUTO-007 변경·철회 대상 선택<br/>FN-ZBC-AUTO-009 변경·철회 요청 접수<br/>FN-ZBC-AUX-009 증빙·감사 로그 생성</td><td>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-RSLT-001 처리 결과·이력 정책<br/>PG-ZBC-DUP-001 중복 요청 제한 정책<br/>PG-ZBC-REQ-001 처리 요청 접수 정책<br/>PG-ZBC-QUL-001 품질 관리 정책</td></tr></tbody>
+</table>
+
+<h4>4) 통합 약관 운영 기준 및 품질 관리 (US-ZBC-OPR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-ZBC-OPR-001-01</td><td>운영 기준 확인</td><td>운영자가 통합 약관 운영 기준 및 품질 관리에 필요한 기준 정보와 적용 범위를 확인한다.<br/></td><td>FN-ZBC-AUTO-010 운영 기준 확인<br/>FN-ZBC-AUX-010 약관 콘텐츠·다운로드 관리</td><td>PG-ZBC-OPR-002 운영 변경 이력 관리 정책<br/>PG-ZBC-OPR-001 운영 기준 정보 관리 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-INF-001 대상 정보 노출 정책<br/>PG-ZBC-ERR-001 예외·상담 전환 정책</td></tr><tr><td class="mono">PR-ZBC-OPR-001-02</td><td>기준·예외 등록</td><td>운영자가 통합 약관 운영 기준 및 품질 관리 기준값, 예외 조건, 적용 기간을 등록하거나 보정한다.<br/></td><td>FN-ZBC-AUTO-010 운영 기준 확인<br/>FN-ZBC-AUTO-011 기준·예외 등록<br/>FN-ZBC-AUX-011 참조 무결성·중복 검증</td><td>PG-ZBC-VAL-001 가능 여부 검증 정책<br/>PG-ZBC-OPR-002 운영 변경 이력 관리 정책<br/>PG-ZBC-INP-001 입력값 검증 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-IMP-001 영향도 고지 정책</td></tr><tr><td class="mono">PR-ZBC-OPR-001-03</td><td>승인·배포 및 이력 관리</td><td>통합 약관 운영 기준 및 품질 관리 변경 내용을 승인 상태로 배포하고 변경 이력과 품질 지표를 저장한다.<br/></td><td>FN-ZBC-AUTO-010 운영 기준 확인<br/>FN-ZBC-AUTO-012 승인·배포 및 이력 관리<br/>FN-ZBC-AUX-012 분쟁·감사 조회 지원</td><td>PG-ZBC-STAT-001 상태 전환 정책<br/>PG-ZBC-OPR-002 운영 변경 이력 관리 정책<br/>PG-ZBC-RSLT-001 처리 결과·이력 정책<br/>PG-ZBC-CST-001 고객 상태 조회 정책<br/>PG-ZBC-NTC-001 알림·고지 정책</td></tr></tbody>
+</table>
+
+
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_통합약관_정책서_간소화_v0.10_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"통합 약관 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_ZBC_CS_001\" name=\"US-ZBC-CS-001 통합 약관 권리 관리\">\n        <bpmn:flowNodeRef>Start_US_ZBC_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_001_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_001_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_001_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_001_RQCOV_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_ZBC_CS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_ZBC_CS_002\" name=\"US-ZBC-CS-002 통합 약관 필수·선택 동의 관리\">\n        <bpmn:flowNodeRef>Start_US_ZBC_CS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_002_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_002_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_002_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_002_RQCOV_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_002_RQCOV_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_ZBC_CS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_ZBC_CS_003\" name=\"US-ZBC-CS-003 통합 약관 변경·철회 관리\">\n        <bpmn:flowNodeRef>Start_US_ZBC_CS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_003_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_003_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_CS_003_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_ZBC_CS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_ZBC_OPR_001\" name=\"US-ZBC-OPR-001 통합 약관 운영 기준 및 품질 관리\">\n        <bpmn:flowNodeRef>Start_US_ZBC_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_OPR_001_01<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_OPR_001_02<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_ZBC_OPR_001_03<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_ZBC_OPR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_ZBC_CS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_ZBC_CS_001_Task_PR_ZBC_CS_001_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_ZBC_CS_001_01\" name=\"PR-ZBC-CS-001-01 약관 원문·요약 열람\">\n      <bpmn:incoming>Flow_Start_US_ZBC_CS_001_Task_PR_ZBC_CS_001_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_001_01_Task_PR_ZBC_CS_001_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_001_02\" name=\"PR-ZBC-CS-001-02 개인정보 제공·위탁 고지 확인\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_001_01_Task_PR_ZBC_CS_001_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_001_02_Task_PR_ZBC_CS_001_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_001_03\" name=\"PR-ZBC-CS-001-03 거부권 및 미동의 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_001_02_Task_PR_ZBC_CS_001_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_001_03_Task_PR_ZBC_CS_001_RQCOV_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_001_RQCOV_001\" name=\"PR-ZBC-CS-001-RQCOV-001 개인정보·제3자 고지 기준 처리\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_001_03_Task_PR_ZBC_CS_001_RQCOV_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_001_RQCOV_001_End_US_ZBC_CS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_ZBC_CS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_001_RQCOV_001_End_US_ZBC_CS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_ZBC_CS_001_Task_PR_ZBC_CS_001_01\" sourceRef=\"Start_US_ZBC_CS_001\" targetRef=\"Task_PR_ZBC_CS_001_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_001_01_Task_PR_ZBC_CS_001_02\" sourceRef=\"Task_PR_ZBC_CS_001_01\" targetRef=\"Task_PR_ZBC_CS_001_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_001_02_Task_PR_ZBC_CS_001_03\" sourceRef=\"Task_PR_ZBC_CS_001_02\" targetRef=\"Task_PR_ZBC_CS_001_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_001_03_Task_PR_ZBC_CS_001_RQCOV_001\" sourceRef=\"Task_PR_ZBC_CS_001_03\" targetRef=\"Task_PR_ZBC_CS_001_RQCOV_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_001_RQCOV_001_End_US_ZBC_CS_001\" sourceRef=\"Task_PR_ZBC_CS_001_RQCOV_001\" targetRef=\"End_US_ZBC_CS_001\"/>\n    <bpmn:startEvent id=\"Start_US_ZBC_CS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_ZBC_CS_002_Task_PR_ZBC_CS_002_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_ZBC_CS_002_01\" name=\"PR-ZBC-CS-002-01 업무 유형별 동의 항목 확인\">\n      <bpmn:incoming>Flow_Start_US_ZBC_CS_002_Task_PR_ZBC_CS_002_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_002_01_Task_PR_ZBC_CS_002_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_002_02\" name=\"PR-ZBC-CS-002-02 필수·선택 동의 구분\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_002_01_Task_PR_ZBC_CS_002_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_002_02_Task_PR_ZBC_CS_002_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_002_03\" name=\"PR-ZBC-CS-002-03 미동의 제한 범위 판정\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_002_02_Task_PR_ZBC_CS_002_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_002_03_Task_PR_ZBC_CS_002_RQCOV_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_002_RQCOV_002\" name=\"PR-ZBC-CS-002-RQCOV-002 필수·선택 동의 영향 기준 처리\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_002_03_Task_PR_ZBC_CS_002_RQCOV_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_002_RQCOV_002_Task_PR_ZBC_CS_002_RQCOV_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_002_RQCOV_006\" name=\"PR-ZBC-CS-002-RQCOV-006 버전·증적 기준 처리\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_002_RQCOV_002_Task_PR_ZBC_CS_002_RQCOV_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_002_RQCOV_006_End_US_ZBC_CS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_ZBC_CS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_002_RQCOV_006_End_US_ZBC_CS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_ZBC_CS_002_Task_PR_ZBC_CS_002_01\" sourceRef=\"Start_US_ZBC_CS_002\" targetRef=\"Task_PR_ZBC_CS_002_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_002_01_Task_PR_ZBC_CS_002_02\" sourceRef=\"Task_PR_ZBC_CS_002_01\" targetRef=\"Task_PR_ZBC_CS_002_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_002_02_Task_PR_ZBC_CS_002_03\" sourceRef=\"Task_PR_ZBC_CS_002_02\" targetRef=\"Task_PR_ZBC_CS_002_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_002_03_Task_PR_ZBC_CS_002_RQCOV_002\" sourceRef=\"Task_PR_ZBC_CS_002_03\" targetRef=\"Task_PR_ZBC_CS_002_RQCOV_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_002_RQCOV_002_Task_PR_ZBC_CS_002_RQCOV_006\" sourceRef=\"Task_PR_ZBC_CS_002_RQCOV_002\" targetRef=\"Task_PR_ZBC_CS_002_RQCOV_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_002_RQCOV_006_End_US_ZBC_CS_002\" sourceRef=\"Task_PR_ZBC_CS_002_RQCOV_006\" targetRef=\"End_US_ZBC_CS_002\"/>\n    <bpmn:startEvent id=\"Start_US_ZBC_CS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_ZBC_CS_003_Task_PR_ZBC_CS_003_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_ZBC_CS_003_01\" name=\"PR-ZBC-CS-003-01 변경·철회 대상 선택\">\n      <bpmn:incoming>Flow_Start_US_ZBC_CS_003_Task_PR_ZBC_CS_003_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_003_01_Task_PR_ZBC_CS_003_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_003_02\" name=\"PR-ZBC-CS-003-02 철회 가능 여부 판정\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_003_01_Task_PR_ZBC_CS_003_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_003_02_Task_PR_ZBC_CS_003_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_CS_003_03\" name=\"PR-ZBC-CS-003-03 변경·철회 요청 접수\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_003_02_Task_PR_ZBC_CS_003_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_CS_003_03_End_US_ZBC_CS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_ZBC_CS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_CS_003_03_End_US_ZBC_CS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_ZBC_CS_003_Task_PR_ZBC_CS_003_01\" sourceRef=\"Start_US_ZBC_CS_003\" targetRef=\"Task_PR_ZBC_CS_003_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_003_01_Task_PR_ZBC_CS_003_02\" sourceRef=\"Task_PR_ZBC_CS_003_01\" targetRef=\"Task_PR_ZBC_CS_003_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_003_02_Task_PR_ZBC_CS_003_03\" sourceRef=\"Task_PR_ZBC_CS_003_02\" targetRef=\"Task_PR_ZBC_CS_003_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_CS_003_03_End_US_ZBC_CS_003\" sourceRef=\"Task_PR_ZBC_CS_003_03\" targetRef=\"End_US_ZBC_CS_003\"/>\n    <bpmn:startEvent id=\"Start_US_ZBC_OPR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_ZBC_OPR_001_Task_PR_ZBC_OPR_001_01<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_ZBC_OPR_001_01\" name=\"PR-ZBC-OPR-001-01 운영 기준 확인\">\n      <bpmn:incoming>Flow_Start_US_ZBC_OPR_001_Task_PR_ZBC_OPR_001_01<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_OPR_001_01_Task_PR_ZBC_OPR_001_02<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_OPR_001_02\" name=\"PR-ZBC-OPR-001-02 기준·예외 등록\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_OPR_001_01_Task_PR_ZBC_OPR_001_02<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_OPR_001_02_Task_PR_ZBC_OPR_001_03<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_ZBC_OPR_001_03\" name=\"PR-ZBC-OPR-001-03 승인·배포 및 이력 관리\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_OPR_001_02_Task_PR_ZBC_OPR_001_03<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_ZBC_OPR_001_03_End_US_ZBC_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_ZBC_OPR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_ZBC_OPR_001_03_End_US_ZBC_OPR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_ZBC_OPR_001_Task_PR_ZBC_OPR_001_01\" sourceRef=\"Start_US_ZBC_OPR_001\" targetRef=\"Task_PR_ZBC_OPR_001_01\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_OPR_001_01_Task_PR_ZBC_OPR_001_02\" sourceRef=\"Task_PR_ZBC_OPR_001_01\" targetRef=\"Task_PR_ZBC_OPR_001_02\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_OPR_001_02_Task_PR_ZBC_OPR_001_03\" sourceRef=\"Task_PR_ZBC_OPR_001_02\" targetRef=\"Task_PR_ZBC_OPR_001_03\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_ZBC_OPR_001_03_End_US_ZBC_OPR_001\" sourceRef=\"Task_PR_ZBC_OPR_001_03\" targetRef=\"End_US_ZBC_OPR_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_ZBC_CS_001_di\" bpmnElement=\"Lane_US_ZBC_CS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_ZBC_CS_001_di\" bpmnElement=\"Start_US_ZBC_CS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_001_01_di\" bpmnElement=\"Task_PR_ZBC_CS_001_01\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_001_02_di\" bpmnElement=\"Task_PR_ZBC_CS_001_02\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_001_03_di\" bpmnElement=\"Task_PR_ZBC_CS_001_03\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_001_RQCOV_001_di\" bpmnElement=\"Task_PR_ZBC_CS_001_RQCOV_001\">\n        <dc:Bounds x=\"900\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_ZBC_CS_001_di\" bpmnElement=\"End_US_ZBC_CS_001\">\n        <dc:Bounds x=\"1120\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_ZBC_CS_002_di\" bpmnElement=\"Lane_US_ZBC_CS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_ZBC_CS_002_di\" bpmnElement=\"Start_US_ZBC_CS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_002_01_di\" bpmnElement=\"Task_PR_ZBC_CS_002_01\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_002_02_di\" bpmnElement=\"Task_PR_ZBC_CS_002_02\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_002_03_di\" bpmnElement=\"Task_PR_ZBC_CS_002_03\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_002_RQCOV_002_di\" bpmnElement=\"Task_PR_ZBC_CS_002_RQCOV_002\">\n        <dc:Bounds x=\"900\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_002_RQCOV_006_di\" bpmnElement=\"Task_PR_ZBC_CS_002_RQCOV_006\">\n        <dc:Bounds x=\"1120\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_ZBC_CS_002_di\" bpmnElement=\"End_US_ZBC_CS_002\">\n        <dc:Bounds x=\"1340\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_ZBC_CS_003_di\" bpmnElement=\"Lane_US_ZBC_CS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_ZBC_CS_003_di\" bpmnElement=\"Start_US_ZBC_CS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_003_01_di\" bpmnElement=\"Task_PR_ZBC_CS_003_01\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_003_02_di\" bpmnElement=\"Task_PR_ZBC_CS_003_02\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_CS_003_03_di\" bpmnElement=\"Task_PR_ZBC_CS_003_03\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_ZBC_CS_003_di\" bpmnElement=\"End_US_ZBC_CS_003\">\n        <dc:Bounds x=\"900\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_ZBC_OPR_001_di\" bpmnElement=\"Lane_US_ZBC_OPR_001\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_ZBC_OPR_001_di\" bpmnElement=\"Start_US_ZBC_OPR_001\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_OPR_001_01_di\" bpmnElement=\"Task_PR_ZBC_OPR_001_01\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_OPR_001_02_di\" bpmnElement=\"Task_PR_ZBC_OPR_001_02\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_ZBC_OPR_001_03_di\" bpmnElement=\"Task_PR_ZBC_OPR_001_03\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_ZBC_OPR_001_di\" bpmnElement=\"End_US_ZBC_OPR_001\">\n        <dc:Bounds x=\"900\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_ZBC_CS_001_Task_PR_ZBC_CS_001_01_di\" bpmnElement=\"Flow_Start_US_ZBC_CS_001_Task_PR_ZBC_CS_001_01\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_001_01_Task_PR_ZBC_CS_001_02_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_001_01_Task_PR_ZBC_CS_001_02\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_001_02_Task_PR_ZBC_CS_001_03_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_001_02_Task_PR_ZBC_CS_001_03\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_001_03_Task_PR_ZBC_CS_001_RQCOV_001_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_001_03_Task_PR_ZBC_CS_001_RQCOV_001\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_001_RQCOV_001_End_US_ZBC_CS_001_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_001_RQCOV_001_End_US_ZBC_CS_001\">\n        <di:waypoint x=\"1070\" y=\"70\"/>\n        <di:waypoint x=\"1120\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_ZBC_CS_002_Task_PR_ZBC_CS_002_01_di\" bpmnElement=\"Flow_Start_US_ZBC_CS_002_Task_PR_ZBC_CS_002_01\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_002_01_Task_PR_ZBC_CS_002_02_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_002_01_Task_PR_ZBC_CS_002_02\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_002_02_Task_PR_ZBC_CS_002_03_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_002_02_Task_PR_ZBC_CS_002_03\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_002_03_Task_PR_ZBC_CS_002_RQCOV_002_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_002_03_Task_PR_ZBC_CS_002_RQCOV_002\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_002_RQCOV_002_Task_PR_ZBC_CS_002_RQCOV_006_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_002_RQCOV_002_Task_PR_ZBC_CS_002_RQCOV_006\">\n        <di:waypoint x=\"1070\" y=\"240\"/>\n        <di:waypoint x=\"1120\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_002_RQCOV_006_End_US_ZBC_CS_002_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_002_RQCOV_006_End_US_ZBC_CS_002\">\n        <di:waypoint x=\"1290\" y=\"240\"/>\n        <di:waypoint x=\"1340\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_ZBC_CS_003_Task_PR_ZBC_CS_003_01_di\" bpmnElement=\"Flow_Start_US_ZBC_CS_003_Task_PR_ZBC_CS_003_01\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_003_01_Task_PR_ZBC_CS_003_02_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_003_01_Task_PR_ZBC_CS_003_02\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_003_02_Task_PR_ZBC_CS_003_03_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_003_02_Task_PR_ZBC_CS_003_03\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_CS_003_03_End_US_ZBC_CS_003_di\" bpmnElement=\"Flow_Task_PR_ZBC_CS_003_03_End_US_ZBC_CS_003\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_ZBC_OPR_001_Task_PR_ZBC_OPR_001_01_di\" bpmnElement=\"Flow_Start_US_ZBC_OPR_001_Task_PR_ZBC_OPR_001_01\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_OPR_001_01_Task_PR_ZBC_OPR_001_02_di\" bpmnElement=\"Flow_Task_PR_ZBC_OPR_001_01_Task_PR_ZBC_OPR_001_02\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_OPR_001_02_Task_PR_ZBC_OPR_001_03_di\" bpmnElement=\"Flow_Task_PR_ZBC_OPR_001_02_Task_PR_ZBC_OPR_001_03\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_ZBC_OPR_001_03_End_US_ZBC_OPR_001_di\" bpmnElement=\"Flow_Task_PR_ZBC_OPR_001_03_End_US_ZBC_OPR_001\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="716" role="img" viewBox="0 0 1362 716" width="1362" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="85">US-ZBC-CS-001</text><text class="pool-title" text-anchor="middle" x="145" y="101">통합 약관 권리 관리</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-ZBC-CS-001-01</text><text class="task-text" text-anchor="middle" x="410" y="119">약관 원문·요약 열람</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-ZBC-CS-001-02</text><text class="task-text" text-anchor="middle" x="595" y="112">개인정보 제공·위탁 고지</text><text class="task-text" text-anchor="middle" x="595" y="126">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-ZBC-CS-001-03</text><text class="task-text" text-anchor="middle" x="780" y="119">거부권 및 미동의 영향 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="75"></rect><text class="task-text" text-anchor="middle" x="965" y="96">PR-ZBC-CS-001-RQCOV-001</text><text class="task-text" text-anchor="middle" x="965" y="112">개인정보·제3자 고지 기준</text><text class="task-text" text-anchor="middle" x="965" y="126">처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="108" y2="108"></line><circle class="end" cx="1103" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="245">US-ZBC-CS-002</text><text class="pool-title" text-anchor="middle" x="145" y="261">통합 약관 필수·선택 동의</text><text class="pool-title" text-anchor="middle" x="145" y="277">관리</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-ZBC-CS-002-01</text><text class="task-text" text-anchor="middle" x="410" y="287">업무 유형별 동의 항목 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-ZBC-CS-002-02</text><text class="task-text" text-anchor="middle" x="595" y="287">필수·선택 동의 구분</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-ZBC-CS-002-03</text><text class="task-text" text-anchor="middle" x="780" y="287">미동의 제한 범위 판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="885" y="243"></rect><text class="task-text" text-anchor="middle" x="965" y="264">PR-ZBC-CS-002-RQCOV-002</text><text class="task-text" text-anchor="middle" x="965" y="280">필수·선택 동의 영향 기준</text><text class="task-text" text-anchor="middle" x="965" y="294">처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="1070" y="243"></rect><text class="task-text" text-anchor="middle" x="1150" y="264">PR-ZBC-CS-002-RQCOV-006</text><text class="task-text" text-anchor="middle" x="1150" y="287">버전·증적 기준 처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1064" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1234" x2="1267" y1="276" y2="276"></line><circle class="end" cx="1288" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="1288" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-ZBC-CS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">통합 약관 변경·철회 관리</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-ZBC-CS-003-01</text><text class="task-text" text-anchor="middle" x="410" y="455">변경·철회 대상 선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-ZBC-CS-003-02</text><text class="task-text" text-anchor="middle" x="595" y="455">철회 가능 여부 판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-ZBC-CS-003-03</text><text class="task-text" text-anchor="middle" x="780" y="455">변경·철회 요청 접수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="444" y2="444"></line><circle class="end" cx="918" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="581">US-ZBC-OPR-001</text><text class="pool-title" text-anchor="middle" x="145" y="597">통합 약관 운영 기준 및</text><text class="pool-title" text-anchor="middle" x="145" y="613">품질 관리</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-ZBC-OPR-001-01</text><text class="task-text" text-anchor="middle" x="410" y="623">운영 기준 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-ZBC-OPR-001-02</text><text class="task-text" text-anchor="middle" x="595" y="623">기준·예외 등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-ZBC-OPR-001-03</text><text class="task-text" text-anchor="middle" x="780" y="623">승인·배포 및 이력 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="612" y2="612"></line><circle class="end" cx="918" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="616">End</text></svg></div></div>
+</div>
+
+
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 약관 원문·요약 열람 (PR-ZBC-CS-001-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-001</td><td>약관 원문·요약 열람</td><td>약관의 현행 버전, 이전 버전, 시행일, 적용 서비스와 1줄 요약을 조회해 고객이 필요한 약관을 찾을 수 있게 한다.<br/></td><td>현행·이전 약관 버전 조회<br/>1줄 요약과 상세 원문 연결<br/>적용 서비스·채널 범위 표시</td></tr><tr><td class="mono">FN-ZBC-AUX-001</td><td>약관 검색·주제별 탐색</td><td>고객이 제목, 주제, 키워드, 서비스 기준으로 약관을 검색하고 필요한 약관을 다운로드할 수 있게 한다.<br/></td><td>약관 키워드 검색<br/>주제·서비스 필터 적용<br/>약관 다운로드 경로 구성</td></tr></tbody>
+</table>
+
+<h4>2) 개인정보 제공·위탁 고지 확인 (PR-ZBC-CS-001-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-001</td><td>약관 원문·요약 열람</td><td>약관의 현행 버전, 이전 버전, 시행일, 적용 서비스와 1줄 요약을 조회해 고객이 필요한 약관을 찾을 수 있게 한다.<br/></td><td>현행·이전 약관 버전 조회<br/>1줄 요약과 상세 원문 연결<br/>적용 서비스·채널 범위 표시</td></tr><tr><td class="mono">FN-ZBC-AUTO-002</td><td>개인정보 제공·위탁 고지 확인</td><td>제3자 제공, 처리 위탁, 쿠키, 위치정보, 보관 기간 등 고지 항목을 요약과 상세로 구분해 제공한다.<br/></td><td>제공·위탁 대상 조회<br/>목적·항목·보관 기간 구성<br/>요약·상세 고지 표시</td></tr><tr><td class="mono">FN-ZBC-AUX-002</td><td>고지 확인 이력 구성</td><td>고객이 확인한 고지 버전, 확인 일시, 채널, 대상 업무를 증적 기준으로 저장한다.<br/></td><td>고지 버전 확인<br/>확인 일시·채널 저장<br/>사후 증적 연결</td></tr></tbody>
+</table>
+
+<h4>3) 거부권 및 미동의 영향 확인 (PR-ZBC-CS-001-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-001</td><td>약관 원문·요약 열람</td><td>약관의 현행 버전, 이전 버전, 시행일, 적용 서비스와 1줄 요약을 조회해 고객이 필요한 약관을 찾을 수 있게 한다.<br/></td><td>현행·이전 약관 버전 조회<br/>1줄 요약과 상세 원문 연결<br/>적용 서비스·채널 범위 표시</td></tr><tr><td class="mono">FN-ZBC-AUTO-003</td><td>거부권 및 미동의 영향 확인</td><td>선택 동의 거부권과 미동의 시 제한되는 기능 범위를 구분해 고객에게 안내한다.<br/></td><td>선택 동의 거부 가능성 확인<br/>미동의 제한 기능 산정<br/>동의 이동 CTA 구성</td></tr><tr><td class="mono">FN-ZBC-AUX-003</td><td>기본 경험 보장·대체 경로 구성</td><td>선택 동의 거부 고객도 기본 홈, 기본 탐색, 필수 업무를 이용할 수 있도록 대체 경로를 구성한다.<br/></td><td>기본 경험 유지 범위 산정<br/>개인화 제한 범위 표시<br/>대체 이용 경로 안내</td></tr></tbody>
+</table>
+
+<h4>4) 업무 유형별 동의 항목 확인 (PR-ZBC-CS-002-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-004</td><td>업무 유형별 동의 항목 확인</td><td>주문, 가입, 결제, eSIM, 초대 수락, 위치기반서비스 등 업무별 필요한 약관과 동의 항목을 구성한다.<br/></td><td>업무 유형별 필수 약관 산정<br/>선택 동의 목적 분리<br/>이미 동의한 항목 제외</td></tr><tr><td class="mono">FN-ZBC-AUX-004</td><td>상품·서비스별 동의 묶음 구성</td><td>선택한 상품과 서비스 조합에 맞춰 동의 항목을 한 흐름에서 확인하되 목적별 구분은 유지한다.<br/></td><td>상품 구성 기반 동의항목 구성<br/>유사 동의 묶음 고지<br/>미동의 항목 추가 수집</td></tr></tbody>
+</table>
+
+<h4>5) 필수·선택 동의 구분 (PR-ZBC-CS-002-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-004</td><td>업무 유형별 동의 항목 확인</td><td>주문, 가입, 결제, eSIM, 초대 수락, 위치기반서비스 등 업무별 필요한 약관과 동의 항목을 구성한다.<br/></td><td>업무 유형별 필수 약관 산정<br/>선택 동의 목적 분리<br/>이미 동의한 항목 제외</td></tr><tr><td class="mono">FN-ZBC-AUTO-005</td><td>필수·선택 동의 구분 기준 검증</td><td>필수 약관과 선택 동의를 목적, 서비스, 채널 기준으로 분리하고 묶음 강제를 차단한다.<br/></td><td>필수·선택 구분 검증<br/>목적별 독립 선택 확인<br/>다크패턴 여부 점검</td></tr><tr><td class="mono">FN-ZBC-AUX-005</td><td>체크박스 구조·채널 통합 구성</td><td>최종약관동의 화면과 체크박스 depth 구조를 채널 공통 기준으로 구성한다.<br/></td><td>필수·선택 노출 순서 구성<br/>체크박스 depth 정렬<br/>채널 공통 팝업 기준 적용</td></tr></tbody>
+</table>
+
+<h4>6) 미동의 제한 범위 판정 (PR-ZBC-CS-002-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-004</td><td>업무 유형별 동의 항목 확인</td><td>주문, 가입, 결제, eSIM, 초대 수락, 위치기반서비스 등 업무별 필요한 약관과 동의 항목을 구성한다.<br/></td><td>업무 유형별 필수 약관 산정<br/>선택 동의 목적 분리<br/>이미 동의한 항목 제외</td></tr><tr><td class="mono">FN-ZBC-AUTO-006</td><td>미동의 제한 범위 판정</td><td>필수 동의 미완료와 선택 동의 거부를 구분하고 제한되는 기능과 유지되는 기본 기능을 판정한다.<br/></td><td>필수 동의 미완료 제한 판정<br/>선택 동의 거부 영향 산정<br/>제한 사유 안내 구성</td></tr><tr><td class="mono">FN-ZBC-AUX-006</td><td>법정대리인·외국인·오프라인 동의 분기</td><td>미성년자, 외국인, SMS 링크, 외부채널 등 별도 동의 절차가 필요한 경우 분기 기준을 구성한다.<br/></td><td>고객 유형 조건 확인<br/>대리인·외국인 조항 노출<br/>SMS 링크 완료 상태 반영</td></tr></tbody>
+</table>
+
+<h4>7) 변경·철회 대상 선택 (PR-ZBC-CS-003-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-007</td><td>변경·철회 대상 선택</td><td>고객의 현재 동의 상태에서 철회·재동의 가능한 목적, 채널, 서비스 항목을 선택하게 한다.<br/></td><td>현재 동의 상태 조회<br/>철회 가능 항목 표시<br/>목적·채널별 선택 구성</td></tr><tr><td class="mono">FN-ZBC-AUX-007</td><td>부분 철회·채널별 철회 구성</td><td>마케팅, 광고성 정보, 선택 알림 동의를 SMS, 이메일, Push 등 채널별로 철회할 수 있게 한다.<br/></td><td>채널별 수신 동의 조회<br/>부분 철회 대상 분리<br/>철회 후 유지 범위 안내</td></tr></tbody>
+</table>
+
+<h4>8) 철회 가능 여부 판정 (PR-ZBC-CS-003-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-007</td><td>변경·철회 대상 선택</td><td>고객의 현재 동의 상태에서 철회·재동의 가능한 목적, 채널, 서비스 항목을 선택하게 한다.<br/></td><td>현재 동의 상태 조회<br/>철회 가능 항목 표시<br/>목적·채널별 선택 구성</td></tr><tr><td class="mono">FN-ZBC-AUTO-008</td><td>철회 가능 여부 판정</td><td>필수·선택 구분, 서비스 영향, 재동의 필요 여부를 기준으로 철회 허용 여부를 판정한다.<br/></td><td>철회 가능 범위 판정<br/>서비스 영향 산정<br/>즉시 반영 가능 여부 확인</td></tr><tr><td class="mono">FN-ZBC-AUX-008</td><td>재동의 필요 여부·사유 안내</td><td>약관 개정이나 목적 변경으로 재동의가 필요한 경우 사유, 시행일, 영향 범위를 안내한다.<br/></td><td>변경 요약 구성<br/>재동의 필요 사유 표시<br/>미동의 시 제한 안내</td></tr></tbody>
+</table>
+
+<h4>9) 변경·철회 요청 접수 (PR-ZBC-CS-003-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-007</td><td>변경·철회 대상 선택</td><td>고객의 현재 동의 상태에서 철회·재동의 가능한 목적, 채널, 서비스 항목을 선택하게 한다.<br/></td><td>현재 동의 상태 조회<br/>철회 가능 항목 표시<br/>목적·채널별 선택 구성</td></tr><tr><td class="mono">FN-ZBC-AUTO-009</td><td>변경·철회 요청 접수</td><td>고객의 동의, 철회, 재동의 요청을 접수하고 최신 동의 상태로 반영한다.<br/></td><td>요청 항목 정규화<br/>동의 상태 변경 반영<br/>처리 결과 안내</td></tr><tr><td class="mono">FN-ZBC-AUX-009</td><td>증빙·감사 로그 생성</td><td>동의 일시, 버전, 채널, 주체, 철회 여부, 원문 버전을 증빙 형태로 저장한다.<br/></td><td>동의 증빙 생성<br/>감사 로그 저장<br/>분쟁 대응 조회 연결</td></tr></tbody>
+</table>
+
+<h4>10) 운영 기준 확인 (PR-ZBC-OPR-001-01)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-010</td><td>운영 기준 확인</td><td>운영자가 약관 원문, 요약, 적용 서비스, 노출 위치, 시행일, 종료일, 재동의 대상을 확인한다.<br/></td><td>약관 기준 정보 조회<br/>적용 서비스·노출 위치 확인<br/>시행일·종료일 조건 검증</td></tr><tr><td class="mono">FN-ZBC-AUX-010</td><td>약관 콘텐츠·다운로드 관리</td><td>약관 원문, 요약, 오픈소스 고지, 다운로드 파일의 노출 상태와 버전을 관리한다.<br/></td><td>약관 콘텐츠 상태 확인<br/>다운로드 파일 연결<br/>오픈소스 고지 노출 관리</td></tr></tbody>
+</table>
+
+<h4>11) 기준·예외 등록 (PR-ZBC-OPR-001-02)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-010</td><td>운영 기준 확인</td><td>운영자가 약관 원문, 요약, 적용 서비스, 노출 위치, 시행일, 종료일, 재동의 대상을 확인한다.<br/></td><td>약관 기준 정보 조회<br/>적용 서비스·노출 위치 확인<br/>시행일·종료일 조건 검증</td></tr><tr><td class="mono">FN-ZBC-AUTO-011</td><td>기준·예외 등록</td><td>미성년자, 외국인, OMD/USIM, 제휴카드, 외부채널 등 예외 약관 노출 기준을 등록한다.<br/></td><td>예외 대상 고객군 등록<br/>채널·가입유형 분기 등록<br/>제휴·외부채널 기준 등록</td></tr><tr><td class="mono">FN-ZBC-AUX-011</td><td>참조 무결성·중복 검증</td><td>약관 삭제, 선택 동의 항목, 정렬 순서, 참조 관계의 중복과 사용 여부를 검증한다.<br/></td><td>저장·삭제 참조 검증<br/>선택 항목 중복 확인<br/>미사용 메뉴 노출 제어</td></tr></tbody>
+</table>
+
+<h4>12) 승인·배포 및 이력 관리 (PR-ZBC-OPR-001-03)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-AUTO-010</td><td>운영 기준 확인</td><td>운영자가 약관 원문, 요약, 적용 서비스, 노출 위치, 시행일, 종료일, 재동의 대상을 확인한다.<br/></td><td>약관 기준 정보 조회<br/>적용 서비스·노출 위치 확인<br/>시행일·종료일 조건 검증</td></tr><tr><td class="mono">FN-ZBC-AUTO-012</td><td>승인·배포 및 이력 관리</td><td>약관 수정, 승인, 배포, 종료일 경과 상태 전환, 이전 버전 보관을 처리한다.<br/></td><td>수정 즉시 반영 기준 적용<br/>승인·배포 이력 저장<br/>종료일 경과 자동 전환</td></tr><tr><td class="mono">FN-ZBC-AUX-012</td><td>분쟁·감사 조회 지원</td><td>운영자가 고객 동의 증빙, 약관 원문 버전, 철회 여부, 변경 이력을 조회할 수 있게 한다.<br/></td><td>동의 증빙 조회<br/>원문 버전 연결<br/>분쟁·감사 이력 출력</td></tr></tbody>
+</table>
+
+<h4>13) 개인정보·제3자 고지 기준 처리 (PR-ZBC-CS-001-RQCOV-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-RQCOV-001-INF</td><td>개인정보·제3자 고지 구성 정보 구성</td><td>개인정보·제3자 고지 구성 정보 구성은 대상 조건 구성, 권한 상태 검증, 결과 안내 구성을 순서대로 처리한다.<br/></td><td>대상 조건 구성<br/>권한 상태 검증<br/>결과 안내 구성</td></tr><tr><td class="mono">FN-ZBC-RQCOV-001-CHK</td><td>개인정보·제3자 고지 구성 조건 확인</td><td>개인정보·제3자 고지 구성 조건 확인은 개인정보·제3자 고지 기준 처리 단계에서 개인정보·제3자 고지 구성 조건 조회, 조회 조건 검증, 표시 결과 구성을 순서대로 수행해 처리 가능 여부와 후속 안내 기준을 만든다.<br/></td><td>개인정보·제3자 고지 구성 조건 조회<br/>조회 조건 검증<br/>표시 결과 구성</td></tr></tbody>
+</table>
+
+<h4>14) 필수·선택 동의 영향 기준 처리 (PR-ZBC-CS-002-RQCOV-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-RQCOV-001-INF</td><td>개인정보·제3자 고지 구성 정보 구성</td><td>개인정보·제3자 고지 구성 정보 구성은 대상 조건 구성, 권한 상태 검증, 결과 안내 구성을 순서대로 처리한다.<br/></td><td>대상 조건 구성<br/>권한 상태 검증<br/>결과 안내 구성</td></tr><tr><td class="mono">FN-ZBC-RQCOV-002-INF</td><td>필수·선택 동의 판정 정보 구성</td><td>필수·선택 동의 판정 정보 구성은 입력값 정규화, 필수 조건 확인, 처리 결과 저장을 순서대로 처리한다.<br/></td><td>입력값 정규화<br/>필수 조건 확인<br/>처리 결과 저장</td></tr><tr><td class="mono">FN-ZBC-RQCOV-002-CHK</td><td>필수·선택 동의 판정 확인</td><td>필수·선택 동의 판정 확인은 입력값 정규화, 필수 조건 확인, 처리 결과 저장을 순서대로 처리한다.<br/></td><td>입력값 정규화<br/>필수 조건 확인<br/>처리 결과 저장</td></tr></tbody>
+</table>
+
+<h4>15) 버전·증적 기준 처리 (PR-ZBC-CS-002-RQCOV-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-ZBC-RQCOV-001-INF</td><td>개인정보·제3자 고지 구성 정보 구성</td><td>개인정보·제3자 고지 구성 정보 구성은 대상 조건 구성, 권한 상태 검증, 결과 안내 구성을 순서대로 처리한다.<br/></td><td>대상 조건 구성<br/>권한 상태 검증<br/>결과 안내 구성</td></tr><tr><td class="mono">FN-ZBC-RQCOV-006-INF</td><td>약관 버전·증적 관리 정보 구성</td><td>약관 버전·증적 관리 정보 구성은 인증 상태 확인, 동의 여부 확인, 처리 가능 표시를 순서대로 처리한다.<br/></td><td>인증 상태 확인<br/>동의 여부 확인<br/>처리 가능 표시</td></tr><tr><td class="mono">FN-ZBC-RQCOV-006-CHK</td><td>약관 버전·증적 관리 조건 확인</td><td>약관 버전·증적 관리 조건 확인은 입력값 정규화, 필수 조건 확인, 처리 결과 저장을 순서대로 처리한다.<br/></td><td>입력값 정규화<br/>필수 조건 확인<br/>처리 결과 저장</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 약관 원문·요약 열람 (PR-ZBC-CS-001-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-INF-001</td><td>대상 정보 노출 정책</td><td>대상 정보 노출 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>노출 대상<br/>노출 우선순위<br/>노출 제한<br/>기준일 표시<br/>약관 요약+상세 UI<br/>필수·선택 약관 분리 노출<br/>약관 적용 대상 서비스/채널 범위 표시<br/>동의 수집 단계 축약·묶음 고지<br/>변경된 조항 요약 제공<br/>이용약관 목록 및 다운로드 관리<br/>셀프동의 URL 약관 상세 팝업 공통 운영</td></tr><tr><td class="mono">PG-ZBC-RSLT-001</td><td>처리 결과·이력 정책</td><td>처리 결과·이력 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>결과 구분<br/>처리 결과·이력 반영 기준<br/>처리 결과·이력 실패 안내<br/>이력 저장<br/>주문 문서/약관 아카이브<br/>동의 이력 조회<br/>동의 이력 증빙 조회<br/>약관 변경 알림 후 재동의 연결</td></tr><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-DATA-001</td><td>데이터 보관·파기 정책</td><td>데이터 보관·파기 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>보관 대상<br/>파기 대상<br/>보관 기간<br/>파기 이력<br/>고객정보 저장범위 선택 및 보관<br/>고객·서비스·약관 데이터 분리 관리</td></tr></tbody>
+</table>
+
+<h4>2) 개인정보 제공·위탁 고지 확인 (PR-ZBC-CS-001-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-PRV-001</td><td>개인정보·로그 보호 정책</td><td>개인정보·로그 보호 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>최소 수집<br/>개인정보·로그 마스킹 기준<br/>개인정보·로그 보관 기간<br/>개인정보·로그 열람 통제<br/>민감/개인정보 최소화 원칙 적용<br/>개인정보 제공 고지<br/>개인정보/쿠키 고지<br/>결제/주문 단계 신뢰 고지<br/>개인정보 처리 안내<br/>개인정보 제3자 제공/위탁 고지 접근<br/>데이터 다운로드 가능 범위<br/>약관/오픈소스 고지</td></tr><tr><td class="mono">PG-ZBC-INF-001</td><td>대상 정보 노출 정책</td><td>대상 정보 노출 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>노출 대상<br/>노출 우선순위<br/>노출 제한<br/>기준일 표시<br/>약관 요약+상세 UI<br/>필수·선택 약관 분리 노출<br/>약관 적용 대상 서비스/채널 범위 표시<br/>동의 수집 단계 축약·묶음 고지<br/>변경된 조항 요약 제공<br/>이용약관 목록 및 다운로드 관리<br/>셀프동의 URL 약관 상세 팝업 공통 운영</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>3) 거부권 및 미동의 영향 확인 (PR-ZBC-CS-001-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-AUT-001</td><td>인증·동의 정책</td><td>인증·동의 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>인증 수단<br/>인증 가능 횟수<br/>인증번호 유효시간<br/>인증 실패 처리<br/>동의 이력 저장 항목<br/>미동의/비활성 고객 기본 경험 보장<br/>윤리·거부권 보장<br/>결제 동의/약관<br/>약관 동의 상태 조회<br/>선택 동의 철회/재동의<br/>약관 동의 분리 기준<br/>선택 동의 거부권 보장<br/>동의 변경 즉시 반영<br/>약관/정책 변경 고지 및 재동의 안내<br/>약관 미동의 시 제한 범위 안내<br/>법정대리인 동의 이력/철회/재동의<br/>선택 동의 재노출 조건<br/>위치기반서비스·OS 위치 권한 분리<br/>권한·동의 요청 시점 최적화<br/>상품 선택 기반 통합 동의<br/>동적 동의항목 구성<br/>초대 수락 시 동의 묶음 처리<br/>법정대리인·미성년 동의 분기<br/>마케팅·광고성 정보 수신 동의 채널별 관리<br/>외국인 전용 약관·동의 분기<br/>SMS 링크 약관동의 상태 관리<br/>현재 동의 상태 통합 조회<br/>부분 철회·채널별 철회 지원<br/>동의 즉시 팝업<br/>인증수단 약관 노출 방식 통합<br/>최종약관동의 화면·체크박스 구조 통합<br/>OMD/USIM 전용 약관 항목 분기<br/>타인 주민등록번호 도용 안내 분기</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr></tbody>
+</table>
+
+<h4>4) 업무 유형별 동의 항목 확인 (PR-ZBC-CS-002-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-AUT-001</td><td>인증·동의 정책</td><td>인증·동의 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>인증 수단<br/>인증 가능 횟수<br/>인증번호 유효시간<br/>인증 실패 처리<br/>동의 이력 저장 항목<br/>미동의/비활성 고객 기본 경험 보장<br/>윤리·거부권 보장<br/>결제 동의/약관<br/>약관 동의 상태 조회<br/>선택 동의 철회/재동의<br/>약관 동의 분리 기준<br/>선택 동의 거부권 보장<br/>동의 변경 즉시 반영<br/>약관/정책 변경 고지 및 재동의 안내<br/>약관 미동의 시 제한 범위 안내<br/>법정대리인 동의 이력/철회/재동의<br/>선택 동의 재노출 조건<br/>위치기반서비스·OS 위치 권한 분리<br/>권한·동의 요청 시점 최적화<br/>상품 선택 기반 통합 동의<br/>동적 동의항목 구성<br/>초대 수락 시 동의 묶음 처리<br/>법정대리인·미성년 동의 분기<br/>마케팅·광고성 정보 수신 동의 채널별 관리<br/>외국인 전용 약관·동의 분기<br/>SMS 링크 약관동의 상태 관리<br/>현재 동의 상태 통합 조회<br/>부분 철회·채널별 철회 지원<br/>동의 즉시 팝업<br/>인증수단 약관 노출 방식 통합<br/>최종약관동의 화면·체크박스 구조 통합<br/>OMD/USIM 전용 약관 항목 분기<br/>타인 주민등록번호 도용 안내 분기</td></tr><tr><td class="mono">PG-ZBC-RSLT-001</td><td>처리 결과·이력 정책</td><td>처리 결과·이력 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>결과 구분<br/>처리 결과·이력 반영 기준<br/>처리 결과·이력 실패 안내<br/>이력 저장<br/>주문 문서/약관 아카이브<br/>동의 이력 조회<br/>동의 이력 증빙 조회<br/>약관 변경 알림 후 재동의 연결</td></tr><tr><td class="mono">PG-ZBC-BSS-001</td><td>BSS 연계 판정 정책</td><td>BSS 연계 판정 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>조회 기준<br/>판정 우선순위<br/>결과 반영<br/>실패 처리 방식</td></tr><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-ERR-002</td><td>연계 오류·장애 처리 정책</td><td>연계 오류·장애 처리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>장애 구분<br/>처리 제한<br/>재시도 기준<br/>장애 이력</td></tr></tbody>
+</table>
+
+<h4>5) 필수·선택 동의 구분 (PR-ZBC-CS-002-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-AUT-001</td><td>인증·동의 정책</td><td>인증·동의 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>인증 수단<br/>인증 가능 횟수<br/>인증번호 유효시간<br/>인증 실패 처리<br/>동의 이력 저장 항목<br/>미동의/비활성 고객 기본 경험 보장<br/>윤리·거부권 보장<br/>결제 동의/약관<br/>약관 동의 상태 조회<br/>선택 동의 철회/재동의<br/>약관 동의 분리 기준<br/>선택 동의 거부권 보장<br/>동의 변경 즉시 반영<br/>약관/정책 변경 고지 및 재동의 안내<br/>약관 미동의 시 제한 범위 안내<br/>법정대리인 동의 이력/철회/재동의<br/>선택 동의 재노출 조건<br/>위치기반서비스·OS 위치 권한 분리<br/>권한·동의 요청 시점 최적화<br/>상품 선택 기반 통합 동의<br/>동적 동의항목 구성<br/>초대 수락 시 동의 묶음 처리<br/>법정대리인·미성년 동의 분기<br/>마케팅·광고성 정보 수신 동의 채널별 관리<br/>외국인 전용 약관·동의 분기<br/>SMS 링크 약관동의 상태 관리<br/>현재 동의 상태 통합 조회<br/>부분 철회·채널별 철회 지원<br/>동의 즉시 팝업<br/>인증수단 약관 노출 방식 통합<br/>최종약관동의 화면·체크박스 구조 통합<br/>OMD/USIM 전용 약관 항목 분기<br/>타인 주민등록번호 도용 안내 분기</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-INF-001</td><td>대상 정보 노출 정책</td><td>대상 정보 노출 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>노출 대상<br/>노출 우선순위<br/>노출 제한<br/>기준일 표시<br/>약관 요약+상세 UI<br/>필수·선택 약관 분리 노출<br/>약관 적용 대상 서비스/채널 범위 표시<br/>동의 수집 단계 축약·묶음 고지<br/>변경된 조항 요약 제공<br/>이용약관 목록 및 다운로드 관리<br/>셀프동의 URL 약관 상세 팝업 공통 운영</td></tr></tbody>
+</table>
+
+<h4>6) 미동의 제한 범위 판정 (PR-ZBC-CS-002-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-RSLT-001</td><td>처리 결과·이력 정책</td><td>처리 결과·이력 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>결과 구분<br/>처리 결과·이력 반영 기준<br/>처리 결과·이력 실패 안내<br/>이력 저장<br/>주문 문서/약관 아카이브<br/>동의 이력 조회<br/>동의 이력 증빙 조회<br/>약관 변경 알림 후 재동의 연결</td></tr></tbody>
+</table>
+
+<h4>7) 변경·철회 대상 선택 (PR-ZBC-CS-003-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-OPR-002</td><td>운영 변경 이력 관리 정책</td><td>운영 변경 이력 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>운영 관리 결과 구분<br/>운영 관리 반영 기준<br/>운영 관리 실패 안내<br/>운영 관리 이력 저장<br/>약관 수정 즉시 반영<br/>약관 콘텐츠 상태·버전·유효기간 관리<br/>약관 저장·삭제 참조 무결성<br/>약관 변경 이력 버전 관리<br/>종료일 경과 자동 상태 전환<br/>선택 동의 항목 중복 검증<br/>약관 승인관리 체계 통합</td></tr><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-AUT-001</td><td>인증·동의 정책</td><td>인증·동의 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>인증 수단<br/>인증 가능 횟수<br/>인증번호 유효시간<br/>인증 실패 처리<br/>동의 이력 저장 항목<br/>미동의/비활성 고객 기본 경험 보장<br/>윤리·거부권 보장<br/>결제 동의/약관<br/>약관 동의 상태 조회<br/>선택 동의 철회/재동의<br/>약관 동의 분리 기준<br/>선택 동의 거부권 보장<br/>동의 변경 즉시 반영<br/>약관/정책 변경 고지 및 재동의 안내<br/>약관 미동의 시 제한 범위 안내<br/>법정대리인 동의 이력/철회/재동의<br/>선택 동의 재노출 조건<br/>위치기반서비스·OS 위치 권한 분리<br/>권한·동의 요청 시점 최적화<br/>상품 선택 기반 통합 동의<br/>동적 동의항목 구성<br/>초대 수락 시 동의 묶음 처리<br/>법정대리인·미성년 동의 분기<br/>마케팅·광고성 정보 수신 동의 채널별 관리<br/>외국인 전용 약관·동의 분기<br/>SMS 링크 약관동의 상태 관리<br/>현재 동의 상태 통합 조회<br/>부분 철회·채널별 철회 지원<br/>동의 즉시 팝업<br/>인증수단 약관 노출 방식 통합<br/>최종약관동의 화면·체크박스 구조 통합<br/>OMD/USIM 전용 약관 항목 분기<br/>타인 주민등록번호 도용 안내 분기</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-REQMAP-001</td><td>요구사항 반영 관리 정책</td><td>요구사항 반영 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>반영 기준<br/>미반영 기준<br/>근거 부족<br/>추적 관리</td></tr></tbody>
+</table>
+
+<h4>8) 철회 가능 여부 판정 (PR-ZBC-CS-003-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-NEXT-001</td><td>후속 업무 연결 정책</td><td>후속 업무 연결 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>연결 대상<br/>연결 제한<br/>컨텍스트 전달<br/>연결 이력</td></tr></tbody>
+</table>
+
+<h4>9) 변경·철회 요청 접수 (PR-ZBC-CS-003-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-RSLT-001</td><td>처리 결과·이력 정책</td><td>처리 결과·이력 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>결과 구분<br/>처리 결과·이력 반영 기준<br/>처리 결과·이력 실패 안내<br/>이력 저장<br/>주문 문서/약관 아카이브<br/>동의 이력 조회<br/>동의 이력 증빙 조회<br/>약관 변경 알림 후 재동의 연결</td></tr><tr><td class="mono">PG-ZBC-DUP-001</td><td>중복 요청 제한 정책</td><td>중복 요청 제한 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>중복 판단 기준<br/>중복 제한<br/>재요청 허용<br/>중복 이력 저장 항목</td></tr><tr><td class="mono">PG-ZBC-REQ-001</td><td>처리 요청 접수 정책</td><td>처리 요청 접수 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>접수 조건<br/>요청 상태값<br/>접수 실패<br/>접수 이력 저장 항목</td></tr><tr><td class="mono">PG-ZBC-QUL-001</td><td>품질 관리 정책</td><td>품질 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>품질 지표<br/>품질 관리 모니터링 주기<br/>개선 과제<br/>효과 추적</td></tr></tbody>
+</table>
+
+<h4>10) 운영 기준 확인 (PR-ZBC-OPR-001-01)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-OPR-002</td><td>운영 변경 이력 관리 정책</td><td>운영 변경 이력 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>운영 관리 결과 구분<br/>운영 관리 반영 기준<br/>운영 관리 실패 안내<br/>운영 관리 이력 저장<br/>약관 수정 즉시 반영<br/>약관 콘텐츠 상태·버전·유효기간 관리<br/>약관 저장·삭제 참조 무결성<br/>약관 변경 이력 버전 관리<br/>종료일 경과 자동 상태 전환<br/>선택 동의 항목 중복 검증<br/>약관 승인관리 체계 통합</td></tr><tr><td class="mono">PG-ZBC-OPR-001</td><td>운영 기준 정보 관리 정책</td><td>운영 기준 정보 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>기준 정보 관리<br/>변경 승인<br/>배포 기준<br/>변경 이력<br/>약관 원문·요약·서비스 매핑 관리<br/>약관 어드민 관리 기준<br/>MMS·이메일 교부 동의 약관명 관리<br/>약관관리 기능 접근 권한<br/>제휴카드 약관동의 대상 관리<br/>미사용 약관관리 메뉴 노출 제어<br/>외부채널 약관관리 기준 일원화</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-INF-001</td><td>대상 정보 노출 정책</td><td>대상 정보 노출 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>노출 대상<br/>노출 우선순위<br/>노출 제한<br/>기준일 표시<br/>약관 요약+상세 UI<br/>필수·선택 약관 분리 노출<br/>약관 적용 대상 서비스/채널 범위 표시<br/>동의 수집 단계 축약·묶음 고지<br/>변경된 조항 요약 제공<br/>이용약관 목록 및 다운로드 관리<br/>셀프동의 URL 약관 상세 팝업 공통 운영</td></tr><tr><td class="mono">PG-ZBC-ERR-001</td><td>예외·상담 전환 정책</td><td>예외·상담 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상담 전환 조건<br/>재시도 허용<br/>운영 확인<br/>예외 안내<br/>셀프 처리 불가 시 상담 fallback</td></tr></tbody>
+</table>
+
+<h4>11) 기준·예외 등록 (PR-ZBC-OPR-001-02)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-OPR-002</td><td>운영 변경 이력 관리 정책</td><td>운영 변경 이력 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>운영 관리 결과 구분<br/>운영 관리 반영 기준<br/>운영 관리 실패 안내<br/>운영 관리 이력 저장<br/>약관 수정 즉시 반영<br/>약관 콘텐츠 상태·버전·유효기간 관리<br/>약관 저장·삭제 참조 무결성<br/>약관 변경 이력 버전 관리<br/>종료일 경과 자동 상태 전환<br/>선택 동의 항목 중복 검증<br/>약관 승인관리 체계 통합</td></tr><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-IMP-001</td><td>영향도 고지 정책</td><td>영향도 고지 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>고지 대상<br/>고지 시점<br/>확인 기준<br/>고지 이력</td></tr></tbody>
+</table>
+
+<h4>12) 승인·배포 및 이력 관리 (PR-ZBC-OPR-001-03)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-OPR-002</td><td>운영 변경 이력 관리 정책</td><td>운영 변경 이력 관리 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>운영 관리 결과 구분<br/>운영 관리 반영 기준<br/>운영 관리 실패 안내<br/>운영 관리 이력 저장<br/>약관 수정 즉시 반영<br/>약관 콘텐츠 상태·버전·유효기간 관리<br/>약관 저장·삭제 참조 무결성<br/>약관 변경 이력 버전 관리<br/>종료일 경과 자동 상태 전환<br/>선택 동의 항목 중복 검증<br/>약관 승인관리 체계 통합</td></tr><tr><td class="mono">PG-ZBC-RSLT-001</td><td>처리 결과·이력 정책</td><td>처리 결과·이력 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>결과 구분<br/>처리 결과·이력 반영 기준<br/>처리 결과·이력 실패 안내<br/>이력 저장<br/>주문 문서/약관 아카이브<br/>동의 이력 조회<br/>동의 이력 증빙 조회<br/>약관 변경 알림 후 재동의 연결</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-NTC-001</td><td>알림·고지 정책</td><td>알림·고지 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>알림 대상<br/>알림 채널<br/>미발송 처리 방식<br/>발송 이력 저장 항목</td></tr></tbody>
+</table>
+
+<h4>13) 개인정보·제3자 고지 기준 처리 (PR-ZBC-CS-001-RQCOV-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-PRV-001</td><td>개인정보·로그 보호 정책</td><td>개인정보·로그 보호 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>최소 수집<br/>개인정보·로그 마스킹 기준<br/>개인정보·로그 보관 기간<br/>개인정보·로그 열람 통제<br/>민감/개인정보 최소화 원칙 적용<br/>개인정보 제공 고지<br/>개인정보/쿠키 고지<br/>결제/주문 단계 신뢰 고지<br/>개인정보 처리 안내<br/>개인정보 제3자 제공/위탁 고지 접근<br/>데이터 다운로드 가능 범위<br/>약관/오픈소스 고지</td></tr><tr><td class="mono">PG-ZBC-INF-001</td><td>대상 정보 노출 정책</td><td>대상 정보 노출 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>노출 대상<br/>노출 우선순위<br/>노출 제한<br/>기준일 표시<br/>약관 요약+상세 UI<br/>필수·선택 약관 분리 노출<br/>약관 적용 대상 서비스/채널 범위 표시<br/>동의 수집 단계 축약·묶음 고지<br/>변경된 조항 요약 제공<br/>이용약관 목록 및 다운로드 관리<br/>셀프동의 URL 약관 상세 팝업 공통 운영</td></tr></tbody>
+</table>
+
+<h4>14) 필수·선택 동의 영향 기준 처리 (PR-ZBC-CS-002-RQCOV-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-INP-001</td><td>입력값 검증 정책</td><td>입력값 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>필수 입력 항목<br/>입력 허용 범위<br/>입력 오류 안내 항목<br/>입력값 민감정보 제한</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr></tbody>
+</table>
+
+<h4>15) 버전·증적 기준 처리 (PR-ZBC-CS-002-RQCOV-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-ZBC-STAT-001</td><td>상태 전환 정책</td><td>상태 전환 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>전환 조건<br/>전환 실패<br/>전환 고지<br/>전환 이력</td></tr><tr><td class="mono">PG-ZBC-CST-001</td><td>고객 상태 조회 정책</td><td>고객 상태 조회 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>상태 조회<br/>상태 사용 기준<br/>상태 불일치 처리<br/>상태 이력</td></tr><tr><td class="mono">PG-ZBC-VAL-001</td><td>가능 여부 검증 정책</td><td>가능 여부 검증 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>검증 항목<br/>가능 판정<br/>제한 판정<br/>재검증 기준</td></tr><tr><td class="mono">PG-ZBC-ACC-001</td><td>접근·권한 정책</td><td>접근·권한 정책은 허용 기준, 제한 기준, 예외 기준, 고객 고지, 이력 저장 기준을 묶어 관리한다.<br/></td><td>접근 허용 범위<br/>권한 제한 대상<br/>인증 전환 대상<br/>권한 이력 저장 항목</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 접근·권한 정책 (PG-ZBC-ACC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 접근 허용 범위 <span class="mono">(PI-ZBC-ACC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 공개 정보는 비로그인 조회를 허용하고, 개인화 정보와 처리 요청은 로그인 또는 본인확인 후 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 권한 제한 대상 <span class="mono">(PI-ZBC-ACC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 대리 처리, 법정대리인, 법인, 미성년, 제한 고객은 본인확인, 대리 권한, 법정대리인 동의, 고객 상태가 모두 확인된 경우에만 진행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 전환 대상 <span class="mono">(PI-ZBC-ACC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 민감정보 노출, 비용 발생, 상태 변경, 계약 영향 업무는 본인확인 또는 추가 인증 단계로 전환한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 권한 이력 저장 항목 <span class="mono">(PI-ZBC-ACC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객ID, 접근 결과, 제한 사유, 인증 전환 여부, 요청 채널, 처리 일시를 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 대상 정보 노출 정책 (PG-ZBC-INF-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 노출 대상 <span class="mono">(PI-ZBC-INF-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객에게 제공하는 대상 정보는 업무 완료에 필요한 기준 정보, 상태 정보, 안내 정보로 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 노출 우선순위 <span class="mono">(PI-ZBC-INF-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 조건에 직접 맞는 정보, 진행 중 업무, 최근 이용 정보, 공통 안내 순으로 노출 우선순위를 둔다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 노출 제한 <span class="mono">(PI-ZBC-INF-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 권한, 약관 동의, 보안 기준, 기준일이 충족되지 않은 정보는 개인화 결과에서 제외한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 기준일 표시 <span class="mono">(PI-ZBC-INF-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금, 혜택, 약정, 상품 조건처럼 변동 가능한 정보는 기준일 또는 적용 시점을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 요약+상세 UI <span class="mono">(PI-ZBC-RQCOV-016)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 각 약관과 동의 항목은 1줄 요약과 상세 원문 링크 또는 펼침 구조로 제공한다.<br/></span><span class="policy-item-line">- 고객은 요약에서 목적과 영향 범위를 먼저 이해하고 원문 확인이 필요한 경우 상세 원문을 확인할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 필수·선택 약관 분리 노출 <span class="mono">(PI-ZBC-RQCOV-026)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 동의 화면은 필수 항목과 선택 항목을 시각적으로 구분해 제공한다.<br/></span><span class="policy-item-line">- 고객이 전체 동의와 개별 선택의 차이를 명확히 확인할 수 있게 항목 depth와 선택 상태를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 적용 대상 서비스/채널 범위 표시 <span class="mono">(PI-ZBC-RQCOV-031)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 각 약관과 동의가 적용되는 서비스, 채널, 기능 범위를 표시한다.<br/></span><span class="policy-item-line">- 하나의 동의가 전체 서비스에 적용되는지 특정 기능에만 적용되는지 고객이 구분할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 수집 단계 축약·묶음 고지 <span class="mono">(PI-ZBC-RQCOV-032)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 유사 성격의 동의는 규제 범위를 지키는 선에서 묶음 고지할 수 있다.<br/></span><span class="policy-item-line">- 묶음 처리하더라도 고객의 개별 선택권과 목적별 철회 가능성은 훼손하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 변경된 조항 요약 제공 <span class="mono">(PI-ZBC-RQCOV-037)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관이 개정되면 전체 원문뿐 아니라 변경된 핵심 조항, 변경 전후 차이, 시행일, 고객 영향 범위를 요약해 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이용약관 목록 및 다운로드 관리 <span class="mono">(PI-ZBC-RQCOV-047)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 이용약관 페이지에서 약관 종류, 현재 버전, 시행일을 확인하고 필요한 경우 약관 파일을 다운로드할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 셀프동의 URL 약관 상세 팝업 공통 운영 <span class="mono">(PI-ZBC-RQCOV-048)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 셀프동의 URL에서 제공되는 약관 상세 팝업은 웹, 앱, 유통망 연계 채널에서 동일한 원문·요약·버전 기준으로 운영한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 고객 상태 조회 정책 (PG-ZBC-CST-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상태 조회 <span class="mono">(PI-ZBC-CST-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 상태는 정상, 제한, 보류, 처리 중, 운영 확인 필요로 구분하고 업무 진입 시 최신 상태를 조회한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상태 사용 기준 <span class="mono">(PI-ZBC-CST-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상태값은 업무 가능 여부, 인증 필요 여부, 고지 필요 여부, 상담 전환 여부를 판단하는 기준으로 사용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상태 불일치 처리 <span class="mono">(PI-ZBC-CST-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 채널 상태와 BSS 상태가 다르면 BSS 최신 결과를 우선하고 불일치 이력을 운영 확인 대상으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상태 이력 <span class="mono">(PI-ZBC-CST-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상태 조회 결과, 조회 시점, 상태 전환 사유, 고객 안내 여부는 감사 가능한 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 가능 여부 검증 정책 (PG-ZBC-VAL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 검증 항목 <span class="mono">(PI-ZBC-VAL-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 상태, 가입 정보, 보유 상품, 미납·제한, 약정, 혜택, 처리 가능 시간을 검증 항목으로 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가능 판정 <span class="mono">(PI-ZBC-VAL-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 필수 검증 항목이 모두 충족되고 연계 시스템 성공 응답이 확인된 경우에만 처리 가능으로 판정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제한 판정 <span class="mono">(PI-ZBC-VAL-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 미납, 권한 부족, 약정 제한, 진행 중 업무, 연계 실패가 있으면 처리 제한으로 판정하고 사유를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재검증 기준 <span class="mono">(PI-ZBC-VAL-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 재검증 기준에서 이전 요청이 실패·만료·고객 취소로 종료된 경우에만 재요청을 허용한다.<br/></span><span class="policy-item-line">- 진행 중 요청이 있으면 중복 요청으로 제한한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 인증·동의 정책 (PG-ZBC-AUT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 인증 수단 <span class="mono">(PI-ZBC-AUT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 휴대폰 본인확인, PASS 인증, 공동인증서, 간편인증 중 업무 보안 수준에 맞는 수단을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 가능 횟수 <span class="mono">(PI-ZBC-AUT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 업무 세션 기준 최대 5회까지 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증번호 유효시간 <span class="mono">(PI-ZBC-AUT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인증 유효 시간은 10분이며 만료되면 재인증을 요구하고 실패 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 실패 처리 <span class="mono">(PI-ZBC-AUT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가능 횟수를 초과하거나 유효시간이 만료되면 재요청 또는 상담 경로를 안내하고 상태 변경은 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 이력 저장 항목 <span class="mono">(PI-ZBC-AUT-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동의 항목, 약관 버전, 동의 일시, 철회 여부, 처리 채널을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미동의/비활성 고객 기본 경험 보장 <span class="mono">(PI-ZBC-RQCOV-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개인화 또는 선택 동의가 없어도 기본 홈, 기본 탐색, 필수 조회, 고객지원 진입은 동일 수준으로 제공한다.<br/></span><span class="policy-item-line">- 미동의로 제한되는 기능은 개인화 추천, 마케팅 수신, 선택 알림 등 부가 기능으로 한정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 윤리·거부권 보장 <span class="mono">(PI-ZBC-RQCOV-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선택 동의와 권한 요청은 목적별로 분리하고 고객이 거부해도 핵심 서비스 이용을 제한하지 않는다.<br/></span><span class="policy-item-line">- 동의를 유도할 때는 동의 이익과 미동의 영향만 안내하고, 오인 유도 문구와 묶음 강제는 허용하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결제 동의/약관 <span class="mono">(PI-ZBC-RQCOV-007)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 필수 약관은 결제 요청 전에 요약과 상세를 제공하고 최신 버전 동의가 완료된 경우에만 결제를 허용한다.<br/></span><span class="policy-item-line">- 필수 동의 미완료 시 결제는 차단하고 동의 화면으로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 동의 상태 조회 <span class="mono">(PI-ZBC-RQCOV-009)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 필수·선택 동의의 현재 상태, 적용 서비스, 약관 버전, 마지막 변경 일시, 철회 여부를 통합 조회할 수 있다.<br/></span><span class="policy-item-line">- 서비스별 약관 상태가 다르면 서비스명과 적용 범위를 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선택 동의 철회/재동의 <span class="mono">(PI-ZBC-RQCOV-010)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선택 동의는 목적별·서비스별·채널별로 철회와 재동의를 허용한다.<br/></span><span class="policy-item-line">- 철회 즉시 해당 목적의 처리와 수신을 중지하고, 철회 전 동의값과 변경 일시를 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 동의 분리 기준 <span class="mono">(PI-ZBC-RQCOV-015)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 필수 약관과 선택 동의는 목적별·서비스별로 분리한다.<br/></span><span class="policy-item-line">- 통합 채널이라도 개인화, 마케팅, 선택 알림, 제3자 제공처럼 목적이 다른 동의를 하나로 묶어 강제하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선택 동의 거부권 보장 <span class="mono">(PI-ZBC-RQCOV-017)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 마케팅, 개인화, 선택 알림 동의는 거부해도 핵심 서비스 이용이 가능해야 한다.<br/></span><span class="policy-item-line">- 거부로 제한되는 항목은 추천, 광고성 수신, 개인화 표시 등 선택 기능으로 한정해 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 변경 즉시 반영 <span class="mono">(PI-ZBC-RQCOV-018)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 선택 동의를 변경하면 변경 결과를 즉시 반영한다.<br/></span><span class="policy-item-line">- 반영 결과는 동의 항목, 이전 값, 변경 값, 처리 채널, 적용 시점과 함께 저장하고 고객에게 완료 여부를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관/정책 변경 고지 및 재동의 안내 <span class="mono">(PI-ZBC-RQCOV-020)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 변경 시 변경 요약, 시행일, 영향 범위, 재동의 필요 여부를 고객에게 사전 고지한다.<br/></span><span class="policy-item-line">- 재동의가 필요한 경우 알림 또는 진입 화면에서 변경 요약 확인 후 재동의 단계로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 미동의 시 제한 범위 안내 <span class="mono">(PI-ZBC-RQCOV-021)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 필수 약관 미동의 시 제한되는 단계와 기능을 구체적으로 안내한다.<br/></span><span class="policy-item-line">- 선택 동의 미완료 고객에게는 기본 조회와 필수 업무를 허용하고, 동의가 필요한 부가 기능만 비활성 처리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 법정대리인 동의 이력/철회/재동의 <span class="mono">(PI-ZBC-RQCOV-022)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법정대리인 동의는 동의 버전, 일시, 채널, 대리인 확인 결과를 이력으로 저장한다.<br/></span><span class="policy-item-line">- 철회, 만료, 재동의가 필요한 경우 미성년 고객의 이용 제한 범위와 후속 절차를 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선택 동의 재노출 조건 <span class="mono">(PI-ZBC-RQCOV-023)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선택 동의 유도 배너는 고객이 최초 거부한 뒤 동일 목적을 반복 강요하지 않는다.<br/></span><span class="policy-item-line">- 2회 이상 재노출은 고객 행동 맥락, 미동의 이후 경과 기간, 서비스 가치 설명이 충족될 때만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 위치기반서비스·OS 위치 권한 분리 <span class="mono">(PI-ZBC-RQCOV-024)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 위치기반서비스 이용약관과 개인위치정보 동의, OS 위치 권한은 각각 별도 상태로 관리한다.<br/></span><span class="policy-item-line">- 약관 동의가 있어도 OS 권한이 거부되면 위치 기반 기능은 제한하고 대체 UX를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 권한·동의 요청 시점 최적화 <span class="mono">(PI-ZBC-RQCOV-025)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 푸시, 위치, 마케팅, 개인화 동의는 앱 최초 진입 시 일괄 요청하지 않는다.<br/></span><span class="policy-item-line">- 고객이 해당 기능의 가치를 이해하는 시점에 요청하고, 거부 후 재요청 조건과 설정 이동 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상품 선택 기반 통합 동의 <span class="mono">(PI-ZBC-RQCOV-028)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문 또는 가입을 위해 선택한 상품의 약관은 한 흐름에서 확인할 수 있게 구성한다.<br/></span><span class="policy-item-line">- 단, 상품별 특약, 개인정보 제공, 선택 동의는 목적과 적용 범위를 분리해 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동적 동의항목 구성 <span class="mono">(PI-ZBC-RQCOV-029)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동의항목은 상품 구성, 가입 유형, 고객 유형, 이미 동의한 항목을 기준으로 동적으로 구성한다.<br/></span><span class="policy-item-line">- 이미 동의한 최신 약관은 반복 수집하지 않고 미동의 또는 버전 변경 항목만 추가로 받는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 초대 수락 시 동의 묶음 처리 <span class="mono">(PI-ZBC-RQCOV-030)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 초대 수락 흐름에서는 그룹 가입 동의, 권한 위임 성격의 동의, 서비스 약관 동의를 한 흐름에서 처리하되 각 동의 목적과 철회 가능성을 구분해 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 법정대리인·미성년 동의 분기 <span class="mono">(PI-ZBC-RQCOV-033)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 만 14세 미만 고객 또는 법정대리인 동의가 필요한 고객은 일반 고객과 다른 절차로 분기한다.<br/></span><span class="policy-item-line">- 대리인 확인 결과, 제출 필요 정보, 가입 가능 조건을 화면과 이력에 남긴다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 마케팅·광고성 정보 수신 동의 채널별 관리 <span class="mono">(PI-ZBC-RQCOV-034)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- SMS, MMS, 이메일, Push 등 광고성 정보 수신 동의는 채널별로 관리한다.<br/></span><span class="policy-item-line">- 고객은 채널별 수신 상태와 변경 이력을 조회하고, 변경 즉시 해당 채널 수신 기준에 반영한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 외국인 전용 약관·동의 분기 <span class="mono">(PI-ZBC-RQCOV-035)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외국인 고객에게 별도 약관 또는 동의가 필요한 경우 고객 조건에 따라 자동 노출한다.<br/></span><span class="policy-item-line">- 동의 이력에는 적용 조항, 버전, 타임스탬프, 처리 채널을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• SMS 링크 약관동의 상태 관리 <span class="mono">(PI-ZBC-RQCOV-036)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 유통망 또는 고객센터 가입과 연계되는 SMS 링크 약관동의는 링크 발송, 진입, 열람, 동의, 완료 상태를 구분해 관리한다.<br/></span><span class="policy-item-line">- 링크 만료 또는 미완료 시 고객과 상담사가 같은 상태를 확인할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 현재 동의 상태 통합 조회 <span class="mono">(PI-ZBC-RQCOV-038)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 현재 동의한 약관, 철회한 항목, 재동의가 필요한 항목을 한 화면에서 확인할 수 있다.<br/></span><span class="policy-item-line">- 서비스별·채널별 동의 상태를 따로 찾지 않도록 통합 조회 기준을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 부분 철회·채널별 철회 지원 <span class="mono">(PI-ZBC-RQCOV-039)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선택 동의는 전체 철회뿐 아니라 목적별, 채널별, 수단별 부분 철회를 지원한다.<br/></span><span class="policy-item-line">- 문자만 거부하고 이메일은 유지하는 등 세분화된 제어 결과를 즉시 반영한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 즉시 팝업 <span class="mono">(PI-ZBC-RQCOV-044)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기기변경 완료 후 앱 진입처럼 필수 개인정보 동의가 즉시 필요한 시점에는 팝업으로 안내하고 바로 처리할 수 있게 한다.<br/></span><span class="policy-item-line">- 팝업은 필수 동의 항목과 미동의 제한 범위를 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증수단 약관 노출 방식 통합 <span class="mono">(PI-ZBC-RQCOV-049)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합 본인인증 화면에서 인증수단별 약관 동의 노출 방식은 채널 공통 기준을 따른다.<br/></span><span class="policy-item-line">- 인증수단별 추가 약관이 있으면 필수 여부와 적용 범위를 별도로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 최종약관동의 화면·체크박스 구조 통합 <span class="mono">(PI-ZBC-RQCOV-051)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 최종약관동의 화면과 체크박스 depth는 채널 공통 기준으로 적용한다.<br/></span><span class="policy-item-line">- 필수 전체동의와 선택 개별동의의 관계가 고객에게 오해되지 않도록 구성한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• OMD/USIM 전용 약관 항목 분기 <span class="mono">(PI-ZBC-RQCOV-052)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 채널과 가입유형 파라미터에 따라 OMD 또는 USIM 전용 약관 항목 노출 여부를 분기한다.<br/></span><span class="policy-item-line">- 해당 항목이 적용되지 않는 고객에게는 불필요한 약관을 노출하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 타인 주민등록번호 도용 안내 분기 <span class="mono">(PI-ZBC-RQCOV-053)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 채널 또는 가입유형 기준으로 타인 주민등록번호 도용 관련 안내가 필요한 경우 해당 영역을 노출한다.<br/></span><span class="policy-item-line">- 안내 확인 여부는 가입 또는 인증 이력과 함께 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 입력값 검증 정책 (PG-ZBC-INP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 필수 입력 항목 <span class="mono">(PI-ZBC-INP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 업무 처리에 필요한 최소 항목만 필수로 지정하고 선택 항목과 구분한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 입력 허용 범위 <span class="mono">(PI-ZBC-INP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 이름, 연락처, 이메일, 주소, 식별값, 요청값은 업무별 형식과 허용 범위를 검증한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 입력 오류 안내 항목 <span class="mono">(PI-ZBC-INP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 오류 항목, 수정 방법, 재시도 가능 여부를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 입력값 민감정보 제한 <span class="mono">(PI-ZBC-INP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 비밀번호, 인증번호, 결제정보 등 민감정보는 저장과 화면 노출 범위를 제한하고 로그에서 마스킹한다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 영향도 고지 정책 (PG-ZBC-IMP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 고지 대상 <span class="mono">(PI-ZBC-IMP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 비용, 혜택, 약정, 회선, 쿠폰, 포인트, 주문, 환불, 데이터 보관에 영향이 있으면 처리 전 고지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고지 시점 <span class="mono">(PI-ZBC-IMP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 최종 처리 요청을 확정하기 전에 영향도, 제한 사유, 적용 시점, 철회 가능 여부를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 확인 기준 <span class="mono">(PI-ZBC-IMP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 필수 고지 항목을 확인한 경우에만 다음 단계 또는 최종 처리 요청을 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고지 이력 <span class="mono">(PI-ZBC-IMP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고지 항목, 확인 여부, 확인 일시, 적용 기준은 처리 이력과 함께 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 처리 요청 접수 정책 (PG-ZBC-REQ-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 접수 조건 <span class="mono">(PI-ZBC-REQ-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 필수 입력, 인증·동의, 영향도 확인, 가능 여부 검증이 완료된 경우에만 처리 요청을 접수한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 요청 상태값 <span class="mono">(PI-ZBC-REQ-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 접수, 진행 중, 완료, 실패, 보류, 제한으로 구분한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 접수 실패 <span class="mono">(PI-ZBC-REQ-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요청 접수 실패 시 고객에게 실패 사유와 재시도 가능 여부를 안내하고 완료 상태로 확정하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 접수 이력 저장 항목 <span class="mono">(PI-ZBC-REQ-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요청자, 접수 일시, 요청 내용, 처리 상태, 접수 실패 사유를 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 중복 요청 제한 정책 (PG-ZBC-DUP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 중복 판단 기준 <span class="mono">(PI-ZBC-DUP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 중복 판단 기준에서 이전 요청이 실패·만료·고객 취소로 종료된 경우에만 재요청을 허용한다.<br/></span><span class="policy-item-line">- 진행 중 요청이 있으면 중복 요청으로 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중복 제한 <span class="mono">(PI-ZBC-DUP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 중복 요청은 추가 접수를 제한하고 기존 요청 상태와 예상 처리 기준을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재요청 허용 <span class="mono">(PI-ZBC-DUP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 이전 요청이 실패, 취소, 만료 상태이면 업무별 재요청 가능 기준에 따라 다시 접수할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중복 이력 저장 항목 <span class="mono">(PI-ZBC-DUP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 중복 제한 여부, 기존 요청 ID, 고객 안내 여부를 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) BSS 연계 판정 정책 (PG-ZBC-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 조회 기준 <span class="mono">(PI-ZBC-BSS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 조회는 고객 상태, 계약, 청구, 혜택, 제한 조건처럼 처리 가능 여부에 영향을 주는 항목으로 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 판정 우선순위 <span class="mono">(PI-ZBC-BSS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 채널 보유 정보와 BSS 결과가 다르면 BSS 최신 판정 결과를 우선 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결과 반영 <span class="mono">(PI-ZBC-BSS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 성공 회신과 상태 변경 완료가 확인된 경우에만 처리 완료로 확정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 처리 방식 <span class="mono">(PI-ZBC-BSS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 조회 실패 또는 처리 실패 시 개인화 처리와 상태 변경을 제한하고 공통 안내 또는 상담 경로를 제공한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 상태 전환 정책 (PG-ZBC-STAT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 전환 조건 <span class="mono">(PI-ZBC-STAT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상태 전환은 필수 검증과 연계 처리 결과가 충족된 경우에만 수행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전환 실패 <span class="mono">(PI-ZBC-STAT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상태 전환 실패 시 완료로 확정하지 않고 보류, 실패, 운영 확인 필요 중 하나로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전환 고지 <span class="mono">(PI-ZBC-STAT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 이용 가능 여부나 혜택에 영향을 주는 상태 전환은 고객에게 결과와 적용 시점을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전환 이력 <span class="mono">(PI-ZBC-STAT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전환 전 상태, 전환 후 상태, 전환 사유, 처리자, 처리 시점은 감사 가능한 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 처리 결과·이력 정책 (PG-ZBC-RSLT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 결과 구분 <span class="mono">(PI-ZBC-RSLT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 처리 결과는 성공, 실패, 보류, 제한, 운영 확인 필요로 구분하고 고객에게 다음 행동을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 처리 결과·이력 반영 기준 <span class="mono">(PI-ZBC-RSLT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 연계 시스템 성공 회신과 상태 변경 완료가 모두 확인된 경우에만 처리 완료로 확정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 처리 결과·이력 실패 안내 <span class="mono">(PI-ZBC-RSLT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패 또는 제한 결과는 사유, 재시도 가능 여부, 상담 전환 가능 여부, 적용되지 않은 항목을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이력 저장 <span class="mono">(PI-ZBC-RSLT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요청자, 처리 일시, 결과, 실패 사유, 연계 응답, 고객 고지 여부는 감사 가능한 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 주문 문서/약관 아카이브 <span class="mono">(PI-ZBC-RQCOV-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문·결제·가입 시 고객이 동의한 핵심 약관과 유의사항 요약은 주문 상세 또는 가입 이력에서 다시 열람할 수 있게 보관한다.<br/></span><span class="policy-item-line">- 아카이브에는 동의 일시, 약관 버전, 주문 또는 가입 식별 기준을 함께 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 이력 조회 <span class="mono">(PI-ZBC-RQCOV-019)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 필수·선택 동의의 현재 상태와 변경 이력은 일시, 채널, 주체, 약관 버전, 철회 여부 기준으로 조회할 수 있어야 한다.<br/></span><span class="policy-item-line">- 이력은 고객 조회와 운영 감사 모두에 사용할 수 있게 보관한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 이력 증빙 조회 <span class="mono">(PI-ZBC-RQCOV-040)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객과 운영자는 동의 일시, 버전, 동의 방식, 채널, 철회 여부를 증빙 형태로 조회할 수 있다.<br/></span><span class="policy-item-line">- 증빙은 원문 버전과 연결되어 분쟁 대응에 사용할 수 있어야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 변경 알림 후 재동의 연결 <span class="mono">(PI-ZBC-RQCOV-041)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 변경 알림을 받은 고객은 별도 탐색 없이 변경 요약 확인과 재동의 단계로 연결되어야 한다.<br/></span><span class="policy-item-line">- 알림에서 진입한 경우 필요한 행동과 미동의 영향이 즉시 보이도록 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) 후속 업무 연결 정책 (PG-ZBC-NEXT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 연결 대상 <span class="mono">(PI-ZBC-NEXT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 처리 완료, 실패, 제한, 보류 결과에 따라 다음 업무, 재시도, 상담, 관련 메뉴 중 하나 이상을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연결 제한 <span class="mono">(PI-ZBC-NEXT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 권한 부족, 인증 필요, 고위험 업무, 연계 오류가 있으면 직접 연결 대신 안내 또는 상담 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 컨텍스트 전달 <span class="mono">(PI-ZBC-NEXT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 후속 업무로 이동할 때 고객 요청, 대상 정보, 처리 결과, 제한 사유를 필요한 범위에서 전달한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연결 이력 <span class="mono">(PI-ZBC-NEXT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 후속 업무 선택, 진입 성공 여부, 실패 사유는 품질 관리와 운영 개선 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) 예외·상담 전환 정책 (PG-ZBC-ERR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상담 전환 조건 <span class="mono">(PI-ZBC-ERR-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 권한 불일치, 반복 실패, 고객 피해 가능성, 연계 장애, 자동 판정 불가는 상담 전환 대상으로 본다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재시도 허용 <span class="mono">(PI-ZBC-ERR-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 일시 오류와 입력 오류는 동일 조건에서 제한 횟수 내 재시도를 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 확인 <span class="mono">(PI-ZBC-ERR-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기준 정보 불일치, 고객 이력 충돌, 반복 민원은 운영 확인 큐에 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예외 안내 <span class="mono">(PI-ZBC-ERR-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예외 발생 시 고객에게 처리 지연 사유, 대체 경로, 예상 후속 조치를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 셀프 처리 불가 시 상담 fallback <span class="mono">(PI-ZBC-RQCOV-042)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동의, 철회, 재동의 과정에서 고객이 스스로 해결할 수 없으면 현재 약관, 버전, 동의 상태, 실패 사유를 상담 문맥으로 전달한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 알림·고지 정책 (PG-ZBC-NTC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 알림 대상 <span class="mono">(PI-ZBC-NTC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 처리 완료, 실패, 보류, 추가 확인 필요, 고객 영향 발생 건은 알림 대상으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 알림 채널 <span class="mono">(PI-ZBC-NTC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 알림은 고객 동의, 업무 중요도, 보안 수준에 따라 앱 알림, 문자, 이메일, 상담 안내 중 하나로 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미발송 처리 방식 <span class="mono">(PI-ZBC-NTC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 알림 발송 실패 시 중요 업무는 재발송 또는 상담 안내 대상으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 발송 이력 저장 항목 <span class="mono">(PI-ZBC-NTC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 알림 내용, 발송 채널, 발송 시점, 성공 여부를 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>16) 개인정보·로그 보호 정책 (PG-ZBC-PRV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 최소 수집 <span class="mono">(PI-ZBC-PRV-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 업무 처리와 품질 개선에 필요한 최소 정보만 수집하고 목적 외 활용을 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보·로그 마스킹 기준 <span class="mono">(PI-ZBC-PRV-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주민등록번호, 계좌번호, 카드번호, 인증번호, 비밀번호 등 민감정보는 화면과 로그에서 마스킹한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보·로그 보관 기간 <span class="mono">(PI-ZBC-PRV-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 처리 이력, 인증 이력, 고객 안내 이력은 목적과 법정 기준에 맞는 보관 기간을 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보·로그 열람 통제 <span class="mono">(PI-ZBC-PRV-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자 열람은 권한, 사유, 이력 저장 기준을 충족한 경우에만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 민감/개인정보 최소화 원칙 적용 <span class="mono">(PI-ZBC-RQCOV-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개인화와 AI 적용에 필요한 정보는 목적 달성에 필요한 최소 항목으로 제한한다.<br/></span><span class="policy-item-line">- 민감정보와 식별정보는 마스킹·비식별 처리하고, 선택 동의가 없으면 개인화 기능만 제한하며 기본 서비스 이용은 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보 제공 고지 <span class="mono">(PI-ZBC-RQCOV-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개인정보 제공 고지는 제공 목적, 제공 항목, 수신자, 보관 기간, 철회 방법을 요약과 상세로 구분해 제공한다.<br/></span><span class="policy-item-line">- 고객 확인이 필요한 고지는 확인 일시, 약관 버전, 처리 채널을 증적 기준으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보/쿠키 고지 <span class="mono">(PI-ZBC-RQCOV-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 웹 쿠키와 저장소 사용은 목적, 보관 기간, 거부 방법, 거부 시 제한되는 기능을 명확히 안내한다.<br/></span><span class="policy-item-line">- 고객이 거부하면 추적·개인화 기능은 제한하되 필수 로그인과 기본 탐색은 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결제/주문 단계 신뢰 고지 <span class="mono">(PI-ZBC-RQCOV-008)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 상세, 결제 직전, 주문 완료 단계에는 청약철회, 환불·교환, 분쟁 처리, 구매안전, 개인정보 제공·위탁 고지를 필요한 수준으로 노출한다.<br/></span><span class="policy-item-line">- 고객 확인이 필요한 고지는 확인 일시와 버전을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보 처리 안내 <span class="mono">(PI-ZBC-RQCOV-011)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개인정보 열람, 정정, 삭제, 처리정지 요청 방법을 안내하고 셀프 처리가 가능한 범위는 직접 처리 경로를 제공한다.<br/></span><span class="policy-item-line">- 셀프 처리가 불가하면 상담 경로와 처리 기준을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개인정보 제3자 제공/위탁 고지 접근 <span class="mono">(PI-ZBC-RQCOV-012)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 내 정보 또는 약관 메뉴에서 제3자 제공, 처리 위탁, 보관 기간 정보를 쉽게 접근할 수 있게 한다.<br/></span><span class="policy-item-line">- 제3자 제공 동의는 고객이 셀프로 철회할 수 있게 하고 철회 후 제한되는 혜택 또는 기능을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 데이터 다운로드 가능 범위 <span class="mono">(PI-ZBC-RQCOV-013)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 본인 데이터와 일부 이용내역을 다운로드하거나 요청할 수 있는 경로를 제공한다.<br/></span><span class="policy-item-line">- 다운로드가 불가한 항목은 사유, 대체 조회 방법, 상담 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관/오픈소스 고지 <span class="mono">(PI-ZBC-RQCOV-014)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 앱과 웹에서 이용약관, 개인정보처리방침, 오픈소스 라이선스 고지를 조회할 수 있게 한다.<br/></span><span class="policy-item-line">- 고지는 현행 버전과 이전 버전, 시행일, 다운로드 가능 여부를 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>17) 운영 기준 정보 관리 정책 (PG-ZBC-OPR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 기준 정보 관리 <span class="mono">(PI-ZBC-OPR-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 업무 기준 정보, 노출 조건, 제한 기준, 안내 문구, 적용 기간을 승인 상태로 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 변경 승인 <span class="mono">(PI-ZBC-OPR-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 승인 기준에서 고객 피해 가능성과 증적 이력이 함께 확인된 경우에만 운영 보정을 허용한다.<br/></span><span class="policy-item-line">- 보정 전후 값과 승인 주체를 변경 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 배포 기준 <span class="mono">(PI-ZBC-OPR-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 배포의 우선순위는 고객 피해 가능성, 금전 영향, 상태 변경 여부 순으로 판단한다.<br/></span><span class="policy-item-line">- 충돌 시 제한 기준을 먼저 적용하고 예외 사유를 기록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 변경 이력 <span class="mono">(PI-ZBC-OPR-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경자, 변경일, 변경 사유, 변경 전후 값, 승인자는 운영 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 원문·요약·서비스 매핑 관리 <span class="mono">(PI-ZBC-RQCOV-046)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 약관 원문, 요약 문구, 변경 요약, 적용 대상 서비스·채널, 고객 노출 위치를 매핑해 관리한다.<br/></span><span class="policy-item-line">- 고객 표시 설명과 실제 적용 범위가 어긋나면 배포를 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 어드민 관리 기준 <span class="mono">(PI-ZBC-RQCOV-050)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 어드민에서 약관 등록, 수정, 노출 위치, 버전, 승인 상태, 종료일을 관리할 수 있어야 한다.<br/></span><span class="policy-item-line">- 권한이 없는 사용자는 약관 변경 기능에 접근할 수 없다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• MMS·이메일 교부 동의 약관명 관리 <span class="mono">(PI-ZBC-RQCOV-054)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 MMS와 이메일 교부 동의 약관명을 어드민에서 등록·수정·관리한다.<br/></span><span class="policy-item-line">- 약관명 변경 시 고객 노출명, 동의 이력명, 증빙 출력명이 함께 정합성을 유지해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관관리 기능 접근 권한 <span class="mono">(PI-ZBC-RQCOV-060)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 등록, 수정, 승인, 삭제, 배포, 증빙 조회 기능은 역할 기반 권한을 적용한다.<br/></span><span class="policy-item-line">- 권한 없는 접근은 차단하고 접근 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제휴카드 약관동의 대상 관리 <span class="mono">(PI-ZBC-RQCOV-061)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴카드 약관동의 대상은 운영 여부, 노출 기간, 적용 상품, 고객군 기준으로 관리한다.<br/></span><span class="policy-item-line">- 운영 중지 시 신규 노출은 중단하고 기존 동의 이력은 보관한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미사용 약관관리 메뉴 노출 제어 <span class="mono">(PI-ZBC-RQCOV-062)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용 여부가 확인되지 않거나 운영 계획이 없는 약관관리 메뉴는 노출하지 않는다.<br/></span><span class="policy-item-line">- 메뉴 노출은 운영 상태, 권한, 적용 서비스 기준을 모두 충족해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 외부채널 약관관리 기준 일원화 <span class="mono">(PI-ZBC-RQCOV-064)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외부 제휴처 약관 등록과 노출 설정은 단일 어드민 기준으로 관리한다.<br/></span><span class="policy-item-line">- 외부채널에만 적용되는 약관도 원문 버전, 노출 위치, 동의 이력 기준은 통합 채널과 동일하게 유지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>18) 운영 변경 이력 관리 정책 (PG-ZBC-OPR-002)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 운영 관리 결과 구분 <span class="mono">(PI-ZBC-OPR-002-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 처리 결과는 성공, 실패, 보류, 제한, 운영 확인 필요로 구분하고 고객에게 다음 행동을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 관리 반영 기준 <span class="mono">(PI-ZBC-OPR-002-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 연계 시스템 성공 회신과 상태 변경 완료가 모두 확인된 경우에만 처리 완료로 확정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 관리 실패 안내 <span class="mono">(PI-ZBC-OPR-002-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패 또는 제한 결과는 사유, 재시도 가능 여부, 상담 전환 가능 여부, 적용되지 않은 항목을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 관리 이력 저장 <span class="mono">(PI-ZBC-OPR-002-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요청자, 처리 일시, 결과, 실패 사유, 연계 응답, 고객 고지 여부는 감사 가능한 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 수정 즉시 반영 <span class="mono">(PI-ZBC-RQCOV-045)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 수정 후 승인 또는 저장이 완료되면 지정 대기 시점까지 지연하지 않고 서비스 화면에 반영한다.<br/></span><span class="policy-item-line">- 즉시 반영 전에는 적용 대상, 시행일, 롤백 가능 여부를 확인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 콘텐츠 상태·버전·유효기간 관리 <span class="mono">(PI-ZBC-RQCOV-055)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 콘텐츠는 상태, 버전, 시행일, 종료일, 유효기간 기준으로 관리한다.<br/></span><span class="policy-item-line">- 종료일이 지나면 신규 노출과 신규 동의 대상에서 제외하고 이전 동의 증적은 보관한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 저장·삭제 참조 무결성 <span class="mono">(PI-ZBC-RQCOV-056)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 저장과 삭제 시 적용 서비스, 동의 이력, 진행 중 업무, 외부채널 참조 관계를 검증한다.<br/></span><span class="policy-item-line">- 참조 중인 약관은 삭제하지 않고 종료 또는 사용중지 상태로 전환한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 변경 이력 버전 관리 <span class="mono">(PI-ZBC-RQCOV-057)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약관 수정 시 이전 버전을 보관하고 새 버전을 자동 증가 처리한다.<br/></span><span class="policy-item-line">- 변경 이력에는 수정자, 승인자, 변경 사유, 시행일, 영향 서비스를 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 종료일 경과 자동 상태 전환 <span class="mono">(PI-ZBC-RQCOV-058)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 종료일이 지난 약관은 자동으로 종료 상태로 전환한다.<br/></span><span class="policy-item-line">- 종료 상태 전환 후에는 신규 동의 대상에서 제외하고 기존 이력 조회와 증빙 출력만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선택 동의 항목 중복 검증 <span class="mono">(PI-ZBC-RQCOV-059)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선택 동의 항목 ID와 정렬순서는 중복 없이 관리한다.<br/></span><span class="policy-item-line">- 동일 목적의 선택 동의가 중복 등록되면 배포 전 차단하고 운영자에게 중복 항목을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약관 승인관리 체계 통합 <span class="mono">(PI-ZBC-RQCOV-063)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- Seller 어드민과 TDS 어드민의 약관 승인 관리는 단일 승인 정책으로 통합한다.<br/></span><span class="policy-item-line">- 승인 상태, 반려 사유, 재승인 요청, 배포 가능 여부를 공통 기준으로 관리한다.<br/></span></div>
+</div>
+</div>
+
+<h4>19) 품질 관리 정책 (PG-ZBC-QUL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 품질 지표 <span class="mono">(PI-ZBC-QUL-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 완료율, 실패율, 재시도율, 상담 전환율, 처리 지연, 고객 피드백을 품질 지표로 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 품질 관리 모니터링 주기 <span class="mono">(PI-ZBC-QUL-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 품질 관리 모니터링 주기 기준에서 실패·보류·상담 전환이 같은 조건에서 3회 이상 반복되면 품질 모니터링 대상으로 등록한다.<br/></span><span class="policy-item-line">- 반복 원인은 개선 과제로 관리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 개선 과제 <span class="mono">(PI-ZBC-QUL-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 반복 실패, 상담 전환 과다, 고객 불만 반복, 기준 정보 오류는 개선 과제로 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 효과 추적 <span class="mono">(PI-ZBC-QUL-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 보정 후 완료율, 실패율, 상담 전환율, 고객 피드백 변화를 비교해 개선 효과를 확인한다.<br/></span></div>
+</div>
+</div>
+
+<h4>20) 요구사항 반영 관리 정책 (PG-ZBC-REQMAP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 반영 기준 <span class="mono">(PI-ZBC-REQMAP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요구사항은 유즈케이스, 상태, 프로세스, 기능, 정책 중 하나 이상에 반영해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미반영 기준 <span class="mono">(PI-ZBC-REQMAP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 반영은 결과 확정 후 원장 또는 업무 상태 변경이 필요한 경우에만 요청한다.<br/></span><span class="policy-item-line">- 반영 실패 시 실패 상태와 재시도 가능 여부를 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 근거 부족 <span class="mono">(PI-ZBC-REQMAP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 근거 부족의 외부 연계는 인증기관·결제기관·제휴 시스템 응답이 필요한 경우 수행한다.<br/></span><span class="policy-item-line">- 응답 지연 시 보류 상태로 두고 재시도 기준을 남긴다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 추적 관리 <span class="mono">(PI-ZBC-REQMAP-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 추적 관리는 판정 결과가 허용·제한·보류·실패 중 하나로 확정되면 상태를 전환한다.<br/></span><span class="policy-item-line">- 다음 상태와 후속 가능 여부를 함께 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>21) 연계 오류·장애 처리 정책 (PG-ZBC-ERR-002)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 장애 구분 <span class="mono">(PI-ZBC-ERR-002-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 장애, 연계 장애, 인증기관 장애, 채널 장애, 일시 지연을 구분해 처리 기준을 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 처리 제한 <span class="mono">(PI-ZBC-ERR-002-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 정확한 판정이 불가능한 장애 상황에서는 상태 변경과 비용 발생 처리를 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재시도 기준 <span class="mono">(PI-ZBC-ERR-002-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 일시 장애는 제한 횟수 내 재시도를 허용하고 반복 장애는 상담 또는 운영 확인으로 전환한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 장애 이력 <span class="mono">(PI-ZBC-ERR-002-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장애 유형, 발생 시점, 고객 영향, 처리 결과는 운영 모니터링 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>22) 데이터 보관·파기 정책 (PG-ZBC-DATA-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 보관 대상 <span class="mono">(PI-ZBC-DATA-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 처리 이력, 인증 이력, 고지 확인, 연계 결과, 운영 변경 증적은 목적별 보관 대상으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 파기 대상 <span class="mono">(PI-ZBC-DATA-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 업무 목적이 종료되고 법정 보관 사유가 없는 개인정보와 임시 데이터는 파기 대상으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보관 기간 <span class="mono">(PI-ZBC-DATA-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 보관 기간은 법정 보관 사유, 고객 분쟁 대응, 처리 이력 추적 필요성을 기준으로 정한다.<br/></span><span class="policy-item-line">- 기간 만료 시 파기 대상으로 전환하고 파기 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 파기 이력 <span class="mono">(PI-ZBC-DATA-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 파기 대상, 파기 시점, 파기 방식, 처리자는 감사 가능한 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고객정보 저장범위 선택 및 보관 <span class="mono">(PI-ZBC-RQCOV-027)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 저장 범위를 선택한 추가 수집정보는 재사용 목적과 보관 기간을 함께 저장한다.<br/></span><span class="policy-item-line">- 보관 기간이 만료되거나 고객이 철회하면 재사용 대상에서 제외한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고객·서비스·약관 데이터 분리 관리 <span class="mono">(PI-ZBC-RQCOV-043)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 정보, 서비스 정보, 약관 정보, 동의 이력은 서비스별 종속 데이터가 아니라 통합 기준 데이터로 분리 관리한다.<br/></span><span class="policy-item-line">- 서비스 추가 시 기존 고객정보와 약관 동의 상태를 재사용할 수 있어야 한다.<br/></span></div>
+</div>
+</div>
+
+
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">통합 약관 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 통합 약관 범위, 제외 범위, 후속 상세화 영역이 고객 과업 기준으로 명확한지 확인한다.<br/></div><div class="guide-section-title">2. 고객이 업무를 시작해 완료하거나 제한 사유와 대체 경로를 확인할 수 있는지 확인한다.<br/></div><div class="guide-section-title">3. 유즈케이스, 상태, 프로세스, 기능, 정책의 ID와 연결 관계가 누락 없이 이어지는지 확인한다.<br/></div><div class="guide-section-title">4. BSS와 연계 시스템의 조회, 판정, 상태 변경, 결과 회신 기준이 프로세스와 정책에 반영됐는지 확인한다.<br/></div><div class="guide-section-title">5. 모든 프로세스가 관련 기능과 실제 정책 그룹명에 연결되어 있는지 확인한다.<br/></div><div class="guide-section-title">6. 모든 기능이 화면 단위가 아니라 처리 단위이며 세부 기능 구성이 있는지 확인한다.<br/></div><div class="guide-section-title">7. 정책 상세가 기능 설명이 아니라 실제 기능 동작값, 허용 목록, 횟수, 시간, 제한 조건, 채널, 고지, 저장 기준으로 작성됐는지 확인한다.<br/></div><div class="guide-section-title">8. 개인정보, 민감정보, 로그, 이력, 보관·파기 기준이 포함되어 있는지 확인한다.<br/></div><div class="guide-section-title">9. 운영 기준 관리, 변경 이력, 품질 모니터링, 개선 과제 관리 기준이 포함되어 있는지 확인한다.<br/></div><div class="guide-section-title">10. 요구사항 통합 list의 관련 요구사항이 유즈케이스, 상태, 프로세스, 기능, 정책 중 하나 이상에 반영됐는지 확인한다.<br/></div><div class="guide-section-title">11. 참고자료에서 확인한 고객 불편, 채널 전략, IA, VoC, 운영 기준이 정책 판단 기준으로 재구성됐는지 확인한다.<br/></div><div class="guide-section-title">12. 핵심 정책 질문(누가, 언제, 어떤 조건, 중복·실패·복구 기준)이 범위와 정책 상세에 반영되었는지 확인한다.<br/></div><div class="guide-section-title">13. 고객 표시 상태와 시스템 내부 상태가 구분되어 있고 상태별 후속 행동이 테스트 가능하게 정의되었는지 확인한다.<br/></div><div class="guide-section-title">14. 개발자가 기능 설계 항목으로 전환할 수 있도록 프로세스-기능-정책 연결과 ID 추적성이 유지되는지 확인한다.<br/></div><div class="guide-section-title">15. QA가 정상·제한·실패·복구 테스트 조건과 기대 결과를 요구사항 매핑 기준으로 도출할 수 있는지 확인한다.<br/></div>
+</div>
+
+</div>
+</body>
+</html>

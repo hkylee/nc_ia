@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>IA 분석 · 현황 분석</title>
+  <style>
+    :root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:780px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body { display:grid; gap:14px; align-content:center; padding:18px 18px 20px; }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    .metric-strip {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin-top:14px;
+    }
+    .metric {
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:8px;
+      padding:12px;
+      background:rgba(255,255,255,.06);
+    }
+    .metric b { display:block; color:#fff; font-size:22px; line-height:1.1; }
+    .metric span { display:block; margin-top:6px; color:#d8e3f4; font-size:var(--fs-caption); font-weight:850; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:880px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .subgrid { margin-top:12px; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:190px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .funnel {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+    }
+    .funnel-step {
+      position:relative;
+      min-height:168px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+    }
+    .funnel-step:not(:last-child)::after {
+      content:"";
+      position:absolute;
+      top:34px;
+      right:-11px;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:#111827;
+      box-shadow:0 0 0 5px #fff;
+      z-index:2;
+    }
+    .funnel-step:not(:last-child)::before {
+      content:"";
+      position:absolute;
+      top:41px;
+      right:-3px;
+      z-index:3;
+      width:7px;
+      height:7px;
+      border-top:2px solid #fff;
+      border-right:2px solid #fff;
+      transform:rotate(45deg);
+    }
+    .funnel-step b { display:block; color:var(--blue); font-size:24px; line-height:1.1; }
+    .funnel-step strong { display:block; margin-top:10px; color:#111827; font-size:var(--fs-body); line-height:1.35; }
+    .funnel-step p { margin:8px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .role-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+    .role-card {
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+    }
+    .role-card header {
+      display:grid;
+      gap:7px;
+      padding:15px;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+    .role-card header b { color:#111827; font-size:var(--fs-body); font-weight:950; }
+    .role-card header span { color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .role-card ul { display:grid; gap:8px; margin:0; padding:15px 18px 18px 30px; }
+    .role-card li { color:var(--ink); font-size:var(--fs-body); font-weight:730; line-height:1.5; }
+    .heatmap-intro {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:12px;
+      align-items:end;
+      margin-top:16px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#f8fafc;
+    }
+    .heatmap-intro h3 { margin:0 0 4px; color:#111827; font-size:var(--fs-body); }
+    .heatmap-intro p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .heatmap-summary {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .heatmap-summary span {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border:1px solid #bfdbfe;
+      border-radius:999px;
+      background:#eff6ff;
+      color:#0f2f6b;
+      padding:5px 9px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heatmap-legend {
+      display:flex;
+      align-items:center;
+      gap:5px;
+      color:var(--ink);
+      font-size:var(--fs-caption);
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .heatmap-legend i {
+      width:18px;
+      height:12px;
+      border-radius:4px;
+      border:1px solid rgba(37,99,235,.18);
+      background:#dbeafe;
+    }
+    .heatmap-legend i:nth-of-type(2) { background:#93c5fd; }
+    .heatmap-legend i:nth-of-type(3) { background:#2563eb; }
+    .heatmap-wrap {
+      margin-top:10px;
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+    }
+    .heatmap-table {
+      width:100%;
+      min-width:920px;
+      border-collapse:separate;
+      border-spacing:0;
+      font-size:var(--fs-caption);
+    }
+    .heatmap-table th,
+    .heatmap-table td {
+      border-bottom:1px solid var(--line);
+      border-right:1px solid var(--line);
+      padding:9px 10px;
+      vertical-align:middle;
+    }
+    .heatmap-table thead th {
+      position:sticky;
+      top:0;
+      z-index:1;
+      background:#f8fafc;
+      color:#111827;
+      text-align:center;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heatmap-table thead th.channel-head {
+      background:#eaf2ff;
+      color:#0f2f6b;
+      padding:10px 8px;
+    }
+    .heatmap-table thead th.channel-head b,
+    .heatmap-table thead th.channel-head span {
+      display:block;
+      line-height:1.25;
+    }
+    .heatmap-table thead th.channel-head b {
+      width:max-content;
+      max-width:100%;
+      margin:0 auto;
+      border-radius:999px;
+      background:#2563eb;
+      color:#fff;
+      padding:5px 10px;
+      font-size:12px;
+      font-weight:950;
+    }
+    .heatmap-table thead th.channel-head span {
+      margin-top:5px;
+      color:#334155;
+      font-size:11px;
+      font-weight:850;
+    }
+    .heatmap-table thead th.estimate-head {
+      min-width:138px;
+      background:#111827;
+      color:#fff;
+      padding:10px 8px;
+    }
+    .heatmap-table thead th.estimate-head b,
+    .heatmap-table thead th.estimate-head span {
+      display:block;
+      line-height:1.25;
+    }
+    .heatmap-table thead th.estimate-head b { font-size:12px; font-weight:950; }
+    .heatmap-table thead th.estimate-head span { margin-top:5px; color:#d8e3f4; font-size:11px; font-weight:850; }
+    .heatmap-table th:first-child {
+      width:230px;
+      text-align:left;
+      background:#fbfdff;
+    }
+    .heatmap-table tbody th b,
+    .heatmap-table tbody th span {
+      display:block;
+      line-height:1.3;
+    }
+    .heatmap-table tbody th b { color:#111827; font-size:var(--fs-caption); font-weight:950; }
+    .heatmap-table tbody th span { margin-top:3px; color:var(--ink); font-size:11px; font-weight:780; }
+    .heatmap-table td {
+      min-width:112px;
+      text-align:center;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heatmap-table td small {
+      display:block;
+      margin-top:2px;
+      font-size:10px;
+      font-weight:820;
+      opacity:.82;
+    }
+    .heatmap-table td.estimate-cell {
+      background:#fbfdff;
+      min-width:138px;
+      color:#111827;
+    }
+    .estimate-cell b,
+    .estimate-cell span {
+      display:block;
+      line-height:1.25;
+    }
+    .estimate-cell b { font-size:11px; font-weight:950; }
+    .estimate-cell span { margin-top:3px; color:var(--ink); font-size:11px; font-weight:850; }
+    .estimate-common b { color:var(--blue); }
+    .estimate-core b { color:var(--teal); }
+    .estimate-special b { color:var(--amber); }
+    .estimate-select b { color:var(--violet); }
+    .heatmap-table tr:last-child th,
+    .heatmap-table tr:last-child td { border-bottom:0; }
+    .heatmap-table th:last-child,
+    .heatmap-table td:last-child { border-right:0; }
+    .heat-0 { background:#f8fafc; color:#94a3b8 !important; }
+    .heat-1 { background:#eef6ff; }
+    .heat-2 { background:#dbeafe; }
+    .heat-3 { background:#bfdbfe; }
+    .heat-4 { background:#93c5fd; }
+    .heat-5 { background:#60a5fa; }
+    .heat-6 { background:#2563eb; color:#fff !important; }
+    .core-map {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+    }
+    .core {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+    }
+    .core b { display:inline-flex; align-items:center; min-height:28px; border-radius:999px; background:#eff6ff; color:var(--blue); padding:5px 9px; font-size:var(--fs-caption); font-weight:950; }
+    .core h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .core p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .pain-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .pain {
+      display:grid;
+      grid-template-columns:120px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .pain b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .pain p { align-self:center; margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .tobe-grid {
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:12px;
+    }
+    .tobe-main,
+    .tobe-side {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:16px;
+    }
+    .tobe-main h3,
+    .tobe-side h3 { margin:0 0 12px; color:#111827; font-size:var(--fs-body); }
+    .bar {
+      display:grid;
+      gap:8px;
+      margin-top:12px;
+    }
+    .bar-row {
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr) 100px;
+      gap:10px;
+      align-items:center;
+      font-size:var(--fs-body);
+      font-weight:820;
+    }
+    .bar-track { height:14px; border-radius:999px; background:#e8eef7; overflow:hidden; }
+    .bar-fill { height:100%; border-radius:999px; background:var(--blue); }
+    .bar-fill.alt { background:var(--amber); }
+    .bar-fill.green { background:var(--green); }
+    .bar-row span:last-child { text-align:right; color:var(--ink); }
+    .tobe-side ul { display:grid; gap:10px; margin:0; padding-left:20px; }
+    .tobe-side li { color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .backlog {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .task {
+      display:grid;
+      gap:10px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .task-top { display:flex; justify-content:space-between; gap:10px; align-items:center; }
+    .task-top b { color:#111827; font-size:var(--fs-body); font-weight:950; }
+    .priority {
+      border-radius:999px;
+      padding:5px 8px;
+      background:#101522;
+      color:#fff;
+      font-size:11px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .task p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .task footer { border-top:1px solid var(--line); padding-top:10px; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    @media (max-width:1100px) {
+      .signal-grid,
+      .funnel,
+      .role-grid,
+      .core-map,
+      .backlog {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .funnel-step::before, .funnel-step::after { display:none; }
+    }
+    @media (max-width:980px) {
+      .cover,
+      .metric-strip,
+      .pain-grid,
+      .tobe-grid {
+        grid-template-columns:1fr;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .section-head { grid-template-columns:1fr; }
+      .signal-grid,
+      .funnel,
+      .role-grid,
+      .core-map,
+      .backlog {
+        grid-template-columns:1fr;
+      }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      .pain, .bar-row { grid-template-columns:1fr; }
+      .bar-row span:last-child { text-align:left; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">IA analysis readout</div>
+        <h1>IA 분석 기반 통합채널 설계 방향</h1>
+        <p class="lead">최신 T4s IA 엑셀 합본을 기준으로 FO 7,836행과 BO 3,770행을 다시 보면 통합의 핵심은 “모든 기능을 한 곳에 넣기”가 아니라, 주문·고객 Core는 공통화하고 전시·혜택·구독은 채널 특성을 살려 재배치하는 일이다.<br/></p>
+        <div class="chips">
+          <span>FO 원천 7,836행</span>
+          <span>BO 원천 3,770행</span>
+          <span>정제 FO 3,128개</span>
+          <span>정제 Admin 623개</span>
+          <span>ORD·MY Core 공통화</span>
+          <span>DSP 채널 특화</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>IA · Flow · 기능 · 정책</span>
+        </div>
+        <div class="side-body">
+          <strong>Next채널 IA는 물량 축소보다 “원천 데이터 정규화, 공통화 기준, 특화 기준을 분리하는 설계 체계”가 먼저다.</strong>
+          <p>최신 엑셀 기준 IA 합본은 총 11,606행이다.<br/>이 중 FO는 7,836행, BO는 3,770행이며, 정제 분석 기준으로 FO 3,128개와 Admin 623개가 설계 검토 대상으로 압축된다.<br/></p>
+          <div class="metric-strip">
+            <div class="metric"><b>11,606</b><span>최신 엑셀 합본</span></div>
+            <div class="metric"><b>7,836</b><span>FO 원천 행</span></div>
+            <div class="metric"><b>3,770</b><span>BO 원천 행</span></div>
+            <div class="metric"><b>45.09%</b><span>FO 공통화 가능</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. IA 분석에서 바로 보이는 핵심 신호</h2>
+          <p>채널별 기능 비중은 각 채널의 역할 차이를 보여주며, 통합 설계에서 무엇을 공통화하고 무엇을 남겨야 하는지의 근거가 된다.<br/></p>
+        </div>
+        <span class="section-label">Core signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>채널별 역할이 다르다.</h3>
+            <p>T월드는 고객관리, T다이렉트샵은 주문, T멤버십은 혜택 이용, T우주는 구독관리에 기능 비중이 높다.<br/>통합은 역할 삭제가 아니라 역할 재배치다.<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>ORD와 MY는 Core 후보다.</h3>
+            <p>주문·가입·결제와 고객·회원·요금 영역은 유사도가 높고 전 채널 공통성이 크다.<br/>Core 공통 모듈 기준을 먼저 정의해야 한다.<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>주문·가입과 이용안내가 크다.</h3>
+            <p>최신 FO 엑셀에서 주문&가입 계열은 1,155행, 이용안내는 597행으로 확인된다.<br/>콘텐츠 관리와 가입 정보 구조의 중복이 강하게 보인다.<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>전시·혜택은 채널 특화가 강하다.</h3>
+            <p>외부 BP, 혜택 프로그램, 배너, 이벤트, 쿠폰은 T멤버십 중심으로 편중되어 있다.<br/>무조건 공통화보다 특화 기능 분석 후 통합 범위를 정해야 한다.<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>경험 단절이 빈번하다.</h3>
+            <p>채널 간 이동은 아웃링크, 인앱 브라우저, 인증 반복, 입력 반복으로 끊어진다.<br/>통합채널은 이동보다 업무완결 기준으로 IA를 재정렬해야 한다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. 최신 엑셀 기준 IA 물량과 정제 흐름</h2>
+          <p>최신 엑셀은 FO와 BO 합본의 원천 행을 제공하고, 정제 분석은 이 원천에서 중복·분기·관리 제외 대상을 줄여 설계 검토 대상을 만든다.<br/></p>
+        </div>
+        <span class="section-label">Sizing funnel</span>
+      </div>
+      <div class="content">
+        <div class="funnel">
+          <article class="funnel-step">
+            <b>15,130</b>
+            <strong>초기 운영 추정</strong>
+            <p>서비스마다 IA 수집 기준이 달랐고, 메뉴 단위와 콘텐츠 분기성 정보가 섞여 있었다.<br/></p>
+          </article>
+          <article class="funnel-step">
+            <b>11,606</b>
+            <strong>최신 엑셀 합본</strong>
+            <p>FO 7,836행과 BO 3,770행을 합친 최신 원천 기준이다.<br/>이 단계는 아직 중복, 공백, 구현유형 혼재를 포함한다.<br/></p>
+          </article>
+          <article class="funnel-step">
+            <b>3,128</b>
+            <strong>정제 FO IA</strong>
+            <p>총 7,836개 FO 행에서 중복, 케이스 분기, alert성 항목을 제외해 기획·개발 검토 기준으로 좁힌 값이다.<br/>초기 운영 추정 대비 12,002건, 약 79.3%가 축소된 규모다.<br/></p>
+          </article>
+          <article class="funnel-step">
+            <b>623</b>
+            <strong>정제 Admin IA</strong>
+            <p>총 3,770개 BO 행에서 2Depth 이내 기준으로 운영 기능 검토 대상을 산정한 값이다.<br/>채널별로는 T월드 107개, T멤버십 176개, T다이렉트샵 108개, T우주 232개다.<br/></p>
+          </article>
+        </div>
+        <div class="core-map subgrid">
+          <article class="core">
+            <b>New ID</b>
+            <h3>화면 단위 추적 체계</h3>
+            <p>채널코드, 모듈유형, 개발유형, 구현유형, 고유번호를 조합해 New ID 체계를 만들었다.<br/>예: TM-DSP-MAIN-MO-12-PU-001.<br/></p>
+          </article>
+          <article class="core">
+            <b>37종</b>
+            <h3>모듈 타입 코드</h3>
+            <p>화면 구분 코드는 총 37종 모듈 코드로 매핑했다.<br/>DSP-MAIN, ORD-JOIN, MY-GUIDE처럼 전시, 주문, 고객 영역을 구조화했다.<br/></p>
+          </article>
+          <article class="core">
+            <b>DEV</b>
+            <h3>개발 유형 구분</h3>
+            <p>FO는 MO_only, PC_only, MOPC_공통으로 구분하고, Admin은 BO_only, PO_only, BOPO_공통으로 구분했다.<br/></p>
+          </article>
+          <article class="core">
+            <b>UI</b>
+            <h3>구현 유형 구분</h3>
+            <p>PG_Page, BS_Bottom Sheet, TB_Tab, PU/LP Popup, TP_Toast, IB_In-app Browser, Link, App push 등을 구분해 구현 난이도와 추적성을 확보했다.<br/></p>
+          </article>
+        </div>
+        <div class="core-map subgrid">
+          <article class="core">
+            <b>FO</b>
+            <h3>최신 FO 행 분포</h3>
+            <p>T월드 2,926행, T다이렉트샵 2,368행, T멤버십 1,679행, T우주 863행이다.<br/>고객 접점 설계 검토는 T월드와 T다이렉트샵을 우선 축으로 둬야 한다.<br/></p>
+          </article>
+          <article class="core">
+            <b>BO</b>
+            <h3>최신 BO 행 분포</h3>
+            <p>T우주 1,090행, T다이렉트샵 1,059행, T월드 842행, T멤버십 779행이다.<br/>운영 복잡도는 FO 물량과 다른 순서로 나타난다.<br/></p>
+          </article>
+          <article class="core">
+            <b>FO 구현</b>
+            <h3>Page 중심 구조</h3>
+            <p>FO 구현유형은 PG_Page 2,183행, PU_Popup 986행, AIP 734행, Link 556행, Custom Popup 539행 순서다.<br/>Page와 Popup 계열이 설계 표준화의 핵심이다.<br/></p>
+          </article>
+          <article class="core">
+            <b>BO 구현</b>
+            <h3>관리 화면 중심 구조</h3>
+            <p>BO 구현유형은 PG_Page 1,335행, (PG)Page 493행, Layer Popup 470행, Popup 341행, Tab 322행 순서다.<br/>동일 구현유형 표기 정규화가 먼저 필요하다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. 채널별 역할과 IA 포지셔닝</h2>
+          <p>화면 수와 모듈 비중은 각 채널이 실제로 어떤 역할을 수행해왔는지 보여준다.<br/></p>
+        </div>
+        <span class="section-label">Channel role</span>
+      </div>
+      <div class="content">
+        <div class="role-grid">
+          <article class="role-card">
+            <header><span>TW · 고객관리 SuperApp</span><b>T월드</b></header>
+            <ul>
+              <li>FO 원천 2,926행으로 가장 큰 고객 접점 물량을 갖는다.<br/></li>
+              <li>이용안내 211행, 회원 195행, 나의 요금 162행, 데이터 통화 114행, 주문&가입 94행이 상위 영역이다.<br/></li>
+              <li>모듈유형 공백이 1,526행으로 많아 Depth 과다와 회선 중심 구조 개선뿐 아니라 분류 정규화가 필요하다.<br/></li>
+            </ul>
+          </article>
+          <article class="role-card">
+            <header><span>TD · 거래 Core</span><b>T다이렉트샵</b></header>
+            <ul>
+              <li>FO 원천 2,368행으로 거래 Core의 중심 채널이다.<br/></li>
+              <li>주문&가입 987행, 이용안내 331행, 연동&인증 316행, 메인 161행, 상품 목록 124행이 상위 영역이다.<br/></li>
+              <li>계약, 인증, 결제, 배송, 변경이 결합된 Deep Depth 주문 구조다.<br/></li>
+            </ul>
+          </article>
+          <article class="role-card">
+            <header><span>TM · 마케팅/전시 Hub</span><b>T멤버십</b></header>
+            <ul>
+              <li>FO 원천 1,679행으로 혜택·외부 BP 접점이 집중된다.<br/></li>
+              <li>혜택 프로그램 288행, 외부 BP 279행, 통합알림 160행, 멤버십 156행, 전체메뉴 126행이 상위 영역이다.<br/></li>
+              <li>홈 중심 실행 구조지만 iFrame과 외부 BP가 경험 일관성을 낮춘다.<br/></li>
+            </ul>
+          </article>
+          <article class="role-card">
+            <header><span>TU · 경량 관리 채널</span><b>T우주</b></header>
+            <ul>
+              <li>FO 원천 863행으로 구독 관리와 상품 상세가 함께 나타난다.<br/></li>
+              <li>나의 구독 158행, 회원 88행, 상품상세 77행, 담기 60행, 결제 58행이 상위 영역이다.<br/></li>
+              <li>구독 상품 가입·이용 중심이나 상품 나열형 홈과 카테고리 기준 혼선이 크다.<br/></li>
+            </ul>
+          </article>
+        </div>
+        <div class="core-map subgrid">
+          <article class="core">
+            <b>TW BO</b>
+            <h3>상품·전시·공통 설정</h3>
+            <p>상품/그룹관리 287행, 전시/검색/추천관리 201행, 공통/설정관리 120행이 상위 영역이다.<br/>T월드는 운영 기준과 상품 전시 기준을 함께 정리해야 한다.<br/></p>
+          </article>
+          <article class="core">
+            <b>TD BO</b>
+            <h3>전체메뉴·상품상세·주문가입</h3>
+            <p>전체메뉴 306행, 상품상세 274행, 주문&가입 84행이 상위 영역이다.<br/>상품과 주문의 운영 연결 기준을 먼저 잡아야 한다.<br/></p>
+          </article>
+          <article class="core">
+            <b>TM BO</b>
+            <h3>혜택·배너·쿠폰 운영</h3>
+            <p>혜택 프로그램 238행, 전체메뉴 90행, 배너 77행, 쿠폰 60행, 이벤트 57행이 상위 영역이다.<br/>혜택 운영과 전시 운영의 책임을 분리해야 한다.<br/></p>
+          </article>
+          <article class="core">
+            <b>TU BO</b>
+            <h3>회원·전체메뉴·상품상세</h3>
+            <p>회원 113행, 전체메뉴 79행, 상품상세 76행, 포인트&쿠폰 74행, 메인 73행이 상위 영역이다.<br/>구독 관리와 고객 관리의 경계를 명확히 해야 한다.<br/></p>
+          </article>
+        </div>
+        <div class="heatmap-intro">
+          <div>
+            <h3>37개 모듈 × 4개 채널 FO 비중 히트맵</h3>
+            <p>미분류와 비코드성 항목을 제외한 37개 코드형 모듈 기준이다.<br/>각 셀은 채널 내 비중과 행 수를 함께 보여주며, 통합 채널 추정은 공통화 후보는 채널 최대값, 특화 후보는 현행 합산 유지 기준으로 산정했다.<br/></p>
+            <div class="heatmap-summary">
+              <span>현재 분류 대상 합계 6,294행</span>
+              <span>통합 채널 추정 합계 약 4,689행</span>
+              <span>약 1,605행 감소 · 25.5% 축소</span>
+            </div>
+          </div>
+          <div class="heatmap-legend" aria-label="히트맵 범례">
+            <span>낮음</span><i></i><i></i><i></i><span>높음</span>
+          </div>
+        </div>
+        <div class="heatmap-wrap">
+          <table class="heatmap-table">
+            <thead>
+              <tr>
+                <th>모듈</th>
+                <th class="channel-head"><b>T월드</b><span>1,390행</span></th>
+                <th class="channel-head"><b>T다이렉트샵</b><span>2,364행</span></th>
+                <th class="channel-head"><b>T멤버십</b><span>1,679행</span></th>
+                <th class="channel-head"><b>T우주</b><span>861행</span></th>
+                <th class="estimate-head"><b>통합 채널 추정</b><span>성격 · 예상 물량</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th><b>DSP-BEN</b><span>전시-혜택프로그램</span></th><td class="heat-2">1.7%<small>24</small></td><td class="heat-0">-</td><td class="heat-5">17.2%<small>288</small></td><td class="heat-1">0.1%<small>1</small></td><td class="estimate-cell estimate-special"><b>TM 특화 유지</b><span>약 313행</span></td></tr>
+              <tr><th><b>DSP-BNR</b><span>전시-배너</span></th><td class="heat-0">-</td><td class="heat-1">0.1%<small>3</small></td><td class="heat-2">1.3%<small>21</small></td><td class="heat-1">0.5%<small>4</small></td><td class="estimate-cell estimate-select"><b>선택 통합</b><span>약 21행</span></td></tr>
+              <tr><th><b>DSP-BPS</b><span>전시-외부BP</span></th><td class="heat-2">1.7%<small>24</small></td><td class="heat-0">-</td><td class="heat-5">16.6%<small>279</small></td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TM 특화 유지</b><span>약 303행</span></td></tr>
+              <tr><th><b>DSP-CPN</b><span>전시-쿠폰</span></th><td class="heat-1">&lt;0.1%<small>1</small></td><td class="heat-0">-</td><td class="heat-2">2.0%<small>33</small></td><td class="heat-1">0.5%<small>4</small></td><td class="estimate-cell estimate-special"><b>혜택 특화</b><span>약 38행</span></td></tr>
+              <tr><th><b>DSP-EVT</b><span>전시-이벤트</span></th><td class="heat-1">0.8%<small>11</small></td><td class="heat-1">0.5%<small>13</small></td><td class="heat-1">0.9%<small>15</small></td><td class="heat-1">0.6%<small>5</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 15행</span></td></tr>
+              <tr><th><b>DSP-MAIN</b><span>전시-메인</span></th><td class="heat-2">1.0%<small>14</small></td><td class="heat-3">6.8%<small>161</small></td><td class="heat-3">4.3%<small>72</small></td><td class="heat-2">1.2%<small>10</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 161행</span></td></tr>
+              <tr><th><b>DSP-MSN</b><span>전시-미션프로그램</span></th><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-2">1.7%<small>28</small></td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TM 특화 유지</b><span>약 28행</span></td></tr>
+              <tr><th><b>DSP-PRDD</b><span>전시-상품상세</span></th><td class="heat-2">2.3%<small>32</small></td><td class="heat-3">4.5%<small>106</small></td><td class="heat-1">1.0%<small>16</small></td><td class="heat-4">8.9%<small>77</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 106행</span></td></tr>
+              <tr><th><b>DSP-PRDL</b><span>전시-상품목록</span></th><td class="heat-3">3.3%<small>46</small></td><td class="heat-3">5.2%<small>124</small></td><td class="heat-3">3.1%<small>52</small></td><td class="heat-3">5.5%<small>47</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 124행</span></td></tr>
+              <tr><th><b>DSP-RCM</b><span>전시-추천</span></th><td class="heat-2">1.6%<small>22</small></td><td class="heat-1">0.1%<small>3</small></td><td class="heat-0">-</td><td class="heat-2">1.7%<small>15</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 22행</span></td></tr>
+              <tr><th><b>DSP-SCH</b><span>전시-검색</span></th><td class="heat-1">0.8%<small>11</small></td><td class="heat-2">1.1%<small>27</small></td><td class="heat-2">2.2%<small>37</small></td><td class="heat-2">1.0%<small>9</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 37행</span></td></tr>
+              <tr><th><b>ITR</b><span>제휴사연동</span></th><td class="heat-2">1.1%<small>15</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TW 특화 유지</b><span>약 15행</span></td></tr>
+              <tr><th><b>MY-AGR</b><span>고객-통합약관</span></th><td class="heat-1">0.5%<small>7</small></td><td class="heat-0">-</td><td class="heat-3">3.6%<small>60</small></td><td class="heat-3">4.9%<small>42</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 60행</span></td></tr>
+              <tr><th><b>MY-ALM</b><span>고객-통합알림</span></th><td class="heat-2">1.4%<small>19</small></td><td class="heat-0">-</td><td class="heat-4">9.5%<small>160</small></td><td class="heat-1">0.6%<small>5</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 160행</span></td></tr>
+              <tr><th><b>MY-BEN</b><span>고객-나의 혜택</span></th><td class="heat-1">0.6%<small>8</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-1">0.1%<small>1</small></td><td class="estimate-cell estimate-select"><b>선택 통합</b><span>약 8행</span></td></tr>
+              <tr><th><b>MY-CPN</b><span>고객-포인트&쿠폰</span></th><td class="heat-1">0.9%<small>12</small></td><td class="heat-1">&lt;0.1%<small>2</small></td><td class="heat-3">6.4%<small>108</small></td><td class="heat-3">3.3%<small>28</small></td><td class="estimate-cell estimate-special"><b>혜택 특화</b><span>약 150행</span></td></tr>
+              <tr><th><b>MY-CS</b><span>고객-상담&문의</span></th><td class="heat-3">5.5%<small>76</small></td><td class="heat-1">&lt;0.1%<small>1</small></td><td class="heat-2">2.2%<small>37</small></td><td class="heat-3">3.9%<small>34</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 76행</span></td></tr>
+              <tr><th><b>MY-DTC</b><span>고객-데이터 통화</span></th><td class="heat-4">9.1%<small>127</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TW 특화 유지</b><span>약 127행</span></td></tr>
+              <tr><th><b>MY-FEE</b><span>고객-나의 요금</span></th><td class="heat-5">12.9%<small>179</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TW 특화 유지</b><span>약 179행</span></td></tr>
+              <tr><th><b>MY-GUIDE</b><span>고객-이용안내</span></th><td class="heat-5">15.2%<small>211</small></td><td class="heat-5">14.0%<small>331</small></td><td class="heat-2">1.3%<small>21</small></td><td class="heat-3">3.9%<small>34</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 331행</span></td></tr>
+              <tr><th><b>MY-INFO</b><span>고객-나의가입</span></th><td class="heat-2">2.7%<small>38</small></td><td class="heat-0">-</td><td class="heat-1">0.8%<small>14</small></td><td class="heat-0">-</td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 38행</span></td></tr>
+              <tr><th><b>MY-MBR</b><span>고객-회원</span></th><td class="heat-5">14.0%<small>195</small></td><td class="heat-1">0.3%<small>6</small></td><td class="heat-4">7.0%<small>118</small></td><td class="heat-4">10.2%<small>88</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 195행</span></td></tr>
+              <tr><th><b>MY-MBS</b><span>고객-멤버십</span></th><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-4">9.3%<small>156</small></td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TM 특화 유지</b><span>약 156행</span></td></tr>
+              <tr><th><b>MY-MOD</b><span>고객-변경</span></th><td class="heat-3">3.3%<small>46</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TW 특화 유지</b><span>약 46행</span></td></tr>
+              <tr><th><b>MY-OTH</b><span>고객-쇼핑&캘린더</span></th><td class="heat-0">-</td><td class="heat-2">2.4%<small>56</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="estimate-cell estimate-special"><b>TD 특화 유지</b><span>약 56행</span></td></tr>
+              <tr><th><b>MY-SET</b><span>고객-전체메뉴</span></th><td class="heat-1">0.3%<small>4</small></td><td class="heat-3">3.4%<small>81</small></td><td class="heat-4">7.5%<small>126</small></td><td class="heat-2">2.4%<small>21</small></td><td class="estimate-cell estimate-common"><b>공통화</b><span>약 126행</span></td></tr>
+              <tr><th><b>MY-SUB</b><span>고객-나의구독</span></th><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-6">18.4%<small>158</small></td><td class="estimate-cell estimate-special"><b>TU 특화 유지</b><span>약 158행</span></td></tr>
+              <tr><th><b>ORD-AUTH</b><span>주문-연동&인증</span></th><td class="heat-2">2.1%<small>29</small></td><td class="heat-5">13.4%<small>316</small></td><td class="heat-0">-</td><td class="heat-2">2.4%<small>21</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 316행</span></td></tr>
+              <tr><th><b>ORD-CARD</b><span>카드&장바구니</span></th><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-1">0.1%<small>1</small></td><td class="estimate-cell estimate-special"><b>TU 특화 유지</b><span>약 1행</span></td></tr>
+              <tr><th><b>ORD-CART</b><span>주문-담기</span></th><td class="heat-1">&lt;0.1%<small>1</small></td><td class="heat-2">1.7%<small>41</small></td><td class="heat-0">-</td><td class="heat-3">7.0%<small>60</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 60행</span></td></tr>
+              <tr><th><b>ORD-CCL</b><span>주문-해지&환불&취소</span></th><td class="heat-2">1.7%<small>24</small></td><td class="heat-0">-</td><td class="heat-1">0.4%<small>6</small></td><td class="heat-3">3.3%<small>28</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 28행</span></td></tr>
+              <tr><th><b>ORD-CHG</b><span>주문-상품 변경</span></th><td class="heat-3">4.9%<small>68</small></td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-2">2.4%<small>21</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 68행</span></td></tr>
+              <tr><th><b>ORD-DLV</b><span>주문-배송&교환&반품</span></th><td class="heat-0">-</td><td class="heat-2">1.5%<small>36</small></td><td class="heat-1">1.0%<small>16</small></td><td class="heat-3">4.4%<small>38</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 38행</span></td></tr>
+              <tr><th><b>ORD-GFT</b><span>주문-선물</span></th><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-0">-</td><td class="heat-2">2.2%<small>19</small></td><td class="estimate-cell estimate-special"><b>TU 특화 유지</b><span>약 19행</span></td></tr>
+              <tr><th><b>ORD-JOIN</b><span>주문&가입</span></th><td class="heat-4">10.5%<small>146</small></td><td class="heat-6">41.8%<small>987</small></td><td class="heat-0">-</td><td class="heat-2">2.6%<small>22</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 987행</span></td></tr>
+              <tr><th><b>ORD-PAY</b><span>주문-결제</span></th><td class="heat-0">-</td><td class="heat-1">0.2%<small>5</small></td><td class="heat-1">0.7%<small>12</small></td><td class="heat-3">6.7%<small>58</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 58행</span></td></tr>
+              <tr><th><b>ORD-PNT</b><span>주문-포인트</span></th><td class="heat-0">-</td><td class="heat-2">2.7%<small>65</small></td><td class="heat-1">0.2%<small>4</small></td><td class="heat-2">1.2%<small>10</small></td><td class="estimate-cell estimate-core"><b>Core화</b><span>약 65행</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. Core와 Channel 특화 분리</h2>
+          <p>IA 통합의 기준은 채널명을 없애는 것이 아니라, 공통 처리 모듈과 채널 특화 경험을 분리하는 것이다.<br/></p>
+        </div>
+        <span class="section-label">Core vs specialty</span>
+      </div>
+      <div class="content">
+        <div class="core-map">
+          <article class="core">
+            <b>ORD</b>
+            <h3>주문·가입·결제</h3>
+            <p>TD 중심이지만 일부 TW에도 존재한다.<br/>계약, 인증, 결제, 배송, 변경은 Core 공통화 대상이다.<br/></p>
+          </article>
+          <article class="core">
+            <b>MY</b>
+            <h3>고객·회원·요금</h3>
+            <p>전 채널 공통성이 매우 높다.<br/>회원, 내정보, 요금, 상담, 약관은 고객 Core 구조로 재정리해야 한다.<br/></p>
+          </article>
+          <article class="core">
+            <b>DSP</b>
+            <h3>전시·혜택·프로모션</h3>
+            <p>TM 중심으로 특화성이 높다.<br/>배너, 이벤트, 쿠폰, 외부 BP는 특화 기능 분석 후 공통화 범위를 정한다.<br/></p>
+          </article>
+          <article class="core">
+            <b>SUB</b>
+            <h3>구독</h3>
+            <p>TU 중심의 낮은 중복 영역이다.<br/>전체 통합보다 선택적 통합과 관리 경험 흡수 기준이 필요하다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. 채널별 Pain Point와 공통 구조 이슈</h2>
+          <p>정량 비중과 실제 서비스 체험을 합치면 채널별 문제와 여러 채널에 반복되는 구조 문제가 분리되어 보인다.<br/></p>
+        </div>
+        <span class="section-label">Pain point</span>
+      </div>
+      <div class="content">
+        <div class="pain-grid">
+          <article class="pain">
+            <b>T월드</b>
+            <p>IA Depth 과다, 메뉴 구조 복잡, 비표준 UX/UI, 회선 중심 정보 제공으로 통합적 사용자 경험이 저해된다.<br/>추천 구조가 분리되어 경험이 단절되고, 설정 경로와 액션도 비표준화되어 있다.<br/></p>
+          </article>
+          <article class="pain">
+            <b>T다이렉트샵</b>
+            <p>앱과 웹의 주문·입력 방식이 다르고, 상품·고객 유형별 인증 방식과 UX 방식이 다르다.<br/>고객정보 반복 입력, 가입정보 반복 입력, 가입 단계 과다, 가격 정보 후반 노출이 피로를 만든다.<br/></p>
+          </article>
+          <article class="pain">
+            <b>T멤버십</b>
+            <p>다수 혜택 브랜드가 일괄 노출되고, 지금 가능한 혜택과 예정 혜택을 직관적으로 구분하기 어렵다.<br/>iFrame 서비스 UX 일관성, VIP PICK 선택 유도, Engagement 프로그램 MAU 저조, 미션 프로그램 참여 유입 개선이 필요하다.<br/></p>
+          </article>
+          <article class="pain">
+            <b>T우주</b>
+            <p>다수 구독 상품이 한 번에 노출되고 카테고리 분류 기준이 직관적이지 않다.<br/>추천 구조가 미흡하고 상품 간 비교가 어려워 탐색 부담이 커진다.<br/></p>
+          </article>
+        </div>
+        <div class="core-map subgrid">
+          <article class="core">
+            <b>공통 이슈</b>
+            <h3>이용안내 누적</h3>
+            <p>최신 FO 엑셀 기준 이용안내는 597행이며, T다이렉트샵 331행과 T월드 211행에 집중된다.<br/>콘텐츠 관리 기준과 공통화 기준이 없어 안내가 메뉴와 화면으로 누적된다.<br/></p>
+          </article>
+          <article class="core">
+            <b>공통 이슈</b>
+            <h3>주문·가입 복잡도</h3>
+            <p>최신 FO 엑셀 기준 주문&가입 계열은 1,155행이며 T다이렉트샵에 987행이 집중된다.<br/>상품 수, 상품 종류, 가입 제공 경로, 옵션, 누적 이력이 결합되어 구조가 복잡해졌다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. To-Be IA 물량과 설계 로직</h2>
+          <p>공통화 가능 영역은 4개 채널 중 최대값 기준으로, 채널 특화 영역은 채널 합산 기준으로 산정했다.<br/></p>
+        </div>
+        <span class="section-label">To-Be sizing</span>
+      </div>
+      <div class="content">
+        <div class="tobe-grid">
+          <article class="tobe-main">
+            <h3>To-Be 예상 총 물량</h3>
+            <div class="bar">
+              <div class="bar-row">
+                <span>전체</span>
+                <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+                <span>3,342건</span>
+              </div>
+              <div class="bar-row">
+                <span>FO</span>
+                <div class="bar-track"><div class="bar-fill green" style="width:81.36%"></div></div>
+                <span>2,719건</span>
+              </div>
+              <div class="bar-row">
+                <span>BO/Admin</span>
+                <div class="bar-track"><div class="bar-fill alt" style="width:18.64%"></div></div>
+                <span>623건</span>
+              </div>
+            </div>
+          </article>
+          <article class="tobe-side">
+            <h3>FO 2,719건 분해</h3>
+            <ul>
+              <li>유사성이 높은 공통화 가능 페이지는 1,226건, 45.09%다.<br/></li>
+              <li>채널별 특화성이 높아 합산해야 하는 페이지는 1,493건, 54.91%다.<br/></li>
+              <li>BO 영역은 BSS와 채널 간 R&R 협의 후 공통화·채널합산 기준을 조정해야 한다.<br/></li>
+              <li>물량은 축소 목표가 아니라 모듈 설계, 운영 책임, 정책서 범위를 나누는 기준으로 써야 한다.<br/></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>7. 요구사항·정책서 전환 백로그</h2>
+          <p>IA 분석 결과는 후속 요구사항과 정책서에서 아래 판단 기준으로 구체화해야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy backlog</span>
+      </div>
+      <div class="content">
+        <div class="backlog">
+          <article class="task">
+            <div class="task-top"><b>주문 Core 구조</b><span class="priority">P1</span></div>
+            <p>가입·계약 프로세스를 쇼핑몰형 구매 흐름으로 단순화하고, 고객·상품 유형별 주문 방식을 모듈화한다.<br/></p>
+            <footer>산출물: 주문·계약·가입 정책</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>고객 Core 구조</b><span class="priority">P1</span></div>
+            <p>회선 중심 회원 구조를 CI 기반 통합 구조로 바꾸고, My 진입 구조, 요금, 가입, 약관, 알림, 상담을 공통화한다.<br/></p>
+            <footer>산출물: 회원·고객관리 정책</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>전시·혜택 구조</b><span class="priority">P1</span></div>
+            <p>상품 나열형 홈을 선택 지원형 탐색 구조로 바꾸고, 지금 가능한 혜택과 예정 혜택을 구조적으로 분리한다.<br/></p>
+            <footer>산출물: 전시·혜택·추천 정책</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>이용안내 구조</b><span class="priority">P1</span></div>
+            <p>이용안내 IA를 정리하고, 검색 기반 고객지원과 AI 답변 가능 항목을 콘텐츠 관리 체계와 연결한다.<br/></p>
+            <footer>산출물: 고객지원·콘텐츠 정책</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>Flow map·기능목록</b><span class="priority">P2</span></div>
+            <p>FO 화면의 item과 action을 추출해 조회, 검색, 선택, 입력, 등록, 변경, 적용, 요청, 확인, 취소, 삭제 단위로 기능을 재정리한다.<br/>Flow map은 MO와 PC only 화면을 대상으로 이어서 검증한다.<br/></p>
+            <footer>산출물: 기능 목록 · 화면 흐름</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>Fade out 검토</b><span class="priority">P2</span></div>
+            <p>핵심·필수·기본 기능을 제외한 기능은 사용량과 업무 유형 기준으로 P1~P9 우선순위를 부여해 fade out 여부를 판단한다.<br/></p>
+            <footer>산출물: 기능 유지·축소 기준</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>채널 메가프로세스</b><span class="priority">P2</span></div>
+            <p>BSS의 대고객 IA와 채널 개발팀 메가프로세스를 검토하고, 채널 관점의 action 그룹과 item을 선정한다.<br/></p>
+            <footer>산출물: 메가프로세스 · 업무 그룹</footer>
+          </article>
+          <article class="task">
+            <div class="task-top"><b>As-Is 채널 정책서</b><span class="priority">P2</span></div>
+            <p>Next 채널 기획에 필요한 모듈 code 단위로 As-Is 채널 정책서를 수집하고, 검토 대상 범위는 정책서로 업데이트한다.<br/></p>
+            <footer>산출물: As-Is 정책서 · 모듈 근거</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

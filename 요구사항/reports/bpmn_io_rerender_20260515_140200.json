@@ -1,0 +1,1144 @@
+{
+  "generated_at": "2026-05-15T14:01:55",
+  "dry_run": false,
+  "target_count": 71,
+  "updated": [
+    {
+      "html": "output/NC_AI검색_정책서_간소화_v0.10.html",
+      "spec": "output/NC_AI검색_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_AI검색_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_AI검색_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "ab344c523e25bd1e8236af767ebb3080dd3de113993c54e54495acc1a79b3263",
+        "spec": "5976b2b55f9214d1d49633fd521789860e8550e16147a3930fd3e3ee6f075325"
+      },
+      "after": {
+        "html": "c4f8679a7709e00d7427cffe9e6ebd379c4078a5edf56dc3fc764c522bda45bd",
+        "spec": "c16d44d37e566db2a84d53b3d01e6c6f020dcf06c88adf5cc0a3765574a90071"
+      }
+    },
+    {
+      "html": "output/NC_AI검색_정책서_간소화_v0.11.html",
+      "spec": "output/NC_AI검색_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_AI검색_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_AI검색_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "2250b6b30717dee682309b185ebf27e3a11f4fa8f37bcfdbb71b8ac64810ab34",
+        "spec": "b23e5ebd2794dbaf7b205fafd798eac46f996b33c590910943a8a849351a1224"
+      },
+      "after": {
+        "html": "6a5e0621183d03decd5436e83930631717a985c3bf89f51829c0b204cc9dbb63",
+        "spec": "5432fd58680708402b2d0dbe3a6d6eac77dd6b6d3234b3ae1723cc303e983324"
+      }
+    },
+    {
+      "html": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html",
+      "spec": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "74b4c764e3feca306c2375f76fdd109fd3248d0f32fa489f0722e64e928737a9",
+        "spec": "5ecdcd602eae42bf4d979a144b99a152b34c058f0ad36ab16693c9aefeb9c45a"
+      },
+      "after": {
+        "html": "604a14b7b45cc63ce7b720a527557f0f78cb10ac2d49398733e00612da56c6d2",
+        "spec": "408b0a8d591d454cd3546f359a48bae4aec72df2244dd100384ac37596f6f9c6"
+      }
+    },
+    {
+      "html": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.11.html",
+      "spec": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_가이드라인공통품질적응형_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "512093081e2ab0849069c6c3fc2d50c1a676edeb1fa61e48649763ce16f11f23",
+        "spec": "cde43f4eba08f1ca787602e3b80579ce6315e046b460272d688235ceb33a0ba4"
+      },
+      "after": {
+        "html": "2804986c724fb8262f90b812f2f0e255e2252386f58a5bdfb60e9a45c5a6ffa5",
+        "spec": "9e81978b1126aae997c68243737ca0ebfffba2d27521b987e6377a3b2366df14"
+      }
+    },
+    {
+      "html": "output/NC_결제_정책서_간소화_v0.10.html",
+      "spec": "output/NC_결제_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_결제_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_결제_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "c58d23ad97b69f088469b57621d412fa756bb2c56a6f453eb5969d16f5b2d6e9",
+        "spec": "7c48da41e43e75a757566b2cb6e4d14089ff0bbf236fe8d8adaac878777ba9fc"
+      },
+      "after": {
+        "html": "7ae1c674113abc4a78ce5c53493c940059696394e0abe570b7034c15242dd13d",
+        "spec": "92913592e86c244ff4a546436691b3bd36a74700752e5be397a32af45dda71e3"
+      }
+    },
+    {
+      "html": "output/NC_결제_정책서_간소화_v0.11.html",
+      "spec": "output/NC_결제_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_결제_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_결제_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "5cb9ffe8bc3769278bd224b837139d5326dbb1ef511f371fce78eb5219ebecb0",
+        "spec": "e99d701e24caaa7ed29f4789d00a319dcdd9ea0e1c86383a0b9eb13d6d4ce70a"
+      },
+      "after": {
+        "html": "bf72431fe63161bc40bf5644ae01313a13a5c26775482e25e96fa13c6bd790c2",
+        "spec": "5d76b09cb3f9c1694c81a36478a1d0efc2ea780acd4dd53cf2e3db79405166b5"
+      }
+    },
+    {
+      "html": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html",
+      "spec": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "a71610be5f9c43a6a4b504da6dace46e9e75e5e1c6c6427709cd04c593643a29",
+        "spec": "93581237ccd341e776d74be44e984919a158c95c7b15618bb57f78cfc0c1af92"
+      },
+      "after": {
+        "html": "9622213795e5ecd6b93ada1838bc2893ac4a6ee3b076053240c83241f88867cf",
+        "spec": "b31deae4bffc32f3a803ca4d52fffe45d505cf5fedd175ad41f080484835710a"
+      }
+    },
+    {
+      "html": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11.html",
+      "spec": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "0fc32f112d6a4b843751d797927bb5af78bf3d6e536de1f8dc68414dcf5caa12",
+        "spec": "65a2a7f4f48fb7490e99f5cbdb7e00093e11fa12d6e15a8ed4ee6136f3e3f049"
+      },
+      "after": {
+        "html": "ce3c7206b8bcd00592c1567063dabcf928161e78346a6037e6c68a3b77b75ce6",
+        "spec": "8d8bd9d7dab6408c7fd5bdcc423440a51d7df025172234f86c5ec21a845c97bf"
+      }
+    },
+    {
+      "html": "output/NC_고객센터_매장안내_정책서_간소화_v0.10.html",
+      "spec": "output/NC_고객센터_매장안내_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_고객센터_매장안내_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_고객센터_매장안내_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "fa08599ba48876efde405e4a54215c5af533ceeb310d1603bafc9413fee136b0",
+        "spec": "24446e31dbb45550ac656ea15ca135149b8165fcbb6159c2a9ae2b668bf0fddf"
+      },
+      "after": {
+        "html": "41249f645573d4a8d4e261532de97cacc9eee646a18de6d7c77b1c127d1af2df",
+        "spec": "055f498b06b6e2153c6af723949d43e3a323fe1209b83812d1d5a860b32af33b"
+      }
+    },
+    {
+      "html": "output/NC_고객센터_매장안내_정책서_간소화_v0.11.html",
+      "spec": "output/NC_고객센터_매장안내_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_고객센터_매장안내_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_고객센터_매장안내_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "3d4f1bdbfddeaf4483466ba51607528475afe92a292408291336883134d5595b",
+        "spec": "99020d724a422ab30b8a8c36cfb12fea40f7c121b68b8b11e7e01693be705250"
+      },
+      "after": {
+        "html": "a4c5c01fa3839c17f470d5ccfb11a946f4313f8ccc8df1aa59531edeb0de0a71",
+        "spec": "21746bae61646eb1ae4f58840db028a4b4480177f85b7f6184d0fc940feff93e"
+      }
+    },
+    {
+      "html": "output/NC_고객센터_통합허브_정책서_간소화_v0.10.html",
+      "spec": "output/NC_고객센터_통합허브_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_고객센터_통합허브_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_고객센터_통합허브_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "8c6d0176248a7634315f175fa7be106ce88693237d079e4900846365ac5bc3c9",
+        "spec": "92213eda5331a592779df362a1fe5caf1acce024f8615014060e3d595f952668"
+      },
+      "after": {
+        "html": "24a36ef0f9fb5020d4dfca04b79f93e734a9a70f9ee1caab87650bae56948359",
+        "spec": "8d31ee76be7390bfe27d43f854bfc44331a014b354c6d607894714987da427a6"
+      }
+    },
+    {
+      "html": "output/NC_고객센터_통합허브_정책서_간소화_v0.11.html",
+      "spec": "output/NC_고객센터_통합허브_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_고객센터_통합허브_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_고객센터_통합허브_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "4c8cbbfd9be3ef86e83cc8f24b58d7b070e9dfb60bd05531a841712880a89f81",
+        "spec": "9e78676f1dbd8c43bf183fc8924c27f1dc1883c3b33f73f3bd58a1e98e9f191b"
+      },
+      "after": {
+        "html": "87f89759a4fc506b0ef74481db7722e0c681254de6917af08a75157baf7854ca",
+        "spec": "b1e1e3f443ebe2d36a2893d3ec0fdb764fec273cc845eb938c50afe8753f5e6f"
+      }
+    },
+    {
+      "html": "output/NC_나의가입정보_정책서_간소화_v0.10.html",
+      "spec": "output/NC_나의가입정보_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_나의가입정보_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_나의가입정보_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "d2bce12a977548a1b8655a38ac2ecaf5add3286c2df02acefedff239b8658714",
+        "spec": "2a67027084269cdca1df88623a5554f19153534493ed7de767f8fe7d1d3f0d0d"
+      },
+      "after": {
+        "html": "92fee1f52f39b5a1e9a2a644e8b2660da5df7b2054a91c45acd82dcc47d871de",
+        "spec": "0ae24f3dd3a9edd99788960956b5cf34c1f4818dc4d80e3ae3f53ab6ea5f085e"
+      }
+    },
+    {
+      "html": "output/NC_나의가입정보_정책서_간소화_v0.11.html",
+      "spec": "output/NC_나의가입정보_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_나의가입정보_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_나의가입정보_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "32f54c65e142d48be50523f54654469363eaffed45396653d346c5a42dfcc054",
+        "spec": "c3009431bc59db5c1b0d0dfe5d04dc206291f948977a8363f94360870eeda769"
+      },
+      "after": {
+        "html": "cb29115b12bca1c7613938c65f446b875f9b13ea1001fb4433013d19a00dad8e",
+        "spec": "18109f41942238359b5b182a22a470b46cb32ad876be11a4d02ee23216440f7a"
+      }
+    },
+    {
+      "html": "output/NC_나의데이터통화_정책서_간소화_v0.10.html",
+      "spec": "output/NC_나의데이터통화_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_나의데이터통화_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_나의데이터통화_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "0a7126cf6e7e19eedc26e70fff87f39d1ae2d671dfd4d8c70be1125b85f27d8a",
+        "spec": "d51fc136b4cd829c88ab96f1807a7bb3def46b58a8eb9a03525d43c6391c9f4b"
+      },
+      "after": {
+        "html": "0fdd5e34b1894e83d457fd3cb373a9473a24c749621f962e8c4613950c3160a8",
+        "spec": "b561c224668a784df3d70458e9af96f11a964ffdc4c86a49036f03262e025337"
+      }
+    },
+    {
+      "html": "output/NC_나의데이터통화_정책서_간소화_v0.11.html",
+      "spec": "output/NC_나의데이터통화_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_나의데이터통화_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_나의데이터통화_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "f25a08a2f9cd291ecefff7ece6cce473f93186ee1f362766958e9ad411040995",
+        "spec": "ef8be6c448fac76883ecb090f28f3692426c3d5ede33f32c14513d294519ef99"
+      },
+      "after": {
+        "html": "69eb51126955de2eb08e06569bab6297bbae7a1f05ad189d27effb8dc7aae6bd",
+        "spec": "2422a6b514bdee3753aa4fede842b9f1464fc7083389b89ac578ad26dadd6a54"
+      }
+    },
+    {
+      "html": "output/NC_데이터트래킹체계_정책서_간소화_v0.10.html",
+      "spec": "output/NC_데이터트래킹체계_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_데이터트래킹체계_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_데이터트래킹체계_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "98640504cfedc39e91a6167f704959b0051789ca2133fdfd616d98f24a90515f",
+        "spec": "ad75ac7095c83be673abdb7c18ac599c7c43b3ad324a39af78da67101a609c7f"
+      },
+      "after": {
+        "html": "1c35e2636452bd395ad4028a6ba148099e2db25566fa6467289e11cdab705f65",
+        "spec": "f05cd4478bf6b7e1f8d9c3b0730febf83b50ec64508e8df42d1a936c8970e731"
+      }
+    },
+    {
+      "html": "output/NC_데이터트래킹체계_정책서_간소화_v0.11.html",
+      "spec": "output/NC_데이터트래킹체계_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_데이터트래킹체계_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_데이터트래킹체계_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "d2ccf5e6b2e06a9ec58bc8882b55d819945e2aadb46ab670d0f02e753a6728f7",
+        "spec": "66fa52b219520d5b565c98ce585f99cba99b0ccffffb3a76d3fe96dbfc11e764"
+      },
+      "after": {
+        "html": "85b59a1df1a39b7050ca762af8e55c60b52044b068616888faacb45a01100be1",
+        "spec": "0aee76a7a7dbe26bcfa0fca6e3639fdbf7e8683a3b16d213698d3cdf1c6597d4"
+      }
+    },
+    {
+      "html": "output/NC_멤버십카드관리_정책서_간소화_v0.10.html",
+      "spec": "output/NC_멤버십카드관리_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_멤버십카드관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_멤버십카드관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "04ba1db04f4c3e24b3cf0f29f1222eefaeb3dafa5d72a6b2460a624324e2a3eb",
+        "spec": "48f3265e0e59d1d0ce18722889cb49b906d98b91caf37ad5a142ca74cdce33ca"
+      },
+      "after": {
+        "html": "2f2f3c2f9ac216c9eb267bfe8fd2a75c8c878728466c04b5662750227fc54619",
+        "spec": "e1b884bc0bd0266a237eab2ccc427070401f6a7c7fd05aabbdea807c6e579781"
+      }
+    },
+    {
+      "html": "output/NC_멤버십카드관리_정책서_간소화_v0.11.html",
+      "spec": "output/NC_멤버십카드관리_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_멤버십카드관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_멤버십카드관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "90de85710a4e0ec86a4bfe8f07a85e9e62294819dafac892b0257a1962742873",
+        "spec": "5e661da0acea9987ccf82a9f5718224de6b605267bdda45f52c9754b678dc96a"
+      },
+      "after": {
+        "html": "42b120f56057110832451059c4977da1b5ca46754756b4eef14faa167e77184c",
+        "spec": "9447cc160571a401242791ccda417a2bfdee93dfc38ea732907144289f2c9215"
+      }
+    },
+    {
+      "html": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html",
+      "spec": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "2915083604418e101e101aceb1bbc95be395277c11f3ceef7199895eb4d1c355",
+        "spec": "7d5265fe64016e4fc30af9b6b92d9324258bb6197c32f78b91bd2c9d3bbfde53"
+      },
+      "after": {
+        "html": "00aa1526cc3a5203b8194e8546dfb9cafcd9298b136444666fb2a35a1cdde555",
+        "spec": "e1e37c04f598a15edca3e37a6c3bec59c8e1234b87166e7de1a9ca26acf9161b"
+      }
+    },
+    {
+      "html": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11.html",
+      "spec": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "afe97eacbe0e59fdf161e3c00206ee06b1231f9a39ee7fc068ba9b966163744a",
+        "spec": "452ca53340b79d1d4d186df8016e71d034f5e6f9a9af3d079c8e91b4948c9b96"
+      },
+      "after": {
+        "html": "d1b90aa63aa33399e554ddd187dbe62878799fb6e98ddfde181632ae6af6b704",
+        "spec": "7593f2f02173a51a9d931dfd64869c3199f0a7b6f951cb3405ef781d897524f2"
+      }
+    },
+    {
+      "html": "output/NC_상품목록_정책서_간소화_v0.10.html",
+      "spec": "output/NC_상품목록_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_상품목록_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품목록_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "40e3005d6451a82d7097045747d4e37a835aecf5a38dd8338a14e7a734029173",
+        "spec": "089dd81b40c01256e94a43127ac8ad342f451ff33fbbb09e68adf9684d180bf1"
+      },
+      "after": {
+        "html": "23264e241e7844857836a4262d22b7849456f615d34953e4c80662a133d62153",
+        "spec": "0b038f6fd265fbb1d39ce57ce7a9871b5383120762aa740d2ca1aaafb70987fe"
+      }
+    },
+    {
+      "html": "output/NC_상품목록_정책서_간소화_v0.11.html",
+      "spec": "output/NC_상품목록_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_상품목록_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품목록_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "130786a3e99ab8a2e17dcb2097f0a23626159501a888974fb774750cbae16a9f",
+        "spec": "1b711590f1fb4bdb415460557464fefb397bcff1f134c4288c57949e6b6caf90"
+      },
+      "after": {
+        "html": "34ab21100eb9400053f9471b4bf41da69d963c7428ebefeee35542c68ce33942",
+        "spec": "04c6db6cbe7380c8325ca96610873f7a559b07397e2fda568715b6e92b98dd36"
+      }
+    },
+    {
+      "html": "output/NC_상품변경_정책서_간소화_v0.10.html",
+      "spec": "output/NC_상품변경_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_상품변경_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품변경_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "6f7f7624d7e33b7a5bf84202237ec437dbac039d6e459755f12cba63f9022eab",
+        "spec": "bce348719005dde99cf08aa49a9d4570deba95ffdcb1e2d692c9cd122350bac8"
+      },
+      "after": {
+        "html": "a48e20173ce788c781f82e089eeecbbf78724e77f6896c551a81b9f1b5f1c7de",
+        "spec": "e8e51af7f8feb429e8b224a833835bac0a0eed3b4a6649236f6de8d63d4c4a0f"
+      }
+    },
+    {
+      "html": "output/NC_상품변경_정책서_간소화_v0.11.html",
+      "spec": "output/NC_상품변경_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_상품변경_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품변경_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "4c49d754d3d6de2cd983ef63231791ab06ad0cd81aca8d7a1a6f68d0d49c304c",
+        "spec": "8bb0ceb121e7c52ae92d180481b72be4f56087a9ca711c71f29f46241b748708"
+      },
+      "after": {
+        "html": "6590010a4ecbc7586025696f51861bf1a9f0f1ffb06c96d86aed85a5ba2b5228",
+        "spec": "d622e276b1234272f93961c26f6bbe20ff3d43329e0e537d2796ebf917c2547c"
+      }
+    },
+    {
+      "html": "output/NC_상품상세담기_정책서_간소화_v0.10.html",
+      "spec": "output/NC_상품상세담기_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_상품상세담기_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품상세담기_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "84cec67e712bf876db360f95d757181bd153d954333def10ebe968cefa50f8a7",
+        "spec": "c7bd32a8fe38e67ae7eb40609377c3a8caa479859dbfa41648564996c0acf235"
+      },
+      "after": {
+        "html": "14e12c711932d0dfe08becb9b9050f7c49232a6655547ea6ae5d3de63a6316c0",
+        "spec": "d8e74647994857b2e30c02215c43f471ffd15cbdd5fa3573d67e91e4865cf1ba"
+      }
+    },
+    {
+      "html": "output/NC_상품상세담기_정책서_간소화_v0.11.html",
+      "spec": "output/NC_상품상세담기_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_상품상세담기_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품상세담기_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "fcefc4052dc2b41e0d34ee43a9a3a799411181943b17be5cc33c8b39fa5619bf",
+        "spec": "90986c5fd7d4472f93371719becb7fd3a969370089298c0c9315ea5fcc0889d8"
+      },
+      "after": {
+        "html": "fa9675134e2ed84add6472e919c85232ef75d260679620c86025bce13abb8f59",
+        "spec": "f8864b9f8f452fa678674fa02270b2ea3b62da3780c8a215281bc4239cfce2d7"
+      }
+    },
+    {
+      "html": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html",
+      "spec": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "d8667b39dbc5d5682741c6f8a55a6c6264b8224c7910e5dfc7053b326afacbce",
+        "spec": "376f9a646b9d533a07df7f2fc0f81ee84e16f65b3a5470c434b8aa4369aabbac"
+      },
+      "after": {
+        "html": "8010a9e45f156ef465cf3c583c8ddd46ff9af6a60d7aa84d33d53bf065b037e9",
+        "spec": "e434493756047a062a0eadf545e2b0f910c81a9753659ec1cd4e59bacdc8b9f5"
+      }
+    },
+    {
+      "html": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.11.html",
+      "spec": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_상품서비스혜택이용공유_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "ea3f1cecff96f4cd6462e47b9643de5fe3ffa823dfec43e630bed13d952d3f3a",
+        "spec": "6acfa0a909dc761ac10ca421a0b89970183f2aeed77830f301d8bcd49750a70b"
+      },
+      "after": {
+        "html": "90d4f134095361a8e1d8233033244ff3910be61da0e5cff53e1944a5908736aa",
+        "spec": "021a36c50bf528e4113880ec11b8b9c6b78c7060ffebeab36f6595622bf909d8"
+      }
+    },
+    {
+      "html": "output/NC_선물주문_정책서_간소화_v0.10.html",
+      "spec": "output/NC_선물주문_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_선물주문_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_선물주문_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "c4368912c3547854d17589a19181c52c889c2456a0e179ec9efdb28cb7efdcc0",
+        "spec": "2ed28798576cbcb49311de6477915f23f29d7367b9e53dc9735c7fed015bdc3b"
+      },
+      "after": {
+        "html": "dedbacb96c97f574f6592dbcbbab2528884eb98d31664c512e0c403a7e99a3e6",
+        "spec": "3468dd92377acc14b720942ca93a12f031ece255d12d17345047f08a96aea00d"
+      }
+    },
+    {
+      "html": "output/NC_선물주문_정책서_간소화_v0.11.html",
+      "spec": "output/NC_선물주문_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_선물주문_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_선물주문_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "f9d4e7e2b43c14ce869b3c7e030be02003ab38594f43f1b0bccabcbd317b60df",
+        "spec": "25034d973db86f5a2d3e6a63002cc47753e142ccbe86b9d0712d0391c93892de"
+      },
+      "after": {
+        "html": "273c0708e3affc252a8f1bd20cbd815e61afc042b2b52972e696c10f3c354d75",
+        "spec": "a99c87aec4375e925f7f62096e748a8eb350d16f44d6e0557de7e429ad95f582"
+      }
+    },
+    {
+      "html": "output/NC_설정_정책서_간소화_v0.10.html",
+      "spec": "output/NC_설정_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_설정_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_설정_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "e4d7dd4a7f23ea4be3b0e4026c8f4dddd231726f2d7ca3e7c3412263fc70dcd5",
+        "spec": "ebc61b1385d893bcc40b5a20dd0faf8281fbc2a5d421915348bbe6ffb1c50a85"
+      },
+      "after": {
+        "html": "73afc322f6bffae14776f5bd0c9361dcdbd420931f32d8c4d6a2a2fba9b35447",
+        "spec": "b4aed6ed5ee47c52c7e377cca927b9ac3818e7dc0289a59664379bdc9971fb40"
+      }
+    },
+    {
+      "html": "output/NC_설정_정책서_간소화_v0.11.html",
+      "spec": "output/NC_설정_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_설정_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_설정_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "20673f7c3257be8ff30bcb8f860f7b8c466b89d0d7eb16f8a4d07f4786bb2957",
+        "spec": "e68c1bb9396dcf54af4ab3e03119043baea535aeed32eaeb9d2fe4aa84c9bedf"
+      },
+      "after": {
+        "html": "b6257b41b0cb2c244f5f26143b4ba61451ff9d4c56cb1414b8e30dd36ac40066",
+        "spec": "3473b8e8254b1762f12ee5e039970d61098501e7ed8eb3ea47b5781c0cbbbf72"
+      }
+    },
+    {
+      "html": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.10.html",
+      "spec": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "89ce90f7effc72e94074a9d79d8ecf8d4551de707fa368ba9800a3c8b13a394e",
+        "spec": "4784b08855a66115f7bf5fcb17c9a71073183d1f34c8d38d35b67c6e5fbd5e26"
+      },
+      "after": {
+        "html": "df0fb291c4fa56298b7b83a7d1972641a458f4c616304bf842224d27a752b295",
+        "spec": "6a976fe80f7dc3626746a329f2bdd97f6435b0fbaee3590c850d4913af1501f6"
+      }
+    },
+    {
+      "html": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.11.html",
+      "spec": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_외부BP서비스관리체계_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "b77cc6ae990b060808e3c0799a2991645f408c09af067177511d8769b0dea88f",
+        "spec": "9a32a8f294d88a9b4a329ea01631e52eaab50a39840ac09875908af35deecd55"
+      },
+      "after": {
+        "html": "96d4ad3638c62ea224a3d8157d4c09e4cf42ea64382c08761713e8f5b61251f4",
+        "spec": "03b497e4cc63858cab01562e433aae8447055e64644da076d3ed058051e9a111"
+      }
+    },
+    {
+      "html": "output/NC_외부쿠폰_정책서_간소화_v0.10.html",
+      "spec": "output/NC_외부쿠폰_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_외부쿠폰_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_외부쿠폰_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "a46bd1b49a0b4a3e59bc8e605723584fdd41a2886333540eba0ebda2763c2dc7",
+        "spec": "f65dc5dde662aacf7d49df3738a9cdd314d8d0be68a982d49c462a3834ee661a"
+      },
+      "after": {
+        "html": "548d31bcbab5e1eae42348d21880374d5c4dc1bd432042d5c19e1b865a0b579c",
+        "spec": "eadada4bda0a317ae2d011a25520246e9452b17c88336714c2d4168d36a86034"
+      }
+    },
+    {
+      "html": "output/NC_외부쿠폰_정책서_간소화_v0.11.html",
+      "spec": "output/NC_외부쿠폰_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_외부쿠폰_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_외부쿠폰_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "34d6785c99d334a817f1f943c78f3629c680c75a844030ccafcd4138e78e1616",
+        "spec": "d5df83be8d3bffac0c0d838d63420c8252981765048e661e58f31d8b4e85d6a3"
+      },
+      "after": {
+        "html": "e76005da96d83ef5f5e12a0425372e6334f53d5c3ff3ae832a87738e0141814d",
+        "spec": "6d481dfabab644a7d15ec071a6d9aae6416a0226a5487e028d7f494d3d9eb591"
+      }
+    },
+    {
+      "html": "output/NC_이벤트미션프로그램_정책서_간소화_v0.10.html",
+      "spec": "output/NC_이벤트미션프로그램_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_이벤트미션프로그램_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_이벤트미션프로그램_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "2194dcb23b62445faffd5057bb1ec20fc32080ec665ce6684dba94057d1833e8",
+        "spec": "fa8847926207ffd512bd133f27ae39c3174ae3a03981091ab948dc3c428251e5"
+      },
+      "after": {
+        "html": "451bb0fdd44fa856809d456d677e97825316a7a73703f96bda76b2cac23dfff6",
+        "spec": "2b641e8234d8cce7b922394cf2c9c4cf9067daacbc29c81b898954e126e03f2c"
+      }
+    },
+    {
+      "html": "output/NC_이벤트미션프로그램_정책서_간소화_v0.11.html",
+      "spec": "output/NC_이벤트미션프로그램_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_이벤트미션프로그램_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_이벤트미션프로그램_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "25f412f0e9fef2acf532666a986a40160f45f39d9a5e200d3861f5683549872b",
+        "spec": "e3ee571b4a75f8e360652a4846687ca29e369114e455a78a5058b781966277ca"
+      },
+      "after": {
+        "html": "4fbcbe79b6d380977bd0bc2e6276fa0f0a9b9b96fada8f1a9aec60e9bbe75b94",
+        "spec": "34c1401e957ff6f21a3a990ce930cdcba9d9ae79661dc8fdc8b22dc1c0257663"
+      }
+    },
+    {
+      "html": "output/NC_전시관리기능_정책서_간소화_v0.10.html",
+      "spec": "output/NC_전시관리기능_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_전시관리기능_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_전시관리기능_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "bb64755d1e61fbc5f1ea5a48c8ddfb8f53eeec9926c00438f4ec41ad388421ec",
+        "spec": "6d8a8e8d4ae002d062df71bd0054d93cf43ad142fea11c1a2c775ed3190355d1"
+      },
+      "after": {
+        "html": "932ebc428ee2c5114b76c31fa225c902d98571966ce206436f2bf44ae67f427e",
+        "spec": "0981b20a8ac3ca4c053a543c991b48dd7af0a1228395b663166c655ed9079b88"
+      }
+    },
+    {
+      "html": "output/NC_전시관리기능_정책서_간소화_v0.11.html",
+      "spec": "output/NC_전시관리기능_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_전시관리기능_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_전시관리기능_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "e52755d2c378b7729d3df11bfbf8f8f4254835da821d332629f988126ffaba4b",
+        "spec": "80088529433f2895ffcc05759c1861ea3b459a7053db71f6c54464a8f8b3d150"
+      },
+      "after": {
+        "html": "5629053afe80a8a45102bccff4c07b8bd179e137f3ba7d5d4f5942b7ee47ef83",
+        "spec": "0fef3bba802ec90bdf625d85b2089afa55c42825e385769566361420a3839ac3"
+      }
+    },
+    {
+      "html": "output/NC_전시관리기능_정책서_간소화_v0.12.html",
+      "spec": "output/NC_전시관리기능_정책서_간소화_v0.12_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_전시관리기능_정책서_간소화_v0.12_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_전시관리기능_정책서_간소화_v0.12_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "e4e98b5fde114edbe6d85a6643b4d15e1d21a5af877da3f521b86cb2ea96be2d",
+        "spec": "87c785268d93335c5e3b5af73075af0c967f2d46aaceee6c4bd75105d28499cb"
+      },
+      "after": {
+        "html": "9d557fb9a313a6e1be2b03b407ce378a76e4031ac134da86109d5acef0cd8e9b",
+        "spec": "a82115ca354182691cfbbeab86f4155be61f6f6a901c402526559e3bbc374dc7"
+      }
+    },
+    {
+      "html": "output/NC_주문계약가입_정책서_간소화_v0.10.html",
+      "spec": "output/NC_주문계약가입_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_주문계약가입_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_주문계약가입_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "6c6f680d7b1af89243430b50f01dac6c4c53e746ef517e9fc200404d3e464b6e",
+        "spec": "7a93e6309eb0276d89d89fefda43cafa538f09884079df14424c0c5972c3d2e0"
+      },
+      "after": {
+        "html": "919e9cc17e1644225a9828fd4caa4d29a1b74dc0e1f6c7883fc38b87c15008de",
+        "spec": "3327cfc6cfaa7ab8172b73e4631b6c4063999a173fed9c340c37bca7b341c54f"
+      }
+    },
+    {
+      "html": "output/NC_주문계약가입_정책서_간소화_v0.11.html",
+      "spec": "output/NC_주문계약가입_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_주문계약가입_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_주문계약가입_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "411ff127cc5ca6fb431e98190c15e26b67ad9ea07f7237b45ecca98f926ccd40",
+        "spec": "d7a0474eb5e813211ca31eb9bbcbace58a884bca18ba439ae4fe426f0e696e9f"
+      },
+      "after": {
+        "html": "a6a68c3ef52c07a948b221ba22a63df0d0ecbe1efbbf824b06487d9f296e716f",
+        "spec": "9980d598a2d4d2d4ff5591a4d2327216a79d96bd2eeed8bd8ea7dde50dd210ea"
+      }
+    },
+    {
+      "html": "output/NC_주문상태사후관리_정책서_간소화_v0.10.html",
+      "spec": "output/NC_주문상태사후관리_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_주문상태사후관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_주문상태사후관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "3eedb12edcdb7f6df39616331075fe6fa7204d701b70efd45ef5e9e9985b6a89",
+        "spec": "16a3933278901f733e93b3b08351cfa1331f17a330d1cc5056118b587e8cf9fb"
+      },
+      "after": {
+        "html": "a4a584d5e58fdbd2537c6e133aacc627f228a4e0d36421f22c6d8fba928147bb",
+        "spec": "a2254ec6df991859c933d3bb311d588f1c71594611fd55e5261ad3951bb08b96"
+      }
+    },
+    {
+      "html": "output/NC_주문상태사후관리_정책서_간소화_v0.11.html",
+      "spec": "output/NC_주문상태사후관리_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_주문상태사후관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_주문상태사후관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "6adb7f21e53dd805000d923e0b1a45fb0d20afd077332922820b7f3202e92b58",
+        "spec": "2f95de183fbcc2255aa873f3e154c8de68278e9897de0abeaf1ad29a0c56cdf7"
+      },
+      "after": {
+        "html": "ab5c45d08233dee377242eea33255f4d8b1494a8764d21c2ba9ed3b43e3d560f",
+        "spec": "70b4a70c2ba688c3a0442757030fe0f2944923901b29cd4a74c4f0c6d2315962"
+      }
+    },
+    {
+      "html": "output/NC_청구및수납관리_정책서_간소화_v0.10.html",
+      "spec": "output/NC_청구및수납관리_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_청구및수납관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_청구및수납관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "ce89df61a59b15326ada26d11d389152913265dc874b07f2d7bb169c90c68e79",
+        "spec": "a66cc3c096e870492e8cc276e375f1065c4464d502ecec0b9f4749cc7ba812b0"
+      },
+      "after": {
+        "html": "0b9244bddfd40274280c2f5794bcf90e6f73e4b518e356693d081f4ae3a220d8",
+        "spec": "912d3af0e50e3d06478ff78a780072677b9f73fa9c42962b3c36c16f5c9621bd"
+      }
+    },
+    {
+      "html": "output/NC_청구및수납관리_정책서_간소화_v0.11.html",
+      "spec": "output/NC_청구및수납관리_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_청구및수납관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_청구및수납관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "eb6bb5a91df2120aaabf3526c7d2765cfe236852fcc693cd498239f505913269",
+        "spec": "ed2b4f43f6ea792b6a2e94814e43e2b9421494ca44416ea8bf8ae9bfe41430f9"
+      },
+      "after": {
+        "html": "b2898c3a7c8797035b73d9163abafcc43af6cfcf99377a4bdac329ff9c33c05f",
+        "spec": "00d2fada447ecbd35e08e3e4a40f1a18616628af8a5eda429b3756129867df9f"
+      }
+    },
+    {
+      "html": "output/NC_추천_정책서_간소화_v0.10.html",
+      "spec": "output/NC_추천_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_추천_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_추천_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "27bb1e50226faba69071014c6ee8a861d576354d9fdb83e3095f6ec41c7ef639",
+        "spec": "90c10eb121efe5d33e39a674e5f6bf7da4042dcbcf760390c634cc55d8f206e1"
+      },
+      "after": {
+        "html": "ab33e828de068fc76b7b800b74d50cb268741a83aadf8c29abd35b1a09e1e006",
+        "spec": "689f62673d40da02f9e56174f97a2abbcede2c55f42892ff78d29641290d95de"
+      }
+    },
+    {
+      "html": "output/NC_추천_정책서_간소화_v0.11.html",
+      "spec": "output/NC_추천_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_추천_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_추천_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "8cbe5d3ecda876e5c1f5a06a0476172d321bb86b278b229187ad004716ed32a8",
+        "spec": "0d2f4bd8688345c9a963d4fa007f054ded7ec33a3de4d8b3bfa4eb68e9e6e05c"
+      },
+      "after": {
+        "html": "5e4bfb8e27a4b1b63a163fd6af8d4fba3f454a01062e99c79937e464ac3e2d53",
+        "spec": "c19ccfeb9ebc4ce3bc3ef936bcc317722d23e8e893fa5ac2cd111f4afe143186"
+      }
+    },
+    {
+      "html": "output/NC_카트장바구니_정책서_간소화_v0.10.html",
+      "spec": "output/NC_카트장바구니_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_카트장바구니_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_카트장바구니_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "d30734aa51c2abcf6df90ba53075b2db906de2a20da2da496f1e22fe5689c2bc",
+        "spec": "980500cc14074e39048118529e837f1a6f242c8217b442b5817cbf7d85c85d4a"
+      },
+      "after": {
+        "html": "bd1c4b961d2901c8245d1fd9ff9cae01b54f3502a7368fd7b207adb11c672ea6",
+        "spec": "ed5a286da7225b6c9244d79510cf1579d894eca68610d5e4261ce62cd5c5d341"
+      }
+    },
+    {
+      "html": "output/NC_카트장바구니_정책서_간소화_v0.11.html",
+      "spec": "output/NC_카트장바구니_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_카트장바구니_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_카트장바구니_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "ccb8392ae75c569cf88d9a44466ce0b119236453cc25ed44f672c0d42ded8ac3",
+        "spec": "28f355e4e5967c742f23c726af9b14d9e9b08f3bbef851713c6b91297cc3c87a"
+      },
+      "after": {
+        "html": "f1646e1aaf01ed26eb972cb132790928d6517867c3e7dc7d6c0690fe21531477",
+        "spec": "c15e103e32d15d5aa42a9f8d8f7fc70675ee555d74100676e7738b9c141d2561"
+      }
+    },
+    {
+      "html": "output/NC_통합알림_정책서_간소화_v0.10.html",
+      "spec": "output/NC_통합알림_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_통합알림_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_통합알림_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "8821d99f5a217c913c1cf1a199a1268f6649a74081c6cfd6d6eddcac1e1f8bbe",
+        "spec": "63c9ffc70598377208b45c2f0d6d991b1297afb73106e79013dd1c96b54d4286"
+      },
+      "after": {
+        "html": "9a008addd56b8acde81cec47dbe2d57d51fec2c7f9ba6bfd367b291e8cfc5c00",
+        "spec": "c1fd0655307c7a1b85d7e64950eb0958b1ef2448152c970fef5cab1f32067a6a"
+      }
+    },
+    {
+      "html": "output/NC_통합알림_정책서_간소화_v0.11.html",
+      "spec": "output/NC_통합알림_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_통합알림_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_통합알림_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "79faf67bfdfdf173f7e643a2b921d83edd0be4804eae753f24c88f744def5417",
+        "spec": "c5b5c075e0c99826d69abe445e86b081b0eaa2af45dabbdf3b9512cc66599c39"
+      },
+      "after": {
+        "html": "12bcce5275cb511267c4845c4b15e452e018cdf6c7fc2abf4d720f6447646489",
+        "spec": "281f42f93c6e247b2899e6f47db5cb491cbcd79d3267f816f193859cceef5bae"
+      }
+    },
+    {
+      "html": "output/NC_통합약관_정책서_간소화_v0.10.html",
+      "spec": "output/NC_통합약관_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_통합약관_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_통합약관_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "e1fd977fd1d9c3f0f2dfc8ee87fd4b7bf5d75f055524186e3b3b546c09b5afc3",
+        "spec": "d8241aee9d5c380dc0df5a018bc022e5f5c7660473e00492d51bc0d6864ea54b"
+      },
+      "after": {
+        "html": "e68dc368b1385cc350647cd902919fa94ea3949fa280f56f3af57bc936c18031",
+        "spec": "a79636de36435d615d46645ae582fe8b8c71271b44a4386284d604fc63845201"
+      }
+    },
+    {
+      "html": "output/NC_통합약관_정책서_간소화_v0.11.html",
+      "spec": "output/NC_통합약관_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_통합약관_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_통합약관_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "9a7cc09cb0216af72863ca5822fbc4d52ba5868d1f1ac8e9fe0e46026adab686",
+        "spec": "3d9025eb3b3e5a6d3138e675fedcb5c84275616801ee6bfd63a2b8112c8f7584"
+      },
+      "after": {
+        "html": "1b2d75675ed29c2d553ab470060ba911560cc4248704637d59de56575c614f38",
+        "spec": "ddcb1c10ec1f23a6c058af4966823f1a8709ed05801eb0c1aef03b433dd8c6e9"
+      }
+    },
+    {
+      "html": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.10.html",
+      "spec": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "b1666d903d6468334a707b693877a63a88691c0ef9491078ba64cad2866a432a",
+        "spec": "11641fce1843731b2e1216998d560b75690b5c2fdd2817ab8b3947059b08bebf"
+      },
+      "after": {
+        "html": "928b8a44250886305b46221103a987f6971ab16e3738a803355fd17459effc92",
+        "spec": "38cffa96594e035f5fe2ae12b6d883e5e4b90f8b1dd52b98eb56e1e34559eecd"
+      }
+    },
+    {
+      "html": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.11.html",
+      "spec": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_통합쿠폰이용권함_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "8ac4dee77fd013ad26ac1d35472868c8e26dce5b7532c98f4452cb4a1b1d0b5a",
+        "spec": "3340017acb78c2fde7e2873344705de424f1d2c69842dc0cc06b9f8a105d1324"
+      },
+      "after": {
+        "html": "34d3878e255f972e67aa8792464ac3979316cc76fec95e8c97788cae01855735",
+        "spec": "62f0242bc62dc9152769f1416fcd51dd78983f7b0162f7d4144cafaa4b0bd6a6"
+      }
+    },
+    {
+      "html": "output/NC_할인시뮬레이션_정책서_간소화_v0.10.html",
+      "spec": "output/NC_할인시뮬레이션_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_할인시뮬레이션_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_할인시뮬레이션_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "711ff5751539c465e830299c8108fd1da1e4844c34ddeacb4ad218a648e3bdbe",
+        "spec": "072e9ce3a5761210429ec2533d780e039ea386abe38c6397144ecfb63ccf7477"
+      },
+      "after": {
+        "html": "f52ee035625c9369b4e8b9a4cd7f02436ec2c822a13de09d2bfb66f21218374c",
+        "spec": "5cca5b9f07125c6b3dbd2ad1729dba3d14dc659dadefa0b8fab762976fa9d683"
+      }
+    },
+    {
+      "html": "output/NC_할인시뮬레이션_정책서_간소화_v0.11.html",
+      "spec": "output/NC_할인시뮬레이션_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_할인시뮬레이션_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_할인시뮬레이션_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "36dca953e65985b91fad9cf191473047835f465769ed5ef72b93904dfe01ddac",
+        "spec": "85a5bc71ffa597de0bf1686cc406d0f897b6443d52529bba70073d18bf3d0537"
+      },
+      "after": {
+        "html": "2ab551945dcb2e489b7f51497045b5b061934f52a696979a5d3da980d2d6e7f7",
+        "spec": "9406b91b0d1d1c1bee276e8fdabd97b2d5df6405ef6d4c87ea835ce78a1b44ec"
+      }
+    },
+    {
+      "html": "output/NC_해지환불취소_정책서_간소화_v0.10.html",
+      "spec": "output/NC_해지환불취소_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_해지환불취소_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_해지환불취소_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "c5ce907475f7da2f355c188aeb5a226c2efd6c85f5c62889cde896ab0d660692",
+        "spec": "a1f7679ddc3af90684a295a9529c0e15099852d12c99124ad94ed8f165d664d4"
+      },
+      "after": {
+        "html": "8d932f55885d97ffd85f5cb5048754d62df8dd8032594a8ce7efe9be6383c7a8",
+        "spec": "f5df99646d707624f66ec79131ea02d95d04962ad3763925641fc360f694cdc3"
+      }
+    },
+    {
+      "html": "output/NC_해지환불취소_정책서_간소화_v0.11.html",
+      "spec": "output/NC_해지환불취소_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_해지환불취소_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_해지환불취소_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "49ce2cfa3627c128ff61925b2be3477975f02f39146e07eec7e87ad53d549ae1",
+        "spec": "8aea578c469436a3da28010f4f9690ca0c6a4cf9b7357ae3959d4818e43b4e6e"
+      },
+      "after": {
+        "html": "20a364c74405f2e84342cf50f73c9ad98803708801c9ae52a91412aa4ae09555",
+        "spec": "5f70d9fb4f30722e6b19a3253b5472df379e30d844884761adeb810db59ed8b3"
+      }
+    },
+    {
+      "html": "output/NC_회선변경관리_정책서_간소화_v0.10.html",
+      "spec": "output/NC_회선변경관리_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_회선변경관리_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회선변경관리_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "620ea7c207249d2fce6cfa0c6533a89b051f975feaa7e4ef42dc2f094251d4b0",
+        "spec": "3a06581df678e77339c3f7f2bbcc72b8ff444b563ec5b6912ccb1cded7a00cf4"
+      },
+      "after": {
+        "html": "3f8f58b6331a4f578e037330df2230f634030d21affcca2ae2bb6202eac1409b",
+        "spec": "8a0a5fdcae62c37b5eb38b5cc7fc14cea42d8d038cafccff739a9395df93b283"
+      }
+    },
+    {
+      "html": "output/NC_회선변경관리_정책서_간소화_v0.11.html",
+      "spec": "output/NC_회선변경관리_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_회선변경관리_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회선변경관리_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "8acd7aaaacbaf12375cbe2b2669662812dcc4e6bfee2d15c13d9af30d2e1a28f",
+        "spec": "cd9994a4eb329d6d33c3f17cba37cd12ce8121adab30652b49b4b164259dd1b7"
+      },
+      "after": {
+        "html": "2f8efc16229779240b5cbbe8b4609a5d4feb1a2a60ab68bd18fa90647c541332",
+        "spec": "72dec99aedfa4c787b757de8f93840adaf4b864fd9b124e4b8128017ceb4f9e3"
+      }
+    },
+    {
+      "html": "output/NC_회원가입탈퇴_정책서_Full_v0.10.html",
+      "spec": "output/NC_회원가입탈퇴_정책서_Full_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_회원가입탈퇴_정책서_Full_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회원가입탈퇴_정책서_Full_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "1ee7ae010c28fa32bf4a6b96538aa2f766263ef89fe11b47588b9770dd4fbcd0",
+        "spec": "30dbaeb37b9de62d73c1834fc08a567b9c86171afc719a48d73a42ab4d741e5b"
+      },
+      "after": {
+        "html": "93f98f9c597b96d778ad859f81c61b215a039dec2b423121fd022f886bcb3187",
+        "spec": "49530fdcb02cdd5a53175d7cc0aa1980e7ba82a9a9bcb0c5d0a6902741c7c55e"
+      }
+    },
+    {
+      "html": "output/NC_회원가입탈퇴_정책서_Full_v0.11.html",
+      "spec": "output/NC_회원가입탈퇴_정책서_Full_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_회원가입탈퇴_정책서_Full_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회원가입탈퇴_정책서_Full_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "3cc316326be473ce996c5d5d9a494adbfe3b9f0bd514a0390ce407e2c6d8987a",
+        "spec": "4fc37e6920043de0fa7088b5f9bbdaad68b4cabf70d7d31b34c698927c7c4fab"
+      },
+      "after": {
+        "html": "5c2086e3e993eec34cc99fbbc34a9b849643b77bf163fb7d83fa030b77c23bc5",
+        "spec": "ca0e4cbedbeee46966911a5c5144b5829245ea9780168be72c6315ca23e2974c"
+      }
+    },
+    {
+      "html": "output/NC_회원가입탈퇴_정책서_간소화_v0.10.html",
+      "spec": "output/NC_회원가입탈퇴_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_회원가입탈퇴_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회원가입탈퇴_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "4bd74e9eee3235f5fd6cc16ada5e09509432442534f9672d1b7ab1ac3de10a51",
+        "spec": "f6ac9ec12d4f5bd7b1f6c3a127abeacacfad32c38ba44f2c63e073e75a902462"
+      },
+      "after": {
+        "html": "c8cfed2e11759c7ea935076cf9a8b73456757cbed9fcc44cf77d3f9f6fd8fc49",
+        "spec": "07f0b0c798857102aa7100a9f89bce60ef3536e02842aeacabc9391c0e0ff1d2"
+      }
+    },
+    {
+      "html": "output/NC_회원가입탈퇴_정책서_간소화_v0.11.html",
+      "spec": "output/NC_회원가입탈퇴_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_회원가입탈퇴_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회원가입탈퇴_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "22159f2434f3cefe44d40b47efb2a30beb6c8051817080f1dca08e2146b8836b",
+        "spec": "cc6d35bf8e051a59a067b0aae26110073df7735d510ff146c274ae4f80b53c10"
+      },
+      "after": {
+        "html": "8b0c009fe2cd3decd39ab1b10d914c6b35e44c33c8f4a130cfac2a8809baea05",
+        "spec": "157bb4e55fa3c50040a1ba9ad2e625621ad17ec1d2afc82ffdfd626838d54926"
+      }
+    },
+    {
+      "html": "output/NC_회원정보조회변경_정책서_간소화_v0.10.html",
+      "spec": "output/NC_회원정보조회변경_정책서_간소화_v0.10_spec.json",
+      "topic_spec_updated": false,
+      "bpmn": "output/NC_회원정보조회변경_정책서_간소화_v0.10_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회원정보조회변경_정책서_간소화_v0.10_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "ca26598088b4aa304c2fffc1e7a4c8d476402233a1c6e8116fee6e31288a0c3f",
+        "spec": "deae518fefb6ca77ac9b83eccbb769e74315acc9e690b9fd405e298d5d03d2db"
+      },
+      "after": {
+        "html": "f499f36afbd45638e5a680742ae99fc121928ad3c22bd99543a3fcbe22985ecc",
+        "spec": "48efb3e63cc00023e7aa945a16f75318de7ad8c190a8617456dd4e233ce78437"
+      }
+    },
+    {
+      "html": "output/NC_회원정보조회변경_정책서_간소화_v0.11.html",
+      "spec": "output/NC_회원정보조회변경_정책서_간소화_v0.11_spec.json",
+      "topic_spec_updated": true,
+      "bpmn": "output/NC_회원정보조회변경_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+      "bpmn_viewer": "output/NC_회원정보조회변경_정책서_간소화_v0.11_전체업무흐름도_viewer.html",
+      "history_added": true,
+      "before": {
+        "html": "4ddb1724031e76813d22bbaa884957ad73d61fe2a1f7b084465fdbaa91087f48",
+        "spec": "b80c6ac992fd4decd5e8960ddfc6854f720a9cfee9dbf9e1def6c52c9da210bc"
+      },
+      "after": {
+        "html": "7a714aed76a3cf483b529591e36832c78e70d81827a469aa33a8e391a9be1869",
+        "spec": "5efb7e95957a75ae6d46b96a42878c36e11f6aac9f4c78658d129625757a399f"
+      }
+    }
+  ],
+  "skipped": []
+}

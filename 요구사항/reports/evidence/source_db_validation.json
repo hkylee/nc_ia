@@ -1,0 +1,901 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-05-17T15:15:52",
+  "database": "/Users/kiwoo/NC/reports/evidence/reference_evidence.db",
+  "summary": [
+    {
+      "category": "ai",
+      "count": 3,
+      "text_chars": 22073,
+      "pages": 24
+    },
+    {
+      "category": "analysis_synthesis",
+      "count": 30,
+      "text_chars": 182859,
+      "pages": 30
+    },
+    {
+      "category": "benchmark",
+      "count": 3,
+      "text_chars": 23796,
+      "pages": 35
+    },
+    {
+      "category": "compliance",
+      "count": 1,
+      "text_chars": 10455,
+      "pages": 1
+    },
+    {
+      "category": "guideline",
+      "count": 10,
+      "text_chars": 55693,
+      "pages": 33
+    },
+    {
+      "category": "ia",
+      "count": 1,
+      "text_chars": 927867,
+      "pages": 1
+    },
+    {
+      "category": "official",
+      "count": 2,
+      "text_chars": 16750,
+      "pages": 8
+    },
+    {
+      "category": "requirement",
+      "count": 1,
+      "text_chars": 950043,
+      "pages": 1
+    },
+    {
+      "category": "research",
+      "count": 2,
+      "text_chars": 12164,
+      "pages": 16
+    },
+    {
+      "category": "sample",
+      "count": 3,
+      "text_chars": 184573,
+      "pages": 3
+    },
+    {
+      "category": "strategy",
+      "count": 16,
+      "text_chars": 91063,
+      "pages": 45
+    },
+    {
+      "category": "template",
+      "count": 2,
+      "text_chars": 30113,
+      "pages": 2
+    },
+    {
+      "category": "voc",
+      "count": 27,
+      "text_chars": 282633,
+      "pages": 117
+    }
+  ],
+  "documents": [
+    {
+      "source_name": "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "ai",
+      "text_chars": 8454,
+      "page_count": 6,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "전문지식_AI검색추천_공개웹_투명성추적성보조지식_20260503.md",
+      "source_type": "md",
+      "category": "ai",
+      "text_chars": 2125,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 AI 경험 검토_CX팀.pdf",
+      "source_type": "pdf",
+      "category": "ai",
+      "text_chars": 11494,
+      "page_count": 17,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "benchmarking.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6268,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "customer-research.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5080,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "employee-interview.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 4989,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "ia-analysis.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 8725,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-add-on-cancel.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6019,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-add-on-join.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5342,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-address-change.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5828,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-auto-payment-apply-change.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 4830,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-auto-payment-apply.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6370,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-auto-payment-cancel.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6501,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-bank-transfer-payment.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5903,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-bill-info.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6070,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-bundle.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6469,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-card-payment.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6375,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-contact-change.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6240,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-contract-discount.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5894,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-data-gift.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6106,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-direct-shop.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6080,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-discount-change.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6783,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-lost-device.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6273,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-membership.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5820,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-mobile-cancel.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6083,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-paper-bill.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6092,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-plan-change.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6011,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-refill-coupon.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6055,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-summary.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6490,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-suspension-release.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6549,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-t-universe-subscription.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6026,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-temporary-suspension.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 5435,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "voc-wave-flo.html",
+      "source_type": "html",
+      "category": "analysis_synthesis",
+      "text_chars": 6153,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "4순위_벤치마킹_경쟁사공개웹_보강지식_20260505.md",
+      "source_type": "md",
+      "category": "benchmark",
+      "text_chars": 5667,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "벤치마킹 결과.pdf",
+      "source_type": "pdf",
+      "category": "benchmark",
+      "text_chars": 10986,
+      "page_count": 33,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "외부학습_공식규제벤치마킹_정책체크포인트_20260507.md",
+      "source_type": "md",
+      "category": "benchmark",
+      "text_chars": 7143,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "3순위_컴플라이언스_법령규제기관_보강지식_20260505.md",
+      "source_type": "md",
+      "category": "compliance",
+      "text_chars": 10455,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "1순위_첨부자료사내자료요구사항_정책작성체크포인트_20260505.md",
+      "source_type": "md",
+      "category": "guideline",
+      "text_chars": 3444,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "34개_정책서_작성_지향점.md",
+      "source_type": "md",
+      "category": "guideline",
+      "text_chars": 7300,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "PI_Playbook_v1.0.docx",
+      "source_type": "docx",
+      "category": "guideline",
+      "text_chars": 8783,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "PI_산출물_평가시트_v1.0.xlsx",
+      "source_type": "xlsx",
+      "category": "guideline",
+      "text_chars": 2932,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "guideline",
+      "text_chars": 4487,
+      "page_count": 5,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "guideline",
+      "text_chars": 5112,
+      "page_count": 5,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_상품·서비스 자산 이용 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "guideline",
+      "text_chars": 6942,
+      "page_count": 6,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "guideline",
+      "text_chars": 9037,
+      "page_count": 8,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_주문관리_주문 사후관리 체계 고도화 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "guideline",
+      "text_chars": 2807,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "스타일앵커_예전프로젝트_정책상세화패턴_20260510.md",
+      "source_type": "md",
+      "category": "guideline",
+      "text_chars": 4849,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "20260319_SKT_T4S_IA_최종 정리본.xlsx",
+      "source_type": "xlsx",
+      "category": "ia",
+      "text_chars": 927867,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "2순위_SKT공식서비스약관고객지원_정책체크포인트_20260505.md",
+      "source_type": "md",
+      "category": "official",
+      "text_chars": 4446,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "official",
+      "text_chars": 12304,
+      "page_count": 7,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "20260509_요구사항 최종.xlsx",
+      "source_type": "xlsx",
+      "category": "requirement",
+      "text_chars": 950043,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "고객 조사 인사이트.pdf",
+      "source_type": "pdf",
+      "category": "research",
+      "text_chars": 7826,
+      "page_count": 7,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "고객조사 결과.pdf",
+      "source_type": "pdf",
+      "category": "research",
+      "text_chars": 4338,
+      "page_count": 9,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "NC_AI검색_정책서_간소화_v1.5.html",
+      "source_type": "html",
+      "category": "sample",
+      "text_chars": 36972,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "NC_정책서_Full_v1.0_확정본.html",
+      "source_type": "html",
+      "category": "sample",
+      "text_chars": 82992,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "NC_정책서_간소화_v1.0_확정본.html",
+      "source_type": "html",
+      "category": "sample",
+      "text_chars": 64609,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "T4s 분석 결과.pdf",
+      "source_type": "pdf",
+      "category": "strategy",
+      "text_chars": 19013,
+      "page_count": 10,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "strategy",
+      "text_chars": 8173,
+      "page_count": 6,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "strategy",
+      "text_chars": 11607,
+      "page_count": 9,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "strategy",
+      "text_chars": 5469,
+      "page_count": 5,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성.pdf",
+      "source_type": "pdf",
+      "category": "strategy",
+      "text_chars": 4967,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_SKT_공개웹_개인정보동의보관_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1917,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T다이렉트샵_공개웹_eSIM개통_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1749,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T다이렉트샵_공개웹_주문배송교환반품_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1998,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T멤버십_공개웹_등급포인트회원자격_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1650,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T멤버십_공개웹_혜택바코드Tday_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1892,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T우주_sktuniverse_공개웹_구독정책_통합지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 12026,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T우주_공개웹_구독판매자환불_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1727,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T월드_공개웹_설정알림회원정보_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 2282,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T월드_공개웹_업무정책_통합지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 7873,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_T월드_공개웹_요금납부조회_보강지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 1904,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "채널 방향성_공개웹_T월드_T멤버십_T다이렉트샵_T우주_통합지식_20260503.md",
+      "source_type": "md",
+      "category": "strategy",
+      "text_chars": 6816,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "NC_정책서_Full_템플릿_최종본.html",
+      "source_type": "html",
+      "category": "template",
+      "text_chars": 12104,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "NC_정책서_간소화_템플릿_최종본.html",
+      "source_type": "html",
+      "category": "template",
+      "text_chars": 18009,
+      "page_count": 1,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_ CH_전시_관리_전시 구조 및 노출 정책 기획_ 운영 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 6019,
+      "page_count": 6,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11387,
+      "page_count": 7,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "결합 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11211,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "계좌 이체 요금 납부 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 9802,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "다이렉트 샵 _ 티월드 다이렉트 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10486,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "데이터 선물 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10646,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "리필 쿠폰 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10089,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "멤버십 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10265,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "부가서비스 가입 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 9384,
+      "page_count": 8,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "부가서비스 해지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10187,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "분실 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11011,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "신용 카드 요금 납부 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11128,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "약정 할인 _ 선택 약정 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 9562,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "연락처 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10859,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "요금제 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10630,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "우주 패스 _ T우주 _ 구독 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10175,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "우편 청구서 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10666,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "웨이브 _ 플로 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10813,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "일시 정지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 9447,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "자동 납부 신청 _ 자동 납부 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11276,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "자동 납부 신청 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10236,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "자동 납부 해지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11552,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "정지 해제 _ 일시 정지 해제 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11608,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "주소 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10185,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "청구서 정보 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 11164,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "할인 변경 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 12321,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    },
+    {
+      "source_name": "휴대폰 해지 _ 핸드폰 해지 _ 번호 해지 - 고객 VoC 분석 - TDE 2.0 Confluence.pdf",
+      "source_type": "pdf",
+      "category": "voc",
+      "text_chars": 10524,
+      "page_count": 4,
+      "read_scope": "database_page_chunk_full_document"
+    }
+  ],
+  "pdf_low_extraction_candidates": [],
+  "requirements": {
+    "source_workbook": "20260509_요구사항 최종.xlsx",
+    "active_detail_rows": 2973,
+    "topics_without_requirements": []
+  }
+}

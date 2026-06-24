@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>나의데이터통화 정책서 간소화 버전 v0.11</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>나의데이터통화 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-DTC</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.11</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-10</td></tr>
+<tr><th>작성 기준</th><td>PM-24 관련 상세 요구사항명과 상세 요구사항 설명 70건, 34개 작성 지향점, TK/채널 방향성, AGENTS 작성 기준을 바탕으로 재구성했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.11</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 고객이 데이터·통화·문자 자산을 이해하고 부족 위험을 해소하며 충전·리필·선물·차단·로밍 옵션을 직접 실행하는 업무 기준을 정의한다.<br/></p><p class="plain-text">• 대상 업무는 사용량·잔여량 조회, 구성별 잔량·소진 순서 확인, 예상 소진 안내, 알림·딥링크, 충전·리필·쿠폰 사용, 선물·공유, 자동 선물·충전, 가족·다회선 위임, 로밍 잔량·쿠폰, 실패 복구를 포함한다.<br/></p><p class="plain-text">• 대상 채널은 앱·웹에서 고객이 직접 조회·설정·신청·취소·재시도·상담 전환을 수행하는 통합채널이며, 사용량 연계 시스템과 외부 연계 시스템의 결과 회신을 정책 판단 기준으로 포함한다.<br/></p><p class="plain-text">• 요금제 가입·변경 자체, 외부 제휴 화면 상세, API 필드, DB 컬럼, 통신망 과금 원장 상세는 제외하되 고객 판단에 영향을 주는 제한·권한·한도·반영 기준은 포함한다.<br/></p><p class="plain-text">• 후속 산출물에서는 BSS 인터페이스, 외부 제휴 연동, 통화내역 상세 마스킹, 알림 템플릿, 테스트 데이터와 운영 대시보드를 상세화한다.<br/></p><p class="plain-text">• 상세 요구사항 70건은 사용량 조회, 소진 위험, 충전·리필, 선물·공유, 자동 설정, 가족·위임, 로밍, 실패 복구 기준 중 하나 이상에 매핑한다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• <b>자산 상태 중심</b>: 조회 화면은 단순 잔여량이 아니라 고객 표시 상태(충분, 위험, 소진, 충전 가능, 선물 가능)와 내부 처리 상태(사용량 집계 중, 반영 지연, 외부 결과 대조)를 구분해 다음 행동을 함께 제공한다.<br/></p><p class="principle-text">• <b>즉시 실행 연결</b>: 부족 위험이나 소진 상태에서는 리필, 충전, 선물 요청, 요금제 변경, 차단 설정으로 바로 이동할 수 있게 한다.<br/></p><p class="principle-text">• <b>조건 사전 판정</b>: 선물·충전·쿠폰 사용은 실행 후 실패보다 실행 전 한도, 권한, 대상, 유효기간, 취소 불가 조건을 먼저 판정한다.<br/></p><p class="principle-text">• <b>가족·위임 최소 노출</b>: 가족·보호자 권한은 업무에 필요한 범위만 허용하고 민감 통화·사용 정보는 최소 노출한다.<br/></p><p class="principle-text">• <b>실시간성 투명성</b>: 실시간처럼 보이는 정보도 기준 시각, 갱신 주기, 지연 가능성, 미반영 항목을 명확히 고지한다.<br/></p><p class="principle-text">• <b>실패 복구 우선</b>: 조회 실패, 반영 지연, 선물·충전 실패는 단순 오류로 끝내지 않고 재시도, 대체 행동, 상담 전환을 제공한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-DTC-001</td><td>잔여량</td><td>고객이 현재 사용할 수 있는 데이터·통화·문자·쿠폰의 남은 양이다.<br/>기본 제공량, 선물 수신량, 리필/충전량, 공유 데이터, 로밍 데이터를 구분한다.<br/></td></tr><tr><td class="mono">TM-DTC-002</td><td>사용량 집계 기준 시점</td><td>사용량과 잔여량이 산정된 기준 시간이다.<br/>실시간처럼 보이더라도 집계 지연 가능성을 함께 안내한다.<br/></td></tr><tr><td class="mono">TM-DTC-003</td><td>예상 소진 시점</td><td>최근 사용 패턴을 바탕으로 자산이 부족해질 가능성이 있는 시점을 산정한 값이다.<br/></td></tr><tr><td class="mono">TM-DTC-004</td><td>리필/충전</td><td>고객이 데이터·통화 자산을 추가 확보하는 처리다.<br/>쿠폰 사용, 구매, 로밍 충전, 자동 충전을 포함한다.<br/></td></tr><tr><td class="mono">TM-DTC-005</td><td>데이터 선물</td><td>고객이 본인 보유 데이터 또는 선물 가능 수단을 다른 회선·수신자에게 이전하는 처리다.<br/></td></tr><tr><td class="mono">TM-DTC-006</td><td>자동 선물·충전</td><td>정해진 조건, 주기, 대상, 용량에 따라 반복 실행되는 데이터·통화 보충 설정이다.<br/></td></tr><tr><td class="mono">TM-DTC-007</td><td>소진 순서</td><td>기본 제공량, 선물 수신량, 리필/충전량, 로밍 데이터 등이 차감되는 우선순위다.<br/></td></tr><tr><td class="mono">TM-DTC-008</td><td>위임 권한</td><td>보호자 또는 가족 대표가 타 회선의 조회·설정·차단·선물을 처리할 수 있는 권한 범위다.<br/></td></tr><tr><td class="mono">TM-DTC-009</td><td>초과 사용 차단</td><td>고객 또는 보호자가 정한 기준에 따라 데이터·통화 초과 사용을 제한하는 설정이다.<br/></td></tr><tr><td class="mono">TM-DTC-010</td><td>로밍 잔량</td><td>해외 이용 중 사용 가능한 로밍 데이터 또는 쿠폰 잔여량이다.<br/>국내 데이터와 구분해 안내한다.<br/></td></tr><tr><td class="mono">TM-DTC-011</td><td>반영 지연</td><td>선물, 충전, 쿠폰, 사용량 집계 결과가 BSS 또는 외부 시스템에 아직 반영되지 않은 상태다.<br/></td></tr><tr><td class="mono">TM-DTC-012</td><td>대체 행동</td><td>리필, 충전, 선물 요청, 요금제 변경, 차단 설정, 상담 전환처럼 부족·실패 상태를 해소하는 후속 경로다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-DTC-001</td><td>고객</td><td>본인 회선의 데이터·통화·문자 사용량과 잔여량을 확인하고 충전, 리필, 선물, 차단, 로밍 옵션을 직접 실행하는 주체다.<br/></td></tr><tr><td class="mono">ACT-DTC-002</td><td>가족 대표</td><td>가족·자녀·다회선 회선의 조회, 위임 권한, 선물·차단 설정을 권한 범위 안에서 처리하는 주체다.<br/></td></tr><tr><td class="mono">ACT-DTC-003</td><td>운영자</td><td>사용량 집계 지연, 이상치, 알림 정책, 선물·충전 한도, 자동 설정, 실패 재처리 기준을 운영하는 주체다.<br/></td></tr><tr><td class="mono">ACT-DTC-004</td><td>상담사</td><td>조회 실패, 반영 지연, 선물·충전 실패, 위임 권한 이슈를 고객 문맥 기반으로 지원하는 주체다.<br/></td></tr><tr><td class="mono">ACT-DTC-005</td><td>채널 업무 시스템</td><td>잔여량, 위험 상태, 실행 CTA, 딥링크, 알림, 경량 화면을 고객 여정에 맞춰 구성하는 시스템이다.<br/></td></tr><tr><td class="mono">ACT-DTC-006</td><td>사용량 연계 시스템</td><td>사용량, 잔여량, 차감 순서, 충전·선물 적용, 차단·위임 상태를 판정·저장·회신하는 시스템이다.<br/></td></tr><tr><td class="mono">ACT-DTC-007</td><td>외부 연계 시스템</td><td>로밍 쿠폰, 제휴 충전, 외부 선물 수단, 해외 잔량 정보를 회신하는 외부 처리 주체다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-DTC-CUS-001</td><td>고객</td><td>데이터·통화 현황과 잔여량 이해</td><td>고객이 데이터, 통화, 문자, 쿠폰, 로밍 잔여량을 기준 시점과 단위 기준까지 이해하고 다음 행동을 선택한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CUS-002</td><td>고객</td><td>사용 패턴과 소진 위험 관리</td><td>고객이 사용량 추이와 예상 소진 시점을 확인하고 알림, 차단, 대체 행동을 설정한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CUS-003</td><td>고객</td><td>충전·리필·쿠폰 사용 실행</td><td>고객이 데이터·통화 리필, 충전, 쿠폰 등록, 로밍 충전을 조건 확인 후 실행하고 적용 결과를 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CUS-004</td><td>고객</td><td>데이터·통화 선물·공유 실행</td><td>고객이 수신자, 용량, 한도, 공유/개인 데이터 구분을 확인하고 선물·공유를 완료한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CUS-005</td><td>고객</td><td>자동 선물·충전 설정 관리</td><td>고객이 자동 선물 또는 자동 충전의 대상, 주기, 용량, 예정일, 해제 조건을 등록·변경·해지한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-FAM-001</td><td>가족 대표</td><td>가족·다회선 위임 및 셰어링 관리</td><td>가족 대표가 다회선 잔량, 위임 권한, 자녀 차단, 대리 선물, T 데이터 셰어링 USIM 상태·해지 영향을 확인하고 필요한 설정을 완료한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CUS-006</td><td>고객</td><td>로밍 데이터·쿠폰 실행</td><td>고객이 해외 체류 중 로밍 잔량, 소진 알림, 로밍 쿠폰 등록, 추가 충전을 실행한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CUS-007</td><td>고객</td><td>실패·지연·예외 복구</td><td>고객이 조회 실패, 반영 지연, 선물·충전 실패, 설정 오류를 재시도·대체 경로·상담 전환으로 복구한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-OPS-001</td><td>운영자</td><td>사용량·선물·충전 운영 정책 관리</td><td>운영자가 알림 임계치, 집계 지연, 이상치, 선물·충전 한도, 실패 재처리 정책을 관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-CSUP-001</td><td>상담사</td><td>데이터·통화 상담 문맥 지원</td><td>상담사가 사용량, 선물·충전, 차단, 위임 권한, 실패 이력을 확인하고 후속 조치를 안내한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-DTC-SYS-001</td><td>사용량 연계 시스템</td><td>사용량·잔여량·차감 상태 회신</td><td>사용량 연계 시스템이 사용량, 잔여량, 차감 순서, 충전·선물 적용 결과를 회신한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-DTC-SYS-002</td><td>외부 연계 시스템</td><td>외부 제휴·로밍 처리 결과 회신</td><td>외부 연계 시스템이 로밍 잔량, 쿠폰 등록, 외부 선물·충전 결과를 회신한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-DTC-SYS-003</td><td>채널 업무 시스템</td><td>화면·알림·딥링크 구성</td><td>채널 업무 시스템이 사용량 상태와 위험도에 맞춰 CTA, 알림, 딥링크, 경량 화면을 구성한다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="나의데이터통화 유즈케이스 다이어그램" height="1034" role="img" viewBox="0 0 1120 1034" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="952" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">나의데이터통화 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="179"></line><line class="conn" x1="144" x2="442" y1="172" y2="243"></line><line class="conn" x1="144" x2="442" y1="172" y2="307"></line><line class="conn" x1="144" x2="442" y1="172" y2="371"></line><line class="conn" x1="144" x2="442" y1="420" y2="435"></line><line class="conn" x1="144" x2="442" y1="172" y2="499"></line><line class="conn" x1="144" x2="442" y1="172" y2="563"></line><line class="conn" x1="144" x2="442" y1="668" y2="627"></line><line class="conn" x1="144" x2="442" y1="916" y2="691"></line><line class="conn" x1="678" x2="976" y1="755" y2="544"></line><line class="conn" x1="678" x2="976" y1="819" y2="916"></line><line class="conn" x1="678" x2="976" y1="883" y2="172"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="105">데이터·통화 현황과 잔여량</text><text class="uc-text" text-anchor="middle" x="560" y="119">이해</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-DTC-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="179" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="176">사용 패턴과 소진 위험 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="201">US-DTC-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="243" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="240">충전·리필·쿠폰 사용 실행</text><text class="uc-sub" text-anchor="middle" x="560" y="265">US-DTC-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="307" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="304">데이터·통화 선물·공유 실행</text><text class="uc-sub" text-anchor="middle" x="560" y="329">US-DTC-CUS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="371" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="368">자동 선물·충전 설정 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="393">US-DTC-CUS-005 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="435" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="425">가족·다회선 위임 및 셰어링</text><text class="uc-text" text-anchor="middle" x="560" y="439">관리</text><text class="uc-sub" text-anchor="middle" x="560" y="457">US-DTC-FAM-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="499" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="496">로밍 데이터·쿠폰 실행</text><text class="uc-sub" text-anchor="middle" x="560" y="521">US-DTC-CUS-006 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="563" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="560">실패·지연·예외 복구</text><text class="uc-sub" text-anchor="middle" x="560" y="585">US-DTC-CUS-007 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="627" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="617">사용량·선물·충전 운영 정책</text><text class="uc-text" text-anchor="middle" x="560" y="631">관리</text><text class="uc-sub" text-anchor="middle" x="560" y="649">US-DTC-OPS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">데이터·통화 상담 문맥 지원</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-DTC-CSUP-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="755" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="752">사용량·잔여량·차감 상태 회신</text><text class="uc-sub" text-anchor="middle" x="560" y="777">US-DTC-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="819" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="809">외부 제휴·로밍 처리 결과</text><text class="uc-text" text-anchor="middle" x="560" y="823">회신</text><text class="uc-sub" text-anchor="middle" x="560" y="841">US-DTC-SYS-002 · 프로세스 N</text><ellipse class="uc" cx="560" cy="883" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="880">화면·알림·딥링크 구성</text><text class="uc-sub" text-anchor="middle" x="560" y="905">US-DTC-SYS-003 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="368" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="386" y2="433"></line><line class="actor-line" x1="86" x2="138" y1="403" y2="403"></line><line class="actor-line" x1="112" x2="92" y1="433" y2="468"></line><line class="actor-line" x1="112" x2="132" y1="433" y2="468"></line><text class="actor-text" text-anchor="middle" x="112" y="494">가족 대표</text><circle class="actor-line" cx="112" cy="616" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="634" y2="681"></line><line class="actor-line" x1="86" x2="138" y1="651" y2="651"></line><line class="actor-line" x1="112" x2="92" y1="681" y2="716"></line><line class="actor-line" x1="112" x2="132" y1="681" y2="716"></line><text class="actor-text" text-anchor="middle" x="112" y="742">운영자</text><circle class="actor-line" cx="112" cy="864" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="882" y2="929"></line><line class="actor-line" x1="86" x2="138" y1="899" y2="899"></line><line class="actor-line" x1="112" x2="92" y1="929" y2="964"></line><line class="actor-line" x1="112" x2="132" y1="929" y2="964"></line><text class="actor-text" text-anchor="middle" x="112" y="990">상담사</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="492" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="510" y2="557"></line><line class="system-actor-line" x1="982" x2="1034" y1="527" y2="527"></line><line class="system-actor-line" x1="1008" x2="988" y1="557" y2="592"></line><line class="system-actor-line" x1="1008" x2="1028" y1="557" y2="592"></line><text class="actor-text" text-anchor="middle" x="1008" y="618">사용량 연계 시스템</text><circle class="system-actor-line" cx="1008" cy="864" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="882" y2="929"></line><line class="system-actor-line" x1="982" x2="1034" y1="899" y2="899"></line><line class="system-actor-line" x1="1008" x2="988" y1="929" y2="964"></line><line class="system-actor-line" x1="1008" x2="1028" y1="929" y2="964"></line><text class="actor-text" text-anchor="middle" x="1008" y="990">외부 연계 시스템</text><text class="legend" x="304" y="1008">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-DTC-001</td><td>조회 전</td><td>사용량·잔여량 조회 요청 전 또는 기준 회선이 선택되지 않은 상태다.<br/></td><td>대표 회선 또는 조회 대상 회선을 선택하도록 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-002</td><td>사용량 집계 중</td><td>BSS 또는 사용량 연계 시스템에서 기준 시점의 사용량을 집계하는 상태다.<br/></td><td>집계 기준 시각과 예상 대기 시간을 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-003</td><td>조회 가능</td><td>사용량과 잔여량을 고객에게 제공할 수 있는 상태다.<br/></td><td>잔여량, 소진 위험, 선물·충전 CTA를 함께 제공한다.<br/></td></tr><tr><td class="mono">ST-DTC-004</td><td>잔여량 충분</td><td>현재 사용 패턴 기준으로 소진 위험이 낮은 상태다.<br/></td><td>사용 추이와 다음 점검 시점을 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-005</td><td>소진 위험</td><td>예상 소진 시점 또는 임계치 기준으로 부족 가능성이 높은 상태다.<br/></td><td>충전, 리필, 선물 요청, 차단 설정 중 가능한 대안을 제시한다.<br/></td></tr><tr><td class="mono">ST-DTC-006</td><td>소진</td><td>사용 가능한 데이터·통화·문자 자산이 기준 이하로 떨어진 상태다.<br/></td><td>즉시 충전, 리필 쿠폰, 선물 요청, 요금제 변경 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-DTC-007</td><td>차단 설정 중</td><td>초과 사용 차단 또는 안심 설정을 변경하는 상태다.<br/></td><td>차단 적용 범위와 해제 방법을 확인하게 한다.<br/></td></tr><tr><td class="mono">ST-DTC-008</td><td>차단 활성</td><td>초과 사용 차단 또는 보호자 차단 기준이 활성화된 상태다.<br/></td><td>차단 적용 결과와 되돌리기 가능 여부를 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-009</td><td>충전 가능</td><td>리필, 충전, 쿠폰 사용 조건을 충족한 상태다.<br/></td><td>충전·리필·쿠폰 사용 조건과 취소 불가 여부를 확인하게 한다.<br/></td></tr><tr><td class="mono">ST-DTC-010</td><td>충전 진행 중</td><td>리필, 충전, 쿠폰 등록 또는 구매 처리 결과를 기다리는 상태다.<br/></td><td>처리 진행률과 중복 요청 방지 안내를 제공한다.<br/></td></tr><tr><td class="mono">ST-DTC-011</td><td>충전 완료</td><td>충전·리필·쿠폰 적용 결과가 반영되어 잔여량이 증가한 상태다.<br/></td><td>증가한 잔여량, 적용 시각, 다음 행동을 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-012</td><td>선물 가능</td><td>수신자, 용량, 한도, 잔여량 조건이 충족되어 선물할 수 있는 상태다.<br/></td><td>수신자, 용량, 월 한도, 공유/개인 데이터 구분을 확인하게 한다.<br/></td></tr><tr><td class="mono">ST-DTC-013</td><td>선물 진행 중</td><td>선물 발송 또는 다수 수신자 일괄 처리를 진행하는 상태다.<br/></td><td>발송 진행률과 수신자별 결과를 표시한다.<br/></td></tr><tr><td class="mono">ST-DTC-014</td><td>선물 완료</td><td>선물 발송 또는 수신 적용이 완료된 상태다.<br/></td><td>추가 선물, 내역 조회, 잔여량 확인 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-DTC-015</td><td>선물·충전 실패</td><td>한도, 권한, 수신자, 외부 연계, BSS 반영 실패로 선물 또는 충전이 완료되지 않은 상태다.<br/></td><td>실패 사유와 재시도 가능 여부, 대체 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-016</td><td>자동 설정 활성</td><td>자동 선물 또는 자동 충전 조건이 등록되어 다음 실행을 대기하는 상태다.<br/></td><td>다음 실행 예정일, 대상, 용량, 해제 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-017</td><td>자동 설정 해제</td><td>요금제 변경, 권한 변경, 고객 요청 등으로 자동 설정이 해제된 상태다.<br/></td><td>해제 원인과 재등록 가능 조건을 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-018</td><td>위임 권한 확인 중</td><td>가족·보호자·대리 권한 범위를 확인하는 상태다.<br/></td><td>권한 범위와 노출 가능한 정보를 확인하게 한다.<br/></td></tr><tr><td class="mono">ST-DTC-019</td><td>로밍 이용 중</td><td>해외 체류 또는 로밍 상품 이용 중으로 로밍 잔량과 충전 기준을 적용하는 상태다.<br/></td><td>로밍 잔량, 소진 임박 상태, 충전 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-DTC-020</td><td>반영 지연/보정 필요</td><td>사용량 집계, 선물, 충전, 쿠폰, 로밍 결과 반영이 지연되거나 보정이 필요한 상태다.<br/></td><td>예상 반영 시점과 보정 요청 또는 상담 전환 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-DTC-021</td><td>상담 전환 필요</td><td>셀프 처리로 조회·충전·선물·권한 이슈를 해소하지 못해 상담 문맥 전달이 필요한 상태다.<br/></td><td>상담 전환 문맥과 마지막 처리 상태를 전달한다.<br/></td></tr><tr><td class="mono">ST-DTC-022</td><td>셰어링 해지 진행 중</td><td>T 데이터 셰어링 USIM 해지 또는 상태 변경 요청이 접수되어 영향 확인과 연계 반영을 기다리는 상태다.<br/></td><td>공유 데이터 차감, 부가회선 사용 제한, 예상 반영 시점, 상담 연결 가능 여부를 안내한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>조회 전<br/><span class="mono">ST-DTC-001</span></td><td>실시간 사용량 조회 요청</td><td>사용량 집계 중<br/><span class="mono">ST-DTC-002</span></td><td>고객이 회선과 조회 기간을 선택하면 사용량 집계를 요청한다.<br/></td></tr><tr><td>사용량 집계 중<br/><span class="mono">ST-DTC-002</span></td><td>집계 결과 수신</td><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>사용량 연계 시스템이 기준 시점의 사용량과 잔여량을 회신하면 조회 가능 상태로 전환한다.<br/></td></tr><tr><td>사용량 집계 중<br/><span class="mono">ST-DTC-002</span></td><td>집계 지연 감지</td><td>반영 지연/보정 필요<br/><span class="mono">ST-DTC-020</span></td><td>기준 시간 안에 결과가 회신되지 않거나 일부 항목이 누락되면 반영 지연/보정 필요 상태로 전환한다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>잔여량 충분 판정</td><td>잔여량 충분<br/><span class="mono">ST-DTC-004</span></td><td>잔여량과 예상 소진 시점이 임계치보다 여유 있으면 충분 상태로 안내한다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>소진 위험 판정</td><td>소진 위험<br/><span class="mono">ST-DTC-005</span></td><td>잔여량이 고객 설정 또는 운영 임계치 이하이면 소진 위험으로 전환한다.<br/></td></tr><tr><td>소진 위험<br/><span class="mono">ST-DTC-005</span></td><td>대체 행동 선택</td><td>충전 가능<br/><span class="mono">ST-DTC-009</span></td><td>고객이 리필, 충전, 쿠폰 사용, 요금제 변경, 선물 요청 중 하나를 선택하면 충전 가능성 확인으로 이동한다.<br/></td></tr><tr><td>소진 위험<br/><span class="mono">ST-DTC-005</span></td><td>초과 차단 설정</td><td>차단 설정 중<br/><span class="mono">ST-DTC-007</span></td><td>고객이 초과 사용 차단 또는 안심 설정을 변경하면 차단 설정 중으로 전환한다.<br/></td></tr><tr><td>차단 설정 중<br/><span class="mono">ST-DTC-007</span></td><td>차단 적용 완료</td><td>차단 활성<br/><span class="mono">ST-DTC-008</span></td><td>BSS가 차단 설정 적용 결과를 회신하면 차단 활성 상태로 전환한다.<br/></td></tr><tr><td>소진 위험<br/><span class="mono">ST-DTC-005</span></td><td>잔여량 소진</td><td>소진<br/><span class="mono">ST-DTC-006</span></td><td>잔여 자산이 기준 이하가 되면 소진 상태로 전환하고 추가 과금 또는 속도 제한 가능성을 안내한다.<br/></td></tr><tr><td>충전 가능<br/><span class="mono">ST-DTC-009</span></td><td>충전 신청</td><td>충전 진행 중<br/><span class="mono">ST-DTC-010</span></td><td>충전 수단, 대상 회선, 보유 쿠폰, 월 제한 조건을 통과하면 충전 진행 중으로 전환한다.<br/></td></tr><tr><td>충전 진행 중<br/><span class="mono">ST-DTC-010</span></td><td>충전 반영 완료</td><td>충전 완료<br/><span class="mono">ST-DTC-011</span></td><td>BSS가 충전 또는 리필 적용 결과를 회신하면 충전 완료 상태로 전환한다.<br/></td></tr><tr><td>충전 진행 중<br/><span class="mono">ST-DTC-010</span></td><td>충전 실패</td><td>선물·충전 실패<br/><span class="mono">ST-DTC-015</span></td><td>제한 조건, 외부 연계 실패, 반영 지연으로 충전이 완료되지 않으면 실패 상태로 전환한다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>선물 조건 확인</td><td>선물 가능<br/><span class="mono">ST-DTC-012</span></td><td>선물 가능 용량, 수신자, 월 한도, 공유/개인 데이터 구분을 충족하면 선물 가능 상태로 전환한다.<br/></td></tr><tr><td>선물 가능<br/><span class="mono">ST-DTC-012</span></td><td>선물 발송 요청</td><td>선물 진행 중<br/><span class="mono">ST-DTC-013</span></td><td>고객이 수신자와 용량을 확정하면 선물 진행 중으로 전환한다.<br/></td></tr><tr><td>선물 진행 중<br/><span class="mono">ST-DTC-013</span></td><td>선물 적용 완료</td><td>선물 완료<br/><span class="mono">ST-DTC-014</span></td><td>수신자 적용과 발송 이력이 저장되면 선물 완료 상태로 전환한다.<br/></td></tr><tr><td>선물 진행 중<br/><span class="mono">ST-DTC-013</span></td><td>일부 실패 발생</td><td>선물·충전 실패<br/><span class="mono">ST-DTC-015</span></td><td>다수 수신자 중 일부 실패가 발생하면 실패 항목만 재시도할 수 있는 상태로 전환한다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>자동 설정 등록</td><td>자동 설정 활성<br/><span class="mono">ST-DTC-016</span></td><td>자동 선물 또는 자동 충전의 대상, 주기, 용량, 다음 실행일이 저장되면 자동 설정 활성 상태로 전환한다.<br/></td></tr><tr><td>자동 설정 활성<br/><span class="mono">ST-DTC-016</span></td><td>자동 설정 해제 조건 발생</td><td>자동 설정 해제<br/><span class="mono">ST-DTC-017</span></td><td>요금제 변경, 권한 변경, 고객 해지 요청, 대상 조건 미충족 시 자동 설정 해제 상태로 전환한다.<br/></td></tr><tr><td>자동 설정 해제<br/><span class="mono">ST-DTC-017</span></td><td>재등록 조건 확인</td><td>충전 가능<br/><span class="mono">ST-DTC-009</span></td><td>고객이 재등록 가능 조건을 충족하면 충전 가능 상태로 연결한다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>가족 회선 선택</td><td>위임 권한 확인 중<br/><span class="mono">ST-DTC-018</span></td><td>보호자 또는 가족 대표가 타 회선을 선택하면 위임 권한 확인 중으로 전환한다.<br/></td></tr><tr><td>위임 권한 확인 중<br/><span class="mono">ST-DTC-018</span></td><td>권한 확인 완료</td><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>조회·설정 권한이 확인되면 해당 회선의 현황 조회 상태로 전환한다.<br/></td></tr><tr><td>위임 권한 확인 중<br/><span class="mono">ST-DTC-018</span></td><td>권한 불충족</td><td>상담 전환 필요<br/><span class="mono">ST-DTC-021</span></td><td>권한 범위가 부족하면 실행을 제한하고 상담 또는 권한 등록 경로를 안내한다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>로밍 상태 감지</td><td>로밍 이용 중<br/><span class="mono">ST-DTC-019</span></td><td>해외 체류 또는 로밍 상품 사용 상태가 확인되면 로밍 이용 중으로 전환한다.<br/></td></tr><tr><td>로밍 이용 중<br/><span class="mono">ST-DTC-019</span></td><td>로밍 충전 요청</td><td>충전 진행 중<br/><span class="mono">ST-DTC-010</span></td><td>고객이 로밍 쿠폰 등록 또는 추가 충전을 선택하면 충전 진행 중으로 전환한다.<br/></td></tr><tr><td>로밍 이용 중<br/><span class="mono">ST-DTC-019</span></td><td>로밍 잔량 소진 임박</td><td>소진 위험<br/><span class="mono">ST-DTC-005</span></td><td>로밍 잔량이 임계치 이하이면 소진 위험으로 전환하고 원터치 충전 딥링크를 제공한다.<br/></td></tr><tr><td>반영 지연/보정 필요<br/><span class="mono">ST-DTC-020</span></td><td>보정 완료</td><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>운영 보정 또는 연계 재처리 후 조회 가능한 상태로 전환한다.<br/></td></tr><tr><td>반영 지연/보정 필요<br/><span class="mono">ST-DTC-020</span></td><td>고객 조치 필요</td><td>상담 전환 필요<br/><span class="mono">ST-DTC-021</span></td><td>고객 설명이나 권한 확인이 필요한 경우 상담 전환 필요 상태로 전환한다.<br/></td></tr><tr><td>선물·충전 실패<br/><span class="mono">ST-DTC-015</span></td><td>실패 항목 재시도</td><td>충전 가능<br/><span class="mono">ST-DTC-009</span></td><td>실패 사유가 고객 조치로 해소 가능하면 충전·선물 가능성 확인으로 되돌린다.<br/></td></tr><tr><td>선물·충전 실패<br/><span class="mono">ST-DTC-015</span></td><td>재시도 불가</td><td>상담 전환 필요<br/><span class="mono">ST-DTC-021</span></td><td>한도 초과, 권한 불일치, 반복 실패로 셀프 처리가 불가하면 상담 전환으로 연결한다.<br/></td></tr><tr><td>선물 완료<br/><span class="mono">ST-DTC-014</span></td><td>추가 선물 선택</td><td>선물 가능<br/><span class="mono">ST-DTC-012</span></td><td>선물 완료 후 추가 선물하기를 선택하면 선물 가능 조건 확인으로 되돌린다.<br/></td></tr><tr><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>T 데이터 셰어링 USIM 해지 요청</td><td>셰어링 해지 진행 중<br/><span class="mono">ST-DTC-022</span></td><td>고객 또는 가족 대표가 셰어링 USIM 해지·상태 확인을 요청하면 공유 데이터 차감과 부가회선 영향 확인을 시작한다.<br/></td></tr><tr><td>셰어링 해지 진행 중<br/><span class="mono">ST-DTC-022</span></td><td>셰어링 해지 반영 완료</td><td>조회 가능<br/><span class="mono">ST-DTC-003</span></td><td>사용량 연계 시스템이 해지 완료와 잔여량 재산정 결과를 회신하면 조회 가능 상태로 돌아간다.<br/></td></tr><tr><td>셰어링 해지 진행 중<br/><span class="mono">ST-DTC-022</span></td><td>셰어링 해지 실패 또는 지연</td><td>반영 지연/보정 필요<br/><span class="mono">ST-DTC-020</span></td><td>연계 반영이 지연되거나 해지 조건이 충족되지 않으면 반영 지연·보정 필요 상태로 전환한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="1170" role="img" viewBox="0 0 1120 1170" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="1092" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="245.0" x2="355.0" y1="134.0" y2="134.0"></line><line class="flow" x1="505.0" x2="615.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M355.0 134.0 C355.0 204.0, 255.0 246.0, 255.0 316.0"></path><line class="flow" x1="765.0" x2="875.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M615.0 134.0 C615.0 204.0, 508.3 246.0, 508.3 316.0"></path><path class="flow-dash" d="M508.3 316.0 C560.0 244.0, 560.0 244.0, 611.7 316.0"></path><path class="flow-dash" d="M508.3 316.0 C686.7 244.0, 686.7 244.0, 865.0 316.0"></path><path class="flow-dash" d="M865.0 316.0 C865.0 386.0, 255.0 400.0, 255.0 470.0"></path><path class="flow-dash" d="M433.3 348.0 C433.3 418.0, 433.3 368.0, 433.3 438.0"></path><path class="flow-dash" d="M686.7 348.0 C686.7 418.0, 686.7 368.0, 686.7 438.0"></path><path class="flow-dash" d="M761.7 470.0 C813.3 398.0, 813.3 398.0, 865.0 470.0"></path><path class="flow-dash" d="M611.7 470.0 C611.7 540.0, 255.0 554.0, 255.0 624.0"></path><path class="flow-dash" d="M690.0 166.0 C690.0 236.0, 433.3 522.0, 433.3 592.0"></path><path class="flow-dash" d="M508.3 624.0 C560.0 552.0, 560.0 552.0, 611.7 624.0"></path><path class="flow-dash" d="M761.7 624.0 C813.3 552.0, 813.3 552.0, 865.0 624.0"></path><path class="flow-dash" d="M611.7 624.0 C433.3 552.0, 433.3 552.0, 255.0 624.0"></path><path class="flow-dash" d="M690.0 166.0 C690.0 236.0, 180.0 676.0, 180.0 746.0"></path><path class="flow-dash" d="M255.0 778.0 C306.7 706.0, 306.7 706.0, 358.3 778.0"></path><path class="flow-dash" d="M433.3 746.0 C433.3 676.0, 686.7 418.0, 686.7 348.0"></path><path class="flow-dash" d="M690.0 166.0 C690.0 236.0, 686.7 676.0, 686.7 746.0"></path><path class="flow-dash" d="M686.7 746.0 C686.7 676.0, 690.0 236.0, 690.0 166.0"></path><path class="flow-dash" d="M761.7 778.0 C813.3 706.0, 813.3 706.0, 865.0 778.0"></path><path class="flow-dash" d="M690.0 166.0 C690.0 236.0, 180.0 830.0, 180.0 900.0"></path><path class="flow-dash" d="M255.0 932.0 C255.0 862.0, 611.7 540.0, 611.7 470.0"></path><path class="flow-dash" d="M180.0 900.0 C180.0 830.0, 433.3 418.0, 433.3 348.0"></path><path class="flow-dash" d="M255.0 316.0 C255.0 246.0, 615.0 204.0, 615.0 134.0"></path><path class="flow-dash" d="M255.0 316.0 C255.0 386.0, 865.0 708.0, 865.0 778.0"></path><path class="flow-dash" d="M255.0 624.0 C255.0 554.0, 611.7 386.0, 611.7 316.0"></path><path class="flow-dash" d="M255.0 624.0 C255.0 694.0, 865.0 708.0, 865.0 778.0"></path><path class="flow-dash" d="M865.0 624.0 C686.7 552.0, 686.7 552.0, 508.3 624.0"></path><path class="flow-dash" d="M690.0 166.0 C690.0 236.0, 940.0 830.0, 940.0 900.0"></path><path class="flow-dash" d="M940.0 900.0 C940.0 830.0, 690.0 236.0, 690.0 166.0"></path><path class="flow-dash" d="M865.0 932.0 C865.0 862.0, 255.0 386.0, 255.0 316.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="150" x="95.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">조회 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-DTC-001</text><rect class="state" height="64" rx="29" ry="29" width="150" x="355.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="430" y="128">사용량 집계 중</text><text class="state-sub" text-anchor="middle" x="430" y="151">ST-DTC-002</text><rect class="state" height="64" rx="29" ry="29" width="150" x="615.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="690" y="128">조회 가능</text><text class="state-sub" text-anchor="middle" x="690" y="151">ST-DTC-003</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="875.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">잔여량 충분</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-DTC-004</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">반영 지연/보정 필요</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-DTC-020</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">소진 위험</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-DTC-005</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">충전 가능</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-DTC-009</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="865.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">차단 설정 중</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-DTC-007</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="105.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">차단 활성</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-DTC-008</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="438.0"></rect><text class="state-text" text-anchor="middle" x="433" y="464">소진</text><text class="state-sub" text-anchor="middle" x="433" y="487">ST-DTC-006</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="438.0"></rect><text class="state-text" text-anchor="middle" x="686" y="464">충전 진행 중</text><text class="state-sub" text-anchor="middle" x="686" y="487">ST-DTC-010</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="865.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">충전 완료</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-DTC-011</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="105.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="180" y="618">선물·충전 실패</text><text class="state-sub" text-anchor="middle" x="180" y="641">ST-DTC-015</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="592.0"></rect><text class="state-text" text-anchor="middle" x="433" y="618">선물 가능</text><text class="state-sub" text-anchor="middle" x="433" y="641">ST-DTC-012</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="592.0"></rect><text class="state-text" text-anchor="middle" x="686" y="618">선물 진행 중</text><text class="state-sub" text-anchor="middle" x="686" y="641">ST-DTC-013</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="865.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="940" y="618">선물 완료</text><text class="state-sub" text-anchor="middle" x="940" y="641">ST-DTC-014</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="746.0"></rect><text class="state-text" text-anchor="middle" x="180" y="772">자동 설정 활성</text><text class="state-sub" text-anchor="middle" x="180" y="795">ST-DTC-016</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="746.0"></rect><text class="state-text" text-anchor="middle" x="433" y="772">자동 설정 해제</text><text class="state-sub" text-anchor="middle" x="433" y="795">ST-DTC-017</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="746.0"></rect><text class="state-text" text-anchor="middle" x="686" y="772">위임 권한 확인 중</text><text class="state-sub" text-anchor="middle" x="686" y="795">ST-DTC-018</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="746.0"></rect><text class="state-text" text-anchor="middle" x="940" y="772">상담 전환 필요</text><text class="state-sub" text-anchor="middle" x="940" y="795">ST-DTC-021</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="900.0"></rect><text class="state-text" text-anchor="middle" x="180" y="926">로밍 이용 중</text><text class="state-sub" text-anchor="middle" x="180" y="949">ST-DTC-019</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="900.0"></rect><text class="state-text" text-anchor="middle" x="940" y="926">셰어링 해지 진행 중</text><text class="state-sub" text-anchor="middle" x="940" y="949">ST-DTC-022</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="254.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="300.0" y="77.0">실시간 사용량 조회</text><text class="flow-label" text-anchor="middle" x="300.0" y="91.0">요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="91.0">집계 결과 수신</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="266.0" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="305.0" y="196.0">집계 지연 감지</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="777.5" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="820.0" y="91.0">잔여량 충분 판정</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="522.7" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="561.7" y="196.0">소진 위험 판정</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="233.0">대체 행동 선택</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="647.7" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="233.0">초과 차단 설정</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="383.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="400.0">차단 적용 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="396.3" y="347.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="364.0">잔여량 소진</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="649.7" y="383.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="400.0">충전 신청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="774.3" y="370.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="387.0">충전 반영 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="396.3" y="537.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="554.0">충전 실패</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="522.7" y="333.0"></rect><text class="flow-label" text-anchor="middle" x="561.7" y="350.0">선물 조건 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="524.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="541.0">선물 발송 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="774.3" y="524.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="541.0">선물 적용 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="394.3" y="524.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="541.0">일부 실패 발생</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="396.0" y="410.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="427.0">자동 설정 등록</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="257.2" y="664.0"></rect><text class="flow-label" text-anchor="middle" x="306.7" y="681.0">자동 설정 해제 조건</text><text class="flow-label" text-anchor="middle" x="306.7" y="695.0">발생</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="517.5" y="501.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="518.0">재등록 조건 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="649.3" y="446.0"></rect><text class="flow-label" text-anchor="middle" x="688.3" y="463.0">가족 회선 선택</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="649.3" y="410.0"></rect><text class="flow-label" text-anchor="middle" x="688.3" y="427.0">권한 확인 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="776.3" y="678.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="695.0">권한 불충족</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="396.0" y="487.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="504.0">로밍 상태 감지</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="394.3" y="691.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="708.0">로밍 충전 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="257.2" y="578.0"></rect><text class="flow-label" text-anchor="middle" x="306.7" y="595.0">로밍 잔량 소진 임박</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="398.0" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="435.0" y="232.0">보정 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="501.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="518.0">고객 조치 필요</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="390.8" y="460.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="477.0">실패 항목 재시도</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="523.0" y="655.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="672.0">재시도 불가</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="647.7" y="524.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="541.0">추가 선물 선택</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="769.0" y="473.0"></rect><text class="flow-label" text-anchor="middle" x="815.0" y="490.0">T 데이터 셰어링</text><text class="flow-label" text-anchor="middle" x="815.0" y="504.0">USIM 해지 요청</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="106" x="762.0" y="523.0"></rect><text class="flow-label" text-anchor="middle" x="815.0" y="540.0">셰어링 해지 반영 완료</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="507.0" y="564.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="581.0">셰어링 해지 실패 또는</text><text class="flow-label" text-anchor="middle" x="560.0" y="595.0">지연</text><text class="note" x="78" y="1116">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 데이터·통화 현황과 잔여량 이해 (US-DTC-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-001</td><td>사용량 대시보드 진입</td><td>고객 회선, 조회 기간, 기준 시점을 확인하고 데이터·통화·문자 잔여량을 요약한다.<br/></td><td>FN-DTC-001 사용량 대시보드 진입 기능</td><td>PG-DTC-USAGE-001 사용량·잔여량 표시 정책<br/>PG-DTC-REAL-001 실시간성·집계 지연 정책</td></tr><tr><td class="mono">PR-DTC-002</td><td>구성별 잔량과 소진 순서 확인</td><td>기본 제공량, 선물 수신량, 리필/충전량, 공유 데이터, 로밍 데이터의 잔여량과 차감 우선순위를 확인한다.<br/></td><td>FN-DTC-002 구성별 잔량과 소진 순서 확인 기능</td><td>PG-DTC-USAGE-001 사용량·잔여량 표시 정책<br/>PG-DTC-PRIV-001 개인정보·통화내역 보호 정책</td></tr><tr><td class="mono">PR-DTC-003</td><td>사용 이력과 변경 이력 확인</td><td>최근 사용 패턴, 선물·충전 내역, 설정 변경 이력과 되돌리기 가능 여부를 확인한다.<br/></td><td>FN-DTC-003 사용 이력과 변경 이력 확인 기능</td><td>PG-DTC-HIST-001 이력·되돌리기 정책<br/>PG-DTC-USAGE-001 사용량·잔여량 표시 정책</td></tr></tbody>
+</table>
+
+<h4>2) 사용 패턴과 소진 위험 관리 (US-DTC-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-004</td><td>주요 통화·데이터 사용 패턴과 예상 소진 판단</td><td>일·주·월 사용량 추이와 예상 소진 시점을 산정하고 급증 여부를 판단한다.<br/></td><td>FN-DTC-004 주요 통화·데이터 사용 패턴과 예상 소진 판단 기능</td><td>PG-DTC-PRED-001 사용 패턴·소진 예측 정책<br/>PG-DTC-REAL-001 실시간성·집계 지연 정책</td></tr><tr><td class="mono">PR-DTC-005</td><td>데이터·통화·문자 임계치 알림과 대안 비교</td><td>소진 위험 알림에서 리필, 충전, 선물 요청, 요금제 변경, 차단 설정 대안을 비교한다.<br/></td><td>FN-DTC-005 데이터·통화·문자 임계치 알림과 대안 비교 기능</td><td>PG-DTC-ALERT-001 알림·딥링크 정책<br/>PG-DTC-PRED-001 사용 패턴·소진 예측 정책</td></tr><tr><td class="mono">PR-DTC-006</td><td>초과 사용 차단 설정</td><td>데이터·통화 초과 사용 차단 또는 안심 설정의 발동 조건과 해제 방법을 설정한다.<br/></td><td>FN-DTC-006 초과 사용 차단 설정 기능</td><td>PG-DTC-LIMIT-001 초과 사용 차단 정책<br/>PG-DTC-PRIV-001 개인정보·통화내역 보호 정책</td></tr></tbody>
+</table>
+
+<h4>3) 충전·리필·쿠폰 사용 실행 (US-DTC-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-007</td><td>충전·리필 가능 여부 진단</td><td>쿠폰 보유, 월 사용 제한, 대상 회선 조건, 유효기간, 핫스팟 적용 여부를 실행 전 진단한다.<br/></td><td>FN-DTC-007 충전·리필 가능 여부 진단 기능</td><td>PG-DTC-CHARGE-001 충전·리필·쿠폰 사용 정책<br/>PG-DTC-BSS-001 BSS·연계 반영 정책</td></tr><tr><td class="mono">PR-DTC-008</td><td>데이터 충전하기·쿠폰 사용 실행</td><td>데이터·통화 충전, 리필 쿠폰, 로밍 쿠폰 등록을 신청하고 적용 결과를 확인한다.<br/></td><td>FN-DTC-008 데이터 충전하기·쿠폰 사용 실행 기능</td><td>PG-DTC-CHARGE-001 충전·리필·쿠폰 사용 정책<br/>PG-DTC-HIST-001 이력·되돌리기 정책</td></tr><tr><td class="mono">PR-DTC-009</td><td>충전 내역과 잔여 쿠폰 관리</td><td>충전 내역, 잔여 쿠폰 수, 만료 예정일, 사용 방법 링크를 조회한다.<br/></td><td>FN-DTC-009 충전 내역과 잔여 쿠폰 관리 기능</td><td>PG-DTC-HIST-001 이력·되돌리기 정책<br/>PG-DTC-CHARGE-001 충전·리필·쿠폰 사용 정책</td></tr></tbody>
+</table>
+
+<h4>4) 데이터·통화 선물·공유 실행 (US-DTC-CUS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-010</td><td>선물 수단·정책 대시보드 확인</td><td>선물 수단별 조건, 한도, 잔여 횟수, 공유/개인 데이터 구분, 수신 가능 상태를 확인한다.<br/></td><td>FN-DTC-010 선물 수단·정책 대시보드 확인 기능</td><td>PG-DTC-GIFT-001 데이터·통화 선물 정책<br/>PG-DTC-USAGE-001 사용량·잔여량 표시 정책</td></tr><tr><td class="mono">PR-DTC-011</td><td>데이터 선물하기·통화 선물 발송</td><td>수신자, 용량, 유의사항, 제한 조건을 확인하고 선물을 발송한다.<br/></td><td>FN-DTC-011 데이터 선물하기·통화 선물 발송 기능</td><td>PG-DTC-GIFT-001 데이터·통화 선물 정책<br/>PG-DTC-BSS-001 BSS·연계 반영 정책</td></tr><tr><td class="mono">PR-DTC-012</td><td>다수 수신자 일괄 선물 처리</td><td>여러 수신자에게 선물을 발송하고 진행률과 실패 항목 재시도 여부를 확인한다.<br/></td><td>FN-DTC-012 다수 수신자 일괄 선물 처리 기능</td><td>PG-DTC-GIFT-001 데이터·통화 선물 정책<br/>PG-DTC-EXC-001 예외·실패 복구 정책</td></tr></tbody>
+</table>
+
+<h4>5) 자동 선물·충전 설정 관리 (US-DTC-CUS-005)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-013</td><td>자동 선물·충전 등록</td><td>자동 실행 대상, 주기, 용량, 다음 실행 예정일, 알림 조건을 등록한다.<br/></td><td>FN-DTC-013 자동 선물·충전 등록 기능</td><td>PG-DTC-AUTO-001 자동 선물·충전 정책<br/>PG-DTC-ALERT-001 알림·딥링크 정책</td></tr><tr><td class="mono">PR-DTC-014</td><td>자동선물 설정 조회·변경·해제</td><td>자동 설정 상태를 조회하고 요금제 변경 또는 고객 요청에 따라 해제·재등록한다.<br/></td><td>FN-DTC-014 자동선물 설정 조회·변경·해제 기능</td><td>PG-DTC-AUTO-001 자동 선물·충전 정책<br/>PG-DTC-HIST-001 이력·되돌리기 정책</td></tr></tbody>
+</table>
+
+<h4>6) 가족·다회선 위임 및 셰어링 관리 (US-DTC-FAM-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-015</td><td>가족·다회선 잔량 비교</td><td>가족·자녀·다회선 회선의 잔여량, 위험도, 선물 가능성, 차단 상태를 비교한다.<br/></td><td>FN-DTC-015 가족·다회선 잔량 비교 기능</td><td>PG-DTC-FAMILY-001 가족·위임 권한 정책<br/>PG-DTC-USAGE-001 사용량·잔여량 표시 정책</td></tr><tr><td class="mono">PR-DTC-016</td><td>위임 권한 등록·변경</td><td>보호자 또는 가족 대표의 조회·선물·차단 권한 범위와 유효 기간을 등록·변경한다.<br/></td><td>FN-DTC-016 위임 권한 등록·변경 기능</td><td>PG-DTC-FAMILY-001 가족·위임 권한 정책<br/>PG-DTC-PRIV-001 개인정보·통화내역 보호 정책</td></tr><tr><td class="mono">PR-DTC-017</td><td>자녀 데이터 차단·대리 선물</td><td>보호자 권한으로 자녀 회선의 차단 설정과 대리 선물 가능 여부를 확인하고 처리한다.<br/></td><td>FN-DTC-017 자녀 데이터 차단·대리 선물 기능</td><td>PG-DTC-FAMILY-001 가족·위임 권한 정책<br/>PG-DTC-LIMIT-001 초과 사용 차단 정책</td></tr><tr><td class="mono">PR-DTC-029</td><td>T 데이터 셰어링 USIM 상태·해지 영향 확인</td><td>가족 대표 또는 고객이 셰어링 USIM의 현재 상태, 해지 진행 여부, 공유 데이터 차감 영향, 부가회선 사용 제한을 확인하고 필요한 해지·상담 경로를 선택한다.<br/></td><td>FN-DTC-029 T 데이터 셰어링 USIM 상태·해지 영향 확인 기능</td><td>PG-DTC-FAMILY-001 가족·위임 권한 정책<br/>PG-DTC-BSS-001 BSS·연계 반영 정책<br/>PG-DTC-HIST-001 이력·되돌리기 정책</td></tr></tbody>
+</table>
+
+<h4>7) 로밍 데이터·쿠폰 실행 (US-DTC-CUS-006)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-018</td><td>로밍 잔량과 소진 위험 확인</td><td>해외 체류 중 로밍 데이터 잔량, 소진 임박 상태, 위젯 표시 기준을 확인한다.<br/></td><td>FN-DTC-018 로밍 잔량과 소진 위험 확인 기능</td><td>PG-DTC-ROAM-001 로밍 데이터·쿠폰 정책<br/>PG-DTC-REAL-001 실시간성·집계 지연 정책</td></tr><tr><td class="mono">PR-DTC-019</td><td>로밍 쿠폰 등록·충전</td><td>로밍 쿠폰 자동 등록 옵션과 추가 충전 가능 여부를 확인하고 실행한다.<br/></td><td>FN-DTC-019 로밍 쿠폰 등록·충전 기능</td><td>PG-DTC-ROAM-001 로밍 데이터·쿠폰 정책<br/>PG-DTC-CHARGE-001 충전·리필·쿠폰 사용 정책</td></tr><tr><td class="mono">PR-DTC-020</td><td>로밍 선물 가능 여부 확인</td><td>로밍 중 국내 데이터 선물 수신 가능 여부와 제한 조건을 확인한다.<br/></td><td>FN-DTC-020 로밍 선물 가능 여부 확인 기능</td><td>PG-DTC-ROAM-001 로밍 데이터·쿠폰 정책<br/>PG-DTC-GIFT-001 데이터·통화 선물 정책</td></tr></tbody>
+</table>
+
+<h4>8) 실패·지연·예외 복구 (US-DTC-CUS-007)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-021</td><td>조회 실패·반영 지연 안내</td><td>사용량 조회 실패, 집계 지연, 충전·선물 반영 지연 상태와 재확인 시점을 안내한다.<br/></td><td>FN-DTC-021 조회 실패·반영 지연 안내 기능</td><td>PG-DTC-EXC-001 예외·실패 복구 정책<br/>PG-DTC-REAL-001 실시간성·집계 지연 정책</td></tr><tr><td class="mono">PR-DTC-022</td><td>실패 항목 재시도와 대체 경로</td><td>선물·충전 실패 사유를 확인하고 실패 항목만 재시도하거나 대체 행동으로 연결한다.<br/></td><td>FN-DTC-022 실패 항목 재시도와 대체 경로 기능</td><td>PG-DTC-EXC-001 예외·실패 복구 정책<br/>PG-DTC-GIFT-001 데이터·통화 선물 정책</td></tr><tr><td class="mono">PR-DTC-023</td><td>상담 전환 문맥 전달</td><td>셀프 처리 불가 시 사용량 상태, 실패 사유, 마지막 처리 이력을 상담 문맥으로 전달한다.<br/></td><td>FN-DTC-023 상담 전환 문맥 전달 기능</td><td>PG-DTC-EXC-001 예외·실패 복구 정책<br/>PG-DTC-PRIV-001 개인정보·통화내역 보호 정책</td></tr></tbody>
+</table>
+
+<h4>9) 사용량·선물·충전 운영 정책 관리 (US-DTC-OPS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-024</td><td>임계치·알림 정책 운영</td><td>상품·고객군·회선 유형별 알림 임계치, 문구, 실험군/대조군을 관리한다.<br/></td><td>FN-DTC-024 임계치·알림 정책 운영 기능</td><td>PG-DTC-OPS-001 운영 정책·모니터링 정책<br/>PG-DTC-ALERT-001 알림·딥링크 정책</td></tr><tr><td class="mono">PR-DTC-025</td><td>사용량 이상치와 집계 지연 모니터링</td><td>사용량 급증, 집계 누락, 알림 미발송, 자동 리필 실패를 모니터링하고 보정한다.<br/></td><td>FN-DTC-025 사용량 이상치와 집계 지연 모니터링 기능</td><td>PG-DTC-OPS-001 운영 정책·모니터링 정책<br/>PG-DTC-EXC-001 예외·실패 복구 정책</td></tr><tr><td class="mono">PR-DTC-026</td><td>선물·충전 정책 변경 영향 관리</td><td>선물 한도, 자동 설정, 충전 조건 변경의 대상 고객과 기존 설정 영향을 확인한다.<br/></td><td>FN-DTC-026 선물·충전 정책 변경 영향 관리 기능</td><td>PG-DTC-OPS-001 운영 정책·모니터링 정책<br/>PG-DTC-GIFT-001 데이터·통화 선물 정책<br/>PG-DTC-CHARGE-001 충전·리필·쿠폰 사용 정책</td></tr></tbody>
+</table>
+
+<h4>10) 데이터·통화 상담 문맥 지원 (US-DTC-CSUP-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-DTC-027</td><td>상담 대상 상태 조회</td><td>상담사가 고객 회선, 사용량, 선물·충전, 차단, 위임 권한, 실패 이력을 확인한다.<br/></td><td>FN-DTC-027 상담 대상 상태 조회 기능</td><td>PG-DTC-PRIV-001 개인정보·통화내역 보호 정책<br/>PG-DTC-HIST-001 이력·되돌리기 정책</td></tr><tr><td class="mono">PR-DTC-028</td><td>상담 후속 조치와 보정 안내</td><td>상담 후 재처리, 보정, 권한 등록, 대체 행동을 안내하고 처리 이력을 저장한다.<br/></td><td>FN-DTC-028 상담 후속 조치와 보정 안내 기능</td><td>PG-DTC-EXC-001 예외·실패 복구 정책<br/>PG-DTC-OPS-001 운영 정책·모니터링 정책</td></tr></tbody>
+</table>
+
+
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_나의데이터통화_정책서_간소화_v0.11_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"나의데이터통화 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_DTC_CUS_001\" name=\"US-DTC-CUS-001 데이터·통화 현황과 잔여량 이해\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CUS_002\" name=\"US-DTC-CUS-002 사용 패턴과 소진 위험 관리\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CUS_003\" name=\"US-DTC-CUS-003 충전·리필·쿠폰 사용 실행\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_009<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CUS_004\" name=\"US-DTC-CUS-004 데이터·통화 선물·공유 실행\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_010<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_011<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_012<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CUS_005\" name=\"US-DTC-CUS-005 자동 선물·충전 설정 관리\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_013<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_014<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_005<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_FAM_001\" name=\"US-DTC-FAM-001 가족·다회선 위임 및 셰어링 관리\">\n        <bpmn:flowNodeRef>Start_US_DTC_FAM_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_015<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_016<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_017<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_029<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_FAM_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CUS_006\" name=\"US-DTC-CUS-006 로밍 데이터·쿠폰 실행\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_018<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_019<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_020<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_006<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CUS_007\" name=\"US-DTC-CUS-007 실패·지연·예외 복구\">\n        <bpmn:flowNodeRef>Start_US_DTC_CUS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_021<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_022<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_023<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CUS_007<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_OPS_001\" name=\"US-DTC-OPS-001 사용량·선물·충전 운영 정책 관리\">\n        <bpmn:flowNodeRef>Start_US_DTC_OPS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_024<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_025<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_026<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_OPS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_DTC_CSUP_001\" name=\"US-DTC-CSUP-001 데이터·통화 상담 문맥 지원\">\n        <bpmn:flowNodeRef>Start_US_DTC_CSUP_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_027<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_DTC_028<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_DTC_CSUP_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_001\" name=\"PR-DTC-001 사용량 대시보드 진입\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_001_Task_PR_DTC_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_002\" name=\"PR-DTC-002 구성별 잔량과 소진 순서 확인\">\n      <bpmn:incoming>Flow_Task_PR_DTC_001_Task_PR_DTC_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_002_Task_PR_DTC_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_003\" name=\"PR-DTC-003 사용 이력과 변경 이력 확인\">\n      <bpmn:incoming>Flow_Task_PR_DTC_002_Task_PR_DTC_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_003_End_US_DTC_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_003_End_US_DTC_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001\" sourceRef=\"Start_US_DTC_CUS_001\" targetRef=\"Task_PR_DTC_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_001_Task_PR_DTC_002\" sourceRef=\"Task_PR_DTC_001\" targetRef=\"Task_PR_DTC_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_002_Task_PR_DTC_003\" sourceRef=\"Task_PR_DTC_002\" targetRef=\"Task_PR_DTC_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_003_End_US_DTC_CUS_001\" sourceRef=\"Task_PR_DTC_003\" targetRef=\"End_US_DTC_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_004\" name=\"PR-DTC-004 주요 통화·데이터 사용 패턴과 예상 소진 판단\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_004_Task_PR_DTC_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_005\" name=\"PR-DTC-005 데이터·통화·문자 임계치 알림과 대안 비교\">\n      <bpmn:incoming>Flow_Task_PR_DTC_004_Task_PR_DTC_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_005_Task_PR_DTC_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_006\" name=\"PR-DTC-006 초과 사용 차단 설정\">\n      <bpmn:incoming>Flow_Task_PR_DTC_005_Task_PR_DTC_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_006_End_US_DTC_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_006_End_US_DTC_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004\" sourceRef=\"Start_US_DTC_CUS_002\" targetRef=\"Task_PR_DTC_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_004_Task_PR_DTC_005\" sourceRef=\"Task_PR_DTC_004\" targetRef=\"Task_PR_DTC_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_005_Task_PR_DTC_006\" sourceRef=\"Task_PR_DTC_005\" targetRef=\"Task_PR_DTC_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_006_End_US_DTC_CUS_002\" sourceRef=\"Task_PR_DTC_006\" targetRef=\"End_US_DTC_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_007\" name=\"PR-DTC-007 충전·리필 가능 여부 진단\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_007_Task_PR_DTC_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_008\" name=\"PR-DTC-008 데이터 충전하기·쿠폰 사용 실행\">\n      <bpmn:incoming>Flow_Task_PR_DTC_007_Task_PR_DTC_008<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_008_Task_PR_DTC_009<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_009\" name=\"PR-DTC-009 충전 내역과 잔여 쿠폰 관리\">\n      <bpmn:incoming>Flow_Task_PR_DTC_008_Task_PR_DTC_009<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_009_End_US_DTC_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_009_End_US_DTC_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007\" sourceRef=\"Start_US_DTC_CUS_003\" targetRef=\"Task_PR_DTC_007\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_007_Task_PR_DTC_008\" sourceRef=\"Task_PR_DTC_007\" targetRef=\"Task_PR_DTC_008\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_008_Task_PR_DTC_009\" sourceRef=\"Task_PR_DTC_008\" targetRef=\"Task_PR_DTC_009\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_009_End_US_DTC_CUS_003\" sourceRef=\"Task_PR_DTC_009\" targetRef=\"End_US_DTC_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_010\" name=\"PR-DTC-010 선물 수단·정책 대시보드 확인\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_010_Task_PR_DTC_011<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_011\" name=\"PR-DTC-011 데이터 선물하기·통화 선물 발송\">\n      <bpmn:incoming>Flow_Task_PR_DTC_010_Task_PR_DTC_011<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_011_Task_PR_DTC_012<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_012\" name=\"PR-DTC-012 다수 수신자 일괄 선물 처리\">\n      <bpmn:incoming>Flow_Task_PR_DTC_011_Task_PR_DTC_012<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_012_End_US_DTC_CUS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_012_End_US_DTC_CUS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010\" sourceRef=\"Start_US_DTC_CUS_004\" targetRef=\"Task_PR_DTC_010\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_010_Task_PR_DTC_011\" sourceRef=\"Task_PR_DTC_010\" targetRef=\"Task_PR_DTC_011\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_011_Task_PR_DTC_012\" sourceRef=\"Task_PR_DTC_011\" targetRef=\"Task_PR_DTC_012\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_012_End_US_DTC_CUS_004\" sourceRef=\"Task_PR_DTC_012\" targetRef=\"End_US_DTC_CUS_004\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_005\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_013\" name=\"PR-DTC-013 자동 선물·충전 등록\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_013_Task_PR_DTC_014<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_014\" name=\"PR-DTC-014 자동선물 설정 조회·변경·해제\">\n      <bpmn:incoming>Flow_Task_PR_DTC_013_Task_PR_DTC_014<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_014_End_US_DTC_CUS_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_005\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_014_End_US_DTC_CUS_005<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013\" sourceRef=\"Start_US_DTC_CUS_005\" targetRef=\"Task_PR_DTC_013\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_013_Task_PR_DTC_014\" sourceRef=\"Task_PR_DTC_013\" targetRef=\"Task_PR_DTC_014\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_014_End_US_DTC_CUS_005\" sourceRef=\"Task_PR_DTC_014\" targetRef=\"End_US_DTC_CUS_005\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_FAM_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_015\" name=\"PR-DTC-015 가족·다회선 잔량 비교\">\n      <bpmn:incoming>Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_015_Task_PR_DTC_016<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_016\" name=\"PR-DTC-016 위임 권한 등록·변경\">\n      <bpmn:incoming>Flow_Task_PR_DTC_015_Task_PR_DTC_016<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_016_Task_PR_DTC_017<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_017\" name=\"PR-DTC-017 자녀 데이터 차단·대리 선물\">\n      <bpmn:incoming>Flow_Task_PR_DTC_016_Task_PR_DTC_017<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_017_Task_PR_DTC_029<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_029\" name=\"PR-DTC-029 T 데이터 셰어링 USIM 상태·해지 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_DTC_017_Task_PR_DTC_029<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_029_End_US_DTC_FAM_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_FAM_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_029_End_US_DTC_FAM_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015\" sourceRef=\"Start_US_DTC_FAM_001\" targetRef=\"Task_PR_DTC_015\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_015_Task_PR_DTC_016\" sourceRef=\"Task_PR_DTC_015\" targetRef=\"Task_PR_DTC_016\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_016_Task_PR_DTC_017\" sourceRef=\"Task_PR_DTC_016\" targetRef=\"Task_PR_DTC_017\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_017_Task_PR_DTC_029\" sourceRef=\"Task_PR_DTC_017\" targetRef=\"Task_PR_DTC_029\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_029_End_US_DTC_FAM_001\" sourceRef=\"Task_PR_DTC_029\" targetRef=\"End_US_DTC_FAM_001\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_006\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_018\" name=\"PR-DTC-018 로밍 잔량과 소진 위험 확인\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_018_Task_PR_DTC_019<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_019\" name=\"PR-DTC-019 로밍 쿠폰 등록·충전\">\n      <bpmn:incoming>Flow_Task_PR_DTC_018_Task_PR_DTC_019<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_019_Task_PR_DTC_020<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_020\" name=\"PR-DTC-020 로밍 선물 가능 여부 확인\">\n      <bpmn:incoming>Flow_Task_PR_DTC_019_Task_PR_DTC_020<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_020_End_US_DTC_CUS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_006\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_020_End_US_DTC_CUS_006<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018\" sourceRef=\"Start_US_DTC_CUS_006\" targetRef=\"Task_PR_DTC_018\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_018_Task_PR_DTC_019\" sourceRef=\"Task_PR_DTC_018\" targetRef=\"Task_PR_DTC_019\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_019_Task_PR_DTC_020\" sourceRef=\"Task_PR_DTC_019\" targetRef=\"Task_PR_DTC_020\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_020_End_US_DTC_CUS_006\" sourceRef=\"Task_PR_DTC_020\" targetRef=\"End_US_DTC_CUS_006\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CUS_007\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_021\" name=\"PR-DTC-021 조회 실패·반영 지연 안내\">\n      <bpmn:incoming>Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_021_Task_PR_DTC_022<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_022\" name=\"PR-DTC-022 실패 항목 재시도와 대체 경로\">\n      <bpmn:incoming>Flow_Task_PR_DTC_021_Task_PR_DTC_022<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_022_Task_PR_DTC_023<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_023\" name=\"PR-DTC-023 상담 전환 문맥 전달\">\n      <bpmn:incoming>Flow_Task_PR_DTC_022_Task_PR_DTC_023<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_023_End_US_DTC_CUS_007<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CUS_007\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_023_End_US_DTC_CUS_007<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021\" sourceRef=\"Start_US_DTC_CUS_007\" targetRef=\"Task_PR_DTC_021\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_021_Task_PR_DTC_022\" sourceRef=\"Task_PR_DTC_021\" targetRef=\"Task_PR_DTC_022\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_022_Task_PR_DTC_023\" sourceRef=\"Task_PR_DTC_022\" targetRef=\"Task_PR_DTC_023\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_023_End_US_DTC_CUS_007\" sourceRef=\"Task_PR_DTC_023\" targetRef=\"End_US_DTC_CUS_007\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_OPS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_024\" name=\"PR-DTC-024 임계치·알림 정책 운영\">\n      <bpmn:incoming>Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_024_Task_PR_DTC_025<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_025\" name=\"PR-DTC-025 사용량 이상치와 집계 지연 모니터링\">\n      <bpmn:incoming>Flow_Task_PR_DTC_024_Task_PR_DTC_025<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_025_Task_PR_DTC_026<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_026\" name=\"PR-DTC-026 선물·충전 정책 변경 영향 관리\">\n      <bpmn:incoming>Flow_Task_PR_DTC_025_Task_PR_DTC_026<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_026_End_US_DTC_OPS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_OPS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_026_End_US_DTC_OPS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024\" sourceRef=\"Start_US_DTC_OPS_001\" targetRef=\"Task_PR_DTC_024\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_024_Task_PR_DTC_025\" sourceRef=\"Task_PR_DTC_024\" targetRef=\"Task_PR_DTC_025\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_025_Task_PR_DTC_026\" sourceRef=\"Task_PR_DTC_025\" targetRef=\"Task_PR_DTC_026\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_026_End_US_DTC_OPS_001\" sourceRef=\"Task_PR_DTC_026\" targetRef=\"End_US_DTC_OPS_001\"/>\n    <bpmn:startEvent id=\"Start_US_DTC_CSUP_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_DTC_027\" name=\"PR-DTC-027 상담 대상 상태 조회\">\n      <bpmn:incoming>Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_027_Task_PR_DTC_028<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_DTC_028\" name=\"PR-DTC-028 상담 후속 조치와 보정 안내\">\n      <bpmn:incoming>Flow_Task_PR_DTC_027_Task_PR_DTC_028<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_DTC_CSUP_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027\" sourceRef=\"Start_US_DTC_CSUP_001\" targetRef=\"Task_PR_DTC_027\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_027_Task_PR_DTC_028\" sourceRef=\"Task_PR_DTC_027\" targetRef=\"Task_PR_DTC_028\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001\" sourceRef=\"Task_PR_DTC_028\" targetRef=\"End_US_DTC_CSUP_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_001_di\" bpmnElement=\"Lane_US_DTC_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_001_di\" bpmnElement=\"Start_US_DTC_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_001_di\" bpmnElement=\"Task_PR_DTC_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_002_di\" bpmnElement=\"Task_PR_DTC_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_003_di\" bpmnElement=\"Task_PR_DTC_003\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_001_di\" bpmnElement=\"End_US_DTC_CUS_001\">\n        <dc:Bounds x=\"900\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_002_di\" bpmnElement=\"Lane_US_DTC_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_002_di\" bpmnElement=\"Start_US_DTC_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_004_di\" bpmnElement=\"Task_PR_DTC_004\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_005_di\" bpmnElement=\"Task_PR_DTC_005\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_006_di\" bpmnElement=\"Task_PR_DTC_006\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_002_di\" bpmnElement=\"End_US_DTC_CUS_002\">\n        <dc:Bounds x=\"900\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_003_di\" bpmnElement=\"Lane_US_DTC_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_003_di\" bpmnElement=\"Start_US_DTC_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_007_di\" bpmnElement=\"Task_PR_DTC_007\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_008_di\" bpmnElement=\"Task_PR_DTC_008\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_009_di\" bpmnElement=\"Task_PR_DTC_009\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_003_di\" bpmnElement=\"End_US_DTC_CUS_003\">\n        <dc:Bounds x=\"900\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_004_di\" bpmnElement=\"Lane_US_DTC_CUS_004\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_004_di\" bpmnElement=\"Start_US_DTC_CUS_004\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_010_di\" bpmnElement=\"Task_PR_DTC_010\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_011_di\" bpmnElement=\"Task_PR_DTC_011\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_012_di\" bpmnElement=\"Task_PR_DTC_012\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_004_di\" bpmnElement=\"End_US_DTC_CUS_004\">\n        <dc:Bounds x=\"900\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_005_di\" bpmnElement=\"Lane_US_DTC_CUS_005\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_005_di\" bpmnElement=\"Start_US_DTC_CUS_005\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_013_di\" bpmnElement=\"Task_PR_DTC_013\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_014_di\" bpmnElement=\"Task_PR_DTC_014\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_005_di\" bpmnElement=\"End_US_DTC_CUS_005\">\n        <dc:Bounds x=\"680\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_FAM_001_di\" bpmnElement=\"Lane_US_DTC_FAM_001\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_FAM_001_di\" bpmnElement=\"Start_US_DTC_FAM_001\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_015_di\" bpmnElement=\"Task_PR_DTC_015\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_016_di\" bpmnElement=\"Task_PR_DTC_016\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_017_di\" bpmnElement=\"Task_PR_DTC_017\">\n        <dc:Bounds x=\"680\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_029_di\" bpmnElement=\"Task_PR_DTC_029\">\n        <dc:Bounds x=\"900\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_FAM_001_di\" bpmnElement=\"End_US_DTC_FAM_001\">\n        <dc:Bounds x=\"1120\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_006_di\" bpmnElement=\"Lane_US_DTC_CUS_006\">\n        <dc:Bounds x=\"40\" y=\"1045\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_006_di\" bpmnElement=\"Start_US_DTC_CUS_006\">\n        <dc:Bounds x=\"112\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_018_di\" bpmnElement=\"Task_PR_DTC_018\">\n        <dc:Bounds x=\"240\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_019_di\" bpmnElement=\"Task_PR_DTC_019\">\n        <dc:Bounds x=\"460\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_020_di\" bpmnElement=\"Task_PR_DTC_020\">\n        <dc:Bounds x=\"680\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_006_di\" bpmnElement=\"End_US_DTC_CUS_006\">\n        <dc:Bounds x=\"900\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CUS_007_di\" bpmnElement=\"Lane_US_DTC_CUS_007\">\n        <dc:Bounds x=\"40\" y=\"1215\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CUS_007_di\" bpmnElement=\"Start_US_DTC_CUS_007\">\n        <dc:Bounds x=\"112\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_021_di\" bpmnElement=\"Task_PR_DTC_021\">\n        <dc:Bounds x=\"240\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_022_di\" bpmnElement=\"Task_PR_DTC_022\">\n        <dc:Bounds x=\"460\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_023_di\" bpmnElement=\"Task_PR_DTC_023\">\n        <dc:Bounds x=\"680\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CUS_007_di\" bpmnElement=\"End_US_DTC_CUS_007\">\n        <dc:Bounds x=\"900\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_OPS_001_di\" bpmnElement=\"Lane_US_DTC_OPS_001\">\n        <dc:Bounds x=\"40\" y=\"1385\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_OPS_001_di\" bpmnElement=\"Start_US_DTC_OPS_001\">\n        <dc:Bounds x=\"112\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_024_di\" bpmnElement=\"Task_PR_DTC_024\">\n        <dc:Bounds x=\"240\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_025_di\" bpmnElement=\"Task_PR_DTC_025\">\n        <dc:Bounds x=\"460\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_026_di\" bpmnElement=\"Task_PR_DTC_026\">\n        <dc:Bounds x=\"680\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_OPS_001_di\" bpmnElement=\"End_US_DTC_OPS_001\">\n        <dc:Bounds x=\"900\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_DTC_CSUP_001_di\" bpmnElement=\"Lane_US_DTC_CSUP_001\">\n        <dc:Bounds x=\"40\" y=\"1555\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_DTC_CSUP_001_di\" bpmnElement=\"Start_US_DTC_CSUP_001\">\n        <dc:Bounds x=\"112\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_027_di\" bpmnElement=\"Task_PR_DTC_027\">\n        <dc:Bounds x=\"240\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_DTC_028_di\" bpmnElement=\"Task_PR_DTC_028\">\n        <dc:Bounds x=\"460\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_DTC_CSUP_001_di\" bpmnElement=\"End_US_DTC_CSUP_001\">\n        <dc:Bounds x=\"680\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_001_Task_PR_DTC_002_di\" bpmnElement=\"Flow_Task_PR_DTC_001_Task_PR_DTC_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_002_Task_PR_DTC_003_di\" bpmnElement=\"Flow_Task_PR_DTC_002_Task_PR_DTC_003\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_003_End_US_DTC_CUS_001_di\" bpmnElement=\"Flow_Task_PR_DTC_003_End_US_DTC_CUS_001\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_004_Task_PR_DTC_005_di\" bpmnElement=\"Flow_Task_PR_DTC_004_Task_PR_DTC_005\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_005_Task_PR_DTC_006_di\" bpmnElement=\"Flow_Task_PR_DTC_005_Task_PR_DTC_006\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_006_End_US_DTC_CUS_002_di\" bpmnElement=\"Flow_Task_PR_DTC_006_End_US_DTC_CUS_002\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_007_Task_PR_DTC_008_di\" bpmnElement=\"Flow_Task_PR_DTC_007_Task_PR_DTC_008\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_008_Task_PR_DTC_009_di\" bpmnElement=\"Flow_Task_PR_DTC_008_Task_PR_DTC_009\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_009_End_US_DTC_CUS_003_di\" bpmnElement=\"Flow_Task_PR_DTC_009_End_US_DTC_CUS_003\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_010_Task_PR_DTC_011_di\" bpmnElement=\"Flow_Task_PR_DTC_010_Task_PR_DTC_011\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_011_Task_PR_DTC_012_di\" bpmnElement=\"Flow_Task_PR_DTC_011_Task_PR_DTC_012\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_012_End_US_DTC_CUS_004_di\" bpmnElement=\"Flow_Task_PR_DTC_012_End_US_DTC_CUS_004\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_013_Task_PR_DTC_014_di\" bpmnElement=\"Flow_Task_PR_DTC_013_Task_PR_DTC_014\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_014_End_US_DTC_CUS_005_di\" bpmnElement=\"Flow_Task_PR_DTC_014_End_US_DTC_CUS_005\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015_di\" bpmnElement=\"Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_015_Task_PR_DTC_016_di\" bpmnElement=\"Flow_Task_PR_DTC_015_Task_PR_DTC_016\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_016_Task_PR_DTC_017_di\" bpmnElement=\"Flow_Task_PR_DTC_016_Task_PR_DTC_017\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_017_Task_PR_DTC_029_di\" bpmnElement=\"Flow_Task_PR_DTC_017_Task_PR_DTC_029\">\n        <di:waypoint x=\"850\" y=\"920\"/>\n        <di:waypoint x=\"900\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_029_End_US_DTC_FAM_001_di\" bpmnElement=\"Flow_Task_PR_DTC_029_End_US_DTC_FAM_001\">\n        <di:waypoint x=\"1070\" y=\"920\"/>\n        <di:waypoint x=\"1120\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018\">\n        <di:waypoint x=\"148\" y=\"1090\"/>\n        <di:waypoint x=\"240\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_018_Task_PR_DTC_019_di\" bpmnElement=\"Flow_Task_PR_DTC_018_Task_PR_DTC_019\">\n        <di:waypoint x=\"410\" y=\"1090\"/>\n        <di:waypoint x=\"460\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_019_Task_PR_DTC_020_di\" bpmnElement=\"Flow_Task_PR_DTC_019_Task_PR_DTC_020\">\n        <di:waypoint x=\"630\" y=\"1090\"/>\n        <di:waypoint x=\"680\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_020_End_US_DTC_CUS_006_di\" bpmnElement=\"Flow_Task_PR_DTC_020_End_US_DTC_CUS_006\">\n        <di:waypoint x=\"850\" y=\"1090\"/>\n        <di:waypoint x=\"900\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021_di\" bpmnElement=\"Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021\">\n        <di:waypoint x=\"148\" y=\"1260\"/>\n        <di:waypoint x=\"240\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_021_Task_PR_DTC_022_di\" bpmnElement=\"Flow_Task_PR_DTC_021_Task_PR_DTC_022\">\n        <di:waypoint x=\"410\" y=\"1260\"/>\n        <di:waypoint x=\"460\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_022_Task_PR_DTC_023_di\" bpmnElement=\"Flow_Task_PR_DTC_022_Task_PR_DTC_023\">\n        <di:waypoint x=\"630\" y=\"1260\"/>\n        <di:waypoint x=\"680\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_023_End_US_DTC_CUS_007_di\" bpmnElement=\"Flow_Task_PR_DTC_023_End_US_DTC_CUS_007\">\n        <di:waypoint x=\"850\" y=\"1260\"/>\n        <di:waypoint x=\"900\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024_di\" bpmnElement=\"Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024\">\n        <di:waypoint x=\"148\" y=\"1430\"/>\n        <di:waypoint x=\"240\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_024_Task_PR_DTC_025_di\" bpmnElement=\"Flow_Task_PR_DTC_024_Task_PR_DTC_025\">\n        <di:waypoint x=\"410\" y=\"1430\"/>\n        <di:waypoint x=\"460\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_025_Task_PR_DTC_026_di\" bpmnElement=\"Flow_Task_PR_DTC_025_Task_PR_DTC_026\">\n        <di:waypoint x=\"630\" y=\"1430\"/>\n        <di:waypoint x=\"680\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_026_End_US_DTC_OPS_001_di\" bpmnElement=\"Flow_Task_PR_DTC_026_End_US_DTC_OPS_001\">\n        <di:waypoint x=\"850\" y=\"1430\"/>\n        <di:waypoint x=\"900\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027_di\" bpmnElement=\"Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027\">\n        <di:waypoint x=\"148\" y=\"1600\"/>\n        <di:waypoint x=\"240\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_027_Task_PR_DTC_028_di\" bpmnElement=\"Flow_Task_PR_DTC_027_Task_PR_DTC_028\">\n        <di:waypoint x=\"410\" y=\"1600\"/>\n        <di:waypoint x=\"460\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001_di\" bpmnElement=\"Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001\">\n        <di:waypoint x=\"630\" y=\"1600\"/>\n        <di:waypoint x=\"680\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="1724" role="img" viewBox="0 0 1177 1724" width="1177" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="77">US-DTC-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="93">데이터·통화 현황과 잔여량</text><text class="pool-title" text-anchor="middle" x="145" y="109">이해</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-DTC-001</text><text class="task-text" text-anchor="middle" x="410" y="119">사용량 대시보드 진입</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-DTC-002</text><text class="task-text" text-anchor="middle" x="595" y="112">구성별 잔량과 소진 순서</text><text class="task-text" text-anchor="middle" x="595" y="126">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-DTC-003</text><text class="task-text" text-anchor="middle" x="780" y="119">사용 이력과 변경 이력 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="108" y2="108"></line><circle class="end" cx="918" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="253">US-DTC-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="269">사용 패턴과 소진 위험 관리</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-DTC-004</text><text class="task-text" text-anchor="middle" x="410" y="280">주요 통화·데이터 사용</text><text class="task-text" text-anchor="middle" x="410" y="294">패턴과 예상 소진 판단</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-DTC-005</text><text class="task-text" text-anchor="middle" x="595" y="280">데이터·통화·문자 임계치</text><text class="task-text" text-anchor="middle" x="595" y="294">알림과 대안 비교</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-DTC-006</text><text class="task-text" text-anchor="middle" x="780" y="287">초과 사용 차단 설정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="276" y2="276"></line><circle class="end" cx="918" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-DTC-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">충전·리필·쿠폰 사용 실행</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-DTC-007</text><text class="task-text" text-anchor="middle" x="410" y="455">충전·리필 가능 여부 진단</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-DTC-008</text><text class="task-text" text-anchor="middle" x="595" y="448">데이터 충전하기·쿠폰 사용</text><text class="task-text" text-anchor="middle" x="595" y="462">실행</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-DTC-009</text><text class="task-text" text-anchor="middle" x="780" y="455">충전 내역과 잔여 쿠폰 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="444" y2="444"></line><circle class="end" cx="918" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-DTC-CUS-004</text><text class="pool-title" text-anchor="middle" x="145" y="605">데이터·통화 선물·공유 실행</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-DTC-010</text><text class="task-text" text-anchor="middle" x="410" y="616">선물 수단·정책 대시보드</text><text class="task-text" text-anchor="middle" x="410" y="630">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-DTC-011</text><text class="task-text" text-anchor="middle" x="595" y="616">데이터 선물하기·통화 선물</text><text class="task-text" text-anchor="middle" x="595" y="630">발송</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-DTC-012</text><text class="task-text" text-anchor="middle" x="780" y="623">다수 수신자 일괄 선물 처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="612" y2="612"></line><circle class="end" cx="918" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-DTC-CUS-005</text><text class="pool-title" text-anchor="middle" x="145" y="773">자동 선물·충전 설정 관리</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-DTC-013</text><text class="task-text" text-anchor="middle" x="410" y="791">자동 선물·충전 등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-DTC-014</text><text class="task-text" text-anchor="middle" x="595" y="784">자동선물 설정</text><text class="task-text" text-anchor="middle" x="595" y="798">조회·변경·해제</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="780" y2="780"></line><circle class="end" cx="733" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="917">US-DTC-FAM-001</text><text class="pool-title" text-anchor="middle" x="145" y="933">가족·다회선 위임 및 셰어링</text><text class="pool-title" text-anchor="middle" x="145" y="949">관리</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-DTC-015</text><text class="task-text" text-anchor="middle" x="410" y="959">가족·다회선 잔량 비교</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-DTC-016</text><text class="task-text" text-anchor="middle" x="595" y="959">위임 권한 등록·변경</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="915"></rect><text class="task-text" text-anchor="middle" x="780" y="936">PR-DTC-017</text><text class="task-text" text-anchor="middle" x="780" y="959">자녀 데이터 차단·대리 선물</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="915"></rect><text class="task-text" text-anchor="middle" x="965" y="936">PR-DTC-029</text><text class="task-text" text-anchor="middle" x="965" y="952">T 데이터 셰어링 USIM</text><text class="task-text" text-anchor="middle" x="965" y="966">상태·해지 영향 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="948" y2="948"></line><circle class="end" cx="1103" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="952">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1040"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1040"></rect><text class="pool-index" x="58" y="1072">07</text><text class="pool-title" text-anchor="middle" x="145" y="1093">US-DTC-CUS-006</text><text class="pool-title" text-anchor="middle" x="145" y="1109">로밍 데이터·쿠폰 실행</text><circle class="start" cx="300" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1120">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1083"></rect><text class="task-text" text-anchor="middle" x="410" y="1104">PR-DTC-018</text><text class="task-text" text-anchor="middle" x="410" y="1127">로밍 잔량과 소진 위험 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1116" y2="1116"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1083"></rect><text class="task-text" text-anchor="middle" x="595" y="1104">PR-DTC-019</text><text class="task-text" text-anchor="middle" x="595" y="1127">로밍 쿠폰 등록·충전</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1116" y2="1116"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="1083"></rect><text class="task-text" text-anchor="middle" x="780" y="1104">PR-DTC-020</text><text class="task-text" text-anchor="middle" x="780" y="1127">로밍 선물 가능 여부 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1116" y2="1116"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="1116" y2="1116"></line><circle class="end" cx="918" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="1120">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1208"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1208"></rect><text class="pool-index" x="58" y="1240">08</text><text class="pool-title" text-anchor="middle" x="145" y="1261">US-DTC-CUS-007</text><text class="pool-title" text-anchor="middle" x="145" y="1277">실패·지연·예외 복구</text><circle class="start" cx="300" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1288">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1251"></rect><text class="task-text" text-anchor="middle" x="410" y="1272">PR-DTC-021</text><text class="task-text" text-anchor="middle" x="410" y="1295">조회 실패·반영 지연 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1284" y2="1284"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1251"></rect><text class="task-text" text-anchor="middle" x="595" y="1272">PR-DTC-022</text><text class="task-text" text-anchor="middle" x="595" y="1288">실패 항목 재시도와 대체</text><text class="task-text" text-anchor="middle" x="595" y="1302">경로</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1284" y2="1284"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="1251"></rect><text class="task-text" text-anchor="middle" x="780" y="1272">PR-DTC-023</text><text class="task-text" text-anchor="middle" x="780" y="1295">상담 전환 문맥 전달</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1284" y2="1284"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="1284" y2="1284"></line><circle class="end" cx="918" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="1288">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1376"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1376"></rect><text class="pool-index" x="58" y="1408">09</text><text class="pool-title" text-anchor="middle" x="145" y="1421">US-DTC-OPS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1437">사용량·선물·충전 운영 정책</text><text class="pool-title" text-anchor="middle" x="145" y="1453">관리</text><circle class="start" cx="300" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1456">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1419"></rect><text class="task-text" text-anchor="middle" x="410" y="1440">PR-DTC-024</text><text class="task-text" text-anchor="middle" x="410" y="1463">임계치·알림 정책 운영</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1452" y2="1452"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1419"></rect><text class="task-text" text-anchor="middle" x="595" y="1440">PR-DTC-025</text><text class="task-text" text-anchor="middle" x="595" y="1456">사용량 이상치와 집계 지연</text><text class="task-text" text-anchor="middle" x="595" y="1470">모니터링</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1452" y2="1452"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="1419"></rect><text class="task-text" text-anchor="middle" x="780" y="1440">PR-DTC-026</text><text class="task-text" text-anchor="middle" x="780" y="1456">선물·충전 정책 변경 영향</text><text class="task-text" text-anchor="middle" x="780" y="1470">관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1452" y2="1452"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="1452" y2="1452"></line><circle class="end" cx="918" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="1456">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1544"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1544"></rect><text class="pool-index" x="58" y="1576">10</text><text class="pool-title" text-anchor="middle" x="145" y="1597">US-DTC-CSUP-001</text><text class="pool-title" text-anchor="middle" x="145" y="1613">데이터·통화 상담 문맥 지원</text><circle class="start" cx="300" cy="1620" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1624">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1587"></rect><text class="task-text" text-anchor="middle" x="410" y="1608">PR-DTC-027</text><text class="task-text" text-anchor="middle" x="410" y="1631">상담 대상 상태 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1620" y2="1620"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1587"></rect><text class="task-text" text-anchor="middle" x="595" y="1608">PR-DTC-028</text><text class="task-text" text-anchor="middle" x="595" y="1631">상담 후속 조치와 보정 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1620" y2="1620"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1620" y2="1620"></line><circle class="end" cx="733" cy="1620" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1624">End</text></svg></div></div>
+</div>
+
+
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 사용량 대시보드 진입 (PR-DTC-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-001</td><td>사용량 대시보드 진입 기능</td><td>고객 회선, 조회 기간, 기준 시점을 확인하고 데이터·통화·문자 잔여량을 요약한다.<br/></td><td>회선·조회기간 선택<br/>실시간·집계 기준 시각 조회<br/>잔여량·사용량 요약 구성<br/>퀵액션 진입 조건 표시</td></tr></tbody>
+</table>
+
+<h4>2) 구성별 잔량과 소진 순서 확인 (PR-DTC-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-002</td><td>구성별 잔량과 소진 순서 확인 기능</td><td>기본 제공량, 선물 수신량, 리필/충전량, 공유 데이터, 로밍 데이터의 잔여량과 차감 우선순위를 확인한다.<br/></td><td>기본·선물·리필·공유·로밍 잔량 분해<br/>GB·MB 단위 정규화<br/>자산별 소진 순서 산정<br/>핫스팟·공유 가능 여부 표시</td></tr></tbody>
+</table>
+
+<h4>3) 사용 이력과 변경 이력 확인 (PR-DTC-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-003</td><td>사용 이력과 변경 이력 확인 기능</td><td>최근 사용 패턴, 선물·충전 내역, 설정 변경 이력과 되돌리기 가능 여부를 확인한다.<br/></td><td>사용·충전·선물 이력 필터링<br/>변경 이력 조회<br/>되돌리기 가능 여부 판정<br/>상담 전달용 문맥 구성</td></tr></tbody>
+</table>
+
+<h4>4) 주요 통화·데이터 사용 패턴과 예상 소진 판단 (PR-DTC-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-004</td><td>주요 통화·데이터 사용 패턴과 예상 소진 판단 기능</td><td>일·주·월 사용량 추이와 예상 소진 시점을 산정하고 급증 여부를 판단한다.<br/></td><td>일·주·월 사용 추이 집계<br/>주요 통화 상대·데이터 사용처 요약<br/>급증·이상 패턴 감지<br/>예상 소진일 계산</td></tr></tbody>
+</table>
+
+<h4>5) 데이터·통화·문자 임계치 알림과 대안 비교 (PR-DTC-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-005</td><td>데이터·통화·문자 임계치 알림과 대안 비교 기능</td><td>소진 위험 알림에서 리필, 충전, 선물 요청, 요금제 변경, 차단 설정 대안을 비교한다.<br/></td><td>개인 임계치·운영 임계치 비교<br/>부족·소진 알림 생성<br/>충전·리필·선물·요금제 변경 대안 비교<br/>알림·문자 딥링크 생성</td></tr></tbody>
+</table>
+
+<h4>6) 초과 사용 차단 설정 (PR-DTC-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-006</td><td>초과 사용 차단 설정 기능</td><td>데이터·통화 초과 사용 차단 또는 안심 설정의 발동 조건과 해제 방법을 설정한다.<br/></td><td>차단 대상 회선 확인<br/>차단 발동 조건 판정<br/>해제 가능 권한 확인<br/>차단 결과 안내 저장</td></tr></tbody>
+</table>
+
+<h4>7) 충전·리필 가능 여부 진단 (PR-DTC-007)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-007</td><td>충전·리필 가능 여부 진단 기능</td><td>쿠폰 보유, 월 사용 제한, 대상 회선 조건, 유효기간, 핫스팟 적용 여부를 실행 전 진단한다.<br/></td><td>대상 회선·보유 수단 식별<br/>월 제한·유효기간 진단<br/>핫스팟 적용 여부 확인<br/>실행 CTA 상태 산정</td></tr></tbody>
+</table>
+
+<h4>8) 데이터 충전하기·쿠폰 사용 실행 (PR-DTC-008)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-008</td><td>데이터 충전하기·쿠폰 사용 실행 기능</td><td>데이터·통화 충전, 리필 쿠폰, 로밍 쿠폰 등록을 신청하고 적용 결과를 확인한다.<br/></td><td>데이터 충전하기 수량 선택<br/>리필·쿠폰 적용 요청<br/>BSS 반영 결과 확인<br/>충전 완료 알림 저장</td></tr></tbody>
+</table>
+
+<h4>9) 충전 내역과 잔여 쿠폰 관리 (PR-DTC-009)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-009</td><td>충전 내역과 잔여 쿠폰 관리 기능</td><td>충전 내역, 잔여 쿠폰 수, 만료 예정일, 사용 방법 링크를 조회한다.<br/></td><td>충전 내역 목록 조회<br/>쿠폰 잔여 수 표시<br/>쿠폰 유효기간·소멸 예정 구분<br/>유형·기간 필터 적용</td></tr></tbody>
+</table>
+
+<h4>10) 선물 수단·정책 대시보드 확인 (PR-DTC-010)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-010</td><td>선물 수단·정책 대시보드 확인 기능</td><td>선물 수단별 조건, 한도, 잔여 횟수, 공유/개인 데이터 구분, 수신 가능 상태를 확인한다.<br/></td><td>데이터선물·리필쿠폰 수단 구분<br/>공유데이터·개인데이터 가능량 표시<br/>월·1회 한도와 잔여 횟수 표시<br/>수단별 유의사항 구성</td></tr></tbody>
+</table>
+
+<h4>11) 데이터 선물하기·통화 선물 발송 (PR-DTC-011)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-011</td><td>데이터 선물하기·통화 선물 발송 기능</td><td>수신자, 용량, 유의사항, 제한 조건을 확인하고 선물을 발송한다.<br/></td><td>수신자·연락처 선택<br/>선물 가능량·한도 판정<br/>데이터 선물하기 발송 요청<br/>발송 결과 알림 저장</td></tr></tbody>
+</table>
+
+<h4>12) 다수 수신자 일괄 선물 처리 (PR-DTC-012)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-012</td><td>다수 수신자 일괄 선물 처리 기능</td><td>여러 수신자에게 선물을 발송하고 진행률과 실패 항목 재시도 여부를 확인한다.<br/></td><td>다수 수신자 목록 검증<br/>대용량 선물 진행률 표시<br/>수신자별 성공·실패 분리<br/>실패 항목 선택 재시도</td></tr></tbody>
+</table>
+
+<h4>13) 자동 선물·충전 등록 (PR-DTC-013)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-013</td><td>자동 선물·충전 등록 기능</td><td>자동 실행 대상, 주기, 용량, 다음 실행 예정일, 알림 조건을 등록한다.<br/></td><td>자동선물 대상·주기 등록<br/>자동 충전 실행 조건 저장<br/>다음 실행 예정일 계산<br/>자동 신청 예정 알림 생성</td></tr></tbody>
+</table>
+
+<h4>14) 자동선물 설정 조회·변경·해제 (PR-DTC-014)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-014</td><td>자동선물 설정 조회·변경·해제 기능</td><td>자동 설정 상태를 조회하고 요금제 변경 또는 고객 요청에 따라 해제·재등록한다.<br/></td><td>자동선물 현재 설정 조회<br/>설정 변경·해제 요청<br/>해제 원인 감지<br/>재등록 가능 조건 안내</td></tr></tbody>
+</table>
+
+<h4>15) 가족·다회선 잔량 비교 (PR-DTC-015)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-015</td><td>가족·다회선 잔량 비교 기능</td><td>가족·자녀·다회선 회선의 잔여량, 위험도, 선물 가능성, 차단 상태를 비교한다.<br/></td><td>대표 회선·가족 회선 선택<br/>회선별 잔량·위험도 비교<br/>잔량 불균형 추천 생성<br/>빠른 회선 전환 저장</td></tr></tbody>
+</table>
+
+<h4>16) 위임 권한 등록·변경 (PR-DTC-016)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-016</td><td>위임 권한 등록·변경 기능</td><td>보호자 또는 가족 대표의 조회·선물·차단 권한 범위와 유효 기간을 등록·변경한다.<br/></td><td>위임 권한 등록<br/>권한 범위 변경<br/>위임 해지 처리<br/>권한 변경 이력 저장</td></tr></tbody>
+</table>
+
+<h4>17) 자녀 데이터 차단·대리 선물 (PR-DTC-017)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-017</td><td>자녀 데이터 차단·대리 선물 기능</td><td>보호자 권한으로 자녀 회선의 차단 설정과 대리 선물 가능 여부를 확인하고 처리한다.<br/></td><td>자녀 회선 차단 설정<br/>보호자 권한 검증<br/>대리 선물 인증<br/>차단·선물 결과 안내</td></tr></tbody>
+</table>
+
+<h4>18) 로밍 잔량과 소진 위험 확인 (PR-DTC-018)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-018</td><td>로밍 잔량과 소진 위험 확인 기능</td><td>해외 체류 중 로밍 데이터 잔량, 소진 임박 상태, 위젯 표시 기준을 확인한다.<br/></td><td>로밍 잔량 조회<br/>국내·로밍 데이터 구분<br/>로밍 소진 위험 감지<br/>저속·해외 경량 조회 구성</td></tr></tbody>
+</table>
+
+<h4>19) 로밍 쿠폰 등록·충전 (PR-DTC-019)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-019</td><td>로밍 쿠폰 등록·충전 기능</td><td>로밍 쿠폰 자동 등록 옵션과 추가 충전 가능 여부를 확인하고 실행한다.<br/></td><td>로밍쿠폰 자동 등록 옵션 선택<br/>로밍 쿠폰 등록 요청<br/>로밍 추가 충전 처리<br/>등록·충전 결과 알림</td></tr></tbody>
+</table>
+
+<h4>20) 로밍 선물 가능 여부 확인 (PR-DTC-020)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-020</td><td>로밍 선물 가능 여부 확인 기능</td><td>로밍 중 국내 데이터 선물 수신 가능 여부와 제한 조건을 확인한다.<br/></td><td>로밍 중 선물 가능 여부 확인<br/>국내 데이터 수신 제한 판정<br/>로밍 데이터 선물 조건 안내<br/>외부 결과 대조</td></tr></tbody>
+</table>
+
+<h4>21) 조회 실패·반영 지연 안내 (PR-DTC-021)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-021</td><td>조회 실패·반영 지연 안내 기능</td><td>사용량 조회 실패, 집계 지연, 충전·선물 반영 지연 상태와 재확인 시점을 안내한다.<br/></td><td>조회 실패 유형 식별<br/>반영 지연 예상 시각 안내<br/>중복 액션 방지 상태 표시<br/>재시도·문의 경로 구성</td></tr></tbody>
+</table>
+
+<h4>22) 실패 항목 재시도와 대체 경로 (PR-DTC-022)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-022</td><td>실패 항목 재시도와 대체 경로 기능</td><td>선물·충전 실패 사유를 확인하고 실패 항목만 재시도하거나 대체 행동으로 연결한다.<br/></td><td>실패 항목 사유 분류<br/>재시도 가능 여부 판정<br/>대체 행동 추천<br/>재시도 결과 저장</td></tr></tbody>
+</table>
+
+<h4>23) 상담 전환 문맥 전달 (PR-DTC-023)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-023</td><td>상담 전환 문맥 전달 기능</td><td>셀프 처리 불가 시 사용량 상태, 실패 사유, 마지막 처리 이력을 상담 문맥으로 전달한다.<br/></td><td>마지막 조회·실행 상태 수집<br/>실패·지연 문맥 요약<br/>상담 전환 정보 전달<br/>개인정보 마스킹 적용</td></tr></tbody>
+</table>
+
+<h4>24) 임계치·알림 정책 운영 (PR-DTC-024)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-024</td><td>임계치·알림 정책 운영 기능</td><td>상품·고객군·회선 유형별 알림 임계치, 문구, 실험군/대조군을 관리한다.<br/></td><td>임계치 정책 등록<br/>세그먼트별 알림 조건 관리<br/>실험군·대조군 구성<br/>정책 변경 영향 확인</td></tr></tbody>
+</table>
+
+<h4>25) 사용량 이상치와 집계 지연 모니터링 (PR-DTC-025)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-025</td><td>사용량 이상치와 집계 지연 모니터링 기능</td><td>사용량 급증, 집계 누락, 알림 미발송, 자동 리필 실패를 모니터링하고 보정한다.<br/></td><td>집계 지연 감지<br/>비정상 급증 탐지<br/>연계 구간 오류 모니터링<br/>운영 보정 대상 분류</td></tr></tbody>
+</table>
+
+<h4>26) 선물·충전 정책 변경 영향 관리 (PR-DTC-026)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-026</td><td>선물·충전 정책 변경 영향 관리 기능</td><td>선물 한도, 자동 설정, 충전 조건 변경의 대상 고객과 기존 설정 영향을 확인한다.<br/></td><td>선물·충전 조건 변경 검토<br/>한도 확대 영향 산정<br/>자동 설정 영향 확인<br/>변경 고지 대상 생성</td></tr></tbody>
+</table>
+
+<h4>27) 상담 대상 상태 조회 (PR-DTC-027)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-027</td><td>상담 대상 상태 조회 기능</td><td>상담사가 고객 회선, 사용량, 선물·충전, 차단, 위임 권한, 실패 이력을 확인한다.<br/></td><td>상담 대상 회선 식별<br/>사용량·선물·충전 상태 조회<br/>민감 통화정보 마스킹<br/>상담 조회 이력 저장</td></tr></tbody>
+</table>
+
+<h4>28) 상담 후속 조치와 보정 안내 (PR-DTC-028)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-028</td><td>상담 후속 조치와 보정 안내 기능</td><td>상담 후 재처리, 보정, 권한 등록, 대체 행동을 안내하고 처리 이력을 저장한다.<br/></td><td>보정 가능성 판정<br/>고객 안내 기준 선택<br/>후속 조치 결과 저장<br/>운영 보정 이력 연결</td></tr></tbody>
+</table>
+
+<h4>29) T 데이터 셰어링 USIM 상태·해지 영향 확인 (PR-DTC-029)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-DTC-029</td><td>T 데이터 셰어링 USIM 상태·해지 영향 확인 기능</td><td>셰어링 USIM 상태와 해지 영향을 조회하고, 공유 데이터 차감·부가회선 제한·해지 완료 또는 진행 상태를 고객에게 안내한다.<br/></td><td>T 데이터 셰어링 USIM 상태 조회<br/>셰어링 해지 영향 산정<br/>부가회선 사용 제한 안내<br/>해지·상태 변경 이력 저장</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 사용량 대시보드 진입 (PR-DTC-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-USAGE-001</td><td>사용량·잔여량 표시 정책</td><td>사용량, 잔여량, 기준 시점, 단위, 구성별 잔량 표시 기준을 정한다.<br/></td><td>기준 시점 표시<br/>구성별 잔량 분리<br/>단위 표준화<br/>소진 순서 표시</td></tr><tr><td class="mono">PG-DTC-REAL-001</td><td>실시간성·집계 지연 정책</td><td>실시간 정보의 갱신 주기, 지연 가능성, 제공 불가 항목 안내 기준을 정한다.<br/></td><td>갱신 주기 고지<br/>지연 상태 표시<br/>미반영 항목 안내<br/>경량 조회 기준</td></tr></tbody>
+</table>
+
+<h4>2) 구성별 잔량과 소진 순서 확인 (PR-DTC-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-USAGE-001</td><td>사용량·잔여량 표시 정책</td><td>사용량, 잔여량, 기준 시점, 단위, 구성별 잔량 표시 기준을 정한다.<br/></td><td>기준 시점 표시<br/>구성별 잔량 분리<br/>단위 표준화<br/>소진 순서 표시</td></tr><tr><td class="mono">PG-DTC-PRIV-001</td><td>개인정보·통화내역 보호 정책</td><td>통화·데이터 사용 정보, 보호자 위임, 통화내역, 마스킹, 조회 권한 기준을 정한다.<br/></td><td>본인확인 기준<br/>마스킹 기준<br/>대리 권한 제한<br/>민감 이력 보호</td></tr></tbody>
+</table>
+
+<h4>3) 사용 이력과 변경 이력 확인 (PR-DTC-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-HIST-001</td><td>이력·되돌리기 정책</td><td>조회, 선물, 충전, 설정 변경, 자동 설정, 보정 이력과 되돌리기 기준을 정한다.<br/></td><td>변경 이력 조회<br/>되돌리기 허용<br/>발송 진행률<br/>처리 결과 저장</td></tr><tr><td class="mono">PG-DTC-USAGE-001</td><td>사용량·잔여량 표시 정책</td><td>사용량, 잔여량, 기준 시점, 단위, 구성별 잔량 표시 기준을 정한다.<br/></td><td>기준 시점 표시<br/>구성별 잔량 분리<br/>단위 표준화<br/>소진 순서 표시</td></tr></tbody>
+</table>
+
+<h4>4) 주요 통화·데이터 사용 패턴과 예상 소진 판단 (PR-DTC-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-PRED-001</td><td>사용 패턴·소진 예측 정책</td><td>사용 추이, 급증 감지, 예상 소진 시점, 대안 추천 기준을 정한다.<br/></td><td>추이 산정 기간<br/>급증 감지 기준<br/>예상 소진 산정<br/>대안 우선순위</td></tr><tr><td class="mono">PG-DTC-REAL-001</td><td>실시간성·집계 지연 정책</td><td>실시간 정보의 갱신 주기, 지연 가능성, 제공 불가 항목 안내 기준을 정한다.<br/></td><td>갱신 주기 고지<br/>지연 상태 표시<br/>미반영 항목 안내<br/>경량 조회 기준</td></tr></tbody>
+</table>
+
+<h4>5) 데이터·통화·문자 임계치 알림과 대안 비교 (PR-DTC-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-ALERT-001</td><td>알림·딥링크 정책</td><td>임계치, 소진, 선물, 충전, 로밍 이벤트 알림과 딥링크 연결 기준을 정한다.<br/></td><td>알림 발송 조건<br/>수신 채널 선택<br/>딥링크 연결<br/>알림 이력 저장</td></tr><tr><td class="mono">PG-DTC-PRED-001</td><td>사용 패턴·소진 예측 정책</td><td>사용 추이, 급증 감지, 예상 소진 시점, 대안 추천 기준을 정한다.<br/></td><td>추이 산정 기간<br/>급증 감지 기준<br/>예상 소진 산정<br/>대안 우선순위</td></tr></tbody>
+</table>
+
+<h4>6) 초과 사용 차단 설정 (PR-DTC-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-LIMIT-001</td><td>초과 사용 차단 정책</td><td>데이터·통화 초과 사용 차단과 안심 설정의 허용·해제 기준을 정한다.<br/></td><td>차단 설정 조건<br/>차단 해제 조건<br/>보호자 차단<br/>차단 결과 고지</td></tr><tr><td class="mono">PG-DTC-PRIV-001</td><td>개인정보·통화내역 보호 정책</td><td>통화·데이터 사용 정보, 보호자 위임, 통화내역, 마스킹, 조회 권한 기준을 정한다.<br/></td><td>본인확인 기준<br/>마스킹 기준<br/>대리 권한 제한<br/>민감 이력 보호</td></tr></tbody>
+</table>
+
+<h4>7) 충전·리필 가능 여부 진단 (PR-DTC-007)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-CHARGE-001</td><td>충전·리필·쿠폰 사용 정책</td><td>리필, 충전, 쿠폰 사용의 대상 조건, 유효기간, 적용 시점, 취소 불가 기준을 정한다.<br/></td><td>충전 가능 진단<br/>쿠폰 유효기간<br/>취소 불가 고지<br/>적용 결과 안내</td></tr><tr><td class="mono">PG-DTC-BSS-001</td><td>BSS·연계 반영 정책</td><td>사용량 연계 시스템과 외부 제휴·로밍 결과의 회신, 반영, 정합성 기준을 정한다.<br/></td><td>사용량 원장 회신<br/>충전·선물 반영<br/>외부 결과 대조<br/>정합성 불일치 처리</td></tr></tbody>
+</table>
+
+<h4>8) 데이터 충전하기·쿠폰 사용 실행 (PR-DTC-008)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-CHARGE-001</td><td>충전·리필·쿠폰 사용 정책</td><td>리필, 충전, 쿠폰 사용의 대상 조건, 유효기간, 적용 시점, 취소 불가 기준을 정한다.<br/></td><td>충전 가능 진단<br/>쿠폰 유효기간<br/>취소 불가 고지<br/>적용 결과 안내</td></tr><tr><td class="mono">PG-DTC-HIST-001</td><td>이력·되돌리기 정책</td><td>조회, 선물, 충전, 설정 변경, 자동 설정, 보정 이력과 되돌리기 기준을 정한다.<br/></td><td>변경 이력 조회<br/>되돌리기 허용<br/>발송 진행률<br/>처리 결과 저장</td></tr></tbody>
+</table>
+
+<h4>9) 충전 내역과 잔여 쿠폰 관리 (PR-DTC-009)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-HIST-001</td><td>이력·되돌리기 정책</td><td>조회, 선물, 충전, 설정 변경, 자동 설정, 보정 이력과 되돌리기 기준을 정한다.<br/></td><td>변경 이력 조회<br/>되돌리기 허용<br/>발송 진행률<br/>처리 결과 저장</td></tr><tr><td class="mono">PG-DTC-CHARGE-001</td><td>충전·리필·쿠폰 사용 정책</td><td>리필, 충전, 쿠폰 사용의 대상 조건, 유효기간, 적용 시점, 취소 불가 기준을 정한다.<br/></td><td>충전 가능 진단<br/>쿠폰 유효기간<br/>취소 불가 고지<br/>적용 결과 안내</td></tr></tbody>
+</table>
+
+<h4>10) 선물 수단·정책 대시보드 확인 (PR-DTC-010)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-GIFT-001</td><td>데이터·통화 선물 정책</td><td>선물 대상, 용량, 횟수, 수신자, 일괄 처리, 실패 재시도 기준을 정한다.<br/></td><td>선물 가능 조건<br/>대용량·다수 처리<br/>실패 항목 재시도<br/>선물 이력 조회</td></tr><tr><td class="mono">PG-DTC-USAGE-001</td><td>사용량·잔여량 표시 정책</td><td>사용량, 잔여량, 기준 시점, 단위, 구성별 잔량 표시 기준을 정한다.<br/></td><td>기준 시점 표시<br/>구성별 잔량 분리<br/>단위 표준화<br/>소진 순서 표시</td></tr></tbody>
+</table>
+
+<h4>11) 데이터 선물하기·통화 선물 발송 (PR-DTC-011)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-GIFT-001</td><td>데이터·통화 선물 정책</td><td>선물 대상, 용량, 횟수, 수신자, 일괄 처리, 실패 재시도 기준을 정한다.<br/></td><td>선물 가능 조건<br/>대용량·다수 처리<br/>실패 항목 재시도<br/>선물 이력 조회</td></tr><tr><td class="mono">PG-DTC-BSS-001</td><td>BSS·연계 반영 정책</td><td>사용량 연계 시스템과 외부 제휴·로밍 결과의 회신, 반영, 정합성 기준을 정한다.<br/></td><td>사용량 원장 회신<br/>충전·선물 반영<br/>외부 결과 대조<br/>정합성 불일치 처리</td></tr></tbody>
+</table>
+
+<h4>12) 다수 수신자 일괄 선물 처리 (PR-DTC-012)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-GIFT-001</td><td>데이터·통화 선물 정책</td><td>선물 대상, 용량, 횟수, 수신자, 일괄 처리, 실패 재시도 기준을 정한다.<br/></td><td>선물 가능 조건<br/>대용량·다수 처리<br/>실패 항목 재시도<br/>선물 이력 조회</td></tr><tr><td class="mono">PG-DTC-EXC-001</td><td>예외·실패 복구 정책</td><td>조회 실패, 반영 지연, 선물·충전 실패, 외부 연계 실패의 재시도·상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>실패 사유 안내<br/>보정 요청<br/>상담 전환 조건</td></tr></tbody>
+</table>
+
+<h4>13) 자동 선물·충전 등록 (PR-DTC-013)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-AUTO-001</td><td>자동 선물·충전 정책</td><td>자동 선물·충전의 대상, 주기, 용량, 해제 조건, 예정 알림 기준을 정한다.<br/></td><td>자동 설정 등록<br/>자동 실행 예정<br/>자동 해제 감지<br/>재등록 안내</td></tr><tr><td class="mono">PG-DTC-ALERT-001</td><td>알림·딥링크 정책</td><td>임계치, 소진, 선물, 충전, 로밍 이벤트 알림과 딥링크 연결 기준을 정한다.<br/></td><td>알림 발송 조건<br/>수신 채널 선택<br/>딥링크 연결<br/>알림 이력 저장</td></tr></tbody>
+</table>
+
+<h4>14) 자동선물 설정 조회·변경·해제 (PR-DTC-014)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-AUTO-001</td><td>자동 선물·충전 정책</td><td>자동 선물·충전의 대상, 주기, 용량, 해제 조건, 예정 알림 기준을 정한다.<br/></td><td>자동 설정 등록<br/>자동 실행 예정<br/>자동 해제 감지<br/>재등록 안내</td></tr><tr><td class="mono">PG-DTC-HIST-001</td><td>이력·되돌리기 정책</td><td>조회, 선물, 충전, 설정 변경, 자동 설정, 보정 이력과 되돌리기 기준을 정한다.<br/></td><td>변경 이력 조회<br/>되돌리기 허용<br/>발송 진행률<br/>처리 결과 저장</td></tr></tbody>
+</table>
+
+<h4>15) 가족·다회선 잔량 비교 (PR-DTC-015)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-FAMILY-001</td><td>가족·위임 권한 정책</td><td>가족·자녀·보호자 위임 권한과 정보 노출, 대리 선물, 자녀 차단 기준을 정한다.<br/></td><td>위임 권한 등록<br/>정보 노출 범위<br/>대리 선물 인증<br/>가족 잔량 비교<br/>셰어링 USIM 상태·해지</td></tr><tr><td class="mono">PG-DTC-USAGE-001</td><td>사용량·잔여량 표시 정책</td><td>사용량, 잔여량, 기준 시점, 단위, 구성별 잔량 표시 기준을 정한다.<br/></td><td>기준 시점 표시<br/>구성별 잔량 분리<br/>단위 표준화<br/>소진 순서 표시</td></tr></tbody>
+</table>
+
+<h4>16) 위임 권한 등록·변경 (PR-DTC-016)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-FAMILY-001</td><td>가족·위임 권한 정책</td><td>가족·자녀·보호자 위임 권한과 정보 노출, 대리 선물, 자녀 차단 기준을 정한다.<br/></td><td>위임 권한 등록<br/>정보 노출 범위<br/>대리 선물 인증<br/>가족 잔량 비교<br/>셰어링 USIM 상태·해지</td></tr><tr><td class="mono">PG-DTC-PRIV-001</td><td>개인정보·통화내역 보호 정책</td><td>통화·데이터 사용 정보, 보호자 위임, 통화내역, 마스킹, 조회 권한 기준을 정한다.<br/></td><td>본인확인 기준<br/>마스킹 기준<br/>대리 권한 제한<br/>민감 이력 보호</td></tr></tbody>
+</table>
+
+<h4>17) 자녀 데이터 차단·대리 선물 (PR-DTC-017)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-FAMILY-001</td><td>가족·위임 권한 정책</td><td>가족·자녀·보호자 위임 권한과 정보 노출, 대리 선물, 자녀 차단 기준을 정한다.<br/></td><td>위임 권한 등록<br/>정보 노출 범위<br/>대리 선물 인증<br/>가족 잔량 비교<br/>셰어링 USIM 상태·해지</td></tr><tr><td class="mono">PG-DTC-LIMIT-001</td><td>초과 사용 차단 정책</td><td>데이터·통화 초과 사용 차단과 안심 설정의 허용·해제 기준을 정한다.<br/></td><td>차단 설정 조건<br/>차단 해제 조건<br/>보호자 차단<br/>차단 결과 고지</td></tr></tbody>
+</table>
+
+<h4>18) 로밍 잔량과 소진 위험 확인 (PR-DTC-018)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-ROAM-001</td><td>로밍 데이터·쿠폰 정책</td><td>로밍 잔량, 로밍 쿠폰, 해외 경량 조회, 로밍 선물 가능 여부 기준을 정한다.<br/></td><td>로밍 잔량 표시<br/>로밍 충전 연결<br/>로밍 쿠폰 등록<br/>로밍 제한 안내</td></tr><tr><td class="mono">PG-DTC-REAL-001</td><td>실시간성·집계 지연 정책</td><td>실시간 정보의 갱신 주기, 지연 가능성, 제공 불가 항목 안내 기준을 정한다.<br/></td><td>갱신 주기 고지<br/>지연 상태 표시<br/>미반영 항목 안내<br/>경량 조회 기준</td></tr></tbody>
+</table>
+
+<h4>19) 로밍 쿠폰 등록·충전 (PR-DTC-019)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-ROAM-001</td><td>로밍 데이터·쿠폰 정책</td><td>로밍 잔량, 로밍 쿠폰, 해외 경량 조회, 로밍 선물 가능 여부 기준을 정한다.<br/></td><td>로밍 잔량 표시<br/>로밍 충전 연결<br/>로밍 쿠폰 등록<br/>로밍 제한 안내</td></tr><tr><td class="mono">PG-DTC-CHARGE-001</td><td>충전·리필·쿠폰 사용 정책</td><td>리필, 충전, 쿠폰 사용의 대상 조건, 유효기간, 적용 시점, 취소 불가 기준을 정한다.<br/></td><td>충전 가능 진단<br/>쿠폰 유효기간<br/>취소 불가 고지<br/>적용 결과 안내</td></tr></tbody>
+</table>
+
+<h4>20) 로밍 선물 가능 여부 확인 (PR-DTC-020)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-ROAM-001</td><td>로밍 데이터·쿠폰 정책</td><td>로밍 잔량, 로밍 쿠폰, 해외 경량 조회, 로밍 선물 가능 여부 기준을 정한다.<br/></td><td>로밍 잔량 표시<br/>로밍 충전 연결<br/>로밍 쿠폰 등록<br/>로밍 제한 안내</td></tr><tr><td class="mono">PG-DTC-GIFT-001</td><td>데이터·통화 선물 정책</td><td>선물 대상, 용량, 횟수, 수신자, 일괄 처리, 실패 재시도 기준을 정한다.<br/></td><td>선물 가능 조건<br/>대용량·다수 처리<br/>실패 항목 재시도<br/>선물 이력 조회</td></tr></tbody>
+</table>
+
+<h4>21) 조회 실패·반영 지연 안내 (PR-DTC-021)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-EXC-001</td><td>예외·실패 복구 정책</td><td>조회 실패, 반영 지연, 선물·충전 실패, 외부 연계 실패의 재시도·상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>실패 사유 안내<br/>보정 요청<br/>상담 전환 조건</td></tr><tr><td class="mono">PG-DTC-REAL-001</td><td>실시간성·집계 지연 정책</td><td>실시간 정보의 갱신 주기, 지연 가능성, 제공 불가 항목 안내 기준을 정한다.<br/></td><td>갱신 주기 고지<br/>지연 상태 표시<br/>미반영 항목 안내<br/>경량 조회 기준</td></tr></tbody>
+</table>
+
+<h4>22) 실패 항목 재시도와 대체 경로 (PR-DTC-022)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-EXC-001</td><td>예외·실패 복구 정책</td><td>조회 실패, 반영 지연, 선물·충전 실패, 외부 연계 실패의 재시도·상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>실패 사유 안내<br/>보정 요청<br/>상담 전환 조건</td></tr><tr><td class="mono">PG-DTC-GIFT-001</td><td>데이터·통화 선물 정책</td><td>선물 대상, 용량, 횟수, 수신자, 일괄 처리, 실패 재시도 기준을 정한다.<br/></td><td>선물 가능 조건<br/>대용량·다수 처리<br/>실패 항목 재시도<br/>선물 이력 조회</td></tr></tbody>
+</table>
+
+<h4>23) 상담 전환 문맥 전달 (PR-DTC-023)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-EXC-001</td><td>예외·실패 복구 정책</td><td>조회 실패, 반영 지연, 선물·충전 실패, 외부 연계 실패의 재시도·상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>실패 사유 안내<br/>보정 요청<br/>상담 전환 조건</td></tr><tr><td class="mono">PG-DTC-PRIV-001</td><td>개인정보·통화내역 보호 정책</td><td>통화·데이터 사용 정보, 보호자 위임, 통화내역, 마스킹, 조회 권한 기준을 정한다.<br/></td><td>본인확인 기준<br/>마스킹 기준<br/>대리 권한 제한<br/>민감 이력 보호</td></tr></tbody>
+</table>
+
+<h4>24) 임계치·알림 정책 운영 (PR-DTC-024)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-OPS-001</td><td>운영 정책·모니터링 정책</td><td>운영자가 임계치, 알림, 이상치, 자동 실패, 예외 보정 정책을 관리하는 기준이다.<br/></td><td>운영 임계치 관리<br/>이상치 모니터링<br/>정책 변경 영향<br/>운영 보정 이력</td></tr><tr><td class="mono">PG-DTC-ALERT-001</td><td>알림·딥링크 정책</td><td>임계치, 소진, 선물, 충전, 로밍 이벤트 알림과 딥링크 연결 기준을 정한다.<br/></td><td>알림 발송 조건<br/>수신 채널 선택<br/>딥링크 연결<br/>알림 이력 저장</td></tr></tbody>
+</table>
+
+<h4>25) 사용량 이상치와 집계 지연 모니터링 (PR-DTC-025)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-OPS-001</td><td>운영 정책·모니터링 정책</td><td>운영자가 임계치, 알림, 이상치, 자동 실패, 예외 보정 정책을 관리하는 기준이다.<br/></td><td>운영 임계치 관리<br/>이상치 모니터링<br/>정책 변경 영향<br/>운영 보정 이력</td></tr><tr><td class="mono">PG-DTC-EXC-001</td><td>예외·실패 복구 정책</td><td>조회 실패, 반영 지연, 선물·충전 실패, 외부 연계 실패의 재시도·상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>실패 사유 안내<br/>보정 요청<br/>상담 전환 조건</td></tr></tbody>
+</table>
+
+<h4>26) 선물·충전 정책 변경 영향 관리 (PR-DTC-026)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-OPS-001</td><td>운영 정책·모니터링 정책</td><td>운영자가 임계치, 알림, 이상치, 자동 실패, 예외 보정 정책을 관리하는 기준이다.<br/></td><td>운영 임계치 관리<br/>이상치 모니터링<br/>정책 변경 영향<br/>운영 보정 이력</td></tr><tr><td class="mono">PG-DTC-GIFT-001</td><td>데이터·통화 선물 정책</td><td>선물 대상, 용량, 횟수, 수신자, 일괄 처리, 실패 재시도 기준을 정한다.<br/></td><td>선물 가능 조건<br/>대용량·다수 처리<br/>실패 항목 재시도<br/>선물 이력 조회</td></tr><tr><td class="mono">PG-DTC-CHARGE-001</td><td>충전·리필·쿠폰 사용 정책</td><td>리필, 충전, 쿠폰 사용의 대상 조건, 유효기간, 적용 시점, 취소 불가 기준을 정한다.<br/></td><td>충전 가능 진단<br/>쿠폰 유효기간<br/>취소 불가 고지<br/>적용 결과 안내</td></tr></tbody>
+</table>
+
+<h4>27) 상담 대상 상태 조회 (PR-DTC-027)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-PRIV-001</td><td>개인정보·통화내역 보호 정책</td><td>통화·데이터 사용 정보, 보호자 위임, 통화내역, 마스킹, 조회 권한 기준을 정한다.<br/></td><td>본인확인 기준<br/>마스킹 기준<br/>대리 권한 제한<br/>민감 이력 보호</td></tr><tr><td class="mono">PG-DTC-HIST-001</td><td>이력·되돌리기 정책</td><td>조회, 선물, 충전, 설정 변경, 자동 설정, 보정 이력과 되돌리기 기준을 정한다.<br/></td><td>변경 이력 조회<br/>되돌리기 허용<br/>발송 진행률<br/>처리 결과 저장</td></tr></tbody>
+</table>
+
+<h4>28) 상담 후속 조치와 보정 안내 (PR-DTC-028)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-EXC-001</td><td>예외·실패 복구 정책</td><td>조회 실패, 반영 지연, 선물·충전 실패, 외부 연계 실패의 재시도·상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>실패 사유 안내<br/>보정 요청<br/>상담 전환 조건</td></tr><tr><td class="mono">PG-DTC-OPS-001</td><td>운영 정책·모니터링 정책</td><td>운영자가 임계치, 알림, 이상치, 자동 실패, 예외 보정 정책을 관리하는 기준이다.<br/></td><td>운영 임계치 관리<br/>이상치 모니터링<br/>정책 변경 영향<br/>운영 보정 이력</td></tr></tbody>
+</table>
+
+<h4>29) T 데이터 셰어링 USIM 상태·해지 영향 확인 (PR-DTC-029)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-FAMILY-001</td><td>가족·위임 권한 정책</td><td>가족·자녀·보호자 위임 권한과 정보 노출, 대리 선물, 자녀 차단 기준을 정한다.<br/></td><td>위임 권한 등록<br/>정보 노출 범위<br/>대리 선물 인증<br/>가족 잔량 비교<br/>셰어링 USIM 상태·해지</td></tr><tr><td class="mono">PG-DTC-BSS-001</td><td>BSS·연계 반영 정책</td><td>사용량 연계 시스템과 외부 제휴·로밍 결과의 회신, 반영, 정합성 기준을 정한다.<br/></td><td>사용량 원장 회신<br/>충전·선물 반영<br/>외부 결과 대조<br/>정합성 불일치 처리</td></tr><tr><td class="mono">PG-DTC-HIST-001</td><td>이력·되돌리기 정책</td><td>조회, 선물, 충전, 설정 변경, 자동 설정, 보정 이력과 되돌리기 기준을 정한다.<br/></td><td>변경 이력 조회<br/>되돌리기 허용<br/>발송 진행률<br/>처리 결과 저장</td></tr></tbody>
+</table>
+
+<h4>30) 미연결 정책</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-DTC-SCOPE-001</td><td>데이터·통화 범위·경계 정책</td><td>데이터·통화 조회, 충전, 선물, 차단, 로밍, 위임 업무의 포함·제외 범위를 정한다.<br/></td><td>대상 업무 범위<br/>인접 업무 경계<br/>자산 상태 중심<br/>후속 산출물 경계</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 데이터·통화 범위·경계 정책 (PG-DTC-SCOPE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 대상 업무 범위 <span class="mono">(PI-DTC-SCOPE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 본 문서는 데이터·통화·문자 사용량 조회, 소진 위험 판단, 충전·리필·쿠폰 사용, 선물·공유, 자동 설정, 가족·위임, 로밍, 실패 복구를 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인접 업무 경계 <span class="mono">(PI-DTC-SCOPE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금제 가입·변경 자체는 상품 변경 정책에서 다루고, 본 문서는 사용량 부족을 해소하기 위한 자산 조회와 실행 기준을 정의한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자산 상태 중심 <span class="mono">(PI-DTC-SCOPE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기능은 화면 단위가 아니라 잔여량 충분, 소진 위험, 충전 가능, 선물 가능, 반영 지연 같은 자산 상태 기준으로 동작한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 후속 산출물 경계 <span class="mono">(PI-DTC-SCOPE-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 앱 화면 상세, 외부 제휴 화면, BSS API 필드, 정산 로직은 후속 산출물에서 상세화한다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 사용량·잔여량 표시 정책 (PG-DTC-USAGE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 기준 시점 표시 <span class="mono">(PI-DTC-USAGE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용량과 잔여량은 기준 시각, 집계 지연 가능성, 조회 기간을 함께 표시해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 구성별 잔량 분리 <span class="mono">(PI-DTC-USAGE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기본 제공량, 선물 수신량, 리필/충전량, 공유 데이터, 로밍 데이터는 같은 합계 안에서도 구분 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 단위 표준화 <span class="mono">(PI-DTC-USAGE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 데이터 잔량은 GB 기준을 기본으로 하고 1GB 미만은 MB를 병기한다.<br/></span><span class="policy-item-line">- 통화와 문자는 분·건 단위로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 소진 순서 표시 <span class="mono">(PI-DTC-USAGE-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기본 제공량, 선물 수신량, 리필/충전량, 로밍 데이터 등 차감 우선순위를 고객이 볼 수 있게 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 실시간성·집계 지연 정책 (PG-DTC-REAL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 갱신 주기 고지 <span class="mono">(PI-DTC-REAL-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실시간성 정보는 갱신 주기와 마지막 갱신 시각을 함께 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 지연 상태 표시 <span class="mono">(PI-DTC-REAL-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 집계 지연이 발생하면 고객 표시 상태는 처리 중 또는 반영 지연으로 안내하고, 내부 상태는 사용량 집계 중·외부 결과 대조·운영 보정 필요로 구분해 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 미반영 항목 안내 <span class="mono">(PI-DTC-REAL-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍, 외부 제휴, 공유 데이터처럼 반영이 늦을 수 있는 항목은 미반영 가능성을 별도로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 경량 조회 기준 <span class="mono">(PI-DTC-REAL-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 저속/해외 환경용 경량 조회 화면은 잔여량, 소진 위험, 충전 CTA, 기준 시각만 우선 제공하고 상세 그래프는 네트워크가 안정된 뒤 조회하게 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 사용 패턴·소진 예측 정책 (PG-DTC-PRED-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 추이 산정 기간 <span class="mono">(PI-DTC-PRED-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예상 소진 시점은 최근 7일 사용 패턴을 기본으로 산정하고 데이터가 부족하면 이번 달 평균을 보조 기준으로 사용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 급증 감지 기준 <span class="mono">(PI-DTC-PRED-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 일 사용량이 최근 7일 평균의 150% 이상이면 급증 상태로 표시하고 주요 통화·데이터 사용 패턴 정보와 함께 원인 확인 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예상 소진 산정 <span class="mono">(PI-DTC-PRED-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예상 소진일은 잔여량과 최근 사용량을 기준으로 산정하되 오차 가능성을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대안 우선순위 <span class="mono">(PI-DTC-PRED-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 부족 위험 시 보유 쿠폰 사용, 리필, 선물 요청, 충전, 요금제 변경 순으로 고객 비용과 즉시성을 고려해 제안한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 알림·딥링크 정책 (PG-DTC-ALERT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 알림 발송 조건 <span class="mono">(PI-DTC-ALERT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 데이터·통화·문자 잔여량 20%, 10%, 소진, 로밍 소진 임박, 선물 완료, 충전 실패, 자동 신청 예정은 알림 발송 후보로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 수신 채널 선택 <span class="mono">(PI-DTC-ALERT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 Push, 문자, 인앱 알림 중 수신 채널과 임계치를 선택할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 딥링크 연결 <span class="mono">(PI-DTC-ALERT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 소진 또는 로밍 부족 알림은 데이터 선물하기, 데이터 충전하기, 리필 쿠폰, 요금제 변경 화면으로 바로 연결하는 딥링크를 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 알림 이력 저장 <span class="mono">(PI-DTC-ALERT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 알림 발송 대상, 발송 시각, 이벤트 유형, 진입 결과는 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 초과 사용 차단 정책 (PG-DTC-LIMIT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 차단 설정 조건 <span class="mono">(PI-DTC-LIMIT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 초과 사용 차단은 대상 회선, 고객 권한, 현재 상품 상태, 이미 진행 중인 변경 여부를 확인한 뒤 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 차단 해제 조건 <span class="mono">(PI-DTC-LIMIT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 차단 해제는 본인 또는 위임 권한 확인 후 허용하며 미성년·보호자 설정은 권한 범위에 따른다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보호자 차단 <span class="mono">(PI-DTC-LIMIT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자녀 회선 차단은 보호자 권한이 확인된 경우에만 허용하고 자녀 회선에 적용 결과를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 차단 결과 고지 <span class="mono">(PI-DTC-LIMIT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 차단 설정 또는 해제 완료 시 적용 시각, 대상 회선, 제한 범위, 되돌리기 가능 여부를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 데이터·통화 선물 정책 (PG-DTC-GIFT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 선물 가능 조건 <span class="mono">(PI-DTC-GIFT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 데이터 선물하기는 요금제, 잔여량, 월 한도, 1회 용량, 수신자 상태, 공유데이터·개인데이터 구분 조건을 충족해야 하며 한도 확대 대상은 별도 정책값으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대용량·다수 처리 <span class="mono">(PI-DTC-GIFT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 데이터 선물 한도 확대, 다수 수신자, 대용량 선물은 처리 진행률과 수신자별 성공·실패 결과를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 항목 재시도 <span class="mono">(PI-DTC-GIFT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 일괄 선물에서 실패한 항목은 실패 사유와 재시도 가능 여부를 분리해 표시하고 선택 재시도를 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선물 이력 조회 <span class="mono">(PI-DTC-GIFT-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선물한/받은 내역은 기간, 유형, 수신자, 적용 상태, 실패·취소·만료 사유로 조회할 수 있다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 충전·리필·쿠폰 사용 정책 (PG-DTC-CHARGE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 충전 가능 진단 <span class="mono">(PI-DTC-CHARGE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 데이터 충전하기, 리필 쿠폰, 로밍 쿠폰 사용 전 월 제한, 보유 상태, 대상 회선, 유효기간, 핫스팟 적용 여부를 사전 진단한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 쿠폰 유효기간 <span class="mono">(PI-DTC-CHARGE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 데이터·통화 쿠폰은 만료일과 소멸 예정 상태를 표시하고 소멸 임박 시 우선 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 취소 불가 고지 <span class="mono">(PI-DTC-CHARGE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 충전·쿠폰 사용 후 취소가 불가능한 경우 최종 실행 전 확인 단계에서 명확히 고지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 적용 결과 안내 <span class="mono">(PI-DTC-CHARGE-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 충전 완료 후 적용 유형, 적용 시각, 증가한 잔여량, 남은 쿠폰 수, 다음 행동을 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 자동 선물·충전 정책 (PG-DTC-AUTO-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 자동 설정 등록 <span class="mono">(PI-DTC-AUTO-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동 선물·충전은 대상, 주기, 용량, 실행 조건, 다음 예정일을 확인한 뒤 등록하고 자동선물 설정 조회 화면에서 현재 설정을 확인할 수 있게 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자동 실행 예정 <span class="mono">(PI-DTC-AUTO-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동 신청 예정 또는 자동 선물 실행 전 고객에게 예정일, 대상, 용량, 해제 가능 경로를 알림으로 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자동 해제 감지 <span class="mono">(PI-DTC-AUTO-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금제 변경, 권한 변경, 대상 조건 미충족으로 자동 설정이 해제되면 원인과 재등록 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 재등록 안내 <span class="mono">(PI-DTC-AUTO-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동 설정 해제 후 재등록 가능 조건이 충족되면 고객에게 재등록 CTA를 제공한다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) 가족·위임 권한 정책 (PG-DTC-FAMILY-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 위임 권한 등록 <span class="mono">(PI-DTC-FAMILY-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가족·보호자 위임은 대상 회선, 권한 범위, 유효 기간, 해지 조건을 확인한 뒤 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 정보 노출 범위 <span class="mono">(PI-DTC-FAMILY-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 보호자·가족 대표에게는 필요한 잔량과 위험 상태만 노출하고 상세 통화내역 등 민감 정보는 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대리 선물 인증 <span class="mono">(PI-DTC-FAMILY-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 미성년 자녀 회선 대리 선물은 가족 관계 또는 법정대리인 기준의 대리 인증을 통과해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가족 잔량 비교 <span class="mono">(PI-DTC-FAMILY-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가족·다회선 비교는 회선별 잔량, 소진 위험, 선물 가능성, 차단 상태를 한 화면에서 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 셰어링 USIM 상태·해지 <span class="mono">(PI-DTC-FAMILY-001-05)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- T 데이터 셰어링 USIM 상태·해지는 공유 데이터 차감, 부가회선 사용 가능 여부, 해지 완료·진행 상태, 상담·매장 연결 필요 여부를 함께 안내해야 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 로밍 데이터·쿠폰 정책 (PG-DTC-ROAM-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 로밍 잔량 표시 <span class="mono">(PI-DTC-ROAM-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍 잔량은 국내 데이터와 분리하고 기준 시각, 국가/권역, 상품별 사용 가능 여부를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 로밍 충전 연결 <span class="mono">(PI-DTC-ROAM-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍 소진 알림과 위젯은 로밍 쿠폰 등록 또는 추가 충전 화면으로 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 로밍 쿠폰 등록 <span class="mono">(PI-DTC-ROAM-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍 쿠폰 자동 등록은 구매 시 고객 선택을 받아 처리하고 등록 결과를 알림으로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 로밍 제한 안내 <span class="mono">(PI-DTC-ROAM-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍 중 국내 데이터 선물 수신 가능 여부와 로밍 데이터 선물 제한 조건을 선물 화면에서 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 이력·되돌리기 정책 (PG-DTC-HIST-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 변경 이력 조회 <span class="mono">(PI-DTC-HIST-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선물, 충전, 차단, 자동 설정, 위임 권한 변경 이력은 기간과 유형별로 조회할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 되돌리기 허용 <span class="mono">(PI-DTC-HIST-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 되돌리기는 정책상 취소 가능한 설정 변경에 한해 허용하고 이미 적용된 충전·쿠폰 사용은 취소 불가로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 발송 진행률 <span class="mono">(PI-DTC-HIST-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 대용량 또는 다수 선물은 수신자별 진행률과 완료/실패 상태를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 처리 결과 저장 <span class="mono">(PI-DTC-HIST-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 조회·변경·선물·충전·알림 결과는 고객 확인과 상담 문맥 전달을 위해 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) 예외·실패 복구 정책 (PG-DTC-EXC-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 재시도 기준 <span class="mono">(PI-DTC-EXC-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 조회 실패, 충전 실패, 선물 실패는 동일 세션에서 최대 3회까지 재시도를 허용하고 초과 시 대체 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 사유 안내 <span class="mono">(PI-DTC-EXC-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패 안내는 대상 조건, 한도, 기간, 권한, 연계 상태 중 어떤 조건이 원인인지 표시해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보정 요청 <span class="mono">(PI-DTC-EXC-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 반영 지연 또는 집계 오류가 기준 시간을 초과하면 운영 보정 요청으로 분류한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상담 전환 조건 <span class="mono">(PI-DTC-EXC-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 반복 실패, 권한 불일치, 외부 연계 지연, 보정 필요 상태는 상담 문맥을 포함해 전환한다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) BSS·연계 반영 정책 (PG-DTC-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 사용량 원장 회신 <span class="mono">(PI-DTC-BSS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용량 연계 시스템은 사용량, 잔여량, 기준 시각, 차감 순서, 반영 상태를 회신한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 충전·선물 반영 <span class="mono">(PI-DTC-BSS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 충전·선물 적용 결과는 발신자 차감, 수신자 증가, 쿠폰 차감, 적용 시각을 함께 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 외부 결과 대조 <span class="mono">(PI-DTC-BSS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외부 제휴·로밍 결과와 BSS 반영 결과가 다르면 고객에게 완료로 표시하지 않고 반영 지연 상태로 둔다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 정합성 불일치 처리 <span class="mono">(PI-DTC-BSS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용량 또는 잔여량 불일치가 감지되면 완료로 표시하지 않고 운영자 확인 대상으로 분류하며, 통합 장애가 알림·충전·선물·로밍 조회 등 여러 채널 행동에 확대될 수 있음을 고객 안내와 운영 보정 기준에 반영한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 개인정보·통화내역 보호 정책 (PG-DTC-PRIV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 본인확인 기준 <span class="mono">(PI-DTC-PRIV-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통화내역, 타 회선 정보, 선물·차단·위임 설정은 본인확인 또는 위임 권한 확인을 통과해야 한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 마스킹 기준 <span class="mono">(PI-DTC-PRIV-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통화 상대, 전화번호, 가족 회선 정보, 제휴 식별자는 최소 식별 가능 범위만 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대리 권한 제한 <span class="mono">(PI-DTC-PRIV-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 보호자·대리 권한은 조회·차단·선물 가능 범위를 분리하고 민감 통화내역 조회는 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 민감 이력 보호 <span class="mono">(PI-DTC-PRIV-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 조회와 설정 변경 이력은 조회자, 시각, 대상 회선, 처리 목적을 저장하고 권한 없는 접근을 차단한다.<br/></span></div>
+</div>
+</div>
+
+<h4>16) 운영 정책·모니터링 정책 (PG-DTC-OPS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 운영 임계치 관리 <span class="mono">(PI-DTC-OPS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 상품 유형, 고객군, 회선 유형별 알림 임계치와 문구를 관리할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이상치 모니터링 <span class="mono">(PI-DTC-OPS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 사용량 급증, 집계 누락, 알림 미발송, 자동 리필 실패, 반복 실패 고객군을 모니터링한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 정책 변경 영향 <span class="mono">(PI-DTC-OPS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선물 한도, 충전 조건, 자동 설정 기준 변경 시 대상 고객과 기존 설정 영향 범위를 확인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 보정 이력 <span class="mono">(PI-DTC-OPS-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 보정은 사유, 대상 회선, 보정 전후 상태, 승인자, 고객 고지 여부를 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">나의데이터통화 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 데이터·통화 범위가 잔여량 조회에 머물지 않고 충전·리필·선물·차단·로밍·실패 복구까지 연결되어 있는가.<br/></div><div class="guide-section-title">2. 유즈케이스가 고객 또는 가족 대표·운영자의 완결 업무 단위로 정의되었는가.<br/></div><div class="guide-section-title">3. 프로세스가 사용량 이해, 조건 판정, 실행, 결과 반영, 실패 복구 순서로 연결되어 있는가.<br/></div><div class="guide-section-title">4. 기능 세부 구성이 대상 식별, 상태 조회, 조건 판정, 결과 반영 같은 실제 처리 단위로 작성되어 있는가.<br/></div><div class="guide-section-title">5. 상태 전이표의 모든 상태가 상태 코드 목록에 존재하고 처리 기준 및 후속 처리가 비어 있지 않은가.<br/></div><div class="guide-section-title">6. 선물·충전·쿠폰 사용 정책에 한도, 대상, 유효기간, 취소 불가, 실패 재시도 기준이 있는가.<br/></div><div class="guide-section-title">7. 가족·보호자 위임과 개인정보 최소 노출 기준이 포함되어 있는가.<br/></div><div class="guide-section-title">8. BSS·사용량 연계와 외부 제휴·로밍 결과의 반영 지연, 정합성 불일치, 통합 장애 영향 확대 기준이 포함되어 있는가.<br/></div><div class="guide-section-title">9. 요구사항 70건이 프로세스, 기능, 정책 중 하나 이상에 매핑되어 있는가.<br/></div><div class="guide-section-title">10. 정책 상세에 실제 조건, 시간, 상태, 제한, 고지, 이력 기준이 포함되어 있는가.<br/></div><div class="guide-section-title">11. 요구사항 추적성</div>상세 요구사항은 유즈케이스, 상태, 프로세스, 기능, 정책 또는 정책 항목 중 하나 이상으로 추적 가능해야 한다.<br/><div class="guide-section-title">12. 개발·QA 전환성</div>각 정책 항목은 테스트 조건, 기대 결과, 실패·복구 경로로 전환 가능해야 한다.<br/><div class="guide-section-title">13. 책임 경계 정합성</div>FO, BSS, 연계 시스템, 외부 주체의 판단·저장·회신 책임이 혼재되지 않아야 한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

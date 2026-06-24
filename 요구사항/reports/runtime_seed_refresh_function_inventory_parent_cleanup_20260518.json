@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-05-18T11:24:00+09:00",
+  "purpose": "Remove the feature inventory parent page from persistent runtime output; the parent now acts only as a collapsible tree group.",
+  "preserve": [
+    "output/reference_html/function-inventory-tworld.html",
+    "output/reference_html/function-inventory-membership.html",
+    "output/reference_html/function-inventory-direct.html",
+    "output/reference_html/function-inventory-universe.html",
+    "output/reference_html/function-inventory-biz.html",
+    "output/reference_html/function-inventory-integrated.html"
+  ],
+  "removed": [
+    "output/reference_html/function-inventory.html"
+  ]
+}

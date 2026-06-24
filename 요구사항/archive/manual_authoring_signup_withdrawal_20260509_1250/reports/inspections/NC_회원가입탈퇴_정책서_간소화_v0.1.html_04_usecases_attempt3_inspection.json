@@ -1,0 +1,85 @@
+{
+  "status": "warn",
+  "score": 89,
+  "scope": "04_usecases",
+  "checked_at": "2026-05-02T01:39:07",
+  "summary": "검수 결과 warn. 점수 89점, 오류 0건, 경고 1건입니다.",
+  "findings": [
+    {
+      "severity": "warn",
+      "category": "유즈케이스정의",
+      "title": "인증 유즈케이스에 세션 재사용 분기가 빠져 재인증 최소화 원칙이 약합니다",
+      "detail": "US-MBR-CS-004는 성공·실패·취소·만료만 적고 있어, 개요의 '재인증 최소화'와 주요 용어의 '인증 세션'·'원위치 복귀'가 유즈케이스 설명에 직접 연결되지 않습니다. 현재 문장만 보면 매번 재인증하는 흐름으로 읽힐 수 있습니다.",
+      "recommendation": "US-MBR-CS-004 설명에 '유효한 인증 세션이 있으면 재사용해 원위치로 복귀하고, 만료·위험 징후·민감 행위일 때만 재인증한다'를 추가하십시오. 가입·탈퇴 공통 유즈케이스로 묶은 구성은 유지할 것."
+    }
+  ],
+  "metrics": {
+    "body_bytes": 13573,
+    "text_chars": 4246,
+    "h2_count": 4,
+    "h3_count": 4,
+    "table_count": 5,
+    "policy_group_count": 0,
+    "policy_item_count": 0,
+    "state_count": 0,
+    "process_count": 2,
+    "function_count": 0,
+    "business_codes": [
+      "MBR"
+    ],
+    "usecase_distinct_count": 17,
+    "process_distinct_count": 0,
+    "function_distinct_count": 0,
+    "policy_group_distinct_count": 0,
+    "sample_topic_match_count": 0,
+    "sample_reference_mode": "structural_reference",
+    "sample_min_body_bytes": 105537,
+    "sample_max_body_bytes": 233567,
+    "sample_max_text_chars": 60578,
+    "sample_max_usecase_distinct_count": 14,
+    "sample_max_process_distinct_count": 31,
+    "sample_max_function_distinct_count": 42,
+    "sample_max_policy_group_distinct_count": 44,
+    "sample_max_policy_item_count": 475,
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "model": "gpt-5.4",
+      "reasoning_effort": "high",
+      "status": "warn",
+      "summary": "액터와 유즈케이스의 간소화 수준은 simple 템플릿에 대체로 맞고, 고객 상태 차이를 액터로 분리하지 않은 점도 적절합니다. 다만 BSS와 연계 시스템의 최종 판정 책임, 인증 세션 재사용, 기가입 계정 처리 결과, 멤버십 대상 확인의 적용 시점은 현재 범위에서 문장 한두 개로 더 선명하게 정리하는 편이 좋습니다. 후속 장에서는 Y로 표시한 유즈케이스가 가입/탈퇴 프로세스와 일관되게 연결되도록만 이어주면 됩니다.",
+      "prompt_chars": 8516,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "filtered_findings": 3,
+      "filter_reason": "현재 작성 범위 밖의 후속 장 보완 권고는 gate 감점에서 제외합니다."
+    },
+    "score_breakdown": {
+      "score": 89,
+      "total_penalty": 11,
+      "gate_blocker_count": 1,
+      "gate_blockers": [
+        {
+          "severity": "warn",
+          "category": "유즈케이스정의",
+          "title": "인증 유즈케이스에 세션 재사용 분기가 빠져 재인증 최소화 원칙이 약합니다",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ],
+      "items": [
+        {
+          "severity": "warn",
+          "category": "유즈케이스정의",
+          "title": "인증 유즈케이스에 세션 재사용 분기가 빠져 재인증 최소화 원칙이 약합니다",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ]
+    }
+  }
+}

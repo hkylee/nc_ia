@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>상품 목록 정책서 간소화 버전 v0.10</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>상품 목록 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-PRD</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.10</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-08</td></tr>
+<tr><th>작성 기준</th><td>PM-03 상품 목록 관련 상세 요구사항명과 상세 요구사항 설명 72건을 기준으로 재구성했다.<br/>상품 목록 Topic Knowledge Pack과 34개 정책서 작성 지향점을 작성 작전서로 사용했다.<br/>전시/관리 기능 정책서와의 경계를 유지하고, 고객 목록 탐색·후속 진입 기준 중심으로 작성했다.<br/>유즈케이스를 목록 탐색 단계가 아니라 상품 후보 선별, 비교·저장·가입 가능성 확인, 결과 없음 복구, 운영 기준 관리의 완결 업무 목표로 재정리했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.10</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 고객이 상품 후보를 탐색하고 비교·상세·담기·주문으로 이동하기 위한 상품 목록 처리 기준을 정의한다.<br/></p><p class="plain-text">• 대상 업무는 카테고리 진입, 목록 카드 확인, 필터·정렬 적용, 비교 후보 유지, 찜·최근본 관리, 가입 가능 여부 확인, 목록 복귀 맥락 유지다.<br/></p><p class="plain-text">• 대상 채널은 통합채널 앱·웹 FO이며, 운영자가 관리하는 카테고리·필터·정렬·노출 기준과 BSS와 상품 기준 시스템의 가입 가능 판정 결과를 포함한다.<br/></p><p class="plain-text">• 포함 범위는 상품 속성 기반 통합 분류, 카테고리 경로, 목록 카드 표준, 목적형 정렬, 개인화 빠른 필터, 가입 불가 구분, 빈 화면·오류 폴백, 목록 품질 운영 기준이다.<br/></p><p class="plain-text">• 제외 범위는 상품 상세의 세부 설명, 담기 이후 주문·계약 절차, 결제, 할인 확정 계산, 전시 전체 운영 체계, API 필드, DB 컬럼, 화면 상세 설계다.<br/></p><p class="plain-text">• 후속 산출물에서는 상품 상세, 장바구니, 주문·계약, 할인·시뮬레이션 정책서가 목록에서 전달된 상품 후보와 고객 조건을 이어받아 상세 기준을 확정한다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• <b>목적 기반 탐색</b>: 상품 목록은 조직·브랜드 기준이 아니라 고객의 이용 목적, 상품 속성, 현재 보유 상태를 기준으로 후보를 좁히게 한다.<br/></p><p class="principle-text">• <b>선택 전 이해 가능성</b>: 고객은 상세 진입 전에도 가격, 혜택, 가입 가능성, 제한 사유, 현재 상품 대비 차이를 목록 단계에서 이해할 수 있어야 한다.<br/></p><p class="principle-text">• <b>맥락 유지</b>: 탭, 필터, 정렬, 스크롤, 비교 후보, 최근본 맥락은 상세·검색·주문 진입 후 복귀해도 유지되어야 한다.<br/></p><p class="principle-text">• <b>가입 가능성 우선</b>: BSS와 상품 기준 시스템이 판단한 가입 가능 상품을 우선 제시하되, 가입 불가 상품은 숨김 또는 비활성화와 함께 사유를 안내한다.<br/></p><p class="principle-text">• <b>운영 통제 가능성</b>: 카테고리, 필터, 정렬, 전시 단위, 품절·단종 제외 기준은 운영자가 관리하되 고객 혼선을 막는 품질 Gate를 거친다.<br/></p><p class="principle-text">• <b>후속 전환 연결</b>: 목록은 탐색으로 끝나지 않고 비교, 상세, 담기, 주문, 상담, 검색, 추천 카테고리 같은 다음 행동으로 자연스럽게 이어져야 한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-PRD-001</td><td>상품 목록</td><td>고객이 상품 후보를 카테고리, 필터, 정렬, 추천 조건으로 좁히고 상세 또는 주문 전 단계로 이동하는 탐색 허브다.<br/></td></tr><tr><td class="mono">TM-PRD-002</td><td>전시 단위</td><td>목록에 노출되는 상품, 번들, 전시 그룹의 최소 노출 단위이며 Product Offering, 번들 구조, 전시 그룹을 포함할 수 있다.<br/></td></tr><tr><td class="mono">TM-PRD-003</td><td>카테고리 경로</td><td>고객이 현재 어떤 분류 기준과 Depth 안에서 목록을 보고 있는지 보여주는 탐색 위치 기준이다.<br/></td></tr><tr><td class="mono">TM-PRD-004</td><td>목록 카드</td><td>상품 후보의 핵심 가치, 가격, 혜택, 상태, 주요 조건, 후속 행동을 요약해 보여주는 목록 표시 단위다.<br/></td></tr><tr><td class="mono">TM-PRD-005</td><td>목적형 필터</td><td>가격, 데이터, 혜택, 가입 가능 여부, 절감 가능성처럼 고객 의사결정 목적에 따라 목록 후보를 좁히는 조건이다.<br/></td></tr><tr><td class="mono">TM-PRD-006</td><td>목록 맥락</td><td>고객이 적용한 탭, 필터, 정렬, 검색어, 스크롤, 비교 후보, 최근본 상태를 이어가기 위해 저장하는 탐색 상태다.<br/></td></tr><tr><td class="mono">TM-PRD-007</td><td>가입 가능 여부</td><td>고객의 회선, 연령, 보유 상품, 약정, 단말, 제한 상태를 기준으로 해당 상품을 선택하거나 가입할 수 있는지 판정한 결과다.<br/></td></tr><tr><td class="mono">TM-PRD-008</td><td>비교 후보</td><td>고객이 목록에서 선택해 유지하는 2개 이상의 상품 후보로, 상세 진입 후에도 비교 Tray 또는 비교 화면에서 이어볼 수 있어야 한다.<br/></td></tr><tr><td class="mono">TM-PRD-009</td><td>찜·최근본</td><td>고객이 다시 탐색하거나 비교할 수 있도록 보관하는 개인화 탐색 이력이며 접근 제어와 삭제 기준을 적용한다.<br/></td></tr><tr><td class="mono">TM-PRD-010</td><td>목록 폴백</td><td>결과 없음, 오류, 조건 미충족, 품절·단종 등으로 정상 목록을 제공하지 못할 때 재시도와 대체 행동을 안내하는 기준이다.<br/></td></tr><tr><td class="mono">TM-PRD-011</td><td>전시 그룹</td><td>유사한 상품이나 번들, 혜택을 고객 목적 기준으로 묶은 전시용 그룹이며 목록 후보 구성에 사용된다.<br/></td></tr><tr><td class="mono">TM-PRD-012</td><td>운영 품질 Gate</td><td>카테고리, 필터, 정렬, 목록 카드, 전시 단위 변경이 고객 혼선 없이 배포 가능한지 검수하는 운영 기준이다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-PRD-001</td><td>고객</td><td>상품 목록에서 상품을 탐색, 비교, 필터링하고 상세 또는 담기로 이동하는 주체다.<br/></td></tr><tr><td class="mono">ACT-PRD-002</td><td>운영자</td><td>상품 목록 구성, 상품 기준, 노출 우선순위, 추천·필터 정책을 운영하는 주체다.<br/></td></tr><tr><td class="mono">ACT-PRD-003</td><td>채널 업무 시스템</td><td>상품 목록 노출, 필터, 정렬, 탐색 상태와 이동 경로를 처리하는 채널 시스템이다.<br/></td></tr><tr><td class="mono">ACT-PRD-004</td><td>상품 기준 시스템</td><td>상품 마스터, 가격·혜택, 고객 상태, 가입 가능 조건을 기준으로 상품 목록 판정 정보를 회신하는 시스템 책임 주체다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-PRD-CUS-001</td><td>고객</td><td>상품 후보 탐색 및 조건 선별</td><td>고객이 상품 카테고리, 목록, 필터, 정렬을 이용해 목적에 맞는 상품 후보를 좁히고 탐색한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PRD-CUS-002</td><td>고객</td><td>상품 후보 비교·저장 및 가입 가능성 확인</td><td>고객이 상품 후보를 비교, 찜, 최근본으로 이어가고 자신의 조건에서 가입 가능한지와 제한 사유를 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PRD-CUS-003</td><td>고객</td><td>목록 결과 없음·오류 복구</td><td>고객이 빈 결과, 제한, 오류 상황에서 대체 조건, 추천 카테고리, 재시도, 상담 경로를 선택한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PRD-OPR-001</td><td>운영자</td><td>상품 목록 기준 관리</td><td>운영자가 카테고리, 전시 단위, 필터, 정렬, 목록 카드, 상태 배지 기준을 등록하고 관리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PRD-OPR-002</td><td>운영자</td><td>목록 품질 검수·배포 처리</td><td>운영자가 목록 품질을 검수하고 예약 배포, 회수, 복구 처리를 수행한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PRD-PLN-001</td><td>운영자</td><td>상품 속성·전시 그룹 기준 제공</td><td>운영자가 상품 속성, 전시 그룹, 비교 기준, 목록 노출 기준을 정의해 운영 기준으로 제공한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-PRD-SYS-001</td><td>상품 기준 시스템</td><td>고객별 가입 가능 조건 판정</td><td>상품 기준 시스템은 BSS 고객 상태, 보유 상품, 가입 제한 조건을 기준으로 상품별 가입 가능 여부를 판정한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-PRD-SYS-002</td><td>상품 기준 시스템</td><td>상품 속성·상태 정보 제공</td><td>상품 기준 시스템은 상품명, 상태, 판매 가능성, 기본 속성, 비교 기준 정보를 목록 기준으로 제공한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-PRD-SYS-003</td><td>채널 업무 시스템</td><td>목록 맥락과 후속 진입 연결</td><td>채널 업무 시스템이 목록 맥락, 필터, 비교, 상세, 담기, 주문 진입 정보를 유지하고 연결한다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="상품 목록 유즈케이스 다이어그램" height="811" role="img" viewBox="0 0 1120 811" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="729" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">상품 목록 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="187"></line><line class="conn" x1="144" x2="442" y1="172" y2="259"></line><line class="conn" x1="144" x2="442" y1="693" y2="331"></line><line class="conn" x1="144" x2="442" y1="693" y2="403"></line><line class="conn" x1="144" x2="442" y1="693" y2="475"></line><line class="conn" x1="678" x2="976" y1="547" y2="693"></line><line class="conn" x1="678" x2="976" y1="619" y2="693"></line><line class="conn" x1="678" x2="976" y1="691" y2="172"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">상품 후보 탐색 및 조건 선별</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-PRD-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="187" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="177">상품 후보 비교·저장 및 가입</text><text class="uc-text" text-anchor="middle" x="560" y="191">가능성 확인</text><text class="uc-sub" text-anchor="middle" x="560" y="209">US-PRD-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="259" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="256">목록 결과 없음·오류 복구</text><text class="uc-sub" text-anchor="middle" x="560" y="281">US-PRD-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="331" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="328">상품 목록 기준 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="353">US-PRD-OPR-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="403" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="400">목록 품질 검수·배포 처리</text><text class="uc-sub" text-anchor="middle" x="560" y="425">US-PRD-OPR-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="475" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="465">상품 속성·전시 그룹 기준</text><text class="uc-text" text-anchor="middle" x="560" y="479">제공</text><text class="uc-sub" text-anchor="middle" x="560" y="497">US-PRD-PLN-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="547" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="544">고객별 가입 가능 조건 판정</text><text class="uc-sub" text-anchor="middle" x="560" y="569">US-PRD-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="619" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="616">상품 속성·상태 정보 제공</text><text class="uc-sub" text-anchor="middle" x="560" y="641">US-PRD-SYS-002 · 프로세스 N</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">목록 맥락과 후속 진입 연결</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-PRD-SYS-003 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="641" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="659" y2="706"></line><line class="actor-line" x1="86" x2="138" y1="676" y2="676"></line><line class="actor-line" x1="112" x2="92" y1="706" y2="741"></line><line class="actor-line" x1="112" x2="132" y1="706" y2="741"></line><text class="actor-text" text-anchor="middle" x="112" y="767">운영자</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="641" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="659" y2="706"></line><line class="system-actor-line" x1="982" x2="1034" y1="676" y2="676"></line><line class="system-actor-line" x1="1008" x2="988" y1="706" y2="741"></line><line class="system-actor-line" x1="1008" x2="1028" y1="706" y2="741"></line><text class="actor-text" text-anchor="middle" x="1008" y="767">상품 기준 시스템</text><text class="legend" x="304" y="785">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-PRD-001</td><td>탐색 전</td><td>고객이 상품 목록 업무를 시작하기 전 또는 목록 진입 경로를 선택하지 않은 상태다.<br/></td><td>카테고리, 추천, 검색, 바로가기 중 진입 경로를 선택한다.<br/></td></tr><tr><td class="mono">ST-PRD-002</td><td>카테고리 진입</td><td>고객이 선택한 카테고리·탭·진입 맥락이 확정되어 목록 조회 조건이 구성된 상태다.<br/></td><td>상품 기준 시스템과 BSS 기준으로 목록 후보를 조회한다.<br/></td></tr><tr><td class="mono">ST-PRD-003</td><td>목록 조회 완료</td><td>기본 목록 카드와 대표 상품 후보가 고객에게 제공된 상태다.<br/></td><td>고객은 필터·정렬을 조정하거나 상세·비교·담기로 이동한다.<br/></td></tr><tr><td class="mono">ST-PRD-004</td><td>조건 적용</td><td>고객이 필터, 정렬, 탭, 가격·혜택 조건을 적용해 후보를 재선별 중인 상태다.<br/></td><td>조건 의존성과 상호배타 기준을 검증하고 결과 요약을 갱신한다.<br/></td></tr><tr><td class="mono">ST-PRD-005</td><td>후보 선별 완료</td><td>고객 조건과 목록 기준을 반영한 상품 후보가 선별되어 후속 판단이 가능한 상태다.<br/></td><td>가입 가능 여부, 비교 후보, 상세 진입 가능성을 함께 표시한다.<br/></td></tr><tr><td class="mono">ST-PRD-006</td><td>가입 가능 확인</td><td>고객 회선, 가입 상태, 요금·혜택 조건 기준으로 가입 가능 여부가 확인된 상태다.<br/></td><td>가입 가능 상품은 상세·담기·주문 진입을 허용하고 제한 상품은 사유를 안내한다.<br/></td></tr><tr><td class="mono">ST-PRD-007</td><td>제한 사유 확인</td><td>상품 후보가 가입 불가, 품절, 단종, 조건 미충족 등 제한 사유와 함께 식별된 상태다.<br/></td><td>제한 사유, 대체 상품, 상담 전환 또는 조건 변경 경로를 안내한다.<br/></td></tr><tr><td class="mono">ST-PRD-008</td><td>비교·보관 중</td><td>고객이 상품 후보를 비교함, 찜, 최근본 등 개인 탐색 맥락으로 보관한 상태다.<br/></td><td>보관 기간, 삭제, 기능 끄기, 후속 비교·상세 진입 기준을 적용한다.<br/></td></tr><tr><td class="mono">ST-PRD-009</td><td>후속 진입</td><td>고객이 목록에서 상품 상세, 장바구니, 주문, 상담 등 후속 업무로 진입한 상태다.<br/></td><td>목록의 필터·정렬·스크롤·비교 맥락을 유지하고 후속 정책서로 조건을 전달한다.<br/></td></tr><tr><td class="mono">ST-PRD-010</td><td>결과 없음</td><td>검색 또는 필터 조건에 맞는 상품 후보가 없는 상태다.<br/></td><td>조건 초기화, 대체 카테고리, 추천 후보, 상담 전환 기준을 안내한다.<br/></td></tr><tr><td class="mono">ST-PRD-011</td><td>오류·복구 필요</td><td>목록 조회, 가입 가능 판정, 상품 기준 시스템 연계 중 실패가 발생해 복구가 필요한 상태다.<br/></td><td>재시도, 캐시 목록, 기본 안내, 상담 전환 중 적용 가능한 복구 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-PRD-012</td><td>운영 검수 대기</td><td>운영자가 등록·변경한 카테고리, 목록 카드, 필터·정렬 기준이 배포 전 검수 대기 중인 상태다.<br/></td><td>오노출, 중복, 필수 정보 누락, 채널별 제한 기준을 검수한다.<br/></td></tr><tr><td class="mono">ST-PRD-013</td><td>운영 배포 완료</td><td>검수된 목록 운영 기준이 배포되어 고객 목록 조회에 반영된 상태다.<br/></td><td>배포 이력, 적용 채널, 영향 카테고리, 롤백 기준을 기록한다.<br/></td></tr><tr><td class="mono">ST-PRD-014</td><td>운영 회수 필요</td><td>배포된 목록 기준에서 오노출, 품질 오류, 정책 충돌이 발견되어 회수가 필요한 상태다.<br/></td><td>노출 중지, 이전 기준 복구, 영향 고객 안내, 수정 재검수 절차를 진행한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>탐색 전</td><td>상품 카테고리와 목록 후보 탐색</td><td>카테고리 진입</td><td>고객이 상품 목록 진입 경로를 선택하면 카테고리 경로와 기본 목록 조건을 설정한다.<br/></td></tr><tr><td>카테고리 진입</td><td>상품 속성 기반 통합 분류 적용</td><td>목록 조회 완료</td><td>상품 기준 시스템과 전시 단위가 유효하고 노출 가능 조건을 만족하면 목록 후보를 표시한다.<br/></td></tr><tr><td>목록 조회 완료</td><td>목록 조건 조정과 상품 후보 선별</td><td>조건 적용</td><td>고객이 필터, 정렬, 검색, 빠른 조건을 적용하면 결과 수와 적용 조건 요약을 갱신한다.<br/></td></tr><tr><td>조건 적용</td><td>후보 기준 충족</td><td>후보 선별 완료</td><td>필터 의존성과 상호배타 조건을 통과하고 1개 이상 후보가 있으면 후보 선별 완료로 둔다.<br/></td></tr><tr><td>후보 선별 완료</td><td>고객별 가입 가능 조건 판정</td><td>가입 가능 확인</td><td>BSS가 고객 회선, 연령, 약정, 단말, 제한 상태 기준으로 가입 가능 결과를 회신하면 가입 가능 확인으로 전이한다.<br/></td></tr><tr><td>후보 선별 완료</td><td>가입 제한 조건 발견</td><td>제한 사유 확인</td><td>가입 불가 또는 조건 미충족 상품은 숨김 또는 비활성화하고 제한 사유를 표준 문구로 표시한다.<br/></td></tr><tr><td>가입 가능 확인</td><td>상품 후보 비교·찜·최근본 이어가기</td><td>비교·보관 중</td><td>고객이 비교 후보, 찜, 최근본을 선택하면 후보 상태와 목록 맥락을 보관한다.<br/></td></tr><tr><td>비교·보관 중</td><td>상세·담기·주문 진입</td><td>후속 진입</td><td>고객이 상세, 비교, 담기, 주문 중 하나를 선택하면 목록 맥락을 유지하고 후속 정책서로 전달한다.<br/></td></tr><tr><td>조건 적용</td><td>검색 결과 없음</td><td>결과 없음</td><td>적용 조건 결과가 0건이면 조건 초기화, 추천 카테고리, 검색, 상담 경로를 제공한다.<br/></td></tr><tr><td>목록 조회 완료</td><td>목록 조회 실패</td><td>오류·복구 필요</td><td>상품 기준 시스템, BSS, 채널 조회 중 하나가 실패하면 고객에게 재시도와 대체 경로를 안내한다.<br/></td></tr><tr><td>오류·복구 필요</td><td>재시도 성공</td><td>목록 조회 완료</td><td>동일 조건 재조회가 성공하면 기존 카테고리와 필터 맥락을 복원한다.<br/></td></tr><tr><td>운영 검수 대기</td><td>목록 품질 Gate 통과</td><td>운영 배포 완료</td><td>카테고리, 필터, 목록 카드, 가입 가능 사유, 폴백 기준이 검수 기준을 통과하면 배포 완료로 둔다.<br/></td></tr><tr><td>운영 배포 완료</td><td>오노출·품질 이슈 발견</td><td>운영 회수 필요</td><td>오노출, 잘못된 가입 가능 사유, 단종 상품 노출, 필터 오류가 발견되면 회수 필요 상태로 전환한다.<br/></td></tr><tr><td>운영 회수 필요</td><td>수정 기준 재검수 요청</td><td>운영 검수 대기</td><td>회수된 카테고리, 필터, 카드, 전시 그룹 기준의 수정본이 등록되면 재검수 대기 상태로 전환한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="708" role="img" viewBox="0 0 1120 708" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="630" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="224.0" x2="227.4" y1="134.0" y2="134.0"></line><line class="flow" x1="335.4" x2="338.9" y1="134.0" y2="134.0"></line><line class="flow" x1="446.9" x2="450.3" y1="134.0" y2="134.0"></line><line class="flow" x1="558.3" x2="561.7" y1="134.0" y2="134.0"></line><line class="flow" x1="669.7" x2="673.1" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M561.7 134.0 C561.7 204.0, 234.0 246.0, 234.0 316.0"></path><line class="flow" x1="781.1" x2="784.6" y1="134.0" y2="134.0"></line><line class="flow" x1="892.6" x2="896.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M504.3 166.0 C504.3 236.0, 433.3 214.0, 433.3 284.0"></path><path class="flow-dash" d="M446.9 134.0 C446.9 204.0, 632.7 246.0, 632.7 316.0"></path><path class="flow-dash" d="M632.7 316.0 C632.7 246.0, 446.9 204.0, 446.9 134.0"></path><path class="flow-dash" d="M886.0 316.0 C886.0 386.0, 234.0 400.0, 234.0 470.0"></path><path class="flow-dash" d="M234.0 470.0 C560.0 398.0, 560.0 398.0, 886.0 470.0"></path><path class="flow-dash" d="M940.0 438.0 C940.0 368.0, 940.0 418.0, 940.0 348.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="108" x="116.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">탐색 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-PRD-001</text><rect class="state" height="64" rx="29" ry="29" width="108" x="227.4" y="102.0"></rect><text class="state-text" text-anchor="middle" x="281" y="128">카테고리 진입</text><text class="state-sub" text-anchor="middle" x="281" y="151">ST-PRD-002</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="338.9" y="102.0"></rect><text class="state-text" text-anchor="middle" x="392" y="128">목록 조회 완료</text><text class="state-sub" text-anchor="middle" x="392" y="151">ST-PRD-003</text><rect class="state" height="64" rx="29" ry="29" width="108" x="450.3" y="102.0"></rect><text class="state-text" text-anchor="middle" x="504" y="128">조건 적용</text><text class="state-sub" text-anchor="middle" x="504" y="151">ST-PRD-004</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="561.7" y="102.0"></rect><text class="state-text" text-anchor="middle" x="615" y="128">후보 선별 완료</text><text class="state-sub" text-anchor="middle" x="615" y="151">ST-PRD-005</text><rect class="state" height="64" rx="29" ry="29" width="108" x="673.1" y="102.0"></rect><text class="state-text" text-anchor="middle" x="727" y="128">가입 가능 확인</text><text class="state-sub" text-anchor="middle" x="727" y="151">ST-PRD-006</text><rect class="state" height="64" rx="29" ry="29" width="108" x="784.6" y="102.0"></rect><text class="state-text" text-anchor="middle" x="838" y="128">비교·보관 중</text><text class="state-sub" text-anchor="middle" x="838" y="151">ST-PRD-008</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="896.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">후속 진입</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-PRD-009</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="126.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">제한 사유 확인</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-PRD-007</text><rect class="state" height="64" rx="29" ry="29" width="108" x="379.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">결과 없음</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-PRD-010</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="632.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">오류·복구 필요</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-PRD-011</text><rect class="state" height="64" rx="29" ry="29" width="108" x="886.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">운영 검수 대기</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-PRD-012</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="126.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">운영 배포 완료</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-PRD-013</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="886.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">운영 회수 필요</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-PRD-014</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="176.2" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="225.7" y="77.0">상품 카테고리와 목록</text><text class="flow-label" text-anchor="middle" x="225.7" y="91.0">후보 탐색</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="287.6" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="337.1" y="77.0">상품 속성 기반 통합</text><text class="flow-label" text-anchor="middle" x="337.1" y="91.0">분류 적용</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="395.6" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="448.6" y="77.0">목록 조건 조정과 상품</text><text class="flow-label" text-anchor="middle" x="448.6" y="91.0">후보 선별</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="91.0">후보 기준 충족</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="618.4" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="671.4" y="77.0">고객별 가입 가능 조건</text><text class="flow-label" text-anchor="middle" x="671.4" y="91.0">판정</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="348.4" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="397.9" y="232.0">가입 제한 조건 발견</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="85" x="740.4" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="782.9" y="77.0">상품 후보</text><text class="flow-label" text-anchor="middle" x="782.9" y="91.0">비교·찜·최근본…</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="844.8" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="894.3" y="91.0">상세·담기·주문 진입</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="429.8" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="468.8" y="196.0">검색 결과 없음</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="500.8" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="539.8" y="232.0">목록 조회 실패</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="502.8" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="539.8" y="196.0">재시도 성공</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="503.5" y="383.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="400.0">목록 품질 Gate 통과</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="106" x="507.0" y="370.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="387.0">오노출·품질 이슈 발견</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="106" x="887.0" y="383.0"></rect><text class="flow-label" text-anchor="middle" x="940.0" y="400.0">수정 기준 재검수 요청</text><text class="note" x="78" y="654">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 상품 후보 탐색 및 조건 선별 (US-PRD-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PRD-CAT-001</td><td>목록 진입 기준 확인</td><td>고객 진입 경로와 카테고리 목적을 확인하고 기본 카테고리와 경로 표시 기준을 설정한다.<br/></td><td>FN-PRD-CAT-001 카테고리·전시 단위 구성<br/>FN-PRD-CTX-001 탐색 맥락 유지</td><td>PG-PRD-SCP-001 상품 목록 범위·경계 정책<br/>PG-PRD-CAT-001 카테고리·분류 정책</td></tr><tr><td class="mono">PR-PRD-CAT-002</td><td>상품 후보 기본 목록 구성</td><td>상품 속성, 판매 상태, 전시 단위, 카테고리 매핑 기준을 검증해 고객에게 노출 가능한 기본 후보 목록과 제외 사유를 확정한다.<br/></td><td>FN-PRD-CAT-001 카테고리·전시 단위 구성<br/>FN-PRD-CARD-001 목록 카드 정보 구성<br/>FN-PRD-AVL-001 상품 상태·가입 가능 표시</td><td>PG-PRD-CAT-001 카테고리·분류 정책<br/>PG-PRD-CARD-001 목록 카드 정보 정책<br/>PG-PRD-AVL-001 상품 상태·가입 가능 정책</td></tr><tr><td class="mono">PR-PRD-FLT-001</td><td>필터·정렬 조건 적용</td><td>고객이 선택한 필터와 정렬을 적용하고 의존성, 상호배타, 초기화 기준을 확인한다.<br/></td><td>FN-PRD-FLT-001 필터·정렬 적용<br/>FN-PRD-CTX-001 탐색 맥락 유지</td><td>PG-PRD-FLT-001 필터·정렬 정책<br/>PG-PRD-CTX-001 탐색 맥락 유지 정책<br/>PG-PRD-ERR-001 빈 결과·오류 폴백 정책</td></tr><tr><td class="mono">PR-PRD-FLT-002</td><td>목적형 후보 재선별</td><td>가입 가능 여부, 혜택, 가격, 절감 가능성, 최근 사용 조건을 함께 판정해 고객 목적에 맞는 후보 순서와 결과 요약을 갱신한다.<br/></td><td>FN-PRD-FLT-001 필터·정렬 적용<br/>FN-PRD-PER-001 개인화 목록 후보 산정<br/>FN-PRD-CARD-001 목록 카드 정보 구성</td><td>PG-PRD-RNK-001 목록 우선순위 정책<br/>PG-PRD-PER-001 개인화 목록 정책<br/>PG-PRD-CARD-001 목록 카드 정보 정책<br/>PG-PRD-ERR-001 빈 결과·오류 폴백 정책<br/>PG-PRD-CTX-001 탐색 맥락 유지 정책</td></tr></tbody>
+</table>
+
+<h4>2) 상품 후보 비교·저장 및 가입 가능성 확인 (US-PRD-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PRD-SAV-001</td><td>비교 후보 선택·유지</td><td>고객이 선택한 비교 후보를 유지하고 상세 진입 후 복귀해도 비교 상태를 이어간다.<br/></td><td>FN-PRD-CMP-001 비교 후보 관리<br/>FN-PRD-CTX-001 탐색 맥락 유지</td><td>PG-PRD-CMP-001 비교 후보 정책<br/>PG-PRD-CTX-001 탐색 맥락 유지 정책</td></tr><tr><td class="mono">PR-PRD-SAV-002</td><td>찜·최근본 저장·삭제</td><td>고객이 찜과 최근본을 저장, 조회, 삭제하고 로그인 이관 또는 동기화 오류를 처리한다.<br/></td><td>FN-PRD-SAV-001 찜·최근본 관리<br/>FN-PRD-LOG-001 목록 이력·감사 저장</td><td>PG-PRD-SAV-001 찜·최근본 정책<br/>PG-PRD-PRV-001 개인정보·보관 정책</td></tr><tr><td class="mono">PR-PRD-AVL-001</td><td>고객 조건 기반 가입 가능 판정</td><td>고객 회선, 연령, 보유 상품, 단말, 약정, 제한 상태를 기준으로 가입 가능 여부를 확인한다.<br/></td><td>FN-PRD-AVL-001 상품 상태·가입 가능 표시<br/>FN-PRD-BSS-001 BSS 가입 조건 조회</td><td>PG-PRD-AVL-001 상품 상태·가입 가능 정책<br/>PG-PRD-BSS-001 BSS 판정 연계 정책</td></tr><tr><td class="mono">PR-PRD-AVL-002</td><td>제한 상품 구분·사유 안내</td><td>가입 불가, 품절, 단종, 조건 미충족 상품을 숨김 또는 비활성화하고 사유와 대체 경로를 안내한다.<br/></td><td>FN-PRD-AVL-001 상품 상태·가입 가능 표시<br/>FN-PRD-ERR-001 목록 폴백 안내</td><td>PG-PRD-AVL-001 상품 상태·가입 가능 정책<br/>PG-PRD-ERR-001 빈 결과·오류 폴백 정책</td></tr></tbody>
+</table>
+
+<h4>3) 목록 결과 없음·오류 복구 (US-PRD-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PRD-ERR-001</td><td>빈 결과 원인 분류</td><td>목록 결과가 0건이면 조건 과다, 데이터 없음, 가입 제한, 일시 오류 중 원인을 판정하고 고객에게 표시할 실패 유형을 정한다.<br/></td><td>FN-PRD-ERR-001 목록 폴백 안내<br/>FN-PRD-FLT-001 필터·정렬 적용</td><td>PG-PRD-ERR-001 빈 결과·오류 폴백 정책<br/>PG-PRD-FLT-001 필터·정렬 정책</td></tr><tr><td class="mono">PR-PRD-ERR-002</td><td>대체 경로와 재시도 안내</td><td>실패 유형별로 조건 초기화, 추천 카테고리, 검색, 상담 전환, 나중에 다시 시도 중 허용되는 복구 경로와 안내 문구를 제공한다.<br/></td><td>FN-PRD-ERR-001 목록 폴백 안내<br/>FN-PRD-CTX-001 탐색 맥락 유지</td><td>PG-PRD-ERR-001 빈 결과·오류 폴백 정책<br/>PG-PRD-CTA-001 후속 진입 정책</td></tr></tbody>
+</table>
+
+<h4>4) 상품 목록 기준 관리 (US-PRD-OPR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PRD-OPR-001</td><td>카테고리 계층·전시 단위 등록</td><td>운영자가 카테고리 계층과 전시 단위를 등록하고 상품 속성 기준으로 매핑한다.<br/></td><td>FN-PRD-OPR-001 카테고리 운영 관리<br/>FN-PRD-CAT-001 카테고리·전시 단위 구성</td><td>PG-PRD-OPR-001 카테고리 운영 정책<br/>PG-PRD-CAT-001 카테고리·분류 정책</td></tr><tr><td class="mono">PR-PRD-OPR-002</td><td>채널별 수정·복사 범위 관리</td><td>운영자가 기본 카테고리와 전시 그룹을 채널별로 수정하거나 복사할 수 있는 범위를 관리한다.<br/></td><td>FN-PRD-OPR-001 카테고리 운영 관리<br/>FN-PRD-LOG-001 목록 이력·감사 저장</td><td>PG-PRD-OPR-001 카테고리 운영 정책<br/>PG-PRD-AUD-001 이력·감사 정책</td></tr><tr><td class="mono">PR-PRD-OPR-003</td><td>필터·정렬 기준 등록</td><td>운영자가 필터 유형, 필터 의존성, 정렬 기준, 조건 초기화 기준을 등록한다.<br/></td><td>FN-PRD-FLT-001 필터·정렬 적용<br/>FN-PRD-OPR-002 목록 기준 운영 관리</td><td>PG-PRD-FLT-001 필터·정렬 정책<br/>PG-PRD-RNK-001 목록 우선순위 정책</td></tr><tr><td class="mono">PR-PRD-OPR-006</td><td>목록 카드·상태 배지 기준 검증</td><td>운영자가 목록 카드 필수 정보, 가격·혜택 표시, 가입 가능 배지, 제한 사유 표시 기준을 검증한다.<br/></td><td>FN-PRD-CARD-001 목록 카드 정보 구성<br/>FN-PRD-OPR-002 목록 기준 운영 관리<br/>FN-PRD-GAT-001 목록 품질 Gate 검수</td><td>PG-PRD-CARD-001 목록 카드 정보 정책<br/>PG-PRD-AVL-001 상품 상태·가입 가능 정책<br/>PG-PRD-GAT-001 목록 품질 Gate 정책</td></tr></tbody>
+</table>
+
+<h4>5) 목록 품질 검수·배포 처리 (US-PRD-OPR-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PRD-OPR-004</td><td>목록 품질 검수</td><td>운영자가 목록 카드 필수 정보, 가입 가능·제한 사유, 폴백 경로, 개인정보·이력 기준을 검수하고 배포 가능 여부를 판정한다.<br/></td><td>FN-PRD-GAT-001 목록 품질 Gate 검수<br/>FN-PRD-LOG-001 목록 이력·감사 저장</td><td>PG-PRD-GAT-001 목록 품질 Gate 정책<br/>PG-PRD-AUD-001 이력·감사 정책</td></tr><tr><td class="mono">PR-PRD-OPR-007</td><td>예약 배포·회수·복구 처리</td><td>운영자가 검수 완료 기준을 예약 배포하고 오노출이나 정책 충돌이 확인되면 회수·복구한다.<br/></td><td>FN-PRD-GAT-001 목록 품질 Gate 검수<br/>FN-PRD-LOG-001 목록 이력·감사 저장</td><td>PG-PRD-GAT-001 목록 품질 Gate 정책<br/>PG-PRD-AUD-001 이력·감사 정책</td></tr></tbody>
+</table>
+
+<h4>6) 상품 속성·전시 그룹 기준 제공 (US-PRD-PLN-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-PRD-OPR-005</td><td>상품 속성 기준 제공</td><td>운영자가 상품 속성, 판매 상태, 번들 구조, 담당자 기준을 검증하고 목록 카테고리·전시 그룹 매핑에 사용할 기준값을 확정한다.<br/></td><td>FN-PRD-OPR-001 카테고리 운영 관리<br/>FN-PRD-CAT-001 카테고리·전시 단위 구성</td><td>PG-PRD-CAT-001 카테고리·분류 정책<br/>PG-PRD-OPR-001 카테고리 운영 정책</td></tr><tr><td class="mono">PR-PRD-OPR-008</td><td>전시 그룹 매핑 기준 검증</td><td>운영자와 운영자가 제공된 상품 속성·전시 그룹 기준이 목록 카테고리와 중복 없이 연결되는지 확인한다.<br/></td><td>FN-PRD-CAT-001 카테고리·전시 단위 구성<br/>FN-PRD-OPR-001 카테고리 운영 관리<br/>FN-PRD-LOG-001 목록 이력·감사 저장</td><td>PG-PRD-CAT-001 카테고리·분류 정책<br/>PG-PRD-OPR-001 카테고리 운영 정책<br/>PG-PRD-AUD-001 이력·감사 정책</td></tr></tbody>
+</table>
+
+
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_상품목록_정책서_간소화_v0.10_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"상품 목록 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_PRD_CUS_001\" name=\"US-PRD-CUS-001 상품 후보 탐색 및 조건 선별\">\n        <bpmn:flowNodeRef>Start_US_PRD_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_CAT_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_CAT_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_FLT_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_FLT_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PRD_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PRD_CUS_002\" name=\"US-PRD-CUS-002 상품 후보 비교·저장 및 가입 가능성 확인\">\n        <bpmn:flowNodeRef>Start_US_PRD_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_SAV_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_SAV_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_AVL_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_AVL_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PRD_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PRD_CUS_003\" name=\"US-PRD-CUS-003 목록 결과 없음·오류 복구\">\n        <bpmn:flowNodeRef>Start_US_PRD_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_ERR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_ERR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PRD_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PRD_OPR_001\" name=\"US-PRD-OPR-001 상품 목록 기준 관리\">\n        <bpmn:flowNodeRef>Start_US_PRD_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PRD_OPR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PRD_OPR_002\" name=\"US-PRD-OPR-002 목록 품질 검수·배포 처리\">\n        <bpmn:flowNodeRef>Start_US_PRD_OPR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PRD_OPR_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_PRD_PLN_001\" name=\"US-PRD-PLN-001 상품 속성·전시 그룹 기준 제공\">\n        <bpmn:flowNodeRef>Start_US_PRD_PLN_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_PRD_OPR_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_PRD_PLN_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_PRD_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PRD_CAT_001\" name=\"PR-PRD-CAT-001 목록 진입 기준 확인\">\n      <bpmn:incoming>Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_CAT_002\" name=\"PR-PRD-CAT-002 상품 후보 기본 목록 구성\">\n      <bpmn:incoming>Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_FLT_001\" name=\"PR-PRD-FLT-001 필터·정렬 조건 적용\">\n      <bpmn:incoming>Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_FLT_002\" name=\"PR-PRD-FLT-002 목적형 후보 재선별\">\n      <bpmn:incoming>Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PRD_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001\" sourceRef=\"Start_US_PRD_CUS_001\" targetRef=\"Task_PR_PRD_CAT_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002\" sourceRef=\"Task_PR_PRD_CAT_001\" targetRef=\"Task_PR_PRD_CAT_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001\" sourceRef=\"Task_PR_PRD_CAT_002\" targetRef=\"Task_PR_PRD_FLT_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002\" sourceRef=\"Task_PR_PRD_FLT_001\" targetRef=\"Task_PR_PRD_FLT_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001\" sourceRef=\"Task_PR_PRD_FLT_002\" targetRef=\"End_US_PRD_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_PRD_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PRD_SAV_001\" name=\"PR-PRD-SAV-001 비교 후보 선택·유지\">\n      <bpmn:incoming>Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_SAV_002\" name=\"PR-PRD-SAV-002 찜·최근본 저장·삭제\">\n      <bpmn:incoming>Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_AVL_001\" name=\"PR-PRD-AVL-001 고객 조건 기반 가입 가능 판정\">\n      <bpmn:incoming>Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_AVL_002\" name=\"PR-PRD-AVL-002 제한 상품 구분·사유 안내\">\n      <bpmn:incoming>Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PRD_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001\" sourceRef=\"Start_US_PRD_CUS_002\" targetRef=\"Task_PR_PRD_SAV_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002\" sourceRef=\"Task_PR_PRD_SAV_001\" targetRef=\"Task_PR_PRD_SAV_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001\" sourceRef=\"Task_PR_PRD_SAV_002\" targetRef=\"Task_PR_PRD_AVL_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002\" sourceRef=\"Task_PR_PRD_AVL_001\" targetRef=\"Task_PR_PRD_AVL_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002\" sourceRef=\"Task_PR_PRD_AVL_002\" targetRef=\"End_US_PRD_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_PRD_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PRD_ERR_001\" name=\"PR-PRD-ERR-001 빈 결과 원인 분류\">\n      <bpmn:incoming>Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_ERR_002\" name=\"PR-PRD-ERR-002 대체 경로와 재시도 안내\">\n      <bpmn:incoming>Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PRD_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001\" sourceRef=\"Start_US_PRD_CUS_003\" targetRef=\"Task_PR_PRD_ERR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002\" sourceRef=\"Task_PR_PRD_ERR_001\" targetRef=\"Task_PR_PRD_ERR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003\" sourceRef=\"Task_PR_PRD_ERR_002\" targetRef=\"End_US_PRD_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_PRD_OPR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PRD_OPR_001\" name=\"PR-PRD-OPR-001 카테고리 계층·전시 단위 등록\">\n      <bpmn:incoming>Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_OPR_002\" name=\"PR-PRD-OPR-002 채널별 수정·복사 범위 관리\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_OPR_003\" name=\"PR-PRD-OPR-003 필터·정렬 기준 등록\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_OPR_006\" name=\"PR-PRD-OPR-006 목록 카드·상태 배지 기준 검증\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PRD_OPR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001\" sourceRef=\"Start_US_PRD_OPR_001\" targetRef=\"Task_PR_PRD_OPR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002\" sourceRef=\"Task_PR_PRD_OPR_001\" targetRef=\"Task_PR_PRD_OPR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003\" sourceRef=\"Task_PR_PRD_OPR_002\" targetRef=\"Task_PR_PRD_OPR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006\" sourceRef=\"Task_PR_PRD_OPR_003\" targetRef=\"Task_PR_PRD_OPR_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001\" sourceRef=\"Task_PR_PRD_OPR_006\" targetRef=\"End_US_PRD_OPR_001\"/>\n    <bpmn:startEvent id=\"Start_US_PRD_OPR_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PRD_OPR_004\" name=\"PR-PRD-OPR-004 목록 품질 검수\">\n      <bpmn:incoming>Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_OPR_007\" name=\"PR-PRD-OPR-007 예약 배포·회수·복구 처리\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PRD_OPR_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004\" sourceRef=\"Start_US_PRD_OPR_002\" targetRef=\"Task_PR_PRD_OPR_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007\" sourceRef=\"Task_PR_PRD_OPR_004\" targetRef=\"Task_PR_PRD_OPR_007\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002\" sourceRef=\"Task_PR_PRD_OPR_007\" targetRef=\"End_US_PRD_OPR_002\"/>\n    <bpmn:startEvent id=\"Start_US_PRD_PLN_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_PRD_OPR_005\" name=\"PR-PRD-OPR-005 상품 속성 기준 제공\">\n      <bpmn:incoming>Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_PRD_OPR_008\" name=\"PR-PRD-OPR-008 전시 그룹 매핑 기준 검증\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_PRD_PLN_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005\" sourceRef=\"Start_US_PRD_PLN_001\" targetRef=\"Task_PR_PRD_OPR_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008\" sourceRef=\"Task_PR_PRD_OPR_005\" targetRef=\"Task_PR_PRD_OPR_008\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001\" sourceRef=\"Task_PR_PRD_OPR_008\" targetRef=\"End_US_PRD_PLN_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_PRD_CUS_001_di\" bpmnElement=\"Lane_US_PRD_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PRD_CUS_001_di\" bpmnElement=\"Start_US_PRD_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_CAT_001_di\" bpmnElement=\"Task_PR_PRD_CAT_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_CAT_002_di\" bpmnElement=\"Task_PR_PRD_CAT_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_FLT_001_di\" bpmnElement=\"Task_PR_PRD_FLT_001\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_FLT_002_di\" bpmnElement=\"Task_PR_PRD_FLT_002\">\n        <dc:Bounds x=\"900\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PRD_CUS_001_di\" bpmnElement=\"End_US_PRD_CUS_001\">\n        <dc:Bounds x=\"1120\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PRD_CUS_002_di\" bpmnElement=\"Lane_US_PRD_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PRD_CUS_002_di\" bpmnElement=\"Start_US_PRD_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_SAV_001_di\" bpmnElement=\"Task_PR_PRD_SAV_001\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_SAV_002_di\" bpmnElement=\"Task_PR_PRD_SAV_002\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_AVL_001_di\" bpmnElement=\"Task_PR_PRD_AVL_001\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_AVL_002_di\" bpmnElement=\"Task_PR_PRD_AVL_002\">\n        <dc:Bounds x=\"900\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PRD_CUS_002_di\" bpmnElement=\"End_US_PRD_CUS_002\">\n        <dc:Bounds x=\"1120\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PRD_CUS_003_di\" bpmnElement=\"Lane_US_PRD_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PRD_CUS_003_di\" bpmnElement=\"Start_US_PRD_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_ERR_001_di\" bpmnElement=\"Task_PR_PRD_ERR_001\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_ERR_002_di\" bpmnElement=\"Task_PR_PRD_ERR_002\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PRD_CUS_003_di\" bpmnElement=\"End_US_PRD_CUS_003\">\n        <dc:Bounds x=\"680\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PRD_OPR_001_di\" bpmnElement=\"Lane_US_PRD_OPR_001\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PRD_OPR_001_di\" bpmnElement=\"Start_US_PRD_OPR_001\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_001_di\" bpmnElement=\"Task_PR_PRD_OPR_001\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_002_di\" bpmnElement=\"Task_PR_PRD_OPR_002\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_003_di\" bpmnElement=\"Task_PR_PRD_OPR_003\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_006_di\" bpmnElement=\"Task_PR_PRD_OPR_006\">\n        <dc:Bounds x=\"900\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PRD_OPR_001_di\" bpmnElement=\"End_US_PRD_OPR_001\">\n        <dc:Bounds x=\"1120\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PRD_OPR_002_di\" bpmnElement=\"Lane_US_PRD_OPR_002\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PRD_OPR_002_di\" bpmnElement=\"Start_US_PRD_OPR_002\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_004_di\" bpmnElement=\"Task_PR_PRD_OPR_004\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_007_di\" bpmnElement=\"Task_PR_PRD_OPR_007\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PRD_OPR_002_di\" bpmnElement=\"End_US_PRD_OPR_002\">\n        <dc:Bounds x=\"680\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_PRD_PLN_001_di\" bpmnElement=\"Lane_US_PRD_PLN_001\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_PRD_PLN_001_di\" bpmnElement=\"Start_US_PRD_PLN_001\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_005_di\" bpmnElement=\"Task_PR_PRD_OPR_005\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_PRD_OPR_008_di\" bpmnElement=\"Task_PR_PRD_OPR_008\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_PRD_PLN_001_di\" bpmnElement=\"End_US_PRD_PLN_001\">\n        <dc:Bounds x=\"680\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001_di\" bpmnElement=\"Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002_di\" bpmnElement=\"Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001_di\" bpmnElement=\"Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002_di\" bpmnElement=\"Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001_di\" bpmnElement=\"Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001\">\n        <di:waypoint x=\"1070\" y=\"70\"/>\n        <di:waypoint x=\"1120\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001_di\" bpmnElement=\"Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002_di\" bpmnElement=\"Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001_di\" bpmnElement=\"Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002_di\" bpmnElement=\"Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002_di\" bpmnElement=\"Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002\">\n        <di:waypoint x=\"1070\" y=\"240\"/>\n        <di:waypoint x=\"1120\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001_di\" bpmnElement=\"Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002_di\" bpmnElement=\"Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003_di\" bpmnElement=\"Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001_di\" bpmnElement=\"Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001\">\n        <di:waypoint x=\"1070\" y=\"580\"/>\n        <di:waypoint x=\"1120\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004_di\" bpmnElement=\"Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005_di\" bpmnElement=\"Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001_di\" bpmnElement=\"Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="1052" role="img" viewBox="0 0 1177 1052" width="1177" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="77">US-PRD-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="93">상품 후보 탐색 및 조건</text><text class="pool-title" text-anchor="middle" x="145" y="109">선별</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-PRD-CAT-001</text><text class="task-text" text-anchor="middle" x="410" y="119">목록 진입 기준 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-PRD-CAT-002</text><text class="task-text" text-anchor="middle" x="595" y="119">상품 후보 기본 목록 구성</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-PRD-FLT-001</text><text class="task-text" text-anchor="middle" x="780" y="119">필터·정렬 조건 적용</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="75"></rect><text class="task-text" text-anchor="middle" x="965" y="96">PR-PRD-FLT-002</text><text class="task-text" text-anchor="middle" x="965" y="119">목적형 후보 재선별</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="108" y2="108"></line><circle class="end" cx="1103" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="245">US-PRD-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="261">상품 후보 비교·저장 및</text><text class="pool-title" text-anchor="middle" x="145" y="277">가입 가능성 확인</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-PRD-SAV-001</text><text class="task-text" text-anchor="middle" x="410" y="287">비교 후보 선택·유지</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-PRD-SAV-002</text><text class="task-text" text-anchor="middle" x="595" y="287">찜·최근본 저장·삭제</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-PRD-AVL-001</text><text class="task-text" text-anchor="middle" x="780" y="280">고객 조건 기반 가입 가능</text><text class="task-text" text-anchor="middle" x="780" y="294">판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="243"></rect><text class="task-text" text-anchor="middle" x="965" y="264">PR-PRD-AVL-002</text><text class="task-text" text-anchor="middle" x="965" y="287">제한 상품 구분·사유 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="276" y2="276"></line><circle class="end" cx="1103" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-PRD-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">목록 결과 없음·오류 복구</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-PRD-ERR-001</text><text class="task-text" text-anchor="middle" x="410" y="455">빈 결과 원인 분류</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-PRD-ERR-002</text><text class="task-text" text-anchor="middle" x="595" y="455">대체 경로와 재시도 안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="444" y2="444"></line><circle class="end" cx="733" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-PRD-OPR-001</text><text class="pool-title" text-anchor="middle" x="145" y="605">상품 목록 기준 관리</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-PRD-OPR-001</text><text class="task-text" text-anchor="middle" x="410" y="616">카테고리 계층·전시 단위</text><text class="task-text" text-anchor="middle" x="410" y="630">등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-PRD-OPR-002</text><text class="task-text" text-anchor="middle" x="595" y="623">채널별 수정·복사 범위 관리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-PRD-OPR-003</text><text class="task-text" text-anchor="middle" x="780" y="623">필터·정렬 기준 등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="579"></rect><text class="task-text" text-anchor="middle" x="965" y="600">PR-PRD-OPR-006</text><text class="task-text" text-anchor="middle" x="965" y="616">목록 카드·상태 배지 기준</text><text class="task-text" text-anchor="middle" x="965" y="630">검증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="612" y2="612"></line><circle class="end" cx="1103" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-PRD-OPR-002</text><text class="pool-title" text-anchor="middle" x="145" y="773">목록 품질 검수·배포 처리</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-PRD-OPR-004</text><text class="task-text" text-anchor="middle" x="410" y="791">목록 품질 검수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-PRD-OPR-007</text><text class="task-text" text-anchor="middle" x="595" y="791">예약 배포·회수·복구 처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="780" y2="780"></line><circle class="end" cx="733" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="917">US-PRD-PLN-001</text><text class="pool-title" text-anchor="middle" x="145" y="933">상품 속성·전시 그룹 기준</text><text class="pool-title" text-anchor="middle" x="145" y="949">제공</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-PRD-OPR-005</text><text class="task-text" text-anchor="middle" x="410" y="959">상품 속성 기준 제공</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-PRD-OPR-008</text><text class="task-text" text-anchor="middle" x="595" y="959">전시 그룹 매핑 기준 검증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="948" y2="948"></line><circle class="end" cx="733" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="952">End</text></svg></div></div>
+</div>
+
+
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 목록 진입 기준 확인 (PR-PRD-CAT-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CAT-001</td><td>카테고리·전시 단위 구성</td><td>상품 속성과 전시 단위를 고객 목적 기준의 카테고리로 매핑하고 경로를 구성한다.<br/></td><td>카테고리 경로 구성<br/>전시 단위 매핑<br/>계층 유효성 확인<br/>중복 분류 감지</td></tr><tr><td class="mono">FN-PRD-CTX-001</td><td>탐색 맥락 유지</td><td>탭, 필터, 정렬, 스크롤, 검색어, 비교 후보, 복귀 위치를 저장하고 후속 진입에서 복원한다.<br/></td><td>조건 상태 저장<br/>스크롤 위치 저장<br/>복귀 경로 복원<br/>만료 조건 확인</td></tr></tbody>
+</table>
+
+<h4>2) 상품 후보 기본 목록 구성 (PR-PRD-CAT-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CAT-001</td><td>카테고리·전시 단위 구성</td><td>상품 속성과 전시 단위를 고객 목적 기준의 카테고리로 매핑하고 경로를 구성한다.<br/></td><td>카테고리 경로 구성<br/>전시 단위 매핑<br/>계층 유효성 확인<br/>중복 분류 감지</td></tr><tr><td class="mono">FN-PRD-CARD-001</td><td>목록 카드 정보 구성</td><td>상품 후보의 핵심 가치, 가격, 혜택, 상태 배지, 주요 조건, 후속 행동을 표준 항목으로 구성한다.<br/></td><td>핵심 가치 요약<br/>가격·혜택 표시<br/>상태 배지 구성<br/>후속 CTA 연결</td></tr><tr><td class="mono">FN-PRD-AVL-001</td><td>상품 상태·가입 가능 표시</td><td>상품의 판매 상태와 고객별 가입 가능 여부를 구분해 목록 카드와 필터 결과에 반영한다.<br/></td><td>판매 상태 확인<br/>가입 가능 표시<br/>제한 사유 매핑<br/>비활성화 처리</td></tr></tbody>
+</table>
+
+<h4>3) 필터·정렬 조건 적용 (PR-PRD-FLT-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-FLT-001</td><td>필터·정렬 적용</td><td>카테고리 특성과 고객 목적에 맞는 필터, 정렬, 검색 조건을 적용하고 결과를 재산정한다.<br/></td><td>필터 조건 적용<br/>의존성 검증<br/>정렬 기준 산정<br/>조건 초기화</td></tr><tr><td class="mono">FN-PRD-CTX-001</td><td>탐색 맥락 유지</td><td>탭, 필터, 정렬, 스크롤, 검색어, 비교 후보, 복귀 위치를 저장하고 후속 진입에서 복원한다.<br/></td><td>조건 상태 저장<br/>스크롤 위치 저장<br/>복귀 경로 복원<br/>만료 조건 확인</td></tr></tbody>
+</table>
+
+<h4>4) 목적형 후보 재선별 (PR-PRD-FLT-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CARD-001</td><td>목록 카드 정보 구성</td><td>상품 후보의 핵심 가치, 가격, 혜택, 상태 배지, 주요 조건, 후속 행동을 표준 항목으로 구성한다.<br/></td><td>핵심 가치 요약<br/>가격·혜택 표시<br/>상태 배지 구성<br/>후속 CTA 연결</td></tr><tr><td class="mono">FN-PRD-FLT-001</td><td>필터·정렬 적용</td><td>카테고리 특성과 고객 목적에 맞는 필터, 정렬, 검색 조건을 적용하고 결과를 재산정한다.<br/></td><td>필터 조건 적용<br/>의존성 검증<br/>정렬 기준 산정<br/>조건 초기화</td></tr><tr><td class="mono">FN-PRD-PER-001</td><td>개인화 목록 후보 산정</td><td>고객 보유 서비스, 최근 탐색, 사용 패턴, 가입 가능성 기준으로 빠른 필터와 우선 후보를 산정한다.<br/></td><td>고객 조건 수집<br/>빠른 필터 추천<br/>가입 가능 우선화<br/>개인화 해제 처리</td></tr></tbody>
+</table>
+
+<h4>5) 비교 후보 선택·유지 (PR-PRD-SAV-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CMP-001</td><td>비교 후보 관리</td><td>고객이 선택한 비교 후보를 보관하고 목록·상세·비교 화면 사이에서 후보 상태를 유지한다.<br/></td><td>후보 선택 저장<br/>비교 Tray 유지<br/>후보 제한 확인<br/>비교 화면 연결</td></tr><tr><td class="mono">FN-PRD-CTX-001</td><td>탐색 맥락 유지</td><td>탭, 필터, 정렬, 스크롤, 검색어, 비교 후보, 복귀 위치를 저장하고 후속 진입에서 복원한다.<br/></td><td>조건 상태 저장<br/>스크롤 위치 저장<br/>복귀 경로 복원<br/>만료 조건 확인</td></tr></tbody>
+</table>
+
+<h4>6) 찜·최근본 저장·삭제 (PR-PRD-SAV-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-SAV-001</td><td>찜·최근본 관리</td><td>찜과 최근본을 저장, 조회, 삭제하고 로그인 이관과 동기화 오류를 처리한다.<br/></td><td>찜 상태 저장<br/>최근본 이력 저장<br/>로그인 이관<br/>삭제·끄기 처리</td></tr><tr><td class="mono">FN-PRD-LOG-001</td><td>목록 이력·감사 저장</td><td>목록 노출, 조건 적용, 찜·최근본, 운영 변경, BSS 판정, 폴백 안내 이력을 저장한다.<br/></td><td>노출 이력 저장<br/>변경 전후값 저장<br/>판정 이력 저장<br/>감사 조회 제공</td></tr></tbody>
+</table>
+
+<h4>7) 고객 조건 기반 가입 가능 판정 (PR-PRD-AVL-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-AVL-001</td><td>상품 상태·가입 가능 표시</td><td>상품의 판매 상태와 고객별 가입 가능 여부를 구분해 목록 카드와 필터 결과에 반영한다.<br/></td><td>판매 상태 확인<br/>가입 가능 표시<br/>제한 사유 매핑<br/>비활성화 처리</td></tr><tr><td class="mono">FN-PRD-BSS-001</td><td>BSS 가입 조건 조회</td><td>고객 회선, 요금제, 약정, 연령, 단말, 제한 상태를 조회해 목록 단계 가입 가능 판정에 사용한다.<br/></td><td>회선 상태 조회<br/>약정·요금 확인<br/>단말 조건 확인<br/>판정 결과 회신</td></tr></tbody>
+</table>
+
+<h4>8) 제한 상품 구분·사유 안내 (PR-PRD-AVL-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-AVL-001</td><td>상품 상태·가입 가능 표시</td><td>상품의 판매 상태와 고객별 가입 가능 여부를 구분해 목록 카드와 필터 결과에 반영한다.<br/></td><td>판매 상태 확인<br/>가입 가능 표시<br/>제한 사유 매핑<br/>비활성화 처리</td></tr><tr><td class="mono">FN-PRD-ERR-001</td><td>목록 폴백 안내</td><td>빈 결과, 오류, 조건 미충족, 품절·단종 상황을 분류하고 고객에게 다음 행동을 안내한다.<br/></td><td>오류 유형 분류<br/>대체 경로 구성<br/>재시도 안내<br/>상담 전환 연결</td></tr></tbody>
+</table>
+
+<h4>9) 빈 결과 원인 분류 (PR-PRD-ERR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-FLT-001</td><td>필터·정렬 적용</td><td>카테고리 특성과 고객 목적에 맞는 필터, 정렬, 검색 조건을 적용하고 결과를 재산정한다.<br/></td><td>필터 조건 적용<br/>의존성 검증<br/>정렬 기준 산정<br/>조건 초기화</td></tr><tr><td class="mono">FN-PRD-ERR-001</td><td>목록 폴백 안내</td><td>빈 결과, 오류, 조건 미충족, 품절·단종 상황을 분류하고 고객에게 다음 행동을 안내한다.<br/></td><td>오류 유형 분류<br/>대체 경로 구성<br/>재시도 안내<br/>상담 전환 연결</td></tr></tbody>
+</table>
+
+<h4>10) 대체 경로와 재시도 안내 (PR-PRD-ERR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-ERR-001</td><td>목록 폴백 안내</td><td>빈 결과, 오류, 조건 미충족, 품절·단종 상황을 분류하고 고객에게 다음 행동을 안내한다.<br/></td><td>오류 유형 분류<br/>대체 경로 구성<br/>재시도 안내<br/>상담 전환 연결</td></tr><tr><td class="mono">FN-PRD-CTX-001</td><td>탐색 맥락 유지</td><td>탭, 필터, 정렬, 스크롤, 검색어, 비교 후보, 복귀 위치를 저장하고 후속 진입에서 복원한다.<br/></td><td>조건 상태 저장<br/>스크롤 위치 저장<br/>복귀 경로 복원<br/>만료 조건 확인</td></tr></tbody>
+</table>
+
+<h4>11) 카테고리 계층·전시 단위 등록 (PR-PRD-OPR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CAT-001</td><td>카테고리·전시 단위 구성</td><td>상품 속성과 전시 단위를 고객 목적 기준의 카테고리로 매핑하고 경로를 구성한다.<br/></td><td>카테고리 경로 구성<br/>전시 단위 매핑<br/>계층 유효성 확인<br/>중복 분류 감지</td></tr><tr><td class="mono">FN-PRD-OPR-001</td><td>카테고리 운영 관리</td><td>운영자가 카테고리 계층, 전시 단위, 전시 그룹, 채널별 수정 범위를 관리한다.<br/></td><td>계층 정보 등록<br/>전시 순서 설정<br/>채널별 복사<br/>특화 속성 관리</td></tr></tbody>
+</table>
+
+<h4>12) 채널별 수정·복사 범위 관리 (PR-PRD-OPR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-OPR-001</td><td>카테고리 운영 관리</td><td>운영자가 카테고리 계층, 전시 단위, 전시 그룹, 채널별 수정 범위를 관리한다.<br/></td><td>계층 정보 등록<br/>전시 순서 설정<br/>채널별 복사<br/>특화 속성 관리</td></tr><tr><td class="mono">FN-PRD-LOG-001</td><td>목록 이력·감사 저장</td><td>목록 노출, 조건 적용, 찜·최근본, 운영 변경, BSS 판정, 폴백 안내 이력을 저장한다.<br/></td><td>노출 이력 저장<br/>변경 전후값 저장<br/>판정 이력 저장<br/>감사 조회 제공</td></tr></tbody>
+</table>
+
+<h4>13) 필터·정렬 기준 등록 (PR-PRD-OPR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-FLT-001</td><td>필터·정렬 적용</td><td>카테고리 특성과 고객 목적에 맞는 필터, 정렬, 검색 조건을 적용하고 결과를 재산정한다.<br/></td><td>필터 조건 적용<br/>의존성 검증<br/>정렬 기준 산정<br/>조건 초기화</td></tr><tr><td class="mono">FN-PRD-OPR-002</td><td>목록 기준 운영 관리</td><td>운영자가 필터, 정렬, 카드 표준, 상태 배지, 필수 고지 기준을 관리한다.<br/></td><td>필터 기준 등록<br/>정렬 기준 등록<br/>카드 항목 설정<br/>배지 기준 관리</td></tr></tbody>
+</table>
+
+<h4>14) 목록 품질 검수 (PR-PRD-OPR-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-GAT-001</td><td>목록 품질 Gate 검수</td><td>목록 기준이 고객 이해, 가입 가능성, 폴백, 연결성, 개인정보 보호 기준을 충족하는지 검수한다.<br/></td><td>필수 항목 검증<br/>품질 점수 산정<br/>반려 사유 기록<br/>배포 승인 처리</td></tr><tr><td class="mono">FN-PRD-LOG-001</td><td>목록 이력·감사 저장</td><td>목록 노출, 조건 적용, 찜·최근본, 운영 변경, BSS 판정, 폴백 안내 이력을 저장한다.<br/></td><td>노출 이력 저장<br/>변경 전후값 저장<br/>판정 이력 저장<br/>감사 조회 제공</td></tr></tbody>
+</table>
+
+<h4>15) 상품 속성 기준 제공 (PR-PRD-OPR-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-OPR-001</td><td>카테고리 운영 관리</td><td>운영자가 카테고리 계층, 전시 단위, 전시 그룹, 채널별 수정 범위를 관리한다.<br/></td><td>계층 정보 등록<br/>전시 순서 설정<br/>채널별 복사<br/>특화 속성 관리</td></tr></tbody>
+</table>
+
+<h4>16) 목록 카드·상태 배지 기준 검증 (PR-PRD-OPR-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CARD-001</td><td>목록 카드 정보 구성</td><td>상품 후보의 핵심 가치, 가격, 혜택, 상태 배지, 주요 조건, 후속 행동을 표준 항목으로 구성한다.<br/></td><td>핵심 가치 요약<br/>가격·혜택 표시<br/>상태 배지 구성<br/>후속 CTA 연결</td></tr><tr><td class="mono">FN-PRD-OPR-002</td><td>목록 기준 운영 관리</td><td>운영자가 필터, 정렬, 카드 표준, 상태 배지, 필수 고지 기준을 관리한다.<br/></td><td>필터 기준 등록<br/>정렬 기준 등록<br/>카드 항목 설정<br/>배지 기준 관리</td></tr><tr><td class="mono">FN-PRD-GAT-001</td><td>목록 품질 Gate 검수</td><td>목록 기준이 고객 이해, 가입 가능성, 폴백, 연결성, 개인정보 보호 기준을 충족하는지 검수한다.<br/></td><td>필수 항목 검증<br/>품질 점수 산정<br/>반려 사유 기록<br/>배포 승인 처리</td></tr></tbody>
+</table>
+
+<h4>17) 예약 배포·회수·복구 처리 (PR-PRD-OPR-007)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-GAT-001</td><td>목록 품질 Gate 검수</td><td>목록 기준이 고객 이해, 가입 가능성, 폴백, 연결성, 개인정보 보호 기준을 충족하는지 검수한다.<br/></td><td>필수 항목 검증<br/>품질 점수 산정<br/>반려 사유 기록<br/>배포 승인 처리</td></tr><tr><td class="mono">FN-PRD-LOG-001</td><td>목록 이력·감사 저장</td><td>목록 노출, 조건 적용, 찜·최근본, 운영 변경, BSS 판정, 폴백 안내 이력을 저장한다.<br/></td><td>노출 이력 저장<br/>변경 전후값 저장<br/>판정 이력 저장<br/>감사 조회 제공</td></tr></tbody>
+</table>
+
+<h4>18) 전시 그룹 매핑 기준 검증 (PR-PRD-OPR-008)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-PRD-CAT-001</td><td>카테고리·전시 단위 구성</td><td>상품 속성과 전시 단위를 고객 목적 기준의 카테고리로 매핑하고 경로를 구성한다.<br/></td><td>카테고리 경로 구성<br/>전시 단위 매핑<br/>계층 유효성 확인<br/>중복 분류 감지</td></tr><tr><td class="mono">FN-PRD-OPR-001</td><td>카테고리 운영 관리</td><td>운영자가 카테고리 계층, 전시 단위, 전시 그룹, 채널별 수정 범위를 관리한다.<br/></td><td>계층 정보 등록<br/>전시 순서 설정<br/>채널별 복사<br/>특화 속성 관리</td></tr><tr><td class="mono">FN-PRD-LOG-001</td><td>목록 이력·감사 저장</td><td>목록 노출, 조건 적용, 찜·최근본, 운영 변경, BSS 판정, 폴백 안내 이력을 저장한다.<br/></td><td>노출 이력 저장<br/>변경 전후값 저장<br/>판정 이력 저장<br/>감사 조회 제공</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 목록 진입 기준 확인 (PR-PRD-CAT-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-SCP-001</td><td>상품 목록 범위·경계 정책</td><td>상품 목록에서 직접 다룰 범위와 상품 상세·주문·전시 운영으로 넘길 범위를 구분하는 기준이다.<br/></td><td>직접 범위<br/>인접 정책서 경계</td></tr><tr><td class="mono">PG-PRD-CAT-001</td><td>카테고리·분류 정책</td><td>상품 속성, 목적, 보유 상태 기준으로 카테고리와 경로를 구성하는 기준이다.<br/></td><td>통합 분류 기준<br/>경로 표시<br/>전체 보기 진입</td></tr></tbody>
+</table>
+
+<h4>2) 상품 후보 기본 목록 구성 (PR-PRD-CAT-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-CAT-001</td><td>카테고리·분류 정책</td><td>상품 속성, 목적, 보유 상태 기준으로 카테고리와 경로를 구성하는 기준이다.<br/></td><td>통합 분류 기준<br/>경로 표시<br/>전체 보기 진입</td></tr><tr><td class="mono">PG-PRD-CARD-001</td><td>목록 카드 정보 정책</td><td>목록 카드에 표시할 핵심 가치, 가격, 혜택, 상태, 조건, CTA 기준이다.<br/></td><td>목록 카드 필수 정보<br/>현재 상품 대비 요약<br/>유무료 구분<br/>상품 목록 공통 정보 규격<br/>탐색 보조 배너·연관 메뉴<br/>인터넷/BTV 신청 비교 카드</td></tr><tr><td class="mono">PG-PRD-AVL-001</td><td>상품 상태·가입 가능 정책</td><td>가입 가능, 변경 가능, 조건 미충족, 품절, 단종, 오픈 예정 상태와 사유 표시 기준이다.<br/></td><td>가입 가능 표시<br/>품절·단종 제외<br/>외국인 가입 제한<br/>공시지원금 기준 일관성</td></tr></tbody>
+</table>
+
+<h4>3) 필터·정렬 조건 적용 (PR-PRD-FLT-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-FLT-001</td><td>필터·정렬 정책</td><td>고객 목적형 필터, 정렬, 의존성, 초기화, 결과 요약 기준이다.<br/></td><td>필터 유형<br/>필터 의존성<br/>조건 초기화<br/>상품 목록 공통 필터·정렬</td></tr><tr><td class="mono">PG-PRD-CTX-001</td><td>탐색 맥락 유지 정책</td><td>탭, 필터, 정렬, 스크롤, 비교 후보, 최근본 맥락을 보관하고 만료하는 기준이다.<br/></td><td>목록 맥락 저장<br/>맥락 만료<br/>전시-상세-복귀 상태 유지</td></tr><tr><td class="mono">PG-PRD-ERR-001</td><td>빈 결과·오류 폴백 정책</td><td>결과 없음, 오류, 제한 조건 발생 시 사유 안내와 다음 행동 기준이다.<br/></td><td>빈 결과 안내<br/>조회 오류 복구<br/>빈 화면·오류 폴백</td></tr></tbody>
+</table>
+
+<h4>4) 목적형 후보 재선별 (PR-PRD-FLT-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-RNK-001</td><td>목록 우선순위 정책</td><td>가입 가능성, 혜택, 가격, 최근 이용, 개인화 기준으로 후보 순서를 정하는 기준이다.<br/></td><td>기본 정렬 우선순위<br/>목적형 정렬</td></tr><tr><td class="mono">PG-PRD-PER-001</td><td>개인화 목록 정책</td><td>고객 상태와 탐색 이력을 활용한 빠른 필터, 우선 후보, 비개인화 전환 기준이다.<br/></td><td>개인화 적용 조건<br/>피로도 제한</td></tr><tr><td class="mono">PG-PRD-CARD-001</td><td>목록 카드 정보 정책</td><td>목록 카드에 표시할 핵심 가치, 가격, 혜택, 상태, 조건, CTA 기준이다.<br/></td><td>목록 카드 필수 정보<br/>현재 상품 대비 요약<br/>유무료 구분<br/>상품 목록 공통 정보 규격<br/>탐색 보조 배너·연관 메뉴<br/>인터넷/BTV 신청 비교 카드</td></tr><tr><td class="mono">PG-PRD-ERR-001</td><td>빈 결과·오류 폴백 정책</td><td>결과 없음, 오류, 제한 조건 발생 시 사유 안내와 다음 행동 기준이다.<br/></td><td>빈 결과 안내<br/>조회 오류 복구<br/>빈 화면·오류 폴백</td></tr><tr><td class="mono">PG-PRD-CTX-001</td><td>탐색 맥락 유지 정책</td><td>탭, 필터, 정렬, 스크롤, 비교 후보, 최근본 맥락을 보관하고 만료하는 기준이다.<br/></td><td>목록 맥락 저장<br/>맥락 만료<br/>전시-상세-복귀 상태 유지</td></tr></tbody>
+</table>
+
+<h4>5) 비교 후보 선택·유지 (PR-PRD-SAV-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-CMP-001</td><td>비교 후보 정책</td><td>목록에서 선택한 비교 후보의 보관, 제한, 복귀, 비교 화면 연결 기준이다.<br/></td><td>비교 후보 수<br/>비교 후보 유지</td></tr><tr><td class="mono">PG-PRD-CTX-001</td><td>탐색 맥락 유지 정책</td><td>탭, 필터, 정렬, 스크롤, 비교 후보, 최근본 맥락을 보관하고 만료하는 기준이다.<br/></td><td>목록 맥락 저장<br/>맥락 만료<br/>전시-상세-복귀 상태 유지</td></tr></tbody>
+</table>
+
+<h4>6) 찜·최근본 저장·삭제 (PR-PRD-SAV-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-SAV-001</td><td>찜·최근본 정책</td><td>찜과 최근본의 저장, 이관, 삭제, 기간, 개수, 상태 변화 안내 기준이다.<br/></td><td>찜 저장<br/>최근본 보관<br/>삭제·끄기<br/>찜 대상 확장·통합 관리</td></tr><tr><td class="mono">PG-PRD-PRV-001</td><td>개인정보·보관 정책</td><td>찜, 최근본, 개인화 조건, 탐색 이력의 접근 제어와 보관·삭제 기준이다.<br/></td><td>접근 제어<br/>보관·삭제</td></tr></tbody>
+</table>
+
+<h4>7) 고객 조건 기반 가입 가능 판정 (PR-PRD-AVL-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-AVL-001</td><td>상품 상태·가입 가능 정책</td><td>가입 가능, 변경 가능, 조건 미충족, 품절, 단종, 오픈 예정 상태와 사유 표시 기준이다.<br/></td><td>가입 가능 표시<br/>품절·단종 제외<br/>외국인 가입 제한<br/>공시지원금 기준 일관성</td></tr><tr><td class="mono">PG-PRD-BSS-001</td><td>BSS 판정 연계 정책</td><td>BSS가 목록 단계에서 판단해야 하는 고객 상태와 회신 결과 처리 기준이다.<br/></td><td>BSS 판정 요청<br/>회신 지연 처리<br/>통합 장애 영향 처리<br/>고객 ID와 선택 프로그램 판정</td></tr></tbody>
+</table>
+
+<h4>8) 제한 상품 구분·사유 안내 (PR-PRD-AVL-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-AVL-001</td><td>상품 상태·가입 가능 정책</td><td>가입 가능, 변경 가능, 조건 미충족, 품절, 단종, 오픈 예정 상태와 사유 표시 기준이다.<br/></td><td>가입 가능 표시<br/>품절·단종 제외<br/>외국인 가입 제한<br/>공시지원금 기준 일관성</td></tr><tr><td class="mono">PG-PRD-ERR-001</td><td>빈 결과·오류 폴백 정책</td><td>결과 없음, 오류, 제한 조건 발생 시 사유 안내와 다음 행동 기준이다.<br/></td><td>빈 결과 안내<br/>조회 오류 복구<br/>빈 화면·오류 폴백</td></tr></tbody>
+</table>
+
+<h4>9) 빈 결과 원인 분류 (PR-PRD-ERR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-ERR-001</td><td>빈 결과·오류 폴백 정책</td><td>결과 없음, 오류, 제한 조건 발생 시 사유 안내와 다음 행동 기준이다.<br/></td><td>빈 결과 안내<br/>조회 오류 복구<br/>빈 화면·오류 폴백</td></tr><tr><td class="mono">PG-PRD-FLT-001</td><td>필터·정렬 정책</td><td>고객 목적형 필터, 정렬, 의존성, 초기화, 결과 요약 기준이다.<br/></td><td>필터 유형<br/>필터 의존성<br/>조건 초기화<br/>상품 목록 공통 필터·정렬</td></tr></tbody>
+</table>
+
+<h4>10) 대체 경로와 재시도 안내 (PR-PRD-ERR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-ERR-001</td><td>빈 결과·오류 폴백 정책</td><td>결과 없음, 오류, 제한 조건 발생 시 사유 안내와 다음 행동 기준이다.<br/></td><td>빈 결과 안내<br/>조회 오류 복구<br/>빈 화면·오류 폴백</td></tr><tr><td class="mono">PG-PRD-CTA-001</td><td>후속 진입 정책</td><td>상세, 비교, 담기, 주문, 검색, 상담, 추천 카테고리로 이어지는 CTA 기준이다.<br/></td><td>후속 CTA 기준<br/>CTA 우선순위<br/>제한 상태 대체 CTA<br/>후속 진입 이력</td></tr></tbody>
+</table>
+
+<h4>11) 카테고리 계층·전시 단위 등록 (PR-PRD-OPR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-OPR-001</td><td>카테고리 운영 정책</td><td>운영자의 카테고리 계층, 전시 단위, 채널별 수정 범위, 순서 관리 기준이다.<br/></td><td>카테고리 운영 항목<br/>전시 단위 유형<br/>전용관 운영 기준<br/>정책상품 중복 조합 처리</td></tr><tr><td class="mono">PG-PRD-CAT-001</td><td>카테고리·분류 정책</td><td>상품 속성, 목적, 보유 상태 기준으로 카테고리와 경로를 구성하는 기준이다.<br/></td><td>통합 분류 기준<br/>경로 표시<br/>전체 보기 진입</td></tr></tbody>
+</table>
+
+<h4>12) 채널별 수정·복사 범위 관리 (PR-PRD-OPR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-OPR-001</td><td>카테고리 운영 정책</td><td>운영자의 카테고리 계층, 전시 단위, 채널별 수정 범위, 순서 관리 기준이다.<br/></td><td>카테고리 운영 항목<br/>전시 단위 유형<br/>전용관 운영 기준<br/>정책상품 중복 조합 처리</td></tr><tr><td class="mono">PG-PRD-AUD-001</td><td>이력·감사 정책</td><td>고객 노출, 조건 적용, 저장, 운영 변경, 판정 결과의 이력 저장 기준이다.<br/></td><td>운영 변경 이력<br/>고객 행동 이력</td></tr></tbody>
+</table>
+
+<h4>13) 필터·정렬 기준 등록 (PR-PRD-OPR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-FLT-001</td><td>필터·정렬 정책</td><td>고객 목적형 필터, 정렬, 의존성, 초기화, 결과 요약 기준이다.<br/></td><td>필터 유형<br/>필터 의존성<br/>조건 초기화<br/>상품 목록 공통 필터·정렬</td></tr><tr><td class="mono">PG-PRD-RNK-001</td><td>목록 우선순위 정책</td><td>가입 가능성, 혜택, 가격, 최근 이용, 개인화 기준으로 후보 순서를 정하는 기준이다.<br/></td><td>기본 정렬 우선순위<br/>목적형 정렬</td></tr></tbody>
+</table>
+
+<h4>14) 목록 품질 검수 (PR-PRD-OPR-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-GAT-001</td><td>목록 품질 Gate 정책</td><td>목록 변경 검수, 승인, 배포, 회수, 복구 기준이다.<br/></td><td>목록 품질 검수<br/>긴급 회수</td></tr><tr><td class="mono">PG-PRD-AUD-001</td><td>이력·감사 정책</td><td>고객 노출, 조건 적용, 저장, 운영 변경, 판정 결과의 이력 저장 기준이다.<br/></td><td>운영 변경 이력<br/>고객 행동 이력</td></tr></tbody>
+</table>
+
+<h4>15) 상품 속성 기준 제공 (PR-PRD-OPR-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-CAT-001</td><td>카테고리·분류 정책</td><td>상품 속성, 목적, 보유 상태 기준으로 카테고리와 경로를 구성하는 기준이다.<br/></td><td>통합 분류 기준<br/>경로 표시<br/>전체 보기 진입</td></tr><tr><td class="mono">PG-PRD-OPR-001</td><td>카테고리 운영 정책</td><td>운영자의 카테고리 계층, 전시 단위, 채널별 수정 범위, 순서 관리 기준이다.<br/></td><td>카테고리 운영 항목<br/>전시 단위 유형<br/>전용관 운영 기준<br/>정책상품 중복 조합 처리</td></tr></tbody>
+</table>
+
+<h4>16) 목록 카드·상태 배지 기준 검증 (PR-PRD-OPR-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-CARD-001</td><td>목록 카드 정보 정책</td><td>목록 카드에 표시할 핵심 가치, 가격, 혜택, 상태, 조건, CTA 기준이다.<br/></td><td>목록 카드 필수 정보<br/>현재 상품 대비 요약<br/>유무료 구분<br/>상품 목록 공통 정보 규격<br/>탐색 보조 배너·연관 메뉴<br/>인터넷/BTV 신청 비교 카드</td></tr><tr><td class="mono">PG-PRD-AVL-001</td><td>상품 상태·가입 가능 정책</td><td>가입 가능, 변경 가능, 조건 미충족, 품절, 단종, 오픈 예정 상태와 사유 표시 기준이다.<br/></td><td>가입 가능 표시<br/>품절·단종 제외<br/>외국인 가입 제한<br/>공시지원금 기준 일관성</td></tr><tr><td class="mono">PG-PRD-GAT-001</td><td>목록 품질 Gate 정책</td><td>목록 변경 검수, 승인, 배포, 회수, 복구 기준이다.<br/></td><td>목록 품질 검수<br/>긴급 회수</td></tr></tbody>
+</table>
+
+<h4>17) 예약 배포·회수·복구 처리 (PR-PRD-OPR-007)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-GAT-001</td><td>목록 품질 Gate 정책</td><td>목록 변경 검수, 승인, 배포, 회수, 복구 기준이다.<br/></td><td>목록 품질 검수<br/>긴급 회수</td></tr><tr><td class="mono">PG-PRD-AUD-001</td><td>이력·감사 정책</td><td>고객 노출, 조건 적용, 저장, 운영 변경, 판정 결과의 이력 저장 기준이다.<br/></td><td>운영 변경 이력<br/>고객 행동 이력</td></tr></tbody>
+</table>
+
+<h4>18) 전시 그룹 매핑 기준 검증 (PR-PRD-OPR-008)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-PRD-CAT-001</td><td>카테고리·분류 정책</td><td>상품 속성, 목적, 보유 상태 기준으로 카테고리와 경로를 구성하는 기준이다.<br/></td><td>통합 분류 기준<br/>경로 표시<br/>전체 보기 진입</td></tr><tr><td class="mono">PG-PRD-OPR-001</td><td>카테고리 운영 정책</td><td>운영자의 카테고리 계층, 전시 단위, 채널별 수정 범위, 순서 관리 기준이다.<br/></td><td>카테고리 운영 항목<br/>전시 단위 유형<br/>전용관 운영 기준<br/>정책상품 중복 조합 처리</td></tr><tr><td class="mono">PG-PRD-AUD-001</td><td>이력·감사 정책</td><td>고객 노출, 조건 적용, 저장, 운영 변경, 판정 결과의 이력 저장 기준이다.<br/></td><td>운영 변경 이력<br/>고객 행동 이력</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 상품 목록 범위·경계 정책 (PG-PRD-SCP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 직접 범위 <span class="mono">(PI-PRD-SCP-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 목록은 카테고리, 필터, 정렬, 목록 카드, 가입 가능 표시, 비교 후보, 찜, 최근본, 폴백 안내를 직접 범위로 둔다.<br/></span><span class="policy-item-line">- 상품 상세 설명, 담기 이후 주문, 결제, 할인 확정 계산은 후속 정책서 범위로 분리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인접 정책서 경계 <span class="mono">(PI-PRD-SCP-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전시/관리 기능의 전체 슬롯 운영, 상품상세의 상세 정보, 장바구니의 구성 검증, 주문의 계약 확정은 본 문서에 세부 절차로 작성하지 않는다.<br/></span><span class="policy-item-line">- 목록은 후속 업무로 넘길 카테고리, 필터, 정렬, 비교 후보, 고객별 가입 가능 여부, 제한 사유를 전달 맥락으로 정의하고 전달 이력을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 카테고리·분류 정책 (PG-PRD-CAT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 통합 분류 기준 <span class="mono">(PI-PRD-CAT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카테고리는 상품 속성, 이용 목적, 고객 보유 상태를 우선 기준으로 구성한다.<br/></span><span class="policy-item-line">- 동일 성격 상품이 브랜드, 조직, 채널 이름 차이로 2개 이상 분리되면 표준 분류 기준으로 통합하거나 중복 사유를 운영 검수 대상으로 둔다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 경로 표시 <span class="mono">(PI-PRD-CAT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카테고리는 1단계 이상 계층을 가질 수 있으며 고객에게 현재 경로를 표시한다.<br/></span><span class="policy-item-line">- 딥링크로 진입해도 상위 경로와 현재 목록 기준을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전체 보기 진입 <span class="mono">(PI-PRD-CAT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품군별 전체 보기는 2Depth 대표 목록으로 진입시키고, 3Depth 하위 카테고리는 목록 내 탭 또는 필터로 전환한다.<br/></span><span class="policy-item-line">- 목록 복귀 시 이전 탭, 필터, 정렬, 스크롤을 유지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 목록 카드 정보 정책 (PG-PRD-CARD-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 목록 카드 필수 정보 <span class="mono">(PI-PRD-CARD-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 카드는 이미지 또는 식별 정보, 상품명, 핵심 가치, 가격 또는 예상 비용, 주요 혜택, 상태 배지, 주요 조건, 후속 CTA 중 5개 이상을 포함한다.<br/></span><span class="policy-item-line">- 가격이나 혜택이 확정값이 아니면 예상 또는 조건부 표시를 함께 둔다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 현재 상품 대비 요약 <span class="mono">(PI-PRD-CARD-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로그인 고객에게는 현재 사용 상품 대비 월 요금 차이, 혜택 변화, 약정 또는 조건 변화 중 확인 가능한 항목을 목록 단계에서 요약한다.<br/></span><span class="policy-item-line">- BSS 판정이 없으면 확정 비교가 아니라 상세 확인 필요로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 유무료 구분 <span class="mono">(PI-PRD-CARD-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 부가서비스나 혜택형 상품은 유료, 무료, 조건부 무료를 구분하는 배지를 제공한다.<br/></span><span class="policy-item-line">- 유료 전환 조건이 있는 경우 목록 카드 또는 상세 진입 전 고지에 제한 조건을 남긴다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상품 목록 공통 정보 규격 <span class="mono">(PI-PRD-CARD-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 목록 카드는 가격, 혜택, 구성요소, 주요 특징, 가입 가능 여부, 현재 사용 상품 대비 차이를 공통 항목 순서로 제공한다.<br/></span><span class="policy-item-line">- 로그인 고객에게만 제공 가능한 정보는 권한 확인 후 노출한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 탐색 보조 배너·연관 메뉴 <span class="mono">(PI-PRD-CARD-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 탐색 화면과 목록 화면은 탐색 보조형 배너와 연관 메뉴를 제공해 다음 탐색 경로를 이어갈 수 있게 한다.<br/></span><span class="policy-item-line">- 보조 배너는 주문 CTA보다 우선하지 않으며 고객 목적과 관련된 경우에만 노출하고, 동일 세션 반복 노출은 1회로 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인터넷/BTV 신청 비교 카드 <span class="mono">(PI-PRD-CARD-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인터넷/BTV 셋톱박스 선택 정보는 주요 기능, 가격, 제공 조건, 차이점을 목록 카드 또는 비교 영역에서 함께 제공해 상세 진입 전 선택 판단이 가능해야 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 필터·정렬 정책 (PG-PRD-FLT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 필터 유형 <span class="mono">(PI-PRD-FLT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 필터는 체크, 라디오, 범위, 칩 중 카테고리 특성에 맞는 유형으로 제공한다.<br/></span><span class="policy-item-line">- 기본 필터는 고객이 3초 안에 이해할 수 있는 핵심 조건을 우선 배치한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 필터 의존성 <span class="mono">(PI-PRD-FLT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- A 조건 선택 시 B 조건이 무효가 되는 경우 상호배타로 처리하고 고객에게 제외 사유를 안내한다.<br/></span><span class="policy-item-line">- 의존 필터는 선행 조건이 해제되면 함께 초기화한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 조건 초기화 <span class="mono">(PI-PRD-FLT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 적용된 필터와 정렬을 한 번에 초기화할 수 있어야 한다.<br/></span><span class="policy-item-line">- 초기화 후에는 카테고리 기본 정렬과 고객이 진입한 경로 기준을 복원하며, 초기화 전 적용 조건 수와 결과 변화 가능성을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상품 목록 공통 필터·정렬 <span class="mono">(PI-PRD-FLT-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 목록은 카테고리와 상품군 특성에 맞는 필터와 정렬 기준을 공통 구조로 제공한다.<br/></span><span class="policy-item-line">- 고객 선택 빈도와 가입 가능성에 영향을 주는 핵심 기준을 우선 배치하고 과도한 옵션은 접힘 또는 보조 영역으로 분리하며, 변경 시 적용 채널과 기준 버전 이력을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 목록 우선순위 정책 (PG-PRD-RNK-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 기본 정렬 우선순위 <span class="mono">(PI-PRD-RNK-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기본 정렬은 가입 가능, 고객 목적 적합성, 혜택 가치, 가격 영향, 최신성, 인기 순으로 적용한다.<br/></span><span class="policy-item-line">- 운영자가 별도 캠페인을 우선 노출하더라도 가입 불가 또는 단종 상품은 우선 노출하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 목적형 정렬 <span class="mono">(PI-PRD-RNK-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카테고리별로 가격 낮은 순, 혜택 많은 순, 절감 가능성 높은 순, 최근 출시 순, 추천 순 중 2개 이상 정렬을 제공할 수 있다.<br/></span><span class="policy-item-line">- 정렬 결과에는 현재 적용 기준을 고객이 확인할 수 있게 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 개인화 목록 정책 (PG-PRD-PER-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 개인화 적용 조건 <span class="mono">(PI-PRD-PER-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개인화 빠른 필터는 로그인 상태, 고객 동의, 보유 서비스, 최근 탐색 이력 중 필요한 조건이 충족된 경우에만 제공한다.<br/></span><span class="policy-item-line">- 고객은 개인화 조건을 해제하고 일반 목록으로 전환할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 피로도 제한 <span class="mono">(PI-PRD-PER-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 유형의 추천 조건이나 혜택 브랜드는 동일 세션에서 반복 노출을 제한한다.<br/></span><span class="policy-item-line">- 고객이 관심없음 또는 숨김을 선택한 항목은 해당 세션에서 다시 우선 노출하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 비교 후보 정책 (PG-PRD-CMP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 비교 후보 수 <span class="mono">(PI-PRD-CMP-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 비교 후보는 최소 2개 이상 선택 시 비교 진입을 활성화한다.<br/></span><span class="policy-item-line">- 최대 선택 수는 카테고리별 비교 가능 컬럼 수를 기준으로 운영 정책에서 정하며, 초과 시 기존 후보 해제 또는 추가 제한을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 비교 후보 유지 <span class="mono">(PI-PRD-CMP-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 상세에 진입했다가 목록으로 복귀해도 비교 후보와 목록 맥락은 유지한다.<br/></span><span class="policy-item-line">- 후보 상품이 품절, 단종, 가입 불가로 변경되면 비교 후보에는 남기되 상태 배지와 대체 행동을 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 찜·최근본 정책 (PG-PRD-SAV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 찜 저장 <span class="mono">(PI-PRD-SAV-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 찜은 상품, 기획전, 이벤트, 콘텐츠, 메뉴 중 정책에서 허용한 대상에 적용할 수 있다.<br/></span><span class="policy-item-line">- 비로그인 임시 찜은 로그인 시 고객 확인 후 이관하고, 이관 실패 시 임시 보관 상태와 삭제 가능성을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 최근본 보관 <span class="mono">(PI-PRD-SAV-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 최근본은 고객별 개인화 이력으로 관리하고 기본 보관 개수와 기간을 운영 설정값으로 둔다.<br/></span><span class="policy-item-line">- 정책 초안 기준은 최대 50개, 최대 90일을 기본값으로 하되 실제 운영 값은 개인정보·서비스 정책 확정 후 조정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 삭제·끄기 <span class="mono">(PI-PRD-SAV-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 찜과 최근본을 개별 삭제, 전체 삭제, 기능 끄기로 관리할 수 있다.<br/></span><span class="policy-item-line">- 기능 끄기 상태에서는 신규 최근본을 저장하지 않고 기존 이력은 고객 선택에 따라 유지 또는 삭제한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 찜 대상 확장·통합 관리 <span class="mono">(PI-PRD-SAV-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 찜 기능은 상품, 기획전, 이벤트, 콘텐츠, 메뉴 등 주요 탐색 대상에 적용할 수 있다.<br/></span><span class="policy-item-line">- 비로그인 임시 찜은 로그인 후 이관하고, 품절·가격변동·혜택종료 같은 상태 변화는 찜 목록에서 확인할 수 있게 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 상품 상태·가입 가능 정책 (PG-PRD-AVL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 가입 가능 표시 <span class="mono">(PI-PRD-AVL-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입 가능 여부는 고객 회선, 연령, 보유 상품, 단말, 약정, 제한 상태 기준으로 판정한다.<br/></span><span class="policy-item-line">- 가입 가능 상품은 우선 노출할 수 있고 가입 제한 상품은 숨김 또는 비활성화하되 사유를 함께 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 품절·단종 제외 <span class="mono">(PI-PRD-AVL-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 품절, 판매 중단, 단종, 주문 불가 상품은 목록 기본 노출에서 제외한다.<br/></span><span class="policy-item-line">- 고객이 직접 조건을 해제하거나 과거 주문·최근본에서 접근한 경우에는 주문 불가 상태와 대체 상품 경로를 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 외국인 가입 제한 <span class="mono">(PI-PRD-AVL-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 외국인 고객의 가입 가능 여부는 상품 정책과 BSS 판정 결과를 우선한다.<br/></span><span class="policy-item-line">- 번역 페이지에서도 가입 불가 상품은 비활성화하고 제한 사유를 고객 언어 기준으로 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 공시지원금 기준 일관성 <span class="mono">(PI-PRD-AVL-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 단말과 요금제 조합에 따른 공시지원금은 상품 탐색 단계와 주문 단계에서 동일한 기준일과 산정 조건을 사용한다.<br/></span><span class="policy-item-line">- 기준 금액이 변경되면 고객에게 적용 시점과 변경 사유를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) BSS 판정 연계 정책 (PG-PRD-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• BSS 판정 요청 <span class="mono">(PI-PRD-BSS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 단계에서 고객별 가입 가능 여부가 필요한 경우 채널은 고객 식별 상태와 선택한 상품군 조건을 BSS 판정 요청에 포함한다.<br/></span><span class="policy-item-line">- BSS 회신이 없으면 가입 가능 확정값으로 표시하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 회신 지연 처리 <span class="mono">(PI-PRD-BSS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 판정이 3초 안에 완료되지 않으면 목록은 일반 후보를 먼저 표시하고 가입 가능 판정은 확인 중으로 표시할 수 있다.<br/></span><span class="policy-item-line">- 동일 조건 재조회가 2회 실패하면 상세 확인 또는 상담 전환 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 통합 장애 영향 처리 <span class="mono">(PI-PRD-BSS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통합 연동 장애가 여러 채널 목록에 동시에 영향을 주면 가입 가능 배지는 보수적으로 숨기고 장애 이력과 영향 카테고리를 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고객 ID와 선택 프로그램 판정 <span class="mono">(PI-PRD-BSS-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 채널은 고객 식별 정보와 선택한 마케팅 프로그램 정보를 BSS에 전달하고, BSS는 고객 상태와 가입 가능 조건을 기준으로 가입 가능한 마케팅 프로그램 목록을 회신한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 빈 결과·오류 폴백 정책 (PG-PRD-ERR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 빈 결과 안내 <span class="mono">(PI-PRD-ERR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 적용 조건 결과가 0건이면 조건 과다, 가입 제한, 데이터 없음 중 가능한 원인을 구분해 안내한다.<br/></span><span class="policy-item-line">- 고객에게 조건 초기화, 추천 카테고리, 검색, 상담 중 1개 이상의 다음 행동을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 조회 오류 복구 <span class="mono">(PI-PRD-ERR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 기준 시스템, BSS, 채널 조회 오류가 발생하면 동일 조건 재시도를 제공한다.<br/></span><span class="policy-item-line">- 동일 조건의 중복 요청은 하나의 멱등 요청으로 묶어 중복 처리와 반복 고지를 방지한다.<br/></span><span class="policy-item-line">- 재시도 실패 시 기존 목록 맥락을 보존하고 나중에 다시 시도 또는 상담 전환을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 빈 화면·오류 폴백 <span class="mono">(PI-PRD-ERR-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전시 데이터 없음, 상품 속성 조회 실패, 가입 가능 판정 지연은 서로 다른 오류 유형으로 구분한다.<br/></span><span class="policy-item-line">- 빈 화면으로 종료하지 않고 추천 카테고리, 비교 진입, 검색, 상담, 최근본 중 고객이 선택 가능한 다음 행동 경로를 1개 이상 제공하며 오류 유형과 선택한 폴백 이력을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 후속 진입 정책 (PG-PRD-CTA-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 후속 CTA 기준 <span class="mono">(PI-PRD-CTA-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 카드에는 상세, 비교, 찜, 담기, 주문, 상담, 검색 중 상품 상태와 고객 조건에 맞는 CTA만 노출한다.<br/></span><span class="policy-item-line">- 가입 불가 상품에는 주문 CTA를 제공하지 않고 제한 사유와 대체 경로를 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• CTA 우선순위 <span class="mono">(PI-PRD-CTA-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 카드의 Primary CTA는 고객이 다음에 완료할 가능성이 가장 높은 행동 1개로 제한한다.<br/></span><span class="policy-item-line">- 가입 가능 상품은 상세 또는 주문 진입을 우선하고, 조건 확인이 필요한 상품은 상세 확인을 우선한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제한 상태 대체 CTA <span class="mono">(PI-PRD-CTA-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 품절, 판매 중지, 가입 불가, 회선 조건 미충족 상태에서는 주문 CTA를 노출하지 않는다.<br/></span><span class="policy-item-line">- 이 경우 제한 사유, 대체 상품, 상담 또는 조건 확인 CTA 중 1개 이상을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 후속 진입 이력 <span class="mono">(PI-PRD-CTA-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상세, 비교, 찜, 담기, 주문, 상담 CTA 선택 이력은 상품 ID, 고객 조건, 노출 위치, 선택 일시와 함께 저장한다.<br/></span><span class="policy-item-line">- 동일 상품 반복 진입은 최근 선택 기준으로 이어보기 또는 비교 후보에 반영한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) 탐색 맥락 유지 정책 (PG-PRD-CTX-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 목록 맥락 저장 <span class="mono">(PI-PRD-CTX-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 탭, 필터, 정렬, 검색어, 스크롤, 비교 후보는 동일 세션에서 유지한다.<br/></span><span class="policy-item-line">- 고객이 다른 상품군으로 이동하면 카테고리와 직접 관련 없는 조건은 초기화한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 맥락 만료 <span class="mono">(PI-PRD-CTX-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 맥락은 동일 세션 기준으로 우선 유지하고, 고객이 로그아웃하거나 보관 동의를 철회하면 개인화 맥락 저장을 중단한다.<br/></span><span class="policy-item-line">- 저장된 비교 후보와 최근본은 고객 삭제 요청 시 즉시 삭제한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전시-상세-복귀 상태 유지 <span class="mono">(PI-PRD-CTX-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록에서 상세로 진입한 뒤 복귀하면 탭, 필터, 정렬, 스크롤, 비교 후보를 유지한다.<br/></span><span class="policy-item-line">- 유지 시간이 만료되거나 목록 기준이 변경된 경우에는 변경 사유와 초기화 여부를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) 카테고리 운영 정책 (PG-PRD-OPR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 카테고리 운영 항목 <span class="mono">(PI-PRD-OPR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 카테고리명, 사용 여부, 사용 채널, 상위 카테고리, 전시 순서, 전시 단위 매핑, 채널별 수정 가능 범위를 관리한다.<br/></span><span class="policy-item-line">- 카테고리 ID는 생성 후 변경하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전시 단위 유형 <span class="mono">(PI-PRD-OPR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전시 단위 유형은 Product Offering, 번들 구조, 전시 그룹으로 구분한다.<br/></span><span class="policy-item-line">- 번들 구조는 기본 포함 상품과 선택 옵션 상품 수를 구분하고, 전시 그룹은 고객 세그먼트, 가격대, 키워드 기준으로 묶을 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 전용관 운영 기준 <span class="mono">(PI-PRD-OPR-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 전용관은 브랜드, 대상 고객군, 프로모션, 멤버십 제공 조건, 알림 가능 여부를 묶어 관리한다.<br/></span><span class="policy-item-line">- 전용관 대상 고객과 노출 기간은 운영 승인 후 적용하며 변경 이력을 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 정책상품 중복 조합 처리 <span class="mono">(PI-PRD-OPR-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 판매정책 등록 시 동일한 채널, 가입유형, 요금제 조합의 정책상품이 존재하면 신규 등록을 제한하거나 기존 정책상품의 변경 절차로 전환한다.<br/></span><span class="policy-item-line">- 중복 판단 결과와 처리자는 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 목록 품질 Gate 정책 (PG-PRD-GAT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 목록 품질 검수 <span class="mono">(PI-PRD-GAT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 변경은 배포 전 카테고리 경로, 필터 의존성, 목록 카드 필수 정보, 가입 가능 사유, 폴백 안내, 개인정보 노출 여부를 검수해야 한다.<br/></span><span class="policy-item-line">- P1 오류가 1건 이상 있으면 배포 승인 상태로 전환하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 긴급 회수 <span class="mono">(PI-PRD-GAT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 오노출, 단종 상품 주문 가능 표시, 잘못된 가입 가능 사유, 가격·혜택 조건 오표시가 발견되면 긴급 회수 대상으로 둔다.<br/></span><span class="policy-item-line">- 회수 후에는 이전 정상 기준으로 복구하고 변경 이력을 남긴다.<br/></span></div>
+</div>
+</div>
+
+<h4>16) 이력·감사 정책 (PG-PRD-AUD-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 운영 변경 이력 <span class="mono">(PI-PRD-AUD-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 카테고리, 필터, 정렬, 목록 카드, 전시 단위, 가입 가능 표시 기준이 변경되면 변경 전후 값, 승인자, 적용 시점, 회수 여부를 이력으로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고객 행동 이력 <span class="mono">(PI-PRD-AUD-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 목록 노출, 필터 적용, 정렬 변경, 비교 후보 선택, 찜, 최근본, 후속 CTA 클릭은 고객 경험 개선과 오류 복구 목적의 이력으로 관리한다.<br/></span><span class="policy-item-line">- 개인정보 활용 동의 범위를 벗어난 개인화 분석에는 사용하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>17) 개인정보·보관 정책 (PG-PRD-PRV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 접근 제어 <span class="mono">(PI-PRD-PRV-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 찜, 최근본, 비교 후보, 개인화 빠른 필터는 고객 개인 탐색 정보로 관리한다.<br/></span><span class="policy-item-line">- 타인 계정, 공유 화면, 비로그인 상태에서 개인 탐색 이력이 노출되지 않도록 접근 제어를 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보관·삭제 <span class="mono">(PI-PRD-PRV-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 개인화 탐색 이력은 고객 삭제 요청, 기능 끄기, 탈퇴, 보관 기간 만료 중 하나가 발생하면 삭제 또는 분리 보관 기준을 적용한다.<br/></span><span class="policy-item-line">- 삭제 후에는 동일 이력을 추천이나 정렬 기준으로 다시 사용하지 않는다.<br/></span></div>
+</div>
+</div>
+
+
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">상품 목록 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 범위 정합성</div>상품 목록이 카테고리, 목록 카드, 필터·정렬, 비교·찜·최근본, 가입 가능 표시, 폴백 안내 중심으로 작성되었는지 확인한다.<br/>상품 상세, 장바구니, 주문, 결제, 전시 전체 운영의 세부 절차가 본 문서에 과도하게 들어가지 않았는지 확인한다.<br/><div class="guide-section-title">2. 고객 탐색 완결성</div>고객이 어떤 카테고리에 있고 어떤 조건으로 목록을 보고 있는지 이해할 수 있어야 한다.<br/>상세 진입 전에도 가격, 혜택, 가입 가능성, 제한 사유, 현재 상품 대비 차이를 판단할 수 있어야 한다.<br/><div class="guide-section-title">3. 필터·정렬 품질</div>목적형 필터와 정렬이 고객 후보 선별에 필요한 최소 기준으로 제공되는지 확인한다.<br/>필터 의존성, 상호배타, 초기화, 결과 요약 기준이 정책 항목으로 분리되어 있는지 확인한다.<br/><div class="guide-section-title">4. 맥락 유지와 후속 진입</div>목록에서 상세, 비교, 담기, 주문, 상담으로 이동해도 탭, 필터, 정렬, 스크롤, 비교 후보 맥락이 유지되는지 확인한다.<br/>후속 정책서로 넘겨야 할 조건이 기능과 정책 ID로 연결되는지 확인한다.<br/><div class="guide-section-title">5. 가입 가능성과 제한 사유</div>BSS와 상품 기준 시스템의 판정 결과가 목록 카드와 상태 전이에 반영되는지 확인한다.<br/>가입 불가, 품절, 단종, 조건 미충족 상품은 숨김 또는 비활성화와 함께 사유와 대체 경로를 제공해야 한다.<br/><div class="guide-section-title">6. 찜·최근본 개인정보 보호</div>찜, 최근본, 비교 후보, 개인화 빠른 필터가 고객 개인 탐색 정보로 취급되는지 확인한다.<br/>보관 기간, 삭제, 기능 끄기, 접근 제어, 동의 범위 기준이 정책으로 정의되어 있는지 확인한다.<br/><div class="guide-section-title">7. 운영 관리 정합성</div>카테고리, 전시 단위, 필터, 정렬, 목록 카드 기준의 등록, 검수, 배포, 회수 기준이 연결되어 있는지 확인한다.<br/>운영 관리 내용이 화면·DB 상세로 내려가지 않고 정책 판단 기준 수준에 머무르는지 확인한다.<br/><div class="guide-section-title">8. 요구사항 반영</div>상세 요구사항명과 상세 요구사항 설명에서 확인된 72건 요구사항이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 매핑되었는지 확인한다.<br/>요구사항 문구를 그대로 복사하지 않고 고객 과업과 판단 기준으로 재구성했는지 확인한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

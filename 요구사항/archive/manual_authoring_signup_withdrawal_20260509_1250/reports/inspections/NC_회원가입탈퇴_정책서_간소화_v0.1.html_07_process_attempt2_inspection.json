@@ -1,0 +1,122 @@
+{
+  "status": "fail",
+  "score": 70,
+  "scope": "07_process",
+  "checked_at": "2026-05-02T03:28:45",
+  "summary": "검수 결과 fail. 점수 70점, 오류 1건, 경고 3건입니다.",
+  "findings": [
+    {
+      "severity": "error",
+      "category": "format",
+      "title": "프로세스 목록 소제목에 유즈케이스 ID가 본문처럼 노출됨",
+      "detail": "4. 프로세스 정의 > 가. 프로세스 목록의 소제목이 `가입 대상 확인 (US-MBR-CS-001)` 등으로 작성되어 ID가 제목 본문에 함께 노출된다. 개발 규칙상 US/PR/ST 등 ID는 ID 컬럼에서만 허용된다.",
+      "recommendation": "소제목은 `1) 가입 대상 확인`처럼 업무명만 남기고, 유즈케이스 ID는 표의 ID 컬럼에서만 유지할 것. simple 템플릿의 짧은 소제목 형식은 유지하고 괄호 속 ID만 제거하면 된다."
+    },
+    {
+      "severity": "warn",
+      "category": "consistency",
+      "title": "프로세스 정의 대상 설명과 실제 포함 대상이 서로 다름",
+      "detail": "3. 유즈케이스 정의에서 `고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다`고 했지만, 실제로는 `US-MBR-SYS-001` 채널 서비스 유즈케이스가 Y이며 4장에도 프로세스로 포함돼 있다. 4장 도입문 `프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다`도 같은 충돌을 만든다.",
+      "recommendation": "3장과 4장 도입문을 `고객·운영자 중심으로 관리하되 채널 서비스가 독립 책임으로 수행하는 공통 통제는 예외적으로 프로세스 정의 대상으로 포함한다`처럼 맞출 것. 액터를 단순 책임 단위로 둔 현재 구조는 유지하고 대상 규칙 문장만 보완하면 된다."
+    },
+    {
+      "severity": "warn",
+      "category": "terminology",
+      "title": "주요 용어의 `가입 불가`가 상태 코드의 `가입 제한`과 중복·충돌함",
+      "detail": "2. 주요 용어의 `TM-MBR-003 가입 불가`는 `중복 계정, 자격 미충족, 인증 실패 등으로 가입 완료를 진행할 수 없는 상태`로 정의돼 있는데, 3장 상태와 4장 프로세스는 같은 위치의 상태를 `가입 제한`으로 사용한다. 또 `인증 실패`는 이미 `인증 만료`/`실패` 상태와 경계가 겹친다.",
+      "recommendation": "`TM-MBR-003`을 `가입 제한`으로 통일하거나 반대로 상태명을 맞춰 한 이름만 쓰고, 인증 실패는 인증/실패 계열 상태로 분리할 것. 용어 장의 간결한 설명 방식은 유지하되 상태 코드와 같은 개념은 같은 이름으로만 정의하면 된다."
+    },
+    {
+      "severity": "warn",
+      "category": "state-process-link",
+      "title": "`가입 진행 중` 상태 정의가 프로세스 진입 조건과 맞지 않음",
+      "detail": "`ST-MBR-002 가입 진행 중`은 `가입 입력과 동의가 저장되어 중단 지점부터 이어갈 수 있는 상태`로 정의돼 있는데, `PR-MBR-CS-002-001 가입 유형 선택 처리`는 유형 선택만으로 `가입 진행 중`으로 분기한다고 적고 있다. 현재 문구만 보면 동의 저장 전에도 같은 상태로 들어가 상태 진입 기준이 흐려진다.",
+      "recommendation": "상태 정의를 `가입이 시작되어 선택·입력 일부가 저장된 상태`처럼 넓히거나, 반대로 프로세스 2의 결과를 다음 명시 상태로 조정할 것. 한 줄짜리 simple 프로세스 설명 형식은 유지하고 상태 진입 조건 문장만 맞추면 된다."
+    }
+  ],
+  "metrics": {
+    "body_bytes": 37145,
+    "text_chars": 14409,
+    "h2_count": 5,
+    "h3_count": 8,
+    "table_count": 18,
+    "policy_group_count": 0,
+    "policy_item_count": 0,
+    "state_count": 28,
+    "process_count": 34,
+    "function_count": 0,
+    "business_codes": [
+      "MBR"
+    ],
+    "usecase_distinct_count": 14,
+    "process_distinct_count": 11,
+    "function_distinct_count": 0,
+    "policy_group_distinct_count": 0,
+    "sample_topic_match_count": 0,
+    "sample_reference_mode": "structural_reference",
+    "sample_min_body_bytes": 105537,
+    "sample_max_body_bytes": 233567,
+    "sample_max_text_chars": 60578,
+    "sample_max_usecase_distinct_count": 14,
+    "sample_max_process_distinct_count": 31,
+    "sample_max_function_distinct_count": 42,
+    "sample_max_policy_group_distinct_count": 44,
+    "sample_max_policy_item_count": 475,
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "model": "gpt-5.4",
+      "reasoning_effort": "high",
+      "status": "fail",
+      "summary": "현재 범위는 개요-액터-유즈케이스-상태-프로세스의 큰 축은 간결하게 맞춰졌지만, 프로세스 표기 규칙과 장 간 정합성에서 바로 수정할 문제가 있다. 특히 프로세스 목록 소제목의 ID 노출과 `가입 불가`/`가입 제한`의 이원화는 현재 범위에서 정리해야 한다. 기능·정책 장이 아직 없는 것은 정상이며, 이후 작성 시 프로세스의 관련 기능·정책 연결만 채우면 된다.",
+      "prompt_chars": 15533,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "filtered_findings": 0
+    },
+    "score_breakdown": {
+      "score": 70,
+      "total_penalty": 30,
+      "gate_blocker_count": 0,
+      "gate_blockers": [],
+      "items": [
+        {
+          "severity": "error",
+          "category": "format",
+          "title": "프로세스 목록 소제목에 유즈케이스 ID가 본문처럼 노출됨",
+          "penalty": 15,
+          "base_penalty": 15,
+          "duplicate": false,
+          "quality_gate": false
+        },
+        {
+          "severity": "warn",
+          "category": "consistency",
+          "title": "프로세스 정의 대상 설명과 실제 포함 대상이 서로 다름",
+          "penalty": 5,
+          "base_penalty": 5,
+          "duplicate": false,
+          "quality_gate": false
+        },
+        {
+          "severity": "warn",
+          "category": "terminology",
+          "title": "주요 용어의 `가입 불가`가 상태 코드의 `가입 제한`과 중복·충돌함",
+          "penalty": 5,
+          "base_penalty": 5,
+          "duplicate": false,
+          "quality_gate": false
+        },
+        {
+          "severity": "warn",
+          "category": "state-process-link",
+          "title": "`가입 진행 중` 상태 정의가 프로세스 진입 조건과 맞지 않음",
+          "penalty": 5,
+          "base_penalty": 5,
+          "duplicate": false,
+          "quality_gate": false
+        }
+      ]
+    }
+  }
+}

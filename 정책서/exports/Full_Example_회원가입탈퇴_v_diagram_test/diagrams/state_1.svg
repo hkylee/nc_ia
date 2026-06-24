@@ -1,0 +1,83 @@
+<svg aria-label="상태 전이 다이어그램" height="720" role="img" viewbox="0 0 1120 720" width="1120" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="state-arrow" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4" viewbox="0 0 8 8">
+<path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path>
+</marker>
+<style>
+      .boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }
+      .d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }
+      .state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }
+      .state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }
+      .state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }
+      .state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }
+      .state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }
+      .flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }
+      .flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }
+      .flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }
+      .note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }
+    </style>
+</defs>
+<rect class="boundary" height="620" rx="12" ry="12" width="900" x="110" y="28"></rect>
+<text class="d-title" text-anchor="middle" x="560" y="55">NC 회원 상태 전이</text>
+<!-- states -->
+<rect class="state-major" height="64" rx="32" ry="32" width="150" x="150" y="110"></rect>
+<text class="state-text" text-anchor="middle" x="225" y="138">미가입</text>
+<text class="state-sub" text-anchor="middle" x="225" y="158">MBR_NONE</text>
+<rect class="state-major" height="64" rx="32" ry="32" width="150" x="410" y="110"></rect>
+<text class="state-text" text-anchor="middle" x="485" y="138">정상</text>
+<text class="state-sub" text-anchor="middle" x="485" y="158">MBR_ACTIVE</text>
+<rect class="state" height="64" rx="32" ry="32" width="150" x="670" y="110"></rect>
+<text class="state-text" text-anchor="middle" x="745" y="138">휴면</text>
+<text class="state-sub" text-anchor="middle" x="745" y="158">MBR_DORMANT</text>
+<rect class="state-alert" height="64" rx="32" ry="32" width="150" x="410" y="270"></rect>
+<text class="state-text" text-anchor="middle" x="485" y="298">탈퇴유예</text>
+<text class="state-sub" text-anchor="middle" x="485" y="318">MBR_WITHDRAW_PENDING</text>
+<rect class="state-alert" height="64" rx="32" ry="32" width="150" x="670" y="270"></rect>
+<text class="state-text" text-anchor="middle" x="745" y="298">탈퇴완료</text>
+<text class="state-sub" text-anchor="middle" x="745" y="318">MBR_WITHDRAWN</text>
+<rect class="state-alert" height="64" rx="32" ry="32" width="150" x="670" y="430"></rect>
+<text class="state-text" text-anchor="middle" x="745" y="458">재가입제한</text>
+<text class="state-sub" text-anchor="middle" x="745" y="478">MBR_REJOIN_BLOCKED</text>
+<rect class="state-alert" height="64" rx="32" ry="32" width="150" x="410" y="430"></rect>
+<text class="state-text" text-anchor="middle" x="485" y="458">가입제한</text>
+<text class="state-sub" text-anchor="middle" x="485" y="478">MBR_JOIN_BLOCKED</text>
+<rect class="state" height="64" rx="32" ry="32" width="150" x="150" y="430"></rect>
+<text class="state-text" text-anchor="middle" x="225" y="458">상태확인불가</text>
+<text class="state-sub" text-anchor="middle" x="225" y="478">MBR_UNKNOWN</text>
+<!-- flows -->
+<line class="flow" x1="300" x2="410" y1="142" y2="142"></line>
+<text class="flow-label" text-anchor="middle" x="355" y="132">회원 가입 완료</text>
+<path class="flow-dash" d="M300 158 C355 190, 595 190, 670 158"></path>
+<text class="flow-label" text-anchor="middle" x="505" y="210">기존 휴면 회원 식별</text>
+<line class="flow" x1="485" x2="485" y1="174" y2="270"></line>
+<text class="flow-label" x="500" y="226">회원 탈퇴</text>
+<text class="flow-label" x="500" y="242">최종 동의 완료</text>
+<line class="flow" x1="560" x2="670" y1="142" y2="142"></line>
+<text class="flow-label" text-anchor="middle" x="615" y="132">휴면 전환 기준 충족</text>
+<path class="flow" d="M745 174 C745 220, 620 226, 560 285"></path>
+<text class="flow-label" x="705" y="224">탈퇴 요청</text>
+<text class="flow-label" text-anchor="middle" x="615" y="292">유예 기간 만료</text>
+<line class="flow" x1="560" x2="670" y1="302" y2="302"></line>
+<path class="flow" d="M485 270 C485 220, 430 225, 430 170"></path>
+<text class="flow-label" x="395" y="224">철회 요청 승인</text>
+<path class="flow" d="M745 334 C745 375, 745 390, 745 430"></path>
+<text class="flow-label" x="760" y="385">재가입 제한</text>
+<text class="flow-label" x="760" y="401">조건 해당</text>
+<path class="flow" d="M745 430 C745 390, 545 390, 545 174"></path>
+<text class="flow-label" x="610" y="372">재가입 가능</text>
+<text class="flow-label" x="610" y="388">판정 완료</text>
+<path class="flow" d="M670 462 C635 462, 600 462, 560 462"></path>
+<text class="flow-label" text-anchor="middle" x="615" y="452">제한 기간 종료 후 재가입</text>
+<path class="flow" d="M560 462 C585 462, 585 350, 520 174"></path>
+<line class="flow" x1="485" x2="485" y1="174" y2="430"></line>
+<text class="flow-label" x="500" y="392">가입 제한 적용</text>
+<path class="flow-dash" d="M410 462 C345 462, 340 462, 300 462"></path>
+<text class="flow-label" text-anchor="middle" x="355" y="452">제한 해제</text>
+<path class="flow-dash" d="M485 430 C485 395, 485 205, 485 174"></path>
+<path class="flow-dash" d="M225 174 C225 230, 225 360, 225 430"></path>
+<text class="flow-label" x="240" y="300">상태 조회 실패</text>
+<text class="flow-label" x="240" y="316">시스템 오류</text>
+<path class="flow-dash" d="M485 494 C485 555, 300 560, 225 494"></path>
+<path class="flow-dash" d="M745 494 C745 560, 340 590, 225 494"></path>
+<text class="note" text-anchor="middle" x="225" y="532">전체 상태에서 오류가 발생하면 기존 상태를 유지하고 재조회 또는 오류 안내를 수행한다.</text>
+</svg>
