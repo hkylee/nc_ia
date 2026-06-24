@@ -25,7 +25,7 @@
 
 | 컬럼 | 용도 |
 |------|------|
-| `module` | 모듈 코드 (DSP, MY, ORD 등) — 필터 키 |
+| `module` | 서브모듈 코드 (DSP-PRDD, MY-MBR, ORD-JOIN 등) — screen_id_new의 2~3번째 세그먼트 결합 |
 | `channel` | 채널 (TW, TM, TU, TD) |
 | `screen_id_new` | 레거시 화면 고유 ID |
 | `screen_name` | 화면명 |
