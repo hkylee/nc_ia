@@ -20,6 +20,19 @@
 | ia-column-spec.md | `.claude/rules/ia-column-spec.md` | TSV 헤더·컬럼 순서 |
 | context-ia-example.tsv | `.claude/contexts/context-ia-example.tsv` | **TSV 출력 포맷 레퍼런스** — 실제 값·탭 구분자·빈칸 처리 확인용 |
 
+### T4S_기능내역서.tsv 컬럼 구조 (참조용)
+
+> description 값 보완이 필요할 때만 직접 참조
+
+| 컬럼 | 용도 |
+|------|------|
+| `module` / `channel` | 모듈·채널 필터 키 |
+| `screen_id_new` | 레거시 화면 ID |
+| `기능명` + `기능 세부 설명` | description 문장 작성 재료 |
+| `기능그룹_1Depth` ~ `기능그룹_5Depth` | 화면 **내부** UI 컴포넌트 계층 |
+| `IA_1Depth` ~ `IA_4Depth` | 앱 **탐색 계층** (depth1~3 참고) |
+| `비고` | QA 노트 — 무시 |
+
 ---
 
 ## 아웃풋
