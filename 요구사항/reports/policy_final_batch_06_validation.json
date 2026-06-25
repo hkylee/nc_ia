@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-05-17T19:17:29",
+  "batch": "policy_final_batch_06",
+  "targets": [
+    {
+      "topic": "선물주문",
+      "policyFile": "NC_선물주문_정책서_간소화_v0.11.html",
+      "requirementRows": 29,
+      "channelScore": 83,
+      "rawAlignmentScore": 56,
+      "traceSupportedScore": 83,
+      "judgement": "양호",
+      "traceConfidenceScore": 91,
+      "directRequirementTraceRate": 100,
+      "healthScore": 100,
+      "healthJudgement": "우수",
+      "graphCoverageGaps": 0,
+      "graphChainGaps": 0,
+      "bpmnXmlOk": true
+    },
+    {
+      "topic": "전시/관리 기능",
+      "policyFile": "NC_전시관리기능_정책서_간소화_v0.12.html",
+      "requirementRows": 149,
+      "channelScore": 82,
+      "rawAlignmentScore": 47,
+      "traceSupportedScore": 82,
+      "judgement": "양호",
+      "traceConfidenceScore": 91,
+      "directRequirementTraceRate": 100,
+      "healthScore": 100,
+      "healthJudgement": "우수",
+      "graphCoverageGaps": 0,
+      "graphChainGaps": 0,
+      "bpmnXmlOk": true
+    },
+    {
+      "topic": "카트/장바구니",
+      "policyFile": "NC_카트장바구니_정책서_간소화_v0.11.html",
+      "requirementRows": 43,
+      "channelScore": 82,
+      "rawAlignmentScore": 55,
+      "traceSupportedScore": 82,
+      "judgement": "양호",
+      "traceConfidenceScore": 91,
+      "directRequirementTraceRate": 100,
+      "healthScore": 100,
+      "healthJudgement": "우수",
+      "graphCoverageGaps": 0,
+      "graphChainGaps": 0,
+      "bpmnXmlOk": true
+    }
+  ],
+  "notes": [
+    "Trace matrix was realigned to latest requirements.db detail requirement rows.",
+    "Policy graph was rebuilt incrementally for this batch with normalized requirement rows.",
+    "No policy body expansion was applied; remediation focused on trace and diagnostic accuracy."
+  ]
+}

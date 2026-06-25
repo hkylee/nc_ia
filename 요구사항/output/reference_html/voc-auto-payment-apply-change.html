@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>자동 납부 신청 변경 · VoC 분석</title>
+  <style>
+    :root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:790px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body { display:grid; gap:14px; align-content:center; padding:18px 18px 20px; }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    .metric-strip {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin-top:14px;
+    }
+    .metric {
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:8px;
+      padding:12px;
+      background:rgba(255,255,255,.06);
+    }
+    .metric b { display:block; color:#fff; font-size:22px; line-height:1.1; }
+    .metric span { display:block; margin-top:6px; color:#d8e3f4; font-size:var(--fs-caption); font-weight:850; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:880px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:192px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .pain-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .pain {
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .pain b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .pain p { align-self:center; margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .heat-table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      font-size:var(--fs-body);
+    }
+    .heat-table th,
+    .heat-table td {
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:12px;
+      vertical-align:top;
+      text-align:left;
+    }
+    .heat-table th {
+      background:#f8fafc;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heat-table tr:last-child td { border-bottom:0; }
+    .heat-table th:last-child,
+    .heat-table td:last-child { border-right:0; }
+    .heat-table td { color:var(--ink); font-weight:730; }
+    .rate {
+      display:inline-flex;
+      min-width:72px;
+      justify-content:center;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:4px 8px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .need-grid,
+    .roadmap,
+    .policy-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .card b {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:5px 9px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .card h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .card p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .trigger-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-rows:repeat(10,auto);
+      grid-auto-flow:column;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .trigger-list li {
+      display:grid;
+      grid-template-columns:32px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:10px;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .trigger-list b {
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border-radius:8px;
+      background:#101522;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .quick-table td:first-child { width:64px; color:var(--blue); font-weight:950; }
+    .quick-table td:nth-child(2) { font-weight:850; color:#111827; }
+    .roadmap .card:nth-child(1) b { background:#ecfdf5; color:var(--teal); }
+    .roadmap .card:nth-child(2) b { background:#fffbeb; color:var(--amber); }
+    .roadmap .card:nth-child(3) b { background:#f5f3ff; color:var(--violet); }
+    @media (max-width:1100px) {
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:980px) {
+      .cover,
+      .metric-strip,
+      .pain-grid,
+      .trigger-list {
+        grid-template-columns:1fr;
+      }
+      .trigger-list {
+        grid-template-rows:auto;
+        grid-auto-flow:row;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .section-head { grid-template-columns:1fr; }
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:1fr;
+      }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .pain { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">VOC analysis readout</div>
+        <h1>자동 납부 신청·변경 VoC 분석</h1>
+        <p class="lead">자동납부 상담의 핵심은 등록 기능 부족보다 “변경하면 언제, 무엇이, 어떤 영향으로 반영되는지”를 고객이 확인하지 못하는 데 있다.<br/>통합채널은 자동납부를 납부수단 입력 화면이 아니라 영향도 확인, 권한 인증, 다회선 변경, 실패 복구까지 포함한 납부 관리 경험으로 재설계해야 한다.<br/></p>
+        <div class="chips">
+          <span>분석 기간 2026-02-11 ~ 2026-03-13</span>
+          <span>일별 보고서 31건</span>
+          <span>상담 합계 200,000건+</span>
+          <span>샘플 1,600건+</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>인지 · 탐색 · 인증 · 복구</span>
+        </div>
+        <div class="side-body">
+          <strong>가장 큰 이탈은 자동납부 신청 자체가 아니라 변경 후 고객이 통제감을 잃는 순간에 발생한다.</strong>
+          <p>금융기관 안내문자, 당월·익월 적용 시점, 할인 소멸, 미납 가능성, 처리 결과 확인이 하나의 흐름으로 안내되지 않아 전화 상담으로 이탈한다.<br/></p>
+          <div class="metric-strip">
+            <div class="metric"><b>26~40%</b><span>정책·문자 혼란</span></div>
+            <div class="metric"><b>16~38%</b><span>메뉴 경로 불명</span></div>
+            <div class="metric"><b>14~40%</b><span>인증·권한 이슈</span></div>
+            <div class="metric"><b>2~56%</b><span>공휴일 정책 제약</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 핵심 신호</h2>
+          <p>VoC는 자동납부 경험을 단순 신청·변경 기능이 아니라 고객 불안과 권한 문제를 함께 다루는 납부 관리 체계로 전환해야 함을 보여준다.<br/></p>
+        </div>
+        <span class="section-label">Core signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>변경 후 안내가 상담을 만든다.</h3>
+            <p>금융기관의 해지·신청 안내문자와 통신사 변경 완료 안내가 서로 다른 의미로 도착하면서 고객은 정상 처리 여부를 확인하기 위해 전화한다.<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>앱 경로가 숨겨져 있다.</h3>
+            <p>카드 교체, 납부일 변경, 자동이체 해지 후 신규 등록처럼 반복 업무가 앱에서 바로 보이지 않아 ARS와 상담에 의존한다.<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>가족·타인 명의 처리가 막힌다.</h3>
+            <p>자녀, 배우자, 부모 회선의 납부수단을 대신 관리하려는 수요가 크지만 비대면 동의와 권한 위임 체계가 부족하다.<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>연휴에는 정책 제약이 커진다.</h3>
+            <p>주말, 공휴일, 야간에는 변경 불가나 부서 미운영 안내가 급증한다.<br/>삼일절 대체공휴일에는 정책 제약 유형이 56%까지 올라갔다.<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>결과 확인 부재가 불안을 키운다.</h3>
+            <p>신청 후 실시간 처리 상태와 변경 이력을 볼 수 없어 고객은 미납, 이중납부, 할인 소멸을 우려한다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. Pain Point 포트폴리오</h2>
+          <p>전 기간 최다 유형은 정책·적용 시점·문자 의미 혼란이며, 탐색과 권한 문제는 특정 기간에 급증하는 구조적 병목으로 확인된다.<br/></p>
+        </div>
+        <span class="section-label">Pain portfolio</span>
+      </div>
+      <div class="content">
+        <table class="heat-table">
+          <thead>
+            <tr>
+              <th>유형</th>
+              <th>누적 비율</th>
+              <th>고객이 겪는 문제</th>
+              <th>통합채널 설계 의미</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>인지·이해</td>
+              <td><span class="rate">26~40%</span></td>
+              <td>적용 시점, 안내문자, 할인 소멸, 재신청 필요 여부를 이해하지 못한다.</td>
+              <td>변경 전 영향도와 변경 후 문자 의미를 한 화면에서 설명해야 한다.</td>
+            </tr>
+            <tr>
+              <td>탐색·발견</td>
+              <td><span class="rate">16~38%</span></td>
+              <td>자동납부 관리 메뉴, 납부일 변경 경로, 해지 후 재등록 경로를 찾지 못한다.</td>
+              <td>메인, 요금, 납부, 마이 영역에서 동일한 자동납부 진입점을 제공해야 한다.</td>
+            </tr>
+            <tr>
+              <td>인증·권한</td>
+              <td><span class="rate">14~40%</span></td>
+              <td>가족 회선, 타인 명의 카드·계좌, 미성년 자녀 처리에서 인증과 동의가 막힌다.<br/>설 연휴에는 36~72%까지 급증했다.</td>
+              <td>대리 처리와 비대면 동의, 권한 위임을 납부 정책의 일부로 정의해야 한다.</td>
+            </tr>
+            <tr>
+              <td>시간·노력</td>
+              <td><span class="rate">15~28%</span></td>
+              <td>다회선, 무선·유선, 변경과 즉시 납부를 각각 따로 처리해야 한다.</td>
+              <td>회선 묶음 변경, SKT·SKB 통합 변경, 즉시 납부 연계를 제공해야 한다.</td>
+            </tr>
+            <tr>
+              <td>불안·리스크</td>
+              <td><span class="rate">10~19%</span></td>
+              <td>카드 분실, 해지, 결제 실패 후 미납이나 서비스 제한을 걱정한다.</td>
+              <td>실패 감지, 재등록 유도, 당월 별도 납부 필요 여부를 선제 안내해야 한다.</td>
+            </tr>
+            <tr>
+              <td>프로세스 단절</td>
+              <td><span class="rate">6~14%</span></td>
+              <td>앱, ARS, 카드사, 금융기관 안내가 서로 다른 맥락으로 이어진다.</td>
+              <td>외부 알림과 내부 처리 상태를 하나의 타임라인으로 묶어야 한다.</td>
+            </tr>
+            <tr>
+              <td>정책 제약</td>
+              <td><span class="rate">2~56%</span></td>
+              <td>공휴일, 주말, 야간에 변경이 불가하거나 담당 부서 미운영으로 막힌다.<br/>삼일절 대체공휴일에는 정책 제약 유형이 56%로 최고치를 기록했다.</td>
+              <td>24시간 셀프 변경 가능 범위와 제한 사유를 정책으로 다시 정해야 한다.</td>
+            </tr>
+            <tr>
+              <td>시스템·오류</td>
+              <td><span class="rate">6~20%</span></td>
+              <td>앱 신청 후 반영 여부를 확인하지 못하고, 카드사와 통신사 정보가 맞지 않는다.</td>
+              <td>연동 상태, 오류 재시도, 처리 결과 회신 기준을 명확히 해야 한다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. Hidden Needs</h2>
+          <p>고객의 요구는 “자동납부 신청 버튼”보다 변경 영향 통제, 즉시 처리, 가족 관리, 리스크 회피, 처리 결과 확인에 집중되어 있다.<br/></p>
+        </div>
+        <span class="section-label">Hidden needs</span>
+      </div>
+      <div class="content">
+        <div class="need-grid">
+          <article class="card">
+            <b>정보 통제</b>
+            <h3>변경 전에 영향도를 알고 싶다.</h3>
+            <p>당월·익월 적용, 안내문자, 할인 변동, 별도 납부 필요 여부를 변경 전 시뮬레이션으로 보여줘야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>즉시 처리</b>
+            <h3>전화 없이 앱에서 바로 처리하고 싶다.</h3>
+            <p>자동납부 관리 바로가기, 카드·계좌 직접 입력, ARS 대체 입력 방식을 제공해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>가족 관리</b>
+            <h3>가족 회선을 한 번에 관리하고 싶다.</h3>
+            <p>가족 회선 통합 납부 관리와 비대면 동의 인증이 필요하다.<br/></p>
+          </article>
+          <article class="card">
+            <b>리스크 회피</b>
+            <h3>미납으로 서비스가 끊길까 봐 불안하다.</h3>
+            <p>카드 만료·해지·분실 이벤트를 선제 감지하고 원스톱 재등록을 유도해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>안심 확인</b>
+            <h3>변경이 제대로 됐는지 즉시 확인하고 싶다.</h3>
+            <p>신청, 접수, 금융기관 연동, 반영 완료, 실패를 타임라인으로 보여줘야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>24시간 처리</b>
+            <h3>원하는 시점에 처리하고 싶다.</h3>
+            <p>야간과 공휴일에 가능한 셀프 변경 범위를 확대하고 제한 항목은 사유와 대체 행동을 안내해야 한다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. Trigger Top 20</h2>
+          <p>상담을 유발하는 직접 계기는 카드 교체, 금융기관 안내문자, 가족 회선 변경, 미납 문자, 공휴일 처리 불가가 반복적으로 나타난다.<br/></p>
+        </div>
+        <span class="section-label">Triggers</span>
+      </div>
+      <div class="content">
+        <ol class="trigger-list">
+          <li><b>01</b><span>카드 교체·재발급 후 자동납부 변경 필요를 인지한다.</span></li>
+          <li><b>02</b><span>자동이체 변경 후 금융기관 해지·신청 완료 문자를 받고 의미를 묻는다.</span></li>
+          <li><b>03</b><span>납부일 변경 후 해지 안내문자를 받고 정상 처리 여부를 확인한다.</span></li>
+          <li><b>04</b><span>자녀, 배우자, 부모 회선 자동이체를 대신 변경하려 한다.</span></li>
+          <li><b>05</b><span>미납 문자를 받고 자동이체 실패 원인을 확인한다.</span></li>
+          <li><b>06</b><span>자동이체 미등록 상태를 인지하고 신규 등록 방법을 찾는다.</span></li>
+          <li><b>07</b><span>카드 해지·만료로 자동이체가 실패해 미납이 발생한다.</span></li>
+          <li><b>08</b><span>분실 신고나 로밍 신청 시 자동이체 정보 기반 인증에서 막힌다.</span></li>
+          <li><b>09</b><span>공휴일·야간에 자동이체 변경을 시도했다가 업무 불가 안내를 받는다.</span></li>
+          <li><b>10</b><span>은행에서 카드로 변경하면서 1% 할인 소멸을 사전에 알지 못한다.</span></li>
+          <li><b>11</b><span>앱에서 자동이체 변경 메뉴를 찾지 못해 전화로 전환한다.</span></li>
+          <li><b>12</b><span>ARS 계좌번호·카드번호 입력 오류가 반복된다.</span></li>
+          <li><b>13</b><span>자동이체 변경 후 당월 적용 불가 정책을 뒤늦게 인지한다.</span></li>
+          <li><b>14</b><span>기기변경·유심변경 후 동의 미처리로 발신 정지가 발생한다.</span></li>
+          <li><b>15</b><span>자동이체 등록 알림을 받고 무단 변경을 의심한다.</span></li>
+          <li><b>16</b><span>가족 포함 다회선 자동이체를 한 번에 변경하려 한다.</span></li>
+          <li><b>17</b><span>카드 변경 후 자동납부를 별도로 다시 신청해야 하는지 모른다.</span></li>
+          <li><b>18</b><span>납부일 변경 가능 날짜 옵션 제한을 이해하지 못한다.</span></li>
+          <li><b>19</b><span>타인 명의 카드·계좌 등록 동의 절차가 복잡하다.</span></li>
+          <li><b>20</b><span>자동이체 변경 이력을 볼 수 없어 처리 결과 확인 전화를 한다.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. Quick Win</h2>
+          <p>상담 감소 효과가 큰 항목은 완료 화면 안내, 앱 진입점, 적용 시점 고지, 카드 만료 알림, 변경 이력 확인이다.<br/></p>
+        </div>
+        <span class="section-label">Immediate actions</span>
+      </div>
+      <div class="content">
+        <table class="heat-table quick-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>개선 항목</th>
+              <th>등장 빈도</th>
+              <th>기대 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>변경 완료 화면에 금융기관 안내문자 발송 예정 문구 추가</td>
+              <td>31일 전 기간</td>
+              <td>인지·이해 확인 전화 약 30% 감소 기대</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>앱 메인 또는 요금 영역에 자동납부 관리 바로가기 추가</td>
+              <td>31일 전 기간</td>
+              <td>탐색 실패 전화 약 25% 감소 기대</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>변경 완료 화면에 적용 시점과 당월 별도 납부 필요 여부 표시</td>
+              <td>31일 전 기간</td>
+              <td>적용 시점 혼란 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>카드 유효기간 만료 D-30, D-7 푸시와 원클릭 카드 변경 제공</td>
+              <td>25일 이상</td>
+              <td>카드 만료로 인한 미납 예방</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>자동이체 변경 이력 타임라인 조회 제공</td>
+              <td>25일 이상</td>
+              <td>처리 결과 확인 전화 감소</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>납부 방법 변경 시 혜택 변동 사전 경고</td>
+              <td>20일 이상</td>
+              <td>할인 소멸 불만 예방</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>기기변경·유심변경 완료 후 약관동의 팝업 즉시 노출과 미처리 재알림 제공</td>
+              <td>15일 이상</td>
+              <td>발신 정지 관련 전화 감소</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>자동이체 미등록 고객 대상 앱 푸시 알림과 등록 유도 기능 제공</td>
+              <td>20일 이상</td>
+              <td>미납 예방과 신규 등록 전화 감소</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>자동이체 변경 완료 시 기존 납부수단 해지 확인과 이중청구 방지 안내 제공</td>
+              <td>20일 이상</td>
+              <td>이중납부 우려 문의 감소</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>ARS 없이 카드번호·계좌번호 직접 입력 방식 제공</td>
+              <td>31일 전 기간</td>
+              <td>ARS 입력 오류와 재연결 상담 근절</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 요구사항·정책서 전환 질문</h2>
+          <p>VoC 분석 결과는 자동납부 정책서에서 아래 질문에 답할 수 있는 기능과 정책 항목으로 전환되어야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy conversion</span>
+      </div>
+      <div class="content">
+        <div class="policy-grid">
+          <article class="card">
+            <b>적용 시점</b>
+            <h3>변경은 언제 반영되는가?</h3>
+            <p>당월 적용, 익월 적용, 별도 납부 필요, 납부일 제한, 변경 가능 시간대를 정책값으로 정의해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>안내 기준</b>
+            <h3>고객에게 어떤 문자를 예고해야 하는가?</h3>
+            <p>금융기관 문자, 통신사 알림, 카드사 알림의 의미와 발송 시점을 완료 화면과 알림으로 연결해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>권한</b>
+            <h3>누가 대신 변경할 수 있는가?</h3>
+            <p>본인, 가족, 법정대리인, 타인 명의 결제수단 제공자의 동의와 인증 조건을 구분해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>회선 묶음</b>
+            <h3>어떤 범위까지 일괄 변경 가능한가?</h3>
+            <p>동일 명의, 가족 결합, 무선·유선, SKT·SKB 범위를 나누고 일괄 변경 가능 조건을 정의해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>실패 복구</b>
+            <h3>결제 실패 후 어떻게 복구하는가?</h3>
+            <p>실패 감지, 고객 알림, 재등록, 즉시 납부, 서비스 제한 방지 기준을 프로세스와 정책으로 연결해야 한다.<br/></p>
+          </article>
+          <article class="card">
+            <b>이력</b>
+            <h3>변경 결과를 어떻게 확인시키는가?</h3>
+            <p>신청, 접수, 연동, 반영, 실패, 취소 상태를 타임라인으로 저장하고 고객에게 보여줘야 한다.<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

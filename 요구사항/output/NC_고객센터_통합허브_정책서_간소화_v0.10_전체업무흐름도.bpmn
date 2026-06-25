@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="고객센터 통합허브 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_PIN_CS_001" name="US-PIN-CS-001 고객센터 통합허브 셀프 해결 허브 이용">
+        <bpmn:flowNodeRef>Start_US_PIN_CS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_001_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_001_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_001_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_001_RQCOV_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_001_RQCOV_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_001_RQCOV_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PIN_CS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PIN_CS_002" name="US-PIN-CS-002 고객센터 통합허브 상담·문의 접수 실행">
+        <bpmn:flowNodeRef>Start_US_PIN_CS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_002_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_002_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_002_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PIN_CS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PIN_CS_003" name="US-PIN-CS-003 고객센터 통합허브 상담 전환·후속 관리">
+        <bpmn:flowNodeRef>Start_US_PIN_CS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_003_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_003_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_003_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_CS_003_RQCOV_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PIN_CS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PIN_OPR_001" name="US-PIN-OPR-001 고객센터 통합허브 운영 기준 및 품질 관리">
+        <bpmn:flowNodeRef>Start_US_PIN_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_OPR_001_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_OPR_001_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_OPR_001_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PIN_OPR_001_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PIN_OPR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_PIN_CS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PIN_CS_001_Task_PR_PIN_CS_001_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PIN_CS_001_01" name="PR-PIN-CS-001-01 문제 유형 및 현재 상태 확인">
+      <bpmn:incoming>Flow_Start_US_PIN_CS_001_Task_PR_PIN_CS_001_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_001_01_Task_PR_PIN_CS_001_02</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_001_02" name="PR-PIN-CS-001-02 셀프 해결 가능 범위 판정">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_001_01_Task_PR_PIN_CS_001_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_001_02_Task_PR_PIN_CS_001_03</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_001_03" name="PR-PIN-CS-001-03 Self 해결 카드 및 준비 정보 제시">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_001_02_Task_PR_PIN_CS_001_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_001_03_Task_PR_PIN_CS_001_RQCOV_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_001_RQCOV_001" name="PR-PIN-CS-001-RQCOV-001 상담 문맥·이력 기준 처리">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_001_03_Task_PR_PIN_CS_001_RQCOV_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_001_RQCOV_001_Task_PR_PIN_CS_001_RQCOV_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_001_RQCOV_002" name="PR-PIN-CS-001-RQCOV-002 셀프 해결 경로 접수·상태 기준 처리">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_001_RQCOV_001_Task_PR_PIN_CS_001_RQCOV_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_001_RQCOV_002_Task_PR_PIN_CS_001_RQCOV_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_001_RQCOV_003" name="PR-PIN-CS-001-RQCOV-003 문의 접수·상태 관리 기준 처리">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_001_RQCOV_002_Task_PR_PIN_CS_001_RQCOV_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_001_RQCOV_003_End_US_PIN_CS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PIN_CS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_001_RQCOV_003_End_US_PIN_CS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PIN_CS_001_Task_PR_PIN_CS_001_01" sourceRef="Start_US_PIN_CS_001" targetRef="Task_PR_PIN_CS_001_01"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_001_01_Task_PR_PIN_CS_001_02" sourceRef="Task_PR_PIN_CS_001_01" targetRef="Task_PR_PIN_CS_001_02"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_001_02_Task_PR_PIN_CS_001_03" sourceRef="Task_PR_PIN_CS_001_02" targetRef="Task_PR_PIN_CS_001_03"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_001_03_Task_PR_PIN_CS_001_RQCOV_001" sourceRef="Task_PR_PIN_CS_001_03" targetRef="Task_PR_PIN_CS_001_RQCOV_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_001_RQCOV_001_Task_PR_PIN_CS_001_RQCOV_002" sourceRef="Task_PR_PIN_CS_001_RQCOV_001" targetRef="Task_PR_PIN_CS_001_RQCOV_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_001_RQCOV_002_Task_PR_PIN_CS_001_RQCOV_003" sourceRef="Task_PR_PIN_CS_001_RQCOV_002" targetRef="Task_PR_PIN_CS_001_RQCOV_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_001_RQCOV_003_End_US_PIN_CS_001" sourceRef="Task_PR_PIN_CS_001_RQCOV_003" targetRef="End_US_PIN_CS_001"/>
+    <bpmn:startEvent id="Start_US_PIN_CS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PIN_CS_002_Task_PR_PIN_CS_002_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PIN_CS_002_01" name="PR-PIN-CS-002-01 문의 유형 및 채널 선택">
+      <bpmn:incoming>Flow_Start_US_PIN_CS_002_Task_PR_PIN_CS_002_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_002_01_Task_PR_PIN_CS_002_02</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_002_02" name="PR-PIN-CS-002-02 필수 입력·첨부 정보 구성">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_002_01_Task_PR_PIN_CS_002_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_002_02_Task_PR_PIN_CS_002_03</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_002_03" name="PR-PIN-CS-002-03 인증·개인정보 동의 확인">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_002_02_Task_PR_PIN_CS_002_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_002_03_End_US_PIN_CS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PIN_CS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_002_03_End_US_PIN_CS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PIN_CS_002_Task_PR_PIN_CS_002_01" sourceRef="Start_US_PIN_CS_002" targetRef="Task_PR_PIN_CS_002_01"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_002_01_Task_PR_PIN_CS_002_02" sourceRef="Task_PR_PIN_CS_002_01" targetRef="Task_PR_PIN_CS_002_02"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_002_02_Task_PR_PIN_CS_002_03" sourceRef="Task_PR_PIN_CS_002_02" targetRef="Task_PR_PIN_CS_002_03"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_002_03_End_US_PIN_CS_002" sourceRef="Task_PR_PIN_CS_002_03" targetRef="End_US_PIN_CS_002"/>
+    <bpmn:startEvent id="Start_US_PIN_CS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PIN_CS_003_Task_PR_PIN_CS_003_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PIN_CS_003_01" name="PR-PIN-CS-003-01 직전 과업·상담 문맥 확인">
+      <bpmn:incoming>Flow_Start_US_PIN_CS_003_Task_PR_PIN_CS_003_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_003_01_Task_PR_PIN_CS_003_02</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_003_02" name="PR-PIN-CS-003-02 셀프 해결 실패 사유 분류">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_003_01_Task_PR_PIN_CS_003_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_003_02_Task_PR_PIN_CS_003_03</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_003_03" name="PR-PIN-CS-003-03 상담 이관 정보 구성">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_003_02_Task_PR_PIN_CS_003_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_003_03_Task_PR_PIN_CS_003_RQCOV_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_CS_003_RQCOV_005" name="PR-PIN-CS-003-RQCOV-005 상담 채널·전환 범위·조건 기준 처리">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_003_03_Task_PR_PIN_CS_003_RQCOV_005</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_CS_003_RQCOV_005_End_US_PIN_CS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PIN_CS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PIN_CS_003_RQCOV_005_End_US_PIN_CS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PIN_CS_003_Task_PR_PIN_CS_003_01" sourceRef="Start_US_PIN_CS_003" targetRef="Task_PR_PIN_CS_003_01"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_003_01_Task_PR_PIN_CS_003_02" sourceRef="Task_PR_PIN_CS_003_01" targetRef="Task_PR_PIN_CS_003_02"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_003_02_Task_PR_PIN_CS_003_03" sourceRef="Task_PR_PIN_CS_003_02" targetRef="Task_PR_PIN_CS_003_03"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_003_03_Task_PR_PIN_CS_003_RQCOV_005" sourceRef="Task_PR_PIN_CS_003_03" targetRef="Task_PR_PIN_CS_003_RQCOV_005"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_CS_003_RQCOV_005_End_US_PIN_CS_003" sourceRef="Task_PR_PIN_CS_003_RQCOV_005" targetRef="End_US_PIN_CS_003"/>
+    <bpmn:startEvent id="Start_US_PIN_OPR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PIN_OPR_001_Task_PR_PIN_OPR_001_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PIN_OPR_001_01" name="PR-PIN-OPR-001-01 운영 기준 확인">
+      <bpmn:incoming>Flow_Start_US_PIN_OPR_001_Task_PR_PIN_OPR_001_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_OPR_001_01_Task_PR_PIN_OPR_001_02</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_OPR_001_02" name="PR-PIN-OPR-001-02 기준·예외 등록">
+      <bpmn:incoming>Flow_Task_PR_PIN_OPR_001_01_Task_PR_PIN_OPR_001_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_OPR_001_02_Task_PR_PIN_OPR_001_03</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_OPR_001_03" name="PR-PIN-OPR-001-03 승인·배포 및 이력 관리">
+      <bpmn:incoming>Flow_Task_PR_PIN_OPR_001_02_Task_PR_PIN_OPR_001_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_OPR_001_03_Task_PR_PIN_OPR_001_04</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PIN_OPR_001_04" name="PR-PIN-OPR-001-04 이용안내·FAQ·공지 구조 공통화 관리">
+      <bpmn:incoming>Flow_Task_PR_PIN_OPR_001_03_Task_PR_PIN_OPR_001_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PIN_OPR_001_04_End_US_PIN_OPR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PIN_OPR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PIN_OPR_001_04_End_US_PIN_OPR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PIN_OPR_001_Task_PR_PIN_OPR_001_01" sourceRef="Start_US_PIN_OPR_001" targetRef="Task_PR_PIN_OPR_001_01"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_OPR_001_01_Task_PR_PIN_OPR_001_02" sourceRef="Task_PR_PIN_OPR_001_01" targetRef="Task_PR_PIN_OPR_001_02"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_OPR_001_02_Task_PR_PIN_OPR_001_03" sourceRef="Task_PR_PIN_OPR_001_02" targetRef="Task_PR_PIN_OPR_001_03"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_OPR_001_03_Task_PR_PIN_OPR_001_04" sourceRef="Task_PR_PIN_OPR_001_03" targetRef="Task_PR_PIN_OPR_001_04"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PIN_OPR_001_04_End_US_PIN_OPR_001" sourceRef="Task_PR_PIN_OPR_001_04" targetRef="End_US_PIN_OPR_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_PIN_CS_001_di" bpmnElement="Lane_US_PIN_CS_001">
+        <dc:Bounds x="40" y="25" width="1800" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PIN_CS_001_di" bpmnElement="Start_US_PIN_CS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_001_01_di" bpmnElement="Task_PR_PIN_CS_001_01">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_001_02_di" bpmnElement="Task_PR_PIN_CS_001_02">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_001_03_di" bpmnElement="Task_PR_PIN_CS_001_03">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_001_RQCOV_001_di" bpmnElement="Task_PR_PIN_CS_001_RQCOV_001">
+        <dc:Bounds x="900" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_001_RQCOV_002_di" bpmnElement="Task_PR_PIN_CS_001_RQCOV_002">
+        <dc:Bounds x="1120" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_001_RQCOV_003_di" bpmnElement="Task_PR_PIN_CS_001_RQCOV_003">
+        <dc:Bounds x="1340" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PIN_CS_001_di" bpmnElement="End_US_PIN_CS_001">
+        <dc:Bounds x="1560" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PIN_CS_002_di" bpmnElement="Lane_US_PIN_CS_002">
+        <dc:Bounds x="40" y="195" width="1800" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PIN_CS_002_di" bpmnElement="Start_US_PIN_CS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_002_01_di" bpmnElement="Task_PR_PIN_CS_002_01">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_002_02_di" bpmnElement="Task_PR_PIN_CS_002_02">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_002_03_di" bpmnElement="Task_PR_PIN_CS_002_03">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PIN_CS_002_di" bpmnElement="End_US_PIN_CS_002">
+        <dc:Bounds x="900" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PIN_CS_003_di" bpmnElement="Lane_US_PIN_CS_003">
+        <dc:Bounds x="40" y="365" width="1800" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PIN_CS_003_di" bpmnElement="Start_US_PIN_CS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_003_01_di" bpmnElement="Task_PR_PIN_CS_003_01">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_003_02_di" bpmnElement="Task_PR_PIN_CS_003_02">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_003_03_di" bpmnElement="Task_PR_PIN_CS_003_03">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_CS_003_RQCOV_005_di" bpmnElement="Task_PR_PIN_CS_003_RQCOV_005">
+        <dc:Bounds x="900" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PIN_CS_003_di" bpmnElement="End_US_PIN_CS_003">
+        <dc:Bounds x="1120" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PIN_OPR_001_di" bpmnElement="Lane_US_PIN_OPR_001">
+        <dc:Bounds x="40" y="535" width="1800" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PIN_OPR_001_di" bpmnElement="Start_US_PIN_OPR_001">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_OPR_001_01_di" bpmnElement="Task_PR_PIN_OPR_001_01">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_OPR_001_02_di" bpmnElement="Task_PR_PIN_OPR_001_02">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_OPR_001_03_di" bpmnElement="Task_PR_PIN_OPR_001_03">
+        <dc:Bounds x="680" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PIN_OPR_001_04_di" bpmnElement="Task_PR_PIN_OPR_001_04">
+        <dc:Bounds x="900" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PIN_OPR_001_di" bpmnElement="End_US_PIN_OPR_001">
+        <dc:Bounds x="1120" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PIN_CS_001_Task_PR_PIN_CS_001_01_di" bpmnElement="Flow_Start_US_PIN_CS_001_Task_PR_PIN_CS_001_01">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_001_01_Task_PR_PIN_CS_001_02_di" bpmnElement="Flow_Task_PR_PIN_CS_001_01_Task_PR_PIN_CS_001_02">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_001_02_Task_PR_PIN_CS_001_03_di" bpmnElement="Flow_Task_PR_PIN_CS_001_02_Task_PR_PIN_CS_001_03">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_001_03_Task_PR_PIN_CS_001_RQCOV_001_di" bpmnElement="Flow_Task_PR_PIN_CS_001_03_Task_PR_PIN_CS_001_RQCOV_001">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_001_RQCOV_001_Task_PR_PIN_CS_001_RQCOV_002_di" bpmnElement="Flow_Task_PR_PIN_CS_001_RQCOV_001_Task_PR_PIN_CS_001_RQCOV_002">
+        <di:waypoint x="1070" y="70"/>
+        <di:waypoint x="1120" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_001_RQCOV_002_Task_PR_PIN_CS_001_RQCOV_003_di" bpmnElement="Flow_Task_PR_PIN_CS_001_RQCOV_002_Task_PR_PIN_CS_001_RQCOV_003">
+        <di:waypoint x="1290" y="70"/>
+        <di:waypoint x="1340" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_001_RQCOV_003_End_US_PIN_CS_001_di" bpmnElement="Flow_Task_PR_PIN_CS_001_RQCOV_003_End_US_PIN_CS_001">
+        <di:waypoint x="1510" y="70"/>
+        <di:waypoint x="1560" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PIN_CS_002_Task_PR_PIN_CS_002_01_di" bpmnElement="Flow_Start_US_PIN_CS_002_Task_PR_PIN_CS_002_01">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_002_01_Task_PR_PIN_CS_002_02_di" bpmnElement="Flow_Task_PR_PIN_CS_002_01_Task_PR_PIN_CS_002_02">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_002_02_Task_PR_PIN_CS_002_03_di" bpmnElement="Flow_Task_PR_PIN_CS_002_02_Task_PR_PIN_CS_002_03">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_002_03_End_US_PIN_CS_002_di" bpmnElement="Flow_Task_PR_PIN_CS_002_03_End_US_PIN_CS_002">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PIN_CS_003_Task_PR_PIN_CS_003_01_di" bpmnElement="Flow_Start_US_PIN_CS_003_Task_PR_PIN_CS_003_01">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_003_01_Task_PR_PIN_CS_003_02_di" bpmnElement="Flow_Task_PR_PIN_CS_003_01_Task_PR_PIN_CS_003_02">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_003_02_Task_PR_PIN_CS_003_03_di" bpmnElement="Flow_Task_PR_PIN_CS_003_02_Task_PR_PIN_CS_003_03">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_003_03_Task_PR_PIN_CS_003_RQCOV_005_di" bpmnElement="Flow_Task_PR_PIN_CS_003_03_Task_PR_PIN_CS_003_RQCOV_005">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_CS_003_RQCOV_005_End_US_PIN_CS_003_di" bpmnElement="Flow_Task_PR_PIN_CS_003_RQCOV_005_End_US_PIN_CS_003">
+        <di:waypoint x="1070" y="410"/>
+        <di:waypoint x="1120" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PIN_OPR_001_Task_PR_PIN_OPR_001_01_di" bpmnElement="Flow_Start_US_PIN_OPR_001_Task_PR_PIN_OPR_001_01">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_OPR_001_01_Task_PR_PIN_OPR_001_02_di" bpmnElement="Flow_Task_PR_PIN_OPR_001_01_Task_PR_PIN_OPR_001_02">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_OPR_001_02_Task_PR_PIN_OPR_001_03_di" bpmnElement="Flow_Task_PR_PIN_OPR_001_02_Task_PR_PIN_OPR_001_03">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_OPR_001_03_Task_PR_PIN_OPR_001_04_di" bpmnElement="Flow_Task_PR_PIN_OPR_001_03_Task_PR_PIN_OPR_001_04">
+        <di:waypoint x="850" y="580"/>
+        <di:waypoint x="900" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PIN_OPR_001_04_End_US_PIN_OPR_001_di" bpmnElement="Flow_Task_PR_PIN_OPR_001_04_End_US_PIN_OPR_001">
+        <di:waypoint x="1070" y="580"/>
+        <di:waypoint x="1120" y="580"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

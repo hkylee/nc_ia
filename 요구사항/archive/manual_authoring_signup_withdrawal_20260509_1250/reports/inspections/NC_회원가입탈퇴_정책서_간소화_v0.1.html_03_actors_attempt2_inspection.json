@@ -1,0 +1,110 @@
+{
+  "status": "warn",
+  "score": 78,
+  "scope": "03_actors",
+  "checked_at": "2026-05-02T03:09:28",
+  "summary": "검수 결과 warn. 점수 78점, 오류 0건, 경고 2건입니다.",
+  "findings": [
+    {
+      "severity": "warn",
+      "category": "term_consistency",
+      "title": "BSS 액터가 주요 용어의 가입 판정 명칭을 재정의함",
+      "detail": "주요 용어에서는 가입 전 판정 결과를 '가입 대상'과 '가입 불가'로 정의했는데, BSS 설명은 같은 자리를 '회원 자격'으로 표현한다. 같은 판정 축이 다른 이름으로 보이면 후속 상태·정책 연결 시 기준이 흐려진다.",
+      "recommendation": "BSS 설명을 '가입 대상/가입 불가, 회선 상태, 탈퇴 가능 여부를 판정해 회신하는 시스템'처럼 용어 장의 명칭으로 맞출 것. BSS를 단일 판정 시스템 액터로 단순화한 구조는 유지할 것."
+    },
+    {
+      "severity": "warn",
+      "category": "actor_boundary",
+      "title": "외부 연계 시스템의 책임 경계가 너무 넓어 BSS·인증기관과 겹쳐 보임",
+      "detail": "액터 설명의 '보조 정보와 연계 결과를 제공하는 시스템'은 어떤 결과가 이 액터 책임인지 드러나지 않는다. 현재 문장만으로는 BSS의 자격 판정이나 인증기관의 인증 결과와 경계가 겹쳐 보일 수 있다.",
+      "recommendation": "외부 연계 시스템은 'BSS·인증기관 외 시스템으로서 회원 처리에 직접 쓰이는 부가 조회값 또는 처리 완료 콜백만 제공'처럼 범위를 한 문장으로 좁힐 것. simple 템플릿 수준의 단일 묶음 액터는 유지할 것."
+    }
+  ],
+  "metrics": {
+    "body_bytes": 9243,
+    "text_chars": 2969,
+    "h2_count": 4,
+    "h3_count": 3,
+    "table_count": 4,
+    "policy_group_count": 0,
+    "policy_item_count": 0,
+    "state_count": 0,
+    "process_count": 0,
+    "function_count": 0,
+    "business_codes": [
+      "MBR"
+    ],
+    "usecase_distinct_count": 0,
+    "process_distinct_count": 0,
+    "function_distinct_count": 0,
+    "policy_group_distinct_count": 0,
+    "sample_topic_match_count": 0,
+    "sample_reference_mode": "structural_reference",
+    "sample_min_body_bytes": 105537,
+    "sample_max_body_bytes": 233567,
+    "sample_max_text_chars": 60578,
+    "sample_max_usecase_distinct_count": 14,
+    "sample_max_process_distinct_count": 31,
+    "sample_max_function_distinct_count": 42,
+    "sample_max_policy_group_distinct_count": 44,
+    "sample_max_policy_item_count": 475,
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "model": "gpt-5.4",
+      "reasoning_effort": "high",
+      "status": "warn",
+      "summary": "현재 범위의 액터 수와 단순화 수준은 simple 템플릿에 대체로 맞는다. 다만 운영자 책임 표현과 BSS·외부 연계 시스템의 경계/용어가 후속 유즈케이스·상태 연결 시 혼선을 줄 수 있어 현재 장에서 정리하는 편이 좋다. 유즈케이스·상태·정책 상세 미작성은 현 범위에서는 정상이며, 이후 장에서 같은 명칭으로만 연결되면 된다.",
+      "prompt_chars": 4280,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "filtered_findings": 1,
+      "filter_reason": "현재 작성 범위 밖의 후속 장 보완 권고는 gate 감점에서 제외합니다."
+    },
+    "score_breakdown": {
+      "score": 78,
+      "total_penalty": 22,
+      "gate_blocker_count": 2,
+      "gate_blockers": [
+        {
+          "severity": "warn",
+          "category": "term_consistency",
+          "title": "BSS 액터가 주요 용어의 가입 판정 명칭을 재정의함",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        },
+        {
+          "severity": "warn",
+          "category": "actor_boundary",
+          "title": "외부 연계 시스템의 책임 경계가 너무 넓어 BSS·인증기관과 겹쳐 보임",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ],
+      "items": [
+        {
+          "severity": "warn",
+          "category": "term_consistency",
+          "title": "BSS 액터가 주요 용어의 가입 판정 명칭을 재정의함",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        },
+        {
+          "severity": "warn",
+          "category": "actor_boundary",
+          "title": "외부 연계 시스템의 책임 경계가 너무 넓어 BSS·인증기관과 겹쳐 보임",
+          "penalty": 11,
+          "base_penalty": 11,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ]
+    }
+  }
+}

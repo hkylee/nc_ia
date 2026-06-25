@@ -1,0 +1,8 @@
+{
+  "MBR": { "status": "done", "row_count": 21, "last_run": "2026-06-24" },
+  "MY":  { "status": "done", "row_count": 62, "last_run": "2026-06-24" },
+  "SCH": { "status": "done", "row_count": 11, "last_run": "2026-06-24" },
+  "ORD": { "status": "done", "row_count": 42, "last_run": "2026-06-24" },
+  "DSP": { "status": "done", "row_count": 38, "last_run": "2026-06-24" },
+  "PRD": { "status": "pending" }
+}

@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>정지 해제 / 일시 정지 해제 · VoC 분석</title>
+  <style>
+:root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:790px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body { display:grid; gap:14px; align-content:center; padding:18px 18px 20px; }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    .metric-strip {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin-top:14px;
+    }
+    .metric {
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:8px;
+      padding:12px;
+      background:rgba(255,255,255,.06);
+    }
+    .metric b { display:block; color:#fff; font-size:22px; line-height:1.1; }
+    .metric span { display:block; margin-top:6px; color:#d8e3f4; font-size:var(--fs-caption); font-weight:850; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:880px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:192px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .pain-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .pain {
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .pain b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .pain p { align-self:center; margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .heat-table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      font-size:var(--fs-body);
+    }
+    .heat-table th,
+    .heat-table td {
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:12px;
+      vertical-align:top;
+      text-align:left;
+    }
+    .heat-table th {
+      background:#f8fafc;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heat-table tr:last-child td { border-bottom:0; }
+    .heat-table th:last-child,
+    .heat-table td:last-child { border-right:0; }
+    .heat-table td { color:var(--ink); font-weight:730; }
+    .rate {
+      display:inline-flex;
+      min-width:72px;
+      justify-content:center;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:4px 8px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .need-grid,
+    .roadmap,
+    .policy-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .card b {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:5px 9px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .card h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .card p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .trigger-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-rows:repeat(10,auto);
+      grid-auto-flow:column;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .trigger-list li {
+      display:grid;
+      grid-template-columns:32px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:10px;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .trigger-list b {
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border-radius:8px;
+      background:#101522;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .quick-table td:first-child { width:64px; color:var(--blue); font-weight:950; }
+    .quick-table td:nth-child(2) { font-weight:850; color:#111827; }
+    .roadmap .card:nth-child(1) b { background:#ecfdf5; color:var(--teal); }
+    .roadmap .card:nth-child(2) b { background:#fffbeb; color:var(--amber); }
+    .roadmap .card:nth-child(3) b { background:#f5f3ff; color:var(--violet); }
+    @media (max-width:1100px) {
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:980px) {
+      .cover,
+      .metric-strip,
+      .pain-grid,
+      .trigger-list {
+        grid-template-columns:1fr;
+      }
+      .trigger-list {
+        grid-template-rows:auto;
+        grid-auto-flow:row;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .section-head { grid-template-columns:1fr; }
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:1fr;
+      }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .pain { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">VOC analysis readout</div>
+        <h1>정지 해제 / 일시 정지 해제 VoC 분석</h1>
+        <p class="lead">정지 해제 · 일시 정지 해제 VoC의 핵심은 단일 기능 부족보다 고객이 처리 조건, 영향, 결과를 스스로 확인하지 못해 상담으로 전환되는 데 있다.<br/>가장 큰 병목은 앱 내 정지 해제 경로 미인지 및 원터치 기능 부재이며, 통합채널은 이를 탐색, 판단, 실행, 확인, 복구가 연결된 업무 경험으로 재설계해야 한다<br/></p>
+        <div class="chips">
+          <span>분석 기간 2026-02-11 ~ 2026-03-11 (29 일)</span>
+          <span>보고서 23 건 (정지 해제 / 일시 정지 해제 통합 보고서 1 건 + 일별 보고서 22 건)</span>
+          <span>상담 약 270,000 건 + (일별 최소 1,365 건 ~ 최대 17,709 건)</span>
+          <span>샘플 약 2,300 건 (일별 100 건 샘플)</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>인지 · 탐색 · 권한 · 복구</span>
+        </div>
+        <div class="side-body">
+          <strong>정지 해제 / 일시 정지 해제 상담은 고객이 직접 끝내지 못하는 확인과 예외 처리 지점에서 반복된다.</strong>
+          <p>설 연휴 (2/14~2/18, 5 일), 삼일절 연휴 (2/28~3/2, 4 일), 주말 (2/21, 3/7~3/8) 포함.<br/>공휴일 · 주말 기간 상담 건수 급감 (1,365~3,461 건) 후 평일 복귀 시 폭증 (최대17,709 건) 패턴 반복.<br/>3/3 역대 최고치 (17,709 건) 기록.<br/>3/7 이후 기기변경 후 개인정보 동의 미처리 자동 정지 유형이 신규 급증 (22%)<br/></p>
+          <div class="metric-strip">
+            <div class="metric"><b>26~42%</b><span>앱 내 정지 해제 경로 미인지</span></div>
+<div class="metric"><b>13~35%</b><span>정지 상태에서 본인인증 불가 및</span></div>
+<div class="metric"><b>12~32%</b><span>정지 관련 정책 · 요금 ·</span></div>
+<div class="metric"><b>7~18%</b><span>정지 해제 예약 · 재정지 예약</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 핵심 신호</h2>
+          <p>정지 해제 / 일시 정지 해제 VoC는 고객이 업무를 시작하고, 조건을 이해하고, 결과를 확인하고, 실패를 복구하는 전체 흐름을 정책 기준으로 재설계해야 함을 보여준다.<br/></p>
+        </div>
+        <span class="section-label">Core signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>앱 내 정지 해제 경로 미인지 및 원터치 기능 부재</h3>
+            <p>&quot;전화 없이 앱에서 즉시 처리하고 싶다 &quot; — 즉시성 확보 욕구 + 자율성 욕구<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>정지 상태에서 본인인증 불가 및 대체 인증 수단 부재</h3>
+            <p>&quot; 납부 카드 · 인증 정보 없이도 정지를 풀고 싶다 &quot; — 인증 장벽 없이 간편하게 처리되길 원하는 욕구 + &quot; 가족 회선을 내가 직접 앱에서 관리하고 싶다 &quot; — 가족 회선 통합관리 욕구<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>정지 관련 정책 · 요금 · 절차 정보 부재</h3>
+            <p>&quot;정지 해제 전에 요금 · 약정 · 결합 혜택이 어떻게 바뀌는지 미리 알고 싶다 &quot; — 불확실성 제거 욕구 + 요금 예측 가능성 욕구<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>정지 해제 예약 · 재정지 예약 · 스케줄 관리 기능 부재</h3>
+            <p>&quot; 귀국 당일 번거로운 전화 없이 미리 예약하고 싶다 &quot; — 사전 통제감 욕구 + &quot; 원하는 날짜에 자동으로 처리되길 원한다 &quot; — 자동화 욕구<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>해외 장기 정지 서류 제출 및 재정지 절차 복잡</h3>
+            <p>&quot; 서류 없이 간편하게 재정지를 처리하고 싶다 &quot; — 반복적인 서류 제출 부담 없이 간소화된 절차를 원하는 욕구<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. Pain Point 포트폴리오</h2>
+          <p>상담 유형은 단순 문의가 아니라 탐색 실패, 이해 부족, 권한 제약, 시스템 단절, 처리 결과 불안으로 반복된다.<br/></p>
+        </div>
+        <span class="section-label">Pain portfolio</span>
+      </div>
+      <div class="content">
+        <table class="heat-table">
+          <thead>
+            <tr>
+              <th>유형</th>
+              <th>누적 비율</th>
+              <th>고객이 겪는 문제</th>
+              <th>통합채널 설계 의미</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>앱 내 정지 해제 경로 미인지 및 원터치 기능 부재<br/><small>탐색 / 발견</small></td>
+              <td><span class="rate">26~42%</span></td>
+              <td>일시 정지 · 장기 정지 · 분실 정지 · 멤버십 정지 해제 경로를 앱에서 찾지 못함.<br/>정지 상태임에도 앱 홈에 정지 현황 배너 미노출.<br/>자동 해제 일정 확인 불가.<br/>귀국 후 정지 해제전용 플로우 부재.<br/>분실 접수 이력 조회 후 정지 해제 연계 없음.<br/>정지 해제 예약 기능 미인지<br/></td>
+              <td>통합채널의 홈, 마이, 요금, 상품 영역에서 같은 업무 진입점을 제공하고, 현재 상태에서 가능한 다음 행동을 명확히 보여줘야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>정지 상태에서 본인인증 불가 및 대체 인증 수단 부재<br/><small>인증 / 권한</small></td>
+              <td><span class="rate">13~35%</span></td>
+              <td>정지 상태에서 SMS 인증 불가 → 앱 자가 처리 원천 차단.<br/>납부 카드 · 은행 정보 불일치로 인증 실패.<br/>해외 체류 중 앱 인증 불가.<br/>법정대리인 인증 절차 복잡.<br/>자녀 · 가족 명의 회선 대리 처리 불가.<br/>분실 접수 번호 미확인으로 대체 인증 필요<br/></td>
+              <td>본인, 가족, 법정대리인, 대리인의 처리 가능 범위와 인증, 동의, 위임 조건을 정책 기준으로 분리해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>정지 관련 정책 · 요금 · 절차 정보 부재<br/><small>인지 / 이해</small></td>
+              <td><span class="rate">12~32%</span></td>
+              <td>정지 해제 후 요금 청구 방식 불명확.<br/>가족결합 영향 앱 내 확인 불가.<br/>재정지 가능 여부 사전 안내 없음.<br/>정지 횟수 잔여 확인 경로 불명.<br/>정지 유형 (수신 가능 · 불가) 선택 안내 부재.<br/>장기 정지 vs 일반 정지 차이 안내 부족.<br/>기기변경 후 개인정보 동의 필요 사실 미안내.<br/>정지 중 와이파이 · 문자 수신 가능 여부 불명.<br/>결합 할인 영향 미인지<br/></td>
+              <td>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>정지 해제 예약 · 재정지 예약 · 스케줄 관리 기능 부재<br/><small>탐색 / 발견 + 정책 제약</small></td>
+              <td><span class="rate">7~18%</span></td>
+              <td>귀국 예정일에 맞춰 정지 해제 예약 불가.<br/>재출국 시 재정지 예약 기능 미제공.<br/>정지 시작일 · 종료일 지정 기능 없음.<br/>정지 해제 예약 기능 없어 당일 전화 필수.<br/>자녀 정지 해제 예약 불가.<br/>당일 재정지 불가 정책 앱 내 안내 없음<br/></td>
+              <td>통합채널의 홈, 마이, 요금, 상품 영역에서 같은 업무 진입점을 제공하고, 현재 상태에서 가능한 다음 행동을 명확히 보여줘야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>해외 장기 정지 서류 제출 및 재정지 절차 복잡<br/><small>시간 / 노력 + 정책 제약</small></td>
+              <td><span class="rate">7~18%</span></td>
+              <td>해외 장기 정지 신청 · 재신청 시 신분증 · 항공권 서류를 팩스 · 이메일로 제출해야 하는 오프라인 의존 구조.<br/>재정지 시 서류 재제출 필요.<br/>서류 요건 혼선.<br/>앱 내 서류 업로드 기능 부재.<br/>이메일 주소 안내 문자 미수신으로 처리 지연<br/></td>
+              <td>평일, 야간, 주말, 공휴일, 청구 마감, 개통·해지 시점별 처리 가능 범위와 대체 행동을 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>다회선 · 복합 업무 처리 시 반복 인증 및 원스톱 처리 부재<br/><small>프로세스 단절</small></td>
+              <td><span class="rate">5~17%</span></td>
+              <td>두 개 이상 회선 동시 정지 해제 시 각각 인증 반복.<br/>정지 해제 후 로밍 신청 · 요금제 변경 · 부가서비스 취소 등 연계 업무 채널 분리.<br/>무선 · 유선 부서 분리로 재연결 반복.<br/>정지해제 후 유심 보호 서비스 해지 연계 불가.<br/>분실 신고 해제 + 정지 해제 동시 처리 불가<br/></td>
+              <td>본인, 가족, 법정대리인, 대리인의 처리 가능 범위와 인증, 동의, 위임 조건을 정책 기준으로 분리해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>미납 정지 해제 및 시스템 오류<br/><small>불안 / 리스크 + 시스템 / 오류</small></td>
+              <td><span class="rate">2~8%</span></td>
+              <td>미납 납부 후 정지 자동 해제 안 됨.<br/>앱 납부 화면 인증 오류.<br/>기기변경 후 개인정보 동의 미처리로 갑작스러운 정지 발생.<br/>정지 해제 예약 미반영.<br/>정지 해제 후 유심 인식 오류.<br/>잘못된 회선 정지 발생<br/></td>
+              <td>접수, 검증, 반영, 실패, 취소 상태를 고객에게 보여주고 재시도, 대체 경로, 상담 전환 기준을 연결해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>자녀 · 가족 회선 정지 신청 및 관리<br/><small>인증 / 권한 + 인지 / 이해</small></td>
+              <td><span class="rate">20~32%</span></td>
+              <td>자녀 기숙학원 입소 · 학교 입학 · 유학 출국 등으로 부모가 자녀 회선 정지 신청 시 앱에서 법정대리인 인증 경로 없음.<br/>자녀 해제 불가 옵션 없음.<br/>정지 중 와이파이 · 카카오톡사용 가능 여부 불명.<br/>결합 할인 영향 미인지.<br/>배우자 · 부모 명의 회선 대리 정지 불가<br/></td>
+              <td>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. Hidden Needs</h2>
+          <p>표면 요청 뒤에는 고객이 직접 판단하고 처리 결과를 신뢰하고 싶은 요구가 숨어 있다.<br/></p>
+        </div>
+        <span class="section-label">Hidden needs</span>
+      </div>
+      <div class="content">
+        <div class="need-grid">
+          <article class="card">
+            <b>안심</b>
+            <h3>즉시 처리 욕구 (1 위): &quot; 빠르고 간편하게 정지를 풀고 싶다 &quot;</h3>
+            <p>앱 메인 원터치 해제 버튼 + 정지 상태 배너 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>통제</b>
+            <h3>인증 간소화 욕구 (2 위): &quot; 납부 정보를 몰라도, 해외에서도 쉽게 인증하고 싶다 &quot;</h3>
+            <p>다중 대체 인증 수단 도입 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>즉시</b>
+            <h3>정보 투명성 욕구 (3 위): &quot; 복잡한 약관 없이 핵심 정보만 명확히 알고 싶다 &quot;</h3>
+            <p>정지 신청 화면 정책 3 줄 요약 + 시뮬레이터 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>이해</b>
+            <h3>자율성 욕구 (4 위): &quot; 미리 예약해두고 싶다 &quot;</h3>
+            <p>정지 해제 · 재정지 날짜 예약 시스템 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>연계</b>
+            <h3>가족 보호 욕구 (5 위): &quot; 가족 회선을 내가 직접 앱에서 관리하고 싶다 &quot;</h3>
+            <p>가족 회선 통합 관리 권한 체계 대응 필요<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. Trigger Top 20</h2>
+          <p>아래 계기는 고객이 셀프 채널을 이탈해 상담으로 전환하는 실제 출발점이다.<br/></p>
+        </div>
+        <span class="section-label">Triggers</span>
+      </div>
+      <div class="content">
+        <ol class="trigger-list">
+          <li><b>01</b><span>정지 상태에서 사용 필요 발생 (단순 해제 요청) — 전체 Trigger 의 35~40%, 전 기간 1 위</span></li>
+          <li><b>02</b><span>해외 귀국 후 정지 해제 필요 — 전 기간 2 위, 연휴 직후 급증</span></li>
+          <li><b>03</b><span>자녀 핸드폰 정지 해제 필요 (부모 대리) — 전 기간 3 위, 3 월 초 증가</span></li>
+          <li><b>04</b><span>해외 체류 중 앱 인증 불가로 정지 해제 실패 — 전 기간 지속</span></li>
+          <li><b>05</b><span>분실 핸드폰 습득 후 정지 해제 필요 — 전 기간 지속</span></li>
+          <li><b>06</b><span>납부 카드 · 은행 정보 불확실로 인증 실패 — 전 기간 지속</span></li>
+          <li><b>07</b><span>정지 해제 예약 기능 필요 (귀국 전 미리 예약 원함) — 전 기간 지속</span></li>
+          <li><b>08</b><span>재출국 시 재정지 예약 필요 — 전 기간 지속</span></li>
+          <li><b>09</b><span>정지 해제 후 요금 · 약정 영향 확인 필요 — 전 기간 지속</span></li>
+          <li><b>10</b><span>정지 횟수 소진 후 가능 날짜 확인 — 전 기간 지속</span></li>
+          <li><b>11</b><span>기기변경 후 갑자기 정지 발생 (개인정보 동의 미처리) — 3/7 이후 급증</span></li>
+          <li><b>12</b><span>자녀 정지 신청 시 결합 혜택 영향 확인 — 전 기간 지속</span></li>
+          <li><b>13</b><span>인터넷 ·TV 정지 해제 위해 유선 부서 재연결 필요 — 전 기간 지속</span></li>
+          <li><b>14</b><span>정지 해제 후 로밍 신청 연계 필요 — 전 기간 지속</span></li>
+          <li><b>15</b><span>해외 장기 정지 신청 시 서류 제출 필요 — 전 기간 지속</span></li>
+          <li><b>16</b><span>두 회선 동시 정지 해제 필요 (반복 인증 불편) — 전 기간 지속</span></li>
+          <li><b>17</b><span>미납 납부 후 정지 자동 미해제 — 전 기간 지속</span></li>
+          <li><b>18</b><span>정지 해제 후 유심 오류 · 통화 불가 발생 — 전 기간 지속</span></li>
+          <li><b>19</b><span>배우자 · 부모 명의 회선 대리 처리 불가 — 전 기간 지속</span></li>
+          <li><b>20</b><span>ARS/ 앱 오조작으로 의도치 않은 정지 신청 — 전 기간 지속</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. Quick Win</h2>
+          <p>즉시 개선 가능한 항목은 진입점 노출, 완료 안내, 상태 조회, 권한 처리, 실패 복구를 중심으로 정리된다.<br/></p>
+        </div>
+        <span class="section-label">Immediate actions</span>
+      </div>
+      <div class="content">
+        <table class="heat-table quick-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>개선 항목</th>
+              <th>등장 빈도</th>
+              <th>기대 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>앱 메인 화면 정지 상태 배너 + 원터치 해제 버튼 추가 (일반 · 장기 · 분실 · 멤버십 정지 통합)</td>
+              <td>29 일 전체</td>
+              <td>단순 정지 해제 전화 30~42% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>정지 해제 시 납부 수단 대체 인증 다양화 (주소 · 이메일 · 카드 주명 · 은행 정보)</td>
+              <td>29 일 전체</td>
+              <td>인증 실패 전화 대폭 감소</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>정지 해제 완료 화면에 요금 · 약정 · 결합 영향 즉시 안내 + 데이터 잔량 표시</td>
+              <td>29 일 전체</td>
+              <td>해제 후 추가 문의 50% 감소</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>기기변경 완료 후 개인정보 동의 팝업 자동 안내 + 미동의 시 정지 예고 알림</td>
+              <td>3/7 이후 매일</td>
+              <td>기기변경 관련 정지 발생 근절</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>정지 현황 대시보드 : 잔여 횟수 · 잔여 일수 · 자동 해제 예정일 실시간 표시</td>
+              <td>29 일 전체</td>
+              <td>정지 정책 문의 전화 감소</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>분실 접수 이력 조회 후 정지 해제 원터치 처리 연계</td>
+              <td>29 일 전체</td>
+              <td>분실 정지 해제 전화 감소</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>정지 신청 화면에 결합 혜택 영향 사전 안내 팝업 + 정지 유형별 기능 비교 UI</td>
+              <td>29 일 전체</td>
+              <td>정지 신청 관련 인지 / 이해 전화 감소</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>앱 내 24 시간 정지 해제 셀프 처리 가능 안내 배너 상시 노출</td>
+              <td>29 일 전체</td>
+              <td>야간 · 새벽 전화 상담 감소</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 요구사항·정책서 전환 질문</h2>
+          <p>VoC 분석 결과는 정지 해제 / 일시 정지 해제 정책서에서 아래 질문에 답할 수 있는 기능과 정책 항목으로 전환되어야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy conversion</span>
+      </div>
+      <div class="content">
+        <div class="policy-grid">
+          <article class="card">
+            <b>진입점</b>
+            <h3>고객은 어디에서 업무를 시작할 수 있는가?</h3>
+            <p>통합채널의 홈, 마이, 요금, 상품 영역에서 같은 업무 진입점을 제공하고, 현재 상태에서 가능한 다음 행동을 명확히 보여줘야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>권한</b>
+            <h3>누가 직접 처리하거나 대신 처리할 수 있는가?</h3>
+            <p>본인, 가족, 법정대리인, 대리인의 처리 가능 범위와 인증, 동의, 위임 조건을 정책 기준으로 분리해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>사전 고지</b>
+            <h3>무엇을 처리 전에 알려야 하는가?</h3>
+            <p>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>처리 가능 범위</b>
+            <h3>언제 셀프 처리할 수 있고 언제 제한되는가?</h3>
+            <p>평일, 야간, 주말, 공휴일, 청구 마감, 개통·해지 시점별 처리 가능 범위와 대체 행동을 정의해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>효율</b>
+            <h3>반복 입력과 재문의를 어떻게 줄이는가?</h3>
+            <p>반복 입력, 회선별 재처리, 동일 문의 재접수를 줄이도록 일괄 처리와 저장된 정보 재사용 기준을 설계해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>연계</b>
+            <h3>어떤 업무를 한 번에 묶어야 하는가?</h3>
+            <p>상담, 앱, BSS, 외부 기관에서 끊어진 처리를 고객 과업 기준의 단일 흐름으로 재구성해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>상태</b>
+            <h3>처리 상태를 어디까지 보여줘야 하는가?</h3>
+            <p>정지 해제 · 일시 정지 해제 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

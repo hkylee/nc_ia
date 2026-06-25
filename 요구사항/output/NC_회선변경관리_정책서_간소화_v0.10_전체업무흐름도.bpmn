@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="회선변경관리 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_LCM_CUS_001" name="US-LCM-CUS-001 회선 변경 업무 진입과 처리 경로 결정">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SEL_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SEL_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SEL_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SEL_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CUS_002" name="US-LCM-CUS-002 일시정지·정지해제 예약과 즉시 처리">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SUS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CUS_003" name="US-LCM-CUS-003 분실·도난 긴급 차단과 복구 진행">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_LOS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_LOS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_LOS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_LOS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CUS_004" name="US-LCM-CUS-004 회선 해지·해지예약과 영향 확인">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_TRM_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_TRM_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_TRM_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_TRM_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CUS_005" name="US-LCM-CUS-005 계약자 변경·양도와 구성원 권한 관리">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_CHG_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_CHG_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_CHG_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_CHG_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_005</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CUS_006" name="US-LCM-CUS-006 해외·특수 상황에서 비대면 변경 처리">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SPC_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SPC_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SPC_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_SPC_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_006</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CUS_007" name="US-LCM-CUS-007 회선 변경 신청 이력과 복구 행동 관리">
+        <bpmn:flowNodeRef>Start_US_LCM_CUS_007</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_HIS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_HIS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_HIS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CUS_007</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_REP_001" name="US-LCM-REP-001 대리·보호자·사망자 회선 변경 권한 증빙">
+        <bpmn:flowNodeRef>Start_US_LCM_REP_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_REP_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_REP_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_REP_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_REP_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_OPR_001" name="US-LCM-OPR-001 예외 승인·예약 충돌·안내 기준 운영">
+        <bpmn:flowNodeRef>Start_US_LCM_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_OPR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_OPR_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_OPR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_LCM_CSR_001" name="US-LCM-CSR-001 회선 변경 문맥 기반 상담 지원">
+        <bpmn:flowNodeRef>Start_US_LCM_CSR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_CSR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_LCM_CSR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_LCM_CSR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_LCM_CUS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_001_Task_PR_LCM_SEL_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_SEL_001" name="PR-LCM-SEL-001 회선 선택과 권한 식별">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_001_Task_PR_LCM_SEL_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SEL_001_Task_PR_LCM_SEL_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SEL_002" name="PR-LCM-SEL-002 현재 상태와 진행 중 신청 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_SEL_001_Task_PR_LCM_SEL_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SEL_002_Task_PR_LCM_SEL_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SEL_003" name="PR-LCM-SEL-003 처리 가능 조건과 제한 사유 판정">
+      <bpmn:incoming>Flow_Task_PR_LCM_SEL_002_Task_PR_LCM_SEL_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SEL_003_Task_PR_LCM_SEL_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SEL_004" name="PR-LCM-SEL-004 영향 요약과 대체 경로 제시">
+      <bpmn:incoming>Flow_Task_PR_LCM_SEL_003_Task_PR_LCM_SEL_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SEL_004_End_US_LCM_CUS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_SEL_004_End_US_LCM_CUS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_001_Task_PR_LCM_SEL_001" sourceRef="Start_US_LCM_CUS_001" targetRef="Task_PR_LCM_SEL_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SEL_001_Task_PR_LCM_SEL_002" sourceRef="Task_PR_LCM_SEL_001" targetRef="Task_PR_LCM_SEL_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SEL_002_Task_PR_LCM_SEL_003" sourceRef="Task_PR_LCM_SEL_002" targetRef="Task_PR_LCM_SEL_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SEL_003_Task_PR_LCM_SEL_004" sourceRef="Task_PR_LCM_SEL_003" targetRef="Task_PR_LCM_SEL_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SEL_004_End_US_LCM_CUS_001" sourceRef="Task_PR_LCM_SEL_004" targetRef="End_US_LCM_CUS_001"/>
+    <bpmn:startEvent id="Start_US_LCM_CUS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_002_Task_PR_LCM_SUS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_SUS_001" name="PR-LCM-SUS-001 정지 유형·기간·예약 조건 구성">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_002_Task_PR_LCM_SUS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SUS_001_Task_PR_LCM_SUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SUS_002" name="PR-LCM-SUS-002 정지 영향·요금·수신 방법 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_SUS_001_Task_PR_LCM_SUS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SUS_002_Task_PR_LCM_SUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SUS_003" name="PR-LCM-SUS-003 정지·해제 신청 접수와 BSS 반영">
+      <bpmn:incoming>Flow_Task_PR_LCM_SUS_002_Task_PR_LCM_SUS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SUS_003_Task_PR_LCM_SUS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SUS_004" name="PR-LCM-SUS-004 예약·조기해제·다회선 결과 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_SUS_003_Task_PR_LCM_SUS_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SUS_004_End_US_LCM_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_SUS_004_End_US_LCM_CUS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_002_Task_PR_LCM_SUS_001" sourceRef="Start_US_LCM_CUS_002" targetRef="Task_PR_LCM_SUS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SUS_001_Task_PR_LCM_SUS_002" sourceRef="Task_PR_LCM_SUS_001" targetRef="Task_PR_LCM_SUS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SUS_002_Task_PR_LCM_SUS_003" sourceRef="Task_PR_LCM_SUS_002" targetRef="Task_PR_LCM_SUS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SUS_003_Task_PR_LCM_SUS_004" sourceRef="Task_PR_LCM_SUS_003" targetRef="Task_PR_LCM_SUS_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SUS_004_End_US_LCM_CUS_002" sourceRef="Task_PR_LCM_SUS_004" targetRef="End_US_LCM_CUS_002"/>
+    <bpmn:startEvent id="Start_US_LCM_CUS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_003_Task_PR_LCM_LOS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_LOS_001" name="PR-LCM-LOS-001 분실·도난 상황 식별과 긴급 차단 선택">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_003_Task_PR_LCM_LOS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_LOS_001_Task_PR_LCM_LOS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_LOS_002" name="PR-LCM-LOS-002 접수번호·분실 이력 자동 연결">
+      <bpmn:incoming>Flow_Task_PR_LCM_LOS_001_Task_PR_LCM_LOS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_LOS_002_Task_PR_LCM_LOS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_LOS_003" name="PR-LCM-LOS-003 후속 서비스·보험·임대폰·금융 차단 안내">
+      <bpmn:incoming>Flow_Task_PR_LCM_LOS_002_Task_PR_LCM_LOS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_LOS_003_Task_PR_LCM_LOS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_LOS_004" name="PR-LCM-LOS-004 분실 신고 취소와 복구 처리">
+      <bpmn:incoming>Flow_Task_PR_LCM_LOS_003_Task_PR_LCM_LOS_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_LOS_004_End_US_LCM_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_LOS_004_End_US_LCM_CUS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_003_Task_PR_LCM_LOS_001" sourceRef="Start_US_LCM_CUS_003" targetRef="Task_PR_LCM_LOS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_LOS_001_Task_PR_LCM_LOS_002" sourceRef="Task_PR_LCM_LOS_001" targetRef="Task_PR_LCM_LOS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_LOS_002_Task_PR_LCM_LOS_003" sourceRef="Task_PR_LCM_LOS_002" targetRef="Task_PR_LCM_LOS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_LOS_003_Task_PR_LCM_LOS_004" sourceRef="Task_PR_LCM_LOS_003" targetRef="Task_PR_LCM_LOS_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_LOS_004_End_US_LCM_CUS_003" sourceRef="Task_PR_LCM_LOS_004" targetRef="End_US_LCM_CUS_003"/>
+    <bpmn:startEvent id="Start_US_LCM_CUS_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_004_Task_PR_LCM_TRM_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_TRM_001" name="PR-LCM-TRM-001 해지 가능 회선·명의·서류 조건 확인">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_004_Task_PR_LCM_TRM_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_TRM_001_Task_PR_LCM_TRM_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_TRM_002" name="PR-LCM-TRM-002 위약금·할부·결합·혜택 영향 산정">
+      <bpmn:incoming>Flow_Task_PR_LCM_TRM_001_Task_PR_LCM_TRM_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_TRM_002_Task_PR_LCM_TRM_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_TRM_003" name="PR-LCM-TRM-003 전자서명·서류 제출·해지 예약 접수">
+      <bpmn:incoming>Flow_Task_PR_LCM_TRM_002_Task_PR_LCM_TRM_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_TRM_003_Task_PR_LCM_TRM_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_TRM_004" name="PR-LCM-TRM-004 해지 철회·예약 처리·완료 결과 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_TRM_003_Task_PR_LCM_TRM_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_TRM_004_End_US_LCM_CUS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_TRM_004_End_US_LCM_CUS_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_004_Task_PR_LCM_TRM_001" sourceRef="Start_US_LCM_CUS_004" targetRef="Task_PR_LCM_TRM_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_TRM_001_Task_PR_LCM_TRM_002" sourceRef="Task_PR_LCM_TRM_001" targetRef="Task_PR_LCM_TRM_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_TRM_002_Task_PR_LCM_TRM_003" sourceRef="Task_PR_LCM_TRM_002" targetRef="Task_PR_LCM_TRM_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_TRM_003_Task_PR_LCM_TRM_004" sourceRef="Task_PR_LCM_TRM_003" targetRef="Task_PR_LCM_TRM_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_TRM_004_End_US_LCM_CUS_004" sourceRef="Task_PR_LCM_TRM_004" targetRef="End_US_LCM_CUS_004"/>
+    <bpmn:startEvent id="Start_US_LCM_CUS_005" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_005_Task_PR_LCM_CHG_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_CHG_001" name="PR-LCM-CHG-001 계약자 변경·양도 대상과 보증 조건 확인">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_005_Task_PR_LCM_CHG_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_CHG_001_Task_PR_LCM_CHG_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_CHG_002" name="PR-LCM-CHG-002 구성원 정보 입력과 자격 검증">
+      <bpmn:incoming>Flow_Task_PR_LCM_CHG_001_Task_PR_LCM_CHG_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_CHG_002_Task_PR_LCM_CHG_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_CHG_003" name="PR-LCM-CHG-003 대표 회선·가족·결합 영향 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_CHG_002_Task_PR_LCM_CHG_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_CHG_003_Task_PR_LCM_CHG_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_CHG_004" name="PR-LCM-CHG-004 변경 요청 접수와 권한 갱신 결과 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_CHG_003_Task_PR_LCM_CHG_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_CHG_004_End_US_LCM_CUS_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_005" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_CHG_004_End_US_LCM_CUS_005</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_005_Task_PR_LCM_CHG_001" sourceRef="Start_US_LCM_CUS_005" targetRef="Task_PR_LCM_CHG_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_CHG_001_Task_PR_LCM_CHG_002" sourceRef="Task_PR_LCM_CHG_001" targetRef="Task_PR_LCM_CHG_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_CHG_002_Task_PR_LCM_CHG_003" sourceRef="Task_PR_LCM_CHG_002" targetRef="Task_PR_LCM_CHG_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_CHG_003_Task_PR_LCM_CHG_004" sourceRef="Task_PR_LCM_CHG_003" targetRef="Task_PR_LCM_CHG_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_CHG_004_End_US_LCM_CUS_005" sourceRef="Task_PR_LCM_CHG_004" targetRef="End_US_LCM_CUS_005"/>
+    <bpmn:startEvent id="Start_US_LCM_CUS_006" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_006_Task_PR_LCM_SPC_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_SPC_001" name="PR-LCM-SPC-001 해외·사망·대리·거동불편 상황 선택">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_006_Task_PR_LCM_SPC_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SPC_001_Task_PR_LCM_SPC_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SPC_002" name="PR-LCM-SPC-002 상황별 인증·증빙·OCR 입력 보조">
+      <bpmn:incoming>Flow_Task_PR_LCM_SPC_001_Task_PR_LCM_SPC_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SPC_002_Task_PR_LCM_SPC_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SPC_003" name="PR-LCM-SPC-003 비대면 신청 접수와 운영 검토 연결">
+      <bpmn:incoming>Flow_Task_PR_LCM_SPC_002_Task_PR_LCM_SPC_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SPC_003_Task_PR_LCM_SPC_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_SPC_004" name="PR-LCM-SPC-004 해외 접속·귀국 예약·타사 해지 후속 처리">
+      <bpmn:incoming>Flow_Task_PR_LCM_SPC_003_Task_PR_LCM_SPC_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_SPC_004_End_US_LCM_CUS_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_006" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_SPC_004_End_US_LCM_CUS_006</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_006_Task_PR_LCM_SPC_001" sourceRef="Start_US_LCM_CUS_006" targetRef="Task_PR_LCM_SPC_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SPC_001_Task_PR_LCM_SPC_002" sourceRef="Task_PR_LCM_SPC_001" targetRef="Task_PR_LCM_SPC_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SPC_002_Task_PR_LCM_SPC_003" sourceRef="Task_PR_LCM_SPC_002" targetRef="Task_PR_LCM_SPC_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SPC_003_Task_PR_LCM_SPC_004" sourceRef="Task_PR_LCM_SPC_003" targetRef="Task_PR_LCM_SPC_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_SPC_004_End_US_LCM_CUS_006" sourceRef="Task_PR_LCM_SPC_004" targetRef="End_US_LCM_CUS_006"/>
+    <bpmn:startEvent id="Start_US_LCM_CUS_007" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CUS_007_Task_PR_LCM_HIS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_HIS_001" name="PR-LCM-HIS-001 변경 신청 내역·상태 조회">
+      <bpmn:incoming>Flow_Start_US_LCM_CUS_007_Task_PR_LCM_HIS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_HIS_001_Task_PR_LCM_HIS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_HIS_002" name="PR-LCM-HIS-002 실패·반려·보류 사유와 다음 행동 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_HIS_001_Task_PR_LCM_HIS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_HIS_002_Task_PR_LCM_HIS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_HIS_003" name="PR-LCM-HIS-003 후속 체크리스트와 고객 고지 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_HIS_002_Task_PR_LCM_HIS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_HIS_003_End_US_LCM_CUS_007</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CUS_007" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_HIS_003_End_US_LCM_CUS_007</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CUS_007_Task_PR_LCM_HIS_001" sourceRef="Start_US_LCM_CUS_007" targetRef="Task_PR_LCM_HIS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_HIS_001_Task_PR_LCM_HIS_002" sourceRef="Task_PR_LCM_HIS_001" targetRef="Task_PR_LCM_HIS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_HIS_002_Task_PR_LCM_HIS_003" sourceRef="Task_PR_LCM_HIS_002" targetRef="Task_PR_LCM_HIS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_HIS_003_End_US_LCM_CUS_007" sourceRef="Task_PR_LCM_HIS_003" targetRef="End_US_LCM_CUS_007"/>
+    <bpmn:startEvent id="Start_US_LCM_REP_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_REP_001_Task_PR_LCM_REP_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_REP_001" name="PR-LCM-REP-001 대리·보호자·사망자 권한 유형 선택">
+      <bpmn:incoming>Flow_Start_US_LCM_REP_001_Task_PR_LCM_REP_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_REP_001_Task_PR_LCM_REP_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_REP_002" name="PR-LCM-REP-002 위임·가족·사망 증빙 제출과 진위 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_REP_001_Task_PR_LCM_REP_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_REP_002_Task_PR_LCM_REP_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_REP_003" name="PR-LCM-REP-003 승인 결과와 처리 가능 범위 확인">
+      <bpmn:incoming>Flow_Task_PR_LCM_REP_002_Task_PR_LCM_REP_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_REP_003_End_US_LCM_REP_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_REP_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_REP_003_End_US_LCM_REP_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_REP_001_Task_PR_LCM_REP_001" sourceRef="Start_US_LCM_REP_001" targetRef="Task_PR_LCM_REP_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_REP_001_Task_PR_LCM_REP_002" sourceRef="Task_PR_LCM_REP_001" targetRef="Task_PR_LCM_REP_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_REP_002_Task_PR_LCM_REP_003" sourceRef="Task_PR_LCM_REP_002" targetRef="Task_PR_LCM_REP_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_REP_003_End_US_LCM_REP_001" sourceRef="Task_PR_LCM_REP_003" targetRef="End_US_LCM_REP_001"/>
+    <bpmn:startEvent id="Start_US_LCM_OPR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_OPR_001_Task_PR_LCM_OPR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_OPR_001" name="PR-LCM-OPR-001 예외 승인·반려·보류 처리">
+      <bpmn:incoming>Flow_Start_US_LCM_OPR_001_Task_PR_LCM_OPR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_OPR_001_Task_PR_LCM_OPR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_OPR_002" name="PR-LCM-OPR-002 예약 충돌·실패·SLA 초과 모니터링">
+      <bpmn:incoming>Flow_Task_PR_LCM_OPR_001_Task_PR_LCM_OPR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_OPR_002_Task_PR_LCM_OPR_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_OPR_003" name="PR-LCM-OPR-003 사유별 안내문·fallback 정책 관리">
+      <bpmn:incoming>Flow_Task_PR_LCM_OPR_002_Task_PR_LCM_OPR_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_OPR_003_End_US_LCM_OPR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_OPR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_OPR_003_End_US_LCM_OPR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_OPR_001_Task_PR_LCM_OPR_001" sourceRef="Start_US_LCM_OPR_001" targetRef="Task_PR_LCM_OPR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_OPR_001_Task_PR_LCM_OPR_002" sourceRef="Task_PR_LCM_OPR_001" targetRef="Task_PR_LCM_OPR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_OPR_002_Task_PR_LCM_OPR_003" sourceRef="Task_PR_LCM_OPR_002" targetRef="Task_PR_LCM_OPR_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_OPR_003_End_US_LCM_OPR_001" sourceRef="Task_PR_LCM_OPR_003" targetRef="End_US_LCM_OPR_001"/>
+    <bpmn:startEvent id="Start_US_LCM_CSR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_LCM_CSR_001_Task_PR_LCM_CSR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_LCM_CSR_001" name="PR-LCM-CSR-001 고객 회선·신청·인증 문맥 확인">
+      <bpmn:incoming>Flow_Start_US_LCM_CSR_001_Task_PR_LCM_CSR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_CSR_001_Task_PR_LCM_CSR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_LCM_CSR_002" name="PR-LCM-CSR-002 상담 전환 후 처리 경로 안내">
+      <bpmn:incoming>Flow_Task_PR_LCM_CSR_001_Task_PR_LCM_CSR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_LCM_CSR_002_End_US_LCM_CSR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_LCM_CSR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_LCM_CSR_002_End_US_LCM_CSR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_LCM_CSR_001_Task_PR_LCM_CSR_001" sourceRef="Start_US_LCM_CSR_001" targetRef="Task_PR_LCM_CSR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_CSR_001_Task_PR_LCM_CSR_002" sourceRef="Task_PR_LCM_CSR_001" targetRef="Task_PR_LCM_CSR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_LCM_CSR_002_End_US_LCM_CSR_001" sourceRef="Task_PR_LCM_CSR_002" targetRef="End_US_LCM_CSR_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_001_di" bpmnElement="Lane_US_LCM_CUS_001">
+        <dc:Bounds x="40" y="25" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_001_di" bpmnElement="Start_US_LCM_CUS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SEL_001_di" bpmnElement="Task_PR_LCM_SEL_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SEL_002_di" bpmnElement="Task_PR_LCM_SEL_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SEL_003_di" bpmnElement="Task_PR_LCM_SEL_003">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SEL_004_di" bpmnElement="Task_PR_LCM_SEL_004">
+        <dc:Bounds x="900" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_001_di" bpmnElement="End_US_LCM_CUS_001">
+        <dc:Bounds x="1120" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_002_di" bpmnElement="Lane_US_LCM_CUS_002">
+        <dc:Bounds x="40" y="195" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_002_di" bpmnElement="Start_US_LCM_CUS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SUS_001_di" bpmnElement="Task_PR_LCM_SUS_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SUS_002_di" bpmnElement="Task_PR_LCM_SUS_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SUS_003_di" bpmnElement="Task_PR_LCM_SUS_003">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SUS_004_di" bpmnElement="Task_PR_LCM_SUS_004">
+        <dc:Bounds x="900" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_002_di" bpmnElement="End_US_LCM_CUS_002">
+        <dc:Bounds x="1120" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_003_di" bpmnElement="Lane_US_LCM_CUS_003">
+        <dc:Bounds x="40" y="365" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_003_di" bpmnElement="Start_US_LCM_CUS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_LOS_001_di" bpmnElement="Task_PR_LCM_LOS_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_LOS_002_di" bpmnElement="Task_PR_LCM_LOS_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_LOS_003_di" bpmnElement="Task_PR_LCM_LOS_003">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_LOS_004_di" bpmnElement="Task_PR_LCM_LOS_004">
+        <dc:Bounds x="900" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_003_di" bpmnElement="End_US_LCM_CUS_003">
+        <dc:Bounds x="1120" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_004_di" bpmnElement="Lane_US_LCM_CUS_004">
+        <dc:Bounds x="40" y="535" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_004_di" bpmnElement="Start_US_LCM_CUS_004">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_TRM_001_di" bpmnElement="Task_PR_LCM_TRM_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_TRM_002_di" bpmnElement="Task_PR_LCM_TRM_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_TRM_003_di" bpmnElement="Task_PR_LCM_TRM_003">
+        <dc:Bounds x="680" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_TRM_004_di" bpmnElement="Task_PR_LCM_TRM_004">
+        <dc:Bounds x="900" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_004_di" bpmnElement="End_US_LCM_CUS_004">
+        <dc:Bounds x="1120" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_005_di" bpmnElement="Lane_US_LCM_CUS_005">
+        <dc:Bounds x="40" y="705" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_005_di" bpmnElement="Start_US_LCM_CUS_005">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_CHG_001_di" bpmnElement="Task_PR_LCM_CHG_001">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_CHG_002_di" bpmnElement="Task_PR_LCM_CHG_002">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_CHG_003_di" bpmnElement="Task_PR_LCM_CHG_003">
+        <dc:Bounds x="680" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_CHG_004_di" bpmnElement="Task_PR_LCM_CHG_004">
+        <dc:Bounds x="900" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_005_di" bpmnElement="End_US_LCM_CUS_005">
+        <dc:Bounds x="1120" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_006_di" bpmnElement="Lane_US_LCM_CUS_006">
+        <dc:Bounds x="40" y="875" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_006_di" bpmnElement="Start_US_LCM_CUS_006">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SPC_001_di" bpmnElement="Task_PR_LCM_SPC_001">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SPC_002_di" bpmnElement="Task_PR_LCM_SPC_002">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SPC_003_di" bpmnElement="Task_PR_LCM_SPC_003">
+        <dc:Bounds x="680" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_SPC_004_di" bpmnElement="Task_PR_LCM_SPC_004">
+        <dc:Bounds x="900" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_006_di" bpmnElement="End_US_LCM_CUS_006">
+        <dc:Bounds x="1120" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CUS_007_di" bpmnElement="Lane_US_LCM_CUS_007">
+        <dc:Bounds x="40" y="1045" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CUS_007_di" bpmnElement="Start_US_LCM_CUS_007">
+        <dc:Bounds x="112" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_HIS_001_di" bpmnElement="Task_PR_LCM_HIS_001">
+        <dc:Bounds x="240" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_HIS_002_di" bpmnElement="Task_PR_LCM_HIS_002">
+        <dc:Bounds x="460" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_HIS_003_di" bpmnElement="Task_PR_LCM_HIS_003">
+        <dc:Bounds x="680" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CUS_007_di" bpmnElement="End_US_LCM_CUS_007">
+        <dc:Bounds x="900" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_REP_001_di" bpmnElement="Lane_US_LCM_REP_001">
+        <dc:Bounds x="40" y="1215" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_REP_001_di" bpmnElement="Start_US_LCM_REP_001">
+        <dc:Bounds x="112" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_REP_001_di" bpmnElement="Task_PR_LCM_REP_001">
+        <dc:Bounds x="240" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_REP_002_di" bpmnElement="Task_PR_LCM_REP_002">
+        <dc:Bounds x="460" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_REP_003_di" bpmnElement="Task_PR_LCM_REP_003">
+        <dc:Bounds x="680" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_REP_001_di" bpmnElement="End_US_LCM_REP_001">
+        <dc:Bounds x="900" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_OPR_001_di" bpmnElement="Lane_US_LCM_OPR_001">
+        <dc:Bounds x="40" y="1385" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_OPR_001_di" bpmnElement="Start_US_LCM_OPR_001">
+        <dc:Bounds x="112" y="1412" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_OPR_001_di" bpmnElement="Task_PR_LCM_OPR_001">
+        <dc:Bounds x="240" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_OPR_002_di" bpmnElement="Task_PR_LCM_OPR_002">
+        <dc:Bounds x="460" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_OPR_003_di" bpmnElement="Task_PR_LCM_OPR_003">
+        <dc:Bounds x="680" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_OPR_001_di" bpmnElement="End_US_LCM_OPR_001">
+        <dc:Bounds x="900" y="1412" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_LCM_CSR_001_di" bpmnElement="Lane_US_LCM_CSR_001">
+        <dc:Bounds x="40" y="1555" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_LCM_CSR_001_di" bpmnElement="Start_US_LCM_CSR_001">
+        <dc:Bounds x="112" y="1582" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_CSR_001_di" bpmnElement="Task_PR_LCM_CSR_001">
+        <dc:Bounds x="240" y="1560" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_LCM_CSR_002_di" bpmnElement="Task_PR_LCM_CSR_002">
+        <dc:Bounds x="460" y="1560" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_LCM_CSR_001_di" bpmnElement="End_US_LCM_CSR_001">
+        <dc:Bounds x="680" y="1582" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_001_Task_PR_LCM_SEL_001_di" bpmnElement="Flow_Start_US_LCM_CUS_001_Task_PR_LCM_SEL_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SEL_001_Task_PR_LCM_SEL_002_di" bpmnElement="Flow_Task_PR_LCM_SEL_001_Task_PR_LCM_SEL_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SEL_002_Task_PR_LCM_SEL_003_di" bpmnElement="Flow_Task_PR_LCM_SEL_002_Task_PR_LCM_SEL_003">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SEL_003_Task_PR_LCM_SEL_004_di" bpmnElement="Flow_Task_PR_LCM_SEL_003_Task_PR_LCM_SEL_004">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SEL_004_End_US_LCM_CUS_001_di" bpmnElement="Flow_Task_PR_LCM_SEL_004_End_US_LCM_CUS_001">
+        <di:waypoint x="1070" y="70"/>
+        <di:waypoint x="1120" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_002_Task_PR_LCM_SUS_001_di" bpmnElement="Flow_Start_US_LCM_CUS_002_Task_PR_LCM_SUS_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SUS_001_Task_PR_LCM_SUS_002_di" bpmnElement="Flow_Task_PR_LCM_SUS_001_Task_PR_LCM_SUS_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SUS_002_Task_PR_LCM_SUS_003_di" bpmnElement="Flow_Task_PR_LCM_SUS_002_Task_PR_LCM_SUS_003">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SUS_003_Task_PR_LCM_SUS_004_di" bpmnElement="Flow_Task_PR_LCM_SUS_003_Task_PR_LCM_SUS_004">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SUS_004_End_US_LCM_CUS_002_di" bpmnElement="Flow_Task_PR_LCM_SUS_004_End_US_LCM_CUS_002">
+        <di:waypoint x="1070" y="240"/>
+        <di:waypoint x="1120" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_003_Task_PR_LCM_LOS_001_di" bpmnElement="Flow_Start_US_LCM_CUS_003_Task_PR_LCM_LOS_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_LOS_001_Task_PR_LCM_LOS_002_di" bpmnElement="Flow_Task_PR_LCM_LOS_001_Task_PR_LCM_LOS_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_LOS_002_Task_PR_LCM_LOS_003_di" bpmnElement="Flow_Task_PR_LCM_LOS_002_Task_PR_LCM_LOS_003">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_LOS_003_Task_PR_LCM_LOS_004_di" bpmnElement="Flow_Task_PR_LCM_LOS_003_Task_PR_LCM_LOS_004">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_LOS_004_End_US_LCM_CUS_003_di" bpmnElement="Flow_Task_PR_LCM_LOS_004_End_US_LCM_CUS_003">
+        <di:waypoint x="1070" y="410"/>
+        <di:waypoint x="1120" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_004_Task_PR_LCM_TRM_001_di" bpmnElement="Flow_Start_US_LCM_CUS_004_Task_PR_LCM_TRM_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_TRM_001_Task_PR_LCM_TRM_002_di" bpmnElement="Flow_Task_PR_LCM_TRM_001_Task_PR_LCM_TRM_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_TRM_002_Task_PR_LCM_TRM_003_di" bpmnElement="Flow_Task_PR_LCM_TRM_002_Task_PR_LCM_TRM_003">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_TRM_003_Task_PR_LCM_TRM_004_di" bpmnElement="Flow_Task_PR_LCM_TRM_003_Task_PR_LCM_TRM_004">
+        <di:waypoint x="850" y="580"/>
+        <di:waypoint x="900" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_TRM_004_End_US_LCM_CUS_004_di" bpmnElement="Flow_Task_PR_LCM_TRM_004_End_US_LCM_CUS_004">
+        <di:waypoint x="1070" y="580"/>
+        <di:waypoint x="1120" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_005_Task_PR_LCM_CHG_001_di" bpmnElement="Flow_Start_US_LCM_CUS_005_Task_PR_LCM_CHG_001">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_CHG_001_Task_PR_LCM_CHG_002_di" bpmnElement="Flow_Task_PR_LCM_CHG_001_Task_PR_LCM_CHG_002">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_CHG_002_Task_PR_LCM_CHG_003_di" bpmnElement="Flow_Task_PR_LCM_CHG_002_Task_PR_LCM_CHG_003">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_CHG_003_Task_PR_LCM_CHG_004_di" bpmnElement="Flow_Task_PR_LCM_CHG_003_Task_PR_LCM_CHG_004">
+        <di:waypoint x="850" y="750"/>
+        <di:waypoint x="900" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_CHG_004_End_US_LCM_CUS_005_di" bpmnElement="Flow_Task_PR_LCM_CHG_004_End_US_LCM_CUS_005">
+        <di:waypoint x="1070" y="750"/>
+        <di:waypoint x="1120" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_006_Task_PR_LCM_SPC_001_di" bpmnElement="Flow_Start_US_LCM_CUS_006_Task_PR_LCM_SPC_001">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SPC_001_Task_PR_LCM_SPC_002_di" bpmnElement="Flow_Task_PR_LCM_SPC_001_Task_PR_LCM_SPC_002">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SPC_002_Task_PR_LCM_SPC_003_di" bpmnElement="Flow_Task_PR_LCM_SPC_002_Task_PR_LCM_SPC_003">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SPC_003_Task_PR_LCM_SPC_004_di" bpmnElement="Flow_Task_PR_LCM_SPC_003_Task_PR_LCM_SPC_004">
+        <di:waypoint x="850" y="920"/>
+        <di:waypoint x="900" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_SPC_004_End_US_LCM_CUS_006_di" bpmnElement="Flow_Task_PR_LCM_SPC_004_End_US_LCM_CUS_006">
+        <di:waypoint x="1070" y="920"/>
+        <di:waypoint x="1120" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CUS_007_Task_PR_LCM_HIS_001_di" bpmnElement="Flow_Start_US_LCM_CUS_007_Task_PR_LCM_HIS_001">
+        <di:waypoint x="148" y="1090"/>
+        <di:waypoint x="240" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_HIS_001_Task_PR_LCM_HIS_002_di" bpmnElement="Flow_Task_PR_LCM_HIS_001_Task_PR_LCM_HIS_002">
+        <di:waypoint x="410" y="1090"/>
+        <di:waypoint x="460" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_HIS_002_Task_PR_LCM_HIS_003_di" bpmnElement="Flow_Task_PR_LCM_HIS_002_Task_PR_LCM_HIS_003">
+        <di:waypoint x="630" y="1090"/>
+        <di:waypoint x="680" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_HIS_003_End_US_LCM_CUS_007_di" bpmnElement="Flow_Task_PR_LCM_HIS_003_End_US_LCM_CUS_007">
+        <di:waypoint x="850" y="1090"/>
+        <di:waypoint x="900" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_REP_001_Task_PR_LCM_REP_001_di" bpmnElement="Flow_Start_US_LCM_REP_001_Task_PR_LCM_REP_001">
+        <di:waypoint x="148" y="1260"/>
+        <di:waypoint x="240" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_REP_001_Task_PR_LCM_REP_002_di" bpmnElement="Flow_Task_PR_LCM_REP_001_Task_PR_LCM_REP_002">
+        <di:waypoint x="410" y="1260"/>
+        <di:waypoint x="460" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_REP_002_Task_PR_LCM_REP_003_di" bpmnElement="Flow_Task_PR_LCM_REP_002_Task_PR_LCM_REP_003">
+        <di:waypoint x="630" y="1260"/>
+        <di:waypoint x="680" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_REP_003_End_US_LCM_REP_001_di" bpmnElement="Flow_Task_PR_LCM_REP_003_End_US_LCM_REP_001">
+        <di:waypoint x="850" y="1260"/>
+        <di:waypoint x="900" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_OPR_001_Task_PR_LCM_OPR_001_di" bpmnElement="Flow_Start_US_LCM_OPR_001_Task_PR_LCM_OPR_001">
+        <di:waypoint x="148" y="1430"/>
+        <di:waypoint x="240" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_OPR_001_Task_PR_LCM_OPR_002_di" bpmnElement="Flow_Task_PR_LCM_OPR_001_Task_PR_LCM_OPR_002">
+        <di:waypoint x="410" y="1430"/>
+        <di:waypoint x="460" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_OPR_002_Task_PR_LCM_OPR_003_di" bpmnElement="Flow_Task_PR_LCM_OPR_002_Task_PR_LCM_OPR_003">
+        <di:waypoint x="630" y="1430"/>
+        <di:waypoint x="680" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_OPR_003_End_US_LCM_OPR_001_di" bpmnElement="Flow_Task_PR_LCM_OPR_003_End_US_LCM_OPR_001">
+        <di:waypoint x="850" y="1430"/>
+        <di:waypoint x="900" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_LCM_CSR_001_Task_PR_LCM_CSR_001_di" bpmnElement="Flow_Start_US_LCM_CSR_001_Task_PR_LCM_CSR_001">
+        <di:waypoint x="148" y="1600"/>
+        <di:waypoint x="240" y="1600"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_CSR_001_Task_PR_LCM_CSR_002_di" bpmnElement="Flow_Task_PR_LCM_CSR_001_Task_PR_LCM_CSR_002">
+        <di:waypoint x="410" y="1600"/>
+        <di:waypoint x="460" y="1600"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_LCM_CSR_002_End_US_LCM_CSR_001_di" bpmnElement="Flow_Task_PR_LCM_CSR_002_End_US_LCM_CSR_001">
+        <di:waypoint x="630" y="1600"/>
+        <di:waypoint x="680" y="1600"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

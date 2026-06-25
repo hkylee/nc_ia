@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI 검색 정책서 전략 체계도</title>
+  <desc id="desc">작성 지향점, 설계 원칙, 고객 여정, 주요 프로세스와 기능 정책을 요약한 벡터 체계도</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f7fbff"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061f48"/>
+      <stop offset="1" stop-color="#083b86"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#081a36" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .title { font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; font-size: 52px; font-weight: 900; fill: #081a36; letter-spacing: -2px; }
+      .subtitle { font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; font-size: 23px; font-weight: 700; fill: #1f2a3c; }
+      .small { font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; font-size: 13px; font-weight: 700; fill: #52627a; }
+      .h2 { font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; font-size: 23px; font-weight: 900; fill: #004fed; }
+      .cardTitle { font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; font-size: 18px; font-weight: 900; fill: #081a36; }
+      .body { font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; font-size: 14px; font-weight: 650; fill: #27344c; }
+      .white { fill: #ffffff; }
+      .navyText { fill: #061f48; }
+      .box { fill: #ffffff; stroke: #cbd7e7; stroke-width: 1.2; }
+      .soft { fill: #f4f8fd; stroke: #cbd7e7; stroke-width: 1.2; }
+      .tag { fill: #061f48; }
+      .blue { fill: #0b4df4; }
+      .line { stroke: #cbd7e7; stroke-width: 1.4; }
+      .arrow { stroke: #0b4df4; stroke-width: 2.6; marker-end: url(#arrowHead); }
+    </style>
+    <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0b4df4"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1600" height="8" fill="#0b4df4"/>
+  <text x="36" y="40" class="small">통합채널 정책 전략 요약</text>
+  <text x="1520" y="40" text-anchor="end" class="small">2026.05</text>
+
+  <text x="40" y="105" class="title">AI 검색은 고객 의도 판단·실행·복구를 연결하는 전략 인터페이스다</text>
+  <text x="42" y="152" class="subtitle">검색 기능 개선이 아니라 정보 탐색, 비교, 업무 실행, 상담 전환을 하나의 의사결정 흐름으로 재설계한다.</text>
+  <line x1="36" y1="182" x2="1564" y2="182" stroke="#1b64ff" stroke-width="3"/>
+
+  <rect x="36" y="202" width="138" height="102" rx="4" fill="url(#navy)" filter="url(#shadow)"/>
+  <text x="105" y="242" text-anchor="middle" class="cardTitle white">작성</text>
+  <text x="105" y="272" text-anchor="middle" class="cardTitle white">지향점</text>
+
+  <g>
+    <rect x="188" y="202" width="430" height="102" rx="6" class="box"/>
+    <circle cx="230" cy="253" r="28" fill="#061f48"/>
+    <text x="230" y="262" text-anchor="middle" class="cardTitle white">1</text>
+    <text x="276" y="236" class="cardTitle">Intent-to-Action 전환</text>
+    <text x="276" y="263" class="body">고객 의도를 해석해 비교·요약·업무 실행까지</text>
+    <text x="276" y="285" class="body">연결하는 통합 진입점으로 정의한다.</text>
+  </g>
+  <g>
+    <rect x="632" y="202" width="430" height="102" rx="6" class="box"/>
+    <circle cx="674" cy="253" r="28" fill="#061f48"/>
+    <text x="674" y="262" text-anchor="middle" class="cardTitle white">2</text>
+    <text x="720" y="236" class="cardTitle">PI 기준 통합</text>
+    <text x="720" y="263" class="body">메뉴·상품·FAQ·상담 탐색·업무 진입을</text>
+    <text x="720" y="285" class="body">자연어 의도 기반 단일 프로세스로 통합한다.</text>
+  </g>
+  <g>
+    <rect x="1076" y="202" width="488" height="102" rx="6" class="box"/>
+    <circle cx="1118" cy="253" r="28" fill="#061f48"/>
+    <text x="1118" y="262" text-anchor="middle" class="cardTitle white">3</text>
+    <text x="1164" y="236" class="cardTitle">고객 통제권 보장</text>
+    <text x="1164" y="263" class="body">AI가 결정을 대신하지 않고 출처·조건·미충족 사유와</text>
+    <text x="1164" y="285" class="body">실행 전 확인을 제시해 고객이 선택하게 한다.</text>
+  </g>
+
+  <g>
+    <text x="44" y="350" class="h2">01 설계 원칙</text>
+    <g transform="translate(44 370)">
+      <rect width="404" height="68" rx="8" class="box"/><rect x="14" y="16" width="36" height="36" rx="8" fill="#061f48"/><text x="32" y="41" text-anchor="middle" class="cardTitle white">1</text>
+      <text x="68" y="27" class="cardTitle">고객 목적 중심</text><text x="68" y="49" class="body">업무 목적 기준으로 검색 결과와 실행 경로 구성</text>
+    </g>
+    <g transform="translate(44 448)">
+      <rect width="404" height="68" rx="8" class="box"/><rect x="14" y="16" width="36" height="36" rx="8" fill="#061f48"/><text x="32" y="41" text-anchor="middle" class="cardTitle white">2</text>
+      <text x="68" y="27" class="cardTitle">근거 기반 결과</text><text x="68" y="49" class="body">출처, 조건, 미충족 사유를 결과와 함께 표시</text>
+    </g>
+    <g transform="translate(44 526)">
+      <rect width="404" height="68" rx="8" class="box"/><rect x="14" y="16" width="36" height="36" rx="8" fill="#061f48"/><text x="32" y="41" text-anchor="middle" class="cardTitle white">3</text>
+      <text x="68" y="27" class="cardTitle">실행 전 고객 확인</text><text x="68" y="49" class="body">가입·변경·납부·해지 실행은 고객 확인 뒤 연결</text>
+    </g>
+    <g transform="translate(44 604)">
+      <rect width="404" height="68" rx="8" class="box"/><rect x="14" y="16" width="36" height="36" rx="8" fill="#061f48"/><text x="32" y="41" text-anchor="middle" class="cardTitle white">4</text>
+      <text x="68" y="27" class="cardTitle">복구 가능한 실패</text><text x="68" y="49" class="body">무결과·오류에도 재검색·대체 경로·상담 연결</text>
+    </g>
+    <g transform="translate(44 682)">
+      <rect width="404" height="68" rx="8" class="box"/><rect x="14" y="16" width="36" height="36" rx="8" fill="#061f48"/><text x="32" y="41" text-anchor="middle" class="cardTitle white">5</text>
+      <text x="68" y="27" class="cardTitle">운영 품질 루프</text><text x="68" y="49" class="body">성공률·즉답률·실행완료율·상담전환율 관리</text>
+    </g>
+  </g>
+
+  <line x1="486" y1="334" x2="486" y2="760" class="line"/>
+  <line x1="1124" y1="334" x2="1124" y2="760" class="line"/>
+
+  <g>
+    <text x="520" y="350" class="h2">02 고객 여정 구조</text>
+    <g transform="translate(522 374)">
+      <rect width="112" height="172" class="soft"/><rect width="112" height="46" fill="#061f48"/><text x="56" y="32" text-anchor="middle" class="cardTitle white">1</text>
+      <text x="56" y="88" text-anchor="middle" class="cardTitle">검색 진입</text><text x="56" y="117" text-anchor="middle" class="body">공통 진입</text><text x="56" y="140" text-anchor="middle" class="body">표준 적용</text>
+      <line x1="118" y1="86" x2="154" y2="86" class="arrow"/>
+    </g>
+    <g transform="translate(678 374)">
+      <rect width="112" height="172" class="soft"/><rect width="112" height="46" fill="#061f48"/><text x="56" y="32" text-anchor="middle" class="cardTitle white">2</text>
+      <text x="56" y="88" text-anchor="middle" class="cardTitle">의도 해석</text><text x="56" y="117" text-anchor="middle" class="body">질의 정규화</text><text x="56" y="140" text-anchor="middle" class="body">조건 추출</text>
+      <line x1="118" y1="86" x2="154" y2="86" class="arrow"/>
+    </g>
+    <g transform="translate(834 374)">
+      <rect width="112" height="172" class="soft"/><rect width="112" height="46" fill="#061f48"/><text x="56" y="32" text-anchor="middle" class="cardTitle white">3</text>
+      <text x="56" y="88" text-anchor="middle" class="cardTitle">결과 구성</text><text x="56" y="117" text-anchor="middle" class="body">Answer Card</text><text x="56" y="140" text-anchor="middle" class="body">유형별 탭</text>
+      <line x1="118" y1="86" x2="154" y2="86" class="arrow"/>
+    </g>
+    <g transform="translate(990 374)">
+      <rect width="112" height="172" class="soft"/><rect width="112" height="46" fill="#061f48"/><text x="56" y="32" text-anchor="middle" class="cardTitle white">4</text>
+      <text x="56" y="88" text-anchor="middle" class="cardTitle">판단 지원</text><text x="56" y="117" text-anchor="middle" class="body">출처·근거</text><text x="56" y="140" text-anchor="middle" class="body">비교·추천</text>
+    </g>
+    <g transform="translate(674 578)">
+      <rect width="276" height="88" rx="8" class="box"/><text x="20" y="32" class="h2">03 주요 프로세스</text>
+      <text x="20" y="58" class="body">검색 진입 → 의도 기반 결과 구성 → 비교 확인 → 복구/상담 전환</text>
+    </g>
+    <g transform="translate(964 578)">
+      <rect width="142" height="88" rx="8" fill="#061f48"/><text x="71" y="34" text-anchor="middle" class="cardTitle white">정책 판단축</text><text x="71" y="62" text-anchor="middle" class="body white">범위·입력·근거·복구</text>
+    </g>
+  </g>
+
+  <g>
+    <text x="1160" y="350" class="h2">04 기능·정책 요약</text>
+    <rect x="1160" y="372" width="360" height="74" rx="6" class="box"/>
+    <text x="1180" y="400" class="cardTitle">검색 진입·입력</text><text x="1180" y="426" class="body">FN-AIS-ENT / PG-AIS-SCOPE·INPUT</text>
+    <rect x="1160" y="458" width="360" height="74" rx="6" class="box"/>
+    <text x="1180" y="486" class="cardTitle">결과 구성·Answer Card</text><text x="1180" y="512" class="body">FN-AIS-ANS / PG-AIS-CARD·RANK</text>
+    <rect x="1160" y="544" width="360" height="74" rx="6" class="box"/>
+    <text x="1180" y="572" class="cardTitle">실패 복구·상담 전환</text><text x="1180" y="598" class="body">FN-AIS-FBK·CS / PG-AIS-ERR·CS</text>
+    <rect x="1160" y="640" width="360" height="110" rx="0" fill="#061f48"/>
+    <text x="1182" y="674" class="cardTitle white">운영 KPI</text>
+    <text x="1182" y="706" class="body white">검색 성공률 · 즉답 해결률 · 실행 완료율 · 무결과율</text>
+    <text x="1182" y="730" class="body white">재검색률 · 상담 전환율 · 오류율 · 피드백률</text>
+  </g>
+
+  <g transform="translate(40 794)">
+    <rect width="1520" height="58" fill="#ffffff" stroke="#9eb7df" stroke-width="1.2"/>
+    <rect width="8" height="58" fill="#1b64ff"/>
+    <text x="28" y="36" class="cardTitle">결론 :</text>
+    <text x="92" y="36" class="subtitle">AI 검색은 검색 결과를 더 잘 보여주는 기능이 아니라 고객 의도를 공식 근거와 고객 통제로 실행까지 연결하는 통합채널의 전략 인터페이스다.</text>
+  </g>
+  <text x="40" y="878" class="small">Source: NC_AI검색_정책서_간소화_v0.11.html 기반 전략 요약</text>
+  <text x="1560" y="878" text-anchor="end" class="small">SK Telecom 플랫폼기획 2팀 · 통합채널</text>
+</svg>

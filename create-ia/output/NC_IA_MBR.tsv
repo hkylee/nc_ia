@@ -1,0 +1,29 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부
+앱-MBR	US-MBR-LGN-001	로그인	NOVA-MBR-PG-001-0	로그인			PG	회원 모든 진입점(미로그인 시)	마이; 가입 신청; 아이디 찾기; 비밀번호 재설정
+앱-MBR	US-MBR-JON-001	회원가입	NOVA-MBR-PG-002-0	로그인	회원가입		PG	가입 시작 → 약관 동의			TW-MY-GUIDE-MOPC-049-PG-001; TM-MY-SET-PC-59-LN-009; TU-MY-MBR-MO-01-PU-002	TW, TM, TU	●
+앱-MBR	US-MBR-JON-001	회원가입	NOVA-MBR-CP-001-0	로그인	회원가입	본인인증	CP	휴대폰 본인확인(공통)			TW-MY-MBR-MOPC-049-PU-028; TW-MY-MBR-MOPC-049-PU-029	TW	●
+앱-MBR	US-MBR-JON-001	회원가입	NOVA-MBR-PG-003-0	로그인	회원가입	정보 입력	PG	아이디·비밀번호·기본정보 입력	본인인증
+앱-MBR	US-MBR-JON-001	회원가입	NOVA-MBR-PG-004-0	로그인	회원가입	가입 완료	PG	가입 완료 안내	정보 입력
+앱-MBR	US-MBR-TID-001	T-ID 로그인	NOVA-MBR-PG-005-0	로그인	T-ID 로그인		PG	T아이디·비밀번호 로그인
+앱-MBR	US-MBR-SNS-001	SNS 로그인	NOVA-MBR-PU-001-0	로그인	카카오 로그인		PU	카카오 인증		케이스 1
+앱-MBR	US-MBR-SNS-001	SNS 로그인	NOVA-MBR-PU-002-0	로그인	네이버 로그인		PU	네이버 인증		케이스 2
+앱-MBR	US-MBR-SNS-001	SNS 로그인	NOVA-MBR-PU-003-0	로그인	Apple 로그인		PU	Apple 인증		케이스 3
+앱-MBR	US-MBR-FND-001	계정 찾기	NOVA-MBR-PG-006-0	로그인	계정 찾기		PG	아이디·비밀번호 찾기 진입
+앱-MBR	US-MBR-FND-001	계정 찾기	NOVA-MBR-CP-001-0	로그인	계정 찾기	본인인증	CP	휴대폰 본인확인(공통)
+앱-MBR	US-MBR-FND-001	계정 찾기	NOVA-MBR-PG-007-0	로그인	계정 찾기	아이디 찾기	PG	마스킹된 아이디 결과	본인인증
+앱-MBR	US-MBR-FND-001	계정 찾기	NOVA-MBR-PG-008-0	로그인	계정 찾기	비밀번호 재설정	PG	새 비밀번호 설정	본인인증
+앱-MBR	US-MBR-DMT-001	휴면계정 해제	NOVA-MBR-PU-004-0	로그인	휴면계정 해제		PU	로그인 시 휴면 상태면 진입(조건)
+앱-MBR	US-MBR-DMT-001	휴면계정 해제	NOVA-MBR-CP-001-0	로그인	휴면계정 해제	본인인증	CP	휴대폰 본인확인(공통)
+앱-MBR	US-MBR-DMT-001	휴면계정 해제	NOVA-MBR-PG-009-0	로그인	휴면계정 해제	해제 완료	PG	휴면 해제 완료	본인인증
+앱-MBR	US-MBR-WDR-001	회원탈퇴	NOVA-MBR-PG-010-0	로그인	회원탈퇴		PG	로그인 후 진입. 탈퇴 후 유의사항			TW-MY-MBR-MOPC-049-PG-027; TU-MY-MBR-MO-15-PG-004; TU-MY-MBR-MO-15-PG-005	TW, TU	●
+앱-MBR	US-MBR-WDR-001	회원탈퇴	NOVA-MBR-PG-011-0	로그인	회원탈퇴	탈퇴 사전 선택	PG	사전 선택·동의
+앱-MBR	US-MBR-WDR-001	회원탈퇴	NOVA-MBR-CP-001-0	로그인	회원탈퇴	본인인증	CP	휴대폰 본인확인(공통)	탈퇴 사전 선택
+앱-MBR	US-MBR-WDR-001	회원탈퇴	NOVA-MBR-PG-012-0	로그인	회원탈퇴	탈퇴 완료	PG	탈퇴 완료 안내	본인인증		TW-MY-MBR-MOPC-049-PG-025; TU-MY-MBR-MO-15-PG-009	TW, TU	●
+앱-DSP	US-DSP-HOM-001	홈	NOVA-DSP-PG-001-0	홈			PG	앱 메인(바텀 진입점)			TW-DSP-MAIN-MOPC-001-PG-001; TW-DSP-MAIN-MOPC-001-PG-002; TD-DSP-MAIN-MOPC-01-PG-001; TD-DSP-MAIN-MOPC-10-PG-001; TM-DSP-MAIN-PC-59-PG-001; TU-DSP-MAIN-MO-02-PG-001-1; TU-DSP-MAIN-MO-02-PG-001-2	TW, TD, TM, TU	●
+앱-DSP	US-DSP-HOM-001	홈	NOVA-DSP-PG-002-0	홈	혜택 탭		PG	홈 내 혜택 탭			TM-DSP-MAIN-MO-01-PG-001; TM-DSP-MAIN-MO-01-PG-070	TM	●
+앱-DSP	US-DSP-SHP-001	쇼핑	NOVA-DSP-PG-003-0	홈	쇼핑		PG	쇼핑 진입점			TW-DSP-PRDL-MOPC-014-PG-003; TW-DSP-PRDL-MO-014-PG-002; TD-DSP-PRDL-MOPC-02-PG-001	TW, TD	●
+앱-DSP	US-DSP-BAR-001	바코드	NOVA-DSP-PU-001-0	홈	바코드		PU	바코드 스캔(T멤버십·전체메뉴 공통)			TM-DSP-MAIN-MO-01-PU-013; TM-DSP-BEN-MO-14-PU-472; TM-DSP-BEN-MO-14-PU-645; TM-DSP-BEN-MO-14-PU-129; TM-DSP-MAIN-MO-01-PG-111	TM	●
+앱-DSP	US-DSP-MNU-001	메뉴	NOVA-DSP-PU-002-0	홈	메뉴		PU	전체메뉴(드로어)			TD-DSP-MAIN-MOPC-10-AIP-002	TD	●
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	홈	마이		PG	마이 진입점(미로그인 시 로그인 요구)			TW-MY-MBR-MOPC-055-PG-038	TW	●
+앱-SCH	US-SCH-SRC-001	AI 검색	NOVA-SCH-PG-001-0	홈	AI 검색		PG	AI 검색
+앱-ORD	US-ORD-CRT-001	장바구니	NOVA-ORD-PG-001-0	홈	장바구니		PG	장바구니/주문 진입점

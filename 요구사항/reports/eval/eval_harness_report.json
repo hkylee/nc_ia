@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-05-05T10:14:20",
+  "scenarioRoot": "reports/eval/scenarios",
+  "minScore": 85,
+  "summary": {
+    "scenarioCount": 1,
+    "passed": 1,
+    "failed": 0,
+    "hasScenarios": true
+  },
+  "results": [
+    {
+      "id": "recommendation-simple-structure",
+      "topic": "추천",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "checkpoint_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true,
+          "detail": "주제에 해당하는 latest checkpoint가 있어야 합니다."
+        },
+        {
+          "name": "min_count:actors",
+          "passed": true,
+          "expected": 4,
+          "actual": 6,
+          "detail": ""
+        },
+        {
+          "name": "min_count:usecases",
+          "passed": true,
+          "expected": 4,
+          "actual": 6,
+          "detail": ""
+        },
+        {
+          "name": "min_count:states",
+          "passed": true,
+          "expected": 6,
+          "actual": 12,
+          "detail": ""
+        },
+        {
+          "name": "min_count:state_transitions",
+          "passed": true,
+          "expected": 8,
+          "actual": 28,
+          "detail": ""
+        },
+        {
+          "name": "min_count:processes",
+          "passed": true,
+          "expected": 6,
+          "actual": 13,
+          "detail": ""
+        },
+        {
+          "name": "min_count:functions",
+          "passed": true,
+          "expected": 6,
+          "actual": 13,
+          "detail": ""
+        },
+        {
+          "name": "min_count:policy_groups",
+          "passed": true,
+          "expected": 8,
+          "actual": 22,
+          "detail": ""
+        },
+        {
+          "name": "min_count:policy_details",
+          "passed": true,
+          "expected": 24,
+          "actual": 89,
+          "detail": ""
+        },
+        {
+          "name": "max_validation_errors",
+          "passed": true,
+          "expected": 0,
+          "actual": 0,
+          "detail": ""
+        },
+        {
+          "name": "max_critical_errors",
+          "passed": true,
+          "expected": 0,
+          "actual": 0,
+          "detail": ""
+        },
+        {
+          "name": "min_latest_inspection_score",
+          "passed": true,
+          "expected": 85,
+          "actual": 93,
+          "detail": ""
+        }
+      ],
+      "metrics": {
+        "checkpointCount": 1,
+        "inspectionCount": 16,
+        "contextPackRunCount": 14,
+        "latestCheckpointPath": "output/checkpoints/NC_추천_정책서_간소화_v0.10_latest_checkpoint.json",
+        "latestInspectionPath": "reports/inspections/NC_추천_정책서_간소화_v0.10.html_zz_post_sample_match_fix_inspection.json",
+        "latestInspectionScore": 93,
+        "lowestInspectionScore": 0,
+        "lowestContextQualityScore": null
+      }
+    }
+  ],
+  "recommendations": [
+    "모든 eval scenario가 기대 기준을 충족했습니다."
+  ]
+}

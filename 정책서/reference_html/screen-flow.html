@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>화면 Flow · 현황 분석</title>
+  <style>
+    :root {
+      --ink:#141a28;
+      --soft:#526174;
+      --line:#d8e1ed;
+      --blue:#2563eb;
+      --blue-soft:#e8f0ff;
+      --paper:#fff;
+      --wash:#eef2f7;
+      --shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:var(--wash);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:16px 0 28px; }
+    .hero {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:linear-gradient(135deg,#fff 0%,#f8fbff 100%);
+      box-shadow:var(--shadow);
+      padding:26px 30px;
+    }
+    .eyebrow {
+      color:var(--blue);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:10px 0 8px; font-size:32px; line-height:1.18; letter-spacing:0; }
+    .lead { max-width:860px; margin:0; color:var(--ink); font-size:16px; font-weight:820; }
+    .note {
+      margin:16px 0 0;
+      border:1px solid #bfdbfe;
+      border-left:5px solid var(--blue);
+      border-radius:8px;
+      background:var(--blue-soft);
+      padding:12px 14px;
+      color:#143d78;
+      font-size:14px;
+      font-weight:780;
+    }
+    .shortcut-section {
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:var(--shadow);
+      padding:20px;
+    }
+    .section-head {
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+    }
+    .section-head h2 { margin:0; font-size:22px; line-height:1.25; }
+    .section-head p { margin:4px 0 0; color:var(--soft); font-size:14px; font-weight:760; }
+    .count { color:var(--blue); font-size:13px; font-weight:950; white-space:nowrap; }
+    .shortcut-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:12px;
+    }
+    .shortcut-card {
+      min-height:132px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fbfdff;
+      color:inherit;
+      padding:14px;
+      text-decoration:none;
+      transition:transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+    .shortcut-card:hover {
+      transform:translateY(-2px);
+      border-color:#93c5fd;
+      box-shadow:0 14px 30px rgba(37,99,235,.12);
+    }
+    .shortcut-card span {
+      display:inline-flex;
+      width:max-content;
+      border-radius:999px;
+      background:#eef2ff;
+      color:#1d4ed8;
+      font-size:11px;
+      font-weight:950;
+      padding:5px 8px;
+    }
+    .shortcut-card strong { display:block; margin-top:10px; font-size:17px; line-height:1.28; letter-spacing:0; }
+    .shortcut-card p { margin:6px 0 0; color:var(--soft); font-size:12px; font-weight:730; }
+    .shortcut-card em { margin-top:12px; color:var(--blue); font-size:12px; font-style:normal; font-weight:950; }
+    .flow-guide {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .flow-guide article {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:14px;
+    }
+    .flow-guide b { display:block; color:var(--blue); font-size:12px; font-weight:950; letter-spacing:.08em; }
+    .flow-guide strong { display:block; margin-top:5px; font-size:15px; }
+    .flow-guide p { margin:5px 0 0; color:var(--soft); font-size:12px; font-weight:730; }
+    @media (max-width:1200px) {
+      .shortcut-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .flow-guide { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width:900px) {
+      .shortcut-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .flow-guide { grid-template-columns:1fr; }
+    }
+    @media (max-width:720px) {
+      .hero, .shortcut-section { padding:18px; }
+      .section-head { align-items:flex-start; flex-direction:column; }
+      .shortcut-grid { grid-template-columns:1fr; }
+      h1 { font-size:28px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">STATUS ANALYSIS</div>
+      <h1>화면 Flow</h1>
+      <p class="lead">통합채널 설계를 위해 주요 As-Is 채널의 화면 흐름과 고객 과업 이동 경로를 빠르게 확인하는 바로가기 화면입니다.</p>
+      <p class="note">각 박스는 Figma Flow Map으로 연결됩니다. 링크는 새 창에서 열리며, 정책서·요구사항 보강 시 채널별 진입, 탐색, 신청, 결제, 사후관리 흐름의 근거로 활용합니다.</p>
+    </section>
+
+    <section class="shortcut-section" aria-labelledby="flowShortcutTitle">
+      <div class="section-head">
+        <div>
+          <h2 id="flowShortcutTitle">채널별 Flow Map 바로가기</h2>
+          <p>채널별 화면 흐름을 확인하고 통합 대상, 중복 흐름, 고객 과업 완료 지점을 비교합니다.</p>
+        </div>
+        <div class="count">5개 채널</div>
+      </div>
+
+      <div class="shortcut-grid">
+        <a class="shortcut-card" href="https://www.figma.com/design/ZI56FUbJypR1mKu3AIZ3Ty/SKT_TW_As-Is_Flow-Map?node-id=6286-60160&amp;t=Ey3aPusMomfq1aa0-1" target="_blank" rel="noreferrer noopener">
+          <div>
+            <span>FLOW MAP</span>
+            <strong>T 월드</strong>
+            <p>개인 고객 중심의 조회, 변경, 가입, 납부, 고객지원 화면 흐름을 확인합니다.</p>
+          </div>
+          <em>Figma 열기</em>
+        </a>
+        <a class="shortcut-card" href="https://www.figma.com/design/fbBGmk5z481P1oyhIDHWyS/Next%EC%B1%84%EB%84%90-T%EB%A9%A4%EB%B2%84%EC%8B%AD-Flowmap--%EA%B3%B5%EC%9C%A0%EC%9A%A9-?node-id=2155-6801&amp;t=iR3jDOykGUxbVuAc-1" target="_blank" rel="noreferrer noopener">
+          <div>
+            <span>FLOW MAP</span>
+            <strong>T 멤버십</strong>
+            <p>멤버십 혜택, 리워드, 사용처, 등급·포인트 관련 화면 흐름을 확인합니다.</p>
+          </div>
+          <em>Figma 열기</em>
+        </a>
+        <a class="shortcut-card" href="https://www.figma.com/design/vCytfhsulFVczLwR7bFHUp/-01--TD_FO_flowmap?node-id=2001-11192&amp;p=f&amp;t=kcbXni65AfboNFsv-0" target="_blank" rel="noreferrer noopener">
+          <div>
+            <span>FLOW MAP</span>
+            <strong>T 다이렉트</strong>
+            <p>상품 탐색, 주문, 가입, 배송, 개통 전후 고객 구매 여정을 확인합니다.</p>
+          </div>
+          <em>Figma 열기</em>
+        </a>
+        <a class="shortcut-card" href="https://www.figma.com/design/iqDSHAwsTJ4QgjPVq05Okk/TU_flowmap?node-id=0-1&amp;t=ati8cfkUL9W0Hv3O-1" target="_blank" rel="noreferrer noopener">
+          <div>
+            <span>FLOW MAP</span>
+            <strong>T 우주</strong>
+            <p>구독 상품, 이용권, 혜택 관리, 해지·변경 관련 흐름을 확인합니다.</p>
+          </div>
+          <em>Figma 열기</em>
+        </a>
+        <a class="shortcut-card" href="https://www.figma.com/design/SsO5rHMysYQD8wChWPGslE/BIZ_TW_As-Is_Flow-Map?node-id=514-8517&amp;p=f&amp;t=dLmP1HyPqq0yjHjy-0" target="_blank" rel="noreferrer noopener">
+          <div>
+            <span>FLOW MAP</span>
+            <strong>T 월드 Biz</strong>
+            <p>법인·기업 고객의 회선, 요금, 청구, 관리 업무 흐름을 확인합니다.</p>
+          </div>
+          <em>Figma 열기</em>
+        </a>
+      </div>
+    </section>
+
+    <section class="flow-guide" aria-label="활용 관점">
+      <article>
+        <b>01</b>
+        <strong>진입 경로 비교</strong>
+        <p>채널별 시작점과 메뉴 깊이를 비교해 통합채널에서 단순화할 흐름을 찾습니다.</p>
+      </article>
+      <article>
+        <b>02</b>
+        <strong>업무 완료 흐름 확인</strong>
+        <p>조회에서 신청, 결제, 변경, 사후관리까지 고객 과업이 끊기지 않는지 확인합니다.</p>
+      </article>
+      <article>
+        <b>03</b>
+        <strong>정책서 연결 기준</strong>
+        <p>화면 단계가 아니라 고객 판단, 상태, 예외, BSS 연계 기준으로 정책서에 재구성합니다.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

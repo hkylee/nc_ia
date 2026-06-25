@@ -1,0 +1,3008 @@
+{
+  "meta": {
+    "topic": "멤버십혜택T플러스포인트",
+    "topic_display": "멤버십 혜택/T 플러스포인트",
+    "topic_slug": "멤버십혜택T플러스포인트",
+    "business_code": "MBP",
+    "document_id": "POL-MBP",
+    "document_type": "간소화 버전",
+    "status": "작성중",
+    "version": "v0.10",
+    "author": "Codex",
+    "date": "2026-05-09",
+    "template_type": "simple",
+    "requirements_count": 81,
+    "references_count": 81,
+    "authoring_basis": [
+      "PM-10 관련 최신 81개 상세 요구사항명과 상세 요구사항 설명을 기준으로 재구성했다.",
+      "멤버십 혜택/T 플러스포인트 Topic Knowledge와 Core Design Map을 작성 작전서로 사용했다.",
+      "신규 요구사항은 유즈케이스를 과분화하지 않고 리워드 탐색, 혜택 사용, 포인트 자산, 알림·리텐션, 운영 정책의 하위 판단축으로 반영했다.",
+      "상세 요구사항 81건은 리워드 탐색, 혜택 사용, 등급·상태 관리, 포인트 자산, 알림·리텐션, 운영·정산 축으로 분류하고 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 매핑했다."
+    ],
+    "writing_direction": [
+      "멤버십 혜택과 T 플러스포인트는 고객이 오늘 받을 수 있는 가치, 사용할 수 있는 수단, 앞으로 달성할 수 있는 리워드를 한 흐름에서 이해하는 통합 리워드 경험으로 정의한다.",
+      "고객은 내 혜택을 한눈에 확인하고, 통합 바코드·매직바코드·포인트 사전 세팅으로 현장에서 빠르게 혜택을 사용하며, 사용 직후 절약 결과와 다음 행동을 확인할 수 있어야 한다.",
+      "운영자는 프로그램 편성, 등급·제휴처 정책, 브랜드 Identity, 바코드 예외, 포인트 정산, 개인화·친밀도·성과 개선을 동일한 기준과 이력으로 통제해야 한다."
+    ],
+    "usecase_diagram": {
+      "lines": [
+        "[고객] → (멤버십 리워드 탐색과 가치 이해) → include: 허브 탐색, 혜택 상세, 개인화 혜택 선택",
+        "[고객] → (멤버십 혜택 사용 경험 완결) → include: 사용 상태 판정, 바코드 제시, 오류 복구",
+        "[고객] → (멤버십 등급과 혜택 상태 관리) → include: 등급 현황, 산정 근거, 체감가치·이력",
+        "[고객] → (T 플러스포인트 자산 관리) → include: 잔액·소멸, 적립·사용, 선물·통합·정정",
+        "[고객] → (멤버십 알림과 재방문 관리) → include: 수신 설정, 만료·등급 알림, 재연동 안내",
+        "[운영자] → (혜택 프로그램 편성·배포 운영) → include: 편성 캘린더, 대상 조건, 승인·배포",
+        "[운영자] → (등급·제휴처 혜택 정책 운영) → include: 등급 로직, 제휴처 매핑, 일괄 반영",
+        "[운영자] → (바코드·사용수단 정책 운영) → include: 카드 유형, 매직바코드, 실패 예외",
+        "[운영자] → (포인트 적립·회수·정산 운영) → include: 적립 조건, 선물·통합 제한, 정산 보정",
+        "[운영자] → (혜택 오류·정지·회수 예외 운영) → include: 영향 산정, 증빙, 재발급 예외",
+        "[운영자] → (리워드 성과·전환 최적화) → include: 성과 리포트, 오류 구간, 전환 개선",
+        "[멤버십 연계 시스템] → (등급·혜택 상태 판정)",
+        "[멤버십 연계 시스템] → (포인트 적립·사용·정산 반영)",
+        "[멤버십 연계 시스템] → (제휴처 혜택 사용 승인·오류 회신)",
+        "[채널 업무 시스템] → (멤버십 알림 발송·이력 처리)",
+        "[멤버십 연계 시스템] → (고객·회선·상품·등급 기준 제공)",
+        "[고객] → (멤버십 리워드 탐색과 가치 이해) → include: 내 혜택 한눈에 보기, 쿠폰 일괄 다운로드, 소셜 티커, 브랜드 친밀도 확인",
+        "[고객] → (멤버십 혜택 사용 경험 완결) → include: 통합 바코드, 0 Depth 즉시 호출, 포인트 사전 세팅, 절약 피드백",
+        "[고객] → (T 플러스포인트 자산 관리) → include: 공유 지갑 그룹, 선물·통합·이관, 실시간 동기화",
+        "[운영자] → (바코드·사용수단 정책 운영) → include: 제휴사 브랜드 Identity, 바코드 실패 예외, 포인트 사전 세팅 제한",
+        "[운영자] → (리워드 성과·전환 최적화) → include: AI 절약 리포트, 브랜드 친밀도, 세그먼트 기반 맞춤 혜택"
+      ]
+    },
+    "module_id": "PM-10",
+    "document_status": "작성중",
+    "created_at": "2026-05-09",
+    "updated_at": "2026-05-15",
+    "requirements_count_changed": {
+      "old": 70,
+      "new": 81
+    },
+    "history": [
+      {
+        "version": "v0.11",
+        "change": "품질 검수 및 구조 보완 반영",
+        "date": "2026-05-11",
+        "author": "Codex"
+      }
+    ],
+    "template_label": "간소화",
+    "version_spec_file": "NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10_spec.json",
+    "version_spec_saved_at": "2026-05-11T20:09:44",
+    "version_spec_reason": "backfill_existing_output",
+    "version_spec_source": "멤버십혜택T플러스포인트_policy_spec.json"
+  },
+  "history": [
+    {
+      "version": "v0.10",
+      "change": "Codex 기반 초안 작성",
+      "date": "2026-05-10",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.11",
+      "change": "품질 검수 및 구조 보완 반영",
+      "date": "2026-05-11",
+      "author": "Codex"
+    },
+    {
+      "version": "v0.10",
+      "change": "bpmn.io viewer 산출물 생성 및 문서 재렌더링",
+      "date": "2026-05-15",
+      "author": "Codex"
+    }
+  ],
+  "overview": {
+    "scope": [
+      "본 정책서는 통합채널에서 제공하는 멤버십 혜택, 등급, 제휴처 사용, 정기 프로모션, T 플러스포인트 적립·사용·소멸·이력·선물·통합·정정 기준을 정의한다.",
+      "고객이 혜택을 탐색하고 사용 가능 상태를 판단하며 바코드 또는 매직바코드로 혜택을 사용하고 오류 발생 시 복구 또는 상담 전환할 수 있는 기준을 포함한다.",
+      "멤버십 등급 산정 기준, 변경 적용 시점, 체감가치, 로열티 배지, 등급 달성 조건, 데이터 최신성 안내와 이력 조회 기준을 포함한다.",
+      "운영자가 혜택 프로그램, 제휴처 매핑, 등급 로직, 바코드 정책, 포인트 적립·회수·정산, 오류 모니터링, 성과 리포트를 관리하는 기준을 포함한다.",
+      "외부 쿠폰 코드 재고 상세, 결제 승인, 주문·배송, 포인트 회계 정산 세부 로직은 후속 산출물 또는 인접 정책서에서 상세화한다.",
+      "고객이 내 혜택 한눈에 보기, 쿠폰 일괄 다운로드, 통합 바코드 즉시 호출, 포인트 사용 사전 세팅, 결제 직후 절약 피드백을 통해 현장 사용 경험을 완료하는 기준을 포함한다.",
+      "브랜드 친밀도, 관심 브랜드 알림, 소셜 티커, AI 소비 분석 리포트, 공유 지갑처럼 리워드 재방문과 관계 기반 경험을 만드는 기준을 포함한다.",
+      "핵심 정책 질문은 누가 어떤 등급과 상태에서 혜택을 언제 몇 번까지 사용할 수 있는지, 실패하면 어떤 복구와 상담 전환을 제공하는지, 포인트와 혜택 이력을 어디에 남기는지로 정의한다.",
+      "고객 표시 상태와 시스템 내부 상태는 분리한다. 고객에게는 사용 가능, 조건 미충족, 사용 완료, 정지·회수, 재연동 필요로 안내하고 내부적으로는 BSS 등급 반영, 제휴처 승인, 포인트 정산, 알림 발송 이력을 별도 관리한다.",
+      "FO, BSS, 제휴처, 포인트 시스템, 알림 시스템의 책임 경계를 구분하고 통합 바코드·공유 지갑·포인트 동기화 장애가 다른 채널 사용 가능 상태로 확산되지 않게 제한한다.",
+      "BSS는 고객·회선·상품·납부·가입 상태 기준 정보를 제공하며, 채널은 BSS 기준을 직접 변경하지 않고 멤버십 연계 결과와 정책 판단 결과를 고객에게 안내한다.",
+      "채널 업무 시스템은 고객 표시 상태, 통합 바코드 호출, 포인트 사전 세팅, 알림과 재진입 경로를 책임지고 멤버십 연계 시스템은 등급·혜택 판정, 포인트 원장 반영, 제휴처 승인·오류 회신을 책임진다.",
+      "API 필드, DB 컬럼, 운영자 화면 상세, 배치 설계는 제외하되 고객 경험과 정책 판단에 필요한 조건, 상태, 제한, 고지, 이력 기준은 포함한다."
+    ],
+    "principles": [
+      {
+        "name": "통합 리워드 관점",
+        "description": "고객이 할인, 포인트, 쿠폰, 이용권, 등급 혜택을 하나의 리워드 체계로 이해하게 한다."
+      },
+      {
+        "name": "지금 쓸 수 있는 가치 우선",
+        "description": "조건보다 고객이 받을 가치와 즉시 사용 가능 여부를 먼저 보여준다."
+      },
+      {
+        "name": "현장 사용 최소 동선",
+        "description": "통합 바코드, 0 Depth 호출, 포인트 사전 세팅, 사용 실패 복구를 통해 매장 현장에서 고객 조작과 구두 설명을 줄인다."
+      },
+      {
+        "name": "셀프 사용·복구 완결",
+        "description": "바코드, 포인트, 혜택 사용 실패 시 고객이 재시도, 대체수단, 상담 전환을 스스로 선택하게 한다."
+      },
+      {
+        "name": "관계 기반 리텐션",
+        "description": "브랜드 친밀도, 관심 브랜드, 소셜 티커, 절약 리포트는 고객에게 혜택 사용 이유와 다음 행동을 설명하는 기준으로만 사용한다."
+      },
+      {
+        "name": "등급·포인트 신뢰성",
+        "description": "등급 산정 기준, 포인트 잔액, 소멸, 이력의 최신성과 추정·확정 구분을 명확히 한다."
+      },
+      {
+        "name": "운영 통제와 실험 가능성",
+        "description": "운영자는 프로그램 편성, 제휴처 정책, 바코드 예외, 성과 측정을 변경 이력과 함께 관리한다."
+      },
+      {
+        "name": "인접 정책 경계 유지",
+        "description": "외부 쿠폰, 결제 할인, 이벤트 미션의 세부 정책은 해당 정책서와 연결하되 본 문서는 멤버십 리워드 실행 기준에 집중한다."
+      }
+    ]
+  },
+  "terms": [
+    {
+      "id": "TM-MBP-001",
+      "name": "멤버십 혜택",
+      "description": "고객 등급, 가입 상태, 제휴처, 프로모션 조건에 따라 제공되는 할인, 무료 제공, 쿠폰, 이용권, 응모권, 포인트 적립 혜택이다."
+    },
+    {
+      "id": "TM-MBP-002",
+      "name": "T 플러스포인트",
+      "description": "멤버십 혜택, 이벤트, 미션, 제휴 이용 등을 통해 적립되고 고객이 사용, 선물, 통합, 이관할 수 있는 포인트 자산이다."
+    },
+    {
+      "id": "TM-MBP-003",
+      "name": "멤버십 등급",
+      "description": "고객의 납부금액, 가입기간, ARPU, 서비스 이용 실적, 구독 여부 등을 기준으로 산정되는 혜택 적용 기준이다."
+    },
+    {
+      "id": "TM-MBP-004",
+      "name": "매직바코드",
+      "description": "특정 멤버십 혜택이나 프로모션 사용을 위해 발급되는 유효시간 기반 바코드다. 발급 조건과 재발급 기준이 일반 카드와 다르다."
+    },
+    {
+      "id": "TM-MBP-005",
+      "name": "혜택 상태",
+      "description": "지금 가능, 예정, 조건 미충족, 사용 완료, 만료 임박, 소진, 정지, 오류처럼 고객 행동과 운영 처리를 결정하는 상태값이다."
+    },
+    {
+      "id": "TM-MBP-006",
+      "name": "체감가치",
+      "description": "고객이 할인, 포인트, 쿠폰, 이용권, 등급 혜택을 통해 실제 또는 예상으로 절감하거나 얻은 가치를 금액 또는 수치로 환산한 값이다."
+    },
+    {
+      "id": "TM-MBP-007",
+      "name": "정기 프로모션 데이",
+      "description": "T day, Universe Day처럼 특정 기간·요일·시간대에 등급·구독·회선 조건에 따라 운영되는 반복 혜택 프로그램이다."
+    },
+    {
+      "id": "TM-MBP-008",
+      "name": "포인트 소멸 예정",
+      "description": "유효기간 종료 전 고객에게 사전 안내해야 하는 포인트 상태다. 소멸 시점과 사용 가능 경로를 함께 안내한다."
+    },
+    {
+      "id": "TM-MBP-009",
+      "name": "정산 보류",
+      "description": "포인트 적립·사용 또는 제휴 혜택 사용 결과가 확정되지 않아 운영 확인이나 오류 보정이 필요한 상태다."
+    },
+    {
+      "id": "TM-MBP-010",
+      "name": "재연동",
+      "description": "번호이동, 요금제 변경, 기기변경 등으로 멤버십 상태와 고객 계정 연결이 다시 확인되어야 하는 복구 절차다."
+    },
+    {
+      "id": "TM-MBP-011",
+      "name": "통합 바코드",
+      "description": "T 멤버십, 매직바코드, 쿠폰, 포인트 사용 설정을 하나의 현장 제시 수단으로 연결하는 바코드 경험이다."
+    },
+    {
+      "id": "TM-MBP-012",
+      "name": "브랜드 친밀도",
+      "description": "고객의 혜택 사용과 관심 행동을 기준으로 제휴 브랜드와의 관계 수준을 표시하고 리텐션 행동을 제안하는 기준이다."
+    },
+    {
+      "id": "TM-MBP-013",
+      "name": "공유 지갑",
+      "description": "가족·지인 그룹이 포인트, 쿠폰, 바코드 등 공동 혜택 자산을 공유하고 사용 이력을 함께 확인하는 그룹형 혜택 자산이다."
+    },
+    {
+      "id": "TM-MBP-014",
+      "name": "소셜 티커",
+      "description": "실시간 관심도, 사용 수, 연령대 선호, 희소성 정보를 고객 혜택 선택을 돕는 넛지 문구로 표현하는 요소다."
+    }
+  ],
+  "actors": [
+    {
+      "id": "ACT-MBP-001",
+      "name": "고객",
+      "description": "멤버십 혜택과 T 플러스포인트를 탐색, 사용, 관리하는 주체다."
+    },
+    {
+      "id": "ACT-MBP-002",
+      "name": "운영자",
+      "description": "멤버십 프로그램, 등급·제휴처, 포인트, 바코드, 정산·성과 기준을 운영하는 주체다."
+    },
+    {
+      "id": "ACT-MBP-003",
+      "name": "채널 업무 시스템",
+      "description": "멤버십 혜택 표시, 통합 바코드 호출, 포인트 사전 세팅, 알림, 고객 표시 상태와 재진입 이력을 처리하는 채널 시스템이다."
+    },
+    {
+      "id": "ACT-MBP-004",
+      "name": "멤버십 연계 시스템",
+      "description": "멤버십 등급·혜택 상태 판정, 포인트 적립·사용·정산 반영, 제휴처 사용 승인·오류 회신을 처리하고 BSS 기준 정보를 연계해 결과를 제공하는 시스템이다."
+    }
+  ],
+  "usecases": [
+    {
+      "id": "US-MBP-CUS-001",
+      "name": "멤버십 리워드 탐색과 가치 이해",
+      "actor": "고객",
+      "description": "고객이 멤버십 혜택과 포인트 가치를 통합 허브에서 이해하고 자신에게 맞는 혜택을 선택하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-CUS-002",
+      "name": "멤버십 혜택 사용 경험 완결",
+      "actor": "고객",
+      "description": "고객이 혜택 사용 상태를 확인하고 바코드, 매직바코드, 카드번호, 제휴처 링크로 혜택을 사용하며 실패 시 복구하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-CUS-003",
+      "name": "멤버십 등급과 혜택 상태 관리",
+      "actor": "고객",
+      "description": "고객이 현재 등급, 산정 근거, 다음 등급 조건, 혜택 사용 이력과 체감가치를 관리하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-CUS-004",
+      "name": "T 플러스포인트 자산 관리",
+      "actor": "고객",
+      "description": "고객이 T 플러스포인트 잔액, 소멸 예정, 적립·사용 이력, 선물, 통합, 이관, 정정 요청을 관리하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-CUS-005",
+      "name": "멤버십 알림과 재방문 관리",
+      "actor": "고객",
+      "description": "고객이 멤버십 알림 수신 기준을 설정하고 재연동·만료·신규 혜택 알림을 통해 다시 진입하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-OPS-001",
+      "name": "혜택 프로그램 편성·배포 운영",
+      "actor": "운영자",
+      "description": "운영자가 정기 프로모션과 혜택 프로그램을 편성, 검수, 승인, 배포하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-OPS-002",
+      "name": "등급·제휴처 혜택 정책 운영",
+      "actor": "운영자",
+      "description": "운영자가 등급 산정 로직, 제휴처 매핑, 등급별 혜택 정책을 운영하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-OPS-003",
+      "name": "바코드·사용수단 정책 운영",
+      "actor": "운영자",
+      "description": "운영자가 일반 카드, 매직바코드, 카드번호, 제휴처 사용수단의 조건과 예외를 운영하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-OPS-004",
+      "name": "포인트 적립·회수·정산 운영",
+      "actor": "운영자",
+      "description": "운영자가 포인트 적립 조건, 사용처, 선물·통합 제한, 회수·정산·오류 보정을 운영하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-OPS-005",
+      "name": "혜택 오류·정지·회수 예외 운영",
+      "actor": "운영자",
+      "description": "운영자가 사용 오류, 부정사용, 정지, 회수, 재발급, 상담 예외를 운영하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-MKT-001",
+      "name": "리워드 성과·전환 최적화",
+      "actor": "운영자",
+      "description": "운영자가 혜택 노출, 사용, 이탈, 재방문, 전환 실적을 분석하고 개선 대상을 관리하는 업무다.",
+      "process_target": "Y"
+    },
+    {
+      "id": "US-MBP-SYS-001",
+      "name": "멤버십 연계 시스템 등급·혜택 상태 판정",
+      "actor": "멤버십 연계 시스템",
+      "description": "멤버십 연계 시스템이 고객·회선·상품·등급 기준 정보를 바탕으로 고객 등급과 혜택 사용 가능 상태를 판정하는 시스템 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-MBP-SYS-002",
+      "name": "멤버십 연계 시스템 포인트 적립·사용·정산 반영",
+      "actor": "멤버십 연계 시스템",
+      "description": "멤버십 연계 시스템이 포인트 적립, 사용, 취소, 회수, 소멸, 정산 상태를 반영하고 처리 이력을 남기는 시스템 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-MBP-SYS-003",
+      "name": "멤버십 연계 시스템 제휴처 혜택 사용 승인·오류 회신",
+      "actor": "멤버십 연계 시스템",
+      "description": "멤버십 연계 시스템이 제휴처 혜택 사용 승인, 거절, 취소, 오류 상태를 회신하고 고객 표시 상태와 내부 처리 상태를 동기화하는 시스템 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-MBP-SYS-004",
+      "name": "멤버십 알림 발송·이력 처리",
+      "actor": "채널 업무 시스템",
+      "description": "멤버십 관련 알림을 발송하고 수신·발송 이력을 저장하는 시스템 처리다.",
+      "process_target": "N"
+    },
+    {
+      "id": "US-MBP-SYS-005",
+      "name": "멤버십 연계 시스템 고객·회선·상품·등급 기준 제공",
+      "actor": "멤버십 연계 시스템",
+      "description": "멤버십 연계 시스템이 BSS의 고객, 회선, 상품, 납부, 가입 상태 기준을 조회해 혜택·포인트 판정에 필요한 기준 정보를 제공하는 시스템 처리다.",
+      "process_target": "N"
+    }
+  ],
+  "states": [
+    {
+      "id": "ST-MBP-001",
+      "name": "진입 가능",
+      "description": "고객이 멤버십 허브, 홈, 알림, 마이에서 멤버십 리워드로 진입할 수 있는 상태다.",
+      "next_action": "대표 혜택과 로그인 후 개인화 행동을 안내한다."
+    },
+    {
+      "id": "ST-MBP-002",
+      "name": "혜택 탐색 중",
+      "description": "고객이 혜택 목록, 제휴처, 프로모션, 포인트 정보를 탐색하는 상태다.",
+      "next_action": "사용 가능 상태와 체감가치를 판정한다."
+    },
+    {
+      "id": "ST-MBP-003",
+      "name": "사용 가능",
+      "description": "등급, 한도, 기간, 제휴처 운영시간, 정지 여부가 모두 충족된 상태다.",
+      "next_action": "바코드, 매직바코드, 카드번호, 제휴 링크 중 필요한 사용수단을 제공한다."
+    },
+    {
+      "id": "ST-MBP-004",
+      "name": "조건 미충족",
+      "description": "등급, 상품 보유, 사용 횟수, 지역, 기간, 인증 조건 중 하나 이상을 충족하지 못한 상태다.",
+      "next_action": "부족 조건과 해결 행동을 안내한다."
+    },
+    {
+      "id": "ST-MBP-005",
+      "name": "사용 진행 중",
+      "description": "고객이 바코드 또는 제휴처 사용수단을 제시하거나 포인트 사용을 요청한 상태다.",
+      "next_action": "제휴처 승인 또는 포인트 반영 결과를 확인한다."
+    },
+    {
+      "id": "ST-MBP-006",
+      "name": "사용 완료",
+      "description": "혜택 적용, 포인트 사용, 바코드 사용, 쿠폰 사용이 완료되어 이력에 남는 상태다.",
+      "next_action": "사용 이력과 체감가치를 갱신한다."
+    },
+    {
+      "id": "ST-MBP-007",
+      "name": "오류·복구 필요",
+      "description": "바코드 호출 실패, 제휴처 거절, 네트워크 오류, 상태 불일치로 고객 복구가 필요한 상태다.",
+      "next_action": "재시도, 대체수단, 증빙 제출, 상담 연결을 제공한다."
+    },
+    {
+      "id": "ST-MBP-008",
+      "name": "등급 산정 대기",
+      "description": "등급 산정 또는 변경 예정 결과가 확정 전인 상태다.",
+      "next_action": "확정 예정 시점과 추정 기준을 안내한다."
+    },
+    {
+      "id": "ST-MBP-009",
+      "name": "등급 반영 완료",
+      "description": "등급 산정 결과가 고객 등급과 혜택 조건에 반영된 상태다.",
+      "next_action": "적용 혜택과 변경 이력을 안내한다."
+    },
+    {
+      "id": "ST-MBP-010",
+      "name": "포인트 적립 예정",
+      "description": "포인트 적립 조건은 충족했으나 지급 예정일 전이거나 제휴처 정산 전인 상태다.",
+      "next_action": "지급 예정일과 실패 가능 사유를 안내한다."
+    },
+    {
+      "id": "ST-MBP-011",
+      "name": "포인트 사용 가능",
+      "description": "사용 가능 잔액과 사용처, 최소 사용 조건을 충족한 상태다.",
+      "next_action": "사용, 선물, 통합, 소멸 예정 확인 행동을 제공한다."
+    },
+    {
+      "id": "ST-MBP-012",
+      "name": "포인트 정정 처리 중",
+      "description": "적립 누락, 사용 오류, 반영 지연에 대한 정정 또는 문의가 접수된 상태다.",
+      "next_action": "접수, 검토중, 추가 확인, 보정 완료, 반려 상태를 안내한다."
+    },
+    {
+      "id": "ST-MBP-013",
+      "name": "정지·회수",
+      "description": "부정사용, 정책 위반, 결제 실패, 멤버십 정지로 혜택 또는 포인트 사용이 제한된 상태다.",
+      "next_action": "사유, 영향, 이의제기·문의 경로를 안내한다."
+    },
+    {
+      "id": "ST-MBP-014",
+      "name": "정산 보류",
+      "description": "사용 결과와 제휴처·포인트 시스템 반영 상태가 일치하지 않아 운영 확인이 필요한 상태다.",
+      "next_action": "운영자 보정과 고객 안내 이력을 생성한다."
+    },
+    {
+      "id": "ST-MBP-015",
+      "name": "재연동 필요",
+      "description": "번호이동, 요금제 변경, 기기변경 등으로 멤버십 연결 복구가 필요한 상태다.",
+      "next_action": "단계별 재연동 절차와 완료 기준을 안내한다."
+    }
+  ],
+  "state_transitions": [
+    {
+      "current_state": "진입 가능",
+      "event": "멤버십 리워드 탐색과 가치 이해",
+      "next_state": "혜택 탐색 중",
+      "criteria": "고객이 홈, 혜택 허브, 알림에서 멤버십 리워드로 진입하면 혜택 탐색 중으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-001"
+      ]
+    },
+    {
+      "current_state": "혜택 탐색 중",
+      "event": "등급·혜택 상태 판정",
+      "next_state": "사용 가능",
+      "criteria": "등급, 한도, 기간, 제휴처 상태, 정지 여부가 충족되면 사용 가능으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-001",
+        "US-MBP-SYS-005"
+      ]
+    },
+    {
+      "current_state": "혜택 탐색 중",
+      "event": "등급·혜택 상태 판정",
+      "next_state": "조건 미충족",
+      "criteria": "고객 조건, 잔여 한도, 기간, 제휴처 운영시간 중 하나라도 충족되지 않으면 조건 미충족으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-001",
+        "US-MBP-SYS-005"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "멤버십 혜택 사용 경험 완결",
+      "next_state": "사용 진행 중",
+      "criteria": "고객이 바코드, 매직바코드, 카드번호, 제휴 링크, 포인트 사용을 요청하면 사용 진행 중으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-002"
+      ]
+    },
+    {
+      "current_state": "사용 진행 중",
+      "event": "제휴처 혜택 사용 승인·오류 회신",
+      "next_state": "사용 완료",
+      "criteria": "제휴처 승인 또는 포인트 사용 반영이 성공하면 사용 완료로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-003",
+        "US-MBP-SYS-002"
+      ]
+    },
+    {
+      "current_state": "사용 진행 중",
+      "event": "제휴처 혜택 사용 승인·오류 회신",
+      "next_state": "오류·복구 필요",
+      "criteria": "바코드 호출 실패, 제휴처 거절, 포인트 반영 실패, 네트워크 오류가 발생하면 오류·복구 필요로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-003",
+        "US-MBP-CUS-002"
+      ]
+    },
+    {
+      "current_state": "오류·복구 필요",
+      "event": "멤버십 혜택 사용 경험 완결",
+      "next_state": "사용 가능",
+      "criteria": "재시도 또는 대체수단으로 사용 조건이 다시 충족되면 사용 가능으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-002"
+      ]
+    },
+    {
+      "current_state": "혜택 탐색 중",
+      "event": "멤버십 등급과 혜택 상태 관리",
+      "next_state": "등급 산정 대기",
+      "criteria": "고객이 등급 변경 예정 또는 산정 근거를 조회하고 결과가 미확정이면 등급 산정 대기로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-003"
+      ]
+    },
+    {
+      "current_state": "등급 산정 대기",
+      "event": "등급·혜택 상태 판정",
+      "next_state": "등급 반영 완료",
+      "criteria": "등급 산정 결과가 확정되어 고객 등급과 혜택 조건에 반영되면 등급 반영 완료로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-001"
+      ]
+    },
+    {
+      "current_state": "혜택 탐색 중",
+      "event": "T 플러스포인트 자산 관리",
+      "next_state": "포인트 적립 예정",
+      "criteria": "이벤트, 미션, 혜택 보상으로 포인트 지급 예정 건이 생성되면 포인트 적립 예정으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-004",
+        "US-MBP-SYS-002"
+      ]
+    },
+    {
+      "current_state": "포인트 적립 예정",
+      "event": "포인트 적립·사용·정산 반영",
+      "next_state": "포인트 사용 가능",
+      "criteria": "포인트 지급일이 도래하고 잔액에 반영되면 포인트 사용 가능으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-002"
+      ]
+    },
+    {
+      "current_state": "포인트 사용 가능",
+      "event": "T 플러스포인트 자산 관리",
+      "next_state": "포인트 정정 처리 중",
+      "criteria": "고객이 적립 누락, 사용 오류, 반영 지연에 대한 정정 또는 문의를 접수하면 포인트 정정 처리 중으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-004"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "혜택 오류·정지·회수 예외 운영",
+      "next_state": "정지·회수",
+      "criteria": "부정사용, 정책 위반, 결제 실패, 멤버십 정지 처리로 사용 제한이 필요하면 정지·회수로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-OPS-005"
+      ]
+    },
+    {
+      "current_state": "사용 완료",
+      "event": "포인트 적립·사용·정산 반영",
+      "next_state": "정산 보류",
+      "criteria": "사용 결과와 포인트 또는 제휴처 반영 상태가 일치하지 않으면 정산 보류로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-SYS-002",
+        "US-MBP-SYS-003"
+      ]
+    },
+    {
+      "current_state": "진입 가능",
+      "event": "멤버십 알림과 재방문 관리",
+      "next_state": "재연동 필요",
+      "criteria": "번호이동, 요금제 변경, 기기변경으로 멤버십 연결이 불일치하면 재연동 필요로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-005",
+        "US-MBP-SYS-004"
+      ]
+    },
+    {
+      "current_state": "진입 가능",
+      "event": "내 혜택 한눈에 보기 및 쿠폰 일괄 다운로드",
+      "next_state": "혜택 탐색 중",
+      "criteria": "고객이 내 혜택을 카테고리·만료일·사용 상태 기준으로 조회하거나 쿠폰형 혜택을 일괄 다운로드하면 혜택 탐색 중으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-001"
+      ]
+    },
+    {
+      "current_state": "사용 가능",
+      "event": "바코드 0 Depth 즉시 호출 체계 도입",
+      "next_state": "사용 진행 중",
+      "criteria": "고객이 허용된 숏컷이나 앱 진입점에서 통합 바코드를 즉시 호출하면 사용 진행 중으로 전환한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-002"
+      ]
+    },
+    {
+      "current_state": "사용 진행 중",
+      "event": "바코드 화면 내 포인트 사용 사전 세팅 기능",
+      "next_state": "사용 진행 중",
+      "criteria": "고객이 결제 전 포인트 전액 사용 또는 일부 사용을 선택하면 사용 진행 중 상태에서 적용 금액과 제한 조건을 다시 판정한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-002",
+        "US-MBP-CUS-004"
+      ]
+    },
+    {
+      "current_state": "사용 완료",
+      "event": "결제 직후 앱 내 실시간 절약 피드백 제공",
+      "next_state": "사용 완료",
+      "criteria": "제휴처 승인 또는 포인트 사용 결과가 확인되면 사용 완료 상태에서 절약 금액, 적용 혜택, 이력 조회 경로를 안내한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-002",
+        "US-MBP-CUS-003"
+      ]
+    },
+    {
+      "current_state": "포인트 사용 가능",
+      "event": "공유 지갑 그룹 구성 및 실시간 동기화 운영 기능",
+      "next_state": "포인트 사용 가능",
+      "criteria": "대표자가 공유 지갑 그룹을 구성하고 멤버 권한과 동시 사용 차단 기준이 충족되면 포인트 사용 가능 상태를 유지하면서 공동 자산 동기화 이력을 저장한다.",
+      "usecase_ids": [
+        "US-MBP-CUS-004"
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "id": "PR-MBP-HUB-001",
+      "usecase_id": "US-MBP-CUS-001",
+      "name": "혜택 허브 진입과 가치 우선 탐색",
+      "description": "고객이 홈, 혜택 허브, 알림에서 지금 쓸 수 있는 멤버십 리워드와 대표 가치를 탐색하고 내 혜택 한눈에 보기와 쿠폰 일괄 다운로드 가능 여부를 확인한다.",
+      "related_functions": [
+        "FN-MBP-HUB-001",
+        "FN-MBP-VALUE-001",
+        "FN-MBP-ENGAGE-001"
+      ],
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-VALUE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-HUB-002",
+      "usecase_id": "US-MBP-CUS-001",
+      "name": "조건·상태·사용처 이해",
+      "description": "고객이 혜택 상세에서 사용 조건, 제한 사유, 사용처, 사용수단, 등급 차이를 이해한다.",
+      "related_functions": [
+        "FN-MBP-DETAIL-001",
+        "FN-MBP-ELIG-001"
+      ],
+      "related_policies": [
+        "PG-MBP-ELIG-001",
+        "PG-MBP-SCOPE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-HUB-003",
+      "usecase_id": "US-MBP-CUS-001",
+      "name": "개인화·내 주변 혜택 선택",
+      "description": "고객이 최근 사용, 위치, 보유상품, 시간대, 세그먼트, 관심 브랜드, 브랜드 친밀도 기준으로 자신에게 맞는 혜택과 알림 대상을 선택한다.",
+      "related_functions": [
+        "FN-MBP-PERSONAL-001",
+        "FN-MBP-ENGAGE-001"
+      ],
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-VALUE-001",
+        "PG-MBP-NOTI-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-USE-001",
+      "usecase_id": "US-MBP-CUS-002",
+      "name": "사용 가능 상태 판정",
+      "description": "고객이 혜택 사용 전 등급, 잔여 한도, 기간, 제휴처 운영시간, 정지 상태를 확인한다.",
+      "related_functions": [
+        "FN-MBP-ELIG-001",
+        "FN-MBP-BARCODE-001"
+      ],
+      "related_policies": [
+        "PG-MBP-ELIG-001",
+        "PG-MBP-USE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-USE-002",
+      "usecase_id": "US-MBP-CUS-002",
+      "name": "바코드·카드 제시와 혜택 적용",
+      "description": "고객이 통합 바코드, 매직바코드, 카드번호, 포인트 사용 사전 세팅 중 필요한 사용수단을 선택해 혜택을 적용한다.",
+      "related_functions": [
+        "FN-MBP-BARCODE-001",
+        "FN-MBP-BARCODE-002",
+        "FN-MBP-BARCODE-003",
+        "FN-MBP-POINT-002"
+      ],
+      "related_policies": [
+        "PG-MBP-USE-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-POINT-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-USE-003",
+      "usecase_id": "US-MBP-CUS-002",
+      "name": "사용 오류 복구와 상담 전환",
+      "description": "고객이 바코드 호출 실패, 제휴처 거절, 조건 불일치 시 대체 수단과 상담 연결을 선택한다.",
+      "related_functions": [
+        "FN-MBP-FAIL-001",
+        "FN-MBP-CS-001"
+      ],
+      "related_policies": [
+        "PG-MBP-FAIL-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-GRD-001",
+      "usecase_id": "US-MBP-CUS-003",
+      "name": "등급·혜택 현황 조회",
+      "description": "고객이 회선 또는 계정 기준의 가입 상태, 현재 등급, 적용 가능한 핵심 혜택을 확인한다.",
+      "related_functions": [
+        "FN-MBP-GRADE-001",
+        "FN-MBP-HIST-001"
+      ],
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-GRD-002",
+      "usecase_id": "US-MBP-CUS-003",
+      "name": "등급 산정 근거와 달성 조건 이해",
+      "description": "고객이 등급 산정 기준, 제외 항목, 확정·추정 구분, 다음 등급까지 부족 조건을 확인한다.",
+      "related_functions": [
+        "FN-MBP-GRADE-001",
+        "FN-MBP-VALUE-001"
+      ],
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-VALUE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-GRD-003",
+      "usecase_id": "US-MBP-CUS-003",
+      "name": "혜택 가치와 사용 이력 확인",
+      "description": "고객이 월간·누적 절감액, 결제 직후 절약 피드백, AI 소비 분석 리포트, 사용 이력, 변경 예정 혜택, 데이터 최신성을 확인한다.",
+      "related_functions": [
+        "FN-MBP-VALUE-001",
+        "FN-MBP-HIST-001",
+        "FN-MBP-SAVING-001"
+      ],
+      "related_policies": [
+        "PG-MBP-VALUE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-PNT-001",
+      "usecase_id": "US-MBP-CUS-004",
+      "name": "포인트 잔액·소멸 예정 조회",
+      "description": "고객이 사용 가능 포인트, 적립·소멸 예정 포인트, 소멸 시점과 사용 가능 경로를 확인한다.",
+      "related_functions": [
+        "FN-MBP-POINT-001",
+        "FN-MBP-HIST-001"
+      ],
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-PNT-002",
+      "usecase_id": "US-MBP-CUS-004",
+      "name": "포인트 적립·사용·선물 실행",
+      "description": "고객이 포인트 적립 결과, 사용처, 사용 단위, 선물 한도와 수신자 확인을 거쳐 포인트를 활용한다.",
+      "related_functions": [
+        "FN-MBP-POINT-002",
+        "FN-MBP-POINTX-001"
+      ],
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-POINTX-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-PNT-003",
+      "usecase_id": "US-MBP-CUS-004",
+      "name": "포인트 통합·이관·정정 요청",
+      "description": "고객이 다회선 포인트 통합, 명의변경 이관, 적립 누락·상태 불일치 정정 요청 상태를 확인한다.",
+      "related_functions": [
+        "FN-MBP-POINTX-001",
+        "FN-MBP-POINT-003"
+      ],
+      "related_policies": [
+        "PG-MBP-POINTX-001",
+        "PG-MBP-POINT-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-NTF-001",
+      "usecase_id": "US-MBP-CUS-005",
+      "name": "멤버십 알림 수신 설정",
+      "description": "고객이 등급 변경, 소멸 예정, 신규 혜택, 기간 한정 혜택 알림의 채널과 빈도를 설정한다.",
+      "related_functions": [
+        "FN-MBP-NOTI-001",
+        "FN-MBP-HUB-001"
+      ],
+      "related_policies": [
+        "PG-MBP-NOTI-001",
+        "PG-MBP-HUB-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-NTF-002",
+      "usecase_id": "US-MBP-CUS-005",
+      "name": "재연동·복구 안내 수신",
+      "description": "고객이 번호이동, 요금제 변경, 기기변경 이후 멤버십 재연동 절차와 복구 상태를 안내받는다.",
+      "related_functions": [
+        "FN-MBP-NOTI-001",
+        "FN-MBP-CS-001"
+      ],
+      "related_policies": [
+        "PG-MBP-NOTI-001",
+        "PG-MBP-FAIL-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-OPS-001",
+      "usecase_id": "US-MBP-OPS-001",
+      "name": "혜택 프로그램 편성 캘린더 관리",
+      "description": "운영자가 월간·주간·시즌성 혜택과 프로모션 데이를 편성 캘린더로 관리한다.",
+      "related_functions": [
+        "FN-MBP-OPS-001",
+        "FN-MBP-HUB-001"
+      ],
+      "related_policies": [
+        "PG-MBP-PROMO-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-OPS-002",
+      "usecase_id": "US-MBP-OPS-001",
+      "name": "대상·혜택·노출 우선순위 설정",
+      "description": "운영자가 대상 조건, 혜택 구성, 노출 위치, 중복 노출 제한, 개인화 우선순위를 설정한다.",
+      "related_functions": [
+        "FN-MBP-OPS-001",
+        "FN-MBP-PERSONAL-001"
+      ],
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-OPS-003",
+      "usecase_id": "US-MBP-OPS-001",
+      "name": "프로그램 검수·배포·변경 이력 저장",
+      "description": "운영자가 혜택 프로그램을 검수, 승인, 배포하고 변경 이력을 저장한다.",
+      "related_functions": [
+        "FN-MBP-AUDIT-001",
+        "FN-MBP-OPS-001"
+      ],
+      "related_policies": [
+        "PG-MBP-OPS-001",
+        "PG-MBP-TRACE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-GOP-001",
+      "usecase_id": "US-MBP-OPS-002",
+      "name": "등급 산정 로직 관리",
+      "description": "운영자가 등급 산정 주기, 지표 조합, 제외 항목, 적용 시점을 설정한다.",
+      "related_functions": [
+        "FN-MBP-GRADE-OPS-001",
+        "FN-MBP-AUDIT-001"
+      ],
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-TRACE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-GOP-002",
+      "usecase_id": "US-MBP-OPS-002",
+      "name": "등급별 제휴 혜택 정책 등록",
+      "description": "운영자가 제휴사 상품·혜택 정보를 수신받아 등급별 적립, 사용, 할인 정책을 등록한다.",
+      "related_functions": [
+        "FN-MBP-PARTNER-001",
+        "FN-MBP-GRADE-OPS-001"
+      ],
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-BAROPS-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-GOP-003",
+      "usecase_id": "US-MBP-OPS-002",
+      "name": "등급 일괄 반영과 변경 이력 관리",
+      "description": "운영자가 등급 산정 결과를 고객 등급에 일괄 반영하고 변경 이력을 조회한다.",
+      "related_functions": [
+        "FN-MBP-GRADE-OPS-001",
+        "FN-MBP-HIST-001"
+      ],
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-BOP-001",
+      "usecase_id": "US-MBP-OPS-003",
+      "name": "카드 유형·제휴처 사용 조건 관리",
+      "description": "운영자가 일반 카드, 매직바코드, 통합 바코드, 카드번호의 제휴처별 사용 가능 조건, 제외 조건, 브랜드 Identity 반영 기준을 관리한다.",
+      "related_functions": [
+        "FN-MBP-BAROPS-001",
+        "FN-MBP-PARTNER-001"
+      ],
+      "related_policies": [
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-BOP-002",
+      "usecase_id": "US-MBP-OPS-003",
+      "name": "매직바코드 채번·유효시간 정책 관리",
+      "description": "운영자가 매직바코드 발급 조건, 유효시간, 재발급 가능 여부, 사용 완료 처리 기준을 관리한다.",
+      "related_functions": [
+        "FN-MBP-BAROPS-001",
+        "FN-MBP-BARCODE-002"
+      ],
+      "related_policies": [
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-USE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-BOP-003",
+      "usecase_id": "US-MBP-OPS-003",
+      "name": "바코드 실패 예외와 알림 정책 관리",
+      "description": "운영자가 바코드 호출 실패, 스캔 실패, 유효시간 만료, 제휴처 불가 유형별 안내와 대체수단을 관리한다.",
+      "related_functions": [
+        "FN-MBP-FAIL-001",
+        "FN-MBP-NOTI-001"
+      ],
+      "related_policies": [
+        "PG-MBP-FAIL-001",
+        "PG-MBP-NOTI-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-POP-001",
+      "usecase_id": "US-MBP-OPS-004",
+      "name": "포인트 적립·회수 조건 운영",
+      "description": "운영자가 T 플러스포인트 적립 규모, 조건, 한도, 회수·정정 기준을 운영한다.",
+      "related_functions": [
+        "FN-MBP-POINT-OPS-001",
+        "FN-MBP-AUDIT-001"
+      ],
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-SETTLE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-POP-002",
+      "usecase_id": "US-MBP-OPS-004",
+      "name": "포인트 사용·선물·통합 제한 운영",
+      "description": "운영자가 포인트 사용처, 사용 단위, 선물 한도, 다회선 통합 제한을 관리한다.",
+      "related_functions": [
+        "FN-MBP-POINT-OPS-001",
+        "FN-MBP-POINTX-001"
+      ],
+      "related_policies": [
+        "PG-MBP-POINTX-001",
+        "PG-MBP-POINT-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-POP-003",
+      "usecase_id": "US-MBP-OPS-004",
+      "name": "포인트 정산·오류 보정",
+      "description": "운영자가 적립·사용·취소·회수·소멸 내역을 모니터링하고 오류 건을 정산 보류 또는 보정한다.",
+      "related_functions": [
+        "FN-MBP-SETTLE-001",
+        "FN-MBP-POINT-003"
+      ],
+      "related_policies": [
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001",
+        "PG-MBP-FAIL-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-ERR-001",
+      "usecase_id": "US-MBP-OPS-005",
+      "name": "혜택 정지·회수 영향 산정",
+      "description": "운영자가 부정사용, 정책 위반, 결제 실패, 정지 상태에 따른 영향 대상과 고객 고지 필요성을 산정한다.",
+      "related_functions": [
+        "FN-MBP-FAIL-001",
+        "FN-MBP-AUDIT-001"
+      ],
+      "related_policies": [
+        "PG-MBP-FAIL-001",
+        "PG-MBP-NOTI-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-ERR-002",
+      "usecase_id": "US-MBP-OPS-005",
+      "name": "상담·증빙·재발급 예외 처리",
+      "description": "운영자가 증빙 제출, 상담 연결, 재발급 가능 여부, 예외 승인 기준을 처리한다.",
+      "related_functions": [
+        "FN-MBP-CS-001",
+        "FN-MBP-FAIL-001"
+      ],
+      "related_policies": [
+        "PG-MBP-FAIL-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-REP-001",
+      "usecase_id": "US-MBP-MKT-001",
+      "name": "프로그램 성과 리포트 조회",
+      "description": "운영자가 프로그램별 노출, 진입, 사용, 이탈, 재방문, 전환, 브랜드 친밀도, 절약 리포트 사용 실적을 조회한다.",
+      "related_functions": [
+        "FN-MBP-REPORT-001",
+        "FN-MBP-ENGAGE-001",
+        "FN-MBP-SAVING-001"
+      ],
+      "related_policies": [
+        "PG-MBP-TRACE-001",
+        "PG-MBP-VALUE-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-REP-002",
+      "usecase_id": "US-MBP-MKT-001",
+      "name": "제휴처 오류·전환 개선 대상 식별",
+      "description": "운영자가 제휴처별 오류, 바코드 실패, 포인트 오류, 서비스 전환 저하 구간을 식별하고 개선 대상으로 등록한다.",
+      "related_functions": [
+        "FN-MBP-REPORT-001",
+        "FN-MBP-PARTNER-001"
+      ],
+      "related_policies": [
+        "PG-MBP-TRACE-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-FAIL-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "PR-MBP-PNT-004",
+      "usecase_id": "US-MBP-CUS-004",
+      "name": "공유 지갑 그룹 구성과 동기화 확인",
+      "description": "고객이 가족·지인을 초대해 공유 지갑 그룹을 구성하고 포인트·쿠폰·바코드 공동 사용 상태와 실시간 동기화 결과를 확인한다.",
+      "related_functions": [
+        "FN-MBP-WALLET-001",
+        "FN-MBP-POINTX-001",
+        "FN-MBP-HIST-001"
+      ],
+      "related_policies": [
+        "PG-MBP-POINTX-001",
+        "PG-MBP-HIST-001"
+      ]
+    }
+  ],
+  "process_details": [],
+  "functions": [
+    {
+      "id": "FN-MBP-HUB-001",
+      "name": "통합 혜택 허브 구성",
+      "description": "멤버십 혜택, 포인트, 쿠폰, 프로모션을 고객 상태와 가치 기준으로 통합 전시한다.",
+      "details": [
+        "혜택 허브",
+        "상태별 섹션",
+        "로그인 전 가치",
+        "진입 훅",
+        "VIPPICK 경로",
+        "내 혜택 한눈에 보기",
+        "쿠폰 일괄 다운로드",
+        "소셜 티커"
+      ],
+      "process_ids": [
+        "PR-MBP-HUB-001",
+        "PR-MBP-HUB-003",
+        "PR-MBP-OPS-002"
+      ],
+      "process_id": "PR-MBP-HUB-001",
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-VALUE-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-DETAIL-001",
+      "name": "혜택 상세 핵심정보 구성",
+      "description": "혜택 가치, 사용처, 사용수단, 조건, 제한 사유를 고객 판단 순서로 구성한다.",
+      "details": [
+        "핵심 가치",
+        "사용 조건",
+        "제외 사유",
+        "참여 경로"
+      ],
+      "process_ids": [
+        "PR-MBP-HUB-002"
+      ],
+      "process_id": "PR-MBP-HUB-002",
+      "related_policies": [
+        "PG-MBP-ELIG-001",
+        "PG-MBP-SCOPE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-ELIG-001",
+      "name": "혜택 자격·상태 판정",
+      "description": "등급, 잔여 한도, 기간, 위치, 제휴처 상태를 기준으로 사용 가능 상태를 판정한다.",
+      "details": [
+        "등급 판정",
+        "잔여 한도",
+        "사용 상태",
+        "불가 사유"
+      ],
+      "process_ids": [
+        "PR-MBP-HUB-002",
+        "PR-MBP-USE-001"
+      ],
+      "process_id": "PR-MBP-USE-001",
+      "related_policies": [
+        "PG-MBP-ELIG-001",
+        "PG-MBP-SCOPE-001",
+        "PG-MBP-USE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-PERSONAL-001",
+      "name": "개인화 혜택 우선순위",
+      "description": "최근 사용, 위치, 시간대, 보유상품, 관심도 기준으로 혜택 노출 순서를 산정한다.",
+      "details": [
+        "최근 사용",
+        "위치·시간",
+        "보유상품",
+        "비선호 제외"
+      ],
+      "process_ids": [
+        "PR-MBP-HUB-003",
+        "PR-MBP-OPS-002"
+      ],
+      "process_id": "PR-MBP-HUB-003",
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-BARCODE-001",
+      "name": "멤버십 카드·바코드 표시",
+      "description": "일반 카드, 카드번호, 제휴처 링크를 사용 가능 상태와 함께 표시한다.",
+      "details": [
+        "일반 카드",
+        "카드번호",
+        "제휴 링크",
+        "즉시 진입",
+        "UI 표준화",
+        "통합 바코드",
+        "브랜드 Identity",
+        "포인트 사전 세팅"
+      ],
+      "process_ids": [
+        "PR-MBP-USE-001",
+        "PR-MBP-USE-002"
+      ],
+      "process_id": "PR-MBP-USE-002",
+      "related_policies": [
+        "PG-MBP-ELIG-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-POINT-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-BARCODE-002",
+      "name": "매직바코드 발급·갱신",
+      "description": "매직바코드 발급 조건, 유효시간, 재발급, 사용 완료 상태를 처리한다.",
+      "details": [
+        "발급 조건",
+        "유효시간",
+        "재발급",
+        "사용 완료"
+      ],
+      "process_ids": [
+        "PR-MBP-USE-002",
+        "PR-MBP-BOP-002"
+      ],
+      "process_id": "PR-MBP-USE-002",
+      "related_policies": [
+        "PG-MBP-USE-001",
+        "PG-MBP-BAROPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-FAIL-001",
+      "name": "혜택 오류·정지 복구",
+      "description": "사용 오류, 제휴처 거절, 정지, 회수, 재발급 예외를 분류하고 복구 행동을 제공한다.",
+      "details": [
+        "오류 분류",
+        "대체 수단",
+        "정지·회수",
+        "재발급 예외"
+      ],
+      "process_ids": [
+        "PR-MBP-USE-003",
+        "PR-MBP-BOP-003",
+        "PR-MBP-ERR-001",
+        "PR-MBP-ERR-002"
+      ],
+      "process_id": "PR-MBP-USE-003",
+      "related_policies": [
+        "PG-MBP-FAIL-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-NOTI-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-CS-001",
+      "name": "상담 fallback 연결",
+      "description": "셀프 처리 불가 상황에서 현재 멤버십 문맥을 유지해 상담 또는 문의로 연결한다.",
+      "details": [
+        "문맥 유지",
+        "증빙 제출",
+        "문의 접수",
+        "처리 상태"
+      ],
+      "process_ids": [
+        "PR-MBP-USE-003",
+        "PR-MBP-NTF-002",
+        "PR-MBP-ERR-002"
+      ],
+      "process_id": "PR-MBP-USE-003",
+      "related_policies": [
+        "PG-MBP-FAIL-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-NOTI-001",
+        "PG-MBP-BAROPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-GRADE-001",
+      "name": "등급 현황·산정 근거 제공",
+      "description": "현재 등급, 변경 예정 등급, 산정 근거, 유지·상승 조건을 제공한다.",
+      "details": [
+        "현재 등급",
+        "산정 근거",
+        "변경 예정",
+        "달성 조건",
+        "가입 확인 반영"
+      ],
+      "process_ids": [
+        "PR-MBP-GRD-001",
+        "PR-MBP-GRD-002"
+      ],
+      "process_id": "PR-MBP-GRD-001",
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-HIST-001",
+        "PG-MBP-VALUE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-VALUE-001",
+      "name": "체감가치·로열티 표시",
+      "description": "할인액, 포인트, 쿠폰, 이용권, 배지, 다음 등급 조건을 고객 가치로 표시한다.",
+      "details": [
+        "절감액",
+        "배지",
+        "등급 시뮬레이션",
+        "가치 합산"
+      ],
+      "process_ids": [
+        "PR-MBP-HUB-001",
+        "PR-MBP-GRD-002",
+        "PR-MBP-GRD-003"
+      ],
+      "process_id": "PR-MBP-GRD-003",
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-VALUE-001",
+        "PG-MBP-GRADE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-HIST-001",
+      "name": "멤버십·포인트 이력 조회",
+      "description": "혜택 사용, 등급 변경, 포인트 적립·사용·회수·소멸 이력을 제공한다.",
+      "details": [
+        "혜택 이력",
+        "등급 이력",
+        "포인트 이력",
+        "최신성 표시"
+      ],
+      "process_ids": [
+        "PR-MBP-GRD-001",
+        "PR-MBP-GRD-003",
+        "PR-MBP-PNT-001",
+        "PR-MBP-GOP-003",
+        "PR-MBP-POP-003"
+      ],
+      "process_id": "PR-MBP-GRD-003",
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-HIST-001",
+        "PG-MBP-VALUE-001",
+        "PG-MBP-POINT-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-FAIL-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-POINT-001",
+      "name": "포인트 잔액·소멸 조회",
+      "description": "사용 가능 잔액, 적립 예정, 소멸 예정, 사용 가능 경로를 조회한다.",
+      "details": [
+        "잔액",
+        "적립 예정",
+        "소멸 예정",
+        "사용 경로"
+      ],
+      "process_ids": [
+        "PR-MBP-PNT-001"
+      ],
+      "process_id": "PR-MBP-PNT-001",
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-POINT-002",
+      "name": "포인트 적립·사용 실행",
+      "description": "포인트 적립 결과, 사용 조건, 사용 단위, 제휴처 제한을 판정하고 사용을 처리한다.",
+      "details": [
+        "적립 결과",
+        "사용 조건",
+        "사용 단위",
+        "제휴처 제한",
+        "포인트 사용 사전 세팅",
+        "전액 사용 토글",
+        "결제 전 사용 금액 확인"
+      ],
+      "process_ids": [
+        "PR-MBP-PNT-002",
+        "PR-MBP-USE-002"
+      ],
+      "process_id": "PR-MBP-PNT-002",
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-POINTX-001",
+        "PG-MBP-USE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-POINTX-001",
+      "name": "포인트 선물·통합·이관",
+      "description": "명의변경 이관, 다회선 통합, 포인트 선물의 한도와 확인 절차를 처리한다.",
+      "details": [
+        "명의변경 이관",
+        "다회선 통합",
+        "포인트 선물",
+        "한도 검증"
+      ],
+      "process_ids": [
+        "PR-MBP-PNT-002",
+        "PR-MBP-PNT-003",
+        "PR-MBP-POP-002"
+      ],
+      "process_id": "PR-MBP-PNT-003",
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-POINTX-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-POINT-003",
+      "name": "포인트 정정·문의 상태 추적",
+      "description": "적립 누락, 상태 불일치, 사용 오류, 반영 지연 문의 상태를 추적한다.",
+      "details": [
+        "정정 접수",
+        "검토 상태",
+        "보정 완료",
+        "반려 사유"
+      ],
+      "process_ids": [
+        "PR-MBP-PNT-003",
+        "PR-MBP-POP-003"
+      ],
+      "process_id": "PR-MBP-PNT-003",
+      "related_policies": [
+        "PG-MBP-POINTX-001",
+        "PG-MBP-POINT-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-NOTI-001",
+      "name": "멤버십 알림·재연동 안내",
+      "description": "등급 변경, 소멸 예정, 신규 혜택, 만료, 재연동 알림과 재진입 경로를 제공한다.",
+      "details": [
+        "수신 설정",
+        "발송 트리거",
+        "재연동 안내",
+        "재진입 경로",
+        "관심 브랜드 알림",
+        "소멸 D-7·D-1 알림"
+      ],
+      "process_ids": [
+        "PR-MBP-NTF-001",
+        "PR-MBP-NTF-002",
+        "PR-MBP-BOP-003",
+        "PR-MBP-HUB-003"
+      ],
+      "process_id": "PR-MBP-NTF-001",
+      "related_policies": [
+        "PG-MBP-NOTI-001",
+        "PG-MBP-HUB-001",
+        "PG-MBP-FAIL-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-OPS-001",
+      "name": "혜택 프로그램 편성 운영",
+      "description": "정기 프로모션, 시즌 혜택, 대상 조건, 노출 기간, 우선순위를 관리한다.",
+      "details": [
+        "편성 캘린더",
+        "대상 조건",
+        "노출 위치",
+        "중복 제한"
+      ],
+      "process_ids": [
+        "PR-MBP-OPS-001",
+        "PR-MBP-OPS-002",
+        "PR-MBP-OPS-003"
+      ],
+      "process_id": "PR-MBP-OPS-001",
+      "related_policies": [
+        "PG-MBP-PROMO-001",
+        "PG-MBP-OPS-001",
+        "PG-MBP-HUB-001",
+        "PG-MBP-TRACE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-AUDIT-001",
+      "name": "승인·변경 이력 관리",
+      "description": "프로그램, 등급 로직, 포인트, 정지·회수 작업의 승인과 변경 이력을 저장한다.",
+      "details": [
+        "승인 흐름",
+        "변경 전후",
+        "영향 대상",
+        "보관 기간"
+      ],
+      "process_ids": [
+        "PR-MBP-OPS-003",
+        "PR-MBP-GOP-001",
+        "PR-MBP-POP-001",
+        "PR-MBP-ERR-001"
+      ],
+      "process_id": "PR-MBP-OPS-003",
+      "related_policies": [
+        "PG-MBP-OPS-001",
+        "PG-MBP-TRACE-001",
+        "PG-MBP-GRADE-001",
+        "PG-MBP-POINT-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-FAIL-001",
+        "PG-MBP-NOTI-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-GRADE-OPS-001",
+      "name": "등급 산정·일괄 반영 운영",
+      "description": "등급 산정 로직과 일괄 반영, 변경 이력, Lite 등급 기준을 운영한다.",
+      "details": [
+        "산정 주기",
+        "지표 조합",
+        "일괄 반영",
+        "Lite 기준"
+      ],
+      "process_ids": [
+        "PR-MBP-GOP-001",
+        "PR-MBP-GOP-002",
+        "PR-MBP-GOP-003"
+      ],
+      "process_id": "PR-MBP-GOP-001",
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-TRACE-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-HIST-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-PARTNER-001",
+      "name": "제휴처·가맹점 매핑 관리",
+      "description": "제휴 브랜드, 가맹점, 카테고리, 등급별 혜택 정책과 예외 규칙을 관리한다.",
+      "details": [
+        "브랜드 매핑",
+        "가맹점 조건",
+        "등급별 혜택",
+        "예외 규칙",
+        "브랜드 컬러·로고",
+        "브랜드 Identity 검수"
+      ],
+      "process_ids": [
+        "PR-MBP-GOP-002",
+        "PR-MBP-BOP-001",
+        "PR-MBP-REP-002"
+      ],
+      "process_id": "PR-MBP-GOP-002",
+      "related_policies": [
+        "PG-MBP-GRADE-001",
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-TRACE-001",
+        "PG-MBP-OPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-BAROPS-001",
+      "name": "바코드 정책 운영",
+      "description": "카드 유형, 매직바코드, 유효시간, 재발급, 실패 예외 정책을 운영한다.",
+      "details": [
+        "카드 유형",
+        "채번 정책",
+        "유효시간",
+        "실패 예외"
+      ],
+      "process_ids": [
+        "PR-MBP-BOP-001",
+        "PR-MBP-BOP-002",
+        "PR-MBP-BOP-003"
+      ],
+      "process_id": "PR-MBP-BOP-001",
+      "related_policies": [
+        "PG-MBP-BAROPS-001",
+        "PG-MBP-USE-001",
+        "PG-MBP-FAIL-001",
+        "PG-MBP-NOTI-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-POINT-OPS-001",
+      "name": "포인트 운영 기준 관리",
+      "description": "포인트 적립 규모, 조건, 한도, 사용처, 선물, 통합 제한을 관리한다.",
+      "details": [
+        "적립 조건",
+        "사용처",
+        "선물 한도",
+        "통합 제한"
+      ],
+      "process_ids": [
+        "PR-MBP-POP-001",
+        "PR-MBP-POP-002"
+      ],
+      "process_id": "PR-MBP-POP-001",
+      "related_policies": [
+        "PG-MBP-POINT-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-POINTX-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-SETTLE-001",
+      "name": "포인트·혜택 정산 관리",
+      "description": "포인트와 혜택 사용 실적을 정산하고 오류·불일치 건을 보류·보정한다.",
+      "details": [
+        "사용 실적",
+        "정산 보류",
+        "오류 보정",
+        "회수 처리"
+      ],
+      "process_ids": [
+        "PR-MBP-POP-003",
+        "PR-MBP-REP-001"
+      ],
+      "process_id": "PR-MBP-POP-003",
+      "related_policies": [
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-HIST-001",
+        "PG-MBP-TRACE-001",
+        "PG-MBP-FAIL-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-REPORT-001",
+      "name": "성과 리포트·전환 분석",
+      "description": "프로그램별 노출, 진입, 사용, 이탈, 재방문, 전환 실적을 분석한다.",
+      "details": [
+        "노출·진입",
+        "사용·이탈",
+        "재방문",
+        "전환 분석"
+      ],
+      "process_ids": [
+        "PR-MBP-REP-001",
+        "PR-MBP-REP-002"
+      ],
+      "process_id": "PR-MBP-REP-001",
+      "related_policies": [
+        "PG-MBP-TRACE-001",
+        "PG-MBP-SETTLE-001",
+        "PG-MBP-BAROPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-BARCODE-003",
+      "name": "통합 바코드 0 Depth 호출",
+      "description": "앱 실행, 숏컷, 위젯, Shake 동작 등 허용된 진입점에서 통합 바코드를 즉시 호출하고 광고·팝업 차단 여부를 판정한다.",
+      "details": [
+        "통합 바코드",
+        "0 Depth 진입",
+        "숏컷 호출",
+        "팝업 차단 예외",
+        "사용수단 우선순위"
+      ],
+      "process_ids": [
+        "PR-MBP-USE-002",
+        "PR-MBP-BOP-001"
+      ],
+      "process_id": "PR-MBP-USE-002",
+      "related_policies": [
+        "PG-MBP-USE-001",
+        "PG-MBP-BAROPS-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-ENGAGE-001",
+      "name": "소셜 티커·브랜드 친밀도",
+      "description": "혜택 사용·관심 행동을 기반으로 소셜 티커, 브랜드 친밀도, 관심 브랜드 알림, 숨김/제외 상태를 산정한다.",
+      "details": [
+        "소셜 티커",
+        "브랜드 친밀도",
+        "관심 브랜드",
+        "숨김·제외",
+        "어뷰징 방지"
+      ],
+      "process_ids": [
+        "PR-MBP-HUB-001",
+        "PR-MBP-HUB-003",
+        "PR-MBP-REP-001"
+      ],
+      "process_id": "PR-MBP-HUB-003",
+      "related_policies": [
+        "PG-MBP-HUB-001",
+        "PG-MBP-VALUE-001",
+        "PG-MBP-NOTI-001",
+        "PG-MBP-TRACE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-SAVING-001",
+      "name": "절약 피드백·AI 리포트",
+      "description": "혜택 사용 직후 절약 금액을 안내하고 월간·분기별 AI 소비 분석 리포트와 게이미피케이션 등급을 생성한다.",
+      "details": [
+        "실시간 절약 피드백",
+        "누적 절약 금액",
+        "AI 소비 분석",
+        "절약 레벨",
+        "리포트 이력"
+      ],
+      "process_ids": [
+        "PR-MBP-GRD-003",
+        "PR-MBP-REP-001"
+      ],
+      "process_id": "PR-MBP-GRD-003",
+      "related_policies": [
+        "PG-MBP-VALUE-001",
+        "PG-MBP-HIST-001",
+        "PG-MBP-TRACE-001"
+      ]
+    },
+    {
+      "id": "FN-MBP-WALLET-001",
+      "name": "공유 지갑 그룹·실시간 동기화",
+      "description": "가족·지인 초대, 대표자 권한, 공동 혜택 자산, 동시 사용 차단, 멤버별 사용 이력을 관리한다.",
+      "details": [
+        "그룹 초대",
+        "대표자 권한",
+        "공동 혜택 자산",
+        "실시간 동기화",
+        "동시 사용 차단"
+      ],
+      "process_ids": [
+        "PR-MBP-PNT-004",
+        "PR-MBP-PNT-002"
+      ],
+      "process_id": "PR-MBP-PNT-004",
+      "related_policies": [
+        "PG-MBP-POINTX-001",
+        "PG-MBP-HIST-001",
+        "PG-MBP-FAIL-001",
+        "PG-MBP-SETTLE-001"
+      ]
+    }
+  ],
+  "function_details": [],
+  "policy_groups": [
+    {
+      "id": "PG-MBP-SCOPE-001",
+      "name": "멤버십 리워드 범위·용어 정책",
+      "description": "멤버십 혜택, 쿠폰, 이용권, 응모권, T 플러스포인트의 범위와 표준 용어를 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-SCOPE-001-01",
+          "name": "리워드 범위"
+        },
+        {
+          "id": "PI-MBP-SCOPE-001-02",
+          "name": "표준 유형"
+        },
+        {
+          "id": "PI-MBP-SCOPE-001-03",
+          "name": "고객 문구 분리"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-HUB-001",
+      "name": "통합 혜택 허브 전시 정책",
+      "description": "혜택 허브와 진입 지점에서 고객 가치와 사용 가능성을 우선 노출하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-HUB-001-01",
+          "name": "허브 우선순위"
+        },
+        {
+          "id": "PI-MBP-HUB-001-02",
+          "name": "로그인 전 가치"
+        },
+        {
+          "id": "PI-MBP-HUB-001-03",
+          "name": "조건 분리"
+        },
+        {
+          "id": "PI-MBP-HUB-001-04",
+          "name": "VIPPICK 쿠폰 사용 경로"
+        },
+        {
+          "id": "PI-MBP-HUB-001-05",
+          "name": "내 혜택 한눈에 보기·일괄 다운로드"
+        },
+        {
+          "id": "PI-MBP-HUB-001-06",
+          "name": "소셜 티커·개인화 넛지"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-PROMO-001",
+      "name": "정기 프로모션·시즌 운영 정책",
+      "description": "T day, Universe Day, 시즌성 프로그램의 편성, 대상, 노출, 참여 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-PROMO-001-01",
+          "name": "프로모션 데이"
+        },
+        {
+          "id": "PI-MBP-PROMO-001-02",
+          "name": "편성 캘린더"
+        },
+        {
+          "id": "PI-MBP-PROMO-001-03",
+          "name": "참여 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-GRADE-001",
+      "name": "멤버십 등급 산정·적용 정책",
+      "description": "등급 산정 기준, 적용 시점, 등급 변경, 고객 고지 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-GRADE-001-01",
+          "name": "등급 산정 기준"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-02",
+          "name": "등급 적용 시점"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-03",
+          "name": "Lite 등급"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-04",
+          "name": "변경 이력"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-05",
+          "name": "이동상품 가입 확인 기반 활성화"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-ELIG-001",
+      "name": "혜택 자격·상태 판정 정책",
+      "description": "고객별 혜택 사용 가능 상태, 조건 미충족, 한도, 소진, 제휴처 상태 판정 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-ELIG-001-01",
+          "name": "상태 표준"
+        },
+        {
+          "id": "PI-MBP-ELIG-001-02",
+          "name": "실시간 잔여 기준"
+        },
+        {
+          "id": "PI-MBP-ELIG-001-03",
+          "name": "불가 사유"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-USE-001",
+      "name": "멤버십 혜택 사용·바코드 정책",
+      "description": "일반 카드, 매직바코드, 카드번호, 제휴처 사용 방식과 실패 대체 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-USE-001-01",
+          "name": "사용수단 구분"
+        },
+        {
+          "id": "PI-MBP-USE-001-02",
+          "name": "매직바코드"
+        },
+        {
+          "id": "PI-MBP-USE-001-03",
+          "name": "즉시 진입"
+        },
+        {
+          "id": "PI-MBP-USE-001-04",
+          "name": "바코드 표준"
+        },
+        {
+          "id": "PI-MBP-USE-001-05",
+          "name": "바코드 UI 표준화"
+        },
+        {
+          "id": "PI-MBP-USE-001-06",
+          "name": "통합 바코드"
+        },
+        {
+          "id": "PI-MBP-USE-001-07",
+          "name": "바코드 0 Depth 즉시 호출"
+        },
+        {
+          "id": "PI-MBP-USE-001-08",
+          "name": "포인트 사용 사전 세팅"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-VALUE-001",
+      "name": "체감 가치·로열티 정책",
+      "description": "혜택 사용 가치, 배지, 등급 달성 조건, 절감액 산정과 노출 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-VALUE-001-01",
+          "name": "체감가치 산정"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-02",
+          "name": "로열티 배지"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-03",
+          "name": "등급 시뮬레이션"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-04",
+          "name": "AI 절약 리포트"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-05",
+          "name": "결제 직후 실시간 절약 피드백"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-06",
+          "name": "브랜드 친밀도"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-POINT-001",
+      "name": "T 플러스포인트 적립·사용 정책",
+      "description": "포인트 적립, 사용, 소멸, 잔액, 사용처, 사용 단위 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-POINT-001-01",
+          "name": "적립 기준"
+        },
+        {
+          "id": "PI-MBP-POINT-001-02",
+          "name": "사용 기준"
+        },
+        {
+          "id": "PI-MBP-POINT-001-03",
+          "name": "소멸 기준"
+        },
+        {
+          "id": "PI-MBP-POINT-001-04",
+          "name": "적립 실패"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-POINTX-001",
+      "name": "T 플러스포인트 이관·선물·통합 정책",
+      "description": "명의변경 이관, 선물, 다회선 통합, 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-POINTX-001-01",
+          "name": "명의변경 이관"
+        },
+        {
+          "id": "PI-MBP-POINTX-001-02",
+          "name": "다회선 통합"
+        },
+        {
+          "id": "PI-MBP-POINTX-001-03",
+          "name": "포인트 선물"
+        },
+        {
+          "id": "PI-MBP-POINTX-001-04",
+          "name": "공유 지갑"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-HIST-001",
+      "name": "이력·데이터 최신성 정책",
+      "description": "멤버십 혜택과 포인트의 사용 이력, 정합성, 최신성, 재조회 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-HIST-001-01",
+          "name": "사용 이력"
+        },
+        {
+          "id": "PI-MBP-HIST-001-02",
+          "name": "포인트 이력"
+        },
+        {
+          "id": "PI-MBP-HIST-001-03",
+          "name": "최신성 안내"
+        },
+        {
+          "id": "PI-MBP-HIST-001-04",
+          "name": "고객 표시 상태와 내부 상태"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-FAIL-001",
+      "name": "사용 오류·정지·복구 정책",
+      "description": "혜택 사용 오류, 정지, 회수, 재발급, 상담 fallback 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-FAIL-001-01",
+          "name": "사용 오류"
+        },
+        {
+          "id": "PI-MBP-FAIL-001-02",
+          "name": "정지·회수"
+        },
+        {
+          "id": "PI-MBP-FAIL-001-03",
+          "name": "상담 fallback"
+        },
+        {
+          "id": "PI-MBP-FAIL-001-04",
+          "name": "중복 요청·멱등 처리"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-NOTI-001",
+      "name": "멤버십 알림·재방문 정책",
+      "description": "등급 변경, 소멸 예정, 신규 혜택, 만료, 프로모션 알림 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-NOTI-001-01",
+          "name": "수신 설정"
+        },
+        {
+          "id": "PI-MBP-NOTI-001-02",
+          "name": "발송 트리거"
+        },
+        {
+          "id": "PI-MBP-NOTI-001-03",
+          "name": "재연동 안내"
+        },
+        {
+          "id": "PI-MBP-NOTI-001-04",
+          "name": "관심 브랜드 알림"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-OPS-001",
+      "name": "혜택 프로그램 운영 정책",
+      "description": "운영자의 프로그램 편성, 제휴 브랜드 매핑, 전시 우선순위, 승인 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-OPS-001-01",
+          "name": "프로그램 편성"
+        },
+        {
+          "id": "PI-MBP-OPS-001-02",
+          "name": "제휴처 매핑"
+        },
+        {
+          "id": "PI-MBP-OPS-001-03",
+          "name": "개인화 우선 노출"
+        },
+        {
+          "id": "PI-MBP-OPS-001-04",
+          "name": "세그먼트 기반 맞춤 혜택"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-BAROPS-001",
+      "name": "바코드·제휴처 사용 정책 운영",
+      "description": "운영자가 카드 유형, 매직바코드, 제휴처 사용 조건, 실패 예외를 관리하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-BAROPS-001-01",
+          "name": "카드 유형 정책"
+        },
+        {
+          "id": "PI-MBP-BAROPS-001-02",
+          "name": "매직바코드 채번"
+        },
+        {
+          "id": "PI-MBP-BAROPS-001-03",
+          "name": "실패 예외 정책"
+        },
+        {
+          "id": "PI-MBP-BAROPS-001-04",
+          "name": "브랜드 Identity 반영"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-SETTLE-001",
+      "name": "포인트·혜택 정산·모니터링 정책",
+      "description": "포인트 적립·회수·정산, 혜택 사용 실적, 오류 모니터링 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-SETTLE-001-01",
+          "name": "포인트 운영"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-02",
+          "name": "정산 기준"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-03",
+          "name": "오류 모니터링"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-04",
+          "name": "FO·BSS·제휴처 책임 경계"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-05",
+          "name": "통합 장애 영향 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-TRACE-001",
+      "name": "요구사항·성과 추적 정책",
+      "description": "전환 측정, 성과 리포트, 요구사항 추적과 개선 루프 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-TRACE-001-01",
+          "name": "전환 측정"
+        },
+        {
+          "id": "PI-MBP-TRACE-001-02",
+          "name": "성과 리포트"
+        },
+        {
+          "id": "PI-MBP-TRACE-001-03",
+          "name": "요구사항 추적"
+        }
+      ]
+    }
+  ],
+  "policy_details": [
+    {
+      "id": "PI-MBP-SCOPE-001-01",
+      "policy_id": "PG-MBP-SCOPE-001",
+      "name": "리워드 범위",
+      "content": "본 문서의 멤버십 리워드는 등급 혜택, 제휴처 할인, 쿠폰, 이용권, 응모권, T 플러스포인트, 정기 프로모션을 포함한다. 외부 쿠폰의 코드·재고 운영 상세와 결제 할인 산정은 인접 정책서에서 다룬다."
+    },
+    {
+      "id": "PI-MBP-SCOPE-001-02",
+      "policy_id": "PG-MBP-SCOPE-001",
+      "name": "표준 유형",
+      "content": "혜택 유형은 할인, 적립, 무료 제공, 쿠폰, 이용권, 응모권, 포인트, 배지로 구분한다. 고객 노출 라벨은 8개 유형 중 하나를 필수로 사용한다."
+    },
+    {
+      "id": "PI-MBP-SCOPE-001-03",
+      "policy_id": "PG-MBP-SCOPE-001",
+      "name": "고객 문구 분리",
+      "content": "내부 관리 용어와 고객 노출 용어는 분리한다. 운영 용어가 고객 화면에 노출되는 경우 검수에서 보류하고 고객 이해 문구로 변환한다."
+    },
+    {
+      "id": "PI-MBP-HUB-001-01",
+      "policy_id": "PG-MBP-HUB-001",
+      "name": "허브 우선순위",
+      "content": "혜택 허브는 지금 사용 가능, 내 주변, 자주 쓰는 혜택, 마감 임박, 높은 체감가치 순으로 우선 노출한다. 고객별 개인화 결과가 없으면 등급 대표 혜택과 정기 프로모션을 대체 노출한다."
+    },
+    {
+      "id": "PI-MBP-HUB-001-02",
+      "policy_id": "PG-MBP-HUB-001",
+      "name": "로그인 전 가치",
+      "content": "로그인 전에는 대표 혜택, 예상 절감 예시, 로그인 후 가능한 행동을 먼저 제공한다. 개인화 혜택과 잔여 한도는 로그인 이후에만 표시한다."
+    },
+    {
+      "id": "PI-MBP-HUB-001-03",
+      "policy_id": "PG-MBP-HUB-001",
+      "name": "조건 분리",
+      "content": "혜택 상세는 핵심 가치와 사용 행동을 먼저 노출하고 조건, 주의사항, 제한 사유는 별도 영역으로 분리한다. 단, 사용 불가 조건은 접기 영역이 아니라 즉시 보이는 상태 문구로 안내한다."
+    },
+    {
+      "id": "PI-MBP-PROMO-001-01",
+      "policy_id": "PG-MBP-PROMO-001",
+      "name": "프로모션 데이",
+      "content": "정기 프로모션은 대상, 기간, 시간대, 혜택 구성, 참여 횟수, 노출 위치를 필수 속성으로 가진다. 하나라도 누락되면 배포 전 검수에서 보류한다."
+    },
+    {
+      "id": "PI-MBP-PROMO-001-02",
+      "policy_id": "PG-MBP-PROMO-001",
+      "name": "편성 캘린더",
+      "content": "월간·주간·시즌성 혜택은 편성 캘린더에서 노출 기간, 우선순위, 중복 노출 제한, 연계 프로모션을 함께 관리한다."
+    },
+    {
+      "id": "PI-MBP-PROMO-001-03",
+      "policy_id": "PG-MBP-PROMO-001",
+      "name": "참여 제한",
+      "content": "프로모션 참여 횟수는 고객 1인, 회선, 기간, 프로그램 기준으로 제한할 수 있다. 제한 초과 시 남은 횟수 0회와 다음 가능 시점을 안내한다."
+    },
+    {
+      "id": "PI-MBP-GRADE-001-01",
+      "policy_id": "PG-MBP-GRADE-001",
+      "name": "등급 산정 기준",
+      "content": "등급은 연간 납부금액, 가입 기간, ARPU, 서비스 이용 실적, 구독 여부 중 운영자가 선택한 지표를 조합해 산정한다. 산정 기준과 제외 항목은 고객이 상시 조회할 수 있어야 한다."
+    },
+    {
+      "id": "PI-MBP-GRADE-001-02",
+      "policy_id": "PG-MBP-GRADE-001",
+      "name": "등급 적용 시점",
+      "content": "등급 변경 적용 시점은 즉시, 다음날, 다음월 중 하나로 관리한다. 혜택 사용 중 등급이 변경되면 요청 시점 등급과 적용 시점 등급을 모두 이력에 남긴다."
+    },
+    {
+      "id": "PI-MBP-GRADE-001-03",
+      "policy_id": "PG-MBP-GRADE-001",
+      "name": "Lite 등급",
+      "content": "비회선 고객은 운영자가 정한 가입 가능 조건을 충족한 경우 Lite 등급으로 부여할 수 있다. Lite 등급은 사용 가능 혜택과 제외 혜택을 별도 고지한다."
+    },
+    {
+      "id": "PI-MBP-GRADE-001-04",
+      "policy_id": "PG-MBP-GRADE-001",
+      "name": "변경 이력",
+      "content": "등급 산정 로직 변경은 변경 전후 기준, 영향 대상, 적용 시점, 승인자를 기록한다. 변경 이력은 최소 3년 보관한다."
+    },
+    {
+      "id": "PI-MBP-ELIG-001-01",
+      "policy_id": "PG-MBP-ELIG-001",
+      "name": "상태 표준",
+      "content": "혜택 상태는 지금 가능, 예정, 조건 미충족, 사용 완료, 만료 임박, 소진, 정지, 오류로 표준화한다. 목록, 상세, 알림, 이력은 동일 상태값을 사용한다."
+    },
+    {
+      "id": "PI-MBP-ELIG-001-02",
+      "policy_id": "PG-MBP-ELIG-001",
+      "name": "실시간 잔여 기준",
+      "content": "사용 가능 여부는 남은 횟수, 남은 수량, 남은 기간, 오늘 사용 가능 여부, 제휴처 운영시간, 소진 여부를 함께 판정한다. 판정 지연 시 마지막 업데이트 시각을 표시한다."
+    },
+    {
+      "id": "PI-MBP-ELIG-001-03",
+      "policy_id": "PG-MBP-ELIG-001",
+      "name": "불가 사유",
+      "content": "사용 불가 사유는 기간 만료, 한도 초과, 제휴처 불가, 네트워크 오류, 조건 미충족, 횟수 제한, 정지 상태로 분류한다. 고객에게는 부족 조건과 해결 행동을 함께 안내한다."
+    },
+    {
+      "id": "PI-MBP-USE-001-01",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "사용수단 구분",
+      "content": "멤버십 사용수단은 일반 카드 바코드, 매직바코드, 카드번호, 제휴처 링크로 구분한다. 혜택 상세와 바코드 화면은 현재 제휴처에서 필요한 수단을 우선 표시한다."
+    },
+    {
+      "id": "PI-MBP-USE-001-02",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "매직바코드",
+      "content": "매직바코드는 참여 가능 여부, 사용 조건, 유효시간, 재발급 가능 여부가 충족된 경우에만 발급한다. 유효시간이 만료되면 재발급 또는 일반 카드 전환을 제공한다."
+    },
+    {
+      "id": "PI-MBP-USE-001-03",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "즉시 진입",
+      "content": "고객은 홈, 혜택, 마이에서 바코드 또는 카드 화면으로 즉시 진입할 수 있어야 한다. 사용 불가 상태이면 진입 직후 사유와 대체 행동을 표시한다."
+    },
+    {
+      "id": "PI-MBP-USE-001-04",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "바코드 표준",
+      "content": "바코드 화면은 사용 가능 상태, 제시 수단, 유효시간, 보안 처리, 재시도 또는 대체 행동 영역을 채널별 동일 위치와 규칙으로 제공한다."
+    },
+    {
+      "id": "PI-MBP-VALUE-001-01",
+      "policy_id": "PG-MBP-VALUE-001",
+      "name": "체감가치 산정",
+      "content": "고객 체감가치는 할인액, 포인트 적립액, 쿠폰 가치, 이용권 가치, 등급 혜택을 월간과 누적 기준으로 합산한다. 추정값과 확정값은 구분해 표시한다."
+    },
+    {
+      "id": "PI-MBP-VALUE-001-02",
+      "policy_id": "PG-MBP-VALUE-001",
+      "name": "로열티 배지",
+      "content": "배지와 등급은 이용 기간, 혜택 사용, 연속 이용, 미션 달성 기준으로 부여한다. 다음 등급까지 부족 조건은 최대 3개 항목으로 안내한다."
+    },
+    {
+      "id": "PI-MBP-VALUE-001-03",
+      "policy_id": "PG-MBP-VALUE-001",
+      "name": "등급 시뮬레이션",
+      "content": "상위 등급 달성 조건은 현재 기준 대비 부족 금액, 이용 횟수, 구독 상태, 예상 달성 가능 범위를 시뮬레이션으로 제공한다."
+    },
+    {
+      "id": "PI-MBP-POINT-001-01",
+      "policy_id": "PG-MBP-POINT-001",
+      "name": "적립 기준",
+      "content": "T 플러스포인트는 이벤트 참여, 미션 수행, 멤버십 혜택 보상, 제휴 이용 결과에 따라 적립할 수 있다. 적립 조건, 한도, 지급 예정일, 유효기간을 사전에 안내한다."
+    },
+    {
+      "id": "PI-MBP-POINT-001-02",
+      "policy_id": "PG-MBP-POINT-001",
+      "name": "사용 기준",
+      "content": "포인트 사용은 사용처, 사용 단위, 최소 사용 조건, 제휴처별 제한, 잔액 기준을 충족한 경우에만 허용한다. 제한 조건은 사용 전 단계에서 안내한다."
+    },
+    {
+      "id": "PI-MBP-POINT-001-03",
+      "policy_id": "PG-MBP-POINT-001",
+      "name": "소멸 기준",
+      "content": "소멸 예정 포인트는 소멸 시점과 사용 가능 경로를 함께 안내한다. 소멸 임박 알림은 운영 정책에 따라 30일 전과 7일 전 중 최소 1회 발송한다."
+    },
+    {
+      "id": "PI-MBP-POINT-001-04",
+      "policy_id": "PG-MBP-POINT-001",
+      "name": "적립 실패",
+      "content": "적립 실패는 대상 아님, 한도 초과, 기간 종료, 연동 오류, 중복 적립으로 분류한다. 고객에게 실패 사유와 정정 요청 가능 여부를 안내한다."
+    },
+    {
+      "id": "PI-MBP-POINTX-001-01",
+      "policy_id": "PG-MBP-POINTX-001",
+      "name": "명의변경 이관",
+      "content": "명의변경으로 멤버십이 해지되는 경우 양도인은 잔여 T 플러스포인트를 양수인에게 이관할 수 있다. 이관은 본인확인과 양수인 확인이 완료된 경우에만 허용한다."
+    },
+    {
+      "id": "PI-MBP-POINTX-001-02",
+      "policy_id": "PG-MBP-POINTX-001",
+      "name": "다회선 통합",
+      "content": "다회선 고객은 회선별 분산 포인트를 하나의 포인트 계정으로 통합할 수 있다. 통합 후 취소 가능 기간과 회선별 원복 제한 여부를 고지한다."
+    },
+    {
+      "id": "PI-MBP-POINTX-001-03",
+      "policy_id": "PG-MBP-POINTX-001",
+      "name": "포인트 선물",
+      "content": "포인트 선물은 보유 잔액, 1회 한도, 월 횟수, 수신자 확인 상태를 충족한 경우에 허용한다. 한도와 횟수는 운영 정책에서 관리하고 선물 이력에 저장한다."
+    },
+    {
+      "id": "PI-MBP-HIST-001-01",
+      "policy_id": "PG-MBP-HIST-001",
+      "name": "사용 이력",
+      "content": "멤버십 혜택 사용 이력은 사용일시, 사용처, 혜택 유형, 상태, 실패 사유를 포함한다. 고객은 최근 1년 이력을 기본 조회할 수 있다."
+    },
+    {
+      "id": "PI-MBP-HIST-001-02",
+      "policy_id": "PG-MBP-HIST-001",
+      "name": "포인트 이력",
+      "content": "포인트 이력은 적립, 사용, 취소, 회수, 소멸, 선물, 통합 유형으로 구분한다. 각 건은 발생 사유와 처리 상태를 함께 제공한다."
+    },
+    {
+      "id": "PI-MBP-HIST-001-03",
+      "policy_id": "PG-MBP-HIST-001",
+      "name": "최신성 안내",
+      "content": "등급, 사용 현황, 포인트 잔액에 지연 가능성이 있으면 마지막 업데이트 시각과 재조회 기능을 제공한다. 지연이 24시간을 초과하면 문의 경로를 안내한다."
+    },
+    {
+      "id": "PI-MBP-FAIL-001-01",
+      "policy_id": "PG-MBP-FAIL-001",
+      "name": "사용 오류",
+      "content": "혜택 사용 처리 오류, 코드 오류, 제휴처 거절은 재시도, 재발급 가능 여부, 증빙 제출, 고객센터 연결 중 하나 이상을 제공한다."
+    },
+    {
+      "id": "PI-MBP-FAIL-001-02",
+      "policy_id": "PG-MBP-FAIL-001",
+      "name": "정지·회수",
+      "content": "부정사용, 정책 위반, 결제 실패, 멤버십 정지 상태에서는 혜택을 정지하거나 회수할 수 있다. 고객에게 사유, 영향, 이의제기 경로를 안내한다."
+    },
+    {
+      "id": "PI-MBP-FAIL-001-03",
+      "policy_id": "PG-MBP-FAIL-001",
+      "name": "상담 fallback",
+      "content": "가입 상태 불일치, 제휴처 사용 불가, 본인확인 실패, 재발급 예외는 현재 멤버십 문맥을 유지해 상담 또는 문의 채널로 연결한다."
+    },
+    {
+      "id": "PI-MBP-NOTI-001-01",
+      "policy_id": "PG-MBP-NOTI-001",
+      "name": "수신 설정",
+      "content": "고객은 등급 변경, 소멸 예정 포인트, 신규 혜택, 기간 한정 혜택 알림의 수신 여부와 채널, 빈도를 설정할 수 있다."
+    },
+    {
+      "id": "PI-MBP-NOTI-001-02",
+      "policy_id": "PG-MBP-NOTI-001",
+      "name": "발송 트리거",
+      "content": "알림은 사전 예고, 오픈 직후, 마감 임박, 수령 완료, 사용 만료 임박, 가입 완료 조건을 트리거로 발송한다. 동일 항목 중복 발송은 제한한다."
+    },
+    {
+      "id": "PI-MBP-NOTI-001-03",
+      "policy_id": "PG-MBP-NOTI-001",
+      "name": "재연동 안내",
+      "content": "번호이동, 요금제 변경, 기기변경으로 멤버십 재연동이 필요한 경우 단계별 복구 절차와 재연동 완료 기준을 알림과 화면에서 안내한다."
+    },
+    {
+      "id": "PI-MBP-OPS-001-01",
+      "policy_id": "PG-MBP-OPS-001",
+      "name": "프로그램 편성",
+      "content": "운영자는 혜택 프로그램의 노출 기간, 대상 조건, 혜택 구성, 우선순위, 중복 노출 제한, 연계 프로모션을 편성 캘린더로 관리한다."
+    },
+    {
+      "id": "PI-MBP-OPS-001-02",
+      "policy_id": "PG-MBP-OPS-001",
+      "name": "제휴처 매핑",
+      "content": "제휴 브랜드, 가맹점, 카테고리별로 연결되는 혜택 프로그램을 관리한다. 동일 제휴처가 복수 프로그램에 참여하면 우선 적용 프로그램과 예외 규칙을 설정한다."
+    },
+    {
+      "id": "PI-MBP-OPS-001-03",
+      "policy_id": "PG-MBP-OPS-001",
+      "name": "개인화 우선 노출",
+      "content": "최근 사용, 자주 사용, 보유 상품, 위치, 시간대 기준으로 개인화 우선 노출을 적용한다. 고객이 비선호한 혜택은 후순위로 배치한다."
+    },
+    {
+      "id": "PI-MBP-BAROPS-001-01",
+      "policy_id": "PG-MBP-BAROPS-001",
+      "name": "카드 유형 정책",
+      "content": "운영자는 일반 카드 바코드, 매직바코드, 카드번호의 사용 가능 제휴처, 적용 조건, 제외 조건, 유효시간을 관리한다."
+    },
+    {
+      "id": "PI-MBP-BAROPS-001-02",
+      "policy_id": "PG-MBP-BAROPS-001",
+      "name": "매직바코드 채번",
+      "content": "매직바코드 채번은 발급 대상, 발급 조건, 유효시간, 재발급 가능 여부, 사용 완료 처리 기준을 충족해야 한다. 정책 변경 시 영향 대상과 적용 시점을 확인한다."
+    },
+    {
+      "id": "PI-MBP-BAROPS-001-03",
+      "policy_id": "PG-MBP-BAROPS-001",
+      "name": "실패 예외 정책",
+      "content": "운영자는 바코드 호출 실패, 스캔 실패, 유효시간 만료, 네트워크 오류, 제휴처 사용 불가 유형별 안내 문구와 대체 수단 제공 기준을 관리한다."
+    },
+    {
+      "id": "PI-MBP-SETTLE-001-01",
+      "policy_id": "PG-MBP-SETTLE-001",
+      "name": "포인트 운영",
+      "content": "운영자는 포인트 적립 규모, 조건, 한도, 지급 예정일을 설정하고 잘못 지급된 포인트는 회수 또는 정정 처리한다."
+    },
+    {
+      "id": "PI-MBP-SETTLE-001-02",
+      "policy_id": "PG-MBP-SETTLE-001",
+      "name": "정산 기준",
+      "content": "포인트 사용과 제휴처 혜택 사용은 사용 완료, 취소, 회수, 오류 보정 상태를 기준으로 정산한다. 불일치 건은 정산 보류로 분리한다."
+    },
+    {
+      "id": "PI-MBP-SETTLE-001-03",
+      "policy_id": "PG-MBP-SETTLE-001",
+      "name": "오류 모니터링",
+      "content": "운영자는 카드 호출 수, 사용 성공률, 실패 유형, 제휴처별 오류, 매직바코드 사용량, 재발급 요청량을 조회하고 반복 오류 제휴처를 식별한다."
+    },
+    {
+      "id": "PI-MBP-TRACE-001-01",
+      "policy_id": "PG-MBP-TRACE-001",
+      "name": "전환 측정",
+      "content": "혜택 사용 이후 추천 서비스나 상품으로 이동한 고객의 노출, 클릭, 전환, 사용 완료 지표를 측정한다. 측정 지표는 프로그램 유형과 고객군 기준으로 분리한다."
+    },
+    {
+      "id": "PI-MBP-TRACE-001-02",
+      "policy_id": "PG-MBP-TRACE-001",
+      "name": "성과 리포트",
+      "content": "프로그램별 노출 수, 진입 수, 사용 횟수, 사용 금액, 미사용 이탈, 재방문율, 서비스 전환율을 조회한다. 리포트는 기간, 고객군, 제휴 브랜드 기준으로 비교한다."
+    },
+    {
+      "id": "PI-MBP-TRACE-001-03",
+      "policy_id": "PG-MBP-TRACE-001",
+      "name": "요구사항 추적",
+      "content": "혜택, 등급, 포인트, 바코드, 알림, 운영 요구사항은 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 연결한다. 미연결 요구사항은 배포 전 보완 대상으로 남긴다."
+    },
+    {
+      "id": "PI-MBP-GRADE-001-05",
+      "policy_id": "PG-MBP-GRADE-001",
+      "name": "이동상품 가입 확인 기반 활성화",
+      "content": "이동상품 또는 요금제 가입 확인 후 멤버십 활성화가 필요한 경우 고객 채널의 멤버십 상태를 활성화로 반영한다. 반영 지연 시 마지막 확인 시각과 재조회 또는 재연동 경로를 안내한다."
+    },
+    {
+      "id": "PI-MBP-USE-001-05",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "바코드 UI 표준화",
+      "content": "바코드 UI는 채널별로 동일한 정보 구조를 사용한다. 사용 가능 상태, 제시 수단, 유효시간, 보안 처리, 재시도, 대체 행동은 동일한 위치와 순서로 제공한다."
+    },
+    {
+      "id": "PI-MBP-HUB-001-04",
+      "policy_id": "PG-MBP-HUB-001",
+      "name": "VIPPICK 쿠폰 사용 경로",
+      "content": "VIPPICK 쿠폰처럼 다운로드 후 사용처 안내가 필요한 혜택은 수령 완료 시 사용 위치, 사용 절차, 쿠폰함 이동, 제휴처 연결을 원스텝 안내로 제공한다."
+    },
+    {
+      "id": "PI-MBP-HUB-001-05",
+      "policy_id": "PG-MBP-HUB-001",
+      "name": "내 혜택 한눈에 보기·일괄 다운로드",
+      "content": "내 혜택 한눈에 보기는 사용 여부, 카테고리, 만료일, 사용 가능 상태를 한 화면에서 제공한다. 쿠폰형 혜택은 카테고리 단위 또는 전체 단위 일괄 다운로드를 허용하되, 다운로드 실패 건은 사유와 재시도 가능 여부를 이력에 남긴다."
+    },
+    {
+      "id": "PI-MBP-HUB-001-06",
+      "policy_id": "PG-MBP-HUB-001",
+      "name": "소셜 티커·개인화 넛지",
+      "content": "혜택 정보 내 소셜 티커 요소는 실시간 조회 수, 연령대 관심, 마감 임박, 희소성 중 고객 선택을 돕는 항목만 노출한다. 넛지 문구는 과장 표현을 금지하고 고객 세그먼트 산정 기준과 노출 이력을 저장한다."
+    },
+    {
+      "id": "PI-MBP-NOTI-001-04",
+      "policy_id": "PG-MBP-NOTI-001",
+      "name": "관심 브랜드 알림",
+      "content": "세그먼트 기반 맞춤 혜택 노출 및 관심 브랜드 알림은 고객이 저장한 브랜드, 나이, 지역, 소비 습관, 수신 동의를 충족한 경우에만 발송한다. 관심 브랜드 알림은 시작 알림, 마감 임박 알림, 혜택 변경 알림으로 구분하고 수신 거부 시 즉시 중단한다."
+    },
+    {
+      "id": "PI-MBP-OPS-001-04",
+      "policy_id": "PG-MBP-OPS-001",
+      "name": "세그먼트 기반 맞춤 혜택",
+      "content": "세그먼트 기반 맞춤 혜택은 나이, 지역, 소비 습관, 최근 사용, 관심 브랜드를 기준으로 산정한다. 운영자는 세그먼트별 노출 우선순위, 제외 대상, 성과 지표, 변경 이력을 관리하고 고객에게 불리한 제한 조건으로 사용하지 않는다."
+    },
+    {
+      "id": "PI-MBP-USE-001-06",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "통합 바코드",
+      "content": "통합 바코드 기능은 T 멤버십, 매직바코드, 쿠폰 바코드, 포인트 사용 설정을 하나의 제시 화면에서 확인하도록 구성한다. 현장 사용 시 단일 바코드로 적용 가능한 혜택과 별도 제시가 필요한 혜택을 구분해 안내한다."
+    },
+    {
+      "id": "PI-MBP-USE-001-07",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "바코드 0 Depth 즉시 호출",
+      "content": "바코드 0 Depth 즉시 호출 체계는 앱 실행, Shake 동작, 다이내믹 아일랜드, 위젯 등 운영자가 허용한 진입점에서만 제공한다. 광고 팝업이나 안내 화면이 바코드 호출을 차단하면 즉시 사용 흐름을 우선하고 차단 이력을 품질 점검 대상으로 남긴다."
+    },
+    {
+      "id": "PI-MBP-USE-001-08",
+      "policy_id": "PG-MBP-USE-001",
+      "name": "포인트 사용 사전 세팅",
+      "content": "바코드 화면 내 포인트 사용 사전 세팅 기능은 결제 전 고객이 전액 사용, 일부 사용, 미사용 중 하나를 선택한 경우에만 적용한다. 사용 금액은 보유 잔액, 최소 사용 조건, 제휴처 제한을 충족해야 하며 적용 결과와 변경 이력을 저장한다."
+    },
+    {
+      "id": "PI-MBP-BAROPS-001-04",
+      "policy_id": "PG-MBP-BAROPS-001",
+      "name": "브랜드 Identity 반영",
+      "content": "바코드 크게 보기 팝업 내 브랜드별 Identity 반영은 제휴사별 브랜드 컬러·로고가 운영 검수와 승인 상태를 통과한 경우에만 노출한다. 브랜드 리소스가 누락되거나 만료되면 기본 통합 바코드 디자인으로 대체하고 오류 이력을 남긴다."
+    },
+    {
+      "id": "PI-MBP-VALUE-001-04",
+      "policy_id": "PG-MBP-VALUE-001",
+      "name": "AI 절약 리포트",
+      "content": "AI 소비 분석 리포트와 절약 게이미피케이션은 멤버십 혜택 사용 이력과 동의된 데이터만 사용한다. 리포트는 월간·분기별 절약 금액, 주요 사용 브랜드, 절약 레벨을 제공하되 추정 금액과 확정 금액을 분리해 표시한다."
+    },
+    {
+      "id": "PI-MBP-VALUE-001-05",
+      "policy_id": "PG-MBP-VALUE-001",
+      "name": "결제 직후 실시간 절약 피드백",
+      "content": "결제 직후 앱 내 실시간 절약 피드백은 제휴처 사용 승인 또는 포인트 사용 결과가 확인된 경우에만 노출한다. 피드백에는 오늘 절약한 금액, 누적 절약 금액, 적용 혜택, 이력 조회 경로를 포함하고 SMS 발송 여부와 별도로 앱 내 결과를 남긴다."
+    },
+    {
+      "id": "PI-MBP-VALUE-001-06",
+      "policy_id": "PG-MBP-VALUE-001",
+      "name": "브랜드 친밀도",
+      "content": "브랜드 친밀도 체계 및 관계 기반 리텐션 루프는 혜택 사용, 관심 브랜드 저장, 활동 이력을 기준으로 산정한다. 고객은 친밀도 상태와 변화를 조회하고 관심 없는 브랜드를 숨김 또는 제외할 수 있으며, 운영자는 가중치·어뷰징 기준·분석 지표 변경 이력을 관리한다."
+    },
+    {
+      "id": "PI-MBP-POINTX-001-04",
+      "policy_id": "PG-MBP-POINTX-001",
+      "name": "공유 지갑",
+      "content": "공유 지갑 그룹은 대표자가 가족·지인을 초대하고 멤버 구성, 기여도, 사용 내역을 확인할 수 있는 경우에만 생성한다. 포인트, 쿠폰, 바코드 공동 사용은 멤버 권한과 동시 사용 차단 기준을 충족해야 하며 잔액·쿠폰 상태는 멤버 디바이스에 실시간 동기화한다."
+    },
+    {
+      "id": "PI-MBP-HIST-001-04",
+      "policy_id": "PG-MBP-HIST-001",
+      "name": "고객 표시 상태와 내부 상태",
+      "content": "고객 표시 상태는 사용 가능, 조건 미충족, 사용 완료, 정지·회수, 재연동 필요로 안내한다. 시스템 내부 상태는 BSS 등급 반영, 제휴처 승인, 포인트 정산, 알림 발송, 이력 저장 상태로 분리하고 고객 표시 상태와 불일치하면 마지막 동기화 시각과 재조회 경로를 제공한다."
+    },
+    {
+      "id": "PI-MBP-FAIL-001-04",
+      "policy_id": "PG-MBP-FAIL-001",
+      "name": "중복 요청·멱등 처리",
+      "content": "바코드 재호출, 포인트 사용 사전 세팅, 쿠폰 일괄 다운로드, 공유 지갑 동기화 요청은 동일 고객·동일 혜택·동일 거래 기준으로 중복 요청을 식별한다. 이미 성공한 요청은 멱등 처리하고 고객에게 기존 결과를 재표시하며, 실패 요청은 최대 1회 자동 재시도 후 대체 행동을 안내한다."
+    },
+    {
+      "id": "PI-MBP-SETTLE-001-04",
+      "policy_id": "PG-MBP-SETTLE-001",
+      "name": "FO·BSS·제휴처 책임 경계",
+      "content": "FO는 고객 표시 상태, 바코드·포인트 사용 요청, 안내 문구와 재시도 경로를 책임진다. BSS와 포인트 시스템은 등급·포인트 원장, 사용·회수·정산 반영을 책임지고, 제휴처 시스템은 사용 승인·거절·취소 결과를 회신한다. 세 시스템 결과가 불일치하면 정산 보류와 고객 안내 이력을 남긴다."
+    },
+    {
+      "id": "PI-MBP-SETTLE-001-05",
+      "policy_id": "PG-MBP-SETTLE-001",
+      "name": "통합 장애 영향 제한",
+      "content": "통합 바코드, 공유 지갑, 포인트 동기화, 제휴처 승인 연동 장애가 발생하면 장애 범위와 영향을 사용수단별로 분리한다. 일반 카드 사용이 가능한 경우 매직바코드 또는 포인트 기능 장애가 전체 멤버십 사용 불가로 확산되지 않게 대체 수단을 우선 안내한다."
+    }
+  ],
+  "final_check": [
+    {
+      "item": "범위 정합성",
+      "criteria": "멤버십 혜택과 T 플러스포인트 기준을 작성하되 외부 쿠폰 코드 운영과 결제 할인 산정을 과도하게 확장하지 않았는지 확인한다."
+    },
+    {
+      "item": "고객 완결성",
+      "criteria": "고객이 혜택 탐색, 사용 가능 판단, 바코드 사용, 등급 확인, 포인트 관리, 오류 복구, 알림 설정을 스스로 완료할 수 있는지 확인한다."
+    },
+    {
+      "item": "통합 리워드 일관성",
+      "criteria": "멤버십 혜택, 쿠폰, 이용권, 응모권, 포인트가 고객에게 하나의 리워드 체계로 설명되는지 확인한다."
+    },
+    {
+      "item": "상태 전이 정합성",
+      "criteria": "혜택 탐색, 사용 가능, 사용 진행, 사용 완료, 오류, 등급 반영, 포인트 정정, 정지·회수, 정산 보류 상태가 연결되는지 확인한다."
+    },
+    {
+      "item": "프로세스-기능-정책 연결성",
+      "criteria": "모든 프로세스에 관련 기능과 정책이 ID 기준으로 연결되고 정책 상세가 빠짐없이 존재하는지 확인한다."
+    },
+    {
+      "item": "정책 구체성",
+      "criteria": "등급, 횟수, 시간, 한도, 소멸, 이력, 정산, 오류, 알림 기준이 실제 판단값으로 작성되었는지 확인한다."
+    },
+    {
+      "item": "BSS와 멤버십 연계 포함성",
+      "criteria": "고객·회선·상품·등급 기준, 포인트 시스템, 멤버십 연계 시스템, 채널 업무 시스템의 역할과 실패 기준이 포함되었는지 확인한다."
+    },
+    {
+      "item": "운영 관리 가능성",
+      "criteria": "프로그램 편성, 등급 로직, 제휴처 매핑, 바코드 정책, 포인트 정산, 성과 리포트가 운영 기준으로 관리 가능한지 확인한다."
+    },
+    {
+      "item": "요구사항 반영 여부",
+      "criteria": "상세 요구사항 81건은 리워드 탐색, 혜택 사용, 등급·상태 관리, 포인트 자산, 알림·리텐션, 운영·정산 축으로 분류하고 유즈케이스, 프로세스, 기능, 정책, 정책 항목 중 하나 이상에 매핑해 재구성했는지 확인한다."
+    },
+    {
+      "item": "개발·QA 테스트 가능성",
+      "criteria": "사용 가능/불가, 등급 변경, 포인트 소멸, 바코드 실패, 정지·회수, 재연동, 정산 보류 테스트 조건을 도출할 수 있는지 확인한다."
+    },
+    {
+      "item": "요구사항 반영 여부",
+      "criteria": "최신 81개 상세 요구사항을 단순 복사하지 않고 유즈케이스, 프로세스, 기능, 정책, 정책 항목 중 하나 이상에 매핑해 업무 흐름과 판단 기준으로 재구성했는지 확인한다."
+    },
+    {
+      "item": "고객 표시·내부 상태 구분",
+      "criteria": "고객 표시 상태와 시스템 내부 상태를 분리하고, 등급·혜택·포인트·정산 상태 불일치 시 마지막 동기화 시각과 재조회·복구 경로를 제공하는지 확인한다."
+    },
+    {
+      "item": "FO·BSS·제휴처 책임 경계",
+      "criteria": "채널 업무 시스템, 멤버십 연계 시스템, BSS, 제휴처 시스템의 책임 경계와 연동 실패 시 고객 안내·정산 보류·이력 저장 기준이 구분되어 있는지 확인한다."
+    },
+    {
+      "item": "중복 요청·멱등성",
+      "criteria": "바코드 재호출, 포인트 사전 세팅, 쿠폰 일괄 다운로드, 공유 지갑 동기화 요청이 중복 실행되어도 기존 성공 결과를 재표시하고 실패 요청은 제한된 재시도 후 대체 행동을 안내하는지 확인한다."
+    }
+  ],
+  "requirements_mapping_summary": {
+    "basis": "상세 요구사항명과 상세 요구사항 설명 기준",
+    "covered_count": 81,
+    "coverage_note": "상세 요구사항 81건을 유즈케이스, 프로세스, 기능, 정책, 정책 항목 중 하나 이상에 매핑하고, 요구사항 문구를 그대로 복사하지 않고 고객 리워드 탐색·현장 사용·포인트 자산·운영 통제 흐름과 정책 판단 기준으로 재구성했다."
+  },
+  "policies": [
+    {
+      "id": "PG-MBP-SCOPE-001",
+      "name": "멤버십 리워드 범위·용어 정책",
+      "description": "멤버십 혜택, 쿠폰, 이용권, 응모권, T 플러스포인트의 범위와 표준 용어를 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-SCOPE-001-01",
+          "name": "리워드 범위"
+        },
+        {
+          "id": "PI-MBP-SCOPE-001-02",
+          "name": "표준 유형"
+        },
+        {
+          "id": "PI-MBP-SCOPE-001-03",
+          "name": "고객 문구 분리"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-HUB-001",
+      "name": "통합 혜택 허브 전시 정책",
+      "description": "혜택 허브와 진입 지점에서 고객 가치와 사용 가능성을 우선 노출하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-HUB-001-01",
+          "name": "허브 우선순위"
+        },
+        {
+          "id": "PI-MBP-HUB-001-02",
+          "name": "로그인 전 가치"
+        },
+        {
+          "id": "PI-MBP-HUB-001-03",
+          "name": "조건 분리"
+        },
+        {
+          "id": "PI-MBP-HUB-001-04",
+          "name": "VIPPICK 쿠폰 사용 경로"
+        },
+        {
+          "id": "PI-MBP-HUB-001-05",
+          "name": "내 혜택 한눈에 보기·일괄 다운로드"
+        },
+        {
+          "id": "PI-MBP-HUB-001-06",
+          "name": "소셜 티커·개인화 넛지"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-PROMO-001",
+      "name": "정기 프로모션·시즌 운영 정책",
+      "description": "T day, Universe Day, 시즌성 프로그램의 편성, 대상, 노출, 참여 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-PROMO-001-01",
+          "name": "프로모션 데이"
+        },
+        {
+          "id": "PI-MBP-PROMO-001-02",
+          "name": "편성 캘린더"
+        },
+        {
+          "id": "PI-MBP-PROMO-001-03",
+          "name": "참여 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-GRADE-001",
+      "name": "멤버십 등급 산정·적용 정책",
+      "description": "등급 산정 기준, 적용 시점, 등급 변경, 고객 고지 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-GRADE-001-01",
+          "name": "등급 산정 기준"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-02",
+          "name": "등급 적용 시점"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-03",
+          "name": "Lite 등급"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-04",
+          "name": "변경 이력"
+        },
+        {
+          "id": "PI-MBP-GRADE-001-05",
+          "name": "이동상품 가입 확인 기반 활성화"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-ELIG-001",
+      "name": "혜택 자격·상태 판정 정책",
+      "description": "고객별 혜택 사용 가능 상태, 조건 미충족, 한도, 소진, 제휴처 상태 판정 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-ELIG-001-01",
+          "name": "상태 표준"
+        },
+        {
+          "id": "PI-MBP-ELIG-001-02",
+          "name": "실시간 잔여 기준"
+        },
+        {
+          "id": "PI-MBP-ELIG-001-03",
+          "name": "불가 사유"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-USE-001",
+      "name": "멤버십 혜택 사용·바코드 정책",
+      "description": "일반 카드, 매직바코드, 카드번호, 제휴처 사용 방식과 실패 대체 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-USE-001-01",
+          "name": "사용수단 구분"
+        },
+        {
+          "id": "PI-MBP-USE-001-02",
+          "name": "매직바코드"
+        },
+        {
+          "id": "PI-MBP-USE-001-03",
+          "name": "즉시 진입"
+        },
+        {
+          "id": "PI-MBP-USE-001-04",
+          "name": "바코드 표준"
+        },
+        {
+          "id": "PI-MBP-USE-001-05",
+          "name": "바코드 UI 표준화"
+        },
+        {
+          "id": "PI-MBP-USE-001-06",
+          "name": "통합 바코드"
+        },
+        {
+          "id": "PI-MBP-USE-001-07",
+          "name": "바코드 0 Depth 즉시 호출"
+        },
+        {
+          "id": "PI-MBP-USE-001-08",
+          "name": "포인트 사용 사전 세팅"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-VALUE-001",
+      "name": "체감 가치·로열티 정책",
+      "description": "혜택 사용 가치, 배지, 등급 달성 조건, 절감액 산정과 노출 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-VALUE-001-01",
+          "name": "체감가치 산정"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-02",
+          "name": "로열티 배지"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-03",
+          "name": "등급 시뮬레이션"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-04",
+          "name": "AI 절약 리포트"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-05",
+          "name": "결제 직후 실시간 절약 피드백"
+        },
+        {
+          "id": "PI-MBP-VALUE-001-06",
+          "name": "브랜드 친밀도"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-POINT-001",
+      "name": "T 플러스포인트 적립·사용 정책",
+      "description": "포인트 적립, 사용, 소멸, 잔액, 사용처, 사용 단위 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-POINT-001-01",
+          "name": "적립 기준"
+        },
+        {
+          "id": "PI-MBP-POINT-001-02",
+          "name": "사용 기준"
+        },
+        {
+          "id": "PI-MBP-POINT-001-03",
+          "name": "소멸 기준"
+        },
+        {
+          "id": "PI-MBP-POINT-001-04",
+          "name": "적립 실패"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-POINTX-001",
+      "name": "T 플러스포인트 이관·선물·통합 정책",
+      "description": "명의변경 이관, 선물, 다회선 통합, 제한 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-POINTX-001-01",
+          "name": "명의변경 이관"
+        },
+        {
+          "id": "PI-MBP-POINTX-001-02",
+          "name": "다회선 통합"
+        },
+        {
+          "id": "PI-MBP-POINTX-001-03",
+          "name": "포인트 선물"
+        },
+        {
+          "id": "PI-MBP-POINTX-001-04",
+          "name": "공유 지갑"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-HIST-001",
+      "name": "이력·데이터 최신성 정책",
+      "description": "멤버십 혜택과 포인트의 사용 이력, 정합성, 최신성, 재조회 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-HIST-001-01",
+          "name": "사용 이력"
+        },
+        {
+          "id": "PI-MBP-HIST-001-02",
+          "name": "포인트 이력"
+        },
+        {
+          "id": "PI-MBP-HIST-001-03",
+          "name": "최신성 안내"
+        },
+        {
+          "id": "PI-MBP-HIST-001-04",
+          "name": "고객 표시 상태와 내부 상태"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-FAIL-001",
+      "name": "사용 오류·정지·복구 정책",
+      "description": "혜택 사용 오류, 정지, 회수, 재발급, 상담 fallback 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-FAIL-001-01",
+          "name": "사용 오류"
+        },
+        {
+          "id": "PI-MBP-FAIL-001-02",
+          "name": "정지·회수"
+        },
+        {
+          "id": "PI-MBP-FAIL-001-03",
+          "name": "상담 fallback"
+        },
+        {
+          "id": "PI-MBP-FAIL-001-04",
+          "name": "중복 요청·멱등 처리"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-NOTI-001",
+      "name": "멤버십 알림·재방문 정책",
+      "description": "등급 변경, 소멸 예정, 신규 혜택, 만료, 프로모션 알림 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-NOTI-001-01",
+          "name": "수신 설정"
+        },
+        {
+          "id": "PI-MBP-NOTI-001-02",
+          "name": "발송 트리거"
+        },
+        {
+          "id": "PI-MBP-NOTI-001-03",
+          "name": "재연동 안내"
+        },
+        {
+          "id": "PI-MBP-NOTI-001-04",
+          "name": "관심 브랜드 알림"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-OPS-001",
+      "name": "혜택 프로그램 운영 정책",
+      "description": "운영자의 프로그램 편성, 제휴 브랜드 매핑, 전시 우선순위, 승인 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-OPS-001-01",
+          "name": "프로그램 편성"
+        },
+        {
+          "id": "PI-MBP-OPS-001-02",
+          "name": "제휴처 매핑"
+        },
+        {
+          "id": "PI-MBP-OPS-001-03",
+          "name": "개인화 우선 노출"
+        },
+        {
+          "id": "PI-MBP-OPS-001-04",
+          "name": "세그먼트 기반 맞춤 혜택"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-BAROPS-001",
+      "name": "바코드·제휴처 사용 정책 운영",
+      "description": "운영자가 카드 유형, 매직바코드, 제휴처 사용 조건, 실패 예외를 관리하는 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-BAROPS-001-01",
+          "name": "카드 유형 정책"
+        },
+        {
+          "id": "PI-MBP-BAROPS-001-02",
+          "name": "매직바코드 채번"
+        },
+        {
+          "id": "PI-MBP-BAROPS-001-03",
+          "name": "실패 예외 정책"
+        },
+        {
+          "id": "PI-MBP-BAROPS-001-04",
+          "name": "브랜드 Identity 반영"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-SETTLE-001",
+      "name": "포인트·혜택 정산·모니터링 정책",
+      "description": "포인트 적립·회수·정산, 혜택 사용 실적, 오류 모니터링 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-SETTLE-001-01",
+          "name": "포인트 운영"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-02",
+          "name": "정산 기준"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-03",
+          "name": "오류 모니터링"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-04",
+          "name": "FO·BSS·제휴처 책임 경계"
+        },
+        {
+          "id": "PI-MBP-SETTLE-001-05",
+          "name": "통합 장애 영향 제한"
+        }
+      ]
+    },
+    {
+      "id": "PG-MBP-TRACE-001",
+      "name": "요구사항·성과 추적 정책",
+      "description": "전환 측정, 성과 리포트, 요구사항 추적과 개선 루프 기준을 정의한다.",
+      "items": [
+        {
+          "id": "PI-MBP-TRACE-001-01",
+          "name": "전환 측정"
+        },
+        {
+          "id": "PI-MBP-TRACE-001-02",
+          "name": "성과 리포트"
+        },
+        {
+          "id": "PI-MBP-TRACE-001-03",
+          "name": "요구사항 추적"
+        }
+      ]
+    }
+  ],
+  "version": "v0.10"
+}

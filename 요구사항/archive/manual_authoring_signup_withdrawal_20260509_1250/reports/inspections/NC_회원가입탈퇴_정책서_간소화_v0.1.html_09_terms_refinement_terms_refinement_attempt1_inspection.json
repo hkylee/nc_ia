@@ -1,0 +1,63 @@
+{
+  "status": "pass",
+  "score": 100,
+  "scope": "09_terms_refinement",
+  "checked_at": "2026-05-07T21:17:38",
+  "summary": "검수 통과. 점수 100점이며 양식, 가이드, 샘플 수준 기준을 충족합니다.",
+  "findings": [],
+  "metrics": {
+    "input_mode": "json",
+    "scope": "09_terms_refinement",
+    "term_count": 30,
+    "actor_count": 6,
+    "usecase_count": 8,
+    "state_count": 8,
+    "transition_count": 8,
+    "process_count": 16,
+    "function_count": 32,
+    "process_detail_count": 0,
+    "function_detail_count": 0,
+    "policy_group_count": 22,
+    "policy_detail_count": 117,
+    "final_check_count": 0,
+    "local_precheck": {
+      "issue_count": 0,
+      "missing_link_count": 0,
+      "matrix_rows": 20,
+      "missing_policy_detail_groups": 0
+    },
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "input_mode": "json",
+      "model": "mock-policy-agent",
+      "reasoning_effort": "none",
+      "status": "strict_mock",
+      "summary": "LLM 미사용 모드에서 pass 응답 대신 로컬 strict 규칙으로 검수했습니다.",
+      "prompt_chars": 0,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "stage_inspector_profile": {
+        "role": "Terms Refinement Inspector",
+        "focus": "정책 작성 후 용어 일관성, 중복 용어, 상태/정책명 충돌 정리",
+        "must_verify": [
+          "정책과 기능에서 쓰인 핵심 용어가 주요 용어와 충돌하지 않는지",
+          "같은 개념이 여러 이름으로 남아 있지 않은지",
+          "용어 보완이 기존 ID와 연결성을 깨지 않는지"
+        ],
+        "do_not_flag": [
+          "정책 장에서만 쓰이는 세부 정책값을 모두 용어로 끌어올리지 않은 구조"
+        ],
+        "pass_condition": "문서 전체 용어가 같은 의미로 유지됨"
+      },
+      "strict_findings": 0
+    },
+    "score_breakdown": {
+      "score": 100,
+      "total_penalty": 0,
+      "gate_blocker_count": 0,
+      "gate_blockers": [],
+      "items": []
+    }
+  }
+}

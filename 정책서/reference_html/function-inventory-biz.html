@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>T 월드 Biz 기능 내역 · 기능 내역</title>
+  <style>
+    :root {
+      --ink:#141a28;
+      --soft:#526174;
+      --muted:#78879a;
+      --line:#d8e1ed;
+      --blue:#2563eb;
+      --sky:#e8f0ff;
+      --paper:#fff;
+      --wash:#eef2f7;
+      --navy:#111827;
+      --shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:var(--wash);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.55;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:16px 0 56px; }
+    .page-nav {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:12px;
+    }
+    .nav-chip {
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--soft);
+      padding:8px 11px;
+      font-size:12px;
+      font-weight:850;
+      text-decoration:none;
+    }
+    .nav-chip.active {
+      border-color:#93c5fd;
+      background:#eff6ff;
+      color:#1d4ed8;
+    }
+    .hero {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 360px;
+      gap:22px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:linear-gradient(135deg,#fff 0%,#f8fbff 100%);
+      box-shadow:var(--shadow);
+      padding:28px 30px;
+    }
+    .eyebrow {
+      color:var(--blue);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    h1 { margin:10px 0 8px; font-size:32px; line-height:1.18; letter-spacing:0; }
+    h2 { margin:0; font-size:22px; line-height:1.25; }
+    .lead { max-width:860px; margin:0; color:var(--ink); font-size:16px; font-weight:820; }
+    .hero-note {
+      border:1px solid #bfdbfe;
+      border-radius:8px;
+      background:var(--sky);
+      padding:16px;
+    }
+    .hero-note strong { display:block; color:#1d4ed8; font-size:12px; font-weight:950; letter-spacing:.08em; }
+    .hero-note span { display:block; margin-top:8px; color:#143d78; font-size:14px; font-weight:780; }
+    .kpi-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .kpi {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .kpi span { display:block; color:var(--muted); font-size:12px; font-weight:850; }
+    .kpi strong { display:block; margin-top:6px; color:var(--navy); font-size:28px; line-height:1.1; }
+    .panel {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      padding:20px;
+    }
+    .integrated-map {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr) 38px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      margin-top:14px;
+    }
+    .integrated-map article {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .integrated-map article span {
+      color:var(--blue);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.08em;
+    }
+    .integrated-map article strong {
+      display:block;
+      margin-top:8px;
+      color:var(--ink);
+      font-size:18px;
+      line-height:1.28;
+      font-weight:920;
+    }
+    .integrated-map article p {
+      margin:8px 0 0;
+      color:var(--ink);
+      font-size:14px;
+      font-weight:760;
+    }
+    .map-arrow {
+      align-self:center;
+      justify-self:center;
+      display:grid;
+      place-items:center;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background:var(--navy);
+      color:#fff;
+      font-size:24px;
+      font-weight:900;
+      line-height:1;
+    }
+    .grid-two {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .wide { margin-top:14px; }
+    .section-head {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
+    }
+    .section-head span {
+      display:grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:var(--navy);
+      color:#fff;
+      font-size:12px;
+      font-weight:950;
+      flex:0 0 auto;
+    }
+    .bar-list { display:grid; gap:10px; }
+    .bar-row {
+      display:grid;
+      grid-template-columns:minmax(120px,1fr) minmax(120px,1.2fr) 64px;
+      gap:10px;
+      align-items:center;
+    }
+    .bar-label {
+      min-width:0;
+      color:var(--ink);
+      font-size:13px;
+      font-weight:820;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .bar-label a { color:inherit; text-decoration:none; }
+    .bar-track {
+      height:10px;
+      border-radius:999px;
+      background:#eef2f7;
+      overflow:hidden;
+    }
+    .bar-track span {
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,#2563eb,#22c55e);
+    }
+    .bar-value { text-align:right; color:var(--soft); font-size:12px; font-weight:900; }
+    .question-grid, .sheet-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .integrated-questions { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .question-grid article, .sheet-card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fbfdff;
+      padding:15px;
+    }
+    .question-grid b, .sheet-card span {
+      display:block;
+      color:var(--blue);
+      font-size:12px;
+      font-weight:950;
+    }
+    .question-grid p { margin:7px 0 0; color:var(--ink); font-size:14px; font-weight:760; }
+    .sheet-card {
+      color:inherit;
+      text-decoration:none;
+      transition:transform .16s ease, border-color .16s ease;
+    }
+    .sheet-card:hover { transform:translateY(-2px); border-color:#93c5fd; }
+    .sheet-card strong { display:block; margin-top:7px; font-size:17px; }
+    .sheet-card p { margin:6px 0 0; color:var(--soft); font-size:13px; font-weight:760; }
+    .empty { margin:0; color:var(--muted); font-size:14px; font-weight:760; }
+    @media (max-width:1100px) {
+      .hero, .grid-two, .integrated-map { grid-template-columns:1fr; }
+      .map-arrow { transform:rotate(90deg); }
+      .kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .question-grid, .sheet-grid, .integrated-questions { grid-template-columns:1fr; }
+    }
+    @media (max-width:720px) {
+      .page { width:calc(100% - 16px); padding:10px 0 48px; }
+      .hero, .panel { padding:16px; }
+      h1 { font-size:26px; }
+      h2 { font-size:19px; }
+      .bar-row { grid-template-columns:1fr 56px; }
+      .bar-track { grid-column:1 / -1; grid-row:2; }
+      .kpi-grid { grid-template-columns:1fr; }
+    }
+    </style>
+</head>
+<body>
+  <main class="page function-inventory-page">
+    <nav class="page-nav" aria-label="기능 내역 시트 이동"><a class="nav-chip" href="function-inventory-tworld.html">T 월드 기능 내역</a><a class="nav-chip" href="function-inventory-membership.html">T 멤버십 기능 내역</a><a class="nav-chip" href="function-inventory-direct.html">T 다이렉트 기능 내역</a><a class="nav-chip" href="function-inventory-universe.html">T 우주 기능 내역</a><a class="nav-chip active" href="function-inventory-biz.html">T 월드 Biz 기능 내역</a><a class="nav-chip" href="function-inventory-integrated.html">통합 기능 목록</a></nav>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">FEATURE INVENTORY</div>
+        <h1>T 월드 Biz 기능 내역</h1>
+        <p class="lead">법인·기업 고객의 회선, 요금, 부가서비스, 인증·관리 업무 기능을 확인합니다.</p>
+      </div>
+      <div class="hero-note">
+        <strong>요약 관점</strong>
+        <span>T 월드 Biz 기능 내역은 1,500개 기능 행과 1,499개 고유 기능을 기준으로 정리했습니다. 화면 기준으로는 263개 단위를 확인했고, 반복·중복 후보는 1개입니다.</span>
+      </div>
+    </section>
+
+    <section class="kpi-grid" aria-label="기능 내역 핵심 수치">
+      <article class="kpi"><span>기능 행</span><strong>1,500</strong></article><article class="kpi"><span>고유 기능</span><strong>1,499</strong></article><article class="kpi"><span>화면</span><strong>263</strong></article><article class="kpi"><span>중복 후보</span><strong>1</strong></article>
+    </section>
+
+    <section class="grid-two">
+      <article class="panel">
+        <div class="section-head">
+          <span>01</span>
+          <h2>기능 유형 믹스</h2>
+        </div>
+        <div class="bar-list">
+            <div class="bar-row">
+              <div class="bar-label">이동·탐색</div>
+              <div class="bar-track"><span style="width:26%"></span></div>
+              <div class="bar-value">176</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">조회·노출</div>
+              <div class="bar-track"><span style="width:100%"></span></div>
+              <div class="bar-value">677</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">입력·선택</div>
+              <div class="bar-track"><span style="width:32%"></span></div>
+              <div class="bar-value">215</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">처리·확정</div>
+              <div class="bar-track"><span style="width:24%"></span></div>
+              <div class="bar-value">165</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">안내·약관</div>
+              <div class="bar-track"><span style="width:5%"></span></div>
+              <div class="bar-value">7</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">기타</div>
+              <div class="bar-track"><span style="width:38%"></span></div>
+              <div class="bar-value">259</div>
+            </div>
+            </div>
+      </article>
+      <article class="panel">
+        <div class="section-head">
+          <span>02</span>
+          <h2>상위 IA·업무 덩어리</h2>
+        </div>
+        <div class="bar-list">
+            <div class="bar-row">
+              <div class="bar-label">메인</div>
+              <div class="bar-track"><span style="width:100%"></span></div>
+              <div class="bar-value">28</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">홈_로그인 후</div>
+              <div class="bar-track"><span style="width:89%"></span></div>
+              <div class="bar-value">25</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">Case 1_일반법인</div>
+              <div class="bar-track"><span style="width:82%"></span></div>
+              <div class="bar-value">23</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">[팝업]인증번호 입력</div>
+              <div class="bar-track"><span style="width:82%"></span></div>
+              <div class="bar-value">23</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">홈_로그인 전</div>
+              <div class="bar-track"><span style="width:82%"></span></div>
+              <div class="bar-value">23</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">회원정보변경</div>
+              <div class="bar-track"><span style="width:75%"></span></div>
+              <div class="bar-value">21</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">부가서비스 상세</div>
+              <div class="bar-track"><span style="width:68%"></span></div>
+              <div class="bar-value">19</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">추천 기본 요금제</div>
+              <div class="bar-track"><span style="width:61%"></span></div>
+              <div class="bar-value">17</div>
+            </div>
+            </div>
+      </article>
+    </section>
+
+    <section class="grid-two">
+      <article class="panel">
+        <div class="section-head">
+          <span>03</span>
+          <h2>기능 밀도 높은 화면</h2>
+        </div>
+        <div class="bar-list">
+            <div class="bar-row">
+              <div class="bar-label">메인</div>
+              <div class="bar-track"><span style="width:100%"></span></div>
+              <div class="bar-value">28</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">홈_로그인 후</div>
+              <div class="bar-track"><span style="width:89%"></span></div>
+              <div class="bar-value">25</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">홈_로그인 전</div>
+              <div class="bar-track"><span style="width:82%"></span></div>
+              <div class="bar-value">23</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">회원정보변경</div>
+              <div class="bar-track"><span style="width:75%"></span></div>
+              <div class="bar-value">21</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">부가서비스 상세</div>
+              <div class="bar-track"><span style="width:68%"></span></div>
+              <div class="bar-value">19</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">추천 기본 요금제</div>
+              <div class="bar-track"><span style="width:61%"></span></div>
+              <div class="bar-value">17</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">요금제 상세</div>
+              <div class="bar-track"><span style="width:57%"></span></div>
+              <div class="bar-value">16</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">[탭]T끼리 법인 요금제 관리_멤버 추가</div>
+              <div class="bar-track"><span style="width:54%"></span></div>
+              <div class="bar-value">15</div>
+            </div>
+            </div>
+      </article>
+      <article class="panel">
+        <div class="section-head">
+          <span>04</span>
+          <h2>반복 기능 패턴</h2>
+        </div>
+        <div class="bar-list">
+            <div class="bar-row">
+              <div class="bar-label">CHECK POINT 안내 영역 노출</div>
+              <div class="bar-track"><span style="width:100%"></span></div>
+              <div class="bar-value">74</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">닫기 버튼</div>
+              <div class="bar-track"><span style="width:89%"></span></div>
+              <div class="bar-value">66</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">회선번호 입력 필드</div>
+              <div class="bar-track"><span style="width:80%"></span></div>
+              <div class="bar-value">59</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">번호검색 버튼</div>
+              <div class="bar-track"><span style="width:59%"></span></div>
+              <div class="bar-value">44</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">확인 버튼</div>
+              <div class="bar-track"><span style="width:54%"></span></div>
+              <div class="bar-value">40</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">조회 버튼</div>
+              <div class="bar-track"><span style="width:51%"></span></div>
+              <div class="bar-value">38</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">페이지 네비게이션 인디케이터 노출</div>
+              <div class="bar-track"><span style="width:49%"></span></div>
+              <div class="bar-value">36</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">취소 버튼</div>
+              <div class="bar-track"><span style="width:35%"></span></div>
+              <div class="bar-value">26</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">선택 회선번호 노출</div>
+              <div class="bar-track"><span style="width:27%"></span></div>
+              <div class="bar-value">20</div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label">자세히보기 버튼</div>
+              <div class="bar-track"><span style="width:24%"></span></div>
+              <div class="bar-value">18</div>
+            </div>
+            </div>
+      </article>
+    </section>
+
+    <section class="panel wide">
+      <div class="section-head">
+        <span>05</span>
+        <h2>정책서·요구사항 전환 시 확인할 질문</h2>
+      </div>
+      <div class="question-grid">
+        <article><b>공통화</b><p>반복되는 이동, 조회, 닫기, 확인 기능을 채널별로 다르게 유지할 이유가 있는가?</p></article>
+        <article><b>업무 완결</b><p>기능이 화면 조각에 머물지 않고 고객 과업 시작, 판단, 실행, 완료 흐름으로 이어지는가?</p></article>
+        <article><b>정책 기준</b><p>기능 설명에서 상태, 권한, 예외, 이력, 고지 기준으로 승격해야 할 판단축은 무엇인가?</p></article>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

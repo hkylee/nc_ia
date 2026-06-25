@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="가이드라인/공통/품질/적응형 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_COM_CS_001" name="US-COM-CS-001 공통 기준에 따라 업무 가능성 확인">
+        <bpmn:flowNodeRef>Start_US_COM_CS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS1_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS1_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_CS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_COM_CS_002" name="US-COM-CS-002 이전 맥락을 유지해 업무 이어가기">
+        <bpmn:flowNodeRef>Start_US_COM_CS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS2_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS2_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS5_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS5_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_CS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_COM_CS_003" name="US-COM-CS-003 실패·제한 후 복구 경로 확인">
+        <bpmn:flowNodeRef>Start_US_COM_CS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS3_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS3_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS4_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_CS4_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_CS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_COM_OPR_001" name="US-COM-OPR-001 공통 문구·상태·CTA 기준 관리">
+        <bpmn:flowNodeRef>Start_US_COM_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP1_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP1_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_OPR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_COM_OPR_002" name="US-COM-OPR-002 공통 품질 기준 검수">
+        <bpmn:flowNodeRef>Start_US_COM_OPR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP2_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP2_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_OPR_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_COM_OPR_003" name="US-COM-OPR-003 공통 기준 배포·회수 처리">
+        <bpmn:flowNodeRef>Start_US_COM_OPR_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP3_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP3_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_OPR_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_COM_OPR_004" name="US-COM-OPR-004 통합 운영·품질 현황 관리">
+        <bpmn:flowNodeRef>Start_US_COM_OPR_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP4_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_COM_OP4_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_COM_OPR_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_COM_CS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_CS_001_Task_PR_COM_CS1_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_CS1_001" name="PR-COM-CS1-001 업무 가치와 가능 조건 확인">
+      <bpmn:incoming>Flow_Start_US_COM_CS_001_Task_PR_COM_CS1_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS1_001_Task_PR_COM_CS1_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS1_002" name="PR-COM-CS1-002 행동 유형과 안내 방식 선택">
+      <bpmn:incoming>Flow_Task_PR_COM_CS1_001_Task_PR_COM_CS1_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS1_002_End_US_COM_CS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_CS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_CS1_002_End_US_COM_CS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_CS_001_Task_PR_COM_CS1_001" sourceRef="Start_US_COM_CS_001" targetRef="Task_PR_COM_CS1_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS1_001_Task_PR_COM_CS1_002" sourceRef="Task_PR_COM_CS1_001" targetRef="Task_PR_COM_CS1_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS1_002_End_US_COM_CS_001" sourceRef="Task_PR_COM_CS1_002" targetRef="End_US_COM_CS_001"/>
+    <bpmn:startEvent id="Start_US_COM_CS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_CS_002_Task_PR_COM_CS2_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_CS2_001" name="PR-COM-CS2-001 이전 맥락 조회">
+      <bpmn:incoming>Flow_Start_US_COM_CS_002_Task_PR_COM_CS2_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS2_001_Task_PR_COM_CS2_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS2_002" name="PR-COM-CS2-002 맥락 재사용과 기본값 적용">
+      <bpmn:incoming>Flow_Task_PR_COM_CS2_001_Task_PR_COM_CS2_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS2_002_Task_PR_COM_CS5_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS5_001" name="PR-COM-CS5-001 앱·웹 실행 환경 확인">
+      <bpmn:incoming>Flow_Task_PR_COM_CS2_002_Task_PR_COM_CS5_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS5_001_Task_PR_COM_CS5_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS5_002" name="PR-COM-CS5-002 외부 전환과 복귀 맥락 유지">
+      <bpmn:incoming>Flow_Task_PR_COM_CS5_001_Task_PR_COM_CS5_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS5_002_End_US_COM_CS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_CS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_CS5_002_End_US_COM_CS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_CS_002_Task_PR_COM_CS2_001" sourceRef="Start_US_COM_CS_002" targetRef="Task_PR_COM_CS2_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS2_001_Task_PR_COM_CS2_002" sourceRef="Task_PR_COM_CS2_001" targetRef="Task_PR_COM_CS2_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS2_002_Task_PR_COM_CS5_001" sourceRef="Task_PR_COM_CS2_002" targetRef="Task_PR_COM_CS5_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS5_001_Task_PR_COM_CS5_002" sourceRef="Task_PR_COM_CS5_001" targetRef="Task_PR_COM_CS5_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS5_002_End_US_COM_CS_002" sourceRef="Task_PR_COM_CS5_002" targetRef="End_US_COM_CS_002"/>
+    <bpmn:startEvent id="Start_US_COM_CS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_CS_003_Task_PR_COM_CS3_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_CS3_001" name="PR-COM-CS3-001 실패·제한 사유 판정">
+      <bpmn:incoming>Flow_Start_US_COM_CS_003_Task_PR_COM_CS3_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS3_001_Task_PR_COM_CS3_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS3_002" name="PR-COM-CS3-002 복구·재시도·상담 전환 안내">
+      <bpmn:incoming>Flow_Task_PR_COM_CS3_001_Task_PR_COM_CS3_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS3_002_Task_PR_COM_CS4_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS4_001" name="PR-COM-CS4-001 장애·점검·대기 영향 확인">
+      <bpmn:incoming>Flow_Task_PR_COM_CS3_002_Task_PR_COM_CS4_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS4_001_Task_PR_COM_CS4_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_CS4_002" name="PR-COM-CS4-002 대체 경로와 재진입 안내">
+      <bpmn:incoming>Flow_Task_PR_COM_CS4_001_Task_PR_COM_CS4_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_CS4_002_End_US_COM_CS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_CS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_CS4_002_End_US_COM_CS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_CS_003_Task_PR_COM_CS3_001" sourceRef="Start_US_COM_CS_003" targetRef="Task_PR_COM_CS3_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS3_001_Task_PR_COM_CS3_002" sourceRef="Task_PR_COM_CS3_001" targetRef="Task_PR_COM_CS3_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS3_002_Task_PR_COM_CS4_001" sourceRef="Task_PR_COM_CS3_002" targetRef="Task_PR_COM_CS4_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS4_001_Task_PR_COM_CS4_002" sourceRef="Task_PR_COM_CS4_001" targetRef="Task_PR_COM_CS4_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_CS4_002_End_US_COM_CS_003" sourceRef="Task_PR_COM_CS4_002" targetRef="End_US_COM_CS_003"/>
+    <bpmn:startEvent id="Start_US_COM_OPR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_OPR_001_Task_PR_COM_OP1_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_OP1_001" name="PR-COM-OP1-001 공통 기준 초안 등록">
+      <bpmn:incoming>Flow_Start_US_COM_OPR_001_Task_PR_COM_OP1_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP1_001_Task_PR_COM_OP1_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_OP1_002" name="PR-COM-OP1-002 공통 기준 버전 관리">
+      <bpmn:incoming>Flow_Task_PR_COM_OP1_001_Task_PR_COM_OP1_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP1_002_End_US_COM_OPR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_OPR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_OP1_002_End_US_COM_OPR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_OPR_001_Task_PR_COM_OP1_001" sourceRef="Start_US_COM_OPR_001" targetRef="Task_PR_COM_OP1_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP1_001_Task_PR_COM_OP1_002" sourceRef="Task_PR_COM_OP1_001" targetRef="Task_PR_COM_OP1_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP1_002_End_US_COM_OPR_001" sourceRef="Task_PR_COM_OP1_002" targetRef="End_US_COM_OPR_001"/>
+    <bpmn:startEvent id="Start_US_COM_OPR_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_OPR_002_Task_PR_COM_OP2_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_OP2_001" name="PR-COM-OP2-001 품질 Gate 검수">
+      <bpmn:incoming>Flow_Start_US_COM_OPR_002_Task_PR_COM_OP2_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP2_001_Task_PR_COM_OP2_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_OP2_002" name="PR-COM-OP2-002 반려 사유와 보완 요청 등록">
+      <bpmn:incoming>Flow_Task_PR_COM_OP2_001_Task_PR_COM_OP2_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP2_002_End_US_COM_OPR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_OPR_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_OP2_002_End_US_COM_OPR_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_OPR_002_Task_PR_COM_OP2_001" sourceRef="Start_US_COM_OPR_002" targetRef="Task_PR_COM_OP2_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP2_001_Task_PR_COM_OP2_002" sourceRef="Task_PR_COM_OP2_001" targetRef="Task_PR_COM_OP2_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP2_002_End_US_COM_OPR_002" sourceRef="Task_PR_COM_OP2_002" targetRef="End_US_COM_OPR_002"/>
+    <bpmn:startEvent id="Start_US_COM_OPR_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_OPR_003_Task_PR_COM_OP3_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_OP3_001" name="PR-COM-OP3-001 배포 범위와 시점 결정">
+      <bpmn:incoming>Flow_Start_US_COM_OPR_003_Task_PR_COM_OP3_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP3_001_Task_PR_COM_OP3_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_OP3_002" name="PR-COM-OP3-002 회수·재검수 처리">
+      <bpmn:incoming>Flow_Task_PR_COM_OP3_001_Task_PR_COM_OP3_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP3_002_End_US_COM_OPR_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_OPR_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_OP3_002_End_US_COM_OPR_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_OPR_003_Task_PR_COM_OP3_001" sourceRef="Start_US_COM_OPR_003" targetRef="Task_PR_COM_OP3_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP3_001_Task_PR_COM_OP3_002" sourceRef="Task_PR_COM_OP3_001" targetRef="Task_PR_COM_OP3_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP3_002_End_US_COM_OPR_003" sourceRef="Task_PR_COM_OP3_002" targetRef="End_US_COM_OPR_003"/>
+    <bpmn:startEvent id="Start_US_COM_OPR_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_COM_OPR_004_Task_PR_COM_OP4_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_COM_OP4_001" name="PR-COM-OP4-001 통합 운영 현황 확인">
+      <bpmn:incoming>Flow_Start_US_COM_OPR_004_Task_PR_COM_OP4_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP4_001_Task_PR_COM_OP4_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_COM_OP4_002" name="PR-COM-OP4-002 품질 이슈 조치와 이력 관리">
+      <bpmn:incoming>Flow_Task_PR_COM_OP4_001_Task_PR_COM_OP4_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_COM_OP4_002_End_US_COM_OPR_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_COM_OPR_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_COM_OP4_002_End_US_COM_OPR_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_COM_OPR_004_Task_PR_COM_OP4_001" sourceRef="Start_US_COM_OPR_004" targetRef="Task_PR_COM_OP4_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP4_001_Task_PR_COM_OP4_002" sourceRef="Task_PR_COM_OP4_001" targetRef="Task_PR_COM_OP4_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_COM_OP4_002_End_US_COM_OPR_004" sourceRef="Task_PR_COM_OP4_002" targetRef="End_US_COM_OPR_004"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_COM_CS_001_di" bpmnElement="Lane_US_COM_CS_001">
+        <dc:Bounds x="40" y="25" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_CS_001_di" bpmnElement="Start_US_COM_CS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS1_001_di" bpmnElement="Task_PR_COM_CS1_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS1_002_di" bpmnElement="Task_PR_COM_CS1_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_CS_001_di" bpmnElement="End_US_COM_CS_001">
+        <dc:Bounds x="680" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_COM_CS_002_di" bpmnElement="Lane_US_COM_CS_002">
+        <dc:Bounds x="40" y="195" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_CS_002_di" bpmnElement="Start_US_COM_CS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS2_001_di" bpmnElement="Task_PR_COM_CS2_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS2_002_di" bpmnElement="Task_PR_COM_CS2_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS5_001_di" bpmnElement="Task_PR_COM_CS5_001">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS5_002_di" bpmnElement="Task_PR_COM_CS5_002">
+        <dc:Bounds x="900" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_CS_002_di" bpmnElement="End_US_COM_CS_002">
+        <dc:Bounds x="1120" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_COM_CS_003_di" bpmnElement="Lane_US_COM_CS_003">
+        <dc:Bounds x="40" y="365" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_CS_003_di" bpmnElement="Start_US_COM_CS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS3_001_di" bpmnElement="Task_PR_COM_CS3_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS3_002_di" bpmnElement="Task_PR_COM_CS3_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS4_001_di" bpmnElement="Task_PR_COM_CS4_001">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_CS4_002_di" bpmnElement="Task_PR_COM_CS4_002">
+        <dc:Bounds x="900" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_CS_003_di" bpmnElement="End_US_COM_CS_003">
+        <dc:Bounds x="1120" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_COM_OPR_001_di" bpmnElement="Lane_US_COM_OPR_001">
+        <dc:Bounds x="40" y="535" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_OPR_001_di" bpmnElement="Start_US_COM_OPR_001">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP1_001_di" bpmnElement="Task_PR_COM_OP1_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP1_002_di" bpmnElement="Task_PR_COM_OP1_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_OPR_001_di" bpmnElement="End_US_COM_OPR_001">
+        <dc:Bounds x="680" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_COM_OPR_002_di" bpmnElement="Lane_US_COM_OPR_002">
+        <dc:Bounds x="40" y="705" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_OPR_002_di" bpmnElement="Start_US_COM_OPR_002">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP2_001_di" bpmnElement="Task_PR_COM_OP2_001">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP2_002_di" bpmnElement="Task_PR_COM_OP2_002">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_OPR_002_di" bpmnElement="End_US_COM_OPR_002">
+        <dc:Bounds x="680" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_COM_OPR_003_di" bpmnElement="Lane_US_COM_OPR_003">
+        <dc:Bounds x="40" y="875" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_OPR_003_di" bpmnElement="Start_US_COM_OPR_003">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP3_001_di" bpmnElement="Task_PR_COM_OP3_001">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP3_002_di" bpmnElement="Task_PR_COM_OP3_002">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_OPR_003_di" bpmnElement="End_US_COM_OPR_003">
+        <dc:Bounds x="680" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_COM_OPR_004_di" bpmnElement="Lane_US_COM_OPR_004">
+        <dc:Bounds x="40" y="1045" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_COM_OPR_004_di" bpmnElement="Start_US_COM_OPR_004">
+        <dc:Bounds x="112" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP4_001_di" bpmnElement="Task_PR_COM_OP4_001">
+        <dc:Bounds x="240" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_COM_OP4_002_di" bpmnElement="Task_PR_COM_OP4_002">
+        <dc:Bounds x="460" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_COM_OPR_004_di" bpmnElement="End_US_COM_OPR_004">
+        <dc:Bounds x="680" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_CS_001_Task_PR_COM_CS1_001_di" bpmnElement="Flow_Start_US_COM_CS_001_Task_PR_COM_CS1_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS1_001_Task_PR_COM_CS1_002_di" bpmnElement="Flow_Task_PR_COM_CS1_001_Task_PR_COM_CS1_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS1_002_End_US_COM_CS_001_di" bpmnElement="Flow_Task_PR_COM_CS1_002_End_US_COM_CS_001">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_CS_002_Task_PR_COM_CS2_001_di" bpmnElement="Flow_Start_US_COM_CS_002_Task_PR_COM_CS2_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS2_001_Task_PR_COM_CS2_002_di" bpmnElement="Flow_Task_PR_COM_CS2_001_Task_PR_COM_CS2_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS2_002_Task_PR_COM_CS5_001_di" bpmnElement="Flow_Task_PR_COM_CS2_002_Task_PR_COM_CS5_001">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS5_001_Task_PR_COM_CS5_002_di" bpmnElement="Flow_Task_PR_COM_CS5_001_Task_PR_COM_CS5_002">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS5_002_End_US_COM_CS_002_di" bpmnElement="Flow_Task_PR_COM_CS5_002_End_US_COM_CS_002">
+        <di:waypoint x="1070" y="240"/>
+        <di:waypoint x="1120" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_CS_003_Task_PR_COM_CS3_001_di" bpmnElement="Flow_Start_US_COM_CS_003_Task_PR_COM_CS3_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS3_001_Task_PR_COM_CS3_002_di" bpmnElement="Flow_Task_PR_COM_CS3_001_Task_PR_COM_CS3_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS3_002_Task_PR_COM_CS4_001_di" bpmnElement="Flow_Task_PR_COM_CS3_002_Task_PR_COM_CS4_001">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS4_001_Task_PR_COM_CS4_002_di" bpmnElement="Flow_Task_PR_COM_CS4_001_Task_PR_COM_CS4_002">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_CS4_002_End_US_COM_CS_003_di" bpmnElement="Flow_Task_PR_COM_CS4_002_End_US_COM_CS_003">
+        <di:waypoint x="1070" y="410"/>
+        <di:waypoint x="1120" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_OPR_001_Task_PR_COM_OP1_001_di" bpmnElement="Flow_Start_US_COM_OPR_001_Task_PR_COM_OP1_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP1_001_Task_PR_COM_OP1_002_di" bpmnElement="Flow_Task_PR_COM_OP1_001_Task_PR_COM_OP1_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP1_002_End_US_COM_OPR_001_di" bpmnElement="Flow_Task_PR_COM_OP1_002_End_US_COM_OPR_001">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_OPR_002_Task_PR_COM_OP2_001_di" bpmnElement="Flow_Start_US_COM_OPR_002_Task_PR_COM_OP2_001">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP2_001_Task_PR_COM_OP2_002_di" bpmnElement="Flow_Task_PR_COM_OP2_001_Task_PR_COM_OP2_002">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP2_002_End_US_COM_OPR_002_di" bpmnElement="Flow_Task_PR_COM_OP2_002_End_US_COM_OPR_002">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_OPR_003_Task_PR_COM_OP3_001_di" bpmnElement="Flow_Start_US_COM_OPR_003_Task_PR_COM_OP3_001">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP3_001_Task_PR_COM_OP3_002_di" bpmnElement="Flow_Task_PR_COM_OP3_001_Task_PR_COM_OP3_002">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP3_002_End_US_COM_OPR_003_di" bpmnElement="Flow_Task_PR_COM_OP3_002_End_US_COM_OPR_003">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_COM_OPR_004_Task_PR_COM_OP4_001_di" bpmnElement="Flow_Start_US_COM_OPR_004_Task_PR_COM_OP4_001">
+        <di:waypoint x="148" y="1090"/>
+        <di:waypoint x="240" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP4_001_Task_PR_COM_OP4_002_di" bpmnElement="Flow_Task_PR_COM_OP4_001_Task_PR_COM_OP4_002">
+        <di:waypoint x="410" y="1090"/>
+        <di:waypoint x="460" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_COM_OP4_002_End_US_COM_OPR_004_di" bpmnElement="Flow_Task_PR_COM_OP4_002_End_US_COM_OPR_004">
+        <di:waypoint x="630" y="1090"/>
+        <di:waypoint x="680" y="1090"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

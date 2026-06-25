@@ -1,0 +1,163 @@
+{
+  "validator": {
+    "ok": true,
+    "errors": []
+  },
+  "html_report": {
+    "status": "warn",
+    "score": 93,
+    "scope": "full",
+    "checked_at": "2026-05-15T18:38:12",
+    "summary": "검수 결과 warn. 점수 93점, 오류 0건, 경고 1건입니다.",
+    "findings": [
+      {
+        "severity": "warn",
+        "category": "템플릿 가이드",
+        "title": "유즈케이스 과분해",
+        "detail": "프로세스 정의 대상 Y 유즈케이스가 11개로 많고 절차 단계가 유즈케이스로 분리됐을 수 있습니다: ",
+        "recommendation": "대상 확인, 조건 확인, 인증 복귀, 사유 확인, 완료 확인은 상위 사람 액터 유즈케이스의 프로세스·상태·정책으로 내려 작성하세요.",
+        "finding_id": "",
+        "tier": "",
+        "is_quality_gate": false,
+        "is_metric_observation": false,
+        "target_path": "",
+        "fix_owner": "current_chapter",
+        "upstream_chapter": "",
+        "root_cause": "",
+        "required_change": "",
+        "patch_hint": "",
+        "acceptance_check": "",
+        "keep_constraints": "",
+        "do_not_change": ""
+      }
+    ],
+    "metrics": {
+      "body_bytes": 422527,
+      "text_chars": 136144,
+      "h2_count": 8,
+      "h3_count": 13,
+      "table_count": 175,
+      "policy_group_count": 396,
+      "policy_item_count": 107,
+      "state_count": 36,
+      "process_count": 380,
+      "function_count": 322,
+      "business_codes": [
+        "PDD"
+      ],
+      "usecase_distinct_count": 16,
+      "process_distinct_count": 40,
+      "function_distinct_count": 36,
+      "policy_group_distinct_count": 21,
+      "sample_topic_match_count": 0,
+      "sample_reference_mode": "structural_reference",
+      "sample_min_body_bytes": 0,
+      "sample_max_body_bytes": 0,
+      "sample_max_text_chars": 0,
+      "sample_max_usecase_distinct_count": 0,
+      "sample_max_process_distinct_count": 0,
+      "sample_max_function_distinct_count": 0,
+      "sample_max_policy_group_distinct_count": 0,
+      "sample_max_policy_item_count": 0,
+      "inspection_profile": {
+        "mode": "final-only",
+        "role": "comprehensive_final_inspector",
+        "focus": "장별 Inspector를 생략했으므로 개요, 용어, 액터, 유즈케이스, 상태, 프로세스, 기능, 정책, 최종 점검을 모두 종합 검수",
+        "chapter_assumption": "이전 장이 검수 통과됐다고 가정하지 않음",
+        "finding_policy": "장별 품질 문제도 담당 Agent가 보완할 수 있도록 모두 finding으로 분배",
+        "gate_policy": "score 기준, error 0건, quality gate blocker 0건"
+      },
+      "llm_inspector": {
+        "used": false,
+        "required": false,
+        "model": "",
+        "reasoning_effort": "",
+        "task_max_attempts": 4,
+        "inspection_mode": "final-only",
+        "profile": {
+          "mode": "final-only",
+          "role": "comprehensive_final_inspector",
+          "focus": "장별 Inspector를 생략했으므로 개요, 용어, 액터, 유즈케이스, 상태, 프로세스, 기능, 정책, 최종 점검을 모두 종합 검수",
+          "chapter_assumption": "이전 장이 검수 통과됐다고 가정하지 않음",
+          "finding_policy": "장별 품질 문제도 담당 Agent가 보완할 수 있도록 모두 finding으로 분배",
+          "gate_policy": "score 기준, error 0건, quality gate blocker 0건"
+        }
+      },
+      "score_breakdown": {
+        "score": 93,
+        "total_penalty": 7,
+        "gate_blocker_count": 0,
+        "gate_blockers": [],
+        "items": [
+          {
+            "severity": "warn",
+            "tier": "P2",
+            "category": "템플릿 가이드",
+            "title": "유즈케이스 과분해",
+            "penalty": 7,
+            "base_penalty": 7,
+            "duplicate": false,
+            "quality_gate": false
+          }
+        ]
+      }
+    }
+  },
+  "json_report": {
+    "status": "pass",
+    "score": 100,
+    "scope": "full",
+    "checked_at": "2026-05-15T18:38:12",
+    "summary": "검수 통과. 점수 100점이며 양식, 가이드, 샘플 수준 기준을 충족합니다.",
+    "findings": [],
+    "metrics": {
+      "input_mode": "json",
+      "scope": "full",
+      "term_count": 14,
+      "actor_count": 5,
+      "usecase_count": 16,
+      "state_count": 18,
+      "transition_count": 22,
+      "process_count": 40,
+      "function_count": 36,
+      "process_detail_count": 40,
+      "function_detail_count": 36,
+      "policy_group_count": 21,
+      "policy_detail_count": 107,
+      "final_check_count": 15,
+      "local_precheck": {
+        "issue_count": 0,
+        "missing_link_count": 0,
+        "matrix_rows": 45,
+        "missing_policy_detail_groups": 0
+      },
+      "llm_inspector": {
+        "used": false,
+        "required": false,
+        "input_mode": "json",
+        "model": "",
+        "reasoning_effort": "",
+        "task_max_attempts": 4,
+        "stage_inspector_profile": {
+          "role": "Stage Inspector",
+          "focus": "현재 작성 범위의 구조, 연결성, 정책 구체성",
+          "must_verify": [
+            "현재 장 산출물이 이전 승인 기준과 충돌하지 않는지",
+            "후속 장으로 넘길 기준이 충분한지"
+          ],
+          "do_not_flag": [
+            "아직 작성 순서가 오지 않은 미래 장의 누락"
+          ],
+          "pass_condition": "현재 장이 다음 작성 단계의 기준선으로 사용할 수 있음"
+        }
+      },
+      "score_breakdown": {
+        "score": 100,
+        "total_penalty": 0,
+        "gate_blocker_count": 0,
+        "gate_blockers": [],
+        "items": []
+      }
+    }
+  }
+}

@@ -1,0 +1,854 @@
+{
+  "agent": "Policy Health Check",
+  "rubricId": "policy_health_check",
+  "rubricVersion": "1.0",
+  "fileName": "NC_선물주문_정책서_간소화_v0.11.html",
+  "topic": "선물주문",
+  "templateType": "simple",
+  "evaluationMode": "code",
+  "checkedAt": "2026-05-17T19:43:08",
+  "score": 100,
+  "rawScore": 100,
+  "maxScore": 100,
+  "judgement": "우수",
+  "mandatoryGatePassed": true,
+  "summary": "코드 기반 Health Check 결과 100점, 판정은 우수입니다. 필수 게이트를 통과했습니다. 주요 보완 영역은 정책 정의 범위 및 채널 통합 방향성, CX 혁신성, 프로세스 효율성 및 PI 지향성입니다. GateKeeper A등급으로 평가 품질 통과입니다.",
+  "sections": [
+    {
+      "id": "scope_direction",
+      "order": 1,
+      "name": "정책 정의 범위 및 채널 통합 방향성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "1-1",
+          "question": "이 정책서가 다루는 업무 범위가 명확한가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "범위 문단과 주제명이 확인됩니다.",
+          "suggestion": "개요의 범위에 대상 업무, 고객, 채널을 명시하세요.",
+          "relatedLocation": "1. 개요 > 가. 범위 / 나. 설계 원칙"
+        },
+        {
+          "id": "1-2",
+          "question": "포함 범위와 제외 범위가 구분되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "포함/제외 또는 후속 산출물 경계가 확인됩니다.",
+          "suggestion": "포함 범위와 제외 범위를 분리해 작성하세요.",
+          "relatedLocation": "1. 개요 > 가. 범위 / 나. 설계 원칙"
+        },
+        {
+          "id": "1-3",
+          "question": "다른 정책서와의 경계가 명확한가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "정책서 간 경계 표현이 확인됩니다.",
+          "suggestion": "다른 정책서와 겹치는 범위와 넘기지 않을 범위를 적으세요.",
+          "relatedLocation": "1. 개요 > 가. 범위 / 나. 설계 원칙"
+        },
+        {
+          "id": "1-4",
+          "question": "주제별 핵심 정책 질문이 도출되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "정책 질문 또는 판단 기준 표현이 확인됩니다.",
+          "suggestion": "누가, 언제, 몇 번, 어떤 조건, 실패 시 기준을 질문 형태로 도출하세요.",
+          "relatedLocation": "1. 개요 > 가. 범위 / 나. 설계 원칙"
+        },
+        {
+          "id": "1-5",
+          "question": "채널 통합 방향성에 맞게 단순 기능 이관이 아닌 통합 기준으로 정의되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "채널 통합/BSS 관점이 확인됩니다.",
+          "suggestion": "기존 기능 이관이 아니라 통합채널 기준의 처리 기준을 명시하세요.",
+          "relatedLocation": "1. 개요 > 가. 범위 / 나. 설계 원칙"
+        }
+      ]
+    },
+    {
+      "id": "cx_innovation",
+      "order": 2,
+      "name": "CX 혁신성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "2-1",
+          "question": "고객이 처리 가능 여부를 사전에 알 수 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "처리 가능 여부 사전 확인 기준이 확인됩니다.",
+          "suggestion": "고객이 신청 전 가능 여부를 알 수 있는 조건을 추가하세요.",
+          "relatedLocation": "1. 개요 / 3~6장 고객 흐름·정책 기준"
+        },
+        {
+          "id": "2-2",
+          "question": "고객이 처리 결과와 영향을 예측할 수 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "처리 결과와 영향 확인 기준이 확인됩니다.",
+          "suggestion": "처리 결과, 영향, 고객 안내 기준을 보강하세요.",
+          "relatedLocation": "1. 개요 / 3~6장 고객 흐름·정책 기준"
+        },
+        {
+          "id": "2-3",
+          "question": "고객이 앱/웹에서 직접 완료할 수 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "앱/웹 셀프 처리 관점이 확인됩니다.",
+          "suggestion": "상담 의존이 아닌 고객 직접 완료 기준을 명시하세요.",
+          "relatedLocation": "1. 개요 / 3~6장 고객 흐름·정책 기준"
+        },
+        {
+          "id": "2-4",
+          "question": "실패 사유와 다음 행동이 명확히 안내되는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "실패 사유와 다음 행동 안내가 확인됩니다.",
+          "suggestion": "실패 사유, 재시도, 복구, 상담 전환 기준을 추가하세요.",
+          "relatedLocation": "1. 개요 / 3~6장 고객 흐름·정책 기준"
+        },
+        {
+          "id": "2-5",
+          "question": "고객 입장에서 용어와 안내가 이해 가능한가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "고객 안내와 용어 정리 관점이 확인됩니다.",
+          "suggestion": "고객이 이해할 수 있는 상태/용어/안내 기준을 보강하세요.",
+          "relatedLocation": "1. 개요 / 3~6장 고객 흐름·정책 기준"
+        }
+      ]
+    },
+    {
+      "id": "process_efficiency",
+      "order": 3,
+      "name": "프로세스 효율성 및 PI 지향성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "3-1",
+          "question": "프로세스 단계가 고객 업무 완료에 필요한 최소 단위로 구성되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "프로세스가 업무 흐름 단위로 구성됩니다.",
+          "suggestion": "유즈케이스를 완료하는 최소 프로세스 흐름을 보강하세요.",
+          "relatedLocation": "4. 프로세스 정의"
+        },
+        {
+          "id": "3-2",
+          "question": "채널·시스템·부서 간 업무 단절 없이 하나의 흐름으로 연결되는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "채널과 시스템 흐름 연결이 확인됩니다.",
+          "suggestion": "FO-BSS-외부 시스템 간 단절 지점을 줄이는 흐름을 작성하세요.",
+          "relatedLocation": "4. 프로세스 정의"
+        },
+        {
+          "id": "3-3",
+          "question": "중복 입력, 중복 인증, 중복 확인, 반복 안내 등 비효율 요소를 줄였는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "중복/수작업 축소 또는 PI 단계 축소 관점이 확인됩니다.",
+          "suggestion": "중복 입력, 중복 인증, 반복 안내 제거 기준과 유지 사유를 추가하세요.",
+          "relatedLocation": "4. 프로세스 정의"
+        },
+        {
+          "id": "3-4",
+          "question": "수작업·운영자 예외 처리·상담 의존 업무를 자동화 또는 셀프 처리로 전환했는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "셀프 처리 또는 자동화 전환 관점이 확인됩니다.",
+          "suggestion": "운영자 예외 처리와 상담 의존을 줄이는 기준을 보강하세요.",
+          "relatedLocation": "4. 프로세스 정의"
+        },
+        {
+          "id": "3-5",
+          "question": "반복 업무를 예약·일괄 처리·자동 처리할 수 있게 설계했는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "예약/일괄/자동 처리 또는 예외 본문화 관점이 확인됩니다.",
+          "suggestion": "반복 업무의 자동 처리, 일괄 처리, 예외 본문화 가능성을 검토하세요.",
+          "relatedLocation": "4. 프로세스 정의"
+        }
+      ]
+    },
+    {
+      "id": "business_structure",
+      "order": 4,
+      "name": "업무 구조 정합성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "4-1",
+          "question": "액터가 실제 업무 수행 주체 기준으로 정의되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "액터와 유즈케이스 ID가 확인됩니다.",
+          "suggestion": "실제 책임 주체 기준으로 액터를 정의하세요.",
+          "relatedLocation": "3~6장 업무 구조 연결 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 94건)"
+        },
+        {
+          "id": "4-2",
+          "question": "유즈케이스가 고객의 완결 업무 단위로 정의되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "유즈케이스가 업무 단위로 정의됩니다.",
+          "suggestion": "고객의 시작 목적과 완료 상태가 드러나는 유즈케이스를 보강하세요.",
+          "relatedLocation": "3~6장 업무 구조 연결 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 94건)"
+        },
+        {
+          "id": "4-3",
+          "question": "프로세스가 유즈케이스를 완성하는 절차로 연결되는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "프로세스 행에서 관련 기능·정책 ID 연결이 확인됩니다.",
+          "suggestion": "프로세스가 어떤 유즈케이스를 완성하고 어떤 기능·정책으로 이어지는지 ID 기준으로 연결하세요.",
+          "relatedLocation": "3~6장 업무 구조 연결 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 94건)"
+        },
+        {
+          "id": "4-4",
+          "question": "기능이 프로세스 수행에 필요한 처리 역량으로 정의되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "프로세스별 관련 기능 ID 연결이 확인됩니다.",
+          "suggestion": "프로세스 수행에 필요한 기능을 처리 역량 기준으로 정의하고 관련 기능 ID를 연결하세요.",
+          "relatedLocation": "3~6장 업무 구조 연결 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 94건)"
+        },
+        {
+          "id": "4-5",
+          "question": "정책이 관련 프로세스·기능에 빠짐없이 매핑되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "정책 항목과 프로세스별 관련 정책 ID 연결이 확인됩니다.",
+          "suggestion": "각 프로세스/기능에 연결되는 정책 ID와 실행 가능한 정책 항목을 보강하세요.",
+          "relatedLocation": "3~6장 업무 구조 연결 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 94건)"
+        }
+      ]
+    },
+    {
+      "id": "state_result",
+      "order": 5,
+      "name": "상태/결과 명확성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "5-1",
+          "question": "업무 상태가 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "상태 코드 또는 상태 표현이 확인됩니다.",
+          "suggestion": "업무 상태 목록을 추가하세요.",
+          "relatedLocation": "3. 유즈케이스 정의 > 라. 상태 전이표 (ST-GFT-001, ST-GFT-002, ST-GFT-003 외 25건)"
+        },
+        {
+          "id": "5-2",
+          "question": "상태 전이 이벤트가 유즈케이스 또는 프로세스와 연결되는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "상태 전이 행과 전이 이벤트의 유즈케이스/프로세스 연결이 확인됩니다.",
+          "suggestion": "상태 전이 이벤트 컬럼에 관련 유즈케이스 또는 프로세스 ID를 연결하세요.",
+          "relatedLocation": "3. 유즈케이스 정의 > 라. 상태 전이표 (ST-GFT-001, ST-GFT-002, ST-GFT-003 외 25건)"
+        },
+        {
+          "id": "5-3",
+          "question": "완료·실패·대기·제한 상태가 구분되는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "완료/실패/대기/제한 상태 표현이 확인됩니다.",
+          "suggestion": "완료, 실패, 대기, 제한 상태를 구분하세요.",
+          "relatedLocation": "3. 유즈케이스 정의 > 라. 상태 전이표 (ST-GFT-001, ST-GFT-002, ST-GFT-003 외 25건)"
+        },
+        {
+          "id": "5-4",
+          "question": "고객 표시 상태와 시스템 내부 상태가 구분되는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "고객 표시 상태와 내부 상태 구분이 확인됩니다.",
+          "suggestion": "고객 표시 상태와 시스템 내부 상태의 차이를 명시하세요.",
+          "relatedLocation": "3. 유즈케이스 정의 > 라. 상태 전이표 (ST-GFT-001, ST-GFT-002, ST-GFT-003 외 25건)"
+        },
+        {
+          "id": "5-5",
+          "question": "상태별 고객 안내와 후속 행동이 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "상태별 고객 안내/후속 행동이 확인됩니다.",
+          "suggestion": "상태별 안내와 다음 행동 기준을 보강하세요.",
+          "relatedLocation": "3. 유즈케이스 정의 > 라. 상태 전이표 (ST-GFT-001, ST-GFT-002, ST-GFT-003 외 25건)"
+        }
+      ]
+    },
+    {
+      "id": "policy_specificity",
+      "order": 6,
+      "name": "정책 구체성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "6-1",
+          "question": "정책 항목에 실제 값·조건·횟수·시간·상태가 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "정책 항목별 판단 기준 표현이 확인됩니다.",
+          "suggestion": "각 정책 항목에 값, 조건, 횟수, 시간, 상태 중 하나 이상을 구체적으로 넣으세요.",
+          "relatedLocation": "6. 정책 정의 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "6-2",
+          "question": "허용 기준과 제한 기준이 모두 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "허용/제한 기준이 확인됩니다.",
+          "suggestion": "허용 기준과 제한 기준을 함께 정의하세요.",
+          "relatedLocation": "6. 정책 정의 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "6-3",
+          "question": "고객 유형별 적용 기준이 구분되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "고객 유형/권한별 기준이 확인됩니다.",
+          "suggestion": "고객 유형, 권한, 가입 상태별 적용 기준을 보강하세요.",
+          "relatedLocation": "6. 정책 정의 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "6-4",
+          "question": "업무 시점별 적용 기준이 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "시점/기한 기준이 확인됩니다.",
+          "suggestion": "업무 전/중/후, 만료, 기한 기준을 추가하세요.",
+          "relatedLocation": "6. 정책 정의 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "6-5",
+          "question": "시스템 기준에 따름 같은 빈 정책이 없는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "빈 정책 표현과 생략 표시가 적거나 없습니다.",
+          "suggestion": "시스템 기준에 따름 같은 빈 정책 표현이나 말줄임표로 끊긴 정책을 실제 판단값으로 바꾸세요.",
+          "relatedLocation": "6. 정책 정의 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        }
+      ]
+    },
+    {
+      "id": "exception_failure",
+      "order": 7,
+      "name": "예외/실패 대응",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "7-1",
+          "question": "인증 실패, 조회 실패, 결제 실패 등 고객 업무 실패 케이스가 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "주제 범위에 맞는 실패 케이스 표현이 확인됩니다.",
+          "suggestion": "인증/조회/결제/연동 또는 주제 고유 실패 케이스를 명시하세요.",
+          "relatedLocation": "상태 전이표 / 정책 상세 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "7-2",
+          "question": "재시도 가능 여부와 횟수 기준이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "재시도/횟수 기준이 확인됩니다.",
+          "suggestion": "재시도 가능 여부와 횟수 기준을 추가하세요.",
+          "relatedLocation": "상태 전이표 / 정책 상세 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "7-3",
+          "question": "실패 시 고객 안내 기준이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "실패 시 고객 안내 기준이 확인됩니다.",
+          "suggestion": "실패 시 고객 안내 문구와 다음 행동 기준을 보강하세요.",
+          "relatedLocation": "상태 전이표 / 정책 상세 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "7-4",
+          "question": "복구·취소·철회·재처리 기준이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "복구/취소/재처리 기준이 확인됩니다.",
+          "suggestion": "복구, 취소, 철회, 재처리 조건을 추가하세요.",
+          "relatedLocation": "상태 전이표 / 정책 상세 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        },
+        {
+          "id": "7-5",
+          "question": "중복 요청과 멱등성 기준이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "중복 요청/멱등성 기준이 확인됩니다.",
+          "suggestion": "중복 요청과 멱등 처리 기준을 보강하세요.",
+          "relatedLocation": "상태 전이표 / 정책 상세 (PG-GFT-SCOPE-001, PG-GFT-ELIG-001, PG-GFT-RECIPIENT-001 외 96건)"
+        }
+      ]
+    },
+    {
+      "id": "system_bss_risk",
+      "order": 8,
+      "name": "시스템/BSS/통합 리스크",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "8-1",
+          "question": "BSS가 판단·저장·상태 변경해야 하는 항목이 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "BSS 판단/저장/상태 변경 기준이 확인됩니다.",
+          "suggestion": "BSS가 판정, 저장, 상태 변경, 결과 회신해야 하는 항목을 명시하세요.",
+          "relatedLocation": "프로세스 / 기능 / 정책 상세 (PR-GFT-PCK-001, PR-GFT-RCP-001, PR-GFT-MSG-001 외 83건)"
+        },
+        {
+          "id": "8-2",
+          "question": "FO, BSS, 외부 시스템 간 책임 경계가 명확한가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "FO/BSS/외부 시스템 책임 표현이 확인됩니다.",
+          "suggestion": "FO, BSS, 외부 시스템 간 책임 경계를 추가하세요.",
+          "relatedLocation": "프로세스 / 기능 / 정책 상세 (PR-GFT-PCK-001, PR-GFT-RCP-001, PR-GFT-MSG-001 외 83건)"
+        },
+        {
+          "id": "8-3",
+          "question": "외부 시스템 또는 BSS 연동 실패 시 처리 기준이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "외부/BSS/분석 연계 실패 처리 관점이 확인됩니다.",
+          "suggestion": "외부 시스템, BSS, 분석, 캐시, 딥링크 등 주제 범위의 연계 실패 처리 기준을 보강하세요.",
+          "relatedLocation": "프로세스 / 기능 / 정책 상세 (PR-GFT-PCK-001, PR-GFT-RCP-001, PR-GFT-MSG-001 외 83건)"
+        },
+        {
+          "id": "8-4",
+          "question": "원장 반영, 상태 반영, 이력 저장 기준이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "원장/상태/이력/회신 기준이 확인됩니다.",
+          "suggestion": "원장 반영, 상태 반영, 이력 저장, 결과 회신 기준을 명시하세요.",
+          "relatedLocation": "프로세스 / 기능 / 정책 상세 (PR-GFT-PCK-001, PR-GFT-RCP-001, PR-GFT-MSG-001 외 83건)"
+        },
+        {
+          "id": "8-5",
+          "question": "통합으로 인한 장애 영향 확대나 채널 간 영향 리스크를 고려했는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "통합 리스크 또는 장애 영향 관점이 확인됩니다.",
+          "suggestion": "통합 장애 영향과 채널 간 영향 리스크를 보강하세요.",
+          "relatedLocation": "프로세스 / 기능 / 정책 상세 (PR-GFT-PCK-001, PR-GFT-RCP-001, PR-GFT-MSG-001 외 83건)"
+        }
+      ]
+    },
+    {
+      "id": "data_io",
+      "order": 9,
+      "name": "데이터 입출력 및 처리 기준",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "9-1",
+          "question": "업무 수행에 필요한 입력 데이터가 명확히 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "입력 데이터 기준이 확인됩니다.",
+          "suggestion": "업무 수행에 필요한 입력 데이터와 필수/선택 여부를 명시하세요.",
+          "relatedLocation": "기능 정의 / 정책 상세 (FN-GFT-PCK-001, FN-GFT-RCP-001, FN-GFT-MSG-001 외 112건)"
+        },
+        {
+          "id": "9-2",
+          "question": "입력 데이터의 출처, 생성 주체, 필수·선택 여부가 구분되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "입력 데이터 출처/주체/필수 여부가 확인됩니다.",
+          "suggestion": "입력 데이터의 출처, 생성 주체, 필수/선택 기준을 보강하세요.",
+          "relatedLocation": "기능 정의 / 정책 상세 (FN-GFT-PCK-001, FN-GFT-RCP-001, FN-GFT-MSG-001 외 112건)"
+        },
+        {
+          "id": "9-3",
+          "question": "데이터 처리·검증·변환 기준이 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "데이터 검증/처리 기준이 확인됩니다.",
+          "suggestion": "검증, 변환, 산정, 판정 기준을 추가하세요.",
+          "relatedLocation": "기능 정의 / 정책 상세 (FN-GFT-PCK-001, FN-GFT-RCP-001, FN-GFT-MSG-001 외 112건)"
+        },
+        {
+          "id": "9-4",
+          "question": "처리 결과로 생성·변경·삭제되는 출력 데이터가 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "출력 데이터/결과 기준이 확인됩니다.",
+          "suggestion": "처리 결과로 생성, 변경, 삭제되는 데이터를 명시하세요.",
+          "relatedLocation": "기능 정의 / 정책 상세 (FN-GFT-PCK-001, FN-GFT-RCP-001, FN-GFT-MSG-001 외 112건)"
+        },
+        {
+          "id": "9-5",
+          "question": "데이터 저장, 이력, 조회, 마스킹, 보관 기준이 정의되어 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "저장/이력/보관/마스킹 기준이 확인됩니다.",
+          "suggestion": "저장, 이력, 조회, 마스킹, 보관 기준을 보강하세요.",
+          "relatedLocation": "기능 정의 / 정책 상세 (FN-GFT-PCK-001, FN-GFT-RCP-001, FN-GFT-MSG-001 외 112건)"
+        }
+      ]
+    },
+    {
+      "id": "traceability",
+      "order": 10,
+      "name": "요구사항·개발·QA 추적성",
+      "score": 10,
+      "maxScore": 10,
+      "judgement": "우수",
+      "majorGap": "",
+      "items": [
+        {
+          "id": "10-1",
+          "question": "기준 요구사항이 프로세스·기능·정책 중 하나 이상에 매핑되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "요구사항 매핑 행 또는 Policy Graph 요구사항 연결이 확인됩니다.",
+          "suggestion": "기준 요구사항을 프로세스, 기능, 정책 중 하나 이상에 매핑한 표 또는 추적 근거를 추가하세요.",
+          "relatedLocation": "최종 점검 기준 / 요구사항 매핑 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 175건)"
+        },
+        {
+          "id": "10-2",
+          "question": "요구사항을 단순 복사하지 않고 업무 흐름과 정책 판단 기준으로 재구성했는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "요구사항을 업무 흐름/정책 기준으로 재구성한 추적 근거가 확인됩니다.",
+          "suggestion": "요구사항 문구를 그대로 두지 말고 업무 흐름과 판단 기준으로 재구성한 근거를 남기세요.",
+          "relatedLocation": "최종 점검 기준 / 요구사항 매핑 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 175건)"
+        },
+        {
+          "id": "10-3",
+          "question": "요구사항에서 누락된 신규 기능·정책·예외·상태·알림·이력이 도출되었는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "신규 도출 항목 표현이 확인됩니다.",
+          "suggestion": "요구사항에서 빠진 예외, 상태, 알림, 이력 필요성을 기록하세요.",
+          "relatedLocation": "최종 점검 기준 / 요구사항 매핑 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 175건)"
+        },
+        {
+          "id": "10-4",
+          "question": "개발자가 기능 설계 항목으로 전환할 수 있는 산출물이 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "개발자가 기능 설계로 전환할 ID 구조가 확인됩니다.",
+          "suggestion": "개발자가 설계 항목으로 전환할 기능/정책 연결을 보강하세요.",
+          "relatedLocation": "최종 점검 기준 / 요구사항 매핑 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 175건)"
+        },
+        {
+          "id": "10-5",
+          "question": "QA가 테스트 조건과 기대 결과를 도출할 수 있는가",
+          "score": 2,
+          "maxScore": 2,
+          "evidence": "QA 테스트 조건/기대 결과 관점이 확인됩니다.",
+          "suggestion": "QA가 테스트 조건과 기대 결과를 도출할 수 있게 경계값과 예외 결과를 명시하세요.",
+          "relatedLocation": "최종 점검 기준 / 요구사항 매핑 (US-GFT-SND-001, US-GFT-SND-002, US-GFT-RCV-001 외 175건)"
+        }
+      ]
+    }
+  ],
+  "mandatoryGates": [
+    {
+      "id": "G1",
+      "itemRef": "4-2",
+      "description": "유즈케이스가 고객의 완결 업무 단위로 정의되었는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    },
+    {
+      "id": "G2",
+      "itemRef": "4-3",
+      "description": "프로세스가 유즈케이스를 완성하는 절차로 연결되는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    },
+    {
+      "id": "G3",
+      "itemRef": "3-3",
+      "description": "프로세스에 불필요한 중복 단계나 채널·시스템 간 단절이 없는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    },
+    {
+      "id": "G4",
+      "itemRef": "4-5",
+      "description": "정책이 프로세스·기능의 판단 기준으로 연결되는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    },
+    {
+      "id": "G5",
+      "itemRef": "6-1",
+      "description": "정책 항목에 실제 값·조건·횟수·시간·상태가 있는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    },
+    {
+      "id": "G6",
+      "itemRef": "8-1",
+      "description": "BSS가 판단·저장·상태 변경해야 하는 항목이 정의되어 있는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    },
+    {
+      "id": "G7",
+      "itemRef": "10-1",
+      "description": "기준 요구사항이 프로세스·기능·정책 중 하나 이상에 매핑되었는가",
+      "passed": true,
+      "reason": "통과",
+      "suggestion": ""
+    }
+  ],
+  "actionItems": [],
+  "signals": {
+    "id_counts": {
+      "actors": 6,
+      "usecases": 11,
+      "states": 17,
+      "processes": 34,
+      "functions": 34,
+      "policies": 18,
+      "policy_items": 81
+    },
+    "id_examples": {
+      "actors": [
+        "ACT-GFT-001",
+        "ACT-GFT-002",
+        "ACT-GFT-003"
+      ],
+      "usecases": [
+        "US-GFT-SND-001",
+        "US-GFT-SND-002",
+        "US-GFT-RCV-001"
+      ],
+      "states": [
+        "ST-GFT-001",
+        "ST-GFT-002",
+        "ST-GFT-003"
+      ],
+      "processes": [
+        "PR-GFT-PCK-001",
+        "PR-GFT-RCP-001",
+        "PR-GFT-MSG-001"
+      ],
+      "functions": [
+        "FN-GFT-PCK-001",
+        "FN-GFT-RCP-001",
+        "FN-GFT-MSG-001"
+      ],
+      "policies": [
+        "PG-GFT-SCOPE-001",
+        "PG-GFT-ELIG-001",
+        "PG-GFT-RECIPIENT-001"
+      ],
+      "policy_items": [
+        "PI-GFT-SCOPE-001-001",
+        "PI-GFT-SCOPE-001-002",
+        "PI-GFT-SCOPE-001-003"
+      ]
+    },
+    "state_transition_count": 21,
+    "weak_policy_count": 0,
+    "truncated_marker_count": 0,
+    "decision_marker_count": 2015,
+    "id_reference_count": 561,
+    "requirements_mapping_row_count": 1,
+    "state_transition_linked_event_count": 21,
+    "process_complete_mapping_count": 34,
+    "policy_item_quality_count": 81,
+    "pi_agent": {
+      "yes_count": 8,
+      "partial_count": 1,
+      "anti_pattern_count": 0,
+      "recommendations": [
+        "KPI 이름, 산식, 주기, 기준값, 목표, Owner를 최소 3개 정의한다."
+      ]
+    },
+    "policy_graph": {
+      "available": true,
+      "coverage_gap_count": 0,
+      "chain_gap_count": 0,
+      "node_counts": {
+        "Actor": 6,
+        "DocumentVersion": 1,
+        "EvidenceChunk": 6,
+        "Function": 34,
+        "PolicyGroup": 18,
+        "PolicyItem": 81,
+        "Process": 34,
+        "Requirement": 29,
+        "State": 17,
+        "StateTransition": 21,
+        "Usecase": 11
+      }
+    }
+  },
+  "llmError": "",
+  "gatekeeper": {
+    "agent": "Health Check GateKeeper",
+    "version": "1.0",
+    "grade": "A",
+    "score": 100,
+    "maxScore": 100,
+    "passed": true,
+    "summary": "GateKeeper A등급(100/100)입니다. Health Check 산출물 품질을 신뢰할 수 있습니다.",
+    "dimensions": [
+      {
+        "id": "GK-1",
+        "name": "evidence_specificity",
+        "label": "근거 구체성",
+        "description": "항목별 판단 근거가 점수와 문서 위치를 설명할 만큼 구체적인가",
+        "score": 20,
+        "maxScore": 20,
+        "status": "pass",
+        "evidence": "50/50개 항목에 판단 근거와 보완 위치가 있습니다.",
+        "suggestion": ""
+      },
+      {
+        "id": "GK-2",
+        "name": "gap_completeness",
+        "label": "Gap 완결성",
+        "description": "미통과 항목과 필수 Gate 실패가 보완 항목으로 빠짐없이 이어지는가",
+        "score": 20,
+        "maxScore": 20,
+        "status": "pass",
+        "evidence": "미통과 항목과 필수 Gate 실패가 없습니다.",
+        "suggestion": ""
+      },
+      {
+        "id": "GK-3",
+        "name": "rubric_adherence",
+        "label": "루브릭 준수",
+        "description": "루브릭의 섹션, 항목, 필수 Gate 구조를 그대로 평가했는가",
+        "score": 20,
+        "maxScore": 20,
+        "status": "pass",
+        "evidence": "루브릭 섹션, 항목, 필수 Gate, 점수 범위를 모두 준수합니다.",
+        "suggestion": ""
+      },
+      {
+        "id": "GK-4",
+        "name": "rationale_quality",
+        "label": "판단 사유 품질",
+        "description": "요약, 주요 Gap, 보완 제안이 검토자가 바로 실행할 수 있는 수준인가",
+        "score": 20,
+        "maxScore": 20,
+        "status": "pass",
+        "evidence": "요약, 주요 Gap, 보완 제안이 실행 가능한 수준입니다.",
+        "suggestion": ""
+      },
+      {
+        "id": "GK-5",
+        "name": "internal_consistency",
+        "label": "내부 일관성",
+        "description": "섹션 점수, 총점, Gate 판정, 종합 판정이 서로 모순되지 않는가",
+        "score": 20,
+        "maxScore": 20,
+        "status": "pass",
+        "evidence": "섹션 합계, Gate cap, 필수 Gate 여부, 판정이 서로 일치합니다.",
+        "suggestion": ""
+      }
+    ],
+    "findings": []
+  },
+  "qualityGatePassed": true,
+  "resultBlocked": false,
+  "blockers": [],
+  "artifactDrift": {
+    "agent": "Artifact Drift Check",
+    "version": "1.0",
+    "status": "pass",
+    "passed": true,
+    "summary": "HTML, spec, BPMN, 요구사항 Trace 산출물 동기화가 확인되었습니다.",
+    "policyFile": "NC_선물주문_정책서_간소화_v0.11.html",
+    "checks": [
+      {
+        "id": "ART-1",
+        "name": "version_spec",
+        "passed": true,
+        "path": "/Users/kiwoo/NC/output/NC_선물주문_정책서_간소화_v0.11_spec.json"
+      },
+      {
+        "id": "ART-2",
+        "name": "html_spec_ids",
+        "passed": true,
+        "specIdCount": 201,
+        "htmlIdCount": 201
+      },
+      {
+        "id": "ART-3",
+        "name": "bpmn",
+        "passed": true,
+        "path": "/Users/kiwoo/NC/output/NC_선물주문_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+        "processIdCount": 34
+      },
+      {
+        "id": "ART-4",
+        "name": "requirement_trace",
+        "passed": true,
+        "requirementCount": 29,
+        "traceMatrixCount": 29,
+        "traceReports": []
+      }
+    ],
+    "issues": []
+  },
+  "artifactDriftGatePassed": true,
+  "versionTrend": {
+    "topic": "선물주문",
+    "templateLabel": "간소화",
+    "currentVersion": "v0.11",
+    "versionCount": 1,
+    "previousVersion": "",
+    "scoreDelta": null,
+    "rows": [
+      {
+        "fileName": "NC_선물주문_정책서_간소화_v0.11.html",
+        "version": "v0.11",
+        "score": 100,
+        "judgement": "우수",
+        "mandatoryGatePassed": true,
+        "qualityGatePassed": true,
+        "artifactDriftGatePassed": true,
+        "gatekeeperGrade": "A",
+        "checkedAt": "2026-05-17T19:43:08"
+      }
+    ]
+  },
+  "clientSessionId": "",
+  "created_at": "2026-05-17T19:43:08"
+}

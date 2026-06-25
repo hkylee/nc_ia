@@ -1,0 +1,232 @@
+{
+  "generated_at": "2026-05-10T00:25:27",
+  "requirements_db": "/Users/kiwoo/NC/reports/evidence/requirements.db",
+  "requirements_metadata": {
+    "source_name": "20260509_요구사항 최종.xlsx",
+    "source_path": "/Users/kiwoo/NC/input/requirements/20260509_요구사항 최종.xlsx",
+    "source_hash": "7a9cf07c42d95609d661c997b0a4ddc3b17d3274000da4d7421218f18174cf51",
+    "row_count": "3250",
+    "detail_row_count": "2973",
+    "schema_version": "1"
+  },
+  "requirements_summary": {
+    "rows": 2973,
+    "topics": 34,
+    "blank_detail_ids": 0,
+    "deleted_rows": 0
+  },
+  "duplicate_detail_ids": [],
+  "topic_counts": [
+    {
+      "topic": "주문/계약/가입",
+      "detail_count": 326
+    },
+    {
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "detail_count": 199
+    },
+    {
+      "topic": "상품상세/담기",
+      "detail_count": 192
+    },
+    {
+      "topic": "회원 가입/탈퇴",
+      "detail_count": 187
+    },
+    {
+      "topic": "전시/관리 기능",
+      "detail_count": 149
+    },
+    {
+      "topic": "청구 및 수납 관리",
+      "detail_count": 121
+    },
+    {
+      "topic": "주문 상태/사후 관리",
+      "detail_count": 111
+    },
+    {
+      "topic": "고객센터_통합허브",
+      "detail_count": 111
+    },
+    {
+      "topic": "결제",
+      "detail_count": 104
+    },
+    {
+      "topic": "AI 검색",
+      "detail_count": 101
+    },
+    {
+      "topic": "통합 알림",
+      "detail_count": 93
+    },
+    {
+      "topic": "설정",
+      "detail_count": 92
+    },
+    {
+      "topic": "데이터 트래킹 체계",
+      "detail_count": 88
+    },
+    {
+      "topic": "상품 목록",
+      "detail_count": 87
+    },
+    {
+      "topic": "통합 약관",
+      "detail_count": 83
+    },
+    {
+      "topic": "나의 가입 정보",
+      "detail_count": 83
+    },
+    {
+      "topic": "멤버십 혜택/T 플러스포인트",
+      "detail_count": 81
+    },
+    {
+      "topic": "추천",
+      "detail_count": 78
+    },
+    {
+      "topic": "회원정보 조회/변경",
+      "detail_count": 75
+    },
+    {
+      "topic": "회선 변경/관리",
+      "detail_count": 71
+    },
+    {
+      "topic": "할인/시뮬레이션",
+      "detail_count": 70
+    },
+    {
+      "topic": "나의 데이터·통화",
+      "detail_count": 70
+    },
+    {
+      "topic": "이벤트/미션 프로그램",
+      "detail_count": 66
+    },
+    {
+      "topic": "해지/환불/취소",
+      "detail_count": 48
+    },
+    {
+      "topic": "카트/장바구니",
+      "detail_count": 43
+    },
+    {
+      "topic": "고객센터_FAQ/공지/이용안내",
+      "detail_count": 42
+    },
+    {
+      "topic": "상품변경",
+      "detail_count": 39
+    },
+    {
+      "topic": "외부 쿠폰",
+      "detail_count": 32
+    },
+    {
+      "topic": "통합 쿠폰/이용권함",
+      "detail_count": 31
+    },
+    {
+      "topic": "상품·서비스 혜택 이용/공유",
+      "detail_count": 30
+    },
+    {
+      "topic": "선물주문",
+      "detail_count": 29
+    },
+    {
+      "topic": "외부 BP 서비스 관리 체계",
+      "detail_count": 18
+    },
+    {
+      "topic": "멤버십 카드 관리",
+      "detail_count": 14
+    },
+    {
+      "topic": "고객센터_매장안내",
+      "detail_count": 9
+    }
+  ],
+  "manual_authoring_queue": {
+    "source_files": [
+      "input/requirements/20260509_요구사항 최종.xlsx",
+      "reports/evidence/requirements.db",
+      "input/references/34개_정책서_작성_지향점.md",
+      "docs/llm_mode_manual_authoring_protocol.md",
+      "AGENTS.md"
+    ],
+    "synced_at": "2026-05-10 Asia/Seoul",
+    "items": 34,
+    "mismatch_count": 0,
+    "mismatches": []
+  },
+  "topic_knowledge": {
+    "manifest": {
+      "version": "topic-knowledge-v12-tk-process-function-guidance",
+      "generated_at": "2026-05-10T00:24:30",
+      "topic_count": 34,
+      "paths": [
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/가이드라인공통품질적응형.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/전시관리기능.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/상품목록.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/외부BP서비스관리체계.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/AI검색.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/추천.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/데이터트래킹체계.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/이벤트미션프로그램.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/외부쿠폰.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/멤버십혜택T플러스포인트.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/상품상세담기.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/카트장바구니.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/할인시뮬레이션.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/주문계약가입.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/선물주문.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/상품변경.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/결제.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/주문상태사후관리.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/해지환불취소.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/나의가입정보.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/회선변경관리.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/멤버십카드관리.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/청구및수납관리.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/나의데이터통화.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/상품서비스혜택이용공유.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/통합쿠폰이용권함.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/회원가입탈퇴.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/회원정보조회변경.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/통합알림.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/통합약관.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/설정.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/고객센터_통합허브.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/고객센터_FAQ공지이용안내.json",
+        "/Users/kiwoo/NC/reports/evidence/topic_knowledge/고객센터_매장안내.json"
+      ]
+    },
+    "mismatch_count": 0,
+    "mismatches": []
+  },
+  "reference_evidence_db": {
+    "requirement_documents": [
+      {
+        "source_name": "20260509_요구사항 최종.xlsx",
+        "category": "requirement",
+        "text_chars": 950043
+      }
+    ]
+  },
+  "cache_invalidation": {
+    "remaining_topic_or_blueprint_cache_files": 0,
+    "archive": "/Users/kiwoo/NC/archive/requirements_cache_before_20260510_sync"
+  },
+  "historical_old_requirement_reports_kept": [
+    "reports/requirements_34_source_update.json",
+    "reports/requirements_34_source_update.md"
+  ]
+}

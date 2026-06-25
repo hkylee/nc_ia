@@ -1,0 +1,879 @@
+{
+  "status": "PASS",
+  "validated_at": "2026-05-17T15:15:52",
+  "learning_readiness_score": 100,
+  "topics_tested": 34,
+  "documents": 101,
+  "chunks": 1436,
+  "evidence_items": 1436,
+  "warnings": [],
+  "topic_retrieval_summary": [
+    {
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "전시/관리 기능",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_전시_관리_전시 구조 및 노출 정책 기획_ 운영 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "상품 목록",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "외부 BP 서비스 관리 체계",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문관리_주문 사후관리 체계 고도화 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "AI 검색",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "추천",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "데이터 트래킹 체계",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "이벤트/미션 프로그램",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "외부 쿠폰",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "멤버십 혜택/T 플러스포인트",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품·서비스 자산 이용 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "상품상세/담기",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "카트/장바구니",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "할인/시뮬레이션",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "주문/계약/가입",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "선물주문",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문관리_주문 사후관리 체계 고도화 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "상품변경",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "결제",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "주문 상태/사후 관리",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_ CH_주문관리_주문 사후관리 체계 고도화 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "해지/환불/취소",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "나의 가입 정보",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_주문_고객 주문경험 혁신 프로세스 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "회선 변경/관리",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "멤버십 카드 관리",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_이벤트_ 멤버십 혜택 및 리워드 통합 관리 체계 기획 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "청구 및 수납 관리",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "나의 데이터·통화",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품·서비스 자산 이용 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "상품·서비스 혜택 이용/공유",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품·서비스 자산 이용 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품_할인_ AI가 의사결정을 도와주는 상품_할인 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "통합 쿠폰/이용권함",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_상품·서비스 자산 이용 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "회원 가입/탈퇴",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "회원정보 조회/변경",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_통합 가입정보 기반 셀프 관리 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "통합 알림",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "통합 약관",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "설정",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "고객센터_통합허브",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "고객센터_FAQ/공지/이용안내",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    },
+    {
+      "topic": "고객센터_매장안내",
+      "reference_count": 8,
+      "source_count": 8,
+      "categories": [
+        "ai",
+        "guideline",
+        "official",
+        "strategy",
+        "voc"
+      ],
+      "signals": [
+        "AI·개인화는 정확성과 실행 가능성을 우선",
+        "고객 목적 기반 진입과 길찾기 복잡도 완화",
+        "상담 의존을 줄이는 셀프 처리 완결성",
+        "인증·전환 단계의 마찰 최소화",
+        "채널과 BSS·연계 시스템의 판단 흐름 통합"
+      ],
+      "top_sources": [
+        "TK_CH_CS_셀프 주도형 해결 중심 고객지원 통합 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_AI 기반 탐색·추천 전시 및 데이터 트래킹 체계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_ CH_결제_결제 효율화 체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_BL_신뢰 기반 셀프완결형 요금 납부·관리 경험 재설계 - SUPER CH - TDE 2.0 Confluence.pdf",
+        "TK_CH_회원_통합회원정보 기반의 계정_인증_알림_약관 관리체계 구축 - SUPER CH - TDE 2.0 Confluence.pdf"
+      ]
+    }
+  ]
+}

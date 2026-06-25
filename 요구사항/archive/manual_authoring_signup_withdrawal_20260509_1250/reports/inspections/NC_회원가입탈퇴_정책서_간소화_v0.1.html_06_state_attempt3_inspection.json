@@ -1,0 +1,116 @@
+{
+  "status": "fail",
+  "score": 53,
+  "scope": "06_state",
+  "checked_at": "2026-05-02T03:24:22",
+  "summary": "검수 결과 fail. 점수 53점, 오류 2건, 경고 1건입니다.",
+  "findings": [
+    {
+      "severity": "error",
+      "category": "용어-상태 정합성",
+      "title": "'가입 불가'의 원인 범위가 용어와 상태에서 다릅니다",
+      "detail": "2. 주요 용어 TM-MBR-003은 '중복 계정, 자격 미충족, 인증 실패 등'을 가입 불가로 정의하지만, 상태 ST-MBR-007은 'BSS 또는 연계 판정'만 가입 불가로 둡니다. 현재 상태 목록에는 인증 실패를 ST-MBR-014 실패로도 처리하고 있어 같은 개념의 경계가 충돌합니다.",
+      "recommendation": "TM-MBR-003을 '중복 계정, 자격 미충족 등 BSS/연계 판정으로 가입을 진행할 수 없는 상태'로 좁히고, 인증 실패는 ST-MBR-014 또는 인증 관련 상태로 유지할 것. 짧은 용어 정의 형식은 유지하되 원인 예시는 상태 코드 기준과 일치시킬 것."
+    },
+    {
+      "severity": "warn",
+      "category": "상태-유즈케이스 연결",
+      "title": "'가입 진행 중'이 임시저장·재개 기능을 전제하지만 유즈케이스 연결이 약합니다",
+      "detail": "ST-MBR-002는 '가입 입력과 동의가 저장되어 중단 지점부터 이어갈 수 있는 상태'와 '저장된 단계 재개'를 포함하지만, 유즈케이스 목록에는 임시저장·재개가 직접 드러나지 않습니다. US-MBR-SYS-001의 '상태 기록'만으로는 저장 범위와 재개 조건이 현재 상태 정의를 받치기 어렵습니다.",
+      "recommendation": "현 범위에서 임시저장·재개를 다루지 않을 계획이면 ST-MBR-002를 '가입 절차가 완료되지 않은 진행 상태'로 완화하고 저장 표현을 뺄 것. 반대로 유지할 경우 상태 전이 기준에 'US-MBR-SYS-001이 단계 저장과 재개 조건을 관리한다'는 문장 1개를 추가할 것."
+    },
+    {
+      "severity": "error",
+      "category": "상태-운영 경로 연결",
+      "title": "'처리 보류/운영 확인 필요'의 후속 처리 주체가 유즈케이스에 없습니다",
+      "detail": "ST-MBR-011은 '운영 확인으로 넘긴다', ST-MBR-012는 '운영 큐에 등록'을 다음 행동으로 두지만, 운영자 유즈케이스는 정책 운영과 감사 이력 확인만 있습니다. 현재 정의만으로는 보류 건을 누가 어떤 업무로 해소하는지 연결되지 않습니다.",
+      "recommendation": "운영 검토가 범위 안이면 운영자 유즈케이스를 '가입·탈퇴 예외 검토 및 처리'로 1개 추가해 연결하고, 범위 밖이면 ST-MBR-011/012의 다음 행동을 '후속 확인 필요 안내' 수준으로 줄일 것. 운영자 화면 상세를 늘리지는 말고 책임 문장 1개만 보완할 것."
+    }
+  ],
+  "metrics": {
+    "body_bytes": 25895,
+    "text_chars": 9489,
+    "h2_count": 4,
+    "h3_count": 6,
+    "table_count": 7,
+    "policy_group_count": 0,
+    "policy_item_count": 0,
+    "state_count": 30,
+    "process_count": 4,
+    "function_count": 0,
+    "business_codes": [
+      "MBR"
+    ],
+    "usecase_distinct_count": 14,
+    "process_distinct_count": 0,
+    "function_distinct_count": 0,
+    "policy_group_distinct_count": 0,
+    "sample_topic_match_count": 0,
+    "sample_reference_mode": "structural_reference",
+    "sample_min_body_bytes": 105537,
+    "sample_max_body_bytes": 233567,
+    "sample_max_text_chars": 60578,
+    "sample_max_usecase_distinct_count": 14,
+    "sample_max_process_distinct_count": 31,
+    "sample_max_function_distinct_count": 42,
+    "sample_max_policy_group_distinct_count": 44,
+    "sample_max_policy_item_count": 475,
+    "llm_inspector": {
+      "used": true,
+      "required": true,
+      "model": "gpt-5.4",
+      "reasoning_effort": "high",
+      "status": "warn",
+      "summary": "개요·액터·유즈케이스는 simple 템플릿 수준으로 간결하고 책임 경계도 대체로 선명합니다. 다만 '가입 불가'의 용어-상태 정의 충돌과, 일부 상태가 임시저장·운영 처리 흐름을 전제하면서 유즈케이스 연결이 약한 점은 현재 범위에서 정리해야 합니다. 후속 프로세스·정책 상세 장의 미작성은 이번 범위에서는 감점하지 않았습니다.",
+      "prompt_chars": 10634,
+      "task_attempts": 1,
+      "task_retry_events": [],
+      "filtered_findings": 0
+    },
+    "score_breakdown": {
+      "score": 53,
+      "total_penalty": 47,
+      "gate_blocker_count": 1,
+      "gate_blockers": [
+        {
+          "severity": "error",
+          "category": "용어-상태 정합성",
+          "title": "'가입 불가'의 원인 범위가 용어와 상태에서 다릅니다",
+          "penalty": 24,
+          "base_penalty": 24,
+          "duplicate": false,
+          "quality_gate": true
+        }
+      ],
+      "items": [
+        {
+          "severity": "error",
+          "category": "용어-상태 정합성",
+          "title": "'가입 불가'의 원인 범위가 용어와 상태에서 다릅니다",
+          "penalty": 24,
+          "base_penalty": 24,
+          "duplicate": false,
+          "quality_gate": true
+        },
+        {
+          "severity": "warn",
+          "category": "상태-유즈케이스 연결",
+          "title": "'가입 진행 중'이 임시저장·재개 기능을 전제하지만 유즈케이스 연결이 약합니다",
+          "penalty": 5,
+          "base_penalty": 5,
+          "duplicate": false,
+          "quality_gate": false
+        },
+        {
+          "severity": "error",
+          "category": "상태-운영 경로 연결",
+          "title": "'처리 보류/운영 확인 필요'의 후속 처리 주체가 유즈케이스에 없습니다",
+          "penalty": 18,
+          "base_penalty": 18,
+          "duplicate": false,
+          "quality_gate": false
+        }
+      ]
+    }
+  }
+}

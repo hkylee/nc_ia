@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="나의데이터통화 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_DTC_CUS_001" name="US-DTC-CUS-001 데이터·통화 현황과 잔여량 이해">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CUS_002" name="US-DTC-CUS-002 사용 패턴과 소진 위험 관리">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CUS_003" name="US-DTC-CUS-003 충전·리필·쿠폰 사용 실행">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_007</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_008</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_009</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CUS_004" name="US-DTC-CUS-004 데이터·통화 선물·공유 실행">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_010</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_011</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_012</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CUS_005" name="US-DTC-CUS-005 자동 선물·충전 설정 관리">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_013</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_014</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_005</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_FAM_001" name="US-DTC-FAM-001 가족·다회선 위임 및 셰어링 관리">
+        <bpmn:flowNodeRef>Start_US_DTC_FAM_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_015</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_016</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_017</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_029</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_FAM_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CUS_006" name="US-DTC-CUS-006 로밍 데이터·쿠폰 실행">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_018</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_019</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_020</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_006</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CUS_007" name="US-DTC-CUS-007 실패·지연·예외 복구">
+        <bpmn:flowNodeRef>Start_US_DTC_CUS_007</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_021</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_022</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_023</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CUS_007</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_OPS_001" name="US-DTC-OPS-001 사용량·선물·충전 운영 정책 관리">
+        <bpmn:flowNodeRef>Start_US_DTC_OPS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_024</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_025</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_026</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_OPS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_DTC_CSUP_001" name="US-DTC-CSUP-001 데이터·통화 상담 문맥 지원">
+        <bpmn:flowNodeRef>Start_US_DTC_CSUP_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_027</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_DTC_028</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_DTC_CSUP_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_DTC_CUS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_001" name="PR-DTC-001 사용량 대시보드 진입">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_001_Task_PR_DTC_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_002" name="PR-DTC-002 구성별 잔량과 소진 순서 확인">
+      <bpmn:incoming>Flow_Task_PR_DTC_001_Task_PR_DTC_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_002_Task_PR_DTC_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_003" name="PR-DTC-003 사용 이력과 변경 이력 확인">
+      <bpmn:incoming>Flow_Task_PR_DTC_002_Task_PR_DTC_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_003_End_US_DTC_CUS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_003_End_US_DTC_CUS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001" sourceRef="Start_US_DTC_CUS_001" targetRef="Task_PR_DTC_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_001_Task_PR_DTC_002" sourceRef="Task_PR_DTC_001" targetRef="Task_PR_DTC_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_002_Task_PR_DTC_003" sourceRef="Task_PR_DTC_002" targetRef="Task_PR_DTC_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_003_End_US_DTC_CUS_001" sourceRef="Task_PR_DTC_003" targetRef="End_US_DTC_CUS_001"/>
+    <bpmn:startEvent id="Start_US_DTC_CUS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_004" name="PR-DTC-004 주요 통화·데이터 사용 패턴과 예상 소진 판단">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_004_Task_PR_DTC_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_005" name="PR-DTC-005 데이터·통화·문자 임계치 알림과 대안 비교">
+      <bpmn:incoming>Flow_Task_PR_DTC_004_Task_PR_DTC_005</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_005_Task_PR_DTC_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_006" name="PR-DTC-006 초과 사용 차단 설정">
+      <bpmn:incoming>Flow_Task_PR_DTC_005_Task_PR_DTC_006</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_006_End_US_DTC_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_006_End_US_DTC_CUS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004" sourceRef="Start_US_DTC_CUS_002" targetRef="Task_PR_DTC_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_004_Task_PR_DTC_005" sourceRef="Task_PR_DTC_004" targetRef="Task_PR_DTC_005"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_005_Task_PR_DTC_006" sourceRef="Task_PR_DTC_005" targetRef="Task_PR_DTC_006"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_006_End_US_DTC_CUS_002" sourceRef="Task_PR_DTC_006" targetRef="End_US_DTC_CUS_002"/>
+    <bpmn:startEvent id="Start_US_DTC_CUS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_007" name="PR-DTC-007 충전·리필 가능 여부 진단">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_007_Task_PR_DTC_008</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_008" name="PR-DTC-008 데이터 충전하기·쿠폰 사용 실행">
+      <bpmn:incoming>Flow_Task_PR_DTC_007_Task_PR_DTC_008</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_008_Task_PR_DTC_009</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_009" name="PR-DTC-009 충전 내역과 잔여 쿠폰 관리">
+      <bpmn:incoming>Flow_Task_PR_DTC_008_Task_PR_DTC_009</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_009_End_US_DTC_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_009_End_US_DTC_CUS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007" sourceRef="Start_US_DTC_CUS_003" targetRef="Task_PR_DTC_007"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_007_Task_PR_DTC_008" sourceRef="Task_PR_DTC_007" targetRef="Task_PR_DTC_008"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_008_Task_PR_DTC_009" sourceRef="Task_PR_DTC_008" targetRef="Task_PR_DTC_009"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_009_End_US_DTC_CUS_003" sourceRef="Task_PR_DTC_009" targetRef="End_US_DTC_CUS_003"/>
+    <bpmn:startEvent id="Start_US_DTC_CUS_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_010" name="PR-DTC-010 선물 수단·정책 대시보드 확인">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_010_Task_PR_DTC_011</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_011" name="PR-DTC-011 데이터 선물하기·통화 선물 발송">
+      <bpmn:incoming>Flow_Task_PR_DTC_010_Task_PR_DTC_011</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_011_Task_PR_DTC_012</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_012" name="PR-DTC-012 다수 수신자 일괄 선물 처리">
+      <bpmn:incoming>Flow_Task_PR_DTC_011_Task_PR_DTC_012</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_012_End_US_DTC_CUS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_012_End_US_DTC_CUS_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010" sourceRef="Start_US_DTC_CUS_004" targetRef="Task_PR_DTC_010"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_010_Task_PR_DTC_011" sourceRef="Task_PR_DTC_010" targetRef="Task_PR_DTC_011"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_011_Task_PR_DTC_012" sourceRef="Task_PR_DTC_011" targetRef="Task_PR_DTC_012"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_012_End_US_DTC_CUS_004" sourceRef="Task_PR_DTC_012" targetRef="End_US_DTC_CUS_004"/>
+    <bpmn:startEvent id="Start_US_DTC_CUS_005" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_013" name="PR-DTC-013 자동 선물·충전 등록">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_013_Task_PR_DTC_014</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_014" name="PR-DTC-014 자동선물 설정 조회·변경·해제">
+      <bpmn:incoming>Flow_Task_PR_DTC_013_Task_PR_DTC_014</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_014_End_US_DTC_CUS_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_005" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_014_End_US_DTC_CUS_005</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013" sourceRef="Start_US_DTC_CUS_005" targetRef="Task_PR_DTC_013"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_013_Task_PR_DTC_014" sourceRef="Task_PR_DTC_013" targetRef="Task_PR_DTC_014"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_014_End_US_DTC_CUS_005" sourceRef="Task_PR_DTC_014" targetRef="End_US_DTC_CUS_005"/>
+    <bpmn:startEvent id="Start_US_DTC_FAM_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_015" name="PR-DTC-015 가족·다회선 잔량 비교">
+      <bpmn:incoming>Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_015_Task_PR_DTC_016</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_016" name="PR-DTC-016 위임 권한 등록·변경">
+      <bpmn:incoming>Flow_Task_PR_DTC_015_Task_PR_DTC_016</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_016_Task_PR_DTC_017</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_017" name="PR-DTC-017 자녀 데이터 차단·대리 선물">
+      <bpmn:incoming>Flow_Task_PR_DTC_016_Task_PR_DTC_017</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_017_Task_PR_DTC_029</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_029" name="PR-DTC-029 T 데이터 셰어링 USIM 상태·해지 영향 확인">
+      <bpmn:incoming>Flow_Task_PR_DTC_017_Task_PR_DTC_029</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_029_End_US_DTC_FAM_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_FAM_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_029_End_US_DTC_FAM_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015" sourceRef="Start_US_DTC_FAM_001" targetRef="Task_PR_DTC_015"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_015_Task_PR_DTC_016" sourceRef="Task_PR_DTC_015" targetRef="Task_PR_DTC_016"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_016_Task_PR_DTC_017" sourceRef="Task_PR_DTC_016" targetRef="Task_PR_DTC_017"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_017_Task_PR_DTC_029" sourceRef="Task_PR_DTC_017" targetRef="Task_PR_DTC_029"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_029_End_US_DTC_FAM_001" sourceRef="Task_PR_DTC_029" targetRef="End_US_DTC_FAM_001"/>
+    <bpmn:startEvent id="Start_US_DTC_CUS_006" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_018" name="PR-DTC-018 로밍 잔량과 소진 위험 확인">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_018_Task_PR_DTC_019</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_019" name="PR-DTC-019 로밍 쿠폰 등록·충전">
+      <bpmn:incoming>Flow_Task_PR_DTC_018_Task_PR_DTC_019</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_019_Task_PR_DTC_020</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_020" name="PR-DTC-020 로밍 선물 가능 여부 확인">
+      <bpmn:incoming>Flow_Task_PR_DTC_019_Task_PR_DTC_020</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_020_End_US_DTC_CUS_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_006" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_020_End_US_DTC_CUS_006</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018" sourceRef="Start_US_DTC_CUS_006" targetRef="Task_PR_DTC_018"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_018_Task_PR_DTC_019" sourceRef="Task_PR_DTC_018" targetRef="Task_PR_DTC_019"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_019_Task_PR_DTC_020" sourceRef="Task_PR_DTC_019" targetRef="Task_PR_DTC_020"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_020_End_US_DTC_CUS_006" sourceRef="Task_PR_DTC_020" targetRef="End_US_DTC_CUS_006"/>
+    <bpmn:startEvent id="Start_US_DTC_CUS_007" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_021" name="PR-DTC-021 조회 실패·반영 지연 안내">
+      <bpmn:incoming>Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_021_Task_PR_DTC_022</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_022" name="PR-DTC-022 실패 항목 재시도와 대체 경로">
+      <bpmn:incoming>Flow_Task_PR_DTC_021_Task_PR_DTC_022</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_022_Task_PR_DTC_023</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_023" name="PR-DTC-023 상담 전환 문맥 전달">
+      <bpmn:incoming>Flow_Task_PR_DTC_022_Task_PR_DTC_023</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_023_End_US_DTC_CUS_007</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CUS_007" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_023_End_US_DTC_CUS_007</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021" sourceRef="Start_US_DTC_CUS_007" targetRef="Task_PR_DTC_021"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_021_Task_PR_DTC_022" sourceRef="Task_PR_DTC_021" targetRef="Task_PR_DTC_022"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_022_Task_PR_DTC_023" sourceRef="Task_PR_DTC_022" targetRef="Task_PR_DTC_023"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_023_End_US_DTC_CUS_007" sourceRef="Task_PR_DTC_023" targetRef="End_US_DTC_CUS_007"/>
+    <bpmn:startEvent id="Start_US_DTC_OPS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_024" name="PR-DTC-024 임계치·알림 정책 운영">
+      <bpmn:incoming>Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_024_Task_PR_DTC_025</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_025" name="PR-DTC-025 사용량 이상치와 집계 지연 모니터링">
+      <bpmn:incoming>Flow_Task_PR_DTC_024_Task_PR_DTC_025</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_025_Task_PR_DTC_026</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_026" name="PR-DTC-026 선물·충전 정책 변경 영향 관리">
+      <bpmn:incoming>Flow_Task_PR_DTC_025_Task_PR_DTC_026</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_026_End_US_DTC_OPS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_OPS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_026_End_US_DTC_OPS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024" sourceRef="Start_US_DTC_OPS_001" targetRef="Task_PR_DTC_024"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_024_Task_PR_DTC_025" sourceRef="Task_PR_DTC_024" targetRef="Task_PR_DTC_025"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_025_Task_PR_DTC_026" sourceRef="Task_PR_DTC_025" targetRef="Task_PR_DTC_026"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_026_End_US_DTC_OPS_001" sourceRef="Task_PR_DTC_026" targetRef="End_US_DTC_OPS_001"/>
+    <bpmn:startEvent id="Start_US_DTC_CSUP_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_DTC_027" name="PR-DTC-027 상담 대상 상태 조회">
+      <bpmn:incoming>Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_027_Task_PR_DTC_028</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_DTC_028" name="PR-DTC-028 상담 후속 조치와 보정 안내">
+      <bpmn:incoming>Flow_Task_PR_DTC_027_Task_PR_DTC_028</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_DTC_CSUP_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027" sourceRef="Start_US_DTC_CSUP_001" targetRef="Task_PR_DTC_027"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_027_Task_PR_DTC_028" sourceRef="Task_PR_DTC_027" targetRef="Task_PR_DTC_028"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001" sourceRef="Task_PR_DTC_028" targetRef="End_US_DTC_CSUP_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_001_di" bpmnElement="Lane_US_DTC_CUS_001">
+        <dc:Bounds x="40" y="25" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_001_di" bpmnElement="Start_US_DTC_CUS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_001_di" bpmnElement="Task_PR_DTC_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_002_di" bpmnElement="Task_PR_DTC_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_003_di" bpmnElement="Task_PR_DTC_003">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_001_di" bpmnElement="End_US_DTC_CUS_001">
+        <dc:Bounds x="900" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_002_di" bpmnElement="Lane_US_DTC_CUS_002">
+        <dc:Bounds x="40" y="195" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_002_di" bpmnElement="Start_US_DTC_CUS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_004_di" bpmnElement="Task_PR_DTC_004">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_005_di" bpmnElement="Task_PR_DTC_005">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_006_di" bpmnElement="Task_PR_DTC_006">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_002_di" bpmnElement="End_US_DTC_CUS_002">
+        <dc:Bounds x="900" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_003_di" bpmnElement="Lane_US_DTC_CUS_003">
+        <dc:Bounds x="40" y="365" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_003_di" bpmnElement="Start_US_DTC_CUS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_007_di" bpmnElement="Task_PR_DTC_007">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_008_di" bpmnElement="Task_PR_DTC_008">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_009_di" bpmnElement="Task_PR_DTC_009">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_003_di" bpmnElement="End_US_DTC_CUS_003">
+        <dc:Bounds x="900" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_004_di" bpmnElement="Lane_US_DTC_CUS_004">
+        <dc:Bounds x="40" y="535" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_004_di" bpmnElement="Start_US_DTC_CUS_004">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_010_di" bpmnElement="Task_PR_DTC_010">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_011_di" bpmnElement="Task_PR_DTC_011">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_012_di" bpmnElement="Task_PR_DTC_012">
+        <dc:Bounds x="680" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_004_di" bpmnElement="End_US_DTC_CUS_004">
+        <dc:Bounds x="900" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_005_di" bpmnElement="Lane_US_DTC_CUS_005">
+        <dc:Bounds x="40" y="705" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_005_di" bpmnElement="Start_US_DTC_CUS_005">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_013_di" bpmnElement="Task_PR_DTC_013">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_014_di" bpmnElement="Task_PR_DTC_014">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_005_di" bpmnElement="End_US_DTC_CUS_005">
+        <dc:Bounds x="680" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_FAM_001_di" bpmnElement="Lane_US_DTC_FAM_001">
+        <dc:Bounds x="40" y="875" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_FAM_001_di" bpmnElement="Start_US_DTC_FAM_001">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_015_di" bpmnElement="Task_PR_DTC_015">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_016_di" bpmnElement="Task_PR_DTC_016">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_017_di" bpmnElement="Task_PR_DTC_017">
+        <dc:Bounds x="680" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_029_di" bpmnElement="Task_PR_DTC_029">
+        <dc:Bounds x="900" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_FAM_001_di" bpmnElement="End_US_DTC_FAM_001">
+        <dc:Bounds x="1120" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_006_di" bpmnElement="Lane_US_DTC_CUS_006">
+        <dc:Bounds x="40" y="1045" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_006_di" bpmnElement="Start_US_DTC_CUS_006">
+        <dc:Bounds x="112" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_018_di" bpmnElement="Task_PR_DTC_018">
+        <dc:Bounds x="240" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_019_di" bpmnElement="Task_PR_DTC_019">
+        <dc:Bounds x="460" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_020_di" bpmnElement="Task_PR_DTC_020">
+        <dc:Bounds x="680" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_006_di" bpmnElement="End_US_DTC_CUS_006">
+        <dc:Bounds x="900" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CUS_007_di" bpmnElement="Lane_US_DTC_CUS_007">
+        <dc:Bounds x="40" y="1215" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CUS_007_di" bpmnElement="Start_US_DTC_CUS_007">
+        <dc:Bounds x="112" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_021_di" bpmnElement="Task_PR_DTC_021">
+        <dc:Bounds x="240" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_022_di" bpmnElement="Task_PR_DTC_022">
+        <dc:Bounds x="460" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_023_di" bpmnElement="Task_PR_DTC_023">
+        <dc:Bounds x="680" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CUS_007_di" bpmnElement="End_US_DTC_CUS_007">
+        <dc:Bounds x="900" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_OPS_001_di" bpmnElement="Lane_US_DTC_OPS_001">
+        <dc:Bounds x="40" y="1385" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_OPS_001_di" bpmnElement="Start_US_DTC_OPS_001">
+        <dc:Bounds x="112" y="1412" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_024_di" bpmnElement="Task_PR_DTC_024">
+        <dc:Bounds x="240" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_025_di" bpmnElement="Task_PR_DTC_025">
+        <dc:Bounds x="460" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_026_di" bpmnElement="Task_PR_DTC_026">
+        <dc:Bounds x="680" y="1390" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_OPS_001_di" bpmnElement="End_US_DTC_OPS_001">
+        <dc:Bounds x="900" y="1412" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_DTC_CSUP_001_di" bpmnElement="Lane_US_DTC_CSUP_001">
+        <dc:Bounds x="40" y="1555" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_DTC_CSUP_001_di" bpmnElement="Start_US_DTC_CSUP_001">
+        <dc:Bounds x="112" y="1582" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_027_di" bpmnElement="Task_PR_DTC_027">
+        <dc:Bounds x="240" y="1560" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_DTC_028_di" bpmnElement="Task_PR_DTC_028">
+        <dc:Bounds x="460" y="1560" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_DTC_CSUP_001_di" bpmnElement="End_US_DTC_CSUP_001">
+        <dc:Bounds x="680" y="1582" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001_di" bpmnElement="Flow_Start_US_DTC_CUS_001_Task_PR_DTC_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_001_Task_PR_DTC_002_di" bpmnElement="Flow_Task_PR_DTC_001_Task_PR_DTC_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_002_Task_PR_DTC_003_di" bpmnElement="Flow_Task_PR_DTC_002_Task_PR_DTC_003">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_003_End_US_DTC_CUS_001_di" bpmnElement="Flow_Task_PR_DTC_003_End_US_DTC_CUS_001">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004_di" bpmnElement="Flow_Start_US_DTC_CUS_002_Task_PR_DTC_004">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_004_Task_PR_DTC_005_di" bpmnElement="Flow_Task_PR_DTC_004_Task_PR_DTC_005">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_005_Task_PR_DTC_006_di" bpmnElement="Flow_Task_PR_DTC_005_Task_PR_DTC_006">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_006_End_US_DTC_CUS_002_di" bpmnElement="Flow_Task_PR_DTC_006_End_US_DTC_CUS_002">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007_di" bpmnElement="Flow_Start_US_DTC_CUS_003_Task_PR_DTC_007">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_007_Task_PR_DTC_008_di" bpmnElement="Flow_Task_PR_DTC_007_Task_PR_DTC_008">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_008_Task_PR_DTC_009_di" bpmnElement="Flow_Task_PR_DTC_008_Task_PR_DTC_009">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_009_End_US_DTC_CUS_003_di" bpmnElement="Flow_Task_PR_DTC_009_End_US_DTC_CUS_003">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010_di" bpmnElement="Flow_Start_US_DTC_CUS_004_Task_PR_DTC_010">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_010_Task_PR_DTC_011_di" bpmnElement="Flow_Task_PR_DTC_010_Task_PR_DTC_011">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_011_Task_PR_DTC_012_di" bpmnElement="Flow_Task_PR_DTC_011_Task_PR_DTC_012">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_012_End_US_DTC_CUS_004_di" bpmnElement="Flow_Task_PR_DTC_012_End_US_DTC_CUS_004">
+        <di:waypoint x="850" y="580"/>
+        <di:waypoint x="900" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013_di" bpmnElement="Flow_Start_US_DTC_CUS_005_Task_PR_DTC_013">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_013_Task_PR_DTC_014_di" bpmnElement="Flow_Task_PR_DTC_013_Task_PR_DTC_014">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_014_End_US_DTC_CUS_005_di" bpmnElement="Flow_Task_PR_DTC_014_End_US_DTC_CUS_005">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015_di" bpmnElement="Flow_Start_US_DTC_FAM_001_Task_PR_DTC_015">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_015_Task_PR_DTC_016_di" bpmnElement="Flow_Task_PR_DTC_015_Task_PR_DTC_016">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_016_Task_PR_DTC_017_di" bpmnElement="Flow_Task_PR_DTC_016_Task_PR_DTC_017">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_017_Task_PR_DTC_029_di" bpmnElement="Flow_Task_PR_DTC_017_Task_PR_DTC_029">
+        <di:waypoint x="850" y="920"/>
+        <di:waypoint x="900" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_029_End_US_DTC_FAM_001_di" bpmnElement="Flow_Task_PR_DTC_029_End_US_DTC_FAM_001">
+        <di:waypoint x="1070" y="920"/>
+        <di:waypoint x="1120" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018_di" bpmnElement="Flow_Start_US_DTC_CUS_006_Task_PR_DTC_018">
+        <di:waypoint x="148" y="1090"/>
+        <di:waypoint x="240" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_018_Task_PR_DTC_019_di" bpmnElement="Flow_Task_PR_DTC_018_Task_PR_DTC_019">
+        <di:waypoint x="410" y="1090"/>
+        <di:waypoint x="460" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_019_Task_PR_DTC_020_di" bpmnElement="Flow_Task_PR_DTC_019_Task_PR_DTC_020">
+        <di:waypoint x="630" y="1090"/>
+        <di:waypoint x="680" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_020_End_US_DTC_CUS_006_di" bpmnElement="Flow_Task_PR_DTC_020_End_US_DTC_CUS_006">
+        <di:waypoint x="850" y="1090"/>
+        <di:waypoint x="900" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021_di" bpmnElement="Flow_Start_US_DTC_CUS_007_Task_PR_DTC_021">
+        <di:waypoint x="148" y="1260"/>
+        <di:waypoint x="240" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_021_Task_PR_DTC_022_di" bpmnElement="Flow_Task_PR_DTC_021_Task_PR_DTC_022">
+        <di:waypoint x="410" y="1260"/>
+        <di:waypoint x="460" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_022_Task_PR_DTC_023_di" bpmnElement="Flow_Task_PR_DTC_022_Task_PR_DTC_023">
+        <di:waypoint x="630" y="1260"/>
+        <di:waypoint x="680" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_023_End_US_DTC_CUS_007_di" bpmnElement="Flow_Task_PR_DTC_023_End_US_DTC_CUS_007">
+        <di:waypoint x="850" y="1260"/>
+        <di:waypoint x="900" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024_di" bpmnElement="Flow_Start_US_DTC_OPS_001_Task_PR_DTC_024">
+        <di:waypoint x="148" y="1430"/>
+        <di:waypoint x="240" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_024_Task_PR_DTC_025_di" bpmnElement="Flow_Task_PR_DTC_024_Task_PR_DTC_025">
+        <di:waypoint x="410" y="1430"/>
+        <di:waypoint x="460" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_025_Task_PR_DTC_026_di" bpmnElement="Flow_Task_PR_DTC_025_Task_PR_DTC_026">
+        <di:waypoint x="630" y="1430"/>
+        <di:waypoint x="680" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_026_End_US_DTC_OPS_001_di" bpmnElement="Flow_Task_PR_DTC_026_End_US_DTC_OPS_001">
+        <di:waypoint x="850" y="1430"/>
+        <di:waypoint x="900" y="1430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027_di" bpmnElement="Flow_Start_US_DTC_CSUP_001_Task_PR_DTC_027">
+        <di:waypoint x="148" y="1600"/>
+        <di:waypoint x="240" y="1600"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_027_Task_PR_DTC_028_di" bpmnElement="Flow_Task_PR_DTC_027_Task_PR_DTC_028">
+        <di:waypoint x="410" y="1600"/>
+        <di:waypoint x="460" y="1600"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001_di" bpmnElement="Flow_Task_PR_DTC_028_End_US_DTC_CSUP_001">
+        <di:waypoint x="630" y="1600"/>
+        <di:waypoint x="680" y="1600"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

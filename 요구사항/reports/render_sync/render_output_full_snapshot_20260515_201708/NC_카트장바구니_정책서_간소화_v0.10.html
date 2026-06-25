@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>카트/장바구니 정책서 간소화 버전 v0.10</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>카트/장바구니 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-CRT</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.10</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-10</td></tr>
+<tr><th>작성 기준</th><td>상세 요구사항 43건은 구매안 통합, 처리 단위, 상품·세트 변경, 가격·재고 변동, 모회선 인증, 주문 전환 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했다.<br/>PM-12 최신 상세 요구사항명과 상세 요구사항 설명 43건을 기준으로 재구성했다.<br/>카트/장바구니 Topic Knowledge, Core Design Map, 요구사항 Trace를 작성 작전서로 사용했다.<br/>요구사항 원문을 복사하지 않고 구매안 통합, 주문 전 검증, 담기 후 동선, 액세서리 수량·금액, 모회선 인증 기준으로 정책화했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.10</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 고객이 장바구니에 담긴 상품, 옵션, 혜택, 관심상품을 확인하고 주문 가능한 구매안으로 정리하는 기준을 정의한다.<br/></p><p class="plain-text">• 대상 업무는 통합 장바구니 조회, 처리 단위 구분, 상품·세트 변경, 조합 검증, 주문 전환 준비, 비로그인 복원, 로그인 이관, 관심상품 저장·공유, 변동 복구를 포함한다.<br/></p><p class="plain-text">• 대상 채널은 앱·웹 FO이며 상품 기준 정보, 고객·회선 조건, 재고, 가격·혜택, 주문 가능성 판정을 위한 주문 연계 시스템 회신을 포함한다.<br/></p><p class="plain-text">• 상품 상세의 담기 버튼 기준과 주문서 작성, 결제 승인, 배송·개통 이행, 환불·취소 처리는 인접 정책서에서 상세화한다.<br/></p><p class="plain-text">• API 필드, DB 컬럼, 운영자 화면 구성, 추천 알고리즘 상세는 제외하되 고객 판단과 주문 가능 여부에 영향을 주는 기준은 정책 항목으로 남긴다.<br/></p><p class="plain-text">• 액세서리, 휴대폰·스마트기기, 인터넷·IPTV 탭의 수량·금액·가격 명세는 고객의 주문 가능성 판단에 필요한 범위까지만 포함한다.<br/></p><p class="plain-text">• 함께쓰기 요금제처럼 모회선 인증이 필요한 구성은 주문 전 검증 흐름에 포함하고, 인증 화면 상세와 제출 서식은 후속 설계에서 상세화한다.<br/></p><p class="plain-text">• 채널 업무 시스템은 장바구니 표시, 옵션 변경, 만료·삭제 안내, 주문 전환 경로를 책임지고 주문 연계 시스템은 가격·재고·가입 가능성·구성 충돌·BSS 기준 정보 검증을 책임진다.<br/></p><p class="plain-text">• 고객 표시 상태는 담기 가능, 구성 확인 필요, 가격 변경, 품절·삭제, 주문 전환 가능으로 안내하고 내부 상태는 재고 검증, 가격 재산정, BSS 자격 확인, 예약 만료 이력으로 분리한다.<br/></p><p class="plain-text">• 포함 범위는 장바구니 조회, 옵션·수량 변경, 구성 충돌 확인, 가격·재고 변동 확인, 주문 전환 가능성 판정, 만료·삭제 복구 기준이다.<br/></p><p class="plain-text">• 제외 범위는 결제 승인, 배송·개통 이행, 교환·반품, 해지·환불 상세 처리이며 해당 결과가 주문 전환 가능성에 영향을 주는 경우에만 정책 항목으로 연결한다.<br/></p><p class="plain-text">• 핵심 정책 질문은 누가 장바구니를 유지할 수 있는가, 언제 주문 전환이 가능한가, 몇 번까지 재검증·복구할 수 있는가, 어떤 조건이면 분리 주문·삭제·상담 전환되는가, 실패하면 어떤 상태와 안내를 남기는가이다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• 구매안 통합: 고객 화면은 하나의 장바구니로 제공하되 실제 주문·결제·배송·발급 단위는 명확히 구분한다.<br/></p><p class="principle-text">• 주문 전 검증: 조합 가능성, 고객 조건, 재고, 가격·혜택 변동은 주문서 진입 전에 먼저 확인한다.<br/></p><p class="principle-text">• 선택 상태 유지: 비로그인, 로그인, 다른 기기, 상담 전환 후에도 고객의 선택 상품과 비교 맥락을 최대한 유지한다.<br/></p><p class="principle-text">• 변동 사전 고지: 담은 시점 이후 달라진 가격, 혜택, 재고, 판매 상태, 가입 조건은 고객이 조치하기 전에 알려야 한다.<br/></p><p class="principle-text">• 셀프 복구 우선: 구매 불가, 분리 주문, 만료, 충돌 항목은 삭제만 제공하지 않고 대체, 재검증, 단독구매, 상담 전환을 함께 제공한다.<br/></p><p class="principle-text">• 운영 통제 가능성: 제공 범위, 한도, 보존, 이관, 조합 정책, 변동 모니터링 기준은 운영자가 이력 기반으로 관리한다.<br/></p><p class="principle-text">• 담기 후 이탈 방지: 고객이 상품을 담은 직후 쇼핑 계속, 장바구니 이동, 주문 전환 중 다음 행동을 선택할 수 있게 한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-CRT-001</td><td>장바구니</td><td>고객이 주문 후보로 담은 상품, 옵션, 혜택, 세트 구성을 조회하고 주문 가능 상태로 검증하는 공간이다.<br/>단순 저장함이 아니라 주문 전 검증 단위로 사용한다.<br/></td></tr><tr><td class="mono">TM-CRT-002</td><td>구매안</td><td>고객이 현재 장바구니에서 주문하려는 상품·옵션·혜택 조합이다.<br/>고객 화면에서는 하나로 보일 수 있으나 실제 주문 실행 단위는 분리될 수 있다.<br/></td></tr><tr><td class="mono">TM-CRT-003</td><td>세트</td><td>단말, 요금제, 부가서비스, 구독, 혜택처럼 함께 선택되어 가격·혜택·가입 가능성이 함께 판정되는 묶음이다.<br/></td></tr><tr><td class="mono">TM-CRT-004</td><td>처리 단위</td><td>실제 주문, 결제, 배송, 발급, 가입 이행을 수행하는 단위다.<br/>화면 노출 단위와 다를 수 있으므로 고객에게 분리 사유를 안내해야 한다.<br/></td></tr><tr><td class="mono">TM-CRT-005</td><td>분리 주문</td><td>같은 장바구니에 있지만 결제 방식, 배송 유형, 상품 유형, 이행 주체가 달라 별도 주문으로 처리해야 하는 상태다.<br/></td></tr><tr><td class="mono">TM-CRT-006</td><td>단독구매</td><td>다른 상품과 함께 주문할 수 없어 독립 경로로만 구매해야 하는 상품 처리 기준이다.<br/></td></tr><tr><td class="mono">TM-CRT-007</td><td>임시 장바구니</td><td>고객 식별 전 브라우저나 디바이스 기준으로 저장된 장바구니다.<br/>로그인 후 계정 장바구니로 이관·병합될 수 있다.<br/></td></tr><tr><td class="mono">TM-CRT-008</td><td>계정 장바구니</td><td>로그인 고객의 계정 기준으로 저장되어 재방문과 다른 기기에서 이어볼 수 있는 장바구니다.<br/></td></tr><tr><td class="mono">TM-CRT-009</td><td>관심상품</td><td>구매 예정 또는 탐색용으로 저장한 상품이다.<br/>주문 후보로 선택하기 전까지는 조합 검증과 주문 전환 대상이 아니다.<br/></td></tr><tr><td class="mono">TM-CRT-010</td><td>장바구니 변동</td><td>담은 이후 가격, 혜택, 재고, 판매 상태, 가입 가능 조건이 달라진 상황이다.<br/>고객에게 변경 내용과 후속 행동을 안내해야 한다.<br/></td></tr><tr><td class="mono">TM-CRT-011</td><td>담기 후 동선</td><td>고객이 상품을 장바구니에 담은 직후 쇼핑 계속, 장바구니 이동, 주문 전환 준비 중 하나를 선택하는 후속 행동 기준이다.<br/></td></tr><tr><td class="mono">TM-CRT-012</td><td>모회선 인증</td><td>함께쓰기 요금제 등 회선 관계 확인이 필요한 상품에서 대표 회선 또는 가입 주체의 권한을 확인하는 인증 기준이다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-CRT-001</td><td>고객</td><td>장바구니에 담긴 상품과 관심상품을 확인, 변경, 공유하고 주문 전환 여부를 결정하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CRT-002</td><td>운영자</td><td>장바구니 제공 범위, 조합 가능성, 보존 기간, 이관·병합, 변동 복구 기준을 등록·검수·배포하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CRT-003</td><td>상담사</td><td>고객이 장바구니 조합, 재고, 결제·주문 전환 판단에서 막힐 때 현재 구매안 문맥을 바탕으로 대체 경로를 안내하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CRT-004</td><td>채널 업무 시스템</td><td>장바구니 상태 저장, 통합 조회, 세트 구성, 고객 안내, 추천, 이력 저장과 주문 전환을 처리하는 시스템 책임 단위다.<br/></td></tr><tr><td class="mono">ACT-CRT-005</td><td>주문 연계 시스템</td><td>장바구니 상품 구성, 가격·재고·가입 가능성, 주문 전환 가능 여부를 BSS 기준 정보와 연계해 검증하고 결과를 제공하는 시스템이다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-CRT-CUS-001</td><td>고객</td><td>장바구니 구매안 통합 관리</td><td>고객이 여러 상품과 세트 구성을 한곳에서 보고 실제 주문 실행 단위를 이해하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CUS-002</td><td>고객</td><td>장바구니 상품 구성 변경과 정리</td><td>고객이 담긴 상품, 세트, 옵션을 선택·삭제·정리하고 남은 구매안을 다시 확인하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CUS-003</td><td>고객</td><td>조합 검증과 주문 전환 준비</td><td>고객이 함께 주문 가능한 조합인지 확인하고 단독 구매나 분리 주문 여부를 이해한 뒤 주문으로 이동하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CUS-004</td><td>고객</td><td>장바구니 이어보기와 복구</td><td>고객이 비로그인, 로그인, 다른 기기, 재방문 상황에서도 이전 선택 상태를 복원하고 변동 항목을 정리하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CUS-005</td><td>고객</td><td>관심상품 저장과 공유 활용</td><td>고객이 구매 예정 또는 탐색용 상품을 저장하고 개인·그룹 맥락에서 다시 확인하거나 공유하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CUS-006</td><td>고객</td><td>장바구니 기반 추천과 단독구매 전환</td><td>고객이 현재 장바구니 기준 추가 추천, 혜택 영향, 단독구매 필요 항목을 확인하고 구매안을 조정하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CUS-007</td><td>고객</td><td>장바구니 문제 상담 전환</td><td>고객이 조건 충돌, 재고 이슈, 결합 판단, 고관여 상품 문제를 장바구니 문맥을 유지한 채 상담이나 AI 지원으로 넘기는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-OPS-001</td><td>운영자</td><td>장바구니 제공 기준 운영</td><td>운영자가 장바구니 대상 상품, 예외 상품, 고정 진입, 표시 기준을 운영 기준으로 관리하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-OPS-002</td><td>운영자</td><td>조합·분리주문 정책 운영</td><td>운영자가 상품 간 호환성, 선행 조건, 중복 불가, 단독구매, 분리 주문 기준을 정책으로 관리하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-OPS-003</td><td>운영자</td><td>보존·이관·만료 정책 운영</td><td>운영자가 장바구니 보존 기간, 자동삭제, 비로그인 이관, 병합 우선순위, 만료 안내 기준을 관리하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-OPS-004</td><td>운영자</td><td>변동 모니터링과 복구 운영</td><td>운영자가 가격, 혜택, 재고, 가입 가능 조건 변동을 감지하고 고객 안내와 복구 조치를 운영하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-CNS-001</td><td>상담사</td><td>장바구니 문맥 기반 상담 지원</td><td>상담사가 고객의 현재 장바구니 구성, 충돌 사유, 주문 전환 상태를 받아 대체 행동을 안내하는 업무다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CRT-SYS-001</td><td>채널 업무 시스템</td><td>장바구니 상태 저장과 동기화</td><td>채널 업무 시스템이 고객 장바구니 상태, 세트 구성, 이력, 복원 정보를 저장하고 동기화하는 처리다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-CRT-SYS-002</td><td>주문 연계 시스템</td><td>상품·고객 조건 판정 회신</td><td>주문 연계 시스템이 상품 조합, 고객 조건, 가입 가능성, 선행 조건 판정 결과를 회신하는 처리다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-CRT-SYS-003</td><td>주문 연계 시스템</td><td>가격·혜택·재고 변동 회신</td><td>주문 연계 시스템이 가격, 혜택, 재고, 판매 상태 변동 결과를 장바구니 검증에 제공하는 처리다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="카트/장바구니 유즈케이스 다이어그램" height="1131" role="img" viewBox="0 0 1120 1131" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="1049" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">카트/장바구니 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="179"></line><line class="conn" x1="144" x2="442" y1="172" y2="243"></line><line class="conn" x1="144" x2="442" y1="172" y2="307"></line><line class="conn" x1="144" x2="442" y1="172" y2="371"></line><line class="conn" x1="144" x2="442" y1="172" y2="435"></line><line class="conn" x1="144" x2="442" y1="172" y2="499"></line><line class="conn" x1="144" x2="442" y1="592" y2="563"></line><line class="conn" x1="144" x2="442" y1="592" y2="627"></line><line class="conn" x1="144" x2="442" y1="592" y2="691"></line><line class="conn" x1="144" x2="442" y1="592" y2="755"></line><line class="conn" x1="144" x2="442" y1="1013" y2="819"></line><line class="conn" x1="678" x2="976" y1="883" y2="172"></line><line class="conn" x1="678" x2="976" y1="947" y2="1013"></line><line class="conn" x1="678" x2="976" y1="1011" y2="1013"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">장바구니 구매안 통합 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-CRT-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="179" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="169">장바구니 상품 구성 변경과</text><text class="uc-text" text-anchor="middle" x="560" y="183">정리</text><text class="uc-sub" text-anchor="middle" x="560" y="201">US-CRT-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="243" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="240">조합 검증과 주문 전환 준비</text><text class="uc-sub" text-anchor="middle" x="560" y="265">US-CRT-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="307" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="304">장바구니 이어보기와 복구</text><text class="uc-sub" text-anchor="middle" x="560" y="329">US-CRT-CUS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="371" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="368">관심상품 저장과 공유 활용</text><text class="uc-sub" text-anchor="middle" x="560" y="393">US-CRT-CUS-005 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="435" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="425">장바구니 기반 추천과 단독구매</text><text class="uc-text" text-anchor="middle" x="560" y="439">전환</text><text class="uc-sub" text-anchor="middle" x="560" y="457">US-CRT-CUS-006 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="499" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="496">장바구니 문제 상담 전환</text><text class="uc-sub" text-anchor="middle" x="560" y="521">US-CRT-CUS-007 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="563" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="560">장바구니 제공 기준 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="585">US-CRT-OPS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="627" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="624">조합·분리주문 정책 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="649">US-CRT-OPS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">보존·이관·만료 정책 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-CRT-OPS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="755" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="752">변동 모니터링과 복구 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="777">US-CRT-OPS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="819" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="816">장바구니 문맥 기반 상담 지원</text><text class="uc-sub" text-anchor="middle" x="560" y="841">US-CRT-CNS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="883" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="880">장바구니 상태 저장과 동기화</text><text class="uc-sub" text-anchor="middle" x="560" y="905">US-CRT-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="947" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="944">상품·고객 조건 판정 회신</text><text class="uc-sub" text-anchor="middle" x="560" y="969">US-CRT-SYS-002 · 프로세스 N</text><ellipse class="uc" cx="560" cy="1011" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="1008">가격·혜택·재고 변동 회신</text><text class="uc-sub" text-anchor="middle" x="560" y="1033">US-CRT-SYS-003 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="540" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="558" y2="605"></line><line class="actor-line" x1="86" x2="138" y1="575" y2="575"></line><line class="actor-line" x1="112" x2="92" y1="605" y2="640"></line><line class="actor-line" x1="112" x2="132" y1="605" y2="640"></line><text class="actor-text" text-anchor="middle" x="112" y="666">운영자</text><circle class="actor-line" cx="112" cy="961" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="979" y2="1026"></line><line class="actor-line" x1="86" x2="138" y1="996" y2="996"></line><line class="actor-line" x1="112" x2="92" y1="1026" y2="1061"></line><line class="actor-line" x1="112" x2="132" y1="1026" y2="1061"></line><text class="actor-text" text-anchor="middle" x="112" y="1087">상담사</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="961" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="979" y2="1026"></line><line class="system-actor-line" x1="982" x2="1034" y1="996" y2="996"></line><line class="system-actor-line" x1="1008" x2="988" y1="1026" y2="1061"></line><line class="system-actor-line" x1="1008" x2="1028" y1="1026" y2="1061"></line><text class="actor-text" text-anchor="middle" x="1008" y="1087">주문 연계 시스템</text><text class="legend" x="304" y="1105">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-CRT-001</td><td>진입 가능</td><td>고객이 홈, 상품 목록, 상품 상세, MY 등 주요 경로에서 장바구니로 진입할 수 있는 상태다.<br/></td><td>고객에게 전체 구매안과 처리 단위 구분을 먼저 보여준다.<br/></td></tr><tr><td class="mono">ST-CRT-002</td><td>임시 보관</td><td>비로그인 또는 식별 전 고객의 선택 상품이 브라우저·디바이스 기준으로 임시 저장된 상태다.<br/></td><td>로그인 전에도 조회와 일부 정리는 허용하되 계정 저장 전 제한을 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-003</td><td>계정 보관</td><td>로그인 고객의 장바구니가 계정 기준으로 저장되어 다른 기기와 재방문에서 복원 가능한 상태다.<br/></td><td>비로그인 장바구니가 있으면 이관·병합 기준을 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-004</td><td>구매안 구성 중</td><td>고객이 상품, 옵션, 세트, 관심상품, 추천 항목을 조정하며 주문 후보를 구성하는 상태다.<br/></td><td>구성 변경 시 가격, 혜택, 처리 단위를 다시 계산한다.<br/></td></tr><tr><td class="mono">ST-CRT-005</td><td>검증 필요</td><td>상품 조합, 고객 조건, 재고, 혜택, 선행 가입 조건을 다시 확인해야 하는 상태다.<br/></td><td>주문 연계 시스템 판정 결과를 받아 주문 가능 여부를 갱신한다.<br/></td></tr><tr><td class="mono">ST-CRT-006</td><td>주문 전환 가능</td><td>선택한 장바구니 항목이 주문서로 이동 가능한 상태다.<br/></td><td>주문으로 이동하기 전 적용 조건과 예상 비용을 확정 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-007</td><td>분리 주문 필요</td><td>한 화면에서 함께 보이지만 실제 주문이나 결제가 상품 유형별로 분리되어야 하는 상태다.<br/></td><td>분리 이유와 각 처리 단위의 다음 행동을 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-008</td><td>단독구매 필요</td><td>다른 상품과 함께 주문할 수 없고 별도 구매 경로로 진행해야 하는 상품이 포함된 상태다.<br/></td><td>현재 구매안을 유지하면서 해당 상품의 단독 구매 경로를 제공한다.<br/></td></tr><tr><td class="mono">ST-CRT-009</td><td>변경 확인 필요</td><td>담은 시점 이후 가격, 혜택, 재고, 판매 상태, 가입 가능 조건이 달라진 상태다.<br/></td><td>변경 전후 차이와 대체 행동을 고객에게 알려준다.<br/></td></tr><tr><td class="mono">ST-CRT-010</td><td>수량 한도 초과</td><td>로그인 기준 장바구니 최대 보관 수량을 초과해 추가 담기가 제한된 상태다.<br/></td><td>기존 항목 삭제 또는 주문 전환 후 다시 담도록 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-011</td><td>구매 불가</td><td>단종, 판매중단, 재고 없음, 조건 불충족 때문에 장바구니 항목을 주문할 수 없는 상태다.<br/></td><td>구매 버튼을 제한하고 삭제, 대체 상품, 상담 전환을 제공한다.<br/></td></tr><tr><td class="mono">ST-CRT-012</td><td>만료 예정</td><td>장바구니 보존 기간이 임박해 고객에게 삭제 예정 고지가 필요한 상태다.<br/></td><td>삭제 예정일과 복원 가능 범위를 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-013</td><td>자동 삭제 완료</td><td>보존 기간 초과 또는 주문 완료로 장바구니 항목이 자동 삭제된 상태다.<br/></td><td>삭제 이력을 저장하고 주문하지 않은 항목은 유지한다.<br/></td></tr><tr><td class="mono">ST-CRT-014</td><td>상담 전환 필요</td><td>고객이 조합 충돌, 고관여 상품, 재고·조건 문제를 스스로 해결하기 어려운 상태다.<br/></td><td>장바구니 문맥과 실패 사유를 상담사 또는 AI 지원에 전달한다.<br/></td></tr><tr><td class="mono">ST-CRT-015</td><td>주문 완료 반영</td><td>장바구니 일부 또는 전체 항목이 주문·가입 완료되어 장바구니 정리가 필요한 상태다.<br/></td><td>완료된 세트는 삭제하고 남은 세트는 계정 장바구니에 유지한다.<br/></td></tr><tr><td class="mono">ST-CRT-016</td><td>인증 필요</td><td>함께쓰기 요금제 또는 회선 관계 확인이 필요한 장바구니 구성이 주문 전환 전에 모회선 인증을 요구하는 상태다.<br/></td><td>고객에게 필요한 인증 사유와 인증 완료 후 이어질 주문 가능성 검증을 안내한다.<br/></td></tr><tr><td class="mono">ST-CRT-017</td><td>장바구니 비어 있음</td><td>고객의 장바구니에 주문 후보 상품이 없어 상품 탐색 또는 로그인 안내가 필요한 상태다.<br/></td><td>로그인 상태에 따라 복원 가능 여부와 상품 보러가기 경로를 안내한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>진입 가능</td><td>장바구니 구매안 통합 관리</td><td>구매안 구성 중</td><td>고객이 주요 진입점에서 장바구니를 열면 전체 구매안과 처리 단위를 보여주고 구성 중 상태로 전환한다.<br/></td></tr><tr><td>진입 가능</td><td>장바구니 이어보기와 복구</td><td>임시 보관</td><td>식별 전 고객의 이전 선택 상태가 브라우저·디바이스에 남아 있으면 임시 보관 상태로 복원한다.<br/></td></tr><tr><td>임시 보관</td><td>장바구니 이어보기와 복구</td><td>계정 보관</td><td>고객이 로그인하고 이관·병합 기준을 확인하면 계정 장바구니로 전환한다.<br/></td></tr><tr><td>계정 보관</td><td>장바구니 상품 구성 변경과 정리</td><td>구매안 구성 중</td><td>고객이 상품, 옵션, 세트, 관심상품을 변경하면 구매안 구성 중 상태로 갱신한다.<br/></td></tr><tr><td>구매안 구성 중</td><td>조합 검증과 주문 전환 준비</td><td>검증 필요</td><td>주문 대상 선택, 세트 변경, 추천 추가, 단독구매 항목 포함 시 조합 검증이 필요하다.<br/></td></tr><tr><td>검증 필요</td><td>상품·고객 조건 판정 회신</td><td>주문 전환 가능</td><td>상품 조합, 고객 조건, 재고, 혜택, 선행 가입 조건이 모두 충족되면 주문 전환 가능 상태로 바꾼다.<br/></td></tr><tr><td>검증 필요</td><td>상품·고객 조건 판정 회신</td><td>분리 주문 필요</td><td>결제 방식, 배송 유형, 상품 유형이 달라 한 번에 주문할 수 없으면 분리 주문 필요 상태로 바꾼다.<br/></td></tr><tr><td>검증 필요</td><td>상품·고객 조건 판정 회신</td><td>단독구매 필요</td><td>다른 상품과 동시 주문이 불가한 항목은 단독구매 필요 상태로 분리한다.<br/></td></tr><tr><td>검증 필요</td><td>상품·고객 조건 판정 회신</td><td>구매 불가</td><td>단종, 판매중단, 재고 없음, 가입 불가 조건이면 구매 불가 상태로 전환한다.<br/></td></tr><tr><td>구매안 구성 중</td><td>가격·혜택·재고 변동 회신</td><td>변경 확인 필요</td><td>담은 시점과 조회 시점의 가격, 혜택, 재고, 판매 조건이 달라지면 변경 확인 필요 상태로 바꾼다.<br/></td></tr><tr><td>계정 보관</td><td>장바구니 제공 기준 운영</td><td>수량 한도 초과</td><td>로그인 기준 보관 상품·세트가 50개를 초과하면 추가 담기를 제한한다.<br/></td></tr><tr><td>계정 보관</td><td>보존·이관·만료 정책 운영</td><td>만료 예정</td><td>최초 담은 날짜로부터 30일에 가까워진 항목은 만료 예정으로 고지한다.<br/></td></tr><tr><td>만료 예정</td><td>보존·이관·만료 정책 운영</td><td>자동 삭제 완료</td><td>최초 담은 날짜로부터 30일을 초과한 항목은 순차 자동 삭제한다.<br/></td></tr><tr><td>주문 전환 가능</td><td>조합 검증과 주문 전환 준비</td><td>주문 완료 반영</td><td>고객이 주문·가입 완료 후 완료 결과를 받으면 완료된 세트만 장바구니에서 삭제한다.<br/></td></tr><tr><td>변경 확인 필요</td><td>장바구니 문제 상담 전환</td><td>상담 전환 필요</td><td>고객이 변동, 충돌, 재고 문제를 직접 해결하지 못하면 상담 전환 필요 상태로 바꾼다.<br/></td></tr><tr><td>구매안 구성 중</td><td>장바구니 함께쓰기 요금제 모회선 인증 제공</td><td>인증 필요</td><td>함께쓰기 요금제나 회선 관계 확인이 필요한 상품이 선택되면 주문 전환 전에 모회선 인증 필요 상태로 전환한다.<br/></td></tr><tr><td>인증 필요</td><td>장바구니 함께쓰기 요금제 모회선 인증 제공</td><td>검증 필요</td><td>모회선 인증이 완료되면 가입유형별 인증 결과를 기준으로 상품·고객 조건 재검증을 수행한다.<br/></td></tr><tr><td>구매안 구성 중</td><td>장바구니 상품 없음 시 로그인/비로그인 안내 제공</td><td>장바구니 비어 있음</td><td>조회 결과 주문 후보 상품이 없으면 로그인 고객은 복원 가능성을, 비로그인 고객은 상품 보러가기와 로그인 후 복원 가능성을 안내한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="862" role="img" viewBox="0 0 1120 862" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="784" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="245.0" x2="290.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M170.0 166.0 C170.0 236.0, 180.0 214.0, 180.0 284.0"></path><path class="flow-dash" d="M255.0 316.0 C306.7 244.0, 306.7 244.0, 358.3 316.0"></path><path class="flow-dash" d="M433.3 284.0 C433.3 214.0, 365.0 236.0, 365.0 166.0"></path><line class="flow" x1="440.0" x2="485.0" y1="134.0" y2="134.0"></line><line class="flow" x1="635.0" x2="680.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M560.0 166.0 C560.0 236.0, 686.7 214.0, 686.7 284.0"></path><path class="flow-dash" d="M635.0 134.0 C635.0 204.0, 865.0 246.0, 865.0 316.0"></path><path class="flow-dash" d="M485.0 134.0 C485.0 204.0, 255.0 400.0, 255.0 470.0"></path><path class="flow-dash" d="M365.0 166.0 C365.0 236.0, 433.3 368.0, 433.3 438.0"></path><path class="flow-dash" d="M508.3 316.0 C508.3 386.0, 611.7 400.0, 611.7 470.0"></path><path class="flow-dash" d="M508.3 316.0 C508.3 386.0, 865.0 400.0, 865.0 470.0"></path><path class="flow-dash" d="M865.0 470.0 C865.0 540.0, 255.0 554.0, 255.0 624.0"></path><line class="flow" x1="830.0" x2="875.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M433.3 502.0 C433.3 572.0, 433.3 522.0, 433.3 592.0"></path><path class="flow-dash" d="M365.0 166.0 C365.0 236.0, 686.7 522.0, 686.7 592.0"></path><path class="flow-dash" d="M686.7 592.0 C686.7 522.0, 560.0 236.0, 560.0 166.0"></path><path class="flow-dash" d="M440.0 134.0 C440.0 204.0, 865.0 554.0, 865.0 624.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="150" x="95.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">진입 가능</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-CRT-001</text><rect class="state" height="64" rx="29" ry="29" width="150" x="290.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="365" y="128">구매안 구성 중</text><text class="state-sub" text-anchor="middle" x="365" y="151">ST-CRT-004</text><rect class="state" height="64" rx="29" ry="29" width="150" x="485.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="560" y="128">검증 필요</text><text class="state-sub" text-anchor="middle" x="560" y="151">ST-CRT-005</text><rect class="state" height="64" rx="29" ry="29" width="150" x="680.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="755" y="128">주문 전환 가능</text><text class="state-sub" text-anchor="middle" x="755" y="151">ST-CRT-006</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="875.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">주문 완료 반영</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-CRT-015</text><rect class="state" height="64" rx="29" ry="29" width="150" x="105.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">임시 보관</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-CRT-002</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">계정 보관</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-CRT-003</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">분리 주문 필요</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-CRT-007</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">단독구매 필요</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-CRT-008</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="105.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">구매 불가</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-CRT-011</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="438.0"></rect><text class="state-text" text-anchor="middle" x="433" y="464">변경 확인 필요</text><text class="state-sub" text-anchor="middle" x="433" y="487">ST-CRT-009</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="438.0"></rect><text class="state-text" text-anchor="middle" x="686" y="464">수량 한도 초과</text><text class="state-sub" text-anchor="middle" x="686" y="487">ST-CRT-010</text><rect class="state-alert" height="64" rx="29" ry="29" width="150" x="865.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">만료 예정</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-CRT-012</text><rect class="state-major" height="64" rx="29" ry="29" width="150" x="105.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="180" y="618">자동 삭제 완료</text><text class="state-sub" text-anchor="middle" x="180" y="641">ST-CRT-013</text><rect class="state" height="64" rx="29" ry="29" width="150" x="358.3" y="592.0"></rect><text class="state-text" text-anchor="middle" x="433" y="618">상담 전환 필요</text><text class="state-sub" text-anchor="middle" x="433" y="641">ST-CRT-014</text><rect class="state" height="64" rx="29" ry="29" width="150" x="611.7" y="592.0"></rect><text class="state-text" text-anchor="middle" x="686" y="618">인증 필요</text><text class="state-sub" text-anchor="middle" x="686" y="641">ST-CRT-016</text><rect class="state" height="64" rx="29" ry="29" width="150" x="865.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="940" y="618">장바구니 비어 있음</text><text class="state-sub" text-anchor="middle" x="940" y="641">ST-CRT-017</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="218.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="267.5" y="77.0">장바구니 구매안 통합</text><text class="flow-label" text-anchor="middle" x="267.5" y="91.0">관리</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="118.5" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="175.0" y="232.0">장바구니 이어보기와 복구</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="260.7" y="202.0"></rect><text class="flow-label" text-anchor="middle" x="306.7" y="219.0">장바구니 이어보기와</text><text class="flow-label" text-anchor="middle" x="306.7" y="233.0">복구</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="92" x="353.2" y="201.0"></rect><text class="flow-label" text-anchor="middle" x="399.2" y="218.0">장바구니 상품 구성</text><text class="flow-label" text-anchor="middle" x="399.2" y="232.0">변경과 정리</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="409.5" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="462.5" y="77.0">조합 검증과 주문 전환</text><text class="flow-label" text-anchor="middle" x="462.5" y="91.0">준비</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="608.0" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="657.5" y="77.0">상품·고객 조건 판정</text><text class="flow-label" text-anchor="middle" x="657.5" y="91.0">회신</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="573.8" y="165.0"></rect><text class="flow-label" text-anchor="middle" x="623.3" y="182.0">상품·고객 조건 판정</text><text class="flow-label" text-anchor="middle" x="623.3" y="196.0">회신</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="700.5" y="201.0"></rect><text class="flow-label" text-anchor="middle" x="750.0" y="218.0">상품·고객 조건 판정</text><text class="flow-label" text-anchor="middle" x="750.0" y="232.0">회신</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="320.5" y="242.0"></rect><text class="flow-label" text-anchor="middle" x="370.0" y="259.0">상품·고객 조건 판정</text><text class="flow-label" text-anchor="middle" x="370.0" y="273.0">회신</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="349.7" y="278.0"></rect><text class="flow-label" text-anchor="middle" x="399.2" y="295.0">가격·혜택·재고 변동</text><text class="flow-label" text-anchor="middle" x="399.2" y="309.0">회신</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="503.5" y="347.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="364.0">장바구니 제공 기준 운영</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="637.2" y="369.0"></rect><text class="flow-label" text-anchor="middle" x="686.7" y="386.0">보존·이관·만료 정책</text><text class="flow-label" text-anchor="middle" x="686.7" y="400.0">운영</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="510.5" y="487.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="504.0">보존·이관·만료 정책</text><text class="flow-label" text-anchor="middle" x="560.0" y="518.0">운영</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="799.5" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="852.5" y="77.0">조합 검증과 주문 전환</text><text class="flow-label" text-anchor="middle" x="852.5" y="91.0">준비</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="113" x="376.8" y="501.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="518.0">장바구니 문제 상담 전환</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="113" x="469.3" y="355.0"></rect><text class="flow-label" text-anchor="middle" x="525.8" y="372.0">장바구니 함께쓰기 요금제</text><text class="flow-label" text-anchor="middle" x="525.8" y="386.0">모회선 인증 제공</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="113" x="566.8" y="319.0"></rect><text class="flow-label" text-anchor="middle" x="623.3" y="336.0">장바구니 함께쓰기 요금제</text><text class="flow-label" text-anchor="middle" x="623.3" y="350.0">모회선 인증 제공</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="599.5" y="355.0"></rect><text class="flow-label" text-anchor="middle" x="652.5" y="372.0">장바구니 상품 없음 시</text><text class="flow-label" text-anchor="middle" x="652.5" y="386.0">로그인/비로그인 안내…</text><text class="note" x="78" y="808">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 장바구니 구매안 통합 관리 (US-CRT-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-CART-001</td><td>장바구니 진입과 구매안 요약 확인</td><td>고객이 홈, 상품 목록, 상세, MY에서 장바구니로 진입해 전체 담긴 상품과 구매안 요약을 확인한다.<br/></td><td>FN-CRT-CART-001 통합 장바구니 조회 구성<br/>FN-CRT-CART-004 가격·혜택 요약 산정</td><td>PG-CRT-SCOPE-001 장바구니 범위·경계 정책<br/>PG-CRT-STRUCT-001 통합·분리 장바구니 구조 정책</td></tr><tr><td class="mono">PR-CRT-CART-002</td><td>처리 단위별 장바구니 그룹 확인</td><td>고객이 함께 결제 가능한 항목, 별도 결제 항목, 검토용 항목을 같은 화면에서 구분해 확인한다.<br/></td><td>FN-CRT-CART-002 처리 단위 그룹핑<br/>FN-CRT-BSS-001 상품·고객 조건 조회</td><td>PG-CRT-STRUCT-001 통합·분리 장바구니 구조 정책<br/>PG-CRT-ORDER-001 주문 전환·분리 주문 정책</td></tr><tr><td class="mono">PR-CRT-CART-003</td><td>주문 대상 선택과 구매안 확정</td><td>고객이 주문할 세트를 선택하고 예상 비용과 주문 전환 가능 여부를 확인한다.<br/></td><td>FN-CRT-CART-003 주문 대상 선택·일괄 관리<br/>FN-CRT-VALID-003 주문 전환 상태 확정</td><td>PG-CRT-ORDER-001 주문 전환·분리 주문 정책<br/>PG-CRT-PRICE-001 가격·혜택 요약 정책</td></tr><tr><td class="mono">PR-CRT-CART-004</td><td>담기 후 후속 동선 선택</td><td>고객이 상품을 담은 직후 쇼핑 계속하기, 장바구니 이동, 주문 대상 확인 중 다음 행동을 선택한다.<br/></td><td>FN-CRT-CART-005 담기 후 동선 분기<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-NAV-001 담기 후 동선 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr></tbody>
+</table>
+
+<h4>2) 장바구니 상품 구성 변경과 정리 (US-CRT-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-EDIT-001</td><td>상품·세트 선택 상태 변경</td><td>고객이 장바구니 상품, 옵션, 수량, 세트 구성을 추가·삭제·교체한다.<br/></td><td>FN-CRT-EDIT-001 세트 구성 변경 처리<br/>FN-CRT-CART-002 처리 단위 그룹핑</td><td>PG-CRT-GROUP-001 세트·패키지 구성 정책<br/>PG-CRT-DELETE-001 삭제·자동삭제 정책</td></tr><tr><td class="mono">PR-CRT-EDIT-002</td><td>삭제·자동삭제 영향 확인</td><td>고객이 삭제할 항목과 자동삭제 대상의 영향, 복구 가능 여부, 남은 구매안을 확인한다.<br/></td><td>FN-CRT-EDIT-002 삭제·자동삭제 처리<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-DELETE-001 삭제·자동삭제 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr><tr><td class="mono">PR-CRT-EDIT-003</td><td>남은 상품 구매안 재계산</td><td>삭제나 구성 변경 후 남은 상품의 가격, 혜택, 주문 가능성을 다시 계산한다.<br/></td><td>FN-CRT-CART-004 가격·혜택 요약 산정<br/>FN-CRT-BSS-002 가격·혜택·재고 동기화</td><td>PG-CRT-PRICE-001 가격·혜택 요약 정책<br/>PG-CRT-CHANGE-001 가격·혜택·재고 변동 정책</td></tr><tr><td class="mono">PR-CRT-EDIT-004</td><td>액세서리 수량 조절과 금액 재산정</td><td>고객이 액세서리 탭에서 수량을 변경하면 품절, 보관 한도, 총 결제 예상 금액을 다시 확인한다.<br/></td><td>FN-CRT-EDIT-003 액세서리 수량·금액 산정<br/>FN-CRT-CART-004 가격·혜택 요약 산정<br/>FN-CRT-BSS-002 가격·혜택·재고 동기화</td><td>PG-CRT-PRICE-001 가격·혜택 요약 정책<br/>PG-CRT-CAPACITY-001 장바구니 한도·보존 정책<br/>PG-CRT-CHANGE-001 가격·혜택·재고 변동 정책</td></tr></tbody>
+</table>
+
+<h4>3) 조합 검증과 주문 전환 준비 (US-CRT-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-VALID-001</td><td>조합 가능성 사전 검증</td><td>고객이 선택한 상품 조합의 호환성, 중복, 선행 가입 조건, 재고를 주문 전에 검증한다.<br/></td><td>FN-CRT-VALID-001 조합 호환성 검증<br/>FN-CRT-BSS-001 상품·고객 조건 조회</td><td>PG-CRT-VALID-001 조합 가능성 검증 정책<br/>PG-CRT-BSS-001 BSS·연계 판정 정책</td></tr><tr><td class="mono">PR-CRT-VALID-002</td><td>분리 주문·단독구매 판단</td><td>함께 주문할 수 없는 항목은 분리 주문 또는 단독구매 필요 여부를 고객에게 설명한다.<br/></td><td>FN-CRT-VALID-002 분리 주문 판정<br/>FN-CRT-CART-002 처리 단위 그룹핑</td><td>PG-CRT-ORDER-001 주문 전환·분리 주문 정책<br/>PG-CRT-VALID-001 조합 가능성 검증 정책</td></tr><tr><td class="mono">PR-CRT-VALID-003</td><td>주문 전환 가능 상태 확정</td><td>검증을 통과한 세트만 주문서로 넘기고, 통과하지 못한 항목은 조치 방법을 안내한다.<br/></td><td>FN-CRT-VALID-003 주문 전환 상태 확정<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-ORDER-001 주문 전환·분리 주문 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr><tr><td class="mono">PR-CRT-VALID-004</td><td>함께쓰기 요금제 모회선 인증</td><td>고객이 함께쓰기 요금제를 주문 대상으로 선택하면 모회선 인증과 가입유형별 인증 조건을 주문 전 검증한다.<br/></td><td>FN-CRT-VALID-004 모회선 인증·가입유형 검증<br/>FN-CRT-BSS-001 상품·고객 조건 조회<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-AUTH-001 함께쓰기 인증·권한 정책<br/>PG-CRT-BSS-001 BSS·연계 판정 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr></tbody>
+</table>
+
+<h4>4) 장바구니 이어보기와 복구 (US-CRT-CUS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-KEEP-001</td><td>비로그인 임시 장바구니 복원</td><td>고객이 비로그인 상태에서 이탈 후 재진입하면 이전 선택 상태와 비교 맥락을 복원한다.<br/></td><td>FN-CRT-KEEP-001 비로그인 임시 저장<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-SESSION-001 비로그인·로그인 저장 이관 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr><tr><td class="mono">PR-CRT-KEEP-002</td><td>로그인 이관·병합 확인</td><td>고객이 로그인하면 임시 장바구니와 계정 장바구니의 중복, 충돌, 우선순위를 확인하고 병합한다.<br/></td><td>FN-CRT-KEEP-002 로그인 이관·병합<br/>FN-CRT-BSS-001 상품·고객 조건 조회</td><td>PG-CRT-SESSION-001 비로그인·로그인 저장 이관 정책<br/>PG-CRT-GROUP-001 세트·패키지 구성 정책</td></tr><tr><td class="mono">PR-CRT-KEEP-003</td><td>만료·변동 항목 복구 선택</td><td>고객이 만료 예정, 자동삭제, 가격·재고 변동 항목을 확인하고 삭제, 대체, 재검증, 상담 전환을 선택한다.<br/></td><td>FN-CRT-KEEP-003 만료·변동 복구 안내<br/>FN-CRT-BSS-002 가격·혜택·재고 동기화</td><td>PG-CRT-CHANGE-001 가격·혜택·재고 변동 정책<br/>PG-CRT-CAPACITY-001 장바구니 한도·보존 정책</td></tr></tbody>
+</table>
+
+<h4>5) 관심상품 저장과 공유 활용 (US-CRT-CUS-005)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-FAV-001</td><td>관심상품 저장과 재방문 확인</td><td>고객이 구매 예정 또는 탐색용 상품을 관심상품으로 저장하고 재방문 시 이어서 확인한다.<br/></td><td>FN-CRT-FAV-001 관심상품 저장<br/>FN-CRT-CART-001 통합 장바구니 조회 구성</td><td>PG-CRT-FAV-001 관심상품·공유 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr><tr><td class="mono">PR-CRT-FAV-002</td><td>그룹 공유 링크 생성과 조회</td><td>고객이 그룹 상품 또는 선택 항목을 링크로 공유하고 공유 대상이 최소 정보로 조회한다.<br/></td><td>FN-CRT-FAV-002 그룹 공유 링크 관리<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-FAV-001 관심상품·공유 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr></tbody>
+</table>
+
+<h4>6) 장바구니 기반 추천과 단독구매 전환 (US-CRT-CUS-006)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-UPSELL-001</td><td>함께 구매 추천 확인</td><td>고객이 현재 담긴 상품 기준으로 추가 상품, 결합, 구독, 혜택 연계 추천을 확인한다.<br/></td><td>FN-CRT-UPSELL-001 함께 구매 추천 구성<br/>FN-CRT-CART-004 가격·혜택 요약 산정</td><td>PG-CRT-RECO-001 함께 구매 추천 정책<br/>PG-CRT-PRICE-001 가격·혜택 요약 정책</td></tr><tr><td class="mono">PR-CRT-UPSELL-002</td><td>추천 상품 추가와 혜택 영향 확인</td><td>고객이 추천 상품을 추가할 때 총 비용, 할인, 혜택, 조합 가능성 변화를 확인한다.<br/></td><td>FN-CRT-UPSELL-002 추천 추가 영향 재계산<br/>FN-CRT-VALID-001 조합 호환성 검증</td><td>PG-CRT-RECO-001 함께 구매 추천 정책<br/>PG-CRT-VALID-001 조합 가능성 검증 정책</td></tr></tbody>
+</table>
+
+<h4>7) 장바구니 문제 상담 전환 (US-CRT-CUS-007)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-HELP-001</td><td>주문 결정 장애 사유 확인</td><td>고객이 충돌, 재고, 고관여 상품, 조건 문제의 사유와 선택 가능한 해결 경로를 확인한다.<br/></td><td>FN-CRT-HELP-001 상담 전환 문맥 구성<br/>FN-CRT-KEEP-003 만료·변동 복구 안내</td><td>PG-CRT-CONSULT-001 상담·AI 지원 전환 정책<br/>PG-CRT-CHANGE-001 가격·혜택·재고 변동 정책</td></tr><tr><td class="mono">PR-CRT-HELP-002</td><td>상담·AI 지원 전환과 문맥 전달</td><td>고객이 상담이나 AI 지원으로 전환할 때 장바구니 세트, 실패 사유, 재검증 결과를 함께 전달한다.<br/></td><td>FN-CRT-HELP-001 상담 전환 문맥 구성<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-CONSULT-001 상담·AI 지원 전환 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr></tbody>
+</table>
+
+<h4>8) 장바구니 제공 기준 운영 (US-CRT-OPS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-OPS-001</td><td>장바구니 제공 범위 기준 등록</td><td>운영자가 장바구니 대상 상품, 예외 상품, 바로구매 전용 상품, 관심상품 구분 기준을 등록한다.<br/></td><td>FN-CRT-OPS-001 제공 범위 운영 기준 관리<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-SCOPE-001 장바구니 범위·경계 정책<br/>PG-CRT-FAV-001 관심상품·공유 정책</td></tr><tr><td class="mono">PR-CRT-OPS-002</td><td>장바구니 진입·노출 기준 배포</td><td>운영자가 홈, 상품 목록, 상세, MY의 고정 진입과 최대 수량 안내 문구를 검수·배포한다.<br/></td><td>FN-CRT-OPS-001 제공 범위 운영 기준 관리<br/>FN-CRT-CART-001 통합 장바구니 조회 구성</td><td>PG-CRT-STRUCT-001 통합·분리 장바구니 구조 정책<br/>PG-CRT-CAPACITY-001 장바구니 한도·보존 정책</td></tr></tbody>
+</table>
+
+<h4>9) 조합·분리주문 정책 운영 (US-CRT-OPS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-OPS-003</td><td>조합 가능성 정책 등록</td><td>운영자가 상품 간 호환성, 중복 불가, 선행 가입, 혜택 배타 조건을 정책으로 등록한다.<br/></td><td>FN-CRT-OPS-002 조합·분리 정책 관리<br/>FN-CRT-VALID-001 조합 호환성 검증</td><td>PG-CRT-VALID-001 조합 가능성 검증 정책<br/>PG-CRT-BSS-001 BSS·연계 판정 정책</td></tr><tr><td class="mono">PR-CRT-OPS-004</td><td>분리 주문·단독구매 안내 기준 배포</td><td>운영자가 별도 결제, 분리 청구, 단독구매 필요 항목의 표시 문구와 전환 경로를 배포한다.<br/></td><td>FN-CRT-OPS-002 조합·분리 정책 관리<br/>FN-CRT-VALID-002 분리 주문 판정</td><td>PG-CRT-ORDER-001 주문 전환·분리 주문 정책<br/>PG-CRT-OPS-001 운영 변경·모니터링 정책</td></tr></tbody>
+</table>
+
+<h4>10) 보존·이관·만료 정책 운영 (US-CRT-OPS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-OPS-005</td><td>보존 기간과 자동삭제 기준 등록</td><td>운영자가 장바구니 보존 기간, 만료 예고, 자동삭제, 완료 후 삭제 기준을 등록한다.<br/></td><td>FN-CRT-OPS-003 보존·이관 정책 관리<br/>FN-CRT-EDIT-002 삭제·자동삭제 처리</td><td>PG-CRT-CAPACITY-001 장바구니 한도·보존 정책<br/>PG-CRT-DELETE-001 삭제·자동삭제 정책</td></tr><tr><td class="mono">PR-CRT-OPS-006</td><td>비로그인 이관·병합 기준 검수</td><td>운영자가 임시 장바구니의 계정 이관, 중복 처리, 충돌 해결, 고객 표시 기준을 검수한다.<br/></td><td>FN-CRT-OPS-003 보존·이관 정책 관리<br/>FN-CRT-KEEP-002 로그인 이관·병합</td><td>PG-CRT-SESSION-001 비로그인·로그인 저장 이관 정책<br/>PG-CRT-OPS-001 운영 변경·모니터링 정책</td></tr></tbody>
+</table>
+
+<h4>11) 변동 모니터링과 복구 운영 (US-CRT-OPS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-OPS-007</td><td>가격·혜택·재고 변동 모니터링</td><td>운영자가 장바구니에 담긴 항목의 가격, 혜택, 재고, 판매 상태 변동을 감지한다.<br/></td><td>FN-CRT-OPS-004 변동 모니터링<br/>FN-CRT-BSS-002 가격·혜택·재고 동기화</td><td>PG-CRT-CHANGE-001 가격·혜택·재고 변동 정책<br/>PG-CRT-BSS-001 BSS·연계 판정 정책</td></tr><tr><td class="mono">PR-CRT-OPS-008</td><td>복구·대체 제안 조치 반영</td><td>운영자가 재검증, 자동 제거, 대체 상품, 고객 고지, 상담 전환 조치를 반영한다.<br/></td><td>FN-CRT-OPS-004 변동 모니터링<br/>FN-CRT-KEEP-003 만료·변동 복구 안내</td><td>PG-CRT-CHANGE-001 가격·혜택·재고 변동 정책<br/>PG-CRT-CONSULT-001 상담·AI 지원 전환 정책</td></tr></tbody>
+</table>
+
+<h4>12) 장바구니 문맥 기반 상담 지원 (US-CRT-CNS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CRT-CNS-001</td><td>상담 전환 요청 접수</td><td>상담사가 고객 장바구니 구성, 충돌 사유, 주문 가능 상태를 전달받아 상담을 시작한다.<br/></td><td>FN-CRT-HELP-001 상담 전환 문맥 구성<br/>FN-CRT-LOG-001 장바구니 이력 저장</td><td>PG-CRT-CONSULT-001 상담·AI 지원 전환 정책<br/>PG-CRT-HISTORY-001 이력·고지·보관 정책</td></tr><tr><td class="mono">PR-CRT-CNS-002</td><td>장바구니 문맥 기반 대체 안내</td><td>상담사가 상품 대체, 분리 주문, 단독구매, 장바구니 유지·삭제 기준을 안내한다.<br/></td><td>FN-CRT-HELP-001 상담 전환 문맥 구성<br/>FN-CRT-UPSELL-001 함께 구매 추천 구성</td><td>PG-CRT-CONSULT-001 상담·AI 지원 전환 정책<br/>PG-CRT-RECO-001 함께 구매 추천 정책</td></tr></tbody>
+</table>
+
+
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_카트장바구니_정책서_간소화_v0.10_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"카트/장바구니 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_CRT_CUS_001\" name=\"US-CRT-CUS-001 장바구니 구매안 통합 관리\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_CART_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_CART_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_CART_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_CART_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CUS_002\" name=\"US-CRT-CUS-002 장바구니 상품 구성 변경과 정리\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_EDIT_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_EDIT_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_EDIT_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_EDIT_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CUS_003\" name=\"US-CRT-CUS-003 조합 검증과 주문 전환 준비\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_VALID_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_VALID_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_VALID_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_VALID_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CUS_004\" name=\"US-CRT-CUS-004 장바구니 이어보기와 복구\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_KEEP_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_KEEP_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_KEEP_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CUS_005\" name=\"US-CRT-CUS-005 관심상품 저장과 공유 활용\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_FAV_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_FAV_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_005<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CUS_006\" name=\"US-CRT-CUS-006 장바구니 기반 추천과 단독구매 전환\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_UPSELL_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_UPSELL_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_006<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CUS_007\" name=\"US-CRT-CUS-007 장바구니 문제 상담 전환\">\n        <bpmn:flowNodeRef>Start_US_CRT_CUS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_HELP_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_HELP_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CUS_007<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_OPS_001\" name=\"US-CRT-OPS-001 장바구니 제공 기준 운영\">\n        <bpmn:flowNodeRef>Start_US_CRT_OPS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_OPS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_OPS_002\" name=\"US-CRT-OPS-002 조합·분리주문 정책 운영\">\n        <bpmn:flowNodeRef>Start_US_CRT_OPS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_OPS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_OPS_003\" name=\"US-CRT-OPS-003 보존·이관·만료 정책 운영\">\n        <bpmn:flowNodeRef>Start_US_CRT_OPS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_006<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_OPS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_OPS_004\" name=\"US-CRT-OPS-004 변동 모니터링과 복구 운영\">\n        <bpmn:flowNodeRef>Start_US_CRT_OPS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_007<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_OPS_008<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_OPS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CRT_CNS_001\" name=\"US-CRT-CNS-001 장바구니 문맥 기반 상담 지원\">\n        <bpmn:flowNodeRef>Start_US_CRT_CNS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_CNS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CRT_CNS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CRT_CNS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_001_Task_PR_CRT_CART_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_CART_001\" name=\"PR-CRT-CART-001 장바구니 진입과 구매안 요약 확인\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_001_Task_PR_CRT_CART_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_CART_001_Task_PR_CRT_CART_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_CART_002\" name=\"PR-CRT-CART-002 처리 단위별 장바구니 그룹 확인\">\n      <bpmn:incoming>Flow_Task_PR_CRT_CART_001_Task_PR_CRT_CART_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_CART_002_Task_PR_CRT_CART_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_CART_003\" name=\"PR-CRT-CART-003 주문 대상 선택과 구매안 확정\">\n      <bpmn:incoming>Flow_Task_PR_CRT_CART_002_Task_PR_CRT_CART_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_CART_003_Task_PR_CRT_CART_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_CART_004\" name=\"PR-CRT-CART-004 담기 후 후속 동선 선택\">\n      <bpmn:incoming>Flow_Task_PR_CRT_CART_003_Task_PR_CRT_CART_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_CART_004_End_US_CRT_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_CART_004_End_US_CRT_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_001_Task_PR_CRT_CART_001\" sourceRef=\"Start_US_CRT_CUS_001\" targetRef=\"Task_PR_CRT_CART_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_CART_001_Task_PR_CRT_CART_002\" sourceRef=\"Task_PR_CRT_CART_001\" targetRef=\"Task_PR_CRT_CART_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_CART_002_Task_PR_CRT_CART_003\" sourceRef=\"Task_PR_CRT_CART_002\" targetRef=\"Task_PR_CRT_CART_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_CART_003_Task_PR_CRT_CART_004\" sourceRef=\"Task_PR_CRT_CART_003\" targetRef=\"Task_PR_CRT_CART_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_CART_004_End_US_CRT_CUS_001\" sourceRef=\"Task_PR_CRT_CART_004\" targetRef=\"End_US_CRT_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_002_Task_PR_CRT_EDIT_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_EDIT_001\" name=\"PR-CRT-EDIT-001 상품·세트 선택 상태 변경\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_002_Task_PR_CRT_EDIT_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_EDIT_001_Task_PR_CRT_EDIT_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_EDIT_002\" name=\"PR-CRT-EDIT-002 삭제·자동삭제 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_CRT_EDIT_001_Task_PR_CRT_EDIT_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_EDIT_002_Task_PR_CRT_EDIT_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_EDIT_003\" name=\"PR-CRT-EDIT-003 남은 상품 구매안 재계산\">\n      <bpmn:incoming>Flow_Task_PR_CRT_EDIT_002_Task_PR_CRT_EDIT_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_EDIT_003_Task_PR_CRT_EDIT_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_EDIT_004\" name=\"PR-CRT-EDIT-004 액세서리 수량 조절과 금액 재산정\">\n      <bpmn:incoming>Flow_Task_PR_CRT_EDIT_003_Task_PR_CRT_EDIT_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_EDIT_004_End_US_CRT_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_EDIT_004_End_US_CRT_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_002_Task_PR_CRT_EDIT_001\" sourceRef=\"Start_US_CRT_CUS_002\" targetRef=\"Task_PR_CRT_EDIT_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_EDIT_001_Task_PR_CRT_EDIT_002\" sourceRef=\"Task_PR_CRT_EDIT_001\" targetRef=\"Task_PR_CRT_EDIT_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_EDIT_002_Task_PR_CRT_EDIT_003\" sourceRef=\"Task_PR_CRT_EDIT_002\" targetRef=\"Task_PR_CRT_EDIT_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_EDIT_003_Task_PR_CRT_EDIT_004\" sourceRef=\"Task_PR_CRT_EDIT_003\" targetRef=\"Task_PR_CRT_EDIT_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_EDIT_004_End_US_CRT_CUS_002\" sourceRef=\"Task_PR_CRT_EDIT_004\" targetRef=\"End_US_CRT_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_003_Task_PR_CRT_VALID_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_VALID_001\" name=\"PR-CRT-VALID-001 조합 가능성 사전 검증\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_003_Task_PR_CRT_VALID_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_VALID_001_Task_PR_CRT_VALID_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_VALID_002\" name=\"PR-CRT-VALID-002 분리 주문·단독구매 판단\">\n      <bpmn:incoming>Flow_Task_PR_CRT_VALID_001_Task_PR_CRT_VALID_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_VALID_002_Task_PR_CRT_VALID_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_VALID_003\" name=\"PR-CRT-VALID-003 주문 전환 가능 상태 확정\">\n      <bpmn:incoming>Flow_Task_PR_CRT_VALID_002_Task_PR_CRT_VALID_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_VALID_003_Task_PR_CRT_VALID_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_VALID_004\" name=\"PR-CRT-VALID-004 함께쓰기 요금제 모회선 인증\">\n      <bpmn:incoming>Flow_Task_PR_CRT_VALID_003_Task_PR_CRT_VALID_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_VALID_004_End_US_CRT_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_VALID_004_End_US_CRT_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_003_Task_PR_CRT_VALID_001\" sourceRef=\"Start_US_CRT_CUS_003\" targetRef=\"Task_PR_CRT_VALID_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_VALID_001_Task_PR_CRT_VALID_002\" sourceRef=\"Task_PR_CRT_VALID_001\" targetRef=\"Task_PR_CRT_VALID_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_VALID_002_Task_PR_CRT_VALID_003\" sourceRef=\"Task_PR_CRT_VALID_002\" targetRef=\"Task_PR_CRT_VALID_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_VALID_003_Task_PR_CRT_VALID_004\" sourceRef=\"Task_PR_CRT_VALID_003\" targetRef=\"Task_PR_CRT_VALID_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_VALID_004_End_US_CRT_CUS_003\" sourceRef=\"Task_PR_CRT_VALID_004\" targetRef=\"End_US_CRT_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_004_Task_PR_CRT_KEEP_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_KEEP_001\" name=\"PR-CRT-KEEP-001 비로그인 임시 장바구니 복원\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_004_Task_PR_CRT_KEEP_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_KEEP_001_Task_PR_CRT_KEEP_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_KEEP_002\" name=\"PR-CRT-KEEP-002 로그인 이관·병합 확인\">\n      <bpmn:incoming>Flow_Task_PR_CRT_KEEP_001_Task_PR_CRT_KEEP_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_KEEP_002_Task_PR_CRT_KEEP_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_KEEP_003\" name=\"PR-CRT-KEEP-003 만료·변동 항목 복구 선택\">\n      <bpmn:incoming>Flow_Task_PR_CRT_KEEP_002_Task_PR_CRT_KEEP_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_KEEP_003_End_US_CRT_CUS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_KEEP_003_End_US_CRT_CUS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_004_Task_PR_CRT_KEEP_001\" sourceRef=\"Start_US_CRT_CUS_004\" targetRef=\"Task_PR_CRT_KEEP_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_KEEP_001_Task_PR_CRT_KEEP_002\" sourceRef=\"Task_PR_CRT_KEEP_001\" targetRef=\"Task_PR_CRT_KEEP_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_KEEP_002_Task_PR_CRT_KEEP_003\" sourceRef=\"Task_PR_CRT_KEEP_002\" targetRef=\"Task_PR_CRT_KEEP_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_KEEP_003_End_US_CRT_CUS_004\" sourceRef=\"Task_PR_CRT_KEEP_003\" targetRef=\"End_US_CRT_CUS_004\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_005\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_005_Task_PR_CRT_FAV_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_FAV_001\" name=\"PR-CRT-FAV-001 관심상품 저장과 재방문 확인\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_005_Task_PR_CRT_FAV_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_FAV_001_Task_PR_CRT_FAV_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_FAV_002\" name=\"PR-CRT-FAV-002 그룹 공유 링크 생성과 조회\">\n      <bpmn:incoming>Flow_Task_PR_CRT_FAV_001_Task_PR_CRT_FAV_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_FAV_002_End_US_CRT_CUS_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_005\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_FAV_002_End_US_CRT_CUS_005<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_005_Task_PR_CRT_FAV_001\" sourceRef=\"Start_US_CRT_CUS_005\" targetRef=\"Task_PR_CRT_FAV_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_FAV_001_Task_PR_CRT_FAV_002\" sourceRef=\"Task_PR_CRT_FAV_001\" targetRef=\"Task_PR_CRT_FAV_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_FAV_002_End_US_CRT_CUS_005\" sourceRef=\"Task_PR_CRT_FAV_002\" targetRef=\"End_US_CRT_CUS_005\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_006\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_006_Task_PR_CRT_UPSELL_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_UPSELL_001\" name=\"PR-CRT-UPSELL-001 함께 구매 추천 확인\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_006_Task_PR_CRT_UPSELL_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_UPSELL_001_Task_PR_CRT_UPSELL_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_UPSELL_002\" name=\"PR-CRT-UPSELL-002 추천 상품 추가와 혜택 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_CRT_UPSELL_001_Task_PR_CRT_UPSELL_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_UPSELL_002_End_US_CRT_CUS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_006\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_UPSELL_002_End_US_CRT_CUS_006<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_006_Task_PR_CRT_UPSELL_001\" sourceRef=\"Start_US_CRT_CUS_006\" targetRef=\"Task_PR_CRT_UPSELL_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_UPSELL_001_Task_PR_CRT_UPSELL_002\" sourceRef=\"Task_PR_CRT_UPSELL_001\" targetRef=\"Task_PR_CRT_UPSELL_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_UPSELL_002_End_US_CRT_CUS_006\" sourceRef=\"Task_PR_CRT_UPSELL_002\" targetRef=\"End_US_CRT_CUS_006\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CUS_007\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CUS_007_Task_PR_CRT_HELP_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_HELP_001\" name=\"PR-CRT-HELP-001 주문 결정 장애 사유 확인\">\n      <bpmn:incoming>Flow_Start_US_CRT_CUS_007_Task_PR_CRT_HELP_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_HELP_001_Task_PR_CRT_HELP_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_HELP_002\" name=\"PR-CRT-HELP-002 상담·AI 지원 전환과 문맥 전달\">\n      <bpmn:incoming>Flow_Task_PR_CRT_HELP_001_Task_PR_CRT_HELP_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_HELP_002_End_US_CRT_CUS_007<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CUS_007\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_HELP_002_End_US_CRT_CUS_007<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CUS_007_Task_PR_CRT_HELP_001\" sourceRef=\"Start_US_CRT_CUS_007\" targetRef=\"Task_PR_CRT_HELP_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_HELP_001_Task_PR_CRT_HELP_002\" sourceRef=\"Task_PR_CRT_HELP_001\" targetRef=\"Task_PR_CRT_HELP_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_HELP_002_End_US_CRT_CUS_007\" sourceRef=\"Task_PR_CRT_HELP_002\" targetRef=\"End_US_CRT_CUS_007\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_OPS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_OPS_001_Task_PR_CRT_OPS_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_OPS_001\" name=\"PR-CRT-OPS-001 장바구니 제공 범위 기준 등록\">\n      <bpmn:incoming>Flow_Start_US_CRT_OPS_001_Task_PR_CRT_OPS_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_001_Task_PR_CRT_OPS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_OPS_002\" name=\"PR-CRT-OPS-002 장바구니 진입·노출 기준 배포\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_001_Task_PR_CRT_OPS_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_002_End_US_CRT_OPS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_OPS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_002_End_US_CRT_OPS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_OPS_001_Task_PR_CRT_OPS_001\" sourceRef=\"Start_US_CRT_OPS_001\" targetRef=\"Task_PR_CRT_OPS_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_001_Task_PR_CRT_OPS_002\" sourceRef=\"Task_PR_CRT_OPS_001\" targetRef=\"Task_PR_CRT_OPS_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_002_End_US_CRT_OPS_001\" sourceRef=\"Task_PR_CRT_OPS_002\" targetRef=\"End_US_CRT_OPS_001\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_OPS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_OPS_002_Task_PR_CRT_OPS_003<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_OPS_003\" name=\"PR-CRT-OPS-003 조합 가능성 정책 등록\">\n      <bpmn:incoming>Flow_Start_US_CRT_OPS_002_Task_PR_CRT_OPS_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_003_Task_PR_CRT_OPS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_OPS_004\" name=\"PR-CRT-OPS-004 분리 주문·단독구매 안내 기준 배포\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_003_Task_PR_CRT_OPS_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_004_End_US_CRT_OPS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_OPS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_004_End_US_CRT_OPS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_OPS_002_Task_PR_CRT_OPS_003\" sourceRef=\"Start_US_CRT_OPS_002\" targetRef=\"Task_PR_CRT_OPS_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_003_Task_PR_CRT_OPS_004\" sourceRef=\"Task_PR_CRT_OPS_003\" targetRef=\"Task_PR_CRT_OPS_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_004_End_US_CRT_OPS_002\" sourceRef=\"Task_PR_CRT_OPS_004\" targetRef=\"End_US_CRT_OPS_002\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_OPS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_OPS_003_Task_PR_CRT_OPS_005<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_OPS_005\" name=\"PR-CRT-OPS-005 보존 기간과 자동삭제 기준 등록\">\n      <bpmn:incoming>Flow_Start_US_CRT_OPS_003_Task_PR_CRT_OPS_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_005_Task_PR_CRT_OPS_006<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_OPS_006\" name=\"PR-CRT-OPS-006 비로그인 이관·병합 기준 검수\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_005_Task_PR_CRT_OPS_006<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_006_End_US_CRT_OPS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_OPS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_006_End_US_CRT_OPS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_OPS_003_Task_PR_CRT_OPS_005\" sourceRef=\"Start_US_CRT_OPS_003\" targetRef=\"Task_PR_CRT_OPS_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_005_Task_PR_CRT_OPS_006\" sourceRef=\"Task_PR_CRT_OPS_005\" targetRef=\"Task_PR_CRT_OPS_006\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_006_End_US_CRT_OPS_003\" sourceRef=\"Task_PR_CRT_OPS_006\" targetRef=\"End_US_CRT_OPS_003\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_OPS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_OPS_004_Task_PR_CRT_OPS_007<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_OPS_007\" name=\"PR-CRT-OPS-007 가격·혜택·재고 변동 모니터링\">\n      <bpmn:incoming>Flow_Start_US_CRT_OPS_004_Task_PR_CRT_OPS_007<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_007_Task_PR_CRT_OPS_008<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_OPS_008\" name=\"PR-CRT-OPS-008 복구·대체 제안 조치 반영\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_007_Task_PR_CRT_OPS_008<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_OPS_008_End_US_CRT_OPS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_OPS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_OPS_008_End_US_CRT_OPS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_OPS_004_Task_PR_CRT_OPS_007\" sourceRef=\"Start_US_CRT_OPS_004\" targetRef=\"Task_PR_CRT_OPS_007\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_007_Task_PR_CRT_OPS_008\" sourceRef=\"Task_PR_CRT_OPS_007\" targetRef=\"Task_PR_CRT_OPS_008\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_OPS_008_End_US_CRT_OPS_004\" sourceRef=\"Task_PR_CRT_OPS_008\" targetRef=\"End_US_CRT_OPS_004\"/>\n    <bpmn:startEvent id=\"Start_US_CRT_CNS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CRT_CNS_001_Task_PR_CRT_CNS_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CRT_CNS_001\" name=\"PR-CRT-CNS-001 상담 전환 요청 접수\">\n      <bpmn:incoming>Flow_Start_US_CRT_CNS_001_Task_PR_CRT_CNS_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_CNS_001_Task_PR_CRT_CNS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CRT_CNS_002\" name=\"PR-CRT-CNS-002 장바구니 문맥 기반 대체 안내\">\n      <bpmn:incoming>Flow_Task_PR_CRT_CNS_001_Task_PR_CRT_CNS_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CRT_CNS_002_End_US_CRT_CNS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CRT_CNS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CRT_CNS_002_End_US_CRT_CNS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CRT_CNS_001_Task_PR_CRT_CNS_001\" sourceRef=\"Start_US_CRT_CNS_001\" targetRef=\"Task_PR_CRT_CNS_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_CNS_001_Task_PR_CRT_CNS_002\" sourceRef=\"Task_PR_CRT_CNS_001\" targetRef=\"Task_PR_CRT_CNS_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CRT_CNS_002_End_US_CRT_CNS_001\" sourceRef=\"Task_PR_CRT_CNS_002\" targetRef=\"End_US_CRT_CNS_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_001_di\" bpmnElement=\"Lane_US_CRT_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_001_di\" bpmnElement=\"Start_US_CRT_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_CART_001_di\" bpmnElement=\"Task_PR_CRT_CART_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_CART_002_di\" bpmnElement=\"Task_PR_CRT_CART_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_CART_003_di\" bpmnElement=\"Task_PR_CRT_CART_003\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_CART_004_di\" bpmnElement=\"Task_PR_CRT_CART_004\">\n        <dc:Bounds x=\"900\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_001_di\" bpmnElement=\"End_US_CRT_CUS_001\">\n        <dc:Bounds x=\"1120\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_002_di\" bpmnElement=\"Lane_US_CRT_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_002_di\" bpmnElement=\"Start_US_CRT_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_EDIT_001_di\" bpmnElement=\"Task_PR_CRT_EDIT_001\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_EDIT_002_di\" bpmnElement=\"Task_PR_CRT_EDIT_002\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_EDIT_003_di\" bpmnElement=\"Task_PR_CRT_EDIT_003\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_EDIT_004_di\" bpmnElement=\"Task_PR_CRT_EDIT_004\">\n        <dc:Bounds x=\"900\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_002_di\" bpmnElement=\"End_US_CRT_CUS_002\">\n        <dc:Bounds x=\"1120\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_003_di\" bpmnElement=\"Lane_US_CRT_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_003_di\" bpmnElement=\"Start_US_CRT_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_VALID_001_di\" bpmnElement=\"Task_PR_CRT_VALID_001\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_VALID_002_di\" bpmnElement=\"Task_PR_CRT_VALID_002\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_VALID_003_di\" bpmnElement=\"Task_PR_CRT_VALID_003\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_VALID_004_di\" bpmnElement=\"Task_PR_CRT_VALID_004\">\n        <dc:Bounds x=\"900\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_003_di\" bpmnElement=\"End_US_CRT_CUS_003\">\n        <dc:Bounds x=\"1120\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_004_di\" bpmnElement=\"Lane_US_CRT_CUS_004\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_004_di\" bpmnElement=\"Start_US_CRT_CUS_004\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_KEEP_001_di\" bpmnElement=\"Task_PR_CRT_KEEP_001\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_KEEP_002_di\" bpmnElement=\"Task_PR_CRT_KEEP_002\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_KEEP_003_di\" bpmnElement=\"Task_PR_CRT_KEEP_003\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_004_di\" bpmnElement=\"End_US_CRT_CUS_004\">\n        <dc:Bounds x=\"900\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_005_di\" bpmnElement=\"Lane_US_CRT_CUS_005\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_005_di\" bpmnElement=\"Start_US_CRT_CUS_005\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_FAV_001_di\" bpmnElement=\"Task_PR_CRT_FAV_001\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_FAV_002_di\" bpmnElement=\"Task_PR_CRT_FAV_002\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_005_di\" bpmnElement=\"End_US_CRT_CUS_005\">\n        <dc:Bounds x=\"680\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_006_di\" bpmnElement=\"Lane_US_CRT_CUS_006\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_006_di\" bpmnElement=\"Start_US_CRT_CUS_006\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_UPSELL_001_di\" bpmnElement=\"Task_PR_CRT_UPSELL_001\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_UPSELL_002_di\" bpmnElement=\"Task_PR_CRT_UPSELL_002\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_006_di\" bpmnElement=\"End_US_CRT_CUS_006\">\n        <dc:Bounds x=\"680\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CUS_007_di\" bpmnElement=\"Lane_US_CRT_CUS_007\">\n        <dc:Bounds x=\"40\" y=\"1045\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CUS_007_di\" bpmnElement=\"Start_US_CRT_CUS_007\">\n        <dc:Bounds x=\"112\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_HELP_001_di\" bpmnElement=\"Task_PR_CRT_HELP_001\">\n        <dc:Bounds x=\"240\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_HELP_002_di\" bpmnElement=\"Task_PR_CRT_HELP_002\">\n        <dc:Bounds x=\"460\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CUS_007_di\" bpmnElement=\"End_US_CRT_CUS_007\">\n        <dc:Bounds x=\"680\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_OPS_001_di\" bpmnElement=\"Lane_US_CRT_OPS_001\">\n        <dc:Bounds x=\"40\" y=\"1215\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_OPS_001_di\" bpmnElement=\"Start_US_CRT_OPS_001\">\n        <dc:Bounds x=\"112\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_001_di\" bpmnElement=\"Task_PR_CRT_OPS_001\">\n        <dc:Bounds x=\"240\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_002_di\" bpmnElement=\"Task_PR_CRT_OPS_002\">\n        <dc:Bounds x=\"460\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_OPS_001_di\" bpmnElement=\"End_US_CRT_OPS_001\">\n        <dc:Bounds x=\"680\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_OPS_002_di\" bpmnElement=\"Lane_US_CRT_OPS_002\">\n        <dc:Bounds x=\"40\" y=\"1385\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_OPS_002_di\" bpmnElement=\"Start_US_CRT_OPS_002\">\n        <dc:Bounds x=\"112\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_003_di\" bpmnElement=\"Task_PR_CRT_OPS_003\">\n        <dc:Bounds x=\"240\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_004_di\" bpmnElement=\"Task_PR_CRT_OPS_004\">\n        <dc:Bounds x=\"460\" y=\"1390\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_OPS_002_di\" bpmnElement=\"End_US_CRT_OPS_002\">\n        <dc:Bounds x=\"680\" y=\"1412\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_OPS_003_di\" bpmnElement=\"Lane_US_CRT_OPS_003\">\n        <dc:Bounds x=\"40\" y=\"1555\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_OPS_003_di\" bpmnElement=\"Start_US_CRT_OPS_003\">\n        <dc:Bounds x=\"112\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_005_di\" bpmnElement=\"Task_PR_CRT_OPS_005\">\n        <dc:Bounds x=\"240\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_006_di\" bpmnElement=\"Task_PR_CRT_OPS_006\">\n        <dc:Bounds x=\"460\" y=\"1560\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_OPS_003_di\" bpmnElement=\"End_US_CRT_OPS_003\">\n        <dc:Bounds x=\"680\" y=\"1582\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_OPS_004_di\" bpmnElement=\"Lane_US_CRT_OPS_004\">\n        <dc:Bounds x=\"40\" y=\"1725\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_OPS_004_di\" bpmnElement=\"Start_US_CRT_OPS_004\">\n        <dc:Bounds x=\"112\" y=\"1752\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_007_di\" bpmnElement=\"Task_PR_CRT_OPS_007\">\n        <dc:Bounds x=\"240\" y=\"1730\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_OPS_008_di\" bpmnElement=\"Task_PR_CRT_OPS_008\">\n        <dc:Bounds x=\"460\" y=\"1730\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_OPS_004_di\" bpmnElement=\"End_US_CRT_OPS_004\">\n        <dc:Bounds x=\"680\" y=\"1752\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CRT_CNS_001_di\" bpmnElement=\"Lane_US_CRT_CNS_001\">\n        <dc:Bounds x=\"40\" y=\"1895\" width=\"1360\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CRT_CNS_001_di\" bpmnElement=\"Start_US_CRT_CNS_001\">\n        <dc:Bounds x=\"112\" y=\"1922\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_CNS_001_di\" bpmnElement=\"Task_PR_CRT_CNS_001\">\n        <dc:Bounds x=\"240\" y=\"1900\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CRT_CNS_002_di\" bpmnElement=\"Task_PR_CRT_CNS_002\">\n        <dc:Bounds x=\"460\" y=\"1900\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CRT_CNS_001_di\" bpmnElement=\"End_US_CRT_CNS_001\">\n        <dc:Bounds x=\"680\" y=\"1922\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_001_Task_PR_CRT_CART_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_001_Task_PR_CRT_CART_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_CART_001_Task_PR_CRT_CART_002_di\" bpmnElement=\"Flow_Task_PR_CRT_CART_001_Task_PR_CRT_CART_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_CART_002_Task_PR_CRT_CART_003_di\" bpmnElement=\"Flow_Task_PR_CRT_CART_002_Task_PR_CRT_CART_003\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_CART_003_Task_PR_CRT_CART_004_di\" bpmnElement=\"Flow_Task_PR_CRT_CART_003_Task_PR_CRT_CART_004\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_CART_004_End_US_CRT_CUS_001_di\" bpmnElement=\"Flow_Task_PR_CRT_CART_004_End_US_CRT_CUS_001\">\n        <di:waypoint x=\"1070\" y=\"70\"/>\n        <di:waypoint x=\"1120\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_002_Task_PR_CRT_EDIT_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_002_Task_PR_CRT_EDIT_001\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_EDIT_001_Task_PR_CRT_EDIT_002_di\" bpmnElement=\"Flow_Task_PR_CRT_EDIT_001_Task_PR_CRT_EDIT_002\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_EDIT_002_Task_PR_CRT_EDIT_003_di\" bpmnElement=\"Flow_Task_PR_CRT_EDIT_002_Task_PR_CRT_EDIT_003\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_EDIT_003_Task_PR_CRT_EDIT_004_di\" bpmnElement=\"Flow_Task_PR_CRT_EDIT_003_Task_PR_CRT_EDIT_004\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_EDIT_004_End_US_CRT_CUS_002_di\" bpmnElement=\"Flow_Task_PR_CRT_EDIT_004_End_US_CRT_CUS_002\">\n        <di:waypoint x=\"1070\" y=\"240\"/>\n        <di:waypoint x=\"1120\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_003_Task_PR_CRT_VALID_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_003_Task_PR_CRT_VALID_001\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_VALID_001_Task_PR_CRT_VALID_002_di\" bpmnElement=\"Flow_Task_PR_CRT_VALID_001_Task_PR_CRT_VALID_002\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_VALID_002_Task_PR_CRT_VALID_003_di\" bpmnElement=\"Flow_Task_PR_CRT_VALID_002_Task_PR_CRT_VALID_003\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_VALID_003_Task_PR_CRT_VALID_004_di\" bpmnElement=\"Flow_Task_PR_CRT_VALID_003_Task_PR_CRT_VALID_004\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_VALID_004_End_US_CRT_CUS_003_di\" bpmnElement=\"Flow_Task_PR_CRT_VALID_004_End_US_CRT_CUS_003\">\n        <di:waypoint x=\"1070\" y=\"410\"/>\n        <di:waypoint x=\"1120\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_004_Task_PR_CRT_KEEP_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_004_Task_PR_CRT_KEEP_001\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_KEEP_001_Task_PR_CRT_KEEP_002_di\" bpmnElement=\"Flow_Task_PR_CRT_KEEP_001_Task_PR_CRT_KEEP_002\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_KEEP_002_Task_PR_CRT_KEEP_003_di\" bpmnElement=\"Flow_Task_PR_CRT_KEEP_002_Task_PR_CRT_KEEP_003\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_KEEP_003_End_US_CRT_CUS_004_di\" bpmnElement=\"Flow_Task_PR_CRT_KEEP_003_End_US_CRT_CUS_004\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_005_Task_PR_CRT_FAV_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_005_Task_PR_CRT_FAV_001\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_FAV_001_Task_PR_CRT_FAV_002_di\" bpmnElement=\"Flow_Task_PR_CRT_FAV_001_Task_PR_CRT_FAV_002\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_FAV_002_End_US_CRT_CUS_005_di\" bpmnElement=\"Flow_Task_PR_CRT_FAV_002_End_US_CRT_CUS_005\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_006_Task_PR_CRT_UPSELL_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_006_Task_PR_CRT_UPSELL_001\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_UPSELL_001_Task_PR_CRT_UPSELL_002_di\" bpmnElement=\"Flow_Task_PR_CRT_UPSELL_001_Task_PR_CRT_UPSELL_002\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_UPSELL_002_End_US_CRT_CUS_006_di\" bpmnElement=\"Flow_Task_PR_CRT_UPSELL_002_End_US_CRT_CUS_006\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CUS_007_Task_PR_CRT_HELP_001_di\" bpmnElement=\"Flow_Start_US_CRT_CUS_007_Task_PR_CRT_HELP_001\">\n        <di:waypoint x=\"148\" y=\"1090\"/>\n        <di:waypoint x=\"240\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_HELP_001_Task_PR_CRT_HELP_002_di\" bpmnElement=\"Flow_Task_PR_CRT_HELP_001_Task_PR_CRT_HELP_002\">\n        <di:waypoint x=\"410\" y=\"1090\"/>\n        <di:waypoint x=\"460\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_HELP_002_End_US_CRT_CUS_007_di\" bpmnElement=\"Flow_Task_PR_CRT_HELP_002_End_US_CRT_CUS_007\">\n        <di:waypoint x=\"630\" y=\"1090\"/>\n        <di:waypoint x=\"680\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_OPS_001_Task_PR_CRT_OPS_001_di\" bpmnElement=\"Flow_Start_US_CRT_OPS_001_Task_PR_CRT_OPS_001\">\n        <di:waypoint x=\"148\" y=\"1260\"/>\n        <di:waypoint x=\"240\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_001_Task_PR_CRT_OPS_002_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_001_Task_PR_CRT_OPS_002\">\n        <di:waypoint x=\"410\" y=\"1260\"/>\n        <di:waypoint x=\"460\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_002_End_US_CRT_OPS_001_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_002_End_US_CRT_OPS_001\">\n        <di:waypoint x=\"630\" y=\"1260\"/>\n        <di:waypoint x=\"680\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_OPS_002_Task_PR_CRT_OPS_003_di\" bpmnElement=\"Flow_Start_US_CRT_OPS_002_Task_PR_CRT_OPS_003\">\n        <di:waypoint x=\"148\" y=\"1430\"/>\n        <di:waypoint x=\"240\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_003_Task_PR_CRT_OPS_004_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_003_Task_PR_CRT_OPS_004\">\n        <di:waypoint x=\"410\" y=\"1430\"/>\n        <di:waypoint x=\"460\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_004_End_US_CRT_OPS_002_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_004_End_US_CRT_OPS_002\">\n        <di:waypoint x=\"630\" y=\"1430\"/>\n        <di:waypoint x=\"680\" y=\"1430\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_OPS_003_Task_PR_CRT_OPS_005_di\" bpmnElement=\"Flow_Start_US_CRT_OPS_003_Task_PR_CRT_OPS_005\">\n        <di:waypoint x=\"148\" y=\"1600\"/>\n        <di:waypoint x=\"240\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_005_Task_PR_CRT_OPS_006_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_005_Task_PR_CRT_OPS_006\">\n        <di:waypoint x=\"410\" y=\"1600\"/>\n        <di:waypoint x=\"460\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_006_End_US_CRT_OPS_003_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_006_End_US_CRT_OPS_003\">\n        <di:waypoint x=\"630\" y=\"1600\"/>\n        <di:waypoint x=\"680\" y=\"1600\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_OPS_004_Task_PR_CRT_OPS_007_di\" bpmnElement=\"Flow_Start_US_CRT_OPS_004_Task_PR_CRT_OPS_007\">\n        <di:waypoint x=\"148\" y=\"1770\"/>\n        <di:waypoint x=\"240\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_007_Task_PR_CRT_OPS_008_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_007_Task_PR_CRT_OPS_008\">\n        <di:waypoint x=\"410\" y=\"1770\"/>\n        <di:waypoint x=\"460\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_OPS_008_End_US_CRT_OPS_004_di\" bpmnElement=\"Flow_Task_PR_CRT_OPS_008_End_US_CRT_OPS_004\">\n        <di:waypoint x=\"630\" y=\"1770\"/>\n        <di:waypoint x=\"680\" y=\"1770\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CRT_CNS_001_Task_PR_CRT_CNS_001_di\" bpmnElement=\"Flow_Start_US_CRT_CNS_001_Task_PR_CRT_CNS_001\">\n        <di:waypoint x=\"148\" y=\"1940\"/>\n        <di:waypoint x=\"240\" y=\"1940\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_CNS_001_Task_PR_CRT_CNS_002_di\" bpmnElement=\"Flow_Task_PR_CRT_CNS_001_Task_PR_CRT_CNS_002\">\n        <di:waypoint x=\"410\" y=\"1940\"/>\n        <di:waypoint x=\"460\" y=\"1940\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CRT_CNS_002_End_US_CRT_CNS_001_di\" bpmnElement=\"Flow_Task_PR_CRT_CNS_002_End_US_CRT_CNS_001\">\n        <di:waypoint x=\"630\" y=\"1940\"/>\n        <di:waypoint x=\"680\" y=\"1940\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="2060" role="img" viewBox="0 0 1177 2060" width="1177" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="85">US-CRT-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="101">장바구니 구매안 통합 관리</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-CRT-CART-001</text><text class="task-text" text-anchor="middle" x="410" y="112">장바구니 진입과 구매안 요약</text><text class="task-text" text-anchor="middle" x="410" y="126">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-CRT-CART-002</text><text class="task-text" text-anchor="middle" x="595" y="112">처리 단위별 장바구니 그룹</text><text class="task-text" text-anchor="middle" x="595" y="126">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-CRT-CART-003</text><text class="task-text" text-anchor="middle" x="780" y="112">주문 대상 선택과 구매안</text><text class="task-text" text-anchor="middle" x="780" y="126">확정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="75"></rect><text class="task-text" text-anchor="middle" x="965" y="96">PR-CRT-CART-004</text><text class="task-text" text-anchor="middle" x="965" y="119">담기 후 후속 동선 선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="108" y2="108"></line><circle class="end" cx="1103" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="245">US-CRT-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="261">장바구니 상품 구성 변경과</text><text class="pool-title" text-anchor="middle" x="145" y="277">정리</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-CRT-EDIT-001</text><text class="task-text" text-anchor="middle" x="410" y="287">상품·세트 선택 상태 변경</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-CRT-EDIT-002</text><text class="task-text" text-anchor="middle" x="595" y="287">삭제·자동삭제 영향 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-CRT-EDIT-003</text><text class="task-text" text-anchor="middle" x="780" y="287">남은 상품 구매안 재계산</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="243"></rect><text class="task-text" text-anchor="middle" x="965" y="264">PR-CRT-EDIT-004</text><text class="task-text" text-anchor="middle" x="965" y="280">액세서리 수량 조절과 금액</text><text class="task-text" text-anchor="middle" x="965" y="294">재산정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="276" y2="276"></line><circle class="end" cx="1103" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-CRT-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">조합 검증과 주문 전환 준비</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-CRT-VALID-001</text><text class="task-text" text-anchor="middle" x="410" y="455">조합 가능성 사전 검증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-CRT-VALID-002</text><text class="task-text" text-anchor="middle" x="595" y="455">분리 주문·단독구매 판단</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-CRT-VALID-003</text><text class="task-text" text-anchor="middle" x="780" y="455">주문 전환 가능 상태 확정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="411"></rect><text class="task-text" text-anchor="middle" x="965" y="432">PR-CRT-VALID-004</text><text class="task-text" text-anchor="middle" x="965" y="455">함께쓰기 요금제 모회선 인증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="444" y2="444"></line><circle class="end" cx="1103" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-CRT-CUS-004</text><text class="pool-title" text-anchor="middle" x="145" y="605">장바구니 이어보기와 복구</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-CRT-KEEP-001</text><text class="task-text" text-anchor="middle" x="410" y="623">비로그인 임시 장바구니 복원</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-CRT-KEEP-002</text><text class="task-text" text-anchor="middle" x="595" y="623">로그인 이관·병합 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-CRT-KEEP-003</text><text class="task-text" text-anchor="middle" x="780" y="623">만료·변동 항목 복구 선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="612" y2="612"></line><circle class="end" cx="918" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-CRT-CUS-005</text><text class="pool-title" text-anchor="middle" x="145" y="773">관심상품 저장과 공유 활용</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-CRT-FAV-001</text><text class="task-text" text-anchor="middle" x="410" y="791">관심상품 저장과 재방문 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-CRT-FAV-002</text><text class="task-text" text-anchor="middle" x="595" y="791">그룹 공유 링크 생성과 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="780" y2="780"></line><circle class="end" cx="733" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="917">US-CRT-CUS-006</text><text class="pool-title" text-anchor="middle" x="145" y="933">장바구니 기반 추천과</text><text class="pool-title" text-anchor="middle" x="145" y="949">단독구매 전환</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-CRT-UPSELL-001</text><text class="task-text" text-anchor="middle" x="410" y="959">함께 구매 추천 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-CRT-UPSELL-002</text><text class="task-text" text-anchor="middle" x="595" y="952">추천 상품 추가와 혜택 영향</text><text class="task-text" text-anchor="middle" x="595" y="966">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="948" y2="948"></line><circle class="end" cx="733" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="952">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1040"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1040"></rect><text class="pool-index" x="58" y="1072">07</text><text class="pool-title" text-anchor="middle" x="145" y="1093">US-CRT-CUS-007</text><text class="pool-title" text-anchor="middle" x="145" y="1109">장바구니 문제 상담 전환</text><circle class="start" cx="300" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1120">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1083"></rect><text class="task-text" text-anchor="middle" x="410" y="1104">PR-CRT-HELP-001</text><text class="task-text" text-anchor="middle" x="410" y="1127">주문 결정 장애 사유 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1116" y2="1116"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1083"></rect><text class="task-text" text-anchor="middle" x="595" y="1104">PR-CRT-HELP-002</text><text class="task-text" text-anchor="middle" x="595" y="1120">상담·AI 지원 전환과 문맥</text><text class="task-text" text-anchor="middle" x="595" y="1134">전달</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1116" y2="1116"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1116" y2="1116"></line><circle class="end" cx="733" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1120">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1208"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1208"></rect><text class="pool-index" x="58" y="1240">08</text><text class="pool-title" text-anchor="middle" x="145" y="1261">US-CRT-OPS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1277">장바구니 제공 기준 운영</text><circle class="start" cx="300" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1288">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1251"></rect><text class="task-text" text-anchor="middle" x="410" y="1272">PR-CRT-OPS-001</text><text class="task-text" text-anchor="middle" x="410" y="1288">장바구니 제공 범위 기준</text><text class="task-text" text-anchor="middle" x="410" y="1302">등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1284" y2="1284"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1251"></rect><text class="task-text" text-anchor="middle" x="595" y="1272">PR-CRT-OPS-002</text><text class="task-text" text-anchor="middle" x="595" y="1288">장바구니 진입·노출 기준</text><text class="task-text" text-anchor="middle" x="595" y="1302">배포</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1284" y2="1284"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1284" y2="1284"></line><circle class="end" cx="733" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1288">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1376"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1376"></rect><text class="pool-index" x="58" y="1408">09</text><text class="pool-title" text-anchor="middle" x="145" y="1429">US-CRT-OPS-002</text><text class="pool-title" text-anchor="middle" x="145" y="1445">조합·분리주문 정책 운영</text><circle class="start" cx="300" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1456">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1419"></rect><text class="task-text" text-anchor="middle" x="410" y="1440">PR-CRT-OPS-003</text><text class="task-text" text-anchor="middle" x="410" y="1463">조합 가능성 정책 등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1452" y2="1452"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1419"></rect><text class="task-text" text-anchor="middle" x="595" y="1440">PR-CRT-OPS-004</text><text class="task-text" text-anchor="middle" x="595" y="1456">분리 주문·단독구매 안내</text><text class="task-text" text-anchor="middle" x="595" y="1470">기준 배포</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1452" y2="1452"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1452" y2="1452"></line><circle class="end" cx="733" cy="1452" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1456">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1544"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1544"></rect><text class="pool-index" x="58" y="1576">10</text><text class="pool-title" text-anchor="middle" x="145" y="1597">US-CRT-OPS-003</text><text class="pool-title" text-anchor="middle" x="145" y="1613">보존·이관·만료 정책 운영</text><circle class="start" cx="300" cy="1620" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1624">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1587"></rect><text class="task-text" text-anchor="middle" x="410" y="1608">PR-CRT-OPS-005</text><text class="task-text" text-anchor="middle" x="410" y="1624">보존 기간과 자동삭제 기준</text><text class="task-text" text-anchor="middle" x="410" y="1638">등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1620" y2="1620"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1587"></rect><text class="task-text" text-anchor="middle" x="595" y="1608">PR-CRT-OPS-006</text><text class="task-text" text-anchor="middle" x="595" y="1624">비로그인 이관·병합 기준</text><text class="task-text" text-anchor="middle" x="595" y="1638">검수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1620" y2="1620"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1620" y2="1620"></line><circle class="end" cx="733" cy="1620" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1624">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1712"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1712"></rect><text class="pool-index" x="58" y="1744">11</text><text class="pool-title" text-anchor="middle" x="145" y="1765">US-CRT-OPS-004</text><text class="pool-title" text-anchor="middle" x="145" y="1781">변동 모니터링과 복구 운영</text><circle class="start" cx="300" cy="1788" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1792">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1755"></rect><text class="task-text" text-anchor="middle" x="410" y="1776">PR-CRT-OPS-007</text><text class="task-text" text-anchor="middle" x="410" y="1792">가격·혜택·재고 변동</text><text class="task-text" text-anchor="middle" x="410" y="1806">모니터링</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1788" y2="1788"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1755"></rect><text class="task-text" text-anchor="middle" x="595" y="1776">PR-CRT-OPS-008</text><text class="task-text" text-anchor="middle" x="595" y="1799">복구·대체 제안 조치 반영</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1788" y2="1788"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1788" y2="1788"></line><circle class="end" cx="733" cy="1788" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1792">End</text><rect class="pool" height="150" rx="14" ry="14" width="1117" x="30" y="1880"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1880"></rect><text class="pool-index" x="58" y="1912">12</text><text class="pool-title" text-anchor="middle" x="145" y="1925">US-CRT-CNS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1941">장바구니 문맥 기반 상담</text><text class="pool-title" text-anchor="middle" x="145" y="1957">지원</text><circle class="start" cx="300" cy="1956" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1960">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1923"></rect><text class="task-text" text-anchor="middle" x="410" y="1944">PR-CRT-CNS-001</text><text class="task-text" text-anchor="middle" x="410" y="1967">상담 전환 요청 접수</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1956" y2="1956"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1923"></rect><text class="task-text" text-anchor="middle" x="595" y="1944">PR-CRT-CNS-002</text><text class="task-text" text-anchor="middle" x="595" y="1960">장바구니 문맥 기반 대체</text><text class="task-text" text-anchor="middle" x="595" y="1974">안내</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1956" y2="1956"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1956" y2="1956"></line><circle class="end" cx="733" cy="1956" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1960">End</text></svg></div></div>
+</div>
+
+
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 장바구니 진입과 구매안 요약 확인 (PR-CRT-CART-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-001</td><td>통합 장바구니 조회 구성</td><td>담긴 상품, 관심상품, 세트, 처리 단위, 주문 가능 상태를 통합 화면으로 구성한다.<br/></td><td>통합 조회<br/>구매안 요약<br/>고정 진입<br/>상태 배지</td></tr><tr><td class="mono">FN-CRT-CART-004</td><td>가격·혜택 요약 산정</td><td>현재 장바구니 조합 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과를 계산한다.<br/></td><td>총 비용 산정<br/>월 납부액<br/>할인 요약<br/>혜택 영향</td></tr></tbody>
+</table>
+
+<h4>2) 처리 단위별 장바구니 그룹 확인 (PR-CRT-CART-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-001</td><td>상품·고객 조건 조회</td><td>주문 연계 시스템에서 상품 조합, 고객 상태, 가입 가능성, 선행 조건을 조회한다.<br/></td><td>고객 조건<br/>상품 조건<br/>가입 가능성<br/>선행 조건</td></tr><tr><td class="mono">FN-CRT-CART-002</td><td>처리 단위 그룹핑</td><td>상품 유형, 결제 방식, 배송 유형, 주문 실행 단위에 따라 장바구니 항목을 그룹핑한다.<br/></td><td>세트 그룹핑<br/>분리 탭<br/>처리 단위 표시<br/>이유 안내</td></tr></tbody>
+</table>
+
+<h4>3) 주문 대상 선택과 구매안 확정 (PR-CRT-CART-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-003</td><td>주문 대상 선택·일괄 관리</td><td>고객이 주문 대상 세트를 선택, 해제, 삭제하고 주문 후보를 확정할 수 있게 처리한다.<br/></td><td>대상 선택<br/>일괄 삭제<br/>주문 후보 확정<br/>선택 상태 저장</td></tr><tr><td class="mono">FN-CRT-VALID-003</td><td>주문 전환 상태 확정</td><td>주문서로 넘길 수 있는 세트와 제외해야 할 세트를 구분하고 결과를 고지한다.<br/></td><td>전환 가능 세트<br/>제외 세트<br/>주문서 전달<br/>결과 고지</td></tr></tbody>
+</table>
+
+<h4>4) 상품·세트 선택 상태 변경 (PR-CRT-EDIT-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-002</td><td>처리 단위 그룹핑</td><td>상품 유형, 결제 방식, 배송 유형, 주문 실행 단위에 따라 장바구니 항목을 그룹핑한다.<br/></td><td>세트 그룹핑<br/>분리 탭<br/>처리 단위 표시<br/>이유 안내</td></tr><tr><td class="mono">FN-CRT-EDIT-001</td><td>세트 구성 변경 처리</td><td>상품, 옵션, 수량, 부가서비스, 구독, 혜택 항목의 추가·삭제·교체를 처리한다.<br/></td><td>옵션 변경<br/>수량 변경<br/>세트 교체<br/>구성 재계산</td></tr></tbody>
+</table>
+
+<h4>5) 삭제·자동삭제 영향 확인 (PR-CRT-EDIT-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-EDIT-002</td><td>삭제·자동삭제 처리</td><td>고객 삭제, 보존기간 초과, 주문 완료에 따른 장바구니 항목 삭제를 처리한다.<br/></td><td>직접 삭제<br/>만료 삭제<br/>완료 세트 삭제<br/>남은 항목 유지</td></tr><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>6) 남은 상품 구매안 재계산 (PR-CRT-EDIT-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-002</td><td>가격·혜택·재고 동기화</td><td>상품 기준 정보의 가격, 혜택, 재고, 판매 상태 변동을 장바구니 검증에 반영한다.<br/></td><td>가격 동기화<br/>혜택 동기화<br/>재고 동기화<br/>판매 상태</td></tr><tr><td class="mono">FN-CRT-CART-004</td><td>가격·혜택 요약 산정</td><td>현재 장바구니 조합 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과를 계산한다.<br/></td><td>총 비용 산정<br/>월 납부액<br/>할인 요약<br/>혜택 영향</td></tr></tbody>
+</table>
+
+<h4>7) 조합 가능성 사전 검증 (PR-CRT-VALID-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-001</td><td>상품·고객 조건 조회</td><td>주문 연계 시스템에서 상품 조합, 고객 상태, 가입 가능성, 선행 조건을 조회한다.<br/></td><td>고객 조건<br/>상품 조건<br/>가입 가능성<br/>선행 조건</td></tr><tr><td class="mono">FN-CRT-VALID-001</td><td>조합 호환성 검증</td><td>상품 간 호환성, 중복 불가, 선행 가입, 혜택 배타, 재고, 가입 가능 상태를 검증한다.<br/></td><td>호환성 판정<br/>선행 조건<br/>배타 조건<br/>재고 판정</td></tr></tbody>
+</table>
+
+<h4>8) 분리 주문·단독구매 판단 (PR-CRT-VALID-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-002</td><td>처리 단위 그룹핑</td><td>상품 유형, 결제 방식, 배송 유형, 주문 실행 단위에 따라 장바구니 항목을 그룹핑한다.<br/></td><td>세트 그룹핑<br/>분리 탭<br/>처리 단위 표시<br/>이유 안내</td></tr><tr><td class="mono">FN-CRT-VALID-002</td><td>분리 주문 판정</td><td>함께 주문할 수 없는 항목을 분리 주문, 별도 결제, 단독구매 필요 상태로 분류한다.<br/></td><td>분리 주문<br/>별도 결제<br/>단독구매<br/>불가 사유</td></tr></tbody>
+</table>
+
+<h4>9) 주문 전환 가능 상태 확정 (PR-CRT-VALID-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr><tr><td class="mono">FN-CRT-VALID-003</td><td>주문 전환 상태 확정</td><td>주문서로 넘길 수 있는 세트와 제외해야 할 세트를 구분하고 결과를 고지한다.<br/></td><td>전환 가능 세트<br/>제외 세트<br/>주문서 전달<br/>결과 고지</td></tr></tbody>
+</table>
+
+<h4>10) 비로그인 임시 장바구니 복원 (PR-CRT-KEEP-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-KEEP-001</td><td>비로그인 임시 저장</td><td>비로그인 고객의 담기 상태를 디바이스 기준으로 임시 저장하고 재방문 시 복원한다.<br/></td><td>임시 저장<br/>재방문 복원<br/>비로그인 제한<br/>만료 안내</td></tr><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>11) 로그인 이관·병합 확인 (PR-CRT-KEEP-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-001</td><td>상품·고객 조건 조회</td><td>주문 연계 시스템에서 상품 조합, 고객 상태, 가입 가능성, 선행 조건을 조회한다.<br/></td><td>고객 조건<br/>상품 조건<br/>가입 가능성<br/>선행 조건</td></tr><tr><td class="mono">FN-CRT-KEEP-002</td><td>로그인 이관·병합</td><td>비로그인 장바구니와 계정 장바구니의 중복, 충돌, 우선순위를 판정해 병합한다.<br/></td><td>계정 이관<br/>중복 병합<br/>충돌 해결<br/>병합 결과</td></tr></tbody>
+</table>
+
+<h4>12) 만료·변동 항목 복구 선택 (PR-CRT-KEEP-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-002</td><td>가격·혜택·재고 동기화</td><td>상품 기준 정보의 가격, 혜택, 재고, 판매 상태 변동을 장바구니 검증에 반영한다.<br/></td><td>가격 동기화<br/>혜택 동기화<br/>재고 동기화<br/>판매 상태</td></tr><tr><td class="mono">FN-CRT-KEEP-003</td><td>만료·변동 복구 안내</td><td>만료 예정, 자동삭제, 가격·재고·혜택 변동 항목의 복구 가능성과 대체 행동을 안내한다.<br/></td><td>만료 예고<br/>변동 비교<br/>대체 행동<br/>복구 경로</td></tr></tbody>
+</table>
+
+<h4>13) 관심상품 저장과 재방문 확인 (PR-CRT-FAV-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-001</td><td>통합 장바구니 조회 구성</td><td>담긴 상품, 관심상품, 세트, 처리 단위, 주문 가능 상태를 통합 화면으로 구성한다.<br/></td><td>통합 조회<br/>구매안 요약<br/>고정 진입<br/>상태 배지</td></tr><tr><td class="mono">FN-CRT-FAV-001</td><td>관심상품 저장</td><td>탐색용 상품을 관심상품으로 저장하고 장바구니·추천·재방문에서 이어서 활용한다.<br/></td><td>관심 저장<br/>재방문 조회<br/>주문 연결<br/>추천 활용</td></tr></tbody>
+</table>
+
+<h4>14) 그룹 공유 링크 생성과 조회 (PR-CRT-FAV-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-FAV-002</td><td>그룹 공유 링크 관리</td><td>그룹 상품 또는 선택 세트를 공유 링크로 생성하고 최소 정보 기준으로 조회하게 한다.<br/></td><td>공유 링크<br/>권한 확인<br/>최소 노출<br/>조회 이력</td></tr><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>15) 함께 구매 추천 확인 (PR-CRT-UPSELL-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-004</td><td>가격·혜택 요약 산정</td><td>현재 장바구니 조합 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과를 계산한다.<br/></td><td>총 비용 산정<br/>월 납부액<br/>할인 요약<br/>혜택 영향</td></tr><tr><td class="mono">FN-CRT-UPSELL-001</td><td>함께 구매 추천 구성</td><td>현재 장바구니 기준 추가 상품, 결합, 구독, 혜택 연계 추천을 설명형으로 구성한다.<br/></td><td>연관 상품<br/>결합 추천<br/>혜택 설명<br/>대체 추천</td></tr></tbody>
+</table>
+
+<h4>16) 추천 상품 추가와 혜택 영향 확인 (PR-CRT-UPSELL-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-UPSELL-002</td><td>추천 추가 영향 재계산</td><td>추천 상품 추가 시 비용, 할인, 혜택, 조합 가능성 변화를 재계산한다.<br/></td><td>추가 영향<br/>비용 변화<br/>혜택 변화<br/>조합 재검증</td></tr><tr><td class="mono">FN-CRT-VALID-001</td><td>조합 호환성 검증</td><td>상품 간 호환성, 중복 불가, 선행 가입, 혜택 배타, 재고, 가입 가능 상태를 검증한다.<br/></td><td>호환성 판정<br/>선행 조건<br/>배타 조건<br/>재고 판정</td></tr></tbody>
+</table>
+
+<h4>17) 주문 결정 장애 사유 확인 (PR-CRT-HELP-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-HELP-001</td><td>상담 전환 문맥 구성</td><td>상담 또는 AI 지원에 장바구니 세트, 충돌 사유, 판정 결과, 고객 선택 이력을 전달한다.<br/></td><td>문맥 패키지<br/>충돌 사유<br/>판정 결과<br/>상담 전달</td></tr><tr><td class="mono">FN-CRT-KEEP-003</td><td>만료·변동 복구 안내</td><td>만료 예정, 자동삭제, 가격·재고·혜택 변동 항목의 복구 가능성과 대체 행동을 안내한다.<br/></td><td>만료 예고<br/>변동 비교<br/>대체 행동<br/>복구 경로</td></tr></tbody>
+</table>
+
+<h4>18) 상담·AI 지원 전환과 문맥 전달 (PR-CRT-HELP-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-HELP-001</td><td>상담 전환 문맥 구성</td><td>상담 또는 AI 지원에 장바구니 세트, 충돌 사유, 판정 결과, 고객 선택 이력을 전달한다.<br/></td><td>문맥 패키지<br/>충돌 사유<br/>판정 결과<br/>상담 전달</td></tr><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>19) 장바구니 제공 범위 기준 등록 (PR-CRT-OPS-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr><tr><td class="mono">FN-CRT-OPS-001</td><td>제공 범위 운영 기준 관리</td><td>장바구니 대상 상품, 예외 상품, 고정 진입, 안내 문구, 최대 수량 기준을 관리한다.<br/></td><td>대상 상품<br/>예외 상품<br/>진입 기준<br/>한도 문구</td></tr></tbody>
+</table>
+
+<h4>20) 장바구니 진입·노출 기준 배포 (PR-CRT-OPS-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-001</td><td>통합 장바구니 조회 구성</td><td>담긴 상품, 관심상품, 세트, 처리 단위, 주문 가능 상태를 통합 화면으로 구성한다.<br/></td><td>통합 조회<br/>구매안 요약<br/>고정 진입<br/>상태 배지</td></tr><tr><td class="mono">FN-CRT-OPS-001</td><td>제공 범위 운영 기준 관리</td><td>장바구니 대상 상품, 예외 상품, 고정 진입, 안내 문구, 최대 수량 기준을 관리한다.<br/></td><td>대상 상품<br/>예외 상품<br/>진입 기준<br/>한도 문구</td></tr></tbody>
+</table>
+
+<h4>21) 조합 가능성 정책 등록 (PR-CRT-OPS-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-OPS-002</td><td>조합·분리 정책 관리</td><td>상품 호환성, 중복 불가, 선행 조건, 단독구매, 분리 주문 기준을 운영자가 관리한다.<br/></td><td>호환성 기준<br/>중복 제한<br/>분리 기준<br/>단독구매 기준</td></tr><tr><td class="mono">FN-CRT-VALID-001</td><td>조합 호환성 검증</td><td>상품 간 호환성, 중복 불가, 선행 가입, 혜택 배타, 재고, 가입 가능 상태를 검증한다.<br/></td><td>호환성 판정<br/>선행 조건<br/>배타 조건<br/>재고 판정</td></tr></tbody>
+</table>
+
+<h4>22) 분리 주문·단독구매 안내 기준 배포 (PR-CRT-OPS-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-OPS-002</td><td>조합·분리 정책 관리</td><td>상품 호환성, 중복 불가, 선행 조건, 단독구매, 분리 주문 기준을 운영자가 관리한다.<br/></td><td>호환성 기준<br/>중복 제한<br/>분리 기준<br/>단독구매 기준</td></tr><tr><td class="mono">FN-CRT-VALID-002</td><td>분리 주문 판정</td><td>함께 주문할 수 없는 항목을 분리 주문, 별도 결제, 단독구매 필요 상태로 분류한다.<br/></td><td>분리 주문<br/>별도 결제<br/>단독구매<br/>불가 사유</td></tr></tbody>
+</table>
+
+<h4>23) 보존 기간과 자동삭제 기준 등록 (PR-CRT-OPS-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-EDIT-002</td><td>삭제·자동삭제 처리</td><td>고객 삭제, 보존기간 초과, 주문 완료에 따른 장바구니 항목 삭제를 처리한다.<br/></td><td>직접 삭제<br/>만료 삭제<br/>완료 세트 삭제<br/>남은 항목 유지</td></tr><tr><td class="mono">FN-CRT-OPS-003</td><td>보존·이관 정책 관리</td><td>보존 기간, 자동삭제, 만료 예고, 비로그인 이관, 병합 우선순위를 관리한다.<br/></td><td>보존 기간<br/>자동삭제<br/>이관 기준<br/>병합 우선순위</td></tr></tbody>
+</table>
+
+<h4>24) 비로그인 이관·병합 기준 검수 (PR-CRT-OPS-006)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-KEEP-002</td><td>로그인 이관·병합</td><td>비로그인 장바구니와 계정 장바구니의 중복, 충돌, 우선순위를 판정해 병합한다.<br/></td><td>계정 이관<br/>중복 병합<br/>충돌 해결<br/>병합 결과</td></tr><tr><td class="mono">FN-CRT-OPS-003</td><td>보존·이관 정책 관리</td><td>보존 기간, 자동삭제, 만료 예고, 비로그인 이관, 병합 우선순위를 관리한다.<br/></td><td>보존 기간<br/>자동삭제<br/>이관 기준<br/>병합 우선순위</td></tr></tbody>
+</table>
+
+<h4>25) 가격·혜택·재고 변동 모니터링 (PR-CRT-OPS-007)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-002</td><td>가격·혜택·재고 동기화</td><td>상품 기준 정보의 가격, 혜택, 재고, 판매 상태 변동을 장바구니 검증에 반영한다.<br/></td><td>가격 동기화<br/>혜택 동기화<br/>재고 동기화<br/>판매 상태</td></tr><tr><td class="mono">FN-CRT-OPS-004</td><td>변동 모니터링</td><td>가격, 혜택, 재고, 판매 상태, 가입 조건 변동과 영향 범위를 모니터링한다.<br/></td><td>가격 변동<br/>재고 변동<br/>혜택 변동<br/>영향 범위</td></tr></tbody>
+</table>
+
+<h4>26) 복구·대체 제안 조치 반영 (PR-CRT-OPS-008)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-KEEP-003</td><td>만료·변동 복구 안내</td><td>만료 예정, 자동삭제, 가격·재고·혜택 변동 항목의 복구 가능성과 대체 행동을 안내한다.<br/></td><td>만료 예고<br/>변동 비교<br/>대체 행동<br/>복구 경로</td></tr><tr><td class="mono">FN-CRT-OPS-004</td><td>변동 모니터링</td><td>가격, 혜택, 재고, 판매 상태, 가입 조건 변동과 영향 범위를 모니터링한다.<br/></td><td>가격 변동<br/>재고 변동<br/>혜택 변동<br/>영향 범위</td></tr></tbody>
+</table>
+
+<h4>27) 상담 전환 요청 접수 (PR-CRT-CNS-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-HELP-001</td><td>상담 전환 문맥 구성</td><td>상담 또는 AI 지원에 장바구니 세트, 충돌 사유, 판정 결과, 고객 선택 이력을 전달한다.<br/></td><td>문맥 패키지<br/>충돌 사유<br/>판정 결과<br/>상담 전달</td></tr><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>28) 장바구니 문맥 기반 대체 안내 (PR-CRT-CNS-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-HELP-001</td><td>상담 전환 문맥 구성</td><td>상담 또는 AI 지원에 장바구니 세트, 충돌 사유, 판정 결과, 고객 선택 이력을 전달한다.<br/></td><td>문맥 패키지<br/>충돌 사유<br/>판정 결과<br/>상담 전달</td></tr><tr><td class="mono">FN-CRT-UPSELL-001</td><td>함께 구매 추천 구성</td><td>현재 장바구니 기준 추가 상품, 결합, 구독, 혜택 연계 추천을 설명형으로 구성한다.<br/></td><td>연관 상품<br/>결합 추천<br/>혜택 설명<br/>대체 추천</td></tr></tbody>
+</table>
+
+<h4>29) 담기 후 후속 동선 선택 (PR-CRT-CART-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-CART-005</td><td>담기 후 동선 분기</td><td>장바구니 담기 완료 직후 쇼핑 계속, 장바구니 이동, 주문 대상 확인 경로를 고객 상황에 맞게 분기한다.<br/></td><td>후속 행동 선택<br/>동선 유지<br/>담기 결과 고지<br/>이력 저장</td></tr><tr><td class="mono">FN-CRT-LOG-001</td><td>장바구니 이력 저장</td><td>담기, 삭제, 병합, 검증, 변동 고지, 상담 전환, 주문 전환 이력을 저장한다.<br/></td><td>담기 이력<br/>삭제 이력<br/>검증 이력<br/>전환 이력</td></tr></tbody>
+</table>
+
+<h4>30) 액세서리 수량 조절과 금액 재산정 (PR-CRT-EDIT-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-002</td><td>가격·혜택·재고 동기화</td><td>상품 기준 정보의 가격, 혜택, 재고, 판매 상태 변동을 장바구니 검증에 반영한다.<br/></td><td>가격 동기화<br/>혜택 동기화<br/>재고 동기화<br/>판매 상태</td></tr><tr><td class="mono">FN-CRT-CART-004</td><td>가격·혜택 요약 산정</td><td>현재 장바구니 조합 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과를 계산한다.<br/></td><td>총 비용 산정<br/>월 납부액<br/>할인 요약<br/>혜택 영향</td></tr><tr><td class="mono">FN-CRT-EDIT-003</td><td>액세서리 수량·금액 산정</td><td>액세서리 수량 변경 시 보관 가능 여부, 품절 여부, 총 결제 예상 금액을 즉시 재산정한다.<br/></td><td>수량 변경<br/>품절 확인<br/>총액 재산정<br/>변경 이력</td></tr></tbody>
+</table>
+
+<h4>31) 함께쓰기 요금제 모회선 인증 (PR-CRT-VALID-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CRT-BSS-001</td><td>상품·고객 조건 조회</td><td>주문 연계 시스템에서 상품 조합, 고객 상태, 가입 가능성, 선행 조건을 조회한다.<br/></td><td>고객 조건<br/>상품 조건<br/>가입 가능성<br/>선행 조건</td></tr><tr><td class="mono">FN-CRT-VALID-004</td><td>모회선 인증·가입유형 검증</td><td>함께쓰기 요금제의 모회선 인증 결과와 가입유형별 필수 인증 조건을 주문 전 검증한다.<br/></td><td>모회선 인증<br/>가입유형 확인<br/>인증 실패 안내<br/>재시도 이력</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 장바구니 진입과 구매안 요약 확인 (PR-CRT-CART-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-SCOPE-001</td><td>장바구니 범위·경계 정책</td><td>장바구니, 담기, 관심상품, 주문서 사이의 업무 경계를 정의한다.<br/></td><td>범위 경계<br/>예외 상품<br/>관심상품 구분</td></tr><tr><td class="mono">PG-CRT-STRUCT-001</td><td>통합·분리 장바구니 구조 정책</td><td>고객 관점 통합 조회와 실제 주문 실행 단위 분리 기준을 정의한다.<br/></td><td>통합 조회<br/>처리 단위<br/>다중 탭</td></tr></tbody>
+</table>
+
+<h4>2) 처리 단위별 장바구니 그룹 확인 (PR-CRT-CART-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-STRUCT-001</td><td>통합·분리 장바구니 구조 정책</td><td>고객 관점 통합 조회와 실제 주문 실행 단위 분리 기준을 정의한다.<br/></td><td>통합 조회<br/>처리 단위<br/>다중 탭</td></tr><tr><td class="mono">PG-CRT-ORDER-001</td><td>주문 전환·분리 주문 정책</td><td>주문서 전달 가능 세트, 분리 주문, 단독구매, 별도 결제 기준을 정의한다.<br/></td><td>전환 가능 세트<br/>분리 주문<br/>단독구매</td></tr></tbody>
+</table>
+
+<h4>3) 주문 대상 선택과 구매안 확정 (PR-CRT-CART-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-ORDER-001</td><td>주문 전환·분리 주문 정책</td><td>주문서 전달 가능 세트, 분리 주문, 단독구매, 별도 결제 기준을 정의한다.<br/></td><td>전환 가능 세트<br/>분리 주문<br/>단독구매</td></tr><tr><td class="mono">PG-CRT-PRICE-001</td><td>가격·혜택 요약 정책</td><td>장바구니 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과 표시 기준을 정의한다.<br/></td><td>총 비용<br/>월 납부액<br/>혜택 영향<br/>액세서리 수량·금액</td></tr></tbody>
+</table>
+
+<h4>4) 상품·세트 선택 상태 변경 (PR-CRT-EDIT-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-GROUP-001</td><td>세트·패키지 구성 정책</td><td>상품, 옵션, 요금제, 부가서비스, 구독을 세트 단위로 묶고 변경하는 기준을 정의한다.<br/></td><td>세트 단위<br/>구성 변경<br/>충돌 표시</td></tr><tr><td class="mono">PG-CRT-DELETE-001</td><td>삭제·자동삭제 정책</td><td>고객 삭제, 보존 기간 초과, 주문 완료 이후 장바구니 정리 기준을 정의한다.<br/></td><td>직접 삭제<br/>완료 세트 삭제<br/>삭제 이력</td></tr></tbody>
+</table>
+
+<h4>5) 삭제·자동삭제 영향 확인 (PR-CRT-EDIT-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-DELETE-001</td><td>삭제·자동삭제 정책</td><td>고객 삭제, 보존 기간 초과, 주문 완료 이후 장바구니 정리 기준을 정의한다.<br/></td><td>직접 삭제<br/>완료 세트 삭제<br/>삭제 이력</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>6) 남은 상품 구매안 재계산 (PR-CRT-EDIT-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-PRICE-001</td><td>가격·혜택 요약 정책</td><td>장바구니 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과 표시 기준을 정의한다.<br/></td><td>총 비용<br/>월 납부액<br/>혜택 영향<br/>액세서리 수량·금액</td></tr><tr><td class="mono">PG-CRT-CHANGE-001</td><td>가격·혜택·재고 변동 정책</td><td>담은 뒤 변경된 가격, 혜택, 재고, 판매 상태를 고객에게 고지하고 복구하는 기준을 정의한다.<br/></td><td>변동 고지<br/>대체 행동<br/>자동 제거</td></tr></tbody>
+</table>
+
+<h4>7) 조합 가능성 사전 검증 (PR-CRT-VALID-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-VALID-001</td><td>조합 가능성 검증 정책</td><td>상품 간 호환성, 선행 조건, 중복 불가, 재고·혜택 조건을 검증하는 기준을 정의한다.<br/></td><td>호환성 기준<br/>선행 조건<br/>중복 제한<br/>실시간 재검증</td></tr><tr><td class="mono">PG-CRT-BSS-001</td><td>BSS·연계 판정 정책</td><td>주문 연계 시스템이 판정해야 하는 상품·고객·재고·혜택 기준과 응답 기준을 정의한다.<br/></td><td>판정 항목<br/>응답 지연<br/>연계 실패</td></tr></tbody>
+</table>
+
+<h4>8) 분리 주문·단독구매 판단 (PR-CRT-VALID-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-ORDER-001</td><td>주문 전환·분리 주문 정책</td><td>주문서 전달 가능 세트, 분리 주문, 단독구매, 별도 결제 기준을 정의한다.<br/></td><td>전환 가능 세트<br/>분리 주문<br/>단독구매</td></tr><tr><td class="mono">PG-CRT-VALID-001</td><td>조합 가능성 검증 정책</td><td>상품 간 호환성, 선행 조건, 중복 불가, 재고·혜택 조건을 검증하는 기준을 정의한다.<br/></td><td>호환성 기준<br/>선행 조건<br/>중복 제한<br/>실시간 재검증</td></tr></tbody>
+</table>
+
+<h4>9) 주문 전환 가능 상태 확정 (PR-CRT-VALID-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-ORDER-001</td><td>주문 전환·분리 주문 정책</td><td>주문서 전달 가능 세트, 분리 주문, 단독구매, 별도 결제 기준을 정의한다.<br/></td><td>전환 가능 세트<br/>분리 주문<br/>단독구매</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>10) 비로그인 임시 장바구니 복원 (PR-CRT-KEEP-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-SESSION-001</td><td>비로그인·로그인 저장 이관 정책</td><td>비로그인 임시 저장, 로그인 이관, 계정 병합 기준을 정의한다.<br/></td><td>임시 저장<br/>이관 기준<br/>병합 충돌</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>11) 로그인 이관·병합 확인 (PR-CRT-KEEP-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-SESSION-001</td><td>비로그인·로그인 저장 이관 정책</td><td>비로그인 임시 저장, 로그인 이관, 계정 병합 기준을 정의한다.<br/></td><td>임시 저장<br/>이관 기준<br/>병합 충돌</td></tr><tr><td class="mono">PG-CRT-GROUP-001</td><td>세트·패키지 구성 정책</td><td>상품, 옵션, 요금제, 부가서비스, 구독을 세트 단위로 묶고 변경하는 기준을 정의한다.<br/></td><td>세트 단위<br/>구성 변경<br/>충돌 표시</td></tr></tbody>
+</table>
+
+<h4>12) 만료·변동 항목 복구 선택 (PR-CRT-KEEP-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CHANGE-001</td><td>가격·혜택·재고 변동 정책</td><td>담은 뒤 변경된 가격, 혜택, 재고, 판매 상태를 고객에게 고지하고 복구하는 기준을 정의한다.<br/></td><td>변동 고지<br/>대체 행동<br/>자동 제거</td></tr><tr><td class="mono">PG-CRT-CAPACITY-001</td><td>장바구니 한도·보존 정책</td><td>담기 최대 수량, 보존 기간, 만료 안내 기준을 정의한다.<br/></td><td>최대 수량<br/>보존 기간<br/>만료 안내</td></tr></tbody>
+</table>
+
+<h4>13) 관심상품 저장과 재방문 확인 (PR-CRT-FAV-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-FAV-001</td><td>관심상품·공유 정책</td><td>관심상품 저장, 그룹 공유, 공유 링크 보안과 조회 기준을 정의한다.<br/></td><td>관심상품<br/>그룹 공유<br/>공유 만료</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>14) 그룹 공유 링크 생성과 조회 (PR-CRT-FAV-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-FAV-001</td><td>관심상품·공유 정책</td><td>관심상품 저장, 그룹 공유, 공유 링크 보안과 조회 기준을 정의한다.<br/></td><td>관심상품<br/>그룹 공유<br/>공유 만료</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>15) 함께 구매 추천 확인 (PR-CRT-UPSELL-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-RECO-001</td><td>함께 구매 추천 정책</td><td>장바구니 기준 추가 추천, 결합 혜택, 추천 추가 영향 기준을 정의한다.<br/></td><td>추천 대상<br/>추천 설명<br/>추천 추가 검증</td></tr><tr><td class="mono">PG-CRT-PRICE-001</td><td>가격·혜택 요약 정책</td><td>장바구니 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과 표시 기준을 정의한다.<br/></td><td>총 비용<br/>월 납부액<br/>혜택 영향<br/>액세서리 수량·금액</td></tr></tbody>
+</table>
+
+<h4>16) 추천 상품 추가와 혜택 영향 확인 (PR-CRT-UPSELL-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-RECO-001</td><td>함께 구매 추천 정책</td><td>장바구니 기준 추가 추천, 결합 혜택, 추천 추가 영향 기준을 정의한다.<br/></td><td>추천 대상<br/>추천 설명<br/>추천 추가 검증</td></tr><tr><td class="mono">PG-CRT-VALID-001</td><td>조합 가능성 검증 정책</td><td>상품 간 호환성, 선행 조건, 중복 불가, 재고·혜택 조건을 검증하는 기준을 정의한다.<br/></td><td>호환성 기준<br/>선행 조건<br/>중복 제한<br/>실시간 재검증</td></tr></tbody>
+</table>
+
+<h4>17) 주문 결정 장애 사유 확인 (PR-CRT-HELP-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CONSULT-001</td><td>상담·AI 지원 전환 정책</td><td>고객이 장바구니 문제를 해결하지 못할 때 문맥 유지와 상담 전환 기준을 정의한다.<br/></td><td>전환 조건<br/>문맥 전달<br/>상담 후 복귀</td></tr><tr><td class="mono">PG-CRT-CHANGE-001</td><td>가격·혜택·재고 변동 정책</td><td>담은 뒤 변경된 가격, 혜택, 재고, 판매 상태를 고객에게 고지하고 복구하는 기준을 정의한다.<br/></td><td>변동 고지<br/>대체 행동<br/>자동 제거</td></tr></tbody>
+</table>
+
+<h4>18) 상담·AI 지원 전환과 문맥 전달 (PR-CRT-HELP-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CONSULT-001</td><td>상담·AI 지원 전환 정책</td><td>고객이 장바구니 문제를 해결하지 못할 때 문맥 유지와 상담 전환 기준을 정의한다.<br/></td><td>전환 조건<br/>문맥 전달<br/>상담 후 복귀</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>19) 장바구니 제공 범위 기준 등록 (PR-CRT-OPS-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-SCOPE-001</td><td>장바구니 범위·경계 정책</td><td>장바구니, 담기, 관심상품, 주문서 사이의 업무 경계를 정의한다.<br/></td><td>범위 경계<br/>예외 상품<br/>관심상품 구분</td></tr><tr><td class="mono">PG-CRT-FAV-001</td><td>관심상품·공유 정책</td><td>관심상품 저장, 그룹 공유, 공유 링크 보안과 조회 기준을 정의한다.<br/></td><td>관심상품<br/>그룹 공유<br/>공유 만료</td></tr></tbody>
+</table>
+
+<h4>20) 장바구니 진입·노출 기준 배포 (PR-CRT-OPS-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-STRUCT-001</td><td>통합·분리 장바구니 구조 정책</td><td>고객 관점 통합 조회와 실제 주문 실행 단위 분리 기준을 정의한다.<br/></td><td>통합 조회<br/>처리 단위<br/>다중 탭</td></tr><tr><td class="mono">PG-CRT-CAPACITY-001</td><td>장바구니 한도·보존 정책</td><td>담기 최대 수량, 보존 기간, 만료 안내 기준을 정의한다.<br/></td><td>최대 수량<br/>보존 기간<br/>만료 안내</td></tr></tbody>
+</table>
+
+<h4>21) 조합 가능성 정책 등록 (PR-CRT-OPS-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-VALID-001</td><td>조합 가능성 검증 정책</td><td>상품 간 호환성, 선행 조건, 중복 불가, 재고·혜택 조건을 검증하는 기준을 정의한다.<br/></td><td>호환성 기준<br/>선행 조건<br/>중복 제한<br/>실시간 재검증</td></tr><tr><td class="mono">PG-CRT-BSS-001</td><td>BSS·연계 판정 정책</td><td>주문 연계 시스템이 판정해야 하는 상품·고객·재고·혜택 기준과 응답 기준을 정의한다.<br/></td><td>판정 항목<br/>응답 지연<br/>연계 실패</td></tr></tbody>
+</table>
+
+<h4>22) 분리 주문·단독구매 안내 기준 배포 (PR-CRT-OPS-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-ORDER-001</td><td>주문 전환·분리 주문 정책</td><td>주문서 전달 가능 세트, 분리 주문, 단독구매, 별도 결제 기준을 정의한다.<br/></td><td>전환 가능 세트<br/>분리 주문<br/>단독구매</td></tr><tr><td class="mono">PG-CRT-OPS-001</td><td>운영 변경·모니터링 정책</td><td>운영 기준 변경, 배포, 롤백, 변동 모니터링과 고객 영향 관리 기준을 정의한다.<br/></td><td>변경 승인<br/>모니터링<br/>롤백 기준</td></tr></tbody>
+</table>
+
+<h4>23) 보존 기간과 자동삭제 기준 등록 (PR-CRT-OPS-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CAPACITY-001</td><td>장바구니 한도·보존 정책</td><td>담기 최대 수량, 보존 기간, 만료 안내 기준을 정의한다.<br/></td><td>최대 수량<br/>보존 기간<br/>만료 안내</td></tr><tr><td class="mono">PG-CRT-DELETE-001</td><td>삭제·자동삭제 정책</td><td>고객 삭제, 보존 기간 초과, 주문 완료 이후 장바구니 정리 기준을 정의한다.<br/></td><td>직접 삭제<br/>완료 세트 삭제<br/>삭제 이력</td></tr></tbody>
+</table>
+
+<h4>24) 비로그인 이관·병합 기준 검수 (PR-CRT-OPS-006)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-SESSION-001</td><td>비로그인·로그인 저장 이관 정책</td><td>비로그인 임시 저장, 로그인 이관, 계정 병합 기준을 정의한다.<br/></td><td>임시 저장<br/>이관 기준<br/>병합 충돌</td></tr><tr><td class="mono">PG-CRT-OPS-001</td><td>운영 변경·모니터링 정책</td><td>운영 기준 변경, 배포, 롤백, 변동 모니터링과 고객 영향 관리 기준을 정의한다.<br/></td><td>변경 승인<br/>모니터링<br/>롤백 기준</td></tr></tbody>
+</table>
+
+<h4>25) 가격·혜택·재고 변동 모니터링 (PR-CRT-OPS-007)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CHANGE-001</td><td>가격·혜택·재고 변동 정책</td><td>담은 뒤 변경된 가격, 혜택, 재고, 판매 상태를 고객에게 고지하고 복구하는 기준을 정의한다.<br/></td><td>변동 고지<br/>대체 행동<br/>자동 제거</td></tr><tr><td class="mono">PG-CRT-BSS-001</td><td>BSS·연계 판정 정책</td><td>주문 연계 시스템이 판정해야 하는 상품·고객·재고·혜택 기준과 응답 기준을 정의한다.<br/></td><td>판정 항목<br/>응답 지연<br/>연계 실패</td></tr></tbody>
+</table>
+
+<h4>26) 복구·대체 제안 조치 반영 (PR-CRT-OPS-008)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CHANGE-001</td><td>가격·혜택·재고 변동 정책</td><td>담은 뒤 변경된 가격, 혜택, 재고, 판매 상태를 고객에게 고지하고 복구하는 기준을 정의한다.<br/></td><td>변동 고지<br/>대체 행동<br/>자동 제거</td></tr><tr><td class="mono">PG-CRT-CONSULT-001</td><td>상담·AI 지원 전환 정책</td><td>고객이 장바구니 문제를 해결하지 못할 때 문맥 유지와 상담 전환 기준을 정의한다.<br/></td><td>전환 조건<br/>문맥 전달<br/>상담 후 복귀</td></tr></tbody>
+</table>
+
+<h4>27) 상담 전환 요청 접수 (PR-CRT-CNS-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CONSULT-001</td><td>상담·AI 지원 전환 정책</td><td>고객이 장바구니 문제를 해결하지 못할 때 문맥 유지와 상담 전환 기준을 정의한다.<br/></td><td>전환 조건<br/>문맥 전달<br/>상담 후 복귀</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>28) 장바구니 문맥 기반 대체 안내 (PR-CRT-CNS-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-CONSULT-001</td><td>상담·AI 지원 전환 정책</td><td>고객이 장바구니 문제를 해결하지 못할 때 문맥 유지와 상담 전환 기준을 정의한다.<br/></td><td>전환 조건<br/>문맥 전달<br/>상담 후 복귀</td></tr><tr><td class="mono">PG-CRT-RECO-001</td><td>함께 구매 추천 정책</td><td>장바구니 기준 추가 추천, 결합 혜택, 추천 추가 영향 기준을 정의한다.<br/></td><td>추천 대상<br/>추천 설명<br/>추천 추가 검증</td></tr></tbody>
+</table>
+
+<h4>29) 담기 후 후속 동선 선택 (PR-CRT-CART-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-NAV-001</td><td>담기 후 동선 정책</td><td>고객이 상품을 담은 직후 선택 가능한 후속 경로와 안내 기준을 정의한다.<br/></td><td>동선 선택<br/>결과 고지<br/>이탈 복귀</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h4>30) 액세서리 수량 조절과 금액 재산정 (PR-CRT-EDIT-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-PRICE-001</td><td>가격·혜택 요약 정책</td><td>장바구니 기준 총 비용, 월 예상액, 할인, 혜택, 절감 효과 표시 기준을 정의한다.<br/></td><td>총 비용<br/>월 납부액<br/>혜택 영향<br/>액세서리 수량·금액</td></tr><tr><td class="mono">PG-CRT-CAPACITY-001</td><td>장바구니 한도·보존 정책</td><td>담기 최대 수량, 보존 기간, 만료 안내 기준을 정의한다.<br/></td><td>최대 수량<br/>보존 기간<br/>만료 안내</td></tr><tr><td class="mono">PG-CRT-CHANGE-001</td><td>가격·혜택·재고 변동 정책</td><td>담은 뒤 변경된 가격, 혜택, 재고, 판매 상태를 고객에게 고지하고 복구하는 기준을 정의한다.<br/></td><td>변동 고지<br/>대체 행동<br/>자동 제거</td></tr></tbody>
+</table>
+
+<h4>31) 함께쓰기 요금제 모회선 인증 (PR-CRT-VALID-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CRT-AUTH-001</td><td>함께쓰기 인증·권한 정책</td><td>함께쓰기 요금제와 회선 관계 확인이 필요한 장바구니 구성의 인증 기준을 정의한다.<br/></td><td>모회선 인증<br/>가입유형별 인증<br/>인증 실패 후속</td></tr><tr><td class="mono">PG-CRT-BSS-001</td><td>BSS·연계 판정 정책</td><td>주문 연계 시스템이 판정해야 하는 상품·고객·재고·혜택 기준과 응답 기준을 정의한다.<br/></td><td>판정 항목<br/>응답 지연<br/>연계 실패</td></tr><tr><td class="mono">PG-CRT-HISTORY-001</td><td>이력·고지·보관 정책</td><td>장바구니 변경, 검증, 삭제, 병합, 상담 전환 이력 저장 기준을 정의한다.<br/></td><td>이력 저장<br/>고지 기준<br/>보관 기준</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 함께쓰기 인증·권한 정책 (PG-CRT-AUTH-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 모회선 인증 <span class="mono">(PI-CRT-AUTH-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 함께쓰기 요금제 또는 회선 관계 확인이 필요한 상품은 주문 전환 전에 모회선 인증을 완료해야 한다.<br/></span><span class="policy-item-line">- 인증 완료 전에는 주문 전환 가능 상태로 변경하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 가입유형별 인증 <span class="mono">(PI-CRT-AUTH-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 가입유형별로 필요한 본인확인, 회선 권한 확인, 대리 권한 확인 결과가 충족된 경우에만 상품·고객 조건 재검증을 수행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 실패 후속 <span class="mono">(PI-CRT-AUTH-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 모회선 인증이 실패하거나 권한 확인이 불충족되면 인증 필요 상태를 유지하고 재시도, 상품 제외, 상담 전환 중 가능한 후속 행동을 안내한다.<br/></span><span class="policy-item-line">- 실패 사유와 재시도 이력은 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) BSS·연계 판정 정책 (PG-CRT-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 판정 항목 <span class="mono">(PI-CRT-BSS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문 연계 시스템은 고객 상태, 회선 상태, 상품 상태, 판매 가능 기간, 재고, 혜택 적용 조건, 선행 가입 조건을 판정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 응답 지연 <span class="mono">(PI-CRT-BSS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 연계 판정이 3초 안에 완료되지 않으면 장바구니 항목을 검증 필요 상태로 유지하고 고객에게 일시 지연 안내와 재시도 버튼을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연계 실패 <span class="mono">(PI-CRT-BSS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 또는 외부 연계 실패가 2회 연속 발생하면 주문 전환을 제한하고 상담 전환 또는 나중에 다시 시도 경로를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 장바구니 한도·보존 정책 (PG-CRT-CAPACITY-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 최대 수량 <span class="mono">(PI-CRT-CAPACITY-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로그인 고객 기준 장바구니에 담을 수 있는 전시 상품 또는 마케팅프로그램 세트는 최대 50개로 제한한다.<br/></span><span class="policy-item-line">- 50개 초과 시 기존 항목 삭제 또는 주문 전환 후 추가하도록 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보존 기간 <span class="mono">(PI-CRT-CAPACITY-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장바구니 세트는 최초 담은 날짜부터 30일 동안 보존한다.<br/></span><span class="policy-item-line">- 30일을 초과하면 오래된 세트부터 순차 자동 삭제한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 만료 안내 <span class="mono">(PI-CRT-CAPACITY-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 자동 삭제 예정 세트는 삭제 전 고객에게 만료 예정일, 삭제 대상, 복구 가능 여부를 안내한다.<br/></span><span class="policy-item-line">- 복구 불가 세트는 대체 상품 탐색 또는 다시 담기 경로를 제공한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 가격·혜택·재고 변동 정책 (PG-CRT-CHANGE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 변동 고지 <span class="mono">(PI-CRT-CHANGE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 담은 시점 이후 가격, 혜택, 재고, 판매 상태, 가입 가능 조건이 달라지면 변경 전 값과 변경 후 값을 구분해 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대체 행동 <span class="mono">(PI-CRT-CHANGE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변동 항목에는 재검증, 대체 상품 보기, 삭제, 상담 전환 중 최소 1개 이상의 후속 행동을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자동 제거 <span class="mono">(PI-CRT-CHANGE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 판매중단, 단종, 재고 없음으로 구매 불가가 확정된 세트는 주문 전환을 제한한다.<br/></span><span class="policy-item-line">- 자동 제거는 고객 고지 후 수행하고 삭제 이력을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 상담·AI 지원 전환 정책 (PG-CRT-CONSULT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 전환 조건 <span class="mono">(PI-CRT-CONSULT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고관여 상품, 조건 충돌, 결합 판단, 재고 이슈, 반복 검증 실패가 있으면 장바구니 문맥을 유지한 상담 또는 AI 지원 전환을 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 문맥 전달 <span class="mono">(PI-CRT-CONSULT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담 전환 시 선택 세트, 충돌 사유, 검증 결과, 가격·혜택 요약, 고객이 마지막으로 선택한 행동을 전달한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상담 후 복귀 <span class="mono">(PI-CRT-CONSULT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담이나 AI 지원 후 고객이 복귀하면 기존 장바구니 상태를 유지하고 상담에서 제안한 대체 상품 또는 분리 주문 경로를 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 삭제·자동삭제 정책 (PG-CRT-DELETE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 직접 삭제 <span class="mono">(PI-CRT-DELETE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 장바구니 상품 또는 세트를 직접 삭제할 수 있다.<br/></span><span class="policy-item-line">- 삭제 전에는 세트 전체 삭제인지 일부 구성 삭제인지 구분해 확인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 완료 세트 삭제 <span class="mono">(PI-CRT-DELETE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문 또는 가입이 완료된 세트는 장바구니에서 자동 삭제한다.<br/></span><span class="policy-item-line">- 주문하지 않은 세트와 관심상품은 그대로 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 삭제 이력 <span class="mono">(PI-CRT-DELETE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 직접 삭제, 자동삭제, 주문 완료 삭제는 삭제 사유, 대상 세트, 처리 시각, 복구 가능 여부를 이력으로 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 관심상품·공유 정책 (PG-CRT-FAV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 관심상품 <span class="mono">(PI-CRT-FAV-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 관심상품은 주문 후보와 구분해 저장한다.<br/></span><span class="policy-item-line">- 고객이 주문 후보로 전환할 때만 조합 검증과 주문 전환 검증 대상에 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 그룹 공유 <span class="mono">(PI-CRT-FAV-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 그룹 상품 공유는 공유 대상이 볼 수 있는 상품명, 세트 요약, 예상 비용, 제한 사유만 노출한다.<br/></span><span class="policy-item-line">- 개인정보, 회선 상세, 결제정보는 공유하지 않는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 공유 만료 <span class="mono">(PI-CRT-FAV-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 공유 링크에는 만료 기한을 둔다.<br/></span><span class="policy-item-line">- 만료 기한은 기본 7일로 하고 운영자가 주제별로 단축할 수 있다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 세트·패키지 구성 정책 (PG-CRT-GROUP-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 세트 단위 <span class="mono">(PI-CRT-GROUP-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 단말, 요금제, 부가서비스, 구독, 혜택이 함께 주문되어야 하는 경우 하나의 세트로 묶는다.<br/></span><span class="policy-item-line">- 세트 안 구성은 주문 전 검증과 가격 산정의 기본 단위로 사용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 구성 변경 <span class="mono">(PI-CRT-GROUP-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 세트 구성 변경 시 총 비용, 월 납부액, 할인, 혜택, 재고, 가입 가능 상태를 즉시 재계산한다.<br/></span><span class="policy-item-line">- 변경 전 결과와 변경 후 결과를 구분해 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 충돌 표시 <span class="mono">(PI-CRT-GROUP-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 세트 안에서 동시 선택할 수 없는 옵션이나 혜택이 있으면 충돌 항목을 표시하고 고객이 삭제, 교체, 분리 주문 중 하나를 선택하게 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 이력·고지·보관 정책 (PG-CRT-HISTORY-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 이력 저장 <span class="mono">(PI-CRT-HISTORY-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 담기, 삭제, 자동삭제, 이관, 병합, 조합 검증, 변동 고지, 상담 전환, 주문 전환 결과는 고객 식별 가능 범위를 최소화해 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 고지 기준 <span class="mono">(PI-CRT-HISTORY-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객에게 영향을 주는 가격·혜택·재고 변동, 만료 예정, 자동삭제, 구매 불가, 분리 주문 필요 상태는 화면 고지와 이력 저장을 함께 수행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보관 기준 <span class="mono">(PI-CRT-HISTORY-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장바구니 처리 이력은 고객 문의, 장애 추적, 품질 개선 목적에 필요한 기간만 보관한다.<br/></span><span class="policy-item-line">- 개인정보와 결제정보는 장바구니 이력에 저장하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) 담기 후 동선 정책 (PG-CRT-NAV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 동선 선택 <span class="mono">(PI-CRT-NAV-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장바구니 담기 완료 후 고객에게 쇼핑 계속하기와 장바구니 이동을 제공한다.<br/></span><span class="policy-item-line">- 주문 대상이 바로 확정 가능한 경우에는 장바구니 이동 후 주문 가능 여부 검증을 먼저 수행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결과 고지 <span class="mono">(PI-CRT-NAV-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 담기 완료 고지는 상품명, 선택 옵션, 수량, 장바구니 보관 상태를 포함한다.<br/></span><span class="policy-item-line">- 담기 실패 또는 일부 담기 성공이면 실패 사유와 다시 시도 가능한 행동을 함께 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이탈 복귀 <span class="mono">(PI-CRT-NAV-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 쇼핑 계속하기를 선택해도 담긴 상품의 선택 상태와 담기 시점 이력은 유지한다.<br/></span><span class="policy-item-line">- 재방문 시 가격, 재고, 혜택 변동이 있으면 변경 확인 필요 상태로 전환한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 운영 변경·모니터링 정책 (PG-CRT-OPS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 변경 승인 <span class="mono">(PI-CRT-OPS-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 조합 가능성, 분리 주문, 보존 기간, 자동삭제 기준 변경은 운영자 승인 후 배포한다.<br/></span><span class="policy-item-line">- 변경 시 영향받는 장바구니 세트 수와 고객 안내 필요 여부를 확인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 모니터링 <span class="mono">(PI-CRT-OPS-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 장바구니 검증 실패율, 주문 전환율, 자동삭제 건수, 변동 고지 클릭률, 상담 전환 건수를 매일 확인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 롤백 기준 <span class="mono">(PI-CRT-OPS-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 기준 변경 후 검증 실패율이나 구매 불가 전환이 전일 대비 20% 이상 증가하면 변경 기준을 롤백하거나 특정 상품군만 차단한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 주문 전환·분리 주문 정책 (PG-CRT-ORDER-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 전환 가능 세트 <span class="mono">(PI-CRT-ORDER-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 주문 전환 가능 세트는 조합 검증, 가격·혜택 산정, 고객 조건 판정, 필수 안내 확인이 완료된 항목으로 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 분리 주문 <span class="mono">(PI-CRT-ORDER-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 결제 방식, 배송 유형, 발급 방식, 이행 주체가 다른 항목은 주문 실행 단위를 분리한다.<br/></span><span class="policy-item-line">- 고객에게 무엇이 함께 처리되고 무엇이 별도 처리되는지 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 단독구매 <span class="mono">(PI-CRT-ORDER-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 단독구매 전용 상품은 현재 구매안을 유지한 채 별도 구매 경로로 이동한다.<br/></span><span class="policy-item-line">- 단독구매 전환 시 장바구니의 다른 세트는 삭제하지 않는다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) 가격·혜택 요약 정책 (PG-CRT-PRICE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 총 비용 <span class="mono">(PI-CRT-PRICE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장바구니 요약에는 세트별 상품 가격, 할인, 포인트·혜택 적용 전후 금액, 예상 총 비용을 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 월 납부액 <span class="mono">(PI-CRT-PRICE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 통신 상품이나 구독 상품은 월 예상 납부액, 최초 청구 예상액, 추가 비용 발생 여부를 구분해 보여준다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 혜택 영향 <span class="mono">(PI-CRT-PRICE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 함께 구매 추천이나 구성 변경으로 할인·적립·혜택이 달라지면 고객이 이해할 수 있도록 증가분, 감소분, 적용 조건을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 액세서리 수량·금액 <span class="mono">(PI-CRT-PRICE-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 액세서리 수량 변경 시 총 결제 예상 금액, 품절 여부, 보관 가능 개수를 즉시 재산정한다.<br/></span><span class="policy-item-line">- 수량 변경으로 최대 보관 수량을 초과하거나 품절 상태가 되면 주문 전환을 제한하고 사유를 고지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) 함께 구매 추천 정책 (PG-CRT-RECO-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 추천 대상 <span class="mono">(PI-CRT-RECO-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 함께 구매 추천은 현재 장바구니 상품과 호환되는 추가 상품, 결합 상품, 구독, 혜택 연계 상품으로 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 추천 설명 <span class="mono">(PI-CRT-RECO-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 추천 항목에는 단순 노출 사유가 아니라 추가 시 비용, 할인, 혜택, 주문 가능성 변화 중 하나 이상을 설명한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 추천 추가 검증 <span class="mono">(PI-CRT-RECO-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 추천 상품을 장바구니에 추가하면 기존 세트와 동일한 조합 검증, 가격·혜택 산정, 재고 검증을 다시 수행한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 장바구니 범위·경계 정책 (PG-CRT-SCOPE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 범위 경계 <span class="mono">(PI-CRT-SCOPE-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장바구니는 담긴 상품과 관심상품을 주문 전 구매안으로 정리하고 검증하는 업무까지 다룬다.<br/></span><span class="policy-item-line">- 주문서 작성, 결제 승인, 배송·개통 이행은 후속 정책서에서 다룬다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예외 상품 <span class="mono">(PI-CRT-SCOPE-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 바로구매만 가능한 상품, 외부 제휴 결제가 필요한 상품, 단독구매 전용 상품은 장바구니에 표시할 수 있으나 주문 전환 경로를 별도 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 관심상품 구분 <span class="mono">(PI-CRT-SCOPE-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 관심상품은 탐색·재방문 목적 저장이며 주문 전환 전에는 장바구니 세트로 보지 않는다.<br/></span><span class="policy-item-line">- 고객이 주문 후보로 선택하면 장바구니 검증 대상에 포함한다.<br/></span></div>
+</div>
+</div>
+
+<h4>16) 비로그인·로그인 저장 이관 정책 (PG-CRT-SESSION-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 임시 저장 <span class="mono">(PI-CRT-SESSION-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 비로그인 고객은 브라우저·디바이스 기준으로 장바구니를 임시 저장할 수 있다.<br/></span><span class="policy-item-line">- 계정 간 동기화와 장기 보관은 로그인 후에만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 이관 기준 <span class="mono">(PI-CRT-SESSION-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로그인 시 임시 장바구니는 계정 장바구니로 이관한다.<br/></span><span class="policy-item-line">- 같은 상품·옵션·세트가 있으면 중복 세트를 만들지 않고 최근 수정 정보를 우선 적용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 병합 충돌 <span class="mono">(PI-CRT-SESSION-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 임시 장바구니와 계정 장바구니의 상품 조합이 충돌하면 고객에게 충돌 세트와 선택 가능한 유지·삭제·분리 주문 행동을 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>17) 통합·분리 장바구니 구조 정책 (PG-CRT-STRUCT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 통합 조회 <span class="mono">(PI-CRT-STRUCT-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 화면은 단말, 요금제, 부가서비스, 액세서리, 구독, 혜택 상품을 하나의 구매안으로 조회하게 하되 실제 처리 단위는 그룹으로 구분한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 처리 단위 <span class="mono">(PI-CRT-STRUCT-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 유형, 결제 방식, 배송 유형, 발급 방식, 가입/구매 이행 주체가 다르면 같은 화면에 있어도 주문 실행 단위를 분리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 다중 탭 <span class="mono">(PI-CRT-STRUCT-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 휴대폰·스마트기기, 인터넷·IPTV, 액세서리처럼 처리 기준이 다른 탭은 탭별 상품 개수와 가능한 행동을 표시한다.<br/></span><span class="policy-item-line">- 탭 구분은 고객에게 하나의 구매안으로 보이되 주문 실행 단위가 다를 때만 사용한다.<br/></span></div>
+</div>
+</div>
+
+<h4>18) 조합 가능성 검증 정책 (PG-CRT-VALID-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 호환성 기준 <span class="mono">(PI-CRT-VALID-001-01)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 조합 검증은 상품 유형, 선행 가입, 고객 상태, 회선 상태, 재고, 판매 기간, 혜택 배타 조건을 함께 확인한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 선행 조건 <span class="mono">(PI-CRT-VALID-001-02)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 선행 가입이나 필수 상품이 필요한 조합은 주문 전환 전에 필수 조건과 충족 방법을 안내한다.<br/></span><span class="policy-item-line">- 충족 전에는 주문 전환을 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중복 제한 <span class="mono">(PI-CRT-VALID-001-03)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 상품, 동일 혜택, 동일 회선 기준으로 중복 가입이 불가한 항목은 장바구니 단계에서 중복 사유를 표시하고 추가 선택을 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실시간 재검증 <span class="mono">(PI-CRT-VALID-001-04)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 장바구니 진입, 수량·옵션 변경, 주문하기 선택 시 재고, 가격, 혜택, 고객 조건을 다시 검증한다.<br/></span><span class="policy-item-line">- 검증 결과가 달라지면 변경 확인 필요 상태로 전환하고 변경 사유를 고지한다.<br/></span></div>
+</div>
+</div>
+
+
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">카트/장바구니 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 범위 정합성</div>담기, 장바구니, 관심상품, 주문서의 경계가 문서에서 구분되어야 한다.<br/><div class="guide-section-title">2. 구매안 완결성</div>고객이 전체 구매안, 처리 단위, 주문 가능 항목, 제외 항목을 이해할 수 있어야 한다.<br/><div class="guide-section-title">3. 액터 적정성</div>로그인·비로그인·개인·그룹 고객을 액터로 분리하지 않고 상태와 정책 조건으로 관리해야 한다.<br/><div class="guide-section-title">4. 유즈케이스-프로세스 연결성</div>사람 액터 유즈케이스는 2개 이상의 절차 프로세스로 분해되어야 한다.<br/><div class="guide-section-title">5. 상태 전이 정합성</div>보관, 검증, 주문 가능, 분리 주문, 변동, 만료, 삭제 상태가 상태 전이와 연결되어야 한다.<br/><div class="guide-section-title">6. 조합 검증 구체성</div>호환성, 선행 조건, 중복 제한, 재고, 혜택 배타 기준이 정책 항목으로 정의되어야 한다.<br/><div class="guide-section-title">7. 비로그인/로그인 이관 기준</div>임시 저장, 계정 이관, 병합, 중복·충돌 처리 기준이 명확해야 한다.<br/><div class="guide-section-title">8. 보존·삭제 기준</div>최대 수량, 30일 보존, 자동삭제, 완료 세트 삭제, 삭제 이력이 정의되어야 한다.<br/><div class="guide-section-title">9. BSS·연계 포함성</div>상품·고객 조건, 가격·혜택·재고 변동, 연계 실패 처리 기준이 포함되어야 한다.<br/><div class="guide-section-title">10. 개발/QA 전환성</div>상세 요구사항 43건이 유즈케이스, 상태, 프로세스, 기능, 정책, 정책 항목 중 하나 이상으로 추적 가능해야 한다.<br/><div class="guide-section-title">11. 요구사항 추적성</div>상세 요구사항 43건은 구매안 통합, 처리 단위, 상품·세트 변경, 가격·재고 변동, 모회선 인증, 주문 전환 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했는지 확인한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

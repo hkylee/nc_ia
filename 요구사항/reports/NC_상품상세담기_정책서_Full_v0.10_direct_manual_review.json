@@ -1,0 +1,51 @@
+{
+  "document": "output/NC_상품상세담기_정책서_Full_v0.10.html",
+  "checked_at": "2026-05-15T18:40:00",
+  "direct_inspector": {
+    "performed": true,
+    "result": "PASS",
+    "checks": {
+      "범위": "PASS - 상품 상세 탐색, 비교, 선택, 담기, 실패 복구, 운영 관리 범위를 포함한다.",
+      "액터": "PASS - 고객, 운영자, 상담사, 채널 업무 시스템, 상품 연계 시스템으로 책임 주체가 분리되어 있고 로그인/비로그인 상태를 액터로 분리하지 않았다.",
+      "유즈케이스": "PASS - 사람 액터 유즈케이스는 process_target=Y, 시스템 유즈케이스는 N으로 유지했다.",
+      "상태": "PASS - 고객 노출, 담기 허용, 조합 충돌, 재고 부족, 운영 반영 상태를 상태 전이에 연결했다.",
+      "프로세스 상세": "PASS - 40개 프로세스 모두 진입 조건, 종료 조건, 선후행, 관련 기능, 관련 정책을 가진다.",
+      "기능 상세": "PASS - 36개 기능 모두 입력, 처리, 세부 기능, 출력, 실패·예외, 관련 정책을 가진다.",
+      "Full 처리 형식": "PASS - 모든 processing_logic 줄이 (상태) → (액션) → (결과) 형식이다.",
+      "요구사항 재구성": "PASS - 상세 요구 판단축을 상품군, 고객 조건, 재고·판매상태, CTA, 운영 이력 기준으로 재구성했다.",
+      "렌더링": "PASS - HTML, BPMN XML, bpmn.io viewer HTML이 생성되었고 XML 파싱을 통과했다."
+    }
+  },
+  "direct_health_check": {
+    "performed": true,
+    "result": "PASS",
+    "gate": {
+      "범위 정합성": "PASS",
+      "고객 완결성": "PASS",
+      "고객 이해 가능성": "PASS",
+      "BSS·연계 시스템 포함성": "PASS",
+      "상태 전이 정합성": "PASS",
+      "프로세스-기능-정책 연결성": "PASS",
+      "정책명 정합성": "PASS",
+      "정책 구체성": "PASS",
+      "개인정보·로그 보호 기준": "PASS",
+      "운영 관리 가능성": "PASS",
+      "요구사항 반영 여부": "PASS"
+    }
+  },
+  "automated_results": {
+    "validator_errors": 0,
+    "json_rule_inspector": "PASS 100",
+    "html_rule_inspector": "WARN 93",
+    "auto_vs_direct_difference": "HTML rule inspector의 유즈케이스 과분해 경고는 일반 휴리스틱이다. 본 문서는 고객/운영자/상담사 독립 책임 주체별 업무 완결 단위이며 AGENTS 기준상 사람 액터 유즈케이스는 Y로 유지하는 것이 맞다."
+  },
+  "remaining_p1_p2_issues": 0,
+  "counts": {
+    "processes": 40,
+    "process_details": 40,
+    "functions": 36,
+    "function_details": 36,
+    "policy_groups": 21,
+    "policy_details": 107
+  }
+}

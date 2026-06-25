@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>요금제 변경 · VoC 분석</title>
+  <style>
+:root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:790px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body { display:grid; gap:14px; align-content:center; padding:18px 18px 20px; }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    .metric-strip {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin-top:14px;
+    }
+    .metric {
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:8px;
+      padding:12px;
+      background:rgba(255,255,255,.06);
+    }
+    .metric b { display:block; color:#fff; font-size:22px; line-height:1.1; }
+    .metric span { display:block; margin-top:6px; color:#d8e3f4; font-size:var(--fs-caption); font-weight:850; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:880px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:192px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .pain-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .pain {
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .pain b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .pain p { align-self:center; margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .heat-table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      font-size:var(--fs-body);
+    }
+    .heat-table th,
+    .heat-table td {
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:12px;
+      vertical-align:top;
+      text-align:left;
+    }
+    .heat-table th {
+      background:#f8fafc;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heat-table tr:last-child td { border-bottom:0; }
+    .heat-table th:last-child,
+    .heat-table td:last-child { border-right:0; }
+    .heat-table td { color:var(--ink); font-weight:730; }
+    .rate {
+      display:inline-flex;
+      min-width:72px;
+      justify-content:center;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:4px 8px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .need-grid,
+    .roadmap,
+    .policy-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .card b {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:5px 9px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .card h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .card p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .trigger-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-rows:repeat(10,auto);
+      grid-auto-flow:column;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .trigger-list li {
+      display:grid;
+      grid-template-columns:32px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:10px;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .trigger-list b {
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border-radius:8px;
+      background:#101522;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .quick-table td:first-child { width:64px; color:var(--blue); font-weight:950; }
+    .quick-table td:nth-child(2) { font-weight:850; color:#111827; }
+    .roadmap .card:nth-child(1) b { background:#ecfdf5; color:var(--teal); }
+    .roadmap .card:nth-child(2) b { background:#fffbeb; color:var(--amber); }
+    .roadmap .card:nth-child(3) b { background:#f5f3ff; color:var(--violet); }
+    @media (max-width:1100px) {
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:980px) {
+      .cover,
+      .metric-strip,
+      .pain-grid,
+      .trigger-list {
+        grid-template-columns:1fr;
+      }
+      .trigger-list {
+        grid-template-rows:auto;
+        grid-auto-flow:row;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .section-head { grid-template-columns:1fr; }
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:1fr;
+      }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .pain { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">VOC analysis readout</div>
+        <h1>요금제 변경 VoC 분석</h1>
+        <p class="lead">요금제 변경 VoC의 핵심은 단일 기능 부족보다 고객이 처리 조건, 영향, 결과를 스스로 확인하지 못해 상담으로 전환되는 데 있다.<br/>가장 큰 병목은 요금제 변경 가능 시점 · 조건 불명확 및 청구 구조 혼동이며, 통합채널은 이를 탐색, 판단, 실행, 확인, 복구가 연결된 업무 경험으로 재설계해야 한다<br/></p>
+        <div class="chips">
+          <span>분석 기간 2026-02-11 ~ 2026-03-11 (29 일)</span>
+          <span>보고서 18 건 (2/11, 2/13, 2/14, 2/15, 2/17, 2/19, 2/21, 2/23, 2/25, 2/26, 2/27, 2/28, 3/2, 3/3, 3/4, 3/7, 3/8, 3/9, 3/10, 3/11)</span>
+          <span>상담 약 600,000 건 + (일별 최소 3,218 건 ~ 최대 66,023 건)</span>
+          <span>샘플 약 1,700 건 + (일별 44~100 건 샘플)</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>인지 · 탐색 · 권한 · 복구</span>
+        </div>
+        <div class="side-body">
+          <strong>요금제 변경 상담은 고객이 직접 끝내지 못하는 확인과 예외 처리 지점에서 반복된다.</strong>
+          <p>설 연휴 (2/14~2/18, 5 일), 삼일절 연휴 (2/28~3/2, 4 일), 주말 (2/21, 2/28, 3/7~3/8) 포함.<br/>공휴일 · 주말 기간 상담 건수 급감 (3,218~6,607 건) 후 평일 복귀 시 폭증(최대 66,023 건) 패턴 반복.<br/>3/3 역대 최고치 (66,023 건) 기록<br/></p>
+          <div class="metric-strip">
+            <div class="metric"><b>30~43%</b><span>요금제 변경 가능 시점 · 조건</span></div>
+<div class="metric"><b>32~42%</b><span>주말 · 공휴일 · 연휴 요금제</span></div>
+<div class="metric"><b>18~40%</b><span>가족 회선 일괄 변경 불가 및</span></div>
+<div class="metric"><b>10~22%</b><span>앱 · 티월드에서 요금제 변경</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 핵심 신호</h2>
+          <p>요금제 변경 VoC는 고객이 업무를 시작하고, 조건을 이해하고, 결과를 확인하고, 실패를 복구하는 전체 흐름을 정책 기준으로 재설계해야 함을 보여준다.<br/></p>
+        </div>
+        <span class="section-label">Core signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>요금제 변경 가능 시점 · 조건 불명확 및 청구 구조 혼동</h3>
+            <p>&quot; 언제부터 바꿀 수 있는지, 바꾸면 얼마가 나오는지 미리 알고 싶다 &quot; — 변경 전 결과 예측 및 불확실성 해소 욕구<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>주말 · 공휴일 · 연휴 요금제 변경 불가</h3>
+            <p>&quot; 지금 당장 처리하고 싶다 &quot; — 즉각적인 불편 해소 욕구 · &quot; 불필요한 요금을 내고 싶지 않다 &quot; — 비용 최적화 욕구<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>가족 회선 일괄 변경 불가 및 인증 장벽</h3>
+            <p>&quot; 가족 것도 한번에 처리하고 싶다 &quot; — 반복 전화 및 별도 인증에 대한 피로감 해소 욕구<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>앱 · 티월드에서 요금제 변경 경로 불명확</h3>
+            <p>&quot; 빠르고 간단하게 요금제를 변경하고 싶다 &quot; — 불필요한 채널 이동 없이 즉시 처리되길 원하는 편의성 욕구<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>로밍 요금제 구조 및 변경 방식 이해 어려움</h3>
+            <p>&quot; 원하는 용량으로 정확히 가입하고 싶다 &quot; · &quot; 로밍 중 데이터 단절 없이 이용하고 싶다 &quot; — 정확한 정보 통제 욕구 및 서비스 연속성 보장 욕구<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. Pain Point 포트폴리오</h2>
+          <p>상담 유형은 단순 문의가 아니라 탐색 실패, 이해 부족, 권한 제약, 시스템 단절, 처리 결과 불안으로 반복된다.<br/></p>
+        </div>
+        <span class="section-label">Pain portfolio</span>
+      </div>
+      <div class="content">
+        <table class="heat-table">
+          <thead>
+            <tr>
+              <th>유형</th>
+              <th>누적 비율</th>
+              <th>고객이 겪는 문제</th>
+              <th>통합채널 설계 의미</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>요금제 변경 가능 시점 · 조건 불명확 및 청구 구조 혼동</td>
+              <td><span class="rate">30~43%</span></td>
+              <td>6 개월 유지기간 만료 후 변경 가능일 앱에서 확인 불가 · 자동 변경 기대 후 뒤늦게 직접 신청 필요 인지 · 월중 변경 시 일할 계산 방식 혼동 · 변경 후 예상 청구액 확인 불가/ 위약금 발생 여부 사전 안내 없음 · 우주패스 · 넷플릭스 등 연계 혜택 변동 미안내<br/></td>
+              <td>요금제 변경 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>주말 · 공휴일 · 연휴 요금제 변경 불가</td>
+              <td><span class="rate">32~42%</span></td>
+              <td>주말 · 공휴일 · 연휴 상담 부서 미운영으로 처리 불가 · 티월드 셀프 변경 안내만 받고 종료 · 해외 체류 중 시차로 평일 전화 어려움 · 요금제 변경 예약 기능 없음 · 미성년자 ·청소년 요금제 앱 셀프 변경 불가 정책 사전 안내 없음<br/></td>
+              <td>요금제 변경 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>가족 회선 일괄 변경 불가 및 인증 장벽</td>
+              <td><span class="rate">18~40%</span></td>
+              <td>자녀 · 배우자 · 부모 회선 변경 시 별도 인증 필요 · 미성년자 요금제 앱 셀프 변경 불가 · 가족 회선 일괄 변경 메뉴 부재 · 해외 체류 가족 ARS 인증 불가 · 핸드폰 ·TV· 인터넷요금제 변경 부서 분리<br/></td>
+              <td>본인, 가족, 법정대리인, 대리인의 처리 가능 범위와 인증, 동의, 위임 조건을 정책 기준으로 분리해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>앱 · 티월드에서 요금제 변경 경로 불명확</td>
+              <td><span class="rate">10~22%</span></td>
+              <td>티월드 앱에서 요금제 변경 메뉴 경로 불명확 · T 다이렉트샵 · 티월드 채널 분리로 혼란 · 이전 요금제 이름 몰라 셀프 변경 불가 · 사용량 기반 최적 요금제 추천 기능 없음 /로밍 요금제 변경 방법 불명확<br/></td>
+              <td>요금제 변경 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>로밍 요금제 구조 및 변경 방식 이해 어려움</td>
+              <td><span class="rate">9~26%</span></td>
+              <td>로밍 가입 시 의도치 않은 용량으로 가입 · 이중 과금 구조 이해 어려움 · 자동 갱신 구조 불명확 · 잔여 데이터 소멸 안내 부재 · 로밍 종료 D-1 알림 없음 · 가족 결합 로밍 앱셀프 처리 불가<br/></td>
+              <td>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>다이렉트 요금제 · 정책 제약 사전 안내 부재</td>
+              <td><span class="rate">8~18%</span></td>
+              <td>다이렉트 요금제 가입 불가 조건 사전 안내 없음 · 선택약정 변경 제한 조건 미인지 · 미성년자 요금제 변경 앱 셀프 처리 불가 · 폐지 요금제 재가입 불가 안내 부재 · 청소년요금제 연령 초과 자동 변경 안내 미흡<br/></td>
+              <td>평일, 야간, 주말, 공휴일, 청구 마감, 개통·해지 시점별 처리 가능 범위와 대체 행동을 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>앱 오류 및 연동 서비스 오작동</td>
+              <td><span class="rate">4~10%</span></td>
+              <td>앱에서 요금제 변경 시 위약금 안내 부정확 표시 · 요금제 변경 후 넷플릭스 · 플로 등 연동 서비스 의도치 않게 해지 · 요금제 변경 후 데이터 미반영 · ARS 처리 오류 · 상담사마다 다른 안내로 신뢰 저하<br/></td>
+              <td>접수, 검증, 반영, 실패, 취소 상태를 고객에게 보여주고 재시도, 대체 경로, 상담 전환 기준을 연결해야 한다<br/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. Hidden Needs</h2>
+          <p>표면 요청 뒤에는 고객이 직접 판단하고 처리 결과를 신뢰하고 싶은 요구가 숨어 있다.<br/></p>
+        </div>
+        <span class="section-label">Hidden needs</span>
+      </div>
+      <div class="content">
+        <div class="need-grid">
+          <article class="card">
+            <b>안심</b>
+            <h3>비용 최적화 욕구 (1 위): &quot; 언제부터 바꿀 수 있는지, 바꾸면 얼마가 나오는지 미리 알고 싶다 &quot;</h3>
+            <p>변경 가능일 D-day 표시 + 예상 청구액 시뮬레이터 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>통제</b>
+            <h3>즉각 처리 욕구 (2 위): &quot; 지금 당장 처리하고 싶다 &quot;</h3>
+            <p>24 시간 셀프 변경 시스템 + 요금제 변경 예약 기능 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>즉시</b>
+            <h3>가족 일괄 관리 욕구 (3 위): &quot; 가족 것도 한번에 처리하고 싶다 &quot;</h3>
+            <p>가족 회선 통합 관리 플랫폼 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>이해</b>
+            <h3>정보 통제 욕구 (4 위): &quot; 원하는 용량으로 정확히 가입하고 싶다 / 바꿨다가 손해 보고 싶지 않다 &quot;</h3>
+            <p>로밍 요금제 비교 기능 + 위약금 시뮬레이터 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>연계</b>
+            <h3>편의성 욕구 (5 위): &quot; 빠르고 간단하게 요금제를 변경하고 싶다 &quot;</h3>
+            <p>앱 메인 원클릭 변경 버튼 + 사용량 기반 추천 엔진 대응 필요<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. Trigger Top 20</h2>
+          <p>아래 계기는 고객이 셀프 채널을 이탈해 상담으로 전환하는 실제 출발점이다.<br/></p>
+        </div>
+        <span class="section-label">Triggers</span>
+      </div>
+      <div class="content">
+        <ol class="trigger-list">
+          <li><b>01</b><span>6 개월 유지기간 만료 인지 후 변경 시도 — 전체 Trigger 의 40~60%, 전 기간 1 위</span></li>
+          <li><b>02</b><span>주말 · 공휴일 · 연휴 중 요금제 변경 시도 → 처리 불가 안내 — 공휴일 기간 1 위</span></li>
+          <li><b>03</b><span>가족 (자녀 · 배우자 · 부모) 요금 절감 필요 인지 후 동시 변경 시도 — 전 기간 2~3 위</span></li>
+          <li><b>04</b><span>로밍 데이터 소진 문자 수신 후 즉각 해결 필요 — 연휴 · 공휴일 기간 2 위</span></li>
+          <li><b>05</b><span>요금 청구서 확인 후 과다 청구 인지 — 전 기간 지속</span></li>
+          <li><b>06</b><span>데이터 소진 임박으로 요금제 업그레이드 필요 인지 — 전 기간 지속</span></li>
+          <li><b>07</b><span>대리점 · 영업점 안내 문자 수신 후 변경 시도 — 전 기간 지속</span></li>
+          <li><b>08</b><span>앱에서 요금제 변경 시도 시 오류 또는 제한 메시지 표시 — 전 기간 지속</span></li>
+          <li><b>09</b><span>요금제 변경 예약 시도 → 예약 불가 안내 수령 — 전 기간 지속</span></li>
+          <li><b>10</b><span>다이렉트 요금제 가입 시도 → 불가 안내 수령 — 전 기간 지속</span></li>
+          <li><b>11</b><span>요금제 변경 후 넷플릭스 · 우주패스 등 연계 혜택 손실 인지 — 전 기간 지속</span></li>
+          <li><b>12</b><span>납부 카드 재발급으로 카드 정보 변경 필요 인지 — 전 기간 지속</span></li>
+          <li><b>13</b><span>요금제 변경 시 위약금 발생 우려로 확인 전화 — 전 기간 지속</span></li>
+          <li><b>14</b><span>자녀 생일 도래로 요금제 자동 변경 예정 문자 수신 — 전 기간 지속</span></li>
+          <li><b>15</b><span>핸드폰 ·TV· 인터넷 요금제 동시 변경 필요 인지 — 전 기간 지속</span></li>
+          <li><b>16</b><span>이전 상담과 다른 안내 수령으로 혼동 발생 — 전 기간 지속</span></li>
+          <li><b>17</b><span>해외 체류 후 귀국으로 요금제 복원 필요 인지 — 연휴 · 공휴일 기간 급증</span></li>
+          <li><b>18</b><span>선택약정 변경 제한으로 변경 불가 안내 수령 — 전 기간 지속</span></li>
+          <li><b>19</b><span>로밍 출국 전 요금제 변경 + 로밍 신청 동시 처리 필요 인지 — 연휴 · 공휴일 기간 급증</span></li>
+          <li><b>20</b><span>고령 고객 앱 사용 어려움으로 매장 방문 후 전화 처리 — 전 기간 지속</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. Quick Win</h2>
+          <p>즉시 개선 가능한 항목은 진입점 노출, 완료 안내, 상태 조회, 권한 처리, 실패 복구를 중심으로 정리된다.<br/></p>
+        </div>
+        <span class="section-label">Immediate actions</span>
+      </div>
+      <div class="content">
+        <table class="heat-table quick-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>개선 항목</th>
+              <th>등장 빈도</th>
+              <th>기대 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>요금제 변경 가능일 D-day 카운트다운 위젯 (앱 메인 + 푸시알림)</td>
+              <td>전 기간 전체</td>
+              <td>변경 가능 시점 문의 전화 35~43% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>앱 내 24 시간 요금제 셀프 변경 기능 확대 (주말 · 공휴일 · 연휴 포함) 공휴일 기간 전체 공휴일 불필요 전화 32~42% 즉시 감소</td>
+              <td>전 기간</td>
+              <td>상담 전환과 반복 문의를 줄인다</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>월중 변경 시 예상 청구액 즉시 계산기 + 연계 부가서비스 영향 안내 팝업</td>
+              <td>전 기간 전체</td>
+              <td>변경 후 재문의 및 원복 요청 전화 대폭 감소</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>로밍 종료 D-1 푸시알림 + 앱 내 원클릭 재가입 기능 연휴 · 공휴일 기간 로밍 종료 관련 전화 ~15 건 / 일 감소</td>
+              <td>전 기간</td>
+              <td>상담 전환과 반복 문의를 줄인다</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>데이터 소진 문자에 요금제 변경 딥링크 삽입 → 원클릭 변경 유도</td>
+              <td>전 기간 전체</td>
+              <td>데이터 소진 후 전화 문의 대폭 감소</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>다이렉트 요금제 · 선택약정 제한 조건 앱 내 명확 안내 + 대체 요금제 자동 추천</td>
+              <td>전 기간 전체</td>
+              <td>정책 제약 관련 전화 ~10 건 / 일 감소</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>앱 메인 화면 &#x27; 요금제 변경 &#x27; 원클릭 바로가기 버튼 강화 + 변경 경로 단순화</td>
+              <td>전 기간 전체</td>
+              <td>탐색 / 발견 이탈 ~22 건 / 일 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>요금제 변경 예약 기능 신설 (변경 가능일 자동 계산 + 예약일 자동 변경 처리)</td>
+              <td>전 기간 전체</td>
+              <td>예약 불가 관련 전화 근절</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 요구사항·정책서 전환 질문</h2>
+          <p>VoC 분석 결과는 요금제 변경 정책서에서 아래 질문에 답할 수 있는 기능과 정책 항목으로 전환되어야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy conversion</span>
+      </div>
+      <div class="content">
+        <div class="policy-grid">
+          <article class="card">
+            <b>권한</b>
+            <h3>누가 직접 처리하거나 대신 처리할 수 있는가?</h3>
+            <p>본인, 가족, 법정대리인, 대리인의 처리 가능 범위와 인증, 동의, 위임 조건을 정책 기준으로 분리해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>사전 고지</b>
+            <h3>무엇을 처리 전에 알려야 하는가?</h3>
+            <p>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>처리 가능 범위</b>
+            <h3>언제 셀프 처리할 수 있고 언제 제한되는가?</h3>
+            <p>평일, 야간, 주말, 공휴일, 청구 마감, 개통·해지 시점별 처리 가능 범위와 대체 행동을 정의해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>상태·오류</b>
+            <h3>실패와 오류를 어떻게 복구하는가?</h3>
+            <p>접수, 검증, 반영, 실패, 취소 상태를 고객에게 보여주고 재시도, 대체 경로, 상담 전환 기준을 연결해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>상태</b>
+            <h3>처리 상태를 어디까지 보여줘야 하는가?</h3>
+            <p>요금제 변경 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>알림</b>
+            <h3>어떤 조건에서 고객에게 먼저 알려야 하는가?</h3>
+            <p>요금제 변경 관련 변경, 실패, 혜택 영향, 추가 조치 필요 시점을 알림 기준으로 전환해야 한다<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

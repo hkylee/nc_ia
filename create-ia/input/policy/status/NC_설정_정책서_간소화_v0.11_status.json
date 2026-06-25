@@ -1,0 +1,12 @@
+{
+  "topic": "설정",
+  "version": "v0.11",
+  "status": "작성중",
+  "document_status": "작성중",
+  "html": "output/NC_설정_정책서_간소화_v0.11.html",
+  "bpmn": "output/NC_설정_정책서_간소화_v0.11_전체업무흐름도.bpmn",
+  "spec": "output/설정_policy_spec.json",
+  "updated_at": "2026-05-11T09:54:31+09:00",
+  "author": "Codex",
+  "change": "품질 검수 및 구조 보완 반영"
+}

@@ -1,0 +1,244 @@
+{
+  "run_dir": "/Users/kiwoo/NC/output/mock_34_regen_20260508_110549",
+  "elapsed": 357.66,
+  "items": [
+    {
+      "index": 1,
+      "topic": "가이드라인/ 공통/ 품질/ 적응형",
+      "returncode": 0,
+      "elapsed": 11.43,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_가이드라인공통품질적응형_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 2,
+      "topic": "전시/관리 기능",
+      "returncode": 0,
+      "elapsed": 8.65,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_전시관리기능_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 3,
+      "topic": "상품 목록",
+      "returncode": 0,
+      "elapsed": 10.0,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_상품목록_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 4,
+      "topic": "외부 BP 서비스 관리 체계",
+      "returncode": 0,
+      "elapsed": 13.8,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_외부BP서비스관리체계_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 5,
+      "topic": "AI 검색",
+      "returncode": 0,
+      "elapsed": 8.43,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_AI검색_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 6,
+      "topic": "추천",
+      "returncode": 0,
+      "elapsed": 10.41,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_추천_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 7,
+      "topic": "데이터 트래킹 체계",
+      "returncode": 0,
+      "elapsed": 9.97,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_데이터트래킹체계_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 8,
+      "topic": "이벤트/미션 프로그램",
+      "returncode": 0,
+      "elapsed": 12.21,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_이벤트미션프로그램_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 9,
+      "topic": "외부 쿠폰",
+      "returncode": 0,
+      "elapsed": 7.67,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_외부쿠폰_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 10,
+      "topic": "멤버십 혜택/T 플러스포인트",
+      "returncode": 0,
+      "elapsed": 8.11,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_멤버십혜택T플러스포인트_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 11,
+      "topic": "상품상세/담기",
+      "returncode": 0,
+      "elapsed": 11.89,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_상품상세담기_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 12,
+      "topic": "카트/장바구니",
+      "returncode": 0,
+      "elapsed": 7.7,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_카트장바구니_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 13,
+      "topic": "할인/시뮬레이션",
+      "returncode": 0,
+      "elapsed": 7.82,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_할인시뮬레이션_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 14,
+      "topic": "주문/계약/가입",
+      "returncode": 0,
+      "elapsed": 16.38,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_주문계약가입_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 15,
+      "topic": "선물주문",
+      "returncode": 0,
+      "elapsed": 7.8,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_선물주문_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 16,
+      "topic": "상품변경",
+      "returncode": 0,
+      "elapsed": 7.6,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_상품변경_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 17,
+      "topic": "결제",
+      "returncode": 0,
+      "elapsed": 7.83,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_결제_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 18,
+      "topic": "주문 상태/사후 관리",
+      "returncode": 0,
+      "elapsed": 14.19,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_주문상태사후관리_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 19,
+      "topic": "해지/환불/취소",
+      "returncode": 0,
+      "elapsed": 11.44,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_해지환불취소_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 20,
+      "topic": "나의 가입 정보",
+      "returncode": 0,
+      "elapsed": 10.91,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_나의가입정보_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 21,
+      "topic": "회선 변경/관리",
+      "returncode": 0,
+      "elapsed": 11.92,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_회선변경관리_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 22,
+      "topic": "멤버십 카드 관리",
+      "returncode": 0,
+      "elapsed": 10.12,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_멤버십카드관리_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 23,
+      "topic": "청구 및 수납 관리",
+      "returncode": 0,
+      "elapsed": 12.65,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_청구및수납관리_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 24,
+      "topic": "나의 데이터·통화",
+      "returncode": 0,
+      "elapsed": 11.18,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_나의데이터통화_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 25,
+      "topic": "상품·서비스 혜택 이용/공유",
+      "returncode": 0,
+      "elapsed": 10.75,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_상품서비스혜택이용공유_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 26,
+      "topic": "통합 쿠폰/이용권함",
+      "returncode": 0,
+      "elapsed": 9.76,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_통합쿠폰이용권함_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 27,
+      "topic": "회원 가입/탈퇴",
+      "returncode": 0,
+      "elapsed": 13.87,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_회원가입탈퇴_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 28,
+      "topic": "회원정보 조회/변경",
+      "returncode": 0,
+      "elapsed": 12.42,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_회원정보조회변경_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 29,
+      "topic": "통합 알림",
+      "returncode": 0,
+      "elapsed": 10.74,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_통합알림_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 30,
+      "topic": "통합 약관",
+      "returncode": 0,
+      "elapsed": 11.73,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_통합약관_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 31,
+      "topic": "설정",
+      "returncode": 0,
+      "elapsed": 8.03,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_설정_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 32,
+      "topic": "고객센터_통합허브",
+      "returncode": 0,
+      "elapsed": 8.36,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_고객센터_통합허브_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 33,
+      "topic": "고객센터_FAQ/공지/이용안내",
+      "returncode": 0,
+      "elapsed": 10.13,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_고객센터_FAQ공지이용안내_정책서_간소화_v0.10.html\n"
+    },
+    {
+      "index": 34,
+      "topic": "고객센터_매장안내",
+      "returncode": 0,
+      "elapsed": 10.28,
+      "tail": "created: /Users/kiwoo/NC/output/mock_34_regen_20260508_110549/NC_고객센터_매장안내_정책서_간소화_v0.10.html\n"
+    }
+  ]
+}

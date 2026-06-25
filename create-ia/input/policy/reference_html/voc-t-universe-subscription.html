@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>우주 패스 / T우주 / 구독 · VoC 분석</title>
+  <style>
+:root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:790px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body { display:grid; gap:14px; align-content:center; padding:18px 18px 20px; }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    .metric-strip {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin-top:14px;
+    }
+    .metric {
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:8px;
+      padding:12px;
+      background:rgba(255,255,255,.06);
+    }
+    .metric b { display:block; color:#fff; font-size:22px; line-height:1.1; }
+    .metric span { display:block; margin-top:6px; color:#d8e3f4; font-size:var(--fs-caption); font-weight:850; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:880px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:192px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .pain-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .pain {
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .pain b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .pain p { align-self:center; margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .heat-table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      font-size:var(--fs-body);
+    }
+    .heat-table th,
+    .heat-table td {
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:12px;
+      vertical-align:top;
+      text-align:left;
+    }
+    .heat-table th {
+      background:#f8fafc;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heat-table tr:last-child td { border-bottom:0; }
+    .heat-table th:last-child,
+    .heat-table td:last-child { border-right:0; }
+    .heat-table td { color:var(--ink); font-weight:730; }
+    .rate {
+      display:inline-flex;
+      min-width:72px;
+      justify-content:center;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:4px 8px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .need-grid,
+    .roadmap,
+    .policy-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .card b {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:5px 9px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .card h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .card p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .trigger-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-rows:repeat(10,auto);
+      grid-auto-flow:column;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .trigger-list li {
+      display:grid;
+      grid-template-columns:32px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:10px;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .trigger-list b {
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border-radius:8px;
+      background:#101522;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .quick-table td:first-child { width:64px; color:var(--blue); font-weight:950; }
+    .quick-table td:nth-child(2) { font-weight:850; color:#111827; }
+    .roadmap .card:nth-child(1) b { background:#ecfdf5; color:var(--teal); }
+    .roadmap .card:nth-child(2) b { background:#fffbeb; color:var(--amber); }
+    .roadmap .card:nth-child(3) b { background:#f5f3ff; color:var(--violet); }
+    @media (max-width:1100px) {
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:980px) {
+      .cover,
+      .metric-strip,
+      .pain-grid,
+      .trigger-list {
+        grid-template-columns:1fr;
+      }
+      .trigger-list {
+        grid-template-rows:auto;
+        grid-auto-flow:row;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .section-head { grid-template-columns:1fr; }
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:1fr;
+      }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .pain { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">VOC analysis readout</div>
+        <h1>우주 패스 / T우주 / 구독 VoC 분석</h1>
+        <p class="lead">우주 패스 · T우주 · 구독 VoC의 핵심은 단일 기능 부족보다 고객이 처리 조건, 영향, 결과를 스스로 확인하지 못해 상담으로 전환되는 데 있다.<br/>가장 큰 병목은 요금제 변경 시 우주패스 유료 전환 미인지 및 연계 처리 단절이며, 통합채널은 이를 탐색, 판단, 실행, 확인, 복구가 연결된 업무 경험으로 재설계해야 한다<br/></p>
+        <div class="chips">
+          <span>분석 기간 2026-02-11 ~ 2026-03-11 (29 일)</span>
+          <span>보고서 29 건 (2/11~2/28, 3/1~3/11)</span>
+          <span>상담 약 200,000 건 + (일별 최소 826 건 ~ 최대 13,678 건)</span>
+          <span>샘플 약 2,900 건 + (일별 87~100 건 샘플)</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>인지 · 탐색 · 권한 · 복구</span>
+        </div>
+        <div class="side-body">
+          <strong>우주 패스 / T우주 / 구독 상담은 고객이 직접 끝내지 못하는 확인과 예외 처리 지점에서 반복된다.</strong>
+          <p>설 연휴 (2/14~2/18, 5 일), 삼일절 연휴 (2/28~3/2, 4 일), 주말 (2/21~2/22, 3/7~3/8) 포함.<br/>공휴일 · 주말 기간 상담 건수 급감 (826~1,314 건) 후 평일 복귀 시 폭증 (최대 13,678 건) 패턴 반복.<br/>3/4 역대 최고치 (12,482 건) 기록<br/></p>
+          <div class="metric-strip">
+            <div class="metric"><b>30~38%</b><span>요금제 변경 시 우주패스 유료</span></div>
+<div class="metric"><b>12~22%</b><span>우주패스 해지 경로 부재 및</span></div>
+<div class="metric"><b>15~38%</b><span>우주패스 상품 구조 및 혜택</span></div>
+<div class="metric"><b>28~45%</b><span>로밍 신청 · 할인 · 데이터</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 핵심 신호</h2>
+          <p>우주 패스 / T우주 / 구독 VoC는 고객이 업무를 시작하고, 조건을 이해하고, 결과를 확인하고, 실패를 복구하는 전체 흐름을 정책 기준으로 재설계해야 함을 보여준다.<br/></p>
+        </div>
+        <span class="section-label">Core signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>요금제 변경 시 우주패스 유료 전환 미인지 및 연계 처리 단절</h3>
+            <p>&quot; 요금제 변경 전에 구독 비용 변화를 미리 알고 싶다 &quot; — 변경 전 시뮬레이션, 혜택 비교, 영향 범위 사전 확인에 대한 강한 욕구 · 과금 공포 해소<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>우주패스 해지 경로 부재 및 단순 해지 전화 의존</h3>
+            <p>&quot; 빠르고 간편하게 해지를 완료하고 싶다 &quot; — 시간 · 노력 절감 욕구 · 불필요한 구독 즉시 정리 욕구<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>우주패스 상품 구조 및 혜택 이해 어려움</h3>
+            <p>&quot; 현재 이용 중인 우주패스 구성을 한눈에 파악하고 싶다 &quot; — 현황 파악 및 혜택 최대 활용 욕구 · 복잡한 상품 구조 이해 욕구<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>로밍 신청 · 할인 · 데이터 관리 경로 불명확</h3>
+            <p>&quot; 빠르고 간편하게 로밍 신청을 완료하고 싶다 &quot; — 전화 연결 없이 앱에서 원클릭으로 처리하고 싶은 즉각적 자기효능감 욕구 · 할인 혜택 자동 적용된 최적 요금제 추천욕구<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>모르는 사이 과금 및 결제 취소 경로 부재</h3>
+            <p>&quot; 모르는 사이 요금이 계속 빠져나가는 것에 대한 불안 &quot; — 과금 통제 및 즉각적 피해 복구 욕구<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. Pain Point 포트폴리오</h2>
+          <p>상담 유형은 단순 문의가 아니라 탐색 실패, 이해 부족, 권한 제약, 시스템 단절, 처리 결과 불안으로 반복된다.<br/></p>
+        </div>
+        <span class="section-label">Pain portfolio</span>
+      </div>
+      <div class="content">
+        <table class="heat-table">
+          <thead>
+            <tr>
+              <th>유형</th>
+              <th>누적 비율</th>
+              <th>고객이 겪는 문제</th>
+              <th>통합채널 설계 의미</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>요금제 변경 시 우주패스 유료 전환 미인지 및 연계 처리 단절</td>
+              <td><span class="rate">30~38%</span></td>
+              <td>요금제 변경 후 우주패스 유료 전환 사전 안내 없음 · 요금제 변경 시 우주패스 자동 해지 여부 혼란 · 요금제 변경과 구독 해지 동시 처리 불가 · 요금제 변경 후 OTT 혜택변화 사전 확인 불가 · 요금제 변경 후 우주패스 별도 가입 필요성 미인지<br/></td>
+              <td>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>우주패스 해지 경로 부재 및 단순 해지 전화 의존</td>
+              <td><span class="rate">12~22%</span></td>
+              <td>앱에서 우주패스 해지 경로를 찾기 어려움 · 요금제 변경과 구독 해지 동시 처리 불가 · 해지 완료 여부 실시간 확인 불가 · 당일 결제 취소 앱 내 처리 불가 · 즉시 해지 vs 예약 해지 차이 불명확<br/></td>
+              <td>우주 패스 · T우주 · 구독 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>우주패스 상품 구조 및 혜택 이해 어려움</td>
+              <td><span class="rate">15~38%</span></td>
+              <td>요금제 포함 혜택과 별도 구독 상품 구분 불명확 · VIP 픽 쿠폰 사용 방법 혼란 · 우주패스 바코드와 멤버십 바코드 혼동 · 가족 회선 구독 현황 통합 조회 불가 · 우주패스 결제 방식 (합산 vs 별도 자동이체) 혼동 · 요금제 명칭에 OTT 명 포함으로 자동 포함 오해<br/></td>
+              <td>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>로밍 신청 · 할인 · 데이터 관리 경로 불명확</td>
+              <td><span class="rate">28~45%</span></td>
+              <td>로밍 신청 경로 불명확 · 영청년 할인 자동 적용 여부 불명확 · 가족 로밍 추가 · 미성년자 동의 처리 복잡 · 로밍 데이터 소진 후 재신청 방법 불명확 · 귀국 후 요금제 자동 복구 여부 불명확 · 로밍 요금제 기간 종료 사전 알림 없음 · 에이닷 전화 설정 가이드 미제공<br/></td>
+              <td>우주 패스 · T우주 · 구독 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>모르는 사이 과금 및 결제 취소 경로 부재</td>
+              <td><span class="rate">4~18%</span></td>
+              <td>우주패스 가입 사실 미인지로 장기간 결제 지속 · 당일 결제 취소 앱 내 처리 불가 · 결제 실패 문자 수신 후 처리 방법 불명 · 해지 후에도 결제 지속 발생 · 요금제 변경 시 우주패스 유료 전환 사전 안내 미수신<br/></td>
+              <td>우주 패스 · T우주 · 구독 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>주말 · 휴일 셀프 처리 불가로 인한 서비스 공백</td>
+              <td><span class="rate">7~16%</span></td>
+              <td>우주패스 결제 오류 · 해지 처리 휴일 불가 · VIP 쿠폰 잘못 선택 취소 불가 · 요금제 변경 휴일 불가 · 패스 인증 오류 휴일 해결 불가 · 웨이브 연동 오류 휴일 상담 불가<br/></td>
+              <td>우주 패스 · T우주 · 구독 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>가족 · 미성년자 계정 대리 관리 불가</td>
+              <td><span class="rate">4~20%</span></td>
+              <td>미성년 자녀 로밍 신청 부모 대리 처리 불가 · 자녀 구독 해지 부모 대리 처리 불가 · 가족 결합 미등록 시 공항 방문 필요 · 배우자 구독 관리 위임 불가 · 부모 정지 · 해지 자녀대리 처리 불가<br/></td>
+              <td>우주 패스 · T우주 · 구독 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. Hidden Needs</h2>
+          <p>표면 요청 뒤에는 고객이 직접 판단하고 처리 결과를 신뢰하고 싶은 요구가 숨어 있다.<br/></p>
+        </div>
+        <span class="section-label">Hidden needs</span>
+      </div>
+      <div class="content">
+        <div class="need-grid">
+          <article class="card">
+            <b>안심</b>
+            <h3>과금 통제 욕구 (1 위): &quot; 요금제 변경 전에 구독 비용 변화를 미리 알고 싶다 &quot; / &quot; 모르는 사이 돈이 빠져나가는 것을 막고 싶다 &quot;</h3>
+            <p>요금제 변경 영향 시뮬레이터 + 즉시 취소 딥링크 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>통제</b>
+            <h3>정보 통제권 욕구 (2 위): &quot; 현재 이용 중인 우주패스 구성을 한눈에 파악하고 직접 관리하고 싶다 &quot;</h3>
+            <p>구독 현황 대시보드 + 원클릭 해지 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>즉시</b>
+            <h3>즉각 처리 욕구 (3 위): &quot; 빠르고 간편하게 로밍 신청 / 해지를 완료하고 싶다 &quot;</h3>
+            <p>로밍 원스톱 처리 + 24 시간 셀프 해지 시스템 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>이해</b>
+            <h3>정보 이해 욕구 (4 위): &quot; 요금제 변경 후 어떤 혜택이 남고 무엇이 유료로 바뀌는지 미리 알고 싶다 &quot;</h3>
+            <p>요금제 변경 전후 혜택 비교 화면 + 유료 전환 경고 팝업 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>연계</b>
+            <h3>가족 보호 욕구 (5 위): &quot;자녀 / 부모 / 배우자 명의 서비스를 내가 직접 관리하고 싶다 &quot;</h3>
+            <p>가족 계정 통합 관리 권한 체계 대응 필요<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. Trigger Top 20</h2>
+          <p>아래 계기는 고객이 셀프 채널을 이탈해 상담으로 전환하는 실제 출발점이다.<br/></p>
+        </div>
+        <span class="section-label">Triggers</span>
+      </div>
+      <div class="content">
+        <ol class="trigger-list">
+          <li><b>01</b><span>요금제 변경 후 우주패스 유료 전환 결제 문자 수신 — 전체 Trigger 의 20~30%, 전 기간 1 위</span></li>
+          <li><b>02</b><span>해외 출국 전 로밍 필요성 인지 — 연휴 · 주말 기간 1 위, 전체의 40% 이상</span></li>
+          <li><b>03</b><span>우주패스 해지 요청 (단순 해지, 앱에서 경로 못 찾아 전화) — 전 기간 2~3 위</span></li>
+          <li><b>04</b><span>요금제 변경 + 구독 해지 일괄 처리 요청 — 전 기간 지속</span></li>
+          <li><b>05</b><span>당일 결제 후 즉시 취소 및 환불 요청 — 전 기간 지속</span></li>
+          <li><b>06</b><span>VIP 픽 쿠폰 수령 후 사용 방법 혼란 — 전 기간 지속</span></li>
+          <li><b>07</b><span>로밍 데이터 소진 후 재신청 방법 불명확 — 연휴 · 주말 기간 급증</span></li>
+          <li><b>08</b><span>가족 회선 우주패스 결제 내역 확인 어려움 — 전 기간 지속</span></li>
+          <li><b>09</b><span>우주패스 가입 후 제휴사 계정 연결 불가 — 전 기간 지속</span></li>
+          <li><b>10</b><span>우주패스 패키지 변경 시 당월 즉시 적용 불가 — 전 기간 지속</span></li>
+          <li><b>11</b><span>영청년 요금제 로밍 할인 자동 적용 여부 불명확 — 연휴 · 주말 기간 집중</span></li>
+          <li><b>12</b><span>미성년자 자녀 로밍 신청 시 앱 처리 불가 — 연휴 · 주말 기간 집중</span></li>
+          <li><b>13</b><span>우주패스 할인 한도 초과로 할인 미적용 — 전 기간 지속</span></li>
+          <li><b>14</b><span>연령 제한으로 우주패스 가입 불가 — 전 기간 지속</span></li>
+          <li><b>15</b><span>우주패스 가입 사실 미인지로 장기간 결제 지속 — 전 기간 지속</span></li>
+          <li><b>16</b><span>편의점에서 우주패스 바코드 사용 시 할인 미적용 — 전 기간 지속</span></li>
+          <li><b>17</b><span>즉시 해지 시 재가입 제한 정책으로 원하는 시점에 해지 불가 — 전 기간 지속</span></li>
+          <li><b>18</b><span>이전 상담 처리 결과 앱 미반영으로 재문의 — 전 기간 지속</span></li>
+          <li><b>19</b><span>우주패스 결제 실패 문자 수신 후 처리 방법 불명 — 전 기간 지속</span></li>
+          <li><b>20</b><span>대리점 잘못 안내로 요금제 변경 후 우주패스 내 콘텐츠 이용 불가 — 전 기간 지속</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. Quick Win</h2>
+          <p>즉시 개선 가능한 항목은 진입점 노출, 완료 안내, 상태 조회, 권한 처리, 실패 복구를 중심으로 정리된다.<br/></p>
+        </div>
+        <span class="section-label">Immediate actions</span>
+      </div>
+      <div class="content">
+        <table class="heat-table quick-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>개선 항목</th>
+              <th>등장 빈도</th>
+              <th>기대 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>요금제 변경 완료 화면에서 우주패스 유료 전환 경고 팝업 + 즉시 해지 원클릭 옵션</td>
+              <td>29 일 전체</td>
+              <td>유료 전환 관련 전화 상담 25~30% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>나의 구독 화면 해지 버튼 1depth 노출 + 해지 예약 원클릭 처리</td>
+              <td>29 일 전체</td>
+              <td>단순 해지 전화 상담 18% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>로밍 신청 화면에서 영청년 할인 자동 적용 여부 실시간 안내 + 원클릭 신청</td>
+              <td>연휴 · 주말 기간 집중</td>
+              <td>로밍 관련 전화 상담 30~40% 감소</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>결제 당일 취소 원클릭 기능 + 쿠폰 사용 여부 확인 후 환불 처리</td>
+              <td>29 일 전체</td>
+              <td>당일 결제 취소 전화 상담 완전 대체</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>우주패스 가입 완료 후 제휴사 계정 연결 가이드 팝업 자동 표시</td>
+              <td>29 일 전체</td>
+              <td>가입 후 계정 연결 실패 재문의 방지</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>VIP 픽 쿠폰 수령 후 우주패스 가입 원스텝 안내 + 쿠폰함 접근 경로 단축</td>
+              <td>29 일 전체</td>
+              <td>쿠폰 사용 방법 문의 전화 감소</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>로밍 신청 완료 후 에이닷 전화 설정 가이드 자동 발송</td>
+              <td>연휴 · 주말 기간 집중</td>
+              <td>로밍 후속 문의 상담 40% 감소</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>나의 구독 화면에서 할인 한도 잔여량 및 갱신 날짜 실시간 표시</td>
+              <td>29 일 전체</td>
+              <td>할인 미적용 혼란 문의 감소</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 요구사항·정책서 전환 질문</h2>
+          <p>VoC 분석 결과는 우주 패스 / T우주 / 구독 정책서에서 아래 질문에 답할 수 있는 기능과 정책 항목으로 전환되어야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy conversion</span>
+      </div>
+      <div class="content">
+        <div class="policy-grid">
+          <article class="card">
+            <b>사전 고지</b>
+            <h3>무엇을 처리 전에 알려야 하는가?</h3>
+            <p>요금, 혜택, 적용 시점, 제한 조건, 후속 영향을 업무 실행 전에 이해 가능한 문장과 비교 정보로 제공해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>상태</b>
+            <h3>처리 상태를 어디까지 보여줘야 하는가?</h3>
+            <p>우주 패스 · T우주 · 구독 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>알림</b>
+            <h3>어떤 조건에서 고객에게 먼저 알려야 하는가?</h3>
+            <p>우주 패스 · T우주 · 구독 관련 변경, 실패, 혜택 영향, 추가 조치 필요 시점을 알림 기준으로 전환해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>이력</b>
+            <h3>고객과 운영자는 무엇을 추적해야 하는가?</h3>
+            <p>우주 패스 · T우주 · 구독 처리 이력과 고객 고지 이력을 남겨 재문의와 책임 공백을 줄여야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>예외</b>
+            <h3>처리 불가 상황에서 어떤 대체 행동을 제공하는가?</h3>
+            <p>업무 제한 조건을 단순 안내로 끝내지 않고 가능한 대체 처리, 예약, 상담 연결 기준으로 연결해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>일괄 처리</b>
+            <h3>반복 처리를 어떻게 줄이는가?</h3>
+            <p>동일 고객, 가족, 회선, 상품 단위 반복 업무는 묶음 처리와 공통 결과 확인 기준을 검토해야 한다<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

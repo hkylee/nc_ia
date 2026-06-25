@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI 기반 상품 할인 의사결정 체계 구축 · 문서 설명</title>
+  <style>
+    :root { --ink:#172033; --soft:#56657a; --muted:#8793a5; --line:#dfe8f3; --blue:#2563eb; --teal:#0f766e; --amber:#d97706; --rose:#be123c; --green:#10b981; --orange:#f59e0b; --red:#ef4444; --bg:#f5f7fb; --navy:#111827; --fs-title:24px; --fs-lead:16px; --fs-body:14px; --fs-caption:12px; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(180deg,#eef3f8 0%,#f8fafc 280px,#f5f7fb 100%); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.62; }
+    .page { width:min(1220px, calc(100% - 48px)); margin:0 auto; padding:38px 0 72px; }
+    .hero { display:grid; grid-template-columns:1fr; gap:18px; align-items:stretch; }
+    .panel, section { border:1px solid rgba(207,218,233,.95); border-radius:18px; background:rgba(255,255,255,.97); box-shadow:0 18px 42px rgba(31,42,68,.08); }
+    .hero-main { position:relative; overflow:hidden; min-height:380px; padding:34px; background:linear-gradient(135deg,#111827 0%,#172033 58%,#1f2937 100%); color:#fff; }
+    .hero-main::after { content:""; position:absolute; left:34px; right:34px; bottom:26px; height:1px; background:linear-gradient(90deg,#60a5fa,#2dd4bf,#f59e0b,#fb7185); opacity:.75; }
+    .eyebrow { color:#93c5fd; font-size:var(--fs-caption); font-weight:950; letter-spacing:.18em; text-transform:uppercase; }
+    h1 { max-width:780px; margin:14px 0 14px; font-size:var(--fs-title); line-height:1.12; letter-spacing:0; }
+    h2 { display:flex; align-items:center; gap:10px; margin:0 0 18px; font-size:var(--fs-title); line-height:1.25; }
+    h2::before { content:""; width:8px; height:22px; border-radius:999px; background:var(--blue); flex:0 0 auto; }
+    h3 { margin:0 0 10px; font-size:var(--fs-body); line-height:1.35; }
+    p { margin:0; }
+    .lead { max-width:960px; color:#dbeafe; font-size:var(--fs-lead); font-weight:780; line-height:1.62; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .meta div { border:1px solid rgba(255,255,255,.18); border-radius:999px; background:rgba(255,255,255,.08); padding:8px 12px; }
+    .meta b { display:inline; color:#93c5fd; font-size:var(--fs-caption); font-weight:900; margin-right:7px; }
+    .meta span { display:inline; color:#f8fafc; font-size:var(--fs-body); font-weight:900; }
+    .strategy-cards { position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:28px; padding-bottom:24px; }
+    .strategy-cards article { border:1px solid rgba(255,255,255,.16); border-radius:14px; background:rgba(255,255,255,.07); padding:14px; }
+    .strategy-cards span { color:#93c5fd; font-size:var(--fs-caption); font-weight:950; }
+    .strategy-cards strong { display:block; margin-top:8px; color:#fff; font-size:var(--fs-body); line-height:1.25; }
+    .strategy-cards p { margin-top:8px; color:#cbd5e1; font-size:var(--fs-caption); font-weight:720; line-height:1.48; }
+    .hero-shift { position:relative; z-index:1; width:100%; margin-top:4px; padding:18px 0 28px; border-top:1px solid rgba(255,255,255,.16); }
+    .hero-shift strong { display:block; max-width:880px; color:#fff; font-size:var(--fs-title); line-height:1.25; }
+    .hero-shift p { max-width:880px; margin-top:8px; color:#cbd5e1; font-size:var(--fs-body); font-weight:740; line-height:1.58; }
+    section { margin-top:22px; padding:26px; }
+    .section-intro { max-width:920px; margin:-6px 0 18px; color:#516174; font-size:var(--fs-body); font-weight:760; line-height:1.55; }
+    .strategy-map-section { padding:0; overflow:hidden; }
+    .strategy-map-head { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; padding:26px 26px 18px; border-bottom:1px solid #e4edf7; background:linear-gradient(135deg,#fff 0%,#f7fbff 100%); }
+    .strategy-map-head h2 { margin:0 0 8px; }
+    .strategy-map-head p { max-width:720px; color:#526176; font-size:var(--fs-body); font-weight:760; }
+    .map-badge { display:inline-flex; align-items:center; min-height:34px; border:1px solid #cfe0f5; border-radius:999px; background:#fff; color:var(--blue); padding:7px 12px; font-size:var(--fs-caption); font-weight:950; white-space:nowrap; }
+    .transition-map { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; }
+    .transition-card { position:relative; min-height:250px; padding:24px; border-right:1px solid #e4edf7; background:#fff; }
+    .transition-card:last-child { border-right:0; }
+    .transition-card:not(:last-child)::after { content:""; position:absolute; top:42px; right:-13px; z-index:2; width:26px; height:26px; border-radius:999px; background:#111827; box-shadow:0 0 0 6px #fff; }
+    .transition-card:not(:last-child)::before { content:""; position:absolute; top:51px; right:-4px; z-index:3; width:8px; height:8px; border-top:2px solid #fff; border-right:2px solid #fff; transform:rotate(45deg); }
+    .transition-card > span { display:inline-grid; place-items:center; width:36px; height:36px; border-radius:12px; background:#eff6ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .transition-card h3 { margin:16px 0 8px; color:#111827; font-size:var(--fs-title); }
+    .transition-card p { color:#344256; font-size:var(--fs-body); font-weight:780; line-height:1.58; }
+    .badge-list { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0; padding:0; list-style:none; }
+    .badge-list li { border:1px solid #dce7f3; border-radius:999px; background:#f8fafc; color:#405064; padding:7px 10px; font-size:var(--fs-caption); font-weight:820; line-height:1.35; }
+    .transition-card .badge-list { flex-direction:column; align-items:flex-start; }
+    .operating-loop { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; padding:18px; background:#f6f9fd; border-top:1px solid #e4edf7; }
+    .operating-loop article { border:1px solid #dce7f3; border-radius:16px; background:#fff; padding:16px; box-shadow:0 8px 20px rgba(31,42,68,.04); }
+    .operating-loop b { display:block; color:#2563eb; font-size:var(--fs-caption); font-weight:950; letter-spacing:.1em; text-transform:uppercase; }
+    .operating-loop strong { display:block; margin-top:8px; color:#111827; font-size:var(--fs-body); line-height:1.35; }
+    .operating-loop p { margin-top:8px; color:#536174; font-size:var(--fs-caption); font-weight:740; line-height:1.48; }
+    .integration-lens-section { padding:0; overflow:hidden; }
+    .integration-head { display:grid; grid-template-columns:1fr; gap:10px; align-items:start; padding:22px 24px; border-bottom:1px solid #e4edf7; background:linear-gradient(135deg,#f8fafc 0%,#fff 100%); }
+    .integration-head h2 { margin:0 0 8px; }
+    .integration-head p { max-width:880px; color:#526176; font-size:var(--fs-body); font-weight:760; }
+    .integration-grid { display:grid; grid-template-columns:1fr; gap:12px; padding:16px; background:#f6f9fd; }
+    .integration-card { position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1fr) minmax(150px,.28fr); gap:18px; align-items:center; border:1px solid #dce7f3; border-radius:16px; background:#fff; padding:16px 18px; box-shadow:0 10px 22px rgba(31,42,68,.05); }
+    .integration-card::before { content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--blue); }
+    .integration-card.tone-teal::before { background:var(--teal); }
+    .integration-card.tone-amber::before { background:var(--amber); }
+    .integration-card.tone-rose::before { background:var(--rose); }
+    .integration-card-main { min-width:0; }
+    .integration-card-main > span { color:var(--blue); font-size:var(--fs-caption); font-weight:950; letter-spacing:.12em; text-transform:uppercase; }
+    .integration-card.tone-teal .integration-card-main > span { color:var(--teal); }
+    .integration-card.tone-amber .integration-card-main > span { color:var(--amber); }
+    .integration-card.tone-rose .integration-card-main > span { color:var(--rose); }
+    .integration-card h3 { margin:8px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .integration-card p { color:#516174; font-size:var(--fs-body); font-weight:740; line-height:1.5; }
+    .integration-card .badge-list { justify-content:flex-end; align-content:center; align-self:center; margin:0; }
+    .purpose { display:grid; grid-template-columns:1fr; gap:10px; margin:0; padding:0; list-style:none; }
+    .purpose li { display:grid; grid-template-columns:auto minmax(0,1fr); gap:12px; align-items:start; border:1px solid #dbe5f1; border-radius:14px; background:#fff; padding:15px 16px; font-weight:780; box-shadow:0 10px 24px rgba(31,42,68,.05); }
+    .purpose span { display:inline-grid; place-items:center; width:30px; height:30px; border-radius:9px; background:#eff6ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .purpose p { margin:4px 0 0; color:#334155; font-size:var(--fs-body); font-weight:760; line-height:1.52; }
+    .problem-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .problem-grid article { min-height:auto; display:grid; grid-template-columns:minmax(112px,.18fr) minmax(0,1fr); gap:14px; align-items:stretch; border:1px solid #e5edf7; border-left:4px solid var(--blue); border-radius:14px; background:#fff; padding:14px; box-shadow:0 10px 24px rgba(31,42,68,.05); }
+    .problem-grid article.tone-amber { border-left-color:var(--amber); }
+    .problem-grid article.tone-teal { border-left-color:var(--teal); }
+    .problem-grid article.tone-rose { border-left-color:var(--rose); }
+    .problem-grid span { display:grid; place-items:center; min-height:72px; border-radius:12px; background:#eff6ff; color:var(--blue); padding:12px; text-align:center; font-size:var(--fs-body); font-weight:950; }
+    .problem-grid article.tone-amber span { background:#fff7ed; color:var(--amber); }
+    .problem-grid article.tone-teal span { background:#ecfdf5; color:var(--teal); }
+    .problem-grid article.tone-rose span { background:#fff1f2; color:var(--rose); }
+    .problem-grid p { align-self:center; margin:0; color:#38485d; font-size:var(--fs-body); font-weight:740; }
+    .asis-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .asis-grid article { min-height:auto; position:relative; overflow:hidden; border:1px solid #dbe5f1; border-left:4px solid var(--blue); border-radius:16px; background:#fff; padding:16px 18px; box-shadow:0 12px 28px rgba(31,42,68,.06); }
+    .asis-grid article.tone-amber { border-left-color:var(--amber); }
+    .asis-grid article.tone-teal { border-left-color:var(--teal); }
+    .asis-grid article.tone-rose { border-left-color:var(--rose); }
+    .asis-card-head { display:flex; justify-content:flex-start; align-items:center; gap:10px; }
+    .asis-card-head span { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:10px; background:#eff6ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .asis-grid article.tone-amber .asis-card-head span { background:#fff7ed; color:var(--amber); }
+    .asis-grid article.tone-teal .asis-card-head span { background:#ecfdf5; color:var(--teal); }
+    .asis-grid article.tone-rose .asis-card-head span { background:#fff1f2; color:var(--rose); }
+    .asis-card-head b { color:#334155; font-size:var(--fs-body); font-weight:950; }
+    .asis-flow { display:grid; grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr); gap:12px; align-items:stretch; margin-top:10px; }
+    .asis-flow-box { display:grid; align-content:center; gap:5px; min-height:64px; border:1px solid #e5edf7; border-radius:14px; background:#f8fafc; padding:10px 14px; }
+    .asis-flow-tag { display:inline-flex; width:max-content; align-items:center; border:1px solid #d7e3f2; border-radius:999px; background:#fff; color:#2563eb; padding:2px 7px; font-size:11px; font-weight:950; line-height:1.25; }
+    .asis-flow h3 { margin:0; color:#111827; font-size:var(--fs-body); line-height:1.42; }
+    .asis-flow p { color:#516174; font-size:var(--fs-body); font-weight:740; line-height:1.58; }
+    .asis-flow-arrow { position:relative; display:block; align-self:center; justify-self:center; width:26px; height:26px; border-radius:999px; background:#111827; box-shadow:0 0 0 6px #fff; }
+    .asis-flow-arrow::before { content:""; position:absolute; top:9px; left:8px; width:8px; height:8px; border-top:2px solid #fff; border-right:2px solid #fff; transform:rotate(45deg); }
+    .flow { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; list-style:none; margin:0; padding:0; counter-reset:step; }
+    .flow li { position:relative; border:1px solid #d9e5f3; border-radius:14px; background:#fff; padding:15px 12px; box-shadow:0 8px 20px rgba(31,42,68,.04); }
+    .flow li:not(:last-child)::after { content:""; position:absolute; top:50%; right:-10px; width:10px; height:2px; background:#cbd5e1; }
+    .flow span { color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .flow strong { display:block; margin-top:6px; font-size:var(--fs-body); line-height:1.35; }
+    .journey-map { position:relative; overflow:hidden; border:1px solid #dce7f3; border-radius:22px; background:linear-gradient(135deg,#ffffff 0%,#f6f9fd 100%); }
+    .journey-flow { display:grid; grid-template-columns:1fr; gap:10px; padding:14px; }
+    .journey-step { position:relative; display:grid; grid-template-columns:auto minmax(150px,.24fr) minmax(0,1fr); gap:12px; align-items:stretch; min-height:auto; padding:12px 14px; border:1px solid #e4edf7; border-left:4px solid var(--blue); border-radius:15px; background:rgba(255,255,255,.88); box-shadow:0 8px 20px rgba(31,42,68,.05); }
+    .journey-step:not(:last-child)::after { content:""; position:absolute; left:29px; bottom:-11px; z-index:3; width:2px; height:10px; border-radius:999px; background:#cbd5e1; }
+    .journey-step span { display:inline-grid; place-items:center; align-self:center; width:30px; height:30px; border-radius:10px; background:#eff6ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .journey-step-label { display:grid; align-content:center; min-height:56px; border:1px solid #e5edf7; border-radius:12px; background:#f8fafc; padding:9px 12px; }
+    .journey-step-label b { display:block; color:#64748b; font-size:11px; font-weight:950; letter-spacing:.09em; text-transform:uppercase; }
+    .journey-step-label strong { display:block; margin-top:3px; color:#111827; font-size:var(--fs-body); line-height:1.3; }
+    .journey-step p { align-self:center; color:#516174; font-size:var(--fs-body); font-weight:740; line-height:1.45; }
+    .journey-feedback { display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:center; border-top:1px solid #e4edf7; background:#111827; color:#fff; padding:16px 20px; }
+    .journey-feedback span { display:inline-grid; place-items:center; width:40px; height:40px; border-radius:999px; background:#2563eb; color:#fff; font-size:var(--fs-body); font-weight:950; }
+    .journey-feedback strong { display:block; font-size:var(--fs-body); }
+    .journey-feedback p { color:#dbeafe; font-size:var(--fs-body); font-weight:740; }
+    .performance-board { display:grid; grid-template-columns:1fr; gap:14px; }
+    .performance-card { position:relative; overflow:hidden; border:1px solid #dce7f3; border-radius:18px; background:#fff; padding:18px; box-shadow:0 12px 28px rgba(31,42,68,.06); }
+    .performance-card::before { content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--blue); }
+    .performance-card.tone-teal::before { background:var(--teal); }
+    .performance-card.tone-amber::before { background:var(--amber); }
+    .performance-card.tone-rose::before { background:var(--rose); }
+    .performance-head { display:grid; grid-template-columns:auto minmax(0,1fr); gap:12px; align-items:center; }
+    .performance-head span { display:inline-grid; place-items:center; align-self:center; width:38px; height:38px; border-radius:12px; background:#eff6ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .performance-card.tone-teal .performance-head span { background:#ecfdf5; color:var(--teal); }
+    .performance-card.tone-amber .performance-head span { background:#fff7ed; color:var(--amber); }
+    .performance-card.tone-rose .performance-head span { background:#fff1f2; color:var(--rose); }
+    .performance-title-row { display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px 12px; align-items:center; min-width:0; }
+    .performance-head h3 { margin:0; color:#111827; font-size:var(--fs-body); }
+    .performance-columns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; margin-top:14px; }
+    .performance-columns > div { position:relative; border:1px solid #e5edf7; border-radius:14px; background:#f8fafc; padding:13px; }
+    .performance-columns > div:first-child::after { content:""; position:absolute; top:50%; right:-27px; z-index:2; width:26px; height:26px; border-radius:999px; background:#111827; box-shadow:0 0 0 6px #fff; transform:translateY(-50%); }
+    .performance-columns > div:first-child::before { content:""; position:absolute; top:50%; right:-16px; z-index:3; width:8px; height:8px; border-top:2px solid #fff; border-right:2px solid #fff; transform:translateY(-50%) rotate(45deg); }
+    .performance-columns b { display:block; margin-bottom:8px; color:#2563eb; font-size:var(--fs-caption); font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+    .performance-card.tone-teal .performance-columns b { color:var(--teal); }
+    .performance-card.tone-amber .performance-columns b { color:var(--amber); }
+    .performance-card.tone-rose .performance-columns b { color:var(--rose); }
+    .performance-columns ul { display:grid; gap:6px; margin:0; padding-left:16px; }
+    .performance-columns li { color:#516174; font-size:var(--fs-body); font-weight:730; line-height:1.5; }
+    .kpi-list { display:flex; flex-wrap:wrap; gap:7px; margin-top:0; min-width:0; }
+    .kpi-list span { display:inline-flex; width:max-content; max-width:100%; align-items:center; border:1px solid #bfdbfe; border-radius:999px; background:#fff; color:#1f3b66; padding:6px 9px; font-size:var(--fs-caption); font-weight:820; line-height:1.3; white-space:normal; overflow-wrap:anywhere; }
+    table { width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid #dce7f3; border-radius:18px; background:#fff; }
+    th, td { border-bottom:1px solid #e7edf5; padding:14px 16px; text-align:left; vertical-align:top; }
+    th { background:#f6f9fd; font-size:var(--fs-body); font-weight:950; }
+    td { color:#3a495d; font-size:var(--fs-body); font-weight:730; }
+    td p { margin-top:6px; color:#56657a; font-size:var(--fs-body); font-weight:720; }
+    tr:last-child th, tr:last-child td { border-bottom:0; }
+    .policy td:first-child { width:52px; color:var(--blue); font-weight:950; text-align:center; }
+    .direction-table th { width:22%; color:#172033; }
+    .direction-table td { width:26%; }
+    .direction-table strong { display:block; margin-bottom:7px; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .direction-table ul { display:grid; gap:6px; margin:0; padding-left:17px; }
+    .direction-table li { color:#405064; font-size:var(--fs-body); font-weight:730; line-height:1.45; }
+    .process-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .process-card { position:relative; overflow:hidden; border:1px solid #dbe5f1; border-radius:16px; background:#fff; padding:18px; box-shadow:0 12px 28px rgba(31,42,68,.06); }
+    .process-card::before { content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--blue); }
+    .process-card.tone-teal::before { background:var(--teal); }
+    .process-card.tone-amber::before { background:var(--amber); }
+    .process-card.tone-rose::before { background:var(--rose); }
+    .process-card-head { display:grid; grid-template-columns:46px minmax(0,1fr); gap:12px; align-items:start; }
+    .process-card-head > span { display:inline-grid; place-items:center; width:40px; height:40px; border-radius:12px; background:#eff6ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .process-card.tone-teal .process-card-head > span { background:#ecfdf5; color:var(--teal); }
+    .process-card.tone-amber .process-card-head > span { background:#fff7ed; color:var(--amber); }
+    .process-card.tone-rose .process-card-head > span { background:#fff1f2; color:var(--rose); }
+    .process-card-head b { color:#64748b; font-size:var(--fs-caption); font-weight:950; letter-spacing:.12em; text-transform:uppercase; }
+    .process-card-head h3 { margin:5px 0 0; color:#111827; font-size:var(--fs-body); line-height:1.3; }
+    .process-role { margin-top:14px; color:#334155; font-size:var(--fs-body); font-weight:780; line-height:1.58; }
+    .process-outcome { display:flex; gap:10px; align-items:center; margin-top:14px; border:1px solid #e5edf7; border-radius:12px; background:#f8fafc; padding:10px 12px; }
+    .process-outcome strong { flex:0 0 auto; color:var(--blue); font-size:var(--fs-caption); font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+    .process-card.tone-teal .process-outcome strong { color:var(--teal); }
+    .process-card.tone-amber .process-outcome strong { color:var(--amber); }
+    .process-card.tone-rose .process-outcome strong { color:var(--rose); }
+    .process-outcome p { color:#475569; font-size:var(--fs-body); font-weight:780; }
+    .process-steps { display:grid; gap:8px; margin:16px 0 0; padding:0; list-style:none; }
+    .process-steps li { display:grid; grid-template-columns:34px minmax(0,1fr); gap:10px; align-items:start; }
+    .process-steps span { display:inline-grid; place-items:center; width:26px; height:26px; border-radius:8px; background:#f1f5f9; color:#64748b; font-size:var(--fs-caption); font-weight:950; }
+    .process-steps p { color:#516174; font-size:var(--fs-body); font-weight:730; line-height:1.5; }
+    .detail-groups { display:grid; gap:16px; }
+    .detail-group { border:1px solid #dce7f3; border-radius:22px; background:#fff; overflow:hidden; }
+    .detail-group-head { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:12px; align-items:center; padding:16px 18px; background:#f6f9fd; border-bottom:1px solid #e7edf5; }
+    .detail-group-head span { display:inline-grid; place-items:center; width:30px; height:30px; border-radius:999px; background:#e8f2ff; color:var(--blue); font-size:var(--fs-caption); font-weight:950; }
+    .detail-group-head h3 { margin:0; font-size:var(--fs-body); }
+    .detail-group-head b { border-radius:999px; background:#fff; border:1px solid #dce7f3; color:#56657a; padding:6px 10px; font-size:var(--fs-caption); font-weight:950; white-space:nowrap; }
+    .detail-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; padding:14px; }
+    .detail-item { display:grid; grid-template-columns:auto minmax(0,1fr); gap:12px; border:1px solid #e7edf5; border-radius:18px; background:#fff; padding:14px; }
+    .detail-item > span { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:10px; background:#f4f7fb; color:#6b7a90; font-size:var(--fs-caption); font-weight:950; }
+    .detail-item strong { display:block; color:#172033; font-size:var(--fs-body); line-height:1.35; }
+    .detail-item p { margin-top:7px; color:#56657a; font-size:var(--fs-body); font-weight:720; line-height:1.55; }
+    .question-table th { width:18%; color:#172033; }
+    .question-table td:nth-child(2) { width:47%; }
+    .question-table td:nth-child(3) { width:35%; }
+    .note { border-left:4px solid var(--blue); border-radius:16px; background:#eef5ff; color:#24466f; font-weight:780; padding:16px 18px; }
+    section p,
+    section td,
+    section td p,
+    .section-intro,
+    .strategy-map-head p,
+    .transition-card p,
+    .operating-loop p,
+    .integration-head p,
+    .integration-card p,
+    .purpose p,
+    .problem-grid p,
+    .asis-card-head b,
+    .asis-flow h3,
+    .asis-flow p,
+    .journey-step-label strong,
+    .journey-step p,
+    .performance-head h3,
+    .performance-columns li,
+    .direction-table li,
+    .process-card-head h3,
+    .process-role,
+    .process-outcome p,
+    .process-steps p,
+    .detail-item strong,
+    .detail-item p { color:var(--ink); }
+    @media (max-width:900px) {
+      .page { width:min(100% - 24px, 1180px); padding-top:24px; }
+      .hero, .strategy-map-head, .transition-map, .operating-loop, .integration-grid, .problem-grid, .asis-grid, .process-grid, .performance-board { grid-template-columns:1fr; }
+      .hero-main { min-height:auto; }
+      .strategy-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .meta { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .flow { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .flow li::after { display:none; }
+      .transition-card { border-right:0; border-bottom:1px solid #e4edf7; }
+      .transition-card:last-child { border-bottom:0; }
+      .transition-card::before, .transition-card::after { display:none; }
+      .performance-columns { grid-template-columns:1fr; }
+      .performance-columns > div:first-child::before, .performance-columns > div:first-child::after { display:none; }
+      .integration-card { grid-template-columns:1fr; }
+      .integration-card .badge-list { justify-content:flex-start; }
+      .problem-grid article { grid-template-columns:1fr; }
+      .journey-step { grid-template-columns:1fr; }
+      .journey-step:not(:last-child)::after { display:none; }
+      .asis-flow { grid-template-columns:1fr; }
+      .asis-flow-arrow { display:none; }
+      .detail-list { grid-template-columns:1fr; }
+      .detail-group-head { grid-template-columns:auto minmax(0,1fr); }
+      .detail-group-head b { grid-column:2; width:max-content; }
+      h1 { font-size:var(--fs-title); }
+      .direction-table, .direction-table tbody, .direction-table tr, .direction-table th, .direction-table td,
+      .question-table, .question-table tbody, .question-table tr, .question-table th, .question-table td { display:block; width:100%; }
+      .direction-table th, .question-table th { border-bottom:0; }
+    }
+    @media (max-width:620px) {
+      .strategy-cards, .flow { grid-template-columns:1fr; }
+      h1 { font-size:var(--fs-title); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="hero">
+      <article class="panel hero-main">
+        <div class="eyebrow">Strategic Initiative</div>
+        <h1>AI 기반 상품 할인 의사결정 체계 구축</h1>
+        <p class="lead">분산된 상품·혜택·할인 데이터를 표준화해 고객이 이해·비교·시뮬레이션·선택까지 끊김 없이 수행하고, AI가 설명·추천·생성까지 수행할 수 있는 상품 지식 체계로 바꾸는 과제다.<br/></p>
+        <div class="meta">
+          <div><b>작성자</b><span>서기원 · Next 플랫폼기획 2팀</span></div>
+          <div><b>업데이트</b><span>2026-04-20</span></div>
+        </div>
+        <div class="strategy-cards">
+        <article>
+          <span>01</span>
+          <strong>AI Readable Knowledge</strong>
+          <p>상품명, 조건, 대상, 혜택, 제한사항, 비교 항목을 공통 스키마와 master DB로 구조화한다.<br/></p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <strong>Decision Simulation</strong>
+          <p>요금제 변경, 할인 유지, 혜택 변화, 실납부액 차이를 고객 조건 기준으로 예측한다.<br/></p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <strong>Comparison Hub</strong>
+          <p>상품 탐색, 상세, 비교, 추천, 담기, 가입을 하나의 선택 완성 흐름으로 연결한다.<br/></p>
+        </article>
+
+        <article>
+          <span>04</span>
+          <strong>AI Production Loop</strong>
+          <p>AI가 상품 설명, 혜택 요약, 비교 템플릿, 원장 카피를 생성하고 운영자가 검수한다.<br/></p>
+        </article>
+        </div>
+        <div class="hero-shift">
+          <strong>조회형 상품 전시에서 AI 기반 상품 의사결정 허브로 전환한다.</strong>
+          <p>핵심은 상품 정보를 더 많이 보여주는 것이 아니라, 고객이 내 조건에서 가격·혜택·할인 결과를 예측하고 가입 가능 최적안을 선택하게 만드는 것이다.<br/></p>
+        </div>
+      </article>
+    </div>
+
+    <section class="strategy-map-section">
+      <div class="strategy-map-head">
+        <div>
+          <h2>전략 전환 맵</h2>
+          <p>이 과제의 핵심은 상품 상세 화면 개선이 아니라, 상품·혜택·할인 데이터를 AI가 읽을 수 있는 지식 자산으로 표준화하고 탐색, 비교, 시뮬레이션, 담기, 가입으로 이어지는 의사결정 체계를 만드는 것이다.<br/></p>
+        </div>
+        <span class="map-badge">Knowledge · Compare · Simulate · Decide</span>
+      </div>
+      <div class="transition-map">
+        <article class="transition-card">
+          <span>01</span>
+          <h3>As-Is 문제</h3>
+          <p>상품, 혜택, 할인, 약정, 결합, 구독 정보가 분산되어 고객은 가격과 혜택의 관계를 한 흐름으로 이해하기 어렵다.<br/></p>
+          <ul class="badge-list"><li>상품 상세, 비교, 시뮬레이션, 담기 단계가 분절되어 있다.<br/></li><li>변경 전후 실납부액과 혜택 영향이 즉시 계산되지 않는다.<br/></li><li>AI가 활용할 수 있는 구조화된 상품 지식 체계가 부족하다.<br/></li></ul>
+        </article>
+
+        <article class="transition-card">
+          <span>02</span>
+          <h3>전략 전환</h3>
+          <p>상품 데이터를 공통 스키마와 master DB로 구조화하고, 고객 조건 기반 비교·시뮬레이션·추천·담기를 하나의 의사결정 흐름으로 연결한다.<br/></p>
+          <ul class="badge-list"><li>상품 메타데이터와 비교 항목을 표준화한다.<br/></li><li>변경 영향과 할인 유지 여부를 실시간 시뮬레이션한다.<br/></li><li>AI 요약, Q&amp;A, 원장 생성, 추천 템플릿을 지식 기반으로 만든다.<br/></li></ul>
+        </article>
+
+        <article class="transition-card">
+          <span>03</span>
+          <h3>To-Be 결과</h3>
+          <p>고객은 내 조건에서 가장 유리하고 가입 가능한 선택안을 이해하며, 운영자는 상품 원장과 전시 정보를 AI 기반 생산·검수 체계로 관리한다.<br/></p>
+          <ul class="badge-list"><li>상품 정보 탐색 이탈과 상담 의존이 줄어든다.<br/></li><li>상품 출시와 원장 제작 리드타임이 줄어든다.<br/></li><li>추천과 비교를 통한 가입/변경 전환이 높아진다.<br/></li></ul>
+        </article>
+        </div>
+      <div class="operating-loop">
+        <article>
+          <b>Customer</b>
+          <strong>이해·비교·시뮬레이션·선택</strong>
+          <p>고객이 내 사용량, 약정, 결합, 혜택 조건을 기준으로 상품을 이해하고 선택한다.<br/></p>
+        </article>
+
+        <article>
+          <b>Product Knowledge</b>
+          <strong>스키마·Master DB·메타데이터</strong>
+          <p>상품, 혜택, 할인, 조건, 제한사항, 비교 항목을 AI가 읽을 수 있는 구조로 관리한다.<br/></p>
+        </article>
+
+        <article>
+          <b>AI Decision Layer</b>
+          <strong>요약·비교·추천·생성</strong>
+          <p>AI가 상품 설명, 비교 근거, 예상 금액, 추천 이유, 원장 카피를 생성한다.<br/></p>
+        </article>
+
+        <article>
+          <b>Ops &amp; Governance</b>
+          <strong>검수·승인·성과 보정</strong>
+          <p>운영자는 AI 생성 결과와 추천 기준을 검수하고 전환, VOC, 이탈 데이터를 기준으로 보정한다.<br/></p>
+        </article>
+        </div>
+    </section>
+
+    <section>
+      <h2>1. 이 문서가 다루는 과제</h2>
+      <p class="note">이 문서는 통합채널의 상품/할인 경험을 단순 조회 화면이 아니라, 고객이 상품 구조와 할인 영향을 이해하고 비교·시뮬레이션·추천·담기까지 이어갈 수 있는 의사결정 체계로 정의한다.<br/> 동시에 상품 master DB, AI readable data, 원장 생성, 추천, 비교, 시뮬레이션 정책 기준을 포함한다.<br/></p>
+    </section>
+
+    <section class="integration-lens-section">
+      <div class="integration-head">
+        <div>
+          <h2>통합채널 연결 관점</h2>
+          <p>상품·할인 지식은 AI 추천, 전시, 주문, 청구 예측, 고객지원 설명에 동시에 쓰이는 기준 정보이므로 구조화와 검수 기준이 특히 중요하다.<br/></p>
+        </div>
+      </div>
+      <div class="integration-grid">
+            <article class="integration-card tone-blue">
+              <div class="integration-card-main">
+                <span>Knowledge</span>
+                <h3>상품 지식 원천화</h3>
+                <p>요금제, 할인, 혜택, 가입 조건, 제한 조건을 AI와 전시·주문이 함께 읽을 수 있는 판단 단위로 관리한다.<br/></p>
+              </div>
+              <ul class="badge-list"><li>상품 기준</li><li>할인 조건</li><li>제한</li></ul>
+            </article>
+
+            <article class="integration-card tone-teal">
+              <div class="integration-card-main">
+                <span>Decision</span>
+                <h3>비교·시뮬레이션 일관성</h3>
+                <p>상품 비교, 예상 요금, 주문 전 비용 확인, 청구 예측이 서로 다른 계산 기준을 쓰지 않도록 연결한다.<br/></p>
+              </div>
+              <ul class="badge-list"><li>비교</li><li>예상 금액</li><li>청구 영향</li></ul>
+            </article>
+
+            <article class="integration-card tone-amber">
+              <div class="integration-card-main">
+                <span>Conversion</span>
+                <h3>담기·주문 전환</h3>
+                <p>추천과 비교 결과는 장바구니, 주문, 상담, 고객지원 질문으로 이어지는 다음 행동을 가져야 한다.<br/></p>
+              </div>
+              <ul class="badge-list"><li>담기</li><li>주문</li><li>상담</li></ul>
+            </article>
+
+            <article class="integration-card tone-rose">
+              <div class="integration-card-main">
+                <span>Governance</span>
+                <h3>상품 지식 검수</h3>
+                <p>AI가 생산한 상품 설명과 추천 문구는 운영 검수, 버전, 배포, 회수 기준으로 관리한다.<br/></p>
+              </div>
+              <ul class="badge-list"><li>검수</li><li>버전</li><li>회수</li></ul>
+            </article>
+            </div>
+    </section>
+
+
+    <section>
+      <h2>2. 과제 목적</h2>
+      <ul class="purpose"><li><span>01</span><p>상품, 혜택, 할인 정보를 채널별·기능별 관리에서 공통 스키마 기반 상품 지식 자산으로 전환한다.<br/></p></li><li><span>02</span><p>고객이 요금제, 선택약정, 결합, 부가서비스, 구독 혜택의 관계를 이해하고 변경 전후 영향을 예측할 수 있게 한다.<br/></p></li><li><span>03</span><p>상품 상세, 비교, 추천, 시뮬레이션, 담기, 장바구니, 주문 진입을 끊김 없는 의사결정 흐름으로 연결한다.<br/></p></li><li><span>04</span><p>AI가 구조화된 상품 지식을 기반으로 요약, 설명, Q&amp;A, 비교, 추천, 원장 카피 생성에 활용할 수 있게 한다.<br/></p></li><li><span>05</span><p>가입 가능 여부와 조건 충족 여부를 먼저 판별한 뒤 고객에게 실제로 선택 가능한 최적안을 제시한다.<br/></p></li></ul>
+    </section>
+
+    <section>
+      <h2>3. 문제 정의</h2>
+      <div class="problem-grid"><article class="tone-blue"><span>현 상태</span><p>상품/할인 정보가 플랫폼과 프로세스별로 분산 관리되고, 상품상세, 비교, 시뮬레이션, 담기, 장바구니 단계가 분절되어 있다.<br/> 고객 기준의 정확한 가격·혜택·할인 결과를 즉시 확인하기 어렵다.<br/></p></article><article class="tone-amber"><span>Pain Point</span><p>요금제, 할인, 결합, 약정, 부가서비스, 구독 혜택 구조가 복잡해 고객이 이해하기 어렵다.<br/> 변경 시 실납부액, 할인 유지 여부, 혜택 변화, 연계 상품 영향을 예측하기 어렵다.<br/></p></article><article class="tone-teal"><span>Root Cause</span><p>상품/혜택/할인 정보가 채널별·기능별로 개별 관리되어 공통 스키마와 master DB 체계가 부족하다.<br/> 탐색 구조가 조회 중심으로 설계되어 비교, 시뮬레이션, 추천, 전환이 통합되지 못했다.<br/></p></article><article class="tone-rose"><span>미해결 Risk</span><p>상품 정보 불일치와 복잡성으로 고객 이탈과 상담 의존이 확대된다.<br/> 수작업 상품 운영 비용이 증가하고 AI Agent, 생성형 검색, 개인화 추천 같은 차세대 채널 역량 확보가 제한된다.<br/></p></article></div>
+    </section>
+
+    <section>
+      <h2>4. As-Is 문제점</h2>
+      <div class="asis-grid">
+        <article class="tone-blue">
+          <div class="asis-card-head">
+            <span>01</span>
+            <b>구조 이해 어려움</b>
+          </div>
+          <div class="asis-flow">
+            <div class="asis-flow-box"><span class="asis-flow-tag">현상</span><h3>요금제·할인 구조가 복잡해 이해하기 어렵다</h3></div>
+            <span class="asis-flow-arrow" aria-hidden="true"></span>
+            <div class="asis-flow-box"><span class="asis-flow-tag">문제점</span><p>요금제, 선택약정, 결합, 부가서비스, 구독 혜택이 분리되어 안내되고 관계 설명이 부족해 가입/변경 판단이 어렵다.<br/></p></div>
+          </div>
+        </article>
+
+        <article class="tone-amber">
+          <div class="asis-card-head">
+            <span>02</span>
+            <b>변경 영향 예측 한계</b>
+          </div>
+          <div class="asis-flow">
+            <div class="asis-flow-box"><span class="asis-flow-tag">현상</span><h3>변경 전후 혜택과 요금을 예측하기 어렵다</h3></div>
+            <span class="asis-flow-arrow" aria-hidden="true"></span>
+            <div class="asis-flow-box"><span class="asis-flow-tag">문제점</span><p>요금제 변경 시 할인 유지 여부, 혜택 변화, 실납부액 차이, 우주패스 유료 전환, OTT 혜택 종료, 결합 할인 축소 등을 사전에 확인하기 어렵다.<br/></p></div>
+          </div>
+        </article>
+
+        <article class="tone-teal">
+          <div class="asis-card-head">
+            <span>03</span>
+            <b>업무 분절</b>
+          </div>
+          <div class="asis-flow">
+            <div class="asis-flow-box"><span class="asis-flow-tag">현상</span><h3>상품/할인 업무를 한 번에 처리하기 어렵다</h3></div>
+            <span class="asis-flow-arrow" aria-hidden="true"></span>
+            <div class="asis-flow-box"><span class="asis-flow-tag">문제점</span><p>요금제 변경, 약정 재가입, 결합 변경, 구독 정리를 각각 따로 수행해야 하고 조건 미충족 시 이유와 대안이 충분히 제공되지 않는다.<br/></p></div>
+          </div>
+        </article>
+        </div>
+    </section>
+
+    <section>
+      <h2>5. To-Be 흐름</h2>
+      <p class="section-intro">전환 흐름은 상품을 찾는 단계에서 끝나지 않고, 내 조건 기준의 비교와 시뮬레이션을 거쳐 가입 가능한 선택안으로 이어져야 한다.<br/></p>
+      <div class="journey-map">
+        <div class="journey-flow">
+        <article class="journey-step">
+          <span>01</span>
+          <div class="journey-step-label">
+            <b>Knowledge</b>
+            <strong>상품 지식 정리</strong>
+          </div>
+          <p>상품명, 혜택, 할인, 조건, 제한사항, 비교 항목을 공통 스키마와 master DB로 구조화한다.<br/></p>
+        </article>
+
+        <article class="journey-step">
+          <span>02</span>
+          <div class="journey-step-label">
+            <b>Explore</b>
+            <strong>상품 탐색/상세</strong>
+          </div>
+          <p>고객은 상품 상세에서 핵심 혜택, 조건, 상태, 옵션, 추천 상품을 확인한다.<br/></p>
+        </article>
+
+        <article class="journey-step">
+          <span>03</span>
+          <div class="journey-step-label">
+            <b>Compare</b>
+            <strong>비교/추천</strong>
+          </div>
+          <p>현재 이용 상품과 후보 상품을 자동 매핑하고 AI가 고객 상황에 맞는 비교 근거를 설명한다.<br/></p>
+        </article>
+
+        <article class="journey-step">
+          <span>04</span>
+          <div class="journey-step-label">
+            <b>Simulate</b>
+            <strong>시뮬레이션</strong>
+          </div>
+          <p>요금제 변경, 약정, 결합, 혜택 변화, 실납부액 차이를 고객 조건 기준으로 계산한다.<br/></p>
+        </article>
+
+        <article class="journey-step">
+          <span>05</span>
+          <div class="journey-step-label">
+            <b>Cart</b>
+            <strong>담기/장바구니</strong>
+          </div>
+          <p>옵션, 약정, 할인 적용 결과를 담기와 장바구니에서 다시 검증하고 수정한다.<br/></p>
+        </article>
+
+        <article class="journey-step">
+          <span>06</span>
+          <div class="journey-step-label">
+            <b>Decision</b>
+            <strong>가입 가능 선택</strong>
+          </div>
+          <p>가입 가능 여부와 조건 충족 여부를 반영해 실제로 선택 가능한 최적안으로 전환한다.<br/></p>
+        </article>
+        </div>
+        <div class="journey-feedback">
+          <span>↺</span>
+          <div>
+            <strong>Feedback Loop</strong>
+            <p>비교, 시뮬레이션, 추천 수용, 담기, 가입, 이탈 데이터는 다시 상품 메타데이터, 추천 기준, 비교 항목, 원장 생성 템플릿, 운영 검수 기준에 반영된다.<br/></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. 핵심 지향점·기대 효과·KPI</h2>
+      <p class="section-intro">상품/할인 과제는 지식 구조화, AI 기반 생산, 생성형 유통, 개인별 시뮬레이션, 비교 허브, 가입 가능 추천을 함께 달성해야 정책서와 구축 과제로 전환될 수 있다.<br/></p>
+      <div class="performance-board">
+        <article class="performance-card tone-blue">
+          <div class="performance-head">
+            <span>01</span>
+            <div class="performance-title-row">
+              <h3>상품 지식 자산 구조화</h3>
+              <div class="kpi-list"><span>상품 정보 탐색 이탈률</span><span>상품 정보 운영 리드타임</span></div>
+            </div>
+          </div>
+          <div class="performance-columns">
+            <div><b>To-do</b><ul><li>채널별로 분산된 상품, 혜택, 할인 정보를 공통 스키마 기준으로 표준화한다.<br/></li><li>상품명, 조건, 대상, 혜택, 제한사항, 비교 항목을 구조화한 master DB를 구축한다.<br/></li><li>상품 상세, 비교, 추천에 공통 활용 가능한 상품 메타데이터 체계를 정의한다.<br/></li><li>구조화된 상품 정보를 기반으로 AI 요약 문구, 핵심 혜택 설명, 상품 Q&amp;A 응답 템플릿을 생성한다.<br/></li></ul></div>
+            <div><b>기대 효과</b><ul><li>고객의 상품 정보 탐색 시간이 감소한다.<br/></li><li>운영자의 상품 출시 리드타임이 감소한다.<br/></li></ul></div>
+          </div>
+        </article>
+
+        <article class="performance-card tone-teal">
+          <div class="performance-head">
+            <span>02</span>
+            <div class="performance-title-row">
+              <h3>AI 기반 상품 생산 체계</h3>
+              <div class="kpi-list"><span>원장 제작 투입 MM</span><span>상세 노출 대비 주문서 인입률</span></div>
+            </div>
+          </div>
+          <div class="performance-columns">
+            <div><b>To-do</b><ul><li>상품 master DB 기반으로 배너 문구, 혜택 요약, 상품 소개 카피 자동 생성 규칙을 정의한다.<br/></li><li>원장형 상품 정보 템플릿과 이미지 생성용 프롬프트 가이드를 표준화한다.<br/></li><li>디자이너와 운영자의 제작 리소스를 검수 프로세스로 전환해 반자동 제작 체계를 구축한다.<br/></li><li>고객 특성에 따라 원장 정보가 다르게 노출되는 초개인화 구조를 검토한다.<br/></li></ul></div>
+            <div><b>기대 효과</b><ul><li>상품 원장 제작 리소스가 감소한다.<br/></li><li>상품 원장 노출 대비 주문서 인입이 상승한다.<br/></li></ul></div>
+          </div>
+        </article>
+
+        <article class="performance-card tone-amber">
+          <div class="performance-head">
+            <span>03</span>
+            <div class="performance-title-row">
+              <h3>AI 검색·생성형 유통 확장</h3>
+              <div class="kpi-list"><span>생성형 검색 경유 유입률</span><span>AI 응답 상품 활용률</span></div>
+            </div>
+          </div>
+          <div class="performance-columns">
+            <div><b>To-do</b><ul><li>LLM이 해석하기 쉬운 형태로 상품, 혜택, 할인 데이터를 구조화한다.<br/></li><li>상품 정보의 엔터티, 관계, 속성을 정의한 지식 구조를 설계한다.<br/></li><li>생성형 검색 환경에 적합한 요약형, 정답형, 비교형 데이터 포맷을 병행 관리한다.<br/></li><li>외부와 내부 AI 응답에서 활용 가능한 상품 지식 관리 기준을 수립한다.<br/></li></ul></div>
+            <div><b>기대 효과</b><ul><li>LLM 기반 상품 노출도가 증가한다.<br/></li><li>상품 지식이 채널 내부를 넘어 생성형 검색 환경에서도 활용된다.<br/></li></ul></div>
+          </div>
+        </article>
+
+        <article class="performance-card tone-rose">
+          <div class="performance-head">
+            <span>04</span>
+            <div class="performance-title-row">
+              <h3>개인별 결과 즉시 확인</h3>
+              <div class="kpi-list"><span>셀프 가입/변경 전환율</span><span>상품 관련 VOC 비중</span></div>
+            </div>
+          </div>
+          <div class="performance-columns">
+            <div><b>To-do</b><ul><li>가입, 변경, 장바구니, 주문 단계별 예상 요금 시뮬레이션을 제공한다.<br/></li><li>요금제 변경 시 실납부액, 할인 유지·소멸, 혜택 변화, 연계 상품 영향을 계산하는 로직을 정의한다.<br/></li><li>시뮬레이션 엔진을 상품, 결제, 혜택 변경 공통으로 재사용 가능한 구조로 설계한다.<br/></li></ul></div>
+            <div><b>기대 효과</b><ul><li>셀프채널에서 고객 가입/변경 전환율이 상승한다.<br/></li><li>상품 관련 VOC와 상담 의존이 감소한다.<br/></li></ul></div>
+          </div>
+        </article>
+
+        <article class="performance-card tone-blue">
+          <div class="performance-head">
+            <span>05</span>
+            <div class="performance-title-row">
+              <h3>선택 완성형 비교 허브</h3>
+              <div class="kpi-list"><span>셀프 가입/변경 전환율</span><span>상세 노출 대비 주문서 인입률</span></div>
+            </div>
+          </div>
+          <div class="performance-columns">
+            <div><b>To-do</b><ul><li>요금, 데이터, 혜택, 할인, 가입 조건, 유지 조건 등 비교 축을 표준화한다.<br/></li><li>검색, 비교, 계산, 가입을 끊김 없이 이어갈 수 있도록 핵심 화면을 재구성한다.<br/></li><li>고객의 현재 이용 상품과 후보 상품을 자동 매핑하는 비교 로직을 설계한다.<br/></li><li>AI가 고객 상황 기반으로 왜 이 상품이 더 적합한지 설명하는 비교 템플릿을 적용한다.<br/></li></ul></div>
+            <div><b>기대 효과</b><ul><li>셀프채널에서 고객 가입/변경 전환율이 상승한다.<br/></li><li>상세 노출 대비 주문서 인입률이 개선된다.<br/></li></ul></div>
+          </div>
+        </article>
+
+        <article class="performance-card tone-teal">
+          <div class="performance-head">
+            <span>06</span>
+            <div class="performance-title-row">
+              <h3>가입 가능한 최적안 추천</h3>
+              <div class="kpi-list"><span>추천 노출 대비 클릭률</span><span>추천 경유 가입 전환율</span></div>
+            </div>
+          </div>
+          <div class="performance-columns">
+            <div><b>To-do</b><ul><li>고객 세그먼트, 현재 요금제, 약정·결합 상태, 이용 패턴을 반영한 상품 추천 기준을 정의한다.<br/></li><li>가입 가능 여부와 조건 충족 여부를 먼저 판별한 뒤 추천 결과에 반영한다.<br/></li><li>대표·유사 상품 노출 방식에서 상황 맞춤형 초개인화 추천 구조로 전환한다.<br/></li></ul></div>
+            <div><b>기대 효과</b><ul><li>추천을 통한 가입/변경 전환율이 상승한다.<br/></li><li>고객이 실제로 선택 가능한 상품을 중심으로 의사결정한다.<br/></li></ul></div>
+          </div>
+        </article>
+        </div>
+    </section>
+
+    <section>
+      <h2>7. 주요 프로세스 및 기능 설명</h2>
+      <div class="process-grid">
+        <article class="process-card tone-blue">
+          <div class="process-card-head">
+            <span>01</span>
+            <div>
+              <b>Knowledge Ops</b>
+              <h3>상품 지식 등록과 운영</h3>
+            </div>
+          </div>
+          <p class="process-role">상품/혜택/할인 정보를 공통 스키마로 등록해 전시, 비교, 추천, AI 응답이 같은 지식 구조를 쓰게 한다.<br/></p>
+          <div class="process-outcome"><strong>Outcome</strong><p>상품 정보 불일치와 운영 리드타임 감소</p></div>
+          <ol class="process-steps">
+            <li><span>01</span><p>상품 기본 정보와 상품·혜택·할인 정보를 등록한다.<br/></p></li><li><span>02</span><p>상품명, 조건, 대상, 혜택, 제한사항, 비교 항목을 공통 스키마로 정리한다.<br/></p></li><li><span>03</span><p>상품 운영 정보와 상태를 관리하고 전시, 추천, 비교, 시뮬레이션에서 같은 데이터를 사용한다.<br/></p></li><li><span>04</span><p>AI가 읽을 수 있는 상품 메타데이터와 관계 정보를 유지한다.<br/></p></li>
+          </ol>
+        </article>
+
+        <article class="process-card tone-teal">
+          <div class="process-card-head">
+            <span>02</span>
+            <div>
+              <b>AI Production</b>
+              <h3>AI 전시정보 생성과 검수</h3>
+            </div>
+          </div>
+          <p class="process-role">AI가 원장 정보와 혜택 설명을 생성하고 운영자가 검수하는 반자동 상품 생산 체계로 전환한다.<br/></p>
+          <div class="process-outcome"><strong>Outcome</strong><p>원장 제작 리소스 절감과 전시 품질 표준화</p></div>
+          <ol class="process-steps">
+            <li><span>01</span><p>상품 master DB를 기반으로 AI가 원장 정보, 혜택 요약, 상품 소개 카피를 생성한다.<br/></p></li><li><span>02</span><p>기획자와 담당자는 AI 생성 결과를 검수하고 승인한다.<br/></p></li><li><span>03</span><p>원장형 상품 정보 템플릿과 이미지 생성용 프롬프트 가이드를 표준화한다.<br/></p></li><li><span>04</span><p>검수 결과와 성과 데이터를 다음 생성 규칙에 반영한다.<br/></p></li>
+          </ol>
+        </article>
+
+        <article class="process-card tone-amber">
+          <div class="process-card-head">
+            <span>03</span>
+            <div>
+              <b>Decision Hub</b>
+              <h3>상품 상세·비교·추천</h3>
+            </div>
+          </div>
+          <p class="process-role">상품 상세를 단순 조회 화면이 아니라 비교와 추천을 통해 선택을 완성하는 의사결정 허브로 만든다.<br/></p>
+          <div class="process-outcome"><strong>Outcome</strong><p>상세 노출 대비 주문서 인입률 향상</p></div>
+          <ol class="process-steps">
+            <li><span>01</span><p>고객은 상품 상세에서 상품 정보, 상품 상태, 옵션, 추천 상품을 확인한다.<br/></p></li><li><span>02</span><p>현재 이용 상품과 후보 상품을 자동 매핑해 가격, 데이터, 혜택, 할인, 가입 조건, 유지 조건을 비교한다.<br/></p></li><li><span>03</span><p>AI는 고객 상황을 기준으로 왜 이 상품이 더 적합한지 설명한다.<br/></p></li><li><span>04</span><p>공유, 비교, 추천, 담기, 가입 검토가 같은 흐름에서 이어진다.<br/></p></li>
+          </ol>
+        </article>
+
+        <article class="process-card tone-rose">
+          <div class="process-card-head">
+            <span>04</span>
+            <div>
+              <b>Simulation Flow</b>
+              <h3>시뮬레이션·담기·장바구니</h3>
+            </div>
+          </div>
+          <p class="process-role">고객 조건 기준 예상 금액과 할인 영향을 계산해 담기와 장바구니에서도 선택 결과를 유지한다.<br/></p>
+          <div class="process-outcome"><strong>Outcome</strong><p>가입/변경 전환율 향상과 VOC 감소</p></div>
+          <ol class="process-steps">
+            <li><span>01</span><p>고객 정보와 현재 가입 조건을 조회해 실시간 가격·할인 시뮬레이션을 수행한다.<br/></p></li><li><span>02</span><p>요금제 변경, 약정 선택, 결합 변화, 구독 혜택 변화가 실납부액에 미치는 영향을 계산한다.<br/></p></li><li><span>03</span><p>옵션, 약정, 담기 시뮬레이션 결과를 장바구니에 반영한다.<br/></p></li><li><span>04</span><p>장바구니 조회, 수정, 삭제 시 상품 정보와 가격·할인 시뮬레이션을 다시 검증한다.<br/></p></li>
+          </ol>
+        </article>
+        </div>
+    </section>
+
+    <section>
+      <h2>8. 정책서 작성 시 남겨야 할 판단 기준</h2>
+      <table class="policy"><tbody><tr><td>1</td><td>상품, 혜택, 할인 정보는 상품명, 대상, 조건, 혜택, 제한사항, 비교 항목, 추천 활용 여부를 포함한 공통 스키마로 관리해야 한다.<br/></td></tr><tr><td>2</td><td>요금제, 선택약정, 결합, 부가서비스, 구독 혜택의 관계와 상호 영향은 고객이 이해할 수 있는 설명 기준으로 제공해야 한다.<br/></td></tr><tr><td>3</td><td>요금제 변경 전후 실납부액, 할인 유지·소멸, 혜택 변화, 연계 상품 영향은 시뮬레이션 기준과 계산 시점을 정책으로 남겨야 한다.<br/></td></tr><tr><td>4</td><td>AI가 생성한 상품 원장, 혜택 요약, 비교 설명, Q&amp;A 답변은 운영자 검수·승인·회수·롤백 기준을 가져야 한다.<br/></td></tr><tr><td>5</td><td>상품 비교 항목은 요금, 데이터, 혜택, 할인, 가입 조건, 유지 조건처럼 고객 선택에 영향을 주는 축으로 표준화해야 한다.<br/></td></tr><tr><td>6</td><td>추천은 대표 상품 노출이 아니라 고객 상태, 현재 요금제, 약정·결합 상태, 이용 패턴, 가입 가능 여부를 반영한 선택 가능한 최적안이어야 한다.<br/></td></tr><tr><td>7</td><td>담기와 장바구니에서는 옵션, 약정, 상품 상태, 할인 조건 변경 시 가격·혜택·가입 가능 여부를 다시 계산해야 한다.<br/></td></tr><tr><td>8</td><td>상품·할인 지식은 전시, AI 추천, 주문, 청구 예측에서 같은 조건과 제한 기준으로 재사용되어야 한다.<br/></td></tr><tr><td>9</td><td>상품 추천 결과는 가입 가능 여부, 비용 영향, 고객 동의 상태, 직접 비교 경로를 함께 제공해야 한다.<br/></td></tr></tbody></table>
+    </section>
+
+    <section>
+      <h2>9. 요구사항/정책서로 전환할 때의 핵심 질문</h2>
+      <table class="question-table">
+        <thead><tr><th>영역</th><th>결정 질문</th><th>정책 산출물</th></tr></thead>
+        <tbody><tr><th>상품 지식</th><td>상품, 혜택, 할인, 조건, 제한사항을 어떤 공통 스키마와 master DB 기준으로 관리할 것인가?</td><td>상품 지식 스키마, master DB 운영 정책</td></tr><tr><th>AI 생성</th><td>AI가 생성한 원장 카피, 혜택 요약, Q&amp;A 응답을 누가 어떤 기준으로 검수하고 승인할 것인가?</td><td>AI 생성물 검수·승인·회수 정책</td></tr><tr><th>비교 기준</th><td>요금, 데이터, 혜택, 할인, 가입 조건, 유지 조건 중 어떤 항목을 비교 필수 축으로 둘 것인가?</td><td>상품 비교 항목 표준 정책</td></tr><tr><th>시뮬레이션</th><td>요금제 변경, 약정, 결합, 구독 혜택 변화가 실납부액에 미치는 영향을 언제 어떤 기준으로 계산할 것인가?</td><td>가격·할인 시뮬레이션 계산 정책</td></tr><tr><th>추천</th><td>추천 결과가 고객에게 실제 가입 가능한 상품인지 어떤 순서로 판별할 것인가?</td><td>가입 가능 여부 선판정, 추천 우선순위 정책</td></tr><tr><th>담기/장바구니</th><td>옵션, 약정, 상품 상태, 할인 조건이 바뀔 때 장바구니 금액과 혜택을 어떻게 재계산할 것인가?</td><td>담기·장바구니 재계산 및 상태 변경 정책</td></tr><tr><th>생성형 검색</th><td>LLM과 생성형 검색이 상품 정보를 사용할 때 어떤 요약형·정답형·비교형 데이터를 제공할 것인가?</td><td>AI readable data, 생성형 검색 유통 정책</td></tr><tr><th>상품 지식</th><td>상품 조건과 할인 기준을 AI, 전시, 주문, 청구가 함께 사용하는 구조로 어떻게 관리할 것인가?</td><td>상품 지식 모델, 검수·배포 정책</td></tr><tr><th>비교 기준</th><td>추천·비교·예상 금액·청구 예측의 계산 기준을 어떻게 일치시킬 것인가?</td><td>비교·시뮬레이션 기준 정책</td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

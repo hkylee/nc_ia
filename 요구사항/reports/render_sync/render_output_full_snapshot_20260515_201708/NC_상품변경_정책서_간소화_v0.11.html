@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>상품변경 정책서 간소화 버전 v0.11</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+  }
+  .page {
+    width: 1180px;
+    margin: 28px auto;
+    background: #fff;
+    padding: 52px 60px 64px 60px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    border-radius: 12px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+    letter-spacing: .2px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 1.35;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 42px 0 14px 0;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 18px 0 8px 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 16px 0 8px 0;
+    font-weight: 700;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-bottom: 14px;
+  }
+  th, td {
+    border: 1px solid #d9dde3;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  th {
+    background: #f3f5f7;
+    font-weight: 600;
+  }
+  .meta th { width: 170px; }
+  .box {
+    border: 1px solid #d9dde3;
+    background: #fff;
+    padding: 16px 18px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+  li {
+    margin: 4px 0;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .small {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .center {
+    text-align: center;
+    font-weight: 600;
+  }
+  .plain-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 6px 0 12px 0;
+  }
+  .principle-text {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+  .guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .guide-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .guide-section-title {
+    font-weight: 700;
+    color: #111827;
+    margin: 10px 0 2px 0;
+  }
+  .guide-example {
+    border-left: 3px solid #b9c2d0;
+    padding-left: 10px;
+    margin: 7px 0;
+    color: #4b5563;
+  }
+  .diagram-wrap {
+    border: 1px dashed #b9c2d0;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 12px 0 18px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .policy-group {
+    margin: 22px 0 30px 0;
+    padding-top: 2px;
+  }
+  .policy-item {
+    padding: 10px 0 12px 0;
+    margin: 0;
+  }
+  .policy-item-title {
+    font-weight: 700;
+    line-height: 1.55;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .policy-item-title .mono {
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .policy-item-content {
+    line-height: 1.65;
+    font-size: 14px;
+    word-break: keep-all;
+    color: #111827;
+    padding-left: 12px;
+  }
+  .policy-detail-guide {
+    border: 1px solid #d9dde3;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 13px 15px;
+    margin: 10px 0 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .todo { color: #6b7280; }
+  table,
+  table th,
+  table td,
+  table td *,
+  table th *,
+  table li,
+  table .mono {
+    font-size: 14px !important;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+</style>
+<style>
+.diagram-wrap { overflow-x: auto; }
+.diagram-wrap > svg { display: block; max-width: none; }
+.diagram-wrap .mermaid { min-width: 720px; margin: 0; padding: 18px; border-radius: 12px; background: #fbfcff; }
+.state-transition-mermaid .mermaid { min-width: 980px; padding: 24px 28px; }
+.diagram-wrap .mermaid svg { max-width: none; }
+.diagram-caption { margin: 0 0 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.diagram-fallback { margin: 8px 0 0; padding: 16px 18px; border: 1px dashed #bfdbfe; border-radius: 12px; background: #f8fbff; color: #1f2937; white-space: pre-wrap; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.diagram-static { margin: 10px 0 16px; padding: 18px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.diagram-static-title { margin: 0 0 14px; color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-viewer-wrap { margin: 12px 0 18px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%, #eef6ff 100%); color: #0f172a; overflow-x: auto; }
+.bpmn-viewer-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+.bpmn-viewer-title { color: #2563eb; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.bpmn-download-button { border: 1px solid #bfdbfe; border-radius: 999px; background: #fff; color: #2563eb; cursor: pointer; font-size: 12px; font-weight: 800; padding: 8px 12px; }
+.bpmn-viewer { display: none; width: 100%; min-width: 760px; height: 520px; border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; }
+.bpmn-viewer-wrap.is-rendered .bpmn-viewer { display: block; }
+.bpmn-viewer-wrap.is-rendered .bpmn-fallback { display: none; }
+.bpmn-fallback { margin-top: 10px; }
+.bpmn-process-diagram { min-height: 0; padding: 14px 16px; align-items: flex-start; justify-content: flex-start; }
+.bpmn-process-diagram > svg { display: block; height: auto; }
+.static-boundary { min-width: 760px; padding: 16px; border: 1px dashed #bfdbfe; border-radius: 14px; background: rgba(255,255,255,.72); }
+.static-lane { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+.static-actor, .static-state, .static-task, .static-usecase, .static-system, .static-empty { box-sizing: border-box; border-radius: 14px; border: 1px solid #dbe3ef; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.static-actor { flex: 0 0 150px; padding: 13px 14px; border-color: #fed7aa; background: #fff7ed; color: #7c2d12; font-weight: 800; text-align: center; }
+.static-system { flex: 0 0 150px; padding: 13px 14px; border-color: #cbd5e1; background: #f8fafc; color: #334155; font-weight: 800; text-align: center; }
+.static-usecases, .static-flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-width: 0; }
+.static-usecase { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+.static-state { min-width: 150px; padding: 12px 14px; border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; font-weight: 800; text-align: center; }
+.static-task { min-width: 170px; max-width: 240px; padding: 12px 14px; border-color: #a7f3d0; background: #ecfdf5; color: #065f46; font-weight: 800; }
+.static-gateway { padding: 10px 12px; border: 1px solid #fcd34d; border-radius: 12px; background: #fffbeb; color: #92400e; font-weight: 800; }
+.static-arrow { flex: 0 0 auto; color: #2563eb; font-weight: 900; }
+.static-note { display: block; margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 600; line-height: 1.45; }
+.static-empty { padding: 18px; color: #64748b; text-align: center; }
+.usecase-list-table,
+.state-code-table,
+.state-transition-table,
+.process-list-table,
+.function-list-table,
+.policy-list-table { table-layout: fixed; }
+.usecase-list-table th:nth-child(1), .usecase-list-table td:nth-child(1) { width: 15% !important; }
+.usecase-list-table th:nth-child(2), .usecase-list-table td:nth-child(2) { width: 13% !important; }
+.usecase-list-table th:nth-child(3), .usecase-list-table td:nth-child(3) { width: 19% !important; }
+.usecase-list-table th:nth-child(4), .usecase-list-table td:nth-child(4) { width: 38% !important; }
+.usecase-list-table th:nth-child(5), .usecase-list-table td:nth-child(5) { width: 15% !important; }
+.state-code-table th:nth-child(1), .state-code-table td:nth-child(1) { width: 16% !important; }
+.state-code-table th:nth-child(2), .state-code-table td:nth-child(2) { width: 16% !important; }
+.state-code-table th:nth-child(3), .state-code-table td:nth-child(3) { width: 42% !important; }
+.state-code-table th:nth-child(4), .state-code-table td:nth-child(4) { width: 26% !important; }
+.state-transition-table th:nth-child(1), .state-transition-table td:nth-child(1) { width: 16% !important; }
+.state-transition-table th:nth-child(2), .state-transition-table td:nth-child(2) { width: 22% !important; }
+.state-transition-table th:nth-child(3), .state-transition-table td:nth-child(3) { width: 16% !important; }
+.state-transition-table th:nth-child(4), .state-transition-table td:nth-child(4) { width: 46% !important; }
+.meta th { width: 180px !important; }
+.meta td { width: auto !important; }
+.process-list-table th:nth-child(1), .process-list-table td:nth-child(1) { width: 16% !important; }
+.process-list-table th:nth-child(2), .process-list-table td:nth-child(2) { width: 18% !important; }
+.process-list-table th:nth-child(3), .process-list-table td:nth-child(3) { width: 25% !important; }
+.process-list-table th:nth-child(4), .process-list-table td:nth-child(4) { width: 22% !important; }
+.process-list-table th:nth-child(5), .process-list-table td:nth-child(5) { width: 19% !important; }
+.function-list-table th:nth-child(1), .function-list-table td:nth-child(1),
+.policy-list-table th:nth-child(1), .policy-list-table td:nth-child(1) { width: 16% !important; }
+.function-list-table th:nth-child(2), .function-list-table td:nth-child(2),
+.policy-list-table th:nth-child(2), .policy-list-table td:nth-child(2) { width: 18% !important; }
+.function-list-table th:nth-child(3), .function-list-table td:nth-child(3),
+.policy-list-table th:nth-child(3), .policy-list-table td:nth-child(3) { width: 32% !important; }
+.function-list-table th:nth-child(4), .function-list-table td:nth-child(4),
+.policy-list-table th:nth-child(4), .policy-list-table td:nth-child(4) { width: 34% !important; }
+.policy-group { margin: 6px 0 22px; }
+.policy-item { margin: 0 0 16px; }
+.policy-item + .policy-item { margin-top: 14px; }
+.policy-item-title { margin: 0 0 6px; font-weight: 700; line-height: 1.55; }
+.policy-item-content { margin: 0 0 0 18px; padding-left: 12px; border-left: 2px solid #e5edf7; color: #111827; line-height: 1.72; }
+.policy-item-line { display: block; margin: 3px 0; }
+.diagram-wrap.mermaid-diagram { display: none; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered { display: block; }
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback-html,
+.diagram-wrap.mermaid-diagram.mermaid-rendered + .diagram-fallback { display: none; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+<script>
+(function () {
+  function markRenderedMermaidBlocks() {
+    var renderedCount = 0;
+    document.querySelectorAll(".diagram-wrap.mermaid-diagram").forEach(function (wrap) {
+      var hasSvg = !!wrap.querySelector("svg");
+      var hasError = !!wrap.querySelector(".error-icon, .mermaid-error")
+        || /syntax error|parse error/i.test(wrap.textContent || "");
+      if (hasSvg && !hasError) {
+        wrap.classList.add("mermaid-rendered");
+        renderedCount += 1;
+      } else {
+        wrap.classList.remove("mermaid-rendered");
+      }
+    });
+    return renderedCount;
+  }
+  function renderMermaid() {
+    if (!window.mermaid || !document.querySelector(".mermaid")) {
+      return;
+    }
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "default",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      Promise.resolve(window.mermaid.run({ querySelector: ".mermaid" }))
+        .then(function () {
+          markRenderedMermaidBlocks();
+        })
+        .catch(function (error) {
+          if (!markRenderedMermaidBlocks()) {
+            console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+          }
+        });
+    } catch (error) {
+      if (!markRenderedMermaidBlocks()) {
+        console.warn("Mermaid render failed. Diagram fallback is displayed.", error);
+      }
+    }
+    window.setTimeout(markRenderedMermaidBlocks, 800);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+(function () {
+  function readBpmnPayload(sourceId) {
+    var source = document.getElementById(sourceId);
+    if (!source) {
+      return "";
+    }
+    try {
+      var payload = JSON.parse(source.textContent || "{}");
+      return payload.xml || "";
+    } catch (error) {
+      console.warn("BPMN payload parse failed.", error);
+      return "";
+    }
+  }
+  function renderBpmnViewers() {
+    var containers = document.querySelectorAll("[data-bpmn-viewer]");
+    if (!containers.length || !window.BpmnJS) {
+      return;
+    }
+    containers.forEach(function (container) {
+      var wrap = container.closest(".bpmn-viewer-wrap");
+      var xml = readBpmnPayload(container.getAttribute("data-bpmn-source-id"));
+      if (!xml) {
+        return;
+      }
+      try {
+        var viewer = new window.BpmnJS({ container: container });
+        viewer.importXML(xml).then(function () {
+          var canvas = viewer.get("canvas");
+          canvas.zoom("fit-viewport");
+          if (wrap) {
+            wrap.classList.add("is-rendered");
+          }
+        }).catch(function (error) {
+          if (wrap) {
+            wrap.classList.add("is-failed");
+          }
+          console.warn("BPMN render failed. Static fallback is displayed.", error);
+        });
+      } catch (error) {
+        if (wrap) {
+          wrap.classList.add("is-failed");
+        }
+        console.warn("BPMN render failed. Static fallback is displayed.", error);
+      }
+    });
+  }
+  function bindBpmnDownload() {
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-bpmn-download]");
+      if (!button) {
+        return;
+      }
+      var xml = readBpmnPayload(button.getAttribute("data-bpmn-download"));
+      if (!xml) {
+        return;
+      }
+      var blob = new Blob([xml], { type: "application/xml;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = button.getAttribute("data-bpmn-file") || "process.bpmn";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      renderBpmnViewers();
+      bindBpmnDownload();
+    });
+  } else {
+    renderBpmnViewers();
+    bindBpmnDownload();
+  }
+})();
+</script>
+</head>
+<body>
+<div class="page">
+
+<div class="eyebrow">통합채널 정책서 간소화 버전</div>
+<h1>상품변경 정책서</h1>
+<table class="meta">
+<tr><th>정책서 ID</th><td class="mono">POL-CHG</td></tr>
+<tr><th>문서 구분</th><td>간소화 버전</td></tr>
+<tr><th>문서 상태</th><td>작성중</td></tr>
+<tr><th>버전</th><td class="mono">v0.11</td></tr>
+<tr><th>작성자</th><td>SK Telecom 플랫폼기획 2팀 / Codex</td></tr>
+<tr><th>작성일</th><td>2026-05-09</td></tr>
+<tr><th>작성 기준</th><td>상세 요구사항 39건은 변경 가능성과 영향 비교, 상품 변경 신청, 예약 변경, 구독·옵션 변경, 진행 조회와 실패 복구 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했다.<br/>PM-16 상품변경 관련 상세 요구사항명과 상세 요구사항 설명을 기준으로 재구성했다.<br/>상품변경 Topic Knowledge의 지향점, 주요 프로세스 및 기능, must_not 기준을 작성 작전서로 사용했다.<br/>유즈케이스는 고객·운영자 완결 업무 단위로 묶고, 프로세스는 조건 판정·요청 접수·반영·복구 단계로 분해했다.<br/></td></tr>
+</table>
+
+<h2>0. 문서 히스토리</h2>
+<table>
+<thead><tr><th style="width: 90px;">버전</th><th>변경 내용</th><th style="width: 120px;">변경일자</th><th style="width: 180px;">변경자</th></tr></thead>
+<tbody><tr><td>v0.10</td><td>Codex 기반 초안 작성</td><td>2026-05-10</td><td>Codex</td></tr><tr><td>v0.11</td><td>품질 검수 및 구조 보완 반영</td><td>2026-05-11</td><td>Codex</td></tr><tr><td>v0.11</td><td>bpmn.io viewer 산출물 생성 및 문서 재렌더링</td><td>2026-05-15</td><td>Codex</td></tr></tbody>
+</table>
+
+<h2>1. 개요</h2>
+<h3>가. 범위</h3>
+<p class="plain-text">• 본 정책서는 통합채널에서 고객이 기존 상품 조건을 변경하는 업무 기준을 정의한다.<br/></p><p class="plain-text">• 포함 범위는 요금제 변경, 선택형 혜택·옵션 변경, 구독 해지·일시정지·재개, 예약 변경, USIM/eSIM 재발급, 상품 일시정지, 약정 동시 처리, 변경 실패 복구를 포함한다.<br/></p><p class="plain-text">• 변경 가능 여부, 불가 사유, 비용·혜택·약정 영향, 적용 시점, 예약·철회 기준, BSS 반영 결과는 고객에게 사전에 설명되어야 한다.<br/></p><p class="plain-text">• 신규 가입, 주문 생성, 배송·교환·반품, 결제 승인 자체, 멤버십 혜택 사용은 인접 정책서에서 다루며 본 문서는 변경으로 인한 영향과 연결 기준만 정의한다.<br/></p><p class="plain-text">• API 필드, DB 컬럼, 운영자 화면 상세, 배치 설계는 후속 상세 설계에서 다루고 본 문서는 정책 판단에 필요한 기준만 포함한다.<br/></p><p class="plain-text">• 채널 업무 시스템은 변경 조건 안내, 영향 비교, 신청 접수, 고객 표시 상태를 책임지고 상품 변경 연계 시스템은 변경 가능성, 약정·혜택 영향, BSS 반영 결과를 책임진다.<br/></p><p class="plain-text">• 고객 표시 상태는 변경 가능, 영향 확인 필요, 예약 변경 대기, 변경 처리 중, 변경 완료, 보완·복구 필요로 안내하고 내부 상태는 조건 판정, 예약 충돌, 원장 반영, 실패 이력으로 분리한다.<br/></p><p class="plain-text">• 통합 리스크는 상품 변경 연계 시스템 응답 지연, 예약 변경 충돌, 약정·혜택 계산 불일치, 채널 간 상태 캐시 차이이며 고객에게는 재확인 필요 또는 복구 진행 상태로 표시한다.<br/></p><p class="plain-text">• 상세 요구사항 39건은 변경 가능성과 영향 비교, 상품 변경 신청, 예약 변경, 구독·옵션 변경, 진행 조회와 실패 복구 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했다.<br/></p>
+<h3>나. 설계 원칙</h3>
+<p class="principle-text">• 고객 영향 선고지: 변경으로 잃고 얻는 혜택, 비용, 약정, 적용 시점을 고객이 신청 전에 이해하도록 구성한다.<br/></p><p class="principle-text">• 셀프 처리 우선: 고객이 앱·웹에서 직접 완료할 수 있는 변경은 상담 전환보다 셀프 경로를 우선 제공한다.<br/></p><p class="principle-text">• 변경 가능성 명확화: 가능 여부뿐 아니라 불가 사유, 다음 가능일, 대체 변경안을 함께 제공한다.<br/></p><p class="principle-text">• BSS 판정 통합: 요금·혜택·약정·구독·일시정지 상태처럼 BSS 판정이 필요한 기준은 프로세스와 정책에 함께 반영한다.<br/></p><p class="principle-text">• 실패 복구 내장: 인증 만료, 예약 충돌, 연계 실패, 보류 상태에서 고객이 다음 행동을 선택할 수 있게 한다.<br/></p><p class="principle-text">• 운영 기준 분리: 예외 승인, 보류, 반려, 실패 모니터링 기준은 운영자가 관리하되 고객에게는 이해 가능한 사유로 노출한다.<br/></p>
+
+<h2>2. 주요 용어</h2>
+<p class="plain-text">본 장의 용어는 정책서 전반에서 동일한 의미로 사용한다.<br/>용어는 단순 설명이 아니라 프로세스, 기능, 정책 판단에 쓰이는 기준으로 정의한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">용어 ID</th><th style="width: 220px;">용어</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">TM-CHG-001</td><td>변경 가능 조건</td><td>고객 상태, 상품 상태, 약정, 미납, 배송·설치 단계, 제휴 조건, 변경 횟수 제한을 모두 고려해 셀프 변경 허용 여부를 판단하는 기준이다.<br/></td></tr><tr><td class="mono">TM-CHG-002</td><td>영향도 비교</td><td>변경 전후 비용, 할인, 혜택, 약정, 구독, 자동선물, 청구 시점을 고객이 신청 전에 비교할 수 있게 제공하는 정보다.<br/></td></tr><tr><td class="mono">TM-CHG-003</td><td>즉시 변경</td><td>고객 확인과 인증 후 BSS 반영이 성공하면 즉시 변경 후 조건으로 전환되는 처리 방식이다.<br/></td></tr><tr><td class="mono">TM-CHG-004</td><td>예약 변경</td><td>청구 주기, 갱신일, 고객 선택일에 맞춰 미래 시점에 자동 반영되도록 등록하는 변경 방식이다.<br/></td></tr><tr><td class="mono">TM-CHG-005</td><td>변경 제한</td><td>고객이 요청한 변경이 정책 조건을 충족하지 않아 셀프 접수를 차단하거나 상담 전환해야 하는 상태다.<br/></td></tr><tr><td class="mono">TM-CHG-006</td><td>예약 충돌</td><td>동일 회선·상품군·구독에 이미 등록된 예약 변경과 신규 요청이 동시에 적용될 수 없는 상태다.<br/></td></tr><tr><td class="mono">TM-CHG-007</td><td>처리 보류</td><td>고객 요청은 접수되었지만 운영 승인, 제휴사 응답, 원장 정합성 확인이 필요해 완료 전 상태로 유지되는 상태다.<br/></td></tr><tr><td class="mono">TM-CHG-008</td><td>상담 전환</td><td>셀프 처리로 완료할 수 없는 변경 요청을 상담사가 기존 선택값과 실패 사유를 이어받아 처리하는 흐름이다.<br/></td></tr><tr><td class="mono">TM-CHG-009</td><td>일시정지</td><td>고객이 지정한 기간 동안 상품 또는 회선 사용을 제한하고 종료일 또는 조기 해제 조건에 따라 복구하는 변경성 업무다.<br/></td></tr><tr><td class="mono">TM-CHG-010</td><td>원장 반영</td><td>BSS가 상품, 요금, 혜택, 약정, 구독 상태를 변경 후 기준으로 저장하고 채널에 결과를 회신하는 처리다.<br/></td></tr></tbody>
+</table>
+
+<h2>3. 유즈케이스 정의</h2>
+<h3>가. 액터</h3>
+<p class="plain-text">액터는 독립 책임 주체만 정의한다.<br/>로그인 고객, 비로그인 고객, 정상 고객, 제한 고객처럼 같은 고객의 상태 차이는 액터로 분리하지 않고 상태와 정책 조건에서 관리한다.<br/></p>
+<table>
+<thead><tr><th style="width: 130px;">액터 ID</th><th style="width: 170px;">액터명</th><th>설명</th></tr></thead>
+<tbody><tr><td class="mono">ACT-CHG-001</td><td>고객</td><td>현재 상품, 요금제, 옵션, 구독, 일시정지 상태를 확인하고 변경을 신청·예약·철회하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CHG-002</td><td>법정대리인</td><td>미성년 회선 변경, 결제 영향, 약정 영향에 대해 권한 확인과 동의 결과를 제공하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CHG-003</td><td>운영자</td><td>변경 가능 조건, 예외 허용, 승인·보류·반려 기준, 실패 모니터링 기준을 관리하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CHG-004</td><td>상담사</td><td>셀프 처리 불가 또는 실패 상태에서 고객 문맥을 이어받아 대체 처리와 안내를 수행하는 주체다.<br/></td></tr><tr><td class="mono">ACT-CHG-005</td><td>채널 업무 시스템</td><td>변경 후보 조회, 가능 여부 판정, 영향도 산정, 요청 접수, 고객 고지와 진행 상태 제공을 수행하는 시스템이다.<br/></td></tr><tr><td class="mono">ACT-CHG-006</td><td>상품 변경 연계 시스템</td><td>요금제·부가서비스·구독·약정·혜택 상태를 BSS 기준 정보와 연계해 변경 가능 여부, 반영 결과, 실패 사유를 회신하는 시스템이다.<br/></td></tr></tbody>
+</table>
+
+<h3>나. 유즈케이스</h3>
+<p class="plain-text">고객과 운영자가 직접 수행하는 유즈케이스는 프로세스 정의 대상으로 관리한다.<br/>BSS와 연계 시스템의 조회·검증·저장 처리는 고객 또는 운영자 프로세스를 지원하는 보조 유즈케이스로 관리한다.<br/></p>
+<table class="usecase-list-table">
+<thead><tr><th style="width: 150px;">유즈케이스 ID</th><th style="width: 140px;">액터</th><th style="width: 190px;">유즈케이스명</th><th>설명</th><th style="width: 110px;">프로세스 정의 대상</th></tr></thead>
+<tbody><tr><td class="mono">US-CHG-CUS-001</td><td>고객</td><td>변경 가능성과 영향 비교</td><td>고객이 변경 가능한 상품과 불가 사유, 비용·혜택·약정 영향을 비교해 진행 여부를 결정한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-CUS-002</td><td>고객</td><td>상품 변경 신청과 결과 확정</td><td>고객이 즉시 또는 예약 방식으로 상품 변경을 신청하고 적용 결과와 후속 조치를 확인한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-CUS-003</td><td>고객</td><td>예약 변경과 충돌 해소</td><td>고객이 예약 변경을 등록·수정·철회하고 기존 예약이나 청구 주기와 충돌할 때 해결 경로를 선택한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-CUS-004</td><td>고객</td><td>구독·옵션·일시정지 관리</td><td>고객이 구독, 옵션상품, 일시정지, USIM/eSIM 재발급 등 변경성 부가 업무를 한 흐름에서 처리한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-CUS-005</td><td>고객</td><td>변경 진행 조회와 실패 복구</td><td>고객이 접수된 변경 요청의 상태를 조회하고 실패·보류·제한 상태에서 재시도 또는 상담 전환을 수행한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-REP-001</td><td>법정대리인</td><td>미성년 회선 변경 동의</td><td>법정대리인이 미성년 회선 변경에 필요한 권한과 동의 결과를 제공해 변경 가능 여부를 확정한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-OPR-001</td><td>운영자</td><td>변경 기준과 예외 운영</td><td>운영자가 셀프 가능 조건, 예외 승인, 지연·실패 모니터링 기준을 관리해 변경 업무 품질을 통제한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-CS-001</td><td>상담사</td><td>셀프 불가 변경 상담 지원</td><td>상담사가 고객이 중단한 변경 문맥을 이어받아 가능한 대체 경로와 재처리 결과를 안내한다.<br/></td><td class="center">Y</td></tr><tr><td class="mono">US-CHG-SYS-001</td><td>채널 업무 시스템</td><td>변경 조건과 영향 산정</td><td>채널 업무 시스템이 변경 가능 조건, 비용, 혜택, 약정, 예약 가능일, 실패 사유를 산정한다.<br/></td><td class="center">N</td></tr><tr><td class="mono">US-CHG-BSS-001</td><td>상품 변경 연계 시스템</td><td>변경 반영과 결과 회신</td><td>상품 변경 연계 시스템이 변경 요청을 원장·구독·혜택·주문·결제 상태에 반영하고 처리 결과를 회신한다.<br/></td><td class="center">N</td></tr></tbody>
+</table>
+
+<h3>다. 유즈케이스 다이어그램</h3>
+<p class="plain-text">샘플 정책서의 UML Use Case Diagram 표기 기준에 따라 액터, 시스템 경계, 유즈케이스, association 관계로 표현한다.<br/></p>
+<div class="diagram-wrap uml-usecase-diagram"><svg aria-label="상품변경 유즈케이스 다이어그램" height="902" role="img" viewBox="0 0 1120 902" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><style>.sysbox { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.actor-line { stroke:#4f5b6a; stroke-width:2; fill:none; }.system-actor-line { stroke:#64748b; stroke-width:2; fill:none; }.actor-text { font:14px Arial, 'Malgun Gothic', sans-serif; fill:#222; font-weight:700; }.title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.uc { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.5; }.uc-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.uc-sub { font:11px 'Courier New', 'Malgun Gothic', monospace; fill:#667085; }.conn { stroke:#8a94a6; stroke-width:1.4; fill:none; }.legend { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#5b6472; }</style></defs><rect class="sysbox" height="820" rx="12" ry="12" width="540" x="290" y="36"></rect><text class="title" text-anchor="middle" x="560" y="61">상품변경 업무 시스템</text><line class="conn" x1="144" x2="442" y1="172" y2="115"></line><line class="conn" x1="144" x2="442" y1="172" y2="187"></line><line class="conn" x1="144" x2="442" y1="172" y2="259"></line><line class="conn" x1="144" x2="442" y1="172" y2="331"></line><line class="conn" x1="144" x2="442" y1="172" y2="403"></line><line class="conn" x1="144" x2="442" y1="376" y2="475"></line><line class="conn" x1="144" x2="442" y1="580" y2="547"></line><line class="conn" x1="144" x2="442" y1="784" y2="619"></line><line class="conn" x1="678" x2="976" y1="691" y2="172"></line><line class="conn" x1="678" x2="976" y1="763" y2="784"></line><ellipse class="uc" cx="560" cy="115" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="112">변경 가능성과 영향 비교</text><text class="uc-sub" text-anchor="middle" x="560" y="137">US-CHG-CUS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="187" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="184">상품 변경 신청과 결과 확정</text><text class="uc-sub" text-anchor="middle" x="560" y="209">US-CHG-CUS-002 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="259" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="256">예약 변경과 충돌 해소</text><text class="uc-sub" text-anchor="middle" x="560" y="281">US-CHG-CUS-003 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="331" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="328">구독·옵션·일시정지 관리</text><text class="uc-sub" text-anchor="middle" x="560" y="353">US-CHG-CUS-004 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="403" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="400">변경 진행 조회와 실패 복구</text><text class="uc-sub" text-anchor="middle" x="560" y="425">US-CHG-CUS-005 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="475" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="472">미성년 회선 변경 동의</text><text class="uc-sub" text-anchor="middle" x="560" y="497">US-CHG-REP-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="547" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="544">변경 기준과 예외 운영</text><text class="uc-sub" text-anchor="middle" x="560" y="569">US-CHG-OPR-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="619" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="616">셀프 불가 변경 상담 지원</text><text class="uc-sub" text-anchor="middle" x="560" y="641">US-CHG-CS-001 · 프로세스 Y</text><ellipse class="uc" cx="560" cy="691" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="688">변경 조건과 영향 산정</text><text class="uc-sub" text-anchor="middle" x="560" y="713">US-CHG-SYS-001 · 프로세스 N</text><ellipse class="uc" cx="560" cy="763" rx="118" ry="31"></ellipse><text class="uc-text" text-anchor="middle" x="560" y="760">변경 반영과 결과 회신</text><text class="uc-sub" text-anchor="middle" x="560" y="785">US-CHG-BSS-001 · 프로세스 N</text><circle class="actor-line" cx="112" cy="120" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="138" y2="185"></line><line class="actor-line" x1="86" x2="138" y1="155" y2="155"></line><line class="actor-line" x1="112" x2="92" y1="185" y2="220"></line><line class="actor-line" x1="112" x2="132" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="112" y="246">고객</text><circle class="actor-line" cx="112" cy="324" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="342" y2="389"></line><line class="actor-line" x1="86" x2="138" y1="359" y2="359"></line><line class="actor-line" x1="112" x2="92" y1="389" y2="424"></line><line class="actor-line" x1="112" x2="132" y1="389" y2="424"></line><text class="actor-text" text-anchor="middle" x="112" y="450">법정대리인</text><circle class="actor-line" cx="112" cy="528" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="546" y2="593"></line><line class="actor-line" x1="86" x2="138" y1="563" y2="563"></line><line class="actor-line" x1="112" x2="92" y1="593" y2="628"></line><line class="actor-line" x1="112" x2="132" y1="593" y2="628"></line><text class="actor-text" text-anchor="middle" x="112" y="654">운영자</text><circle class="actor-line" cx="112" cy="732" r="18"></circle><line class="actor-line" x1="112" x2="112" y1="750" y2="797"></line><line class="actor-line" x1="86" x2="138" y1="767" y2="767"></line><line class="actor-line" x1="112" x2="92" y1="797" y2="832"></line><line class="actor-line" x1="112" x2="132" y1="797" y2="832"></line><text class="actor-text" text-anchor="middle" x="112" y="858">상담사</text><circle class="system-actor-line" cx="1008" cy="120" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="138" y2="185"></line><line class="system-actor-line" x1="982" x2="1034" y1="155" y2="155"></line><line class="system-actor-line" x1="1008" x2="988" y1="185" y2="220"></line><line class="system-actor-line" x1="1008" x2="1028" y1="185" y2="220"></line><text class="actor-text" text-anchor="middle" x="1008" y="246">채널 업무 시스템</text><circle class="system-actor-line" cx="1008" cy="732" r="18"></circle><line class="system-actor-line" x1="1008" x2="1008" y1="750" y2="797"></line><line class="system-actor-line" x1="982" x2="1034" y1="767" y2="767"></line><line class="system-actor-line" x1="1008" x2="988" y1="797" y2="832"></line><line class="system-actor-line" x1="1008" x2="1028" y1="797" y2="832"></line><text class="actor-text" text-anchor="middle" x="1008" y="851">상품 변경 연계</text><text class="actor-text" text-anchor="middle" x="1008" y="866">시스템</text><text class="legend" x="304" y="876">※ 화면 이동·버튼 클릭은 제외하고, 액터가 완결하는 업무와 시스템 보조 처리를 연결합니다.</text></svg></div>
+
+<h3>라. 상태 전이표</h3>
+<p class="plain-text">본 장은 주요 상태와 상태 전이 기준을 정의한다.<br/>상태 전이표에서 사용하는 상태명은 상태 코드 목록의 상태명과 일치해야 한다.<br/></p>
+<h4>1) 상태 코드</h4>
+<table class="state-code-table">
+<thead><tr><th style="width: 160px;">상태 코드</th><th style="width: 150px;">상태명</th><th>정의</th><th style="width: 230px;">대표 후속 처리</th></tr></thead>
+<tbody><tr><td class="mono">ST-CHG-001</td><td>변경 전</td><td>고객이 변경 대상을 선택하기 전의 기본 상태다.<br/></td><td>변경 대상을 선택하고 현재 상품·회선 상태를 조회한다.<br/></td></tr><tr><td class="mono">ST-CHG-002</td><td>변경 가능</td><td>대상 상품과 고객 조건이 셀프 변경 허용 기준을 충족한 상태다.<br/></td><td>변경 전후 영향 비교를 확인하고 변경 항목을 선택한다.<br/></td></tr><tr><td class="mono">ST-CHG-003</td><td>변경 제한</td><td>약정, 미납, 배송·설치 단계, 제휴 조건, 횟수 제한 등으로 셀프 변경이 제한된 상태다.<br/></td><td>불가 사유, 다음 가능일, 대체 변경안 또는 상담 전환 경로를 확인한다.<br/></td></tr><tr><td class="mono">ST-CHG-004</td><td>영향 확인 완료</td><td>비용, 혜택, 약정, 구독, 자동선물, 청구 영향이 고객에게 표시되고 확인된 상태다.<br/></td><td>즉시 변경, 예약 변경, 대체 변경, 취소 중 하나를 선택한다.<br/></td></tr><tr><td class="mono">ST-CHG-005</td><td>변경 요청 작성 중</td><td>고객이 변경 항목을 선택했지만 인증·동의 또는 최종 제출 전인 상태다.<br/></td><td>필수 입력값을 보완하고 인증·동의 또는 제출 단계로 이동한다.<br/></td></tr><tr><td class="mono">ST-CHG-006</td><td>인증·동의 대기</td><td>본인확인, 법정대리인 동의, 약관 동의, 결제 영향 동의가 필요한 상태다.<br/></td><td>10분 안에 본인확인, 약관 동의, 법정대리인 동의를 완료한다.<br/></td></tr><tr><td class="mono">ST-CHG-007</td><td>변경 접수</td><td>고객 요청이 접수되어 중복 요청과 필수 조건 검증을 통과한 상태다.<br/></td><td>접수 번호와 예상 완료 시각을 확인하고 처리 진행 상태를 조회한다.<br/></td></tr><tr><td class="mono">ST-CHG-008</td><td>처리 중</td><td>상품 변경 연계 시스템 반영이 진행 중이며 고객에게 완료 전 상태로 표시되는 상태다.<br/></td><td>처리 중 상태를 유지하고 상품 변경 연계 시스템 결과를 대기한다.<br/></td></tr><tr><td class="mono">ST-CHG-009</td><td>예약 등록</td><td>변경 적용 시점이 미래 일자로 확정되어 예약으로 관리되는 상태다.<br/></td><td>예약 적용일과 철회 가능 시간을 확인한다.<br/></td></tr><tr><td class="mono">ST-CHG-010</td><td>예약 충돌</td><td>기존 예약, 청구 주기, 구독 갱신, 주문·배송 상태와 변경 요청이 충돌한 상태다.<br/></td><td>기존 예약 유지, 철회, 수정, 재예약 중 하나를 선택한다.<br/></td></tr><tr><td class="mono">ST-CHG-011</td><td>적용 예정</td><td>예약 변경의 적용 시점과 영향이 확정되어 자동 반영을 기다리는 상태다.<br/></td><td>적용 예정일 도래 전 알림과 철회 가능 여부를 확인한다.<br/></td></tr><tr><td class="mono">ST-CHG-012</td><td>적용 완료</td><td>상품 변경 연계 시스템 반영이 성공하고 고객 표시 상태가 변경 후 조건으로 전환된 상태다.<br/></td><td>변경 후 상품 상태, 비용·혜택 영향, 후속 확인 경로를 확인한다.<br/></td></tr><tr><td class="mono">ST-CHG-013</td><td>처리 보류</td><td>운영자 승인, 제휴사 응답, 원장 확인, 고객 추가 동의가 필요해 변경 처리가 멈춘 상태다.<br/></td><td>운영 승인 또는 추가 확인 결과를 기다리고 필요 시 고객에게 보완 안내를 제공한다.<br/></td></tr><tr><td class="mono">ST-CHG-014</td><td>처리 실패</td><td>연계 실패, 조건 불일치, 인증 만료, 중복 요청 등으로 변경이 완료되지 않은 상태다.<br/></td><td>재시도 가능 사유는 기존 초안을 유지하고, 복구 불가 사유는 상담 전환한다.<br/></td></tr><tr><td class="mono">ST-CHG-015</td><td>상담 전환</td><td>셀프 처리로 완료할 수 없어 상담사가 고객 문맥을 이어받아 처리해야 하는 상태다.<br/></td><td>상담사가 변경 문맥을 이어받아 대체 처리 또는 예외 승인 요청을 등록한다.<br/></td></tr><tr><td class="mono">ST-CHG-016</td><td>일시정지 예약</td><td>일시정지 시작일 또는 해제일이 예약되어 자동 처리 대기 중인 상태다.<br/></td><td>예약 시작일, 종료일, 조기 해제 가능 여부를 확인한다.<br/></td></tr><tr><td class="mono">ST-CHG-017</td><td>일시정지 중</td><td>회선 또는 서비스가 일시정지 적용 중이며 해제 조건과 남은 기간이 관리되는 상태다.<br/></td><td>남은 정지 기간, 자동 해제일, 조기 해제 경로를 확인한다.<br/></td></tr></tbody>
+</table>
+<h4>2) 상태 전이 기준</h4>
+<table class="state-transition-table">
+<thead><tr><th style="width: 150px;">현재 상태</th><th style="width: 180px;">전이 이벤트</th><th style="width: 150px;">다음 상태</th><th>처리 기준 및 후속 처리</th></tr></thead>
+<tbody><tr><td>변경 전</td><td>변경 대상 조회</td><td>변경 가능</td><td>현재 상품, 고객 상태, 변경 후보가 조회되고 셀프 허용 조건을 충족하면 변경 가능으로 전이한다.<br/></td></tr><tr><td>변경 전</td><td>셀프 불가 사유 확인</td><td>변경 제한</td><td>미납, 약정 제한, 배송·설치 진행, 제휴사 제한, 변경 횟수 초과 중 하나가 확인되면 변경 제한으로 전이한다.<br/></td></tr><tr><td>변경 가능</td><td>영향 비교 확인</td><td>영향 확인 완료</td><td>추가 비용, 할인·혜택 변화, 약정 영향, 적용 시점, 되돌림 가능 범위가 표시되고 고객이 확인하면 전이한다.<br/></td></tr><tr><td>영향 확인 완료</td><td>변경 항목 선택</td><td>변경 요청 작성 중</td><td>고객이 변경 후보, 즉시·예약 방식, 구독·옵션·일시정지 항목 중 하나 이상을 선택하면 전이한다.<br/></td></tr><tr><td>변경 요청 작성 중</td><td>인증 또는 대리 동의 필요</td><td>인증·동의 대기</td><td>요금·약정·미성년 회선·결제 영향이 있으면 본인확인 또는 법정대리인 동의를 요구한다.<br/></td></tr><tr><td>인증·동의 대기</td><td>인증·동의 완료</td><td>변경 접수</td><td>인증 유효 시간 10분 안에 필수 동의가 완료되고 요청 중복 검증을 통과하면 변경 접수로 전이한다.<br/></td></tr><tr><td>변경 요청 작성 중</td><td>예약 방식 선택</td><td>예약 등록</td><td>고객이 적용 예정일을 선택하고 예약 가능일 산정 결과가 유효하면 예약 등록으로 전이한다.<br/></td></tr><tr><td>예약 등록</td><td>기존 예약 충돌</td><td>예약 충돌</td><td>동일 회선 또는 동일 구독에 이미 예약된 변경이 있거나 청구 주기와 충돌하면 예약 충돌로 전이한다.<br/></td></tr><tr><td>예약 충돌</td><td>예약 재선택 완료</td><td>적용 예정</td><td>고객이 기존 예약 유지, 철회, 재예약 중 하나를 선택하고 충돌이 해소되면 적용 예정으로 전이한다.<br/></td></tr><tr><td>변경 접수</td><td>BSS 반영 시작</td><td>처리 중</td><td>접수된 변경 요청이 상품 변경 연계 시스템에 전달되고 접수 식별자가 생성되면 처리 중으로 전이한다.<br/></td></tr><tr><td>처리 중</td><td>반영 성공</td><td>적용 완료</td><td>원장 상태, 혜택 상태, 구독 상태, 고객 표시 상태가 변경 후 기준과 일치하면 적용 완료로 전이한다.<br/></td></tr><tr><td>처리 중</td><td>연계 실패 또는 지연</td><td>처리 실패</td><td>BSS 또는 제휴사 응답 실패가 3회 발생하거나 5분 안에 완료 응답이 없으면 처리 실패로 전이한다.<br/></td></tr><tr><td>처리 중</td><td>운영 승인 필요</td><td>처리 보류</td><td>예외 허용, 제휴사 확인, 원장 정합성 확인이 필요한 변경은 처리 보류로 전이한다.<br/></td></tr><tr><td>처리 보류</td><td>운영자 승인</td><td>처리 중</td><td>운영자가 승인 사유, 담당자, 승인 시각을 저장하면 기존 변경 요청을 이어서 처리한다.<br/></td></tr><tr><td>처리 실패</td><td>재시도 가능</td><td>변경 요청 작성 중</td><td>실패 사유가 인증 만료, 일시 오류, 입력 보정이면 기존 선택값을 유지하고 변경 요청 작성 중으로 되돌린다.<br/></td></tr><tr><td>처리 실패</td><td>셀프 복구 불가</td><td>상담 전환</td><td>정책 제한, 제휴사 보류, 원장 불일치처럼 고객이 직접 해결할 수 없는 사유이면 상담 전환으로 전이한다.<br/></td></tr><tr><td>변경 요청 작성 중</td><td>일시정지 예약</td><td>일시정지 예약</td><td>고객이 시작일과 종료일을 지정하고 정지 가능 조건을 충족하면 일시정지 예약으로 전이한다.<br/></td></tr><tr><td>일시정지 예약</td><td>예약 시작일 도래</td><td>일시정지 중</td><td>예약 시작일 00시에 BSS 반영이 성공하면 일시정지 중으로 전이한다.<br/></td></tr><tr><td>일시정지 중</td><td>조기 해제 또는 종료일 도래</td><td>적용 완료</td><td>고객 조기 해제 요청 또는 예약 종료일이 도래하고 해제 반영이 성공하면 적용 완료로 전이한다.<br/></td></tr></tbody>
+		</table>
+		<h4>3) 상태 전이 다이어그램</h4>
+		<p class="plain-text">상태 전이 다이어그램은 대표 상태와 전이 이벤트를 개념적으로 보여주며, 상세 판정 기준은 상태 전이표를 따른다.<br/></p>
+		<div class="diagram-wrap state-transition-diagram"><svg aria-label="상태 전이 다이어그램" height="862" role="img" viewBox="0 0 1120 862" width="1120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="state-arrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4" viewBox="0 0 8 8"><path d="M0,0 L8,4 L0,8 z" fill="#7b8798"></path></marker><style>.boundary { fill:#ffffff; stroke:#c6cfdb; stroke-width:1.5; }.d-title { font:700 15px Arial, 'Malgun Gothic', sans-serif; fill:#222; }.state { fill:#f7f9fc; stroke:#8fa3bf; stroke-width:1.6; }.state-major { fill:#eef5ff; stroke:#6f8fb8; stroke-width:1.8; }.state-alert { fill:#fff5f5; stroke:#d69a9a; stroke-width:1.6; }.state-text { font:700 13px Arial, 'Malgun Gothic', sans-serif; fill:#1f2937; }.state-sub { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow { stroke:#7b8798; stroke-width:1.5; fill:none; marker-end:url(#state-arrow); }.flow-dash { stroke:#9aa5b5; stroke-width:1.4; fill:none; stroke-dasharray:6 5; marker-end:url(#state-arrow); }.flow-label { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#4b5563; }.flow-label-bg { fill:#ffffff; stroke:#e5edf7; stroke-width:1; opacity:.96; }.note { font:12px Arial, 'Malgun Gothic', sans-serif; fill:#6b7280; }</style></defs><rect class="boundary" height="784" rx="12" ry="12" width="1040" x="40" y="28"></rect><text class="d-title" text-anchor="middle" x="560" y="56">상태 전이</text><line class="flow" x1="224.0" x2="227.4" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M170.0 166.0 C170.0 236.0, 180.0 214.0, 180.0 284.0"></path><line class="flow" x1="335.4" x2="338.9" y1="134.0" y2="134.0"></line><line class="flow" x1="446.9" x2="450.3" y1="134.0" y2="134.0"></line><line class="flow" x1="558.3" x2="561.7" y1="134.0" y2="134.0"></line><line class="flow" x1="669.7" x2="673.1" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M504.3 166.0 C504.3 236.0, 433.3 214.0, 433.3 284.0"></path><path class="flow-dash" d="M487.3 316.0 C560.0 244.0, 560.0 244.0, 632.7 316.0"></path><path class="flow-dash" d="M740.7 316.0 C813.3 244.0, 813.3 244.0, 886.0 316.0"></path><line class="flow" x1="781.1" x2="784.6" y1="134.0" y2="134.0"></line><line class="flow" x1="892.6" x2="896.0" y1="134.0" y2="134.0"></line><path class="flow-dash" d="M784.6 134.0 C784.6 204.0, 234.0 400.0, 234.0 470.0"></path><path class="flow-dash" d="M784.6 134.0 C784.6 204.0, 487.3 400.0, 487.3 470.0"></path><path class="flow-dash" d="M487.3 470.0 C487.3 400.0, 784.6 204.0, 784.6 134.0"></path><path class="flow-dash" d="M180.0 438.0 C180.0 368.0, 504.3 236.0, 504.3 166.0"></path><path class="flow-dash" d="M234.0 470.0 C433.3 398.0, 433.3 398.0, 632.7 470.0"></path><path class="flow-dash" d="M558.3 134.0 C558.3 204.0, 886.0 400.0, 886.0 470.0"></path><path class="flow-dash" d="M886.0 470.0 C886.0 540.0, 614.0 554.0, 614.0 624.0"></path><path class="flow-dash" d="M560.0 592.0 C560.0 522.0, 950.0 236.0, 950.0 166.0"></path><rect class="state-major" height="64" rx="29" ry="29" width="108" x="116.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="170" y="128">변경 전</text><text class="state-sub" text-anchor="middle" x="170" y="151">ST-CHG-001</text><rect class="state" height="64" rx="29" ry="29" width="108" x="227.4" y="102.0"></rect><text class="state-text" text-anchor="middle" x="281" y="128">변경 가능</text><text class="state-sub" text-anchor="middle" x="281" y="151">ST-CHG-002</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="338.9" y="102.0"></rect><text class="state-text" text-anchor="middle" x="392" y="128">영향 확인 완료</text><text class="state-sub" text-anchor="middle" x="392" y="151">ST-CHG-004</text><rect class="state" height="64" rx="29" ry="29" width="108" x="450.3" y="102.0"></rect><text class="state-text" text-anchor="middle" x="504" y="128">변경 요청 작성 중</text><text class="state-sub" text-anchor="middle" x="504" y="151">ST-CHG-005</text><rect class="state" height="64" rx="29" ry="29" width="108" x="561.7" y="102.0"></rect><text class="state-text" text-anchor="middle" x="615" y="128">인증·동의 대기</text><text class="state-sub" text-anchor="middle" x="615" y="151">ST-CHG-006</text><rect class="state" height="64" rx="29" ry="29" width="108" x="673.1" y="102.0"></rect><text class="state-text" text-anchor="middle" x="727" y="128">변경 접수</text><text class="state-sub" text-anchor="middle" x="727" y="151">ST-CHG-007</text><rect class="state" height="64" rx="29" ry="29" width="108" x="784.6" y="102.0"></rect><text class="state-text" text-anchor="middle" x="838" y="128">처리 중</text><text class="state-sub" text-anchor="middle" x="838" y="151">ST-CHG-008</text><rect class="state-major" height="64" rx="29" ry="29" width="108" x="896.0" y="102.0"></rect><text class="state-text" text-anchor="middle" x="950" y="128">적용 완료</text><text class="state-sub" text-anchor="middle" x="950" y="151">ST-CHG-012</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="126.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="180" y="310">변경 제한</text><text class="state-sub" text-anchor="middle" x="180" y="333">ST-CHG-003</text><rect class="state" height="64" rx="29" ry="29" width="108" x="379.3" y="284.0"></rect><text class="state-text" text-anchor="middle" x="433" y="310">예약 등록</text><text class="state-sub" text-anchor="middle" x="433" y="333">ST-CHG-009</text><rect class="state" height="64" rx="29" ry="29" width="108" x="632.7" y="284.0"></rect><text class="state-text" text-anchor="middle" x="686" y="310">예약 충돌</text><text class="state-sub" text-anchor="middle" x="686" y="333">ST-CHG-010</text><rect class="state" height="64" rx="29" ry="29" width="108" x="886.0" y="284.0"></rect><text class="state-text" text-anchor="middle" x="940" y="310">적용 예정</text><text class="state-sub" text-anchor="middle" x="940" y="333">ST-CHG-011</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="126.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="180" y="464">처리 실패</text><text class="state-sub" text-anchor="middle" x="180" y="487">ST-CHG-014</text><rect class="state-alert" height="64" rx="29" ry="29" width="108" x="379.3" y="438.0"></rect><text class="state-text" text-anchor="middle" x="433" y="464">처리 보류</text><text class="state-sub" text-anchor="middle" x="433" y="487">ST-CHG-013</text><rect class="state" height="64" rx="29" ry="29" width="108" x="632.7" y="438.0"></rect><text class="state-text" text-anchor="middle" x="686" y="464">상담 전환</text><text class="state-sub" text-anchor="middle" x="686" y="487">ST-CHG-015</text><rect class="state" height="64" rx="29" ry="29" width="108" x="886.0" y="438.0"></rect><text class="state-text" text-anchor="middle" x="940" y="464">일시정지 예약</text><text class="state-sub" text-anchor="middle" x="940" y="487">ST-CHG-016</text><rect class="state" height="64" rx="29" ry="29" width="108" x="506.0" y="592.0"></rect><text class="state-text" text-anchor="middle" x="560" y="618">일시정지 중</text><text class="state-sub" text-anchor="middle" x="560" y="641">ST-CHG-017</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="186.7" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="225.7" y="91.0">변경 대상 조회</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="125.5" y="215.0"></rect><text class="flow-label" text-anchor="middle" x="175.0" y="232.0">셀프 불가 사유 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="298.1" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="337.1" y="91.0">영향 비교 확인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="409.6" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="448.6" y="91.0">변경 항목 선택</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="99" x="510.5" y="60.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="77.0">인증 또는 대리 동의</text><text class="flow-label" text-anchor="middle" x="560.0" y="91.0">필요</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="632.4" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="671.4" y="91.0">인증·동의 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="429.8" y="179.0"></rect><text class="flow-label" text-anchor="middle" x="468.8" y="196.0">예약 방식 선택</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="521.0" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="560.0" y="233.0">기존 예약 충돌</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="770.8" y="216.0"></rect><text class="flow-label" text-anchor="middle" x="813.3" y="233.0">예약 재선택 완료</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="740.4" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="782.9" y="91.0">BSS 반영 시작</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="857.3" y="74.0"></rect><text class="flow-label" text-anchor="middle" x="894.3" y="91.0">반영 성공</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="99" x="459.8" y="292.0"></rect><text class="flow-label" text-anchor="middle" x="509.3" y="309.0">연계 실패 또는 지연</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="597.0" y="256.0"></rect><text class="flow-label" text-anchor="middle" x="636.0" y="273.0">운영 승인 필요</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="599.0" y="292.0"></rect><text class="flow-label" text-anchor="middle" x="636.0" y="309.0">운영자 승인</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="305.1" y="256.0"></rect><text class="flow-label" text-anchor="middle" x="342.1" y="273.0">재시도 가능</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="78" x="394.3" y="370.0"></rect><text class="flow-label" text-anchor="middle" x="433.3" y="387.0">셀프 복구 불가</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="74" x="685.1" y="256.0"></rect><text class="flow-label" text-anchor="middle" x="722.1" y="273.0">일시정지 예약</text><rect class="flow-label-bg" height="24" rx="8" ry="8" width="85" x="707.5" y="537.0"></rect><text class="flow-label" text-anchor="middle" x="750.0" y="554.0">예약 시작일 도래</text><rect class="flow-label-bg" height="38" rx="8" ry="8" width="106" x="702.0" y="319.0"></rect><text class="flow-label" text-anchor="middle" x="755.0" y="336.0">조기 해제 또는 종료일</text><text class="flow-label" text-anchor="middle" x="755.0" y="350.0">도래</text><text class="note" x="78" y="808">실선은 대표 흐름, 점선은 예외·복구·제한 흐름을 의미합니다.</text></svg></div>
+
+<h2>4. 프로세스 정의</h2>
+<h3>가. 프로세스 목록</h3>
+<p class="plain-text">프로세스는 고객 또는 운영자가 경험하는 순서대로 작성한다.<br/>관련 기능은 기능 정의 작성 후 기능 ID·기능명으로 연결하고, 관련 정책은 정책 정의 작성 후 정책 ID·정책명으로 연결한다.<br/></p>
+
+<h4>1) 변경 가능성과 영향 비교 (US-CHG-CUS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-IMP-001</td><td>변경 대상과 현재 상태 확인</td><td>고객 회선, 상품, 옵션, 구독, 약정, 진행 중 주문·배송 상태를 확인해 변경 후보를 좁힌다.<br/></td><td>FN-CHG-IMP-001 변경 대상 조회 기능</td><td>PG-CHG-SCOPE-001 변경 대상·범위 정책<br/>PG-CHG-ELG-001 변경 가능 조건 정책</td></tr><tr><td class="mono">PR-CHG-IMP-002</td><td>셀프 가능 범위와 불가 사유 판정</td><td>상품 유형, 처리 상태, 제휴 조건, 미성년 여부, 시스템 제한을 기준으로 셀프 처리 가능 여부와 불가 사유를 판정한다.<br/></td><td>FN-CHG-IMP-002 셀프 가능성 판정 기능</td><td>PG-CHG-ELG-001 변경 가능 조건 정책<br/>PG-CHG-FAIL-001 실패·보류·복구 정책<br/>PG-CHG-CS-001 상담 전환 정책</td></tr><tr><td class="mono">PR-CHG-IMP-003</td><td>변경 전후 영향 비교</td><td>추가 비용, 할인·혜택 변화, 약정·구독 영향, 적용 시점, 되돌림 가능 범위를 변경 전 카드로 비교한다.<br/></td><td>FN-CHG-IMP-003 변경 영향 비교 기능</td><td>PG-CHG-IMPACT-001 영향도 비교·고지 정책<br/>PG-CHG-PLAN-001 요금제·약정 변경 정책<br/>PG-CHG-BEN-001 혜택·옵션 변경 정책</td></tr><tr><td class="mono">PR-CHG-IMP-004</td><td>대체 변경안과 진입 경로 선택</td><td>불가 또는 부담이 큰 변경에는 대체 요금제, 무위약금 변경 후보, 상담 전환, 예약 변경 경로를 제시한다.<br/></td><td>FN-CHG-IMP-004 대체 변경안 추천 기능</td><td>PG-CHG-ELG-001 변경 가능 조건 정책<br/>PG-CHG-IMPACT-001 영향도 비교·고지 정책<br/>PG-CHG-NOTI-001 알림·고지 정책<br/>PG-CHG-PLAN-001 요금제·약정 변경 정책</td></tr></tbody>
+</table>
+
+<h4>2) 상품 변경 신청과 결과 확정 (US-CHG-CUS-002)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-REQ-001</td><td>변경 초안 작성과 임시 저장</td><td>고객이 변경 항목과 적용 방식을 선택하면 입력값과 영향 확인 상태를 초안으로 저장한다.<br/></td><td>FN-CHG-REQ-001 변경 초안 관리 기능</td><td>PG-CHG-REQ-001 변경 요청 접수·중복 정책<br/>PG-CHG-HIST-001 이력·모니터링 정책</td></tr><tr><td class="mono">PR-CHG-REQ-002</td><td>인증·동의와 권한 확인</td><td>본인확인, 약정·결제 영향 동의, 법정대리인 동의, 필수 약관 동의를 확인한다.<br/></td><td>FN-CHG-REQ-002 인증·동의 확인 기능</td><td>PG-CHG-AUTH-001 인증·동의 정책<br/>PG-CHG-MINOR-001 미성년 회선 변경 정책</td></tr><tr><td class="mono">PR-CHG-REQ-003</td><td>즉시·예약 변경 방식 확정</td><td>일할 계산과 즉시 혜택 반영이 필요한 요청은 즉시 변경으로, 청구 주기 기준 변경은 예약 변경으로 확정한다.<br/></td><td>FN-CHG-REQ-003 변경 방식 확정 기능</td><td>PG-CHG-RESV-001 예약 변경 정책<br/>PG-CHG-BSS-001 BSS 반영·연계 정책<br/>PG-CHG-IMPACT-001 영향도 비교·고지 정책</td></tr><tr><td class="mono">PR-CHG-REQ-004</td><td>BSS 변경 요청 제출</td><td>검증을 통과한 변경 요청을 BSS와 제휴·주문·구독 연계 시스템에 전달하고 접수 결과를 수신한다.<br/></td><td>FN-CHG-REQ-004 BSS 요청 제출 기능</td><td>PG-CHG-BSS-001 BSS 반영·연계 정책<br/>PG-CHG-REQ-001 변경 요청 접수·중복 정책<br/>PG-CHG-FAIL-001 실패·보류·복구 정책</td></tr><tr><td class="mono">PR-CHG-REQ-005</td><td>적용 결과와 후속 액션 확인</td><td>반영 성공 여부, 변경 후 상품 상태, 비용 영향, 후속 알림과 이력 조회 경로를 고객에게 제공한다.<br/></td><td>FN-CHG-REQ-005 변경 결과 확인 기능</td><td>PG-CHG-NOTI-001 알림·고지 정책<br/>PG-CHG-HIST-001 이력·모니터링 정책<br/>PG-CHG-IMPACT-001 영향도 비교·고지 정책</td></tr></tbody>
+</table>
+
+<h4>3) 예약 변경과 충돌 해소 (US-CHG-CUS-003)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-RSV-001</td><td>예약 가능일 산정</td><td>청구 주기, 갱신일, 배송·설치 단계, 기존 예약을 기준으로 예약 가능일과 불가일을 산정한다.<br/></td><td>FN-CHG-RSV-001 예약 가능일 산정 기능</td><td>PG-CHG-RESV-001 예약 변경 정책<br/>PG-CHG-ELG-001 변경 가능 조건 정책</td></tr><tr><td class="mono">PR-CHG-RSV-002</td><td>기존 예약 충돌 검증</td><td>동일 회선, 동일 구독, 동일 옵션에 이미 등록된 예약과 신규 요청의 우선순위를 판정한다.<br/></td><td>FN-CHG-RSV-002 예약 충돌 검증 기능</td><td>PG-CHG-RESV-001 예약 변경 정책<br/>PG-CHG-REQ-001 변경 요청 접수·중복 정책</td></tr><tr><td class="mono">PR-CHG-RSV-003</td><td>예약 철회·수정·재예약 확정</td><td>고객이 기존 예약 유지, 철회, 수정, 재예약 중 하나를 선택하면 적용 예정 상태와 고지 이력을 갱신한다.<br/></td><td>FN-CHG-RSV-003 예약 변경 확정 기능</td><td>PG-CHG-RESV-001 예약 변경 정책<br/>PG-CHG-NOTI-001 알림·고지 정책<br/>PG-CHG-HIST-001 이력·모니터링 정책</td></tr></tbody>
+</table>
+
+<h4>4) 구독·옵션·일시정지 관리 (US-CHG-CUS-004)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-SUB-001</td><td>구독·옵션 현재 상태 조회</td><td>고객이 보유한 구독, 옵션상품, 프로모션, 결제수단, 일시정지 가능 상태를 조회한다.<br/></td><td>FN-CHG-SUB-001 구독·옵션 상태 조회 기능</td><td>PG-CHG-SUB-001 구독 변경·해지·일시정지 정책<br/>PG-CHG-BEN-001 혜택·옵션 변경 정책</td></tr><tr><td class="mono">PR-CHG-SUB-002</td><td>플랜·옵션 변경안 선택</td><td>플랜 변경, 옵션 추가·해제·조합, 대체 상품 선택 시 혜택 유지와 소멸 기준을 비교한다.<br/></td><td>FN-CHG-SUB-002 플랜·옵션 변경안 구성 기능</td><td>PG-CHG-SUB-001 구독 변경·해지·일시정지 정책<br/>PG-CHG-BEN-001 혜택·옵션 변경 정책<br/>PG-CHG-PLAN-001 요금제·약정 변경 정책<br/>PG-CHG-IMPACT-001 영향도 비교·고지 정책</td></tr><tr><td class="mono">PR-CHG-SUB-003</td><td>일시정지·재개·조기 해제 설정</td><td>고객이 시작일과 종료일을 예약하거나 조기 해제를 선택하면 가능 조건과 영향 범위를 확인한다.<br/></td><td>FN-CHG-SUB-003 일시정지 일정 관리 기능</td><td>PG-CHG-PAUSE-001 일시정지·해제 정책<br/>PG-CHG-SUB-001 구독 변경·해지·일시정지 정책</td></tr><tr><td class="mono">PR-CHG-SUB-004</td><td>해지·유료 전환·프로모션 영향 확인</td><td>구독 해지, 유료 전환, 프로모션 종료, 연동 혜택 해제 영향을 신청 전에 고지한다.<br/></td><td>FN-CHG-SUB-004 해지·전환 영향 고지 기능</td><td>PG-CHG-SUB-001 구독 변경·해지·일시정지 정책<br/>PG-CHG-IMPACT-001 영향도 비교·고지 정책<br/>PG-CHG-FAIL-001 실패·보류·복구 정책<br/>PG-CHG-ELG-001 변경 가능 조건 정책</td></tr><tr><td class="mono">PR-CHG-SUB-005</td><td>결제수단·후속 혜택 연결</td><td>구독과 옵션 변경 후 결제수단, 자동 결제, 잔여 혜택, 후속 신청 경로를 연결한다.<br/></td><td>FN-CHG-SUB-005 결제·혜택 연결 기능</td><td>PG-CHG-SUB-001 구독 변경·해지·일시정지 정책<br/>PG-CHG-BSS-001 BSS 반영·연계 정책<br/>PG-CHG-NOTI-001 알림·고지 정책<br/>PG-CHG-IMPACT-001 영향도 비교·고지 정책</td></tr></tbody>
+</table>
+
+<h4>5) 변경 진행 조회와 실패 복구 (US-CHG-CUS-005)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-REC-001</td><td>변경 요청 상태 조회</td><td>고객이 접수, 처리 중, 보류, 실패, 적용 완료, 예약 등록 상태와 예상 완료 시점을 조회한다.<br/></td><td>FN-CHG-REC-001 변경 진행 조회 기능</td><td>PG-CHG-HIST-001 이력·모니터링 정책<br/>PG-CHG-NOTI-001 알림·고지 정책</td></tr><tr><td class="mono">PR-CHG-REC-002</td><td>실패 사유와 재시도 경로 확인</td><td>실패 사유를 인증 만료, 입력 보정, 연계 지연, 정책 제한으로 구분하고 재시도 가능 여부를 제공한다.<br/></td><td>FN-CHG-REC-002 실패 복구 경로 기능</td><td>PG-CHG-FAIL-001 실패·보류·복구 정책<br/>PG-CHG-CS-001 상담 전환 정책</td></tr><tr><td class="mono">PR-CHG-REC-003</td><td>컨텍스트 유지 상담 전환</td><td>셀프 복구가 불가하면 고객 선택값, 실패 코드, 영향 비교 결과를 상담 문맥으로 전달한다.<br/></td><td>FN-CHG-REC-003 상담 전환 문맥 기능</td><td>PG-CHG-CS-001 상담 전환 정책<br/>PG-CHG-FAIL-001 실패·보류·복구 정책</td></tr></tbody>
+</table>
+
+<h4>6) 미성년 회선 변경 동의 (US-CHG-REP-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-REP-001</td><td>미성년 회선과 대리 권한 확인</td><td>회선 명의, 고객 연령, 법정대리인 관계, 변경 영향 범위를 확인한다.<br/></td><td>FN-CHG-REP-001 대리 권한 확인 기능</td><td>PG-CHG-MINOR-001 미성년 회선 변경 정책<br/>PG-CHG-AUTH-001 인증·동의 정책</td></tr><tr><td class="mono">PR-CHG-REP-002</td><td>대리 동의 결과와 변경 가능 여부 확정</td><td>법정대리인 동의 성공, 거절, 만료 결과에 따라 변경 가능 여부와 고객 안내를 확정한다.<br/></td><td>FN-CHG-REP-002 대리 동의 결과 기능</td><td>PG-CHG-MINOR-001 미성년 회선 변경 정책<br/>PG-CHG-NOTI-001 알림·고지 정책</td></tr></tbody>
+</table>
+
+<h4>7) 변경 기준과 예외 운영 (US-CHG-OPR-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-OPR-001</td><td>변경 조건·예외 기준 등록</td><td>운영자가 상품 유형, 처리 상태, 제휴 조건, 변경 횟수, 휴일 처리 가능 여부를 기준으로 등록한다.<br/></td><td>FN-CHG-OPR-001 변경 기준 관리 기능</td><td>PG-CHG-OPR-001 운영 예외·승인 정책<br/>PG-CHG-ELG-001 변경 가능 조건 정책</td></tr><tr><td class="mono">PR-CHG-OPR-002</td><td>승인·보류·반려 처리</td><td>예외 변경 요청에 대해 승인, 보류, 반려, 재처리 사유와 담당자 이력을 남긴다.<br/></td><td>FN-CHG-OPR-002 예외 승인 처리 기능</td><td>PG-CHG-OPR-001 운영 예외·승인 정책<br/>PG-CHG-FAIL-001 실패·보류·복구 정책<br/>PG-CHG-HIST-001 이력·모니터링 정책</td></tr><tr><td class="mono">PR-CHG-OPR-003</td><td>실패·지연 모니터링과 기준 개선</td><td>운영자는 실패율, 지연 건수, 상담 전환 사유, 반복 불가 사유를 모니터링하고 기준을 개선한다.<br/></td><td>FN-CHG-OPR-003 변경 품질 모니터링 기능</td><td>PG-CHG-HIST-001 이력·모니터링 정책<br/>PG-CHG-OPR-001 운영 예외·승인 정책<br/>PG-CHG-FAIL-001 실패·보류·복구 정책</td></tr></tbody>
+</table>
+
+<h4>8) 셀프 불가 변경 상담 지원 (US-CHG-CS-001)</h4>
+<table class="process-list-table">
+<thead><tr><th style="width: 150px;">프로세스 ID</th><th style="width: 170px;">프로세스명</th><th>설명</th><th style="width: 230px;">관련 기능</th><th style="width: 260px;">관련 정책</th></tr></thead>
+<tbody><tr><td class="mono">PR-CHG-CS-001</td><td>상담 인입 변경 문맥 확인</td><td>상담사는 고객이 중단한 변경 항목, 불가 사유, 영향 비교, 인증 상태를 확인한다.<br/></td><td>FN-CHG-CS-001 상담 문맥 조회 기능</td><td>PG-CHG-CS-001 상담 전환 정책<br/>PG-CHG-HIST-001 이력·모니터링 정책</td></tr><tr><td class="mono">PR-CHG-CS-002</td><td>대체 처리·재시도 등록</td><td>상담사는 대체 상품 안내, 예외 승인 요청, 재시도 등록, 후속 알림 기준을 고객에게 안내한다.<br/></td><td>FN-CHG-CS-002 상담 대체 처리 기능</td><td>PG-CHG-CS-001 상담 전환 정책<br/>PG-CHG-REQ-001 변경 요청 접수·중복 정책<br/>PG-CHG-NOTI-001 알림·고지 정책</td></tr></tbody>
+</table>
+
+
+	<h3>나. 전체 업무 흐름도</h3>
+	<p class="plain-text">전체 업무 흐름도는 유즈케이스별 시작, 주요 처리, 결과 확정, 종료 흐름을 시각적으로 요약한다.<br/>상세 진입 조건, 예외, 정책 값은 프로세스 목록과 정책 정의를 따른다.<br/></p>
+
+<div class="bpmn-viewer-wrap">
+<div class="bpmn-viewer-head">
+<div class="bpmn-viewer-title">BPMN 2.0 Process Diagram</div>
+<button class="bpmn-download-button" data-bpmn-download="bpmn-process-xml" data-bpmn-file="NC_상품변경_정책서_간소화_v0.11_전체업무흐름도.bpmn" type="button">BPMN XML 다운로드</button>
+</div>
+<div class="bpmn-viewer" data-bpmn-source-id="bpmn-process-xml" data-bpmn-viewer="true"></div>
+<script id="bpmn-process-xml" type="application/json">{"xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_Item\" targetNamespace=\"https://nova-policy.local/bpmn\">\n  <bpmn:process id=\"Process_Item\" name=\"상품변경 전체 업무 흐름\" isExecutable=\"false\">\n    <bpmn:laneSet id=\"LaneSet_1\">\n      <bpmn:lane id=\"Lane_US_CHG_CUS_001\" name=\"US-CHG-CUS-001 변경 가능성과 영향 비교\">\n        <bpmn:flowNodeRef>Start_US_CHG_CUS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_IMP_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_IMP_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_IMP_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_IMP_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_CUS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_CUS_002\" name=\"US-CHG-CUS-002 상품 변경 신청과 결과 확정\">\n        <bpmn:flowNodeRef>Start_US_CHG_CUS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REQ_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REQ_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REQ_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REQ_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REQ_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_CUS_002<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_CUS_003\" name=\"US-CHG-CUS-003 예약 변경과 충돌 해소\">\n        <bpmn:flowNodeRef>Start_US_CHG_CUS_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_RSV_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_RSV_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_RSV_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_CUS_003<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_CUS_004\" name=\"US-CHG-CUS-004 구독·옵션·일시정지 관리\">\n        <bpmn:flowNodeRef>Start_US_CHG_CUS_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_SUB_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_SUB_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_SUB_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_SUB_004<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_SUB_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_CUS_004<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_CUS_005\" name=\"US-CHG-CUS-005 변경 진행 조회와 실패 복구\">\n        <bpmn:flowNodeRef>Start_US_CHG_CUS_005<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REC_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REC_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REC_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_CUS_005<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_REP_001\" name=\"US-CHG-REP-001 미성년 회선 변경 동의\">\n        <bpmn:flowNodeRef>Start_US_CHG_REP_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REP_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_REP_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_REP_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_OPR_001\" name=\"US-CHG-OPR-001 변경 기준과 예외 운영\">\n        <bpmn:flowNodeRef>Start_US_CHG_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_OPR_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_OPR_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_OPR_003<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_OPR_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n      <bpmn:lane id=\"Lane_US_CHG_CS_001\" name=\"US-CHG-CS-001 셀프 불가 변경 상담 지원\">\n        <bpmn:flowNodeRef>Start_US_CHG_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_CS_001<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>Task_PR_CHG_CS_002<\/bpmn:flowNodeRef>\n        <bpmn:flowNodeRef>End_US_CHG_CS_001<\/bpmn:flowNodeRef>\n      <\/bpmn:lane>\n    <\/bpmn:laneSet>\n    <bpmn:startEvent id=\"Start_US_CHG_CUS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_CUS_001_Task_PR_CHG_IMP_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_IMP_001\" name=\"PR-CHG-IMP-001 변경 대상과 현재 상태 확인\">\n      <bpmn:incoming>Flow_Start_US_CHG_CUS_001_Task_PR_CHG_IMP_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_IMP_001_Task_PR_CHG_IMP_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_IMP_002\" name=\"PR-CHG-IMP-002 셀프 가능 범위와 불가 사유 판정\">\n      <bpmn:incoming>Flow_Task_PR_CHG_IMP_001_Task_PR_CHG_IMP_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_IMP_002_Task_PR_CHG_IMP_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_IMP_003\" name=\"PR-CHG-IMP-003 변경 전후 영향 비교\">\n      <bpmn:incoming>Flow_Task_PR_CHG_IMP_002_Task_PR_CHG_IMP_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_IMP_003_Task_PR_CHG_IMP_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_IMP_004\" name=\"PR-CHG-IMP-004 대체 변경안과 진입 경로 선택\">\n      <bpmn:incoming>Flow_Task_PR_CHG_IMP_003_Task_PR_CHG_IMP_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_IMP_004_End_US_CHG_CUS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_CUS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_IMP_004_End_US_CHG_CUS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_CUS_001_Task_PR_CHG_IMP_001\" sourceRef=\"Start_US_CHG_CUS_001\" targetRef=\"Task_PR_CHG_IMP_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_IMP_001_Task_PR_CHG_IMP_002\" sourceRef=\"Task_PR_CHG_IMP_001\" targetRef=\"Task_PR_CHG_IMP_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_IMP_002_Task_PR_CHG_IMP_003\" sourceRef=\"Task_PR_CHG_IMP_002\" targetRef=\"Task_PR_CHG_IMP_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_IMP_003_Task_PR_CHG_IMP_004\" sourceRef=\"Task_PR_CHG_IMP_003\" targetRef=\"Task_PR_CHG_IMP_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_IMP_004_End_US_CHG_CUS_001\" sourceRef=\"Task_PR_CHG_IMP_004\" targetRef=\"End_US_CHG_CUS_001\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_CUS_002\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_CUS_002_Task_PR_CHG_REQ_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_REQ_001\" name=\"PR-CHG-REQ-001 변경 초안 작성과 임시 저장\">\n      <bpmn:incoming>Flow_Start_US_CHG_CUS_002_Task_PR_CHG_REQ_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REQ_001_Task_PR_CHG_REQ_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REQ_002\" name=\"PR-CHG-REQ-002 인증·동의와 권한 확인\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REQ_001_Task_PR_CHG_REQ_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REQ_002_Task_PR_CHG_REQ_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REQ_003\" name=\"PR-CHG-REQ-003 즉시·예약 변경 방식 확정\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REQ_002_Task_PR_CHG_REQ_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REQ_003_Task_PR_CHG_REQ_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REQ_004\" name=\"PR-CHG-REQ-004 BSS 변경 요청 제출\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REQ_003_Task_PR_CHG_REQ_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REQ_004_Task_PR_CHG_REQ_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REQ_005\" name=\"PR-CHG-REQ-005 적용 결과와 후속 액션 확인\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REQ_004_Task_PR_CHG_REQ_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REQ_005_End_US_CHG_CUS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_CUS_002\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REQ_005_End_US_CHG_CUS_002<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_CUS_002_Task_PR_CHG_REQ_001\" sourceRef=\"Start_US_CHG_CUS_002\" targetRef=\"Task_PR_CHG_REQ_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REQ_001_Task_PR_CHG_REQ_002\" sourceRef=\"Task_PR_CHG_REQ_001\" targetRef=\"Task_PR_CHG_REQ_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REQ_002_Task_PR_CHG_REQ_003\" sourceRef=\"Task_PR_CHG_REQ_002\" targetRef=\"Task_PR_CHG_REQ_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REQ_003_Task_PR_CHG_REQ_004\" sourceRef=\"Task_PR_CHG_REQ_003\" targetRef=\"Task_PR_CHG_REQ_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REQ_004_Task_PR_CHG_REQ_005\" sourceRef=\"Task_PR_CHG_REQ_004\" targetRef=\"Task_PR_CHG_REQ_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REQ_005_End_US_CHG_CUS_002\" sourceRef=\"Task_PR_CHG_REQ_005\" targetRef=\"End_US_CHG_CUS_002\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_CUS_003\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_CUS_003_Task_PR_CHG_RSV_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_RSV_001\" name=\"PR-CHG-RSV-001 예약 가능일 산정\">\n      <bpmn:incoming>Flow_Start_US_CHG_CUS_003_Task_PR_CHG_RSV_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_RSV_001_Task_PR_CHG_RSV_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_RSV_002\" name=\"PR-CHG-RSV-002 기존 예약 충돌 검증\">\n      <bpmn:incoming>Flow_Task_PR_CHG_RSV_001_Task_PR_CHG_RSV_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_RSV_002_Task_PR_CHG_RSV_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_RSV_003\" name=\"PR-CHG-RSV-003 예약 철회·수정·재예약 확정\">\n      <bpmn:incoming>Flow_Task_PR_CHG_RSV_002_Task_PR_CHG_RSV_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_RSV_003_End_US_CHG_CUS_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_CUS_003\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_RSV_003_End_US_CHG_CUS_003<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_CUS_003_Task_PR_CHG_RSV_001\" sourceRef=\"Start_US_CHG_CUS_003\" targetRef=\"Task_PR_CHG_RSV_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_RSV_001_Task_PR_CHG_RSV_002\" sourceRef=\"Task_PR_CHG_RSV_001\" targetRef=\"Task_PR_CHG_RSV_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_RSV_002_Task_PR_CHG_RSV_003\" sourceRef=\"Task_PR_CHG_RSV_002\" targetRef=\"Task_PR_CHG_RSV_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_RSV_003_End_US_CHG_CUS_003\" sourceRef=\"Task_PR_CHG_RSV_003\" targetRef=\"End_US_CHG_CUS_003\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_CUS_004\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_CUS_004_Task_PR_CHG_SUB_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_SUB_001\" name=\"PR-CHG-SUB-001 구독·옵션 현재 상태 조회\">\n      <bpmn:incoming>Flow_Start_US_CHG_CUS_004_Task_PR_CHG_SUB_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_SUB_001_Task_PR_CHG_SUB_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_SUB_002\" name=\"PR-CHG-SUB-002 플랜·옵션 변경안 선택\">\n      <bpmn:incoming>Flow_Task_PR_CHG_SUB_001_Task_PR_CHG_SUB_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_SUB_002_Task_PR_CHG_SUB_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_SUB_003\" name=\"PR-CHG-SUB-003 일시정지·재개·조기 해제 설정\">\n      <bpmn:incoming>Flow_Task_PR_CHG_SUB_002_Task_PR_CHG_SUB_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_SUB_003_Task_PR_CHG_SUB_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_SUB_004\" name=\"PR-CHG-SUB-004 해지·유료 전환·프로모션 영향 확인\">\n      <bpmn:incoming>Flow_Task_PR_CHG_SUB_003_Task_PR_CHG_SUB_004<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_SUB_004_Task_PR_CHG_SUB_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_SUB_005\" name=\"PR-CHG-SUB-005 결제수단·후속 혜택 연결\">\n      <bpmn:incoming>Flow_Task_PR_CHG_SUB_004_Task_PR_CHG_SUB_005<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_SUB_005_End_US_CHG_CUS_004<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_CUS_004\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_SUB_005_End_US_CHG_CUS_004<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_CUS_004_Task_PR_CHG_SUB_001\" sourceRef=\"Start_US_CHG_CUS_004\" targetRef=\"Task_PR_CHG_SUB_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_SUB_001_Task_PR_CHG_SUB_002\" sourceRef=\"Task_PR_CHG_SUB_001\" targetRef=\"Task_PR_CHG_SUB_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_SUB_002_Task_PR_CHG_SUB_003\" sourceRef=\"Task_PR_CHG_SUB_002\" targetRef=\"Task_PR_CHG_SUB_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_SUB_003_Task_PR_CHG_SUB_004\" sourceRef=\"Task_PR_CHG_SUB_003\" targetRef=\"Task_PR_CHG_SUB_004\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_SUB_004_Task_PR_CHG_SUB_005\" sourceRef=\"Task_PR_CHG_SUB_004\" targetRef=\"Task_PR_CHG_SUB_005\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_SUB_005_End_US_CHG_CUS_004\" sourceRef=\"Task_PR_CHG_SUB_005\" targetRef=\"End_US_CHG_CUS_004\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_CUS_005\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_CUS_005_Task_PR_CHG_REC_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_REC_001\" name=\"PR-CHG-REC-001 변경 요청 상태 조회\">\n      <bpmn:incoming>Flow_Start_US_CHG_CUS_005_Task_PR_CHG_REC_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REC_001_Task_PR_CHG_REC_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REC_002\" name=\"PR-CHG-REC-002 실패 사유와 재시도 경로 확인\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REC_001_Task_PR_CHG_REC_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REC_002_Task_PR_CHG_REC_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REC_003\" name=\"PR-CHG-REC-003 컨텍스트 유지 상담 전환\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REC_002_Task_PR_CHG_REC_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REC_003_End_US_CHG_CUS_005<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_CUS_005\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REC_003_End_US_CHG_CUS_005<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_CUS_005_Task_PR_CHG_REC_001\" sourceRef=\"Start_US_CHG_CUS_005\" targetRef=\"Task_PR_CHG_REC_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REC_001_Task_PR_CHG_REC_002\" sourceRef=\"Task_PR_CHG_REC_001\" targetRef=\"Task_PR_CHG_REC_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REC_002_Task_PR_CHG_REC_003\" sourceRef=\"Task_PR_CHG_REC_002\" targetRef=\"Task_PR_CHG_REC_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REC_003_End_US_CHG_CUS_005\" sourceRef=\"Task_PR_CHG_REC_003\" targetRef=\"End_US_CHG_CUS_005\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_REP_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_REP_001_Task_PR_CHG_REP_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_REP_001\" name=\"PR-CHG-REP-001 미성년 회선과 대리 권한 확인\">\n      <bpmn:incoming>Flow_Start_US_CHG_REP_001_Task_PR_CHG_REP_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REP_001_Task_PR_CHG_REP_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_REP_002\" name=\"PR-CHG-REP-002 대리 동의 결과와 변경 가능 여부 확정\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REP_001_Task_PR_CHG_REP_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_REP_002_End_US_CHG_REP_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_REP_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_REP_002_End_US_CHG_REP_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_REP_001_Task_PR_CHG_REP_001\" sourceRef=\"Start_US_CHG_REP_001\" targetRef=\"Task_PR_CHG_REP_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REP_001_Task_PR_CHG_REP_002\" sourceRef=\"Task_PR_CHG_REP_001\" targetRef=\"Task_PR_CHG_REP_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_REP_002_End_US_CHG_REP_001\" sourceRef=\"Task_PR_CHG_REP_002\" targetRef=\"End_US_CHG_REP_001\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_OPR_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_OPR_001_Task_PR_CHG_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_OPR_001\" name=\"PR-CHG-OPR-001 변경 조건·예외 기준 등록\">\n      <bpmn:incoming>Flow_Start_US_CHG_OPR_001_Task_PR_CHG_OPR_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_OPR_001_Task_PR_CHG_OPR_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_OPR_002\" name=\"PR-CHG-OPR-002 승인·보류·반려 처리\">\n      <bpmn:incoming>Flow_Task_PR_CHG_OPR_001_Task_PR_CHG_OPR_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_OPR_002_Task_PR_CHG_OPR_003<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_OPR_003\" name=\"PR-CHG-OPR-003 실패·지연 모니터링과 기준 개선\">\n      <bpmn:incoming>Flow_Task_PR_CHG_OPR_002_Task_PR_CHG_OPR_003<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_OPR_003_End_US_CHG_OPR_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_OPR_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_OPR_003_End_US_CHG_OPR_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_OPR_001_Task_PR_CHG_OPR_001\" sourceRef=\"Start_US_CHG_OPR_001\" targetRef=\"Task_PR_CHG_OPR_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_OPR_001_Task_PR_CHG_OPR_002\" sourceRef=\"Task_PR_CHG_OPR_001\" targetRef=\"Task_PR_CHG_OPR_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_OPR_002_Task_PR_CHG_OPR_003\" sourceRef=\"Task_PR_CHG_OPR_002\" targetRef=\"Task_PR_CHG_OPR_003\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_OPR_003_End_US_CHG_OPR_001\" sourceRef=\"Task_PR_CHG_OPR_003\" targetRef=\"End_US_CHG_OPR_001\"/>\n    <bpmn:startEvent id=\"Start_US_CHG_CS_001\" name=\"시작\">\n      <bpmn:outgoing>Flow_Start_US_CHG_CS_001_Task_PR_CHG_CS_001<\/bpmn:outgoing>\n    <\/bpmn:startEvent>\n    <bpmn:task id=\"Task_PR_CHG_CS_001\" name=\"PR-CHG-CS-001 상담 인입 변경 문맥 확인\">\n      <bpmn:incoming>Flow_Start_US_CHG_CS_001_Task_PR_CHG_CS_001<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_CS_001_Task_PR_CHG_CS_002<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:task id=\"Task_PR_CHG_CS_002\" name=\"PR-CHG-CS-002 대체 처리·재시도 등록\">\n      <bpmn:incoming>Flow_Task_PR_CHG_CS_001_Task_PR_CHG_CS_002<\/bpmn:incoming>\n      <bpmn:outgoing>Flow_Task_PR_CHG_CS_002_End_US_CHG_CS_001<\/bpmn:outgoing>\n    <\/bpmn:task>\n    <bpmn:endEvent id=\"End_US_CHG_CS_001\" name=\"종료\">\n      <bpmn:incoming>Flow_Task_PR_CHG_CS_002_End_US_CHG_CS_001<\/bpmn:incoming>\n    <\/bpmn:endEvent>\n    <bpmn:sequenceFlow id=\"Flow_Start_US_CHG_CS_001_Task_PR_CHG_CS_001\" sourceRef=\"Start_US_CHG_CS_001\" targetRef=\"Task_PR_CHG_CS_001\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_CS_001_Task_PR_CHG_CS_002\" sourceRef=\"Task_PR_CHG_CS_001\" targetRef=\"Task_PR_CHG_CS_002\"/>\n    <bpmn:sequenceFlow id=\"Flow_Task_PR_CHG_CS_002_End_US_CHG_CS_001\" sourceRef=\"Task_PR_CHG_CS_002\" targetRef=\"End_US_CHG_CS_001\"/>\n  <\/bpmn:process>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_Item\">\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_CUS_001_di\" bpmnElement=\"Lane_US_CHG_CUS_001\">\n        <dc:Bounds x=\"40\" y=\"25\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_CUS_001_di\" bpmnElement=\"Start_US_CHG_CUS_001\">\n        <dc:Bounds x=\"112\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_IMP_001_di\" bpmnElement=\"Task_PR_CHG_IMP_001\">\n        <dc:Bounds x=\"240\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_IMP_002_di\" bpmnElement=\"Task_PR_CHG_IMP_002\">\n        <dc:Bounds x=\"460\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_IMP_003_di\" bpmnElement=\"Task_PR_CHG_IMP_003\">\n        <dc:Bounds x=\"680\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_IMP_004_di\" bpmnElement=\"Task_PR_CHG_IMP_004\">\n        <dc:Bounds x=\"900\" y=\"30\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_CUS_001_di\" bpmnElement=\"End_US_CHG_CUS_001\">\n        <dc:Bounds x=\"1120\" y=\"52\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_CUS_002_di\" bpmnElement=\"Lane_US_CHG_CUS_002\">\n        <dc:Bounds x=\"40\" y=\"195\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_CUS_002_di\" bpmnElement=\"Start_US_CHG_CUS_002\">\n        <dc:Bounds x=\"112\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REQ_001_di\" bpmnElement=\"Task_PR_CHG_REQ_001\">\n        <dc:Bounds x=\"240\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REQ_002_di\" bpmnElement=\"Task_PR_CHG_REQ_002\">\n        <dc:Bounds x=\"460\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REQ_003_di\" bpmnElement=\"Task_PR_CHG_REQ_003\">\n        <dc:Bounds x=\"680\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REQ_004_di\" bpmnElement=\"Task_PR_CHG_REQ_004\">\n        <dc:Bounds x=\"900\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REQ_005_di\" bpmnElement=\"Task_PR_CHG_REQ_005\">\n        <dc:Bounds x=\"1120\" y=\"200\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_CUS_002_di\" bpmnElement=\"End_US_CHG_CUS_002\">\n        <dc:Bounds x=\"1340\" y=\"222\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_CUS_003_di\" bpmnElement=\"Lane_US_CHG_CUS_003\">\n        <dc:Bounds x=\"40\" y=\"365\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_CUS_003_di\" bpmnElement=\"Start_US_CHG_CUS_003\">\n        <dc:Bounds x=\"112\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_RSV_001_di\" bpmnElement=\"Task_PR_CHG_RSV_001\">\n        <dc:Bounds x=\"240\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_RSV_002_di\" bpmnElement=\"Task_PR_CHG_RSV_002\">\n        <dc:Bounds x=\"460\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_RSV_003_di\" bpmnElement=\"Task_PR_CHG_RSV_003\">\n        <dc:Bounds x=\"680\" y=\"370\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_CUS_003_di\" bpmnElement=\"End_US_CHG_CUS_003\">\n        <dc:Bounds x=\"900\" y=\"392\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_CUS_004_di\" bpmnElement=\"Lane_US_CHG_CUS_004\">\n        <dc:Bounds x=\"40\" y=\"535\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_CUS_004_di\" bpmnElement=\"Start_US_CHG_CUS_004\">\n        <dc:Bounds x=\"112\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_SUB_001_di\" bpmnElement=\"Task_PR_CHG_SUB_001\">\n        <dc:Bounds x=\"240\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_SUB_002_di\" bpmnElement=\"Task_PR_CHG_SUB_002\">\n        <dc:Bounds x=\"460\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_SUB_003_di\" bpmnElement=\"Task_PR_CHG_SUB_003\">\n        <dc:Bounds x=\"680\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_SUB_004_di\" bpmnElement=\"Task_PR_CHG_SUB_004\">\n        <dc:Bounds x=\"900\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_SUB_005_di\" bpmnElement=\"Task_PR_CHG_SUB_005\">\n        <dc:Bounds x=\"1120\" y=\"540\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_CUS_004_di\" bpmnElement=\"End_US_CHG_CUS_004\">\n        <dc:Bounds x=\"1340\" y=\"562\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_CUS_005_di\" bpmnElement=\"Lane_US_CHG_CUS_005\">\n        <dc:Bounds x=\"40\" y=\"705\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_CUS_005_di\" bpmnElement=\"Start_US_CHG_CUS_005\">\n        <dc:Bounds x=\"112\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REC_001_di\" bpmnElement=\"Task_PR_CHG_REC_001\">\n        <dc:Bounds x=\"240\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REC_002_di\" bpmnElement=\"Task_PR_CHG_REC_002\">\n        <dc:Bounds x=\"460\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REC_003_di\" bpmnElement=\"Task_PR_CHG_REC_003\">\n        <dc:Bounds x=\"680\" y=\"710\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_CUS_005_di\" bpmnElement=\"End_US_CHG_CUS_005\">\n        <dc:Bounds x=\"900\" y=\"732\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_REP_001_di\" bpmnElement=\"Lane_US_CHG_REP_001\">\n        <dc:Bounds x=\"40\" y=\"875\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_REP_001_di\" bpmnElement=\"Start_US_CHG_REP_001\">\n        <dc:Bounds x=\"112\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REP_001_di\" bpmnElement=\"Task_PR_CHG_REP_001\">\n        <dc:Bounds x=\"240\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_REP_002_di\" bpmnElement=\"Task_PR_CHG_REP_002\">\n        <dc:Bounds x=\"460\" y=\"880\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_REP_001_di\" bpmnElement=\"End_US_CHG_REP_001\">\n        <dc:Bounds x=\"680\" y=\"902\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_OPR_001_di\" bpmnElement=\"Lane_US_CHG_OPR_001\">\n        <dc:Bounds x=\"40\" y=\"1045\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_OPR_001_di\" bpmnElement=\"Start_US_CHG_OPR_001\">\n        <dc:Bounds x=\"112\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_OPR_001_di\" bpmnElement=\"Task_PR_CHG_OPR_001\">\n        <dc:Bounds x=\"240\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_OPR_002_di\" bpmnElement=\"Task_PR_CHG_OPR_002\">\n        <dc:Bounds x=\"460\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_OPR_003_di\" bpmnElement=\"Task_PR_CHG_OPR_003\">\n        <dc:Bounds x=\"680\" y=\"1050\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_OPR_001_di\" bpmnElement=\"End_US_CHG_OPR_001\">\n        <dc:Bounds x=\"900\" y=\"1072\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Lane_US_CHG_CS_001_di\" bpmnElement=\"Lane_US_CHG_CS_001\">\n        <dc:Bounds x=\"40\" y=\"1215\" width=\"1580\" height=\"140\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Start_US_CHG_CS_001_di\" bpmnElement=\"Start_US_CHG_CS_001\">\n        <dc:Bounds x=\"112\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_CS_001_di\" bpmnElement=\"Task_PR_CHG_CS_001\">\n        <dc:Bounds x=\"240\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Task_PR_CHG_CS_002_di\" bpmnElement=\"Task_PR_CHG_CS_002\">\n        <dc:Bounds x=\"460\" y=\"1220\" width=\"170\" height=\"80\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"End_US_CHG_CS_001_di\" bpmnElement=\"End_US_CHG_CS_001\">\n        <dc:Bounds x=\"680\" y=\"1242\" width=\"36\" height=\"36\"/>\n      <\/bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_CUS_001_Task_PR_CHG_IMP_001_di\" bpmnElement=\"Flow_Start_US_CHG_CUS_001_Task_PR_CHG_IMP_001\">\n        <di:waypoint x=\"148\" y=\"70\"/>\n        <di:waypoint x=\"240\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_IMP_001_Task_PR_CHG_IMP_002_di\" bpmnElement=\"Flow_Task_PR_CHG_IMP_001_Task_PR_CHG_IMP_002\">\n        <di:waypoint x=\"410\" y=\"70\"/>\n        <di:waypoint x=\"460\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_IMP_002_Task_PR_CHG_IMP_003_di\" bpmnElement=\"Flow_Task_PR_CHG_IMP_002_Task_PR_CHG_IMP_003\">\n        <di:waypoint x=\"630\" y=\"70\"/>\n        <di:waypoint x=\"680\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_IMP_003_Task_PR_CHG_IMP_004_di\" bpmnElement=\"Flow_Task_PR_CHG_IMP_003_Task_PR_CHG_IMP_004\">\n        <di:waypoint x=\"850\" y=\"70\"/>\n        <di:waypoint x=\"900\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_IMP_004_End_US_CHG_CUS_001_di\" bpmnElement=\"Flow_Task_PR_CHG_IMP_004_End_US_CHG_CUS_001\">\n        <di:waypoint x=\"1070\" y=\"70\"/>\n        <di:waypoint x=\"1120\" y=\"70\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_CUS_002_Task_PR_CHG_REQ_001_di\" bpmnElement=\"Flow_Start_US_CHG_CUS_002_Task_PR_CHG_REQ_001\">\n        <di:waypoint x=\"148\" y=\"240\"/>\n        <di:waypoint x=\"240\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REQ_001_Task_PR_CHG_REQ_002_di\" bpmnElement=\"Flow_Task_PR_CHG_REQ_001_Task_PR_CHG_REQ_002\">\n        <di:waypoint x=\"410\" y=\"240\"/>\n        <di:waypoint x=\"460\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REQ_002_Task_PR_CHG_REQ_003_di\" bpmnElement=\"Flow_Task_PR_CHG_REQ_002_Task_PR_CHG_REQ_003\">\n        <di:waypoint x=\"630\" y=\"240\"/>\n        <di:waypoint x=\"680\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REQ_003_Task_PR_CHG_REQ_004_di\" bpmnElement=\"Flow_Task_PR_CHG_REQ_003_Task_PR_CHG_REQ_004\">\n        <di:waypoint x=\"850\" y=\"240\"/>\n        <di:waypoint x=\"900\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REQ_004_Task_PR_CHG_REQ_005_di\" bpmnElement=\"Flow_Task_PR_CHG_REQ_004_Task_PR_CHG_REQ_005\">\n        <di:waypoint x=\"1070\" y=\"240\"/>\n        <di:waypoint x=\"1120\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REQ_005_End_US_CHG_CUS_002_di\" bpmnElement=\"Flow_Task_PR_CHG_REQ_005_End_US_CHG_CUS_002\">\n        <di:waypoint x=\"1290\" y=\"240\"/>\n        <di:waypoint x=\"1340\" y=\"240\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_CUS_003_Task_PR_CHG_RSV_001_di\" bpmnElement=\"Flow_Start_US_CHG_CUS_003_Task_PR_CHG_RSV_001\">\n        <di:waypoint x=\"148\" y=\"410\"/>\n        <di:waypoint x=\"240\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_RSV_001_Task_PR_CHG_RSV_002_di\" bpmnElement=\"Flow_Task_PR_CHG_RSV_001_Task_PR_CHG_RSV_002\">\n        <di:waypoint x=\"410\" y=\"410\"/>\n        <di:waypoint x=\"460\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_RSV_002_Task_PR_CHG_RSV_003_di\" bpmnElement=\"Flow_Task_PR_CHG_RSV_002_Task_PR_CHG_RSV_003\">\n        <di:waypoint x=\"630\" y=\"410\"/>\n        <di:waypoint x=\"680\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_RSV_003_End_US_CHG_CUS_003_di\" bpmnElement=\"Flow_Task_PR_CHG_RSV_003_End_US_CHG_CUS_003\">\n        <di:waypoint x=\"850\" y=\"410\"/>\n        <di:waypoint x=\"900\" y=\"410\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_CUS_004_Task_PR_CHG_SUB_001_di\" bpmnElement=\"Flow_Start_US_CHG_CUS_004_Task_PR_CHG_SUB_001\">\n        <di:waypoint x=\"148\" y=\"580\"/>\n        <di:waypoint x=\"240\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_SUB_001_Task_PR_CHG_SUB_002_di\" bpmnElement=\"Flow_Task_PR_CHG_SUB_001_Task_PR_CHG_SUB_002\">\n        <di:waypoint x=\"410\" y=\"580\"/>\n        <di:waypoint x=\"460\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_SUB_002_Task_PR_CHG_SUB_003_di\" bpmnElement=\"Flow_Task_PR_CHG_SUB_002_Task_PR_CHG_SUB_003\">\n        <di:waypoint x=\"630\" y=\"580\"/>\n        <di:waypoint x=\"680\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_SUB_003_Task_PR_CHG_SUB_004_di\" bpmnElement=\"Flow_Task_PR_CHG_SUB_003_Task_PR_CHG_SUB_004\">\n        <di:waypoint x=\"850\" y=\"580\"/>\n        <di:waypoint x=\"900\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_SUB_004_Task_PR_CHG_SUB_005_di\" bpmnElement=\"Flow_Task_PR_CHG_SUB_004_Task_PR_CHG_SUB_005\">\n        <di:waypoint x=\"1070\" y=\"580\"/>\n        <di:waypoint x=\"1120\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_SUB_005_End_US_CHG_CUS_004_di\" bpmnElement=\"Flow_Task_PR_CHG_SUB_005_End_US_CHG_CUS_004\">\n        <di:waypoint x=\"1290\" y=\"580\"/>\n        <di:waypoint x=\"1340\" y=\"580\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_CUS_005_Task_PR_CHG_REC_001_di\" bpmnElement=\"Flow_Start_US_CHG_CUS_005_Task_PR_CHG_REC_001\">\n        <di:waypoint x=\"148\" y=\"750\"/>\n        <di:waypoint x=\"240\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REC_001_Task_PR_CHG_REC_002_di\" bpmnElement=\"Flow_Task_PR_CHG_REC_001_Task_PR_CHG_REC_002\">\n        <di:waypoint x=\"410\" y=\"750\"/>\n        <di:waypoint x=\"460\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REC_002_Task_PR_CHG_REC_003_di\" bpmnElement=\"Flow_Task_PR_CHG_REC_002_Task_PR_CHG_REC_003\">\n        <di:waypoint x=\"630\" y=\"750\"/>\n        <di:waypoint x=\"680\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REC_003_End_US_CHG_CUS_005_di\" bpmnElement=\"Flow_Task_PR_CHG_REC_003_End_US_CHG_CUS_005\">\n        <di:waypoint x=\"850\" y=\"750\"/>\n        <di:waypoint x=\"900\" y=\"750\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_REP_001_Task_PR_CHG_REP_001_di\" bpmnElement=\"Flow_Start_US_CHG_REP_001_Task_PR_CHG_REP_001\">\n        <di:waypoint x=\"148\" y=\"920\"/>\n        <di:waypoint x=\"240\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REP_001_Task_PR_CHG_REP_002_di\" bpmnElement=\"Flow_Task_PR_CHG_REP_001_Task_PR_CHG_REP_002\">\n        <di:waypoint x=\"410\" y=\"920\"/>\n        <di:waypoint x=\"460\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_REP_002_End_US_CHG_REP_001_di\" bpmnElement=\"Flow_Task_PR_CHG_REP_002_End_US_CHG_REP_001\">\n        <di:waypoint x=\"630\" y=\"920\"/>\n        <di:waypoint x=\"680\" y=\"920\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_OPR_001_Task_PR_CHG_OPR_001_di\" bpmnElement=\"Flow_Start_US_CHG_OPR_001_Task_PR_CHG_OPR_001\">\n        <di:waypoint x=\"148\" y=\"1090\"/>\n        <di:waypoint x=\"240\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_OPR_001_Task_PR_CHG_OPR_002_di\" bpmnElement=\"Flow_Task_PR_CHG_OPR_001_Task_PR_CHG_OPR_002\">\n        <di:waypoint x=\"410\" y=\"1090\"/>\n        <di:waypoint x=\"460\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_OPR_002_Task_PR_CHG_OPR_003_di\" bpmnElement=\"Flow_Task_PR_CHG_OPR_002_Task_PR_CHG_OPR_003\">\n        <di:waypoint x=\"630\" y=\"1090\"/>\n        <di:waypoint x=\"680\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_OPR_003_End_US_CHG_OPR_001_di\" bpmnElement=\"Flow_Task_PR_CHG_OPR_003_End_US_CHG_OPR_001\">\n        <di:waypoint x=\"850\" y=\"1090\"/>\n        <di:waypoint x=\"900\" y=\"1090\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Start_US_CHG_CS_001_Task_PR_CHG_CS_001_di\" bpmnElement=\"Flow_Start_US_CHG_CS_001_Task_PR_CHG_CS_001\">\n        <di:waypoint x=\"148\" y=\"1260\"/>\n        <di:waypoint x=\"240\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_CS_001_Task_PR_CHG_CS_002_di\" bpmnElement=\"Flow_Task_PR_CHG_CS_001_Task_PR_CHG_CS_002\">\n        <di:waypoint x=\"410\" y=\"1260\"/>\n        <di:waypoint x=\"460\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n      <bpmndi:BPMNEdge id=\"Flow_Task_PR_CHG_CS_002_End_US_CHG_CS_001_di\" bpmnElement=\"Flow_Task_PR_CHG_CS_002_End_US_CHG_CS_001\">\n        <di:waypoint x=\"630\" y=\"1260\"/>\n        <di:waypoint x=\"680\" y=\"1260\"/>\n      <\/bpmndi:BPMNEdge>\n    <\/bpmndi:BPMNPlane>\n  <\/bpmndi:BPMNDiagram>\n<\/bpmn:definitions>\n"}</script>
+<div class="bpmn-fallback"><div class="diagram-wrap bpmn-process-diagram"><svg aria-label="전체 업무 흐름도 BPMN" height="1388" role="img" viewBox="0 0 1362 1388" width="1362" xmlns="http://www.w3.org/2000/svg"><defs><marker id="bpmn-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#667085"></path></marker><style>.pool{fill:#fff;stroke:#cfd8e3;stroke-width:1.4;}.pool-head{fill:#eef3f8;stroke:#cfd8e3;stroke-width:1.4;}.pool-index{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#3b82f6;}.pool-title{font:700 13px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.task{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.3;}.task-key{fill:#eef5ff;stroke:#6f8fb8;stroke-width:1.5;}.task-text{font:700 12px Arial, 'Malgun Gothic', sans-serif;fill:#1f2937;}.flow{stroke:#667085;stroke-width:1.35;fill:none;}.start{fill:#eaf7ef;stroke:#73b483;stroke-width:1.5;}.end{fill:#f4f4f5;stroke:#71717a;stroke-width:1.5;}.start-text{font:700 10px Arial, 'Malgun Gothic', sans-serif;fill:#374151;}</style></defs><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="32"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="32"></rect><text class="pool-index" x="58" y="64">01</text><text class="pool-title" text-anchor="middle" x="145" y="85">US-CHG-CUS-001</text><text class="pool-title" text-anchor="middle" x="145" y="101">변경 가능성과 영향 비교</text><circle class="start" cx="300" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="112">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="75"></rect><text class="task-text" text-anchor="middle" x="410" y="96">PR-CHG-IMP-001</text><text class="task-text" text-anchor="middle" x="410" y="119">변경 대상과 현재 상태 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="75"></rect><text class="task-text" text-anchor="middle" x="595" y="96">PR-CHG-IMP-002</text><text class="task-text" text-anchor="middle" x="595" y="112">셀프 가능 범위와 불가 사유</text><text class="task-text" text-anchor="middle" x="595" y="126">판정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="108" y2="108"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="75"></rect><text class="task-text" text-anchor="middle" x="780" y="96">PR-CHG-IMP-003</text><text class="task-text" text-anchor="middle" x="780" y="119">변경 전후 영향 비교</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="108" y2="108"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="885" y="75"></rect><text class="task-text" text-anchor="middle" x="965" y="96">PR-CHG-IMP-004</text><text class="task-text" text-anchor="middle" x="965" y="112">대체 변경안과 진입 경로</text><text class="task-text" text-anchor="middle" x="965" y="126">선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="108" y2="108"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1082" y1="108" y2="108"></line><circle class="end" cx="1103" cy="108" r="17"></circle><text class="start-text" text-anchor="middle" x="1103" y="112">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="200"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="200"></rect><text class="pool-index" x="58" y="232">02</text><text class="pool-title" text-anchor="middle" x="145" y="253">US-CHG-CUS-002</text><text class="pool-title" text-anchor="middle" x="145" y="269">상품 변경 신청과 결과 확정</text><circle class="start" cx="300" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="280">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="243"></rect><text class="task-text" text-anchor="middle" x="410" y="264">PR-CHG-REQ-001</text><text class="task-text" text-anchor="middle" x="410" y="287">변경 초안 작성과 임시 저장</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="243"></rect><text class="task-text" text-anchor="middle" x="595" y="264">PR-CHG-REQ-002</text><text class="task-text" text-anchor="middle" x="595" y="287">인증·동의와 권한 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="243"></rect><text class="task-text" text-anchor="middle" x="780" y="264">PR-CHG-REQ-003</text><text class="task-text" text-anchor="middle" x="780" y="287">즉시·예약 변경 방식 확정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="276" y2="276"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="885" y="243"></rect><text class="task-text" text-anchor="middle" x="965" y="264">PR-CHG-REQ-004</text><text class="task-text" text-anchor="middle" x="965" y="287">BSS 변경 요청 제출</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="276" y2="276"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="1070" y="243"></rect><text class="task-text" text-anchor="middle" x="1150" y="264">PR-CHG-REQ-005</text><text class="task-text" text-anchor="middle" x="1150" y="287">적용 결과와 후속 액션 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1064" y1="276" y2="276"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1234" x2="1267" y1="276" y2="276"></line><circle class="end" cx="1288" cy="276" r="17"></circle><text class="start-text" text-anchor="middle" x="1288" y="280">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="368"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="368"></rect><text class="pool-index" x="58" y="400">03</text><text class="pool-title" text-anchor="middle" x="145" y="421">US-CHG-CUS-003</text><text class="pool-title" text-anchor="middle" x="145" y="437">예약 변경과 충돌 해소</text><circle class="start" cx="300" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="448">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="411"></rect><text class="task-text" text-anchor="middle" x="410" y="432">PR-CHG-RSV-001</text><text class="task-text" text-anchor="middle" x="410" y="455">예약 가능일 산정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="444" y2="444"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="411"></rect><text class="task-text" text-anchor="middle" x="595" y="432">PR-CHG-RSV-002</text><text class="task-text" text-anchor="middle" x="595" y="455">기존 예약 충돌 검증</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="444" y2="444"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="411"></rect><text class="task-text" text-anchor="middle" x="780" y="432">PR-CHG-RSV-003</text><text class="task-text" text-anchor="middle" x="780" y="455">예약 철회·수정·재예약 확정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="444" y2="444"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="444" y2="444"></line><circle class="end" cx="918" cy="444" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="448">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="536"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="536"></rect><text class="pool-index" x="58" y="568">04</text><text class="pool-title" text-anchor="middle" x="145" y="589">US-CHG-CUS-004</text><text class="pool-title" text-anchor="middle" x="145" y="605">구독·옵션·일시정지 관리</text><circle class="start" cx="300" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="616">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="579"></rect><text class="task-text" text-anchor="middle" x="410" y="600">PR-CHG-SUB-001</text><text class="task-text" text-anchor="middle" x="410" y="623">구독·옵션 현재 상태 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="579"></rect><text class="task-text" text-anchor="middle" x="595" y="600">PR-CHG-SUB-002</text><text class="task-text" text-anchor="middle" x="595" y="623">플랜·옵션 변경안 선택</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="700" y="579"></rect><text class="task-text" text-anchor="middle" x="780" y="600">PR-CHG-SUB-003</text><text class="task-text" text-anchor="middle" x="780" y="616">일시정지·재개·조기 해제</text><text class="task-text" text-anchor="middle" x="780" y="630">설정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="612" y2="612"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="885" y="579"></rect><text class="task-text" text-anchor="middle" x="965" y="600">PR-CHG-SUB-004</text><text class="task-text" text-anchor="middle" x="965" y="616">해지·유료 전환·프로모션</text><text class="task-text" text-anchor="middle" x="965" y="630">영향 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="879" y1="612" y2="612"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="1070" y="579"></rect><text class="task-text" text-anchor="middle" x="1150" y="600">PR-CHG-SUB-005</text><text class="task-text" text-anchor="middle" x="1150" y="623">결제수단·후속 혜택 연결</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="1049" x2="1064" y1="612" y2="612"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="1234" x2="1267" y1="612" y2="612"></line><circle class="end" cx="1288" cy="612" r="17"></circle><text class="start-text" text-anchor="middle" x="1288" y="616">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="704"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="704"></rect><text class="pool-index" x="58" y="736">05</text><text class="pool-title" text-anchor="middle" x="145" y="757">US-CHG-CUS-005</text><text class="pool-title" text-anchor="middle" x="145" y="773">변경 진행 조회와 실패 복구</text><circle class="start" cx="300" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="784">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="747"></rect><text class="task-text" text-anchor="middle" x="410" y="768">PR-CHG-REC-001</text><text class="task-text" text-anchor="middle" x="410" y="791">변경 요청 상태 조회</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="780" y2="780"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="747"></rect><text class="task-text" text-anchor="middle" x="595" y="768">PR-CHG-REC-002</text><text class="task-text" text-anchor="middle" x="595" y="784">실패 사유와 재시도 경로</text><text class="task-text" text-anchor="middle" x="595" y="798">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="780" y2="780"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="747"></rect><text class="task-text" text-anchor="middle" x="780" y="768">PR-CHG-REC-003</text><text class="task-text" text-anchor="middle" x="780" y="791">컨텍스트 유지 상담 전환</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="780" y2="780"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="780" y2="780"></line><circle class="end" cx="918" cy="780" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="784">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="872"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="872"></rect><text class="pool-index" x="58" y="904">06</text><text class="pool-title" text-anchor="middle" x="145" y="925">US-CHG-REP-001</text><text class="pool-title" text-anchor="middle" x="145" y="941">미성년 회선 변경 동의</text><circle class="start" cx="300" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="952">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="915"></rect><text class="task-text" text-anchor="middle" x="410" y="936">PR-CHG-REP-001</text><text class="task-text" text-anchor="middle" x="410" y="952">미성년 회선과 대리 권한</text><text class="task-text" text-anchor="middle" x="410" y="966">확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="948" y2="948"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="915"></rect><text class="task-text" text-anchor="middle" x="595" y="936">PR-CHG-REP-002</text><text class="task-text" text-anchor="middle" x="595" y="952">대리 동의 결과와 변경 가능</text><text class="task-text" text-anchor="middle" x="595" y="966">여부 확정</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="948" y2="948"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="948" y2="948"></line><circle class="end" cx="733" cy="948" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="952">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="1040"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1040"></rect><text class="pool-index" x="58" y="1072">07</text><text class="pool-title" text-anchor="middle" x="145" y="1093">US-CHG-OPR-001</text><text class="pool-title" text-anchor="middle" x="145" y="1109">변경 기준과 예외 운영</text><circle class="start" cx="300" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1120">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1083"></rect><text class="task-text" text-anchor="middle" x="410" y="1104">PR-CHG-OPR-001</text><text class="task-text" text-anchor="middle" x="410" y="1127">변경 조건·예외 기준 등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1116" y2="1116"></line><rect class="task" height="66" rx="12" ry="12" width="160" x="515" y="1083"></rect><text class="task-text" text-anchor="middle" x="595" y="1104">PR-CHG-OPR-002</text><text class="task-text" text-anchor="middle" x="595" y="1127">승인·보류·반려 처리</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1116" y2="1116"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="700" y="1083"></rect><text class="task-text" text-anchor="middle" x="780" y="1104">PR-CHG-OPR-003</text><text class="task-text" text-anchor="middle" x="780" y="1120">실패·지연 모니터링과 기준</text><text class="task-text" text-anchor="middle" x="780" y="1134">개선</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="694" y1="1116" y2="1116"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="864" x2="897" y1="1116" y2="1116"></line><circle class="end" cx="918" cy="1116" r="17"></circle><text class="start-text" text-anchor="middle" x="918" y="1120">End</text><rect class="pool" height="150" rx="14" ry="14" width="1302" x="30" y="1208"></rect><rect class="pool-head" height="150" rx="14" ry="14" width="230" x="30" y="1208"></rect><text class="pool-index" x="58" y="1240">08</text><text class="pool-title" text-anchor="middle" x="145" y="1261">US-CHG-CS-001</text><text class="pool-title" text-anchor="middle" x="145" y="1277">셀프 불가 변경 상담 지원</text><circle class="start" cx="300" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="300" y="1288">Start</text><rect class="task-key" height="66" rx="12" ry="12" width="160" x="330" y="1251"></rect><text class="task-text" text-anchor="middle" x="410" y="1272">PR-CHG-CS-001</text><text class="task-text" text-anchor="middle" x="410" y="1295">상담 인입 변경 문맥 확인</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="317" x2="324" y1="1284" y2="1284"></line><rect class="task-key" height="66" rx="12" ry="12" width="160" x="515" y="1251"></rect><text class="task-text" text-anchor="middle" x="595" y="1272">PR-CHG-CS-002</text><text class="task-text" text-anchor="middle" x="595" y="1295">대체 처리·재시도 등록</text><line class="flow" marker-end="url(#bpmn-arrow)" x1="494" x2="509" y1="1284" y2="1284"></line><line class="flow" marker-end="url(#bpmn-arrow)" x1="679" x2="712" y1="1284" y2="1284"></line><circle class="end" cx="733" cy="1284" r="17"></circle><text class="start-text" text-anchor="middle" x="733" y="1288">End</text></svg></div></div>
+</div>
+
+
+<h2>5. 기능 정의</h2>
+<h3>가. 기능 목록</h3>
+<p class="plain-text">기능은 화면 단위가 아니라 프로세스를 수행하기 위한 처리 단위로 작성한다.<br/>각 기능은 관련 정책을 실행하는 수단이며, 정책값은 정책 정의 장에서 관리한다.<br/></p>
+
+<h4>1) 변경 대상과 현재 상태 확인 (PR-CHG-IMP-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-IMP-001</td><td>변경 대상 조회 기능</td><td>고객 회선, 상품, 옵션, 구독, 약정, 진행 중 주문·배송 상태를 확인해 변경 후보를 좁힌다.<br/></td><td>회선·상품 상태 조회<br/>진행 중 주문·배송·설치 상태 확인<br/>변경 후보군 구성<br/>변경 가능 항목 요약 허브 제공</td></tr></tbody>
+</table>
+
+<h4>2) 셀프 가능 범위와 불가 사유 판정 (PR-CHG-IMP-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-IMP-002</td><td>셀프 가능성 판정 기능</td><td>상품 유형, 처리 상태, 제휴 조건, 미성년 여부, 시스템 제한을 기준으로 셀프 처리 가능 여부와 불가 사유를 판정한다.<br/></td><td>셀프 허용 조건 판정<br/>불가 사유 분류<br/>변경 횟수와 다음 가능일 산정<br/>상담 전환 기준 표시</td></tr></tbody>
+</table>
+
+<h4>3) 변경 전후 영향 비교 (PR-CHG-IMP-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-IMP-003</td><td>변경 영향 비교 기능</td><td>추가 비용, 할인·혜택 변화, 약정·구독 영향, 적용 시점, 되돌림 가능 범위를 변경 전 카드로 비교한다.<br/></td><td>변경 전후 금액 비교<br/>혜택·약정·구독 영향 산정<br/>패키지 상품 교체 금액 비교<br/>통합 변경 예상 절감액 계산</td></tr></tbody>
+</table>
+
+<h4>4) 대체 변경안과 진입 경로 선택 (PR-CHG-IMP-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-IMP-004</td><td>대체 변경안 추천 기능</td><td>불가 또는 부담이 큰 변경에는 대체 요금제, 무위약금 변경 후보, 상담 전환, 예약 변경 경로를 제시한다.<br/></td><td>대체 요금제 후보 산정<br/>무위약금 후보 표시<br/>제한 사유와 후보 차이 설명<br/>변경 가능일 알림 연결</td></tr></tbody>
+</table>
+
+<h4>5) 변경 초안 작성과 임시 저장 (PR-CHG-REQ-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REQ-001</td><td>변경 초안 관리 기능</td><td>고객이 변경 항목과 적용 방식을 선택하면 입력값과 영향 확인 상태를 초안으로 저장한다.<br/></td><td>변경 항목 초안 저장<br/>영향 확인 상태 보존<br/>이탈 후 재진입 복원<br/>초안 만료 시간 관리</td></tr></tbody>
+</table>
+
+<h4>6) 인증·동의와 권한 확인 (PR-CHG-REQ-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REQ-002</td><td>인증·동의 확인 기능</td><td>본인확인, 약정·결제 영향 동의, 법정대리인 동의, 필수 약관 동의를 확인한다.<br/></td><td>본인확인 수행<br/>약정·결제 영향 동의 수집<br/>법정대리인 동의 연결<br/>인증 만료 시 초안 유지</td></tr></tbody>
+</table>
+
+<h4>7) 즉시·예약 변경 방식 확정 (PR-CHG-REQ-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REQ-003</td><td>변경 방식 확정 기능</td><td>일할 계산과 즉시 혜택 반영이 필요한 요청은 즉시 변경으로, 청구 주기 기준 변경은 예약 변경으로 확정한다.<br/></td><td>즉시 변경 가능성 판정<br/>예약 변경 필요성 판정<br/>일할 계산·부분 취소 연결<br/>적용 방식 확정 이력 저장</td></tr></tbody>
+</table>
+
+<h4>8) BSS 변경 요청 제출 (PR-CHG-REQ-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REQ-004</td><td>BSS 요청 제출 기능</td><td>검증을 통과한 변경 요청을 BSS와 제휴·주문·구독 연계 시스템에 전달하고 접수 결과를 수신한다.<br/></td><td>BSS 접수 식별자 생성<br/>구독·주문·결제 연계 전달<br/>부분 성공 응답 분리<br/>접수 실패 사유 회신</td></tr></tbody>
+</table>
+
+<h4>9) 적용 결과와 후속 액션 확인 (PR-CHG-REQ-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REQ-005</td><td>변경 결과 확인 기능</td><td>반영 성공 여부, 변경 후 상품 상태, 비용 영향, 후속 알림과 이력 조회 경로를 고객에게 제공한다.<br/></td><td>변경 후 상품 상태 표시<br/>비용·혜택 변동 결과 안내<br/>후속 신청·무료충전 경로 제공<br/>변경 이력 조회 연결</td></tr></tbody>
+</table>
+
+<h4>10) 예약 가능일 산정 (PR-CHG-RSV-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-RSV-001</td><td>예약 가능일 산정 기능</td><td>청구 주기, 갱신일, 배송·설치 단계, 기존 예약을 기준으로 예약 가능일과 불가일을 산정한다.<br/></td><td>청구 주기 기반 예약일 계산<br/>유지기간·정책 조건 반영<br/>가장 이른 변경 가능일 표시<br/>예약 불가일 사유 제공</td></tr></tbody>
+</table>
+
+<h4>11) 기존 예약 충돌 검증 (PR-CHG-RSV-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-RSV-002</td><td>예약 충돌 검증 기능</td><td>동일 회선, 동일 구독, 동일 옵션에 이미 등록된 예약과 신규 요청의 우선순위를 판정한다.<br/></td><td>동일 회선 예약 조회<br/>구독 갱신일 충돌 검증<br/>우선순위 판정<br/>충돌 해소 선택지 제공</td></tr></tbody>
+</table>
+
+<h4>12) 예약 철회·수정·재예약 확정 (PR-CHG-RSV-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-RSV-003</td><td>예약 변경 확정 기능</td><td>고객이 기존 예약 유지, 철회, 수정, 재예약 중 하나를 선택하면 적용 예정 상태와 고지 이력을 갱신한다.<br/></td><td>예약 철회 처리<br/>예약 수정 처리<br/>재예약 확정<br/>적용 예정 상태 갱신</td></tr></tbody>
+</table>
+
+<h4>13) 구독·옵션 현재 상태 조회 (PR-CHG-SUB-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-SUB-001</td><td>구독·옵션 상태 조회 기능</td><td>고객이 보유한 구독, 옵션상품, 프로모션, 결제수단, 일시정지 가능 상태를 조회한다.<br/></td><td>구독·옵션 가입 상태 조회<br/>프로모션 현재 적용중 표시<br/>결제수단 변경 경로 연결<br/>변경 가능 플랜 후보 구성</td></tr></tbody>
+</table>
+
+<h4>14) 플랜·옵션 변경안 선택 (PR-CHG-SUB-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-SUB-002</td><td>플랜·옵션 변경안 구성 기능</td><td>플랜 변경, 옵션 추가·해제·조합, 대체 상품 선택 시 혜택 유지와 소멸 기준을 비교한다.<br/></td><td>상위·하위 플랜 비교<br/>옵션 추가·해제·조합 구성<br/>클럽형 혜택 조건 확인<br/>번들 전환 영향 산정</td></tr></tbody>
+</table>
+
+<h4>15) 일시정지·재개·조기 해제 설정 (PR-CHG-SUB-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-SUB-003</td><td>일시정지 일정 관리 기능</td><td>고객이 시작일과 종료일을 예약하거나 조기 해제를 선택하면 가능 조건과 영향 범위를 확인한다.<br/></td><td>일시정지 시작·종료일 설정<br/>예약 해제·조기 해제 처리<br/>남은 기간 표시<br/>자동 해제 실패 복구</td></tr></tbody>
+</table>
+
+<h4>16) 해지·유료 전환·프로모션 영향 확인 (PR-CHG-SUB-004)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-SUB-004</td><td>해지·전환 영향 고지 기능</td><td>구독 해지, 유료 전환, 프로모션 종료, 연동 혜택 해제 영향을 신청 전에 고지한다.<br/></td><td>구독 해지 영향 고지<br/>유료 전환 예상 비용 표시<br/>연동 혜택 변경 경고<br/>우주패스 해지 일괄 처리</td></tr></tbody>
+</table>
+
+<h4>17) 결제수단·후속 혜택 연결 (PR-CHG-SUB-005)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-SUB-005</td><td>결제·혜택 연결 기능</td><td>구독과 옵션 변경 후 결제수단, 자동 결제, 잔여 혜택, 후속 신청 경로를 연결한다.<br/></td><td>결제수단 재확인 연결<br/>잔여 혜택·후속 신청 경로 표시<br/>로밍 무료충전 딥링크 제공<br/>완료 후 행동 가이드 제공</td></tr></tbody>
+</table>
+
+<h4>18) 변경 요청 상태 조회 (PR-CHG-REC-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REC-001</td><td>변경 진행 조회 기능</td><td>고객이 접수, 처리 중, 보류, 실패, 적용 완료, 예약 등록 상태와 예상 완료 시점을 조회한다.<br/></td><td>접수·처리·보류·실패 상태 조회<br/>예상 완료 시점 표시<br/>추가 확인 필요 여부 표시<br/>예약 적용 예정 상태 표시</td></tr></tbody>
+</table>
+
+<h4>19) 실패 사유와 재시도 경로 확인 (PR-CHG-REC-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REC-002</td><td>실패 복구 경로 기능</td><td>실패 사유를 인증 만료, 입력 보정, 연계 지연, 정책 제한으로 구분하고 재시도 가능 여부를 제공한다.<br/></td><td>인증 만료 분류<br/>입력 보정 재시도<br/>연계 지연 재확인<br/>정책 제한 대체 경로 표시</td></tr></tbody>
+</table>
+
+<h4>20) 컨텍스트 유지 상담 전환 (PR-CHG-REC-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REC-003</td><td>상담 전환 문맥 기능</td><td>셀프 복구가 불가하면 고객 선택값, 실패 코드, 영향 비교 결과를 상담 문맥으로 전달한다.<br/></td><td>고객 선택값 상담 전달<br/>실패 사유 상담 전달<br/>영향 비교 결과 공유<br/>상담 재처리 결과 저장</td></tr></tbody>
+</table>
+
+<h4>21) 미성년 회선과 대리 권한 확인 (PR-CHG-REP-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REP-001</td><td>대리 권한 확인 기능</td><td>회선 명의, 고객 연령, 법정대리인 관계, 변경 영향 범위를 확인한다.<br/></td><td>회선 명의 확인<br/>법정대리인 관계 확인<br/>연령 제한 조건 판정<br/>변경 영향 요약 제공</td></tr></tbody>
+</table>
+
+<h4>22) 대리 동의 결과와 변경 가능 여부 확정 (PR-CHG-REP-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-REP-002</td><td>대리 동의 결과 기능</td><td>법정대리인 동의 성공, 거절, 만료 결과에 따라 변경 가능 여부와 고객 안내를 확정한다.<br/></td><td>동의 성공 처리<br/>동의 거절 처리<br/>동의 만료 처리<br/>고객 변경 가능 여부 갱신</td></tr></tbody>
+</table>
+
+<h4>23) 변경 조건·예외 기준 등록 (PR-CHG-OPR-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-OPR-001</td><td>변경 기준 관리 기능</td><td>운영자가 상품 유형, 처리 상태, 제휴 조건, 변경 횟수, 휴일 처리 가능 여부를 기준으로 등록한다.<br/></td><td>상품 유형별 기준 등록<br/>제휴 조건별 예외 등록<br/>횟수 제한·휴일 처리 기준 관리<br/>고객 안내 문구 관리</td></tr></tbody>
+</table>
+
+<h4>24) 승인·보류·반려 처리 (PR-CHG-OPR-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-OPR-002</td><td>예외 승인 처리 기능</td><td>예외 변경 요청에 대해 승인, 보류, 반려, 재처리 사유와 담당자 이력을 남긴다.<br/></td><td>승인·보류·반려 처리<br/>고객 안내 문구 분리<br/>원장 정합성 확인<br/>처리 담당자 이력 저장</td></tr></tbody>
+</table>
+
+<h4>25) 실패·지연 모니터링과 기준 개선 (PR-CHG-OPR-003)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-OPR-003</td><td>변경 품질 모니터링 기능</td><td>운영자는 실패율, 지연 건수, 상담 전환 사유, 반복 불가 사유를 모니터링하고 기준을 개선한다.<br/></td><td>실패율·지연 건수 집계<br/>SLA 초과 식별<br/>반복 불가 사유 분석<br/>기준 개선 대상 관리</td></tr></tbody>
+</table>
+
+<h4>26) 상담 인입 변경 문맥 확인 (PR-CHG-CS-001)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-CS-001</td><td>상담 문맥 조회 기능</td><td>상담사는 고객이 중단한 변경 항목, 불가 사유, 영향 비교, 인증 상태를 확인한다.<br/></td><td>상담 인입 문맥 조회<br/>고객 초안 확인<br/>실패 단계 확인<br/>상담 처리 가능 여부 판정</td></tr></tbody>
+</table>
+
+<h4>27) 대체 처리·재시도 등록 (PR-CHG-CS-002)</h4>
+<table class="function-list-table">
+<thead><tr><th style="width: 150px;">기능 ID</th><th style="width: 180px;">기능명</th><th>설명</th><th style="width: 260px;">세부 기능 구성</th></tr></thead>
+<tbody><tr><td class="mono">FN-CHG-CS-002</td><td>상담 대체 처리 기능</td><td>상담사는 대체 상품 안내, 예외 승인 요청, 재시도 등록, 후속 알림 기준을 고객에게 안내한다.<br/></td><td>대체 상품 안내<br/>예외 승인 요청 등록<br/>재시도 예약 등록<br/>후속 알림 발송 기준 제공</td></tr></tbody>
+</table>
+
+
+
+
+<h2>6. 정책 정의</h2>
+<h3>가. 정책 목록</h3>
+<p class="plain-text">정책은 기능 설명이 아니라 기능 동작 기준이다.<br/>프로세스에서 인증 수단, 가능 횟수, 유효시간, 권한, 제한, 고지, 저장, 예외, 운영 판단이 필요한 항목은 정책으로 분리한다.<br/></p>
+
+<h4>1) 변경 대상과 현재 상태 확인 (PR-CHG-IMP-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-SCOPE-001</td><td>변경 대상·범위 정책</td><td>상품변경이 다루는 대상, 포함 범위, 제외 범위, 인접 정책서와의 경계를 정한다.<br/></td><td>변경 대상<br/>제외 범위<br/>대상 채널</td></tr><tr><td class="mono">PG-CHG-ELG-001</td><td>변경 가능 조건 정책</td><td>셀프 변경 가능 조건, 제한 조건, 변경 횟수와 가능 시점을 정한다.<br/></td><td>셀프 허용 기준<br/>불가 사유 표시<br/>변경 횟수 제한<br/>휴일 처리<br/>대체 요금제 제안<br/>24시간 셀프 처리</td></tr></tbody>
+</table>
+
+<h4>2) 셀프 가능 범위와 불가 사유 판정 (PR-CHG-IMP-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-ELG-001</td><td>변경 가능 조건 정책</td><td>셀프 변경 가능 조건, 제한 조건, 변경 횟수와 가능 시점을 정한다.<br/></td><td>셀프 허용 기준<br/>불가 사유 표시<br/>변경 횟수 제한<br/>휴일 처리<br/>대체 요금제 제안<br/>24시간 셀프 처리</td></tr><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr><tr><td class="mono">PG-CHG-CS-001</td><td>상담 전환 정책</td><td>셀프 불가 상태에서 상담 전환과 문맥 유지 기준을 정한다.<br/></td><td>상담 전환<br/>상담 재처리<br/>문맥 보존</td></tr></tbody>
+</table>
+
+<h4>3) 변경 전후 영향 비교 (PR-CHG-IMP-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr><tr><td class="mono">PG-CHG-PLAN-001</td><td>요금제·약정 변경 정책</td><td>요금제 변경, 약정 동시 처리, 무위약금 변경 후보, 연령 초과 전후 비교 기준을 정한다.<br/></td><td>요금제 단독 변경<br/>약정 동시 처리<br/>무위약금 후보<br/>연령 기준<br/>다회선 변경 일괄 처리</td></tr><tr><td class="mono">PG-CHG-BEN-001</td><td>혜택·옵션 변경 정책</td><td>선택형 혜택, 옵션상품, 연동 혜택의 유지·소멸·재적용 기준을 정한다.<br/></td><td>선택형 혜택 조합<br/>연동 혜택 경고<br/>혜택 시작일</td></tr></tbody>
+</table>
+
+<h4>4) 대체 변경안과 진입 경로 선택 (PR-CHG-IMP-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-ELG-001</td><td>변경 가능 조건 정책</td><td>셀프 변경 가능 조건, 제한 조건, 변경 횟수와 가능 시점을 정한다.<br/></td><td>셀프 허용 기준<br/>불가 사유 표시<br/>변경 횟수 제한<br/>휴일 처리<br/>대체 요금제 제안<br/>24시간 셀프 처리</td></tr><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr><tr><td class="mono">PG-CHG-PLAN-001</td><td>요금제·약정 변경 정책</td><td>요금제 변경, 약정 동시 처리, 무위약금 변경 후보, 연령 초과 전후 비교 기준을 정한다.<br/></td><td>요금제 단독 변경<br/>약정 동시 처리<br/>무위약금 후보<br/>연령 기준<br/>다회선 변경 일괄 처리</td></tr></tbody>
+</table>
+
+<h4>5) 변경 초안 작성과 임시 저장 (PR-CHG-REQ-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-REQ-001</td><td>변경 요청 접수·중복 정책</td><td>변경 요청 접수, 임시 저장, 중복 요청, 접수 결과 표시 기준을 정한다.<br/></td><td>임시 저장<br/>중복 요청<br/>접수 결과</td></tr><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>6) 인증·동의와 권한 확인 (PR-CHG-REQ-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-AUTH-001</td><td>인증·동의 정책</td><td>본인확인, 동의, 인증 유효 시간, 동의 만료 기준을 정한다.<br/></td><td>본인확인<br/>인증 유효 시간<br/>동의 재확인</td></tr><tr><td class="mono">PG-CHG-MINOR-001</td><td>미성년 회선 변경 정책</td><td>미성년 회선 변경과 법정대리인 동의 기준을 정한다.<br/></td><td>미성년 회선<br/>대리 동의<br/>보호자 고지</td></tr></tbody>
+</table>
+
+<h4>7) 즉시·예약 변경 방식 확정 (PR-CHG-REQ-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-RESV-001</td><td>예약 변경 정책</td><td>예약 변경 가능일, 예약 충돌, 철회·수정·재예약 기준을 정한다.<br/></td><td>예약 가능일<br/>철회 가능 시간<br/>예약 충돌</td></tr><tr><td class="mono">PG-CHG-BSS-001</td><td>BSS 반영·연계 정책</td><td>BSS와 연계 시스템 반영, 원장 상태 변경, 결과 회신 기준을 정한다.<br/></td><td>원장 반영<br/>연계 결과<br/>부분 성공</td></tr><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr></tbody>
+</table>
+
+<h4>8) BSS 변경 요청 제출 (PR-CHG-REQ-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-BSS-001</td><td>BSS 반영·연계 정책</td><td>BSS와 연계 시스템 반영, 원장 상태 변경, 결과 회신 기준을 정한다.<br/></td><td>원장 반영<br/>연계 결과<br/>부분 성공</td></tr><tr><td class="mono">PG-CHG-REQ-001</td><td>변경 요청 접수·중복 정책</td><td>변경 요청 접수, 임시 저장, 중복 요청, 접수 결과 표시 기준을 정한다.<br/></td><td>임시 저장<br/>중복 요청<br/>접수 결과</td></tr><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr></tbody>
+</table>
+
+<h4>9) 적용 결과와 후속 액션 확인 (PR-CHG-REQ-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr></tbody>
+</table>
+
+<h4>10) 예약 가능일 산정 (PR-CHG-RSV-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-RESV-001</td><td>예약 변경 정책</td><td>예약 변경 가능일, 예약 충돌, 철회·수정·재예약 기준을 정한다.<br/></td><td>예약 가능일<br/>철회 가능 시간<br/>예약 충돌</td></tr><tr><td class="mono">PG-CHG-ELG-001</td><td>변경 가능 조건 정책</td><td>셀프 변경 가능 조건, 제한 조건, 변경 횟수와 가능 시점을 정한다.<br/></td><td>셀프 허용 기준<br/>불가 사유 표시<br/>변경 횟수 제한<br/>휴일 처리<br/>대체 요금제 제안<br/>24시간 셀프 처리</td></tr></tbody>
+</table>
+
+<h4>11) 기존 예약 충돌 검증 (PR-CHG-RSV-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-RESV-001</td><td>예약 변경 정책</td><td>예약 변경 가능일, 예약 충돌, 철회·수정·재예약 기준을 정한다.<br/></td><td>예약 가능일<br/>철회 가능 시간<br/>예약 충돌</td></tr><tr><td class="mono">PG-CHG-REQ-001</td><td>변경 요청 접수·중복 정책</td><td>변경 요청 접수, 임시 저장, 중복 요청, 접수 결과 표시 기준을 정한다.<br/></td><td>임시 저장<br/>중복 요청<br/>접수 결과</td></tr></tbody>
+</table>
+
+<h4>12) 예약 철회·수정·재예약 확정 (PR-CHG-RSV-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-RESV-001</td><td>예약 변경 정책</td><td>예약 변경 가능일, 예약 충돌, 철회·수정·재예약 기준을 정한다.<br/></td><td>예약 가능일<br/>철회 가능 시간<br/>예약 충돌</td></tr><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>13) 구독·옵션 현재 상태 조회 (PR-CHG-SUB-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-SUB-001</td><td>구독 변경·해지·일시정지 정책</td><td>구독 플랜 변경, 해지, 일시정지, 재개, 유료 전환과 결제수단 안내 기준을 정한다.<br/></td><td>구독 해지<br/>일시정지·재개<br/>유료 전환<br/>결제수단 안내<br/>로밍 무료충전 신청 경로<br/>클럽형 혜택 신청 조건<br/>옵션상품 변경·해지 통합</td></tr><tr><td class="mono">PG-CHG-BEN-001</td><td>혜택·옵션 변경 정책</td><td>선택형 혜택, 옵션상품, 연동 혜택의 유지·소멸·재적용 기준을 정한다.<br/></td><td>선택형 혜택 조합<br/>연동 혜택 경고<br/>혜택 시작일</td></tr></tbody>
+</table>
+
+<h4>14) 플랜·옵션 변경안 선택 (PR-CHG-SUB-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-SUB-001</td><td>구독 변경·해지·일시정지 정책</td><td>구독 플랜 변경, 해지, 일시정지, 재개, 유료 전환과 결제수단 안내 기준을 정한다.<br/></td><td>구독 해지<br/>일시정지·재개<br/>유료 전환<br/>결제수단 안내<br/>로밍 무료충전 신청 경로<br/>클럽형 혜택 신청 조건<br/>옵션상품 변경·해지 통합</td></tr><tr><td class="mono">PG-CHG-BEN-001</td><td>혜택·옵션 변경 정책</td><td>선택형 혜택, 옵션상품, 연동 혜택의 유지·소멸·재적용 기준을 정한다.<br/></td><td>선택형 혜택 조합<br/>연동 혜택 경고<br/>혜택 시작일</td></tr><tr><td class="mono">PG-CHG-PLAN-001</td><td>요금제·약정 변경 정책</td><td>요금제 변경, 약정 동시 처리, 무위약금 변경 후보, 연령 초과 전후 비교 기준을 정한다.<br/></td><td>요금제 단독 변경<br/>약정 동시 처리<br/>무위약금 후보<br/>연령 기준<br/>다회선 변경 일괄 처리</td></tr><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr></tbody>
+</table>
+
+<h4>15) 일시정지·재개·조기 해제 설정 (PR-CHG-SUB-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-PAUSE-001</td><td>일시정지·해제 정책</td><td>상품 일시정지 시작·종료 예약, 자동 해제, 조기 해제 기준을 정한다.<br/></td><td>일시정지 예약<br/>자동 해제<br/>조기 해제</td></tr><tr><td class="mono">PG-CHG-SUB-001</td><td>구독 변경·해지·일시정지 정책</td><td>구독 플랜 변경, 해지, 일시정지, 재개, 유료 전환과 결제수단 안내 기준을 정한다.<br/></td><td>구독 해지<br/>일시정지·재개<br/>유료 전환<br/>결제수단 안내<br/>로밍 무료충전 신청 경로<br/>클럽형 혜택 신청 조건<br/>옵션상품 변경·해지 통합</td></tr></tbody>
+</table>
+
+<h4>16) 해지·유료 전환·프로모션 영향 확인 (PR-CHG-SUB-004)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-SUB-001</td><td>구독 변경·해지·일시정지 정책</td><td>구독 플랜 변경, 해지, 일시정지, 재개, 유료 전환과 결제수단 안내 기준을 정한다.<br/></td><td>구독 해지<br/>일시정지·재개<br/>유료 전환<br/>결제수단 안내<br/>로밍 무료충전 신청 경로<br/>클럽형 혜택 신청 조건<br/>옵션상품 변경·해지 통합</td></tr><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr><tr><td class="mono">PG-CHG-ELG-001</td><td>변경 가능 조건 정책</td><td>셀프 변경 가능 조건, 제한 조건, 변경 횟수와 가능 시점을 정한다.<br/></td><td>셀프 허용 기준<br/>불가 사유 표시<br/>변경 횟수 제한<br/>휴일 처리<br/>대체 요금제 제안<br/>24시간 셀프 처리</td></tr></tbody>
+</table>
+
+<h4>17) 결제수단·후속 혜택 연결 (PR-CHG-SUB-005)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-SUB-001</td><td>구독 변경·해지·일시정지 정책</td><td>구독 플랜 변경, 해지, 일시정지, 재개, 유료 전환과 결제수단 안내 기준을 정한다.<br/></td><td>구독 해지<br/>일시정지·재개<br/>유료 전환<br/>결제수단 안내<br/>로밍 무료충전 신청 경로<br/>클럽형 혜택 신청 조건<br/>옵션상품 변경·해지 통합</td></tr><tr><td class="mono">PG-CHG-BSS-001</td><td>BSS 반영·연계 정책</td><td>BSS와 연계 시스템 반영, 원장 상태 변경, 결과 회신 기준을 정한다.<br/></td><td>원장 반영<br/>연계 결과<br/>부분 성공</td></tr><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr><tr><td class="mono">PG-CHG-IMPACT-001</td><td>영향도 비교·고지 정책</td><td>변경 전후 비용, 혜택, 약정, 구독, 자동선물, 청구 영향의 표시 기준을 정한다.<br/></td><td>비용 영향<br/>혜택 영향<br/>적용 시점<br/>되돌림 가능 범위<br/>통합 변경 예상 절감액<br/>패키지 상품 교체 금액 비교<br/>요금 시뮬레이션 변경</td></tr></tbody>
+</table>
+
+<h4>18) 변경 요청 상태 조회 (PR-CHG-REC-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr></tbody>
+</table>
+
+<h4>19) 실패 사유와 재시도 경로 확인 (PR-CHG-REC-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr><tr><td class="mono">PG-CHG-CS-001</td><td>상담 전환 정책</td><td>셀프 불가 상태에서 상담 전환과 문맥 유지 기준을 정한다.<br/></td><td>상담 전환<br/>상담 재처리<br/>문맥 보존</td></tr></tbody>
+</table>
+
+<h4>20) 컨텍스트 유지 상담 전환 (PR-CHG-REC-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-CS-001</td><td>상담 전환 정책</td><td>셀프 불가 상태에서 상담 전환과 문맥 유지 기준을 정한다.<br/></td><td>상담 전환<br/>상담 재처리<br/>문맥 보존</td></tr><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr></tbody>
+</table>
+
+<h4>21) 미성년 회선과 대리 권한 확인 (PR-CHG-REP-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-MINOR-001</td><td>미성년 회선 변경 정책</td><td>미성년 회선 변경과 법정대리인 동의 기준을 정한다.<br/></td><td>미성년 회선<br/>대리 동의<br/>보호자 고지</td></tr><tr><td class="mono">PG-CHG-AUTH-001</td><td>인증·동의 정책</td><td>본인확인, 동의, 인증 유효 시간, 동의 만료 기준을 정한다.<br/></td><td>본인확인<br/>인증 유효 시간<br/>동의 재확인</td></tr></tbody>
+</table>
+
+<h4>22) 대리 동의 결과와 변경 가능 여부 확정 (PR-CHG-REP-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-MINOR-001</td><td>미성년 회선 변경 정책</td><td>미성년 회선 변경과 법정대리인 동의 기준을 정한다.<br/></td><td>미성년 회선<br/>대리 동의<br/>보호자 고지</td></tr><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr></tbody>
+</table>
+
+<h4>23) 변경 조건·예외 기준 등록 (PR-CHG-OPR-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-OPR-001</td><td>운영 예외·승인 정책</td><td>운영자가 변경 가능 조건, 예외 허용, 승인·보류·반려 기준을 관리하는 정책을 정한다.<br/></td><td>기준 관리<br/>예외 승인<br/>반려 사유</td></tr><tr><td class="mono">PG-CHG-ELG-001</td><td>변경 가능 조건 정책</td><td>셀프 변경 가능 조건, 제한 조건, 변경 횟수와 가능 시점을 정한다.<br/></td><td>셀프 허용 기준<br/>불가 사유 표시<br/>변경 횟수 제한<br/>휴일 처리<br/>대체 요금제 제안<br/>24시간 셀프 처리</td></tr></tbody>
+</table>
+
+<h4>24) 승인·보류·반려 처리 (PR-CHG-OPR-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-OPR-001</td><td>운영 예외·승인 정책</td><td>운영자가 변경 가능 조건, 예외 허용, 승인·보류·반려 기준을 관리하는 정책을 정한다.<br/></td><td>기준 관리<br/>예외 승인<br/>반려 사유</td></tr><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>25) 실패·지연 모니터링과 기준 개선 (PR-CHG-OPR-003)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr><tr><td class="mono">PG-CHG-OPR-001</td><td>운영 예외·승인 정책</td><td>운영자가 변경 가능 조건, 예외 허용, 승인·보류·반려 기준을 관리하는 정책을 정한다.<br/></td><td>기준 관리<br/>예외 승인<br/>반려 사유</td></tr><tr><td class="mono">PG-CHG-FAIL-001</td><td>실패·보류·복구 정책</td><td>실패, 보류, 지연, 재시도, 복구, 상담 전환 기준을 정한다.<br/></td><td>재시도 기준<br/>복구 불가<br/>보류 처리</td></tr></tbody>
+</table>
+
+<h4>26) 상담 인입 변경 문맥 확인 (PR-CHG-CS-001)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-CS-001</td><td>상담 전환 정책</td><td>셀프 불가 상태에서 상담 전환과 문맥 유지 기준을 정한다.<br/></td><td>상담 전환<br/>상담 재처리<br/>문맥 보존</td></tr><tr><td class="mono">PG-CHG-HIST-001</td><td>이력·모니터링 정책</td><td>변경 요청, 승인, 실패, 상담 전환, 모니터링 이력 저장 기준을 정한다.<br/></td><td>변경 이력<br/>운영 이력<br/>모니터링</td></tr></tbody>
+</table>
+
+<h4>27) 대체 처리·재시도 등록 (PR-CHG-CS-002)</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-CS-001</td><td>상담 전환 정책</td><td>셀프 불가 상태에서 상담 전환과 문맥 유지 기준을 정한다.<br/></td><td>상담 전환<br/>상담 재처리<br/>문맥 보존</td></tr><tr><td class="mono">PG-CHG-REQ-001</td><td>변경 요청 접수·중복 정책</td><td>변경 요청 접수, 임시 저장, 중복 요청, 접수 결과 표시 기준을 정한다.<br/></td><td>임시 저장<br/>중복 요청<br/>접수 결과</td></tr><tr><td class="mono">PG-CHG-NOTI-001</td><td>알림·고지 정책</td><td>변경 가능일, 결과, 실패, 예약, 비용 영향의 고지 기준을 정한다.<br/></td><td>변경 가능일 알림<br/>완료 안내<br/>실패 안내</td></tr></tbody>
+</table>
+
+<h4>28) 미연결 정책</h4>
+<table class="policy-list-table">
+<thead><tr><th style="width: 150px;">정책 ID</th><th style="width: 190px;">정책명</th><th>설명</th><th style="width: 260px;">정책 항목</th></tr></thead>
+<tbody><tr><td class="mono">PG-CHG-USIM-001</td><td>USIM/eSIM 재발급 정책</td><td>USIM/eSIM 재발급 신청, 진행 상태, 실패·재시도 기준을 정한다.<br/></td><td>재발급 신청<br/>진행 상태<br/>실패 복구</td></tr></tbody>
+</table>
+
+<h3>나. 정책 상세</h3>
+
+<h4>1) 변경 대상·범위 정책 (PG-CHG-SCOPE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 변경 대상 <span class="mono">(PI-CHG-SCOPE-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품변경 대상은 요금제, 옵션상품, 선택형 혜택 모듈, 구독 플랜, 일시정지, USIM/eSIM 재발급, 약정 동시 처리로 한정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 제외 범위 <span class="mono">(PI-CHG-SCOPE-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 신규 가입, 주문 생성, 배송·교환·반품, 결제 승인 자체, 멤버십 혜택 사용은 인접 정책서에서 정의하고 본 문서는 변경 영향만 연결한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대상 채널 <span class="mono">(PI-CHG-SCOPE-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 앱·웹 FO에서 직접 변경 가능 여부와 결과를 확인하는 흐름을 기본 대상으로 둔다.<br/></span></div>
+</div>
+</div>
+
+<h4>2) 변경 가능 조건 정책 (PG-CHG-ELG-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 셀프 허용 기준 <span class="mono">(PI-CHG-ELG-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객 상태, 현재 상품, 처리 중 주문·배송·설치 상태, 제휴사 제한, 미납 여부가 모두 허용이면 셀프 변경을 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 불가 사유 표시 <span class="mono">(PI-CHG-ELG-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 제한 사유는 약정 제한, 미납, 배송·설치 진행, 제휴사 확인 필요, 횟수 초과, 인증 불가 중 하나 이상으로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 변경 횟수 제한 <span class="mono">(PI-CHG-ELG-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 회선의 동일 상품군 변경은 운영자가 등록한 월 단위 제한 횟수를 초과하면 제한하고 다음 가능일을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 휴일 처리 <span class="mono">(PI-CHG-ELG-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 휴일에 즉시 BSS 반영이 불가능한 상품은 예약 변경만 허용하고 적용 예정일을 첫 영업일로 계산한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대체 요금제 제안 <span class="mono">(PI-CHG-ELG-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 선택한 요금제로 변경할 수 없으면 제한 사유, 유사 요금제 후보, 무위약금 여부, 예상 비용·혜택 차이를 함께 표시한다.<br/></span><span class="policy-item-line">- 대체 후보가 없으면 상담 전환 또는 변경 가능일 알림을 제공한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 24시간 셀프 처리 <span class="mono">(PI-CHG-ELG-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 우주패스 해지, 환불 접수, 요금제 연계 변경처럼 고객 영향이 큰 핵심 업무는 주말·휴일에도 셀프 접수를 우선 허용한다.<br/></span><span class="policy-item-line">- 단 BSS 즉시 반영이 불가하면 예약 변경 또는 처리 보류 상태로 접수하고 예상 반영 시점을 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>3) 영향도 비교·고지 정책 (PG-CHG-IMPACT-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 비용 영향 <span class="mono">(PI-CHG-IMPACT-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 추가 비용, 감면액, 차액 결제 또는 부분 취소 금액은 변경 전 확인 화면에서 기존 조건과 변경 후 조건을 나란히 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 혜택 영향 <span class="mono">(PI-CHG-IMPACT-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 소멸 혜택, 유지 혜택, 새로 시작되는 혜택, 자동선물 해제 여부는 고객 확인 전 필수 고지로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 적용 시점 <span class="mono">(PI-CHG-IMPACT-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 즉시 변경은 완료 즉시 적용 시각을 표시하고 예약 변경은 적용 예정일과 철회 가능 시간을 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 되돌림 가능 범위 <span class="mono">(PI-CHG-IMPACT-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 변경 완료 후 취소할 수 없는 항목은 완료 전 단계에서 취소 불가 문구를 별도 확인으로 받는다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 통합 변경 예상 절감액 <span class="mono">(PI-CHG-IMPACT-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 여러 회선이나 여러 서비스의 변경을 함께 검토하는 경우 변경 조합별 예상 절감액, 추가 비용, 할인 변동 사유를 한 화면에서 비교한다.<br/></span><span class="policy-item-line">- 계산 근거가 부족하면 예상값 대신 산정 불가 사유와 개별 변경 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 패키지 상품 교체 금액 비교 <span class="mono">(PI-CHG-IMPACT-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 패키지 상품 교체 시 현재 고객이 결제 중인 금액, 변경 후 결제 예정 금액, 추가·감면 금액, 혜택 소멸 여부를 교체 확정 전에 표시한다.<br/></span><span class="policy-item-line">- 금액 산정이 지연되면 확정 전 제출을 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 요금 시뮬레이션 변경 <span class="mono">(PI-CHG-IMPACT-007)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 회원정보 포함 또는 비포함 기준의 변경 후 요금 시뮬레이션은 고객이 직접 전환해 비교할 수 있게 한다.<br/></span><span class="policy-item-line">- 시뮬레이션 결과에는 적용 시점, 할인 반영 여부, 실제 청구 금액과 차이가 날 수 있는 조건을 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>4) 요금제·약정 변경 정책 (PG-CHG-PLAN-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 요금제 단독 변경 <span class="mono">(PI-CHG-PLAN-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금제만 변경하는 경우 옵션·구독·약정 영향이 없는지 산정한 뒤 단독 변경 전용 흐름으로 접수한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 약정 동시 처리 <span class="mono">(PI-CHG-PLAN-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약정 변경이 동반되면 약정 기간, 위약금 발생 가능성, 할인 유지 여부를 변경 확인 전 필수 영향으로 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 무위약금 후보 <span class="mono">(PI-CHG-PLAN-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 위약금이 발생하는 요청에는 무위약금 또는 낮은 위약금 대체 요금제를 함께 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연령 기준 <span class="mono">(PI-CHG-PLAN-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 연령 초과 전후 조건이 달라지는 상품은 현재 적용 기준과 변경 후 적용 기준을 비교 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 다회선 변경 일괄 처리 <span class="mono">(PI-CHG-PLAN-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 다회선 변경은 지원 대상 업무와 회선별 가능 조건이 모두 확인된 경우에만 일괄 처리한다.<br/></span><span class="policy-item-line">- 일부 회선이 실패하면 성공·실패 회선을 분리해 표시하고 실패 회선은 개별 재시도 또는 상담 전환을 제공한다.<br/></span></div>
+</div>
+</div>
+
+<h4>5) 혜택·옵션 변경 정책 (PG-CHG-BEN-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 선택형 혜택 조합 <span class="mono">(PI-CHG-BEN-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 기본 요금제 변경 없이 선택형 혜택 모듈을 추가·해제·조합할 수 있는 경우에는 혜택 단위 변경으로 처리한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연동 혜택 경고 <span class="mono">(PI-CHG-BEN-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 변경으로 멤버십, 자동선물, 우주패스, 제휴 혜택이 중단되면 변경 전 경고와 고객 확인을 필수로 둔다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 혜택 시작일 <span class="mono">(PI-CHG-BEN-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 신규 혜택은 변경 적용 시점부터 시작하고 기존 혜택 소멸일과 중복 적용 여부를 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>6) 구독 변경·해지·일시정지 정책 (PG-CHG-SUB-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 구독 해지 <span class="mono">(PI-CHG-SUB-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 구독 해지는 현재 결제 주기, 잔여 혜택, 다음 결제 예정일, 해지 후 복구 가능 여부를 확인한 뒤 접수한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 일시정지·재개 <span class="mono">(PI-CHG-SUB-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 구독 일시정지와 재개는 시작일, 종료일, 남은 기간, 자동 재개 조건을 고객이 확인한 경우에만 접수한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 유료 전환 <span class="mono">(PI-CHG-SUB-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 무료 또는 프로모션 구독이 상품 변경으로 유료 전환되면 전환 예정일과 첫 결제 예상 금액을 필수 고지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 결제수단 안내 <span class="mono">(PI-CHG-SUB-004)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 구독 변경으로 결제수단 재확인이 필요한 경우 PAY 연결 경로와 현재 적용 중인 결제수단을 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 로밍 무료충전 신청 경로 <span class="mono">(PI-CHG-SUB-005)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 로밍 신청 완료 후 클럽 T로밍 무료충전 대상이면 완료 화면에서 무료충전 신청 버튼 또는 딥링크를 제공한다.<br/></span><span class="policy-item-line">- 대상이 아니면 미제공 사유를 안내하고 로밍 신청 완료 상태는 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 클럽형 혜택 신청 조건 <span class="mono">(PI-CHG-SUB-006)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 클럽형 혜택 상품은 가입 조건, 제공 혜택, 유지 조건, 해지 영향이 모두 확인된 경우에만 신청 단계로 진입한다.<br/></span><span class="policy-item-line">- 조건 미충족 시 부족 조건과 대체 혜택을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 옵션상품 변경·해지 통합 <span class="mono">(PI-CHG-SUB-007)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 옵션상품의 추가, 변경, 해지는 같은 구조에서 처리하되 현재 가입 상태, 변경 후 상태, 해지 후 영향, 즉시·예약 적용 가능 여부를 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>7) 예약 변경 정책 (PG-CHG-RESV-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 예약 가능일 <span class="mono">(PI-CHG-RESV-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예약 가능일은 청구 주기, 구독 갱신일, 배송·설치 상태, 기존 예약 상태를 반영해 고객별로 산정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 철회 가능 시간 <span class="mono">(PI-CHG-RESV-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예약 변경은 적용 예정일 전날 23:59까지 철회 또는 수정할 수 있으며 이후에는 취소 불가로 전환한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예약 충돌 <span class="mono">(PI-CHG-RESV-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 상품군에 예약이 2건 이상 있으면 가장 최근 고객 확정 요청을 우선하고 이전 예약은 철회 또는 유지 선택을 요구한다.<br/></span></div>
+</div>
+</div>
+
+<h4>8) 인증·동의 정책 (PG-CHG-AUTH-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 본인확인 <span class="mono">(PI-CHG-AUTH-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금, 약정, 결제, 고객 권한에 영향이 있는 변경은 본인확인을 완료해야 접수할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 인증 유효 시간 <span class="mono">(PI-CHG-AUTH-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인증 유효 시간은 10분이며 만료되면 변경 초안은 유지하고 인증만 다시 요구한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 동의 재확인 <span class="mono">(PI-CHG-AUTH-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 초안의 비용 또는 약정 영향이 바뀌면 기존 동의는 무효화하고 변경된 영향 기준으로 다시 동의받는다.<br/></span></div>
+</div>
+</div>
+
+<h4>9) 미성년 회선 변경 정책 (PG-CHG-MINOR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 미성년 회선 <span class="mono">(PI-CHG-MINOR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 미성년 회선 변경은 고객 연령, 명의, 법정대리인 관계가 확인된 경우에만 진행한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 대리 동의 <span class="mono">(PI-CHG-MINOR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 법정대리인 동의가 필요한 변경은 동의 성공, 거절, 만료 상태를 고객에게 표시하고 거절 시 변경 접수를 차단한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보호자 고지 <span class="mono">(PI-CHG-MINOR-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 요금 또는 약정 영향이 있는 미성년 회선 변경은 법정대리인에게 변경 전후 영향 요약을 함께 고지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>10) USIM/eSIM 재발급 정책 (PG-CHG-USIM-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 재발급 신청 <span class="mono">(PI-CHG-USIM-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- USIM/eSIM 재발급은 본인확인, 회선 상태, 배송 또는 다운로드 가능 조건이 모두 충족되면 신청할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 진행 상태 <span class="mono">(PI-CHG-USIM-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 재발급 요청은 접수, 처리 중, 발급 완료, 발급 실패, 상담 전환 상태로 고객에게 표시한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 복구 <span class="mono">(PI-CHG-USIM-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- eSIM 발급 실패는 동일 요청 3회까지 재시도하고 이후에는 상담 전환 또는 오프라인 발급 경로를 안내한다.<br/></span></div>
+</div>
+</div>
+
+<h4>11) 일시정지·해제 정책 (PG-CHG-PAUSE-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 일시정지 예약 <span class="mono">(PI-CHG-PAUSE-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상품 일시정지는 시작일과 종료일을 함께 지정해야 예약할 수 있으며 종료일이 없으면 접수를 제한한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 자동 해제 <span class="mono">(PI-CHG-PAUSE-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예약 종료일이 도래하면 자동 해제를 시도하고 실패하면 고객에게 실패 사유와 재시도 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 조기 해제 <span class="mono">(PI-CHG-PAUSE-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객은 일시정지 중 상태에서 조기 해제를 요청할 수 있으며 BSS 반영 성공 후 즉시 사용 가능 상태로 전환한다.<br/></span></div>
+</div>
+</div>
+
+<h4>12) 변경 요청 접수·중복 정책 (PG-CHG-REQ-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 임시 저장 <span class="mono">(PI-CHG-REQ-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 초안은 고객이 이탈해도 24시간 보관하며 인증 완료 후 제출 전 초안은 30분 동안 유지한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 중복 요청 <span class="mono">(PI-CHG-REQ-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 동일 회선, 동일 상품군, 동일 변경 항목 요청이 5초 안에 반복되면 중복 요청으로 분류하고 추가 접수를 차단한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 접수 결과 <span class="mono">(PI-CHG-REQ-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 접수 결과는 접수 번호, 처리 상태, 예상 완료 시각, 실패 시 다음 행동과 함께 표시한다.<br/></span></div>
+</div>
+</div>
+
+<h4>13) BSS 반영·연계 정책 (PG-CHG-BSS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 원장 반영 <span class="mono">(PI-CHG-BSS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- BSS 반영 성공은 상품 상태, 요금 상태, 혜택 상태, 약정 상태, 고객 표시 상태가 모두 변경 후 기준과 일치해야 인정한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 연계 결과 <span class="mono">(PI-CHG-BSS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 제휴사, 결제, 주문, 구독 연계 응답이 지연되면 고객에게 처리 중 상태를 유지하고 예상 재확인 시점을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 부분 성공 <span class="mono">(PI-CHG-BSS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 일부 연계만 성공한 경우 고객 상태는 보류로 표시하고 성공·실패 항목을 분리해 운영자 확인 대상으로 남긴다.<br/></span></div>
+</div>
+</div>
+
+<h4>14) 실패·보류·복구 정책 (PG-CHG-FAIL-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 재시도 기준 <span class="mono">(PI-CHG-FAIL-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 인증 만료, 일시 연계 오류, 입력 보정 오류는 동일 세션에서 최대 3회까지 재시도할 수 있다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 복구 불가 <span class="mono">(PI-CHG-FAIL-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 약정 제한, 제휴사 제한, 미납, 미성년 동의 거절은 고객 재시도 대상에서 제외하고 제한 사유와 대체 경로를 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 보류 처리 <span class="mono">(PI-CHG-FAIL-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영 승인 또는 원장 정합성 확인이 필요한 요청은 처리 보류로 전환하고 담당자, 사유, 등록 시각을 저장한다.<br/></span></div>
+</div>
+</div>
+
+<h4>15) 상담 전환 정책 (PG-CHG-CS-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 상담 전환 <span class="mono">(PI-CHG-CS-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 셀프 처리 불가 상태에서는 고객이 선택한 변경 항목, 실패 사유, 영향 비교 결과를 상담 문맥으로 전달한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 상담 재처리 <span class="mono">(PI-CHG-CS-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 상담사가 대체 처리나 예외 승인 요청을 등록하면 고객에게 처리 예정 상태와 후속 알림 기준을 안내한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 문맥 보존 <span class="mono">(PI-CHG-CS-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 고객이 중단한 변경 초안과 실패 이력은 상담 전환 후 24시간 동안 조회 가능하게 유지한다.<br/></span></div>
+</div>
+</div>
+
+<h4>16) 알림·고지 정책 (PG-CHG-NOTI-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 변경 가능일 알림 <span class="mono">(PI-CHG-NOTI-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 가능일이 도래하는 요청은 고객이 알림 수신에 동의한 경우 1회 이상 사전 알림을 발송한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 완료 안내 <span class="mono">(PI-CHG-NOTI-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 적용 완료 안내에는 변경 후 상품명, 적용 시각, 비용 영향, 후속 확인 경로를 포함한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 실패 안내 <span class="mono">(PI-CHG-NOTI-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패 안내에는 실패 사유, 재시도 가능 여부, 상담 전환 가능 여부, 고객이 해야 할 다음 행동을 포함한다.<br/></span></div>
+</div>
+</div>
+
+<h4>17) 이력·모니터링 정책 (PG-CHG-HIST-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 변경 이력 <span class="mono">(PI-CHG-HIST-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 변경 요청, 영향 확인, 인증·동의, 접수, 반영, 실패, 상담 전환 이력은 요청 단위로 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 운영 이력 <span class="mono">(PI-CHG-HIST-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자 승인, 보류, 반려, 재처리 이력은 담당자, 사유, 시각, 변경 전후 상태와 함께 저장한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 모니터링 <span class="mono">(PI-CHG-HIST-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 실패율, 지연 건수, 상담 전환 사유, 반복 불가 사유는 일 단위로 집계해 운영자가 확인할 수 있게 한다.<br/></span></div>
+</div>
+</div>
+
+<h4>18) 운영 예외·승인 정책 (PG-CHG-OPR-001)</h4>
+<div class="policy-group">
+<div class="policy-item">
+<div class="policy-item-title">• 기준 관리 <span class="mono">(PI-CHG-OPR-001)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 운영자는 상품 유형, 처리 상태, 제휴 조건, 횟수 제한, 휴일 처리 가능 여부별 셀프 허용 기준을 등록한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 예외 승인 <span class="mono">(PI-CHG-OPR-002)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 예외 승인은 고객 피해 가능성, 비용 영향, 원장 정합성, 제휴사 확인 결과가 함께 확인된 경우에만 허용한다.<br/></span></div>
+</div>
+
+<div class="policy-item">
+<div class="policy-item-title">• 반려 사유 <span class="mono">(PI-CHG-OPR-003)</span></div>
+<div class="policy-item-content"><span class="policy-item-line">- 반려된 변경 요청은 고객 안내 문구와 운영 사유를 분리해 저장하고 고객에게는 이해 가능한 사유만 표시한다.<br/></span></div>
+</div>
+</div>
+
+
+<h2>최종 점검 기준</h2>
+<div class="guide">
+<div class="guide-title">상품변경 정책서 제출 전 점검</div>
+<div class="guide-section-title">1. 범위 정합성</div>요금제·옵션·구독·일시정지·USIM/eSIM·예약 변경은 포함하고 주문·배송·결제 승인 자체는 인접 정책서로 분리했는지 확인한다.<br/><div class="guide-section-title">2. 고객 완결성</div>고객이 변경 가능 여부, 영향 비교, 신청, 예약, 결과 확인, 실패 복구까지 앱·웹에서 이해하고 완료할 수 있는지 확인한다.<br/><div class="guide-section-title">3. 액터 입자도</div>로그인 고객, 제한 고객, 미성년 고객처럼 상태 조건을 액터로 분리하지 않았는지 확인한다.<br/><div class="guide-section-title">4. 유즈케이스 입자도</div>유즈케이스가 버튼·검증 단계가 아니라 고객 또는 운영자의 완결 업무 단위로 작성되었는지 확인한다.<br/><div class="guide-section-title">5. 프로세스 연결성</div>각 고객·운영자 유즈케이스에 두 개 이상의 프로세스가 연결되고 프로세스가 기능·정책과 연결되는지 확인한다.<br/><div class="guide-section-title">6. 상태 전이 정합성</div>상태 전이표의 현재 상태와 다음 상태가 상태 코드 목록에 존재하고 정상·제한·보류·실패 흐름이 포함되는지 확인한다.<br/><div class="guide-section-title">7. 정책 구체성</div>정책 상세에 조건, 시간, 횟수, 상태, 고지, 이력, BSS 반영 기준 중 하나 이상이 포함되는지 확인한다.<br/><div class="guide-section-title">8. BSS 포함성</div>변경 요청 접수, 원장 반영, 연계 결과 회신, 부분 성공, 보류, 실패 처리 기준이 정책에 포함되는지 확인한다.<br/><div class="guide-section-title">9. 요구사항 반영</div>상품변경 상세 요구사항 39건이 유즈케이스, 프로세스, 기능, 정책 중 하나 이상에 추적 가능하게 반영되었는지 확인한다.<br/><div class="guide-section-title">10. 상담 전환 기준</div>셀프 불가와 실패 상황에서 고객 선택값과 실패 사유가 상담 문맥으로 유지되는지 확인한다.<br/><div class="guide-section-title">11. 요구사항 추적성</div>상세 요구사항 39건은 변경 가능성과 영향 비교, 상품 변경 신청, 예약 변경, 구독·옵션 변경, 진행 조회와 실패 복구 기준으로 재구성해 유즈케이스·프로세스·기능·정책 중 하나 이상에 매핑했는지 확인한다.<br/><div class="guide-section-title">12. 개발·QA 전환성</div>개발·QA가 변경 전 상태, 변경 후 상태, 적용 시점, 비용·혜택 영향, 예약 충돌, BSS 반영 실패와 복구 기대 결과를 테스트 케이스로 전환할 수 있는지 확인한다.<br/>
+</div>
+
+</div>
+</body>
+</html>

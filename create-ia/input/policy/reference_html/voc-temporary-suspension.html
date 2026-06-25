@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>일시 정지 · VoC 분석</title>
+  <style>
+:root {
+      --ink:#141a28;
+      --soft:#475569;
+      --muted:#7a8797;
+      --line:#dbe3ee;
+      --paper:#fff;
+      --wash:#f4f7fb;
+      --blue:#2563eb;
+      --teal:#0f766e;
+      --amber:#d97706;
+      --rose:#be123c;
+      --violet:#6d5bd0;
+      --green:#059669;
+      --navy:#101522;
+      --fs-title:24px;
+      --fs-lead:16px;
+      --fs-body:14px;
+      --fs-caption:12px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#eef2f7;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    .page { width:calc(100% - 24px); margin:0 auto; padding:20px 0 36px; }
+    .cover {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+      overflow:hidden;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 18px 42px rgba(20,26,40,.08);
+    }
+    .cover-main { padding:24px; border-right:1px solid var(--line); }
+    .kicker {
+      color:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1 { margin:12px 0 14px; font-size:30px; line-height:1.16; letter-spacing:0; }
+    .lead { max-width:790px; margin:0; color:var(--ink); font-size:var(--fs-lead); font-weight:780; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .chips span {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#f8fafc;
+      color:var(--ink);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:880;
+    }
+    .cover-side {
+      display:grid;
+      align-content:stretch;
+      background:var(--navy);
+      color:#fff;
+    }
+    .side-head {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .side-head b {
+      color:#b6d4ff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .side-head span {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      color:#eaf2ff;
+      font-size:var(--fs-caption);
+      font-weight:900;
+    }
+    .side-body { display:grid; gap:14px; align-content:center; padding:18px 18px 20px; }
+    .side-body strong { display:block; font-size:22px; line-height:1.28; }
+    .side-body p { margin:0; color:#d8e3f4; font-size:var(--fs-body); font-weight:740; }
+    .metric-strip {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin-top:14px;
+    }
+    .metric {
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:8px;
+      padding:12px;
+      background:rgba(255,255,255,.06);
+    }
+    .metric b { display:block; color:#fff; font-size:22px; line-height:1.1; }
+    .metric span { display:block; margin-top:6px; color:#d8e3f4; font-size:var(--fs-caption); font-weight:850; }
+    section {
+      margin-top:14px;
+      border:1px solid #cfd9e6;
+      border-radius:8px;
+      background:var(--paper);
+      box-shadow:0 12px 28px rgba(20,26,40,.06);
+    }
+    .section-head {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:16px;
+      align-items:end;
+      padding:16px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdff;
+    }
+    h2 { margin:0; font-size:var(--fs-title); line-height:1.24; letter-spacing:0; }
+    .section-head p { max-width:880px; margin:6px 0 0; color:var(--ink); font-size:var(--fs-body); font-weight:740; }
+    .section-label {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      padding:6px 10px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .content { padding:16px 18px 20px; }
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      border:1px solid var(--line);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .signal {
+      min-height:192px;
+      padding:16px;
+      border-right:1px solid var(--line);
+      background:#fff;
+    }
+    .signal:last-child { border-right:0; }
+    .signal span {
+      display:inline-grid;
+      place-items:center;
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      color:#fff;
+      background:var(--blue);
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .signal.t2 span { background:var(--teal); }
+    .signal.t3 span { background:var(--amber); }
+    .signal.t4 span { background:var(--rose); }
+    .signal.t5 span { background:var(--violet); }
+    .signal h3 { margin:14px 0 8px; font-size:var(--fs-body); line-height:1.35; }
+    .signal p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .pain-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .pain {
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr);
+      gap:12px;
+      align-items:stretch;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:12px;
+    }
+    .pain b {
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:#111827;
+      padding:12px;
+      text-align:center;
+      font-size:var(--fs-body);
+      font-weight:950;
+    }
+    .pain p { align-self:center; margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .heat-table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      font-size:var(--fs-body);
+    }
+    .heat-table th,
+    .heat-table td {
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:12px;
+      vertical-align:top;
+      text-align:left;
+    }
+    .heat-table th {
+      background:#f8fafc;
+      color:#111827;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .heat-table tr:last-child td { border-bottom:0; }
+    .heat-table th:last-child,
+    .heat-table td:last-child { border-right:0; }
+    .heat-table td { color:var(--ink); font-weight:730; }
+    .rate {
+      display:inline-flex;
+      min-width:72px;
+      justify-content:center;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:4px 8px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .need-grid,
+    .roadmap,
+    .policy-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+    .card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:15px;
+      box-shadow:0 8px 18px rgba(20,26,40,.04);
+    }
+    .card b {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:5px 9px;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .card h3 { margin:12px 0 8px; color:#111827; font-size:var(--fs-body); }
+    .card p { margin:0; color:var(--ink); font-size:var(--fs-body); font-weight:730; }
+    .trigger-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-rows:repeat(10,auto);
+      grid-auto-flow:column;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .trigger-list li {
+      display:grid;
+      grid-template-columns:32px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      padding:10px;
+      color:var(--ink);
+      font-size:var(--fs-body);
+      font-weight:730;
+    }
+    .trigger-list b {
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border-radius:8px;
+      background:#101522;
+      color:#fff;
+      font-size:var(--fs-caption);
+      font-weight:950;
+    }
+    .quick-table td:first-child { width:64px; color:var(--blue); font-weight:950; }
+    .quick-table td:nth-child(2) { font-weight:850; color:#111827; }
+    .roadmap .card:nth-child(1) b { background:#ecfdf5; color:var(--teal); }
+    .roadmap .card:nth-child(2) b { background:#fffbeb; color:var(--amber); }
+    .roadmap .card:nth-child(3) b { background:#f5f3ff; color:var(--violet); }
+    @media (max-width:1100px) {
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:980px) {
+      .cover,
+      .metric-strip,
+      .pain-grid,
+      .trigger-list {
+        grid-template-columns:1fr;
+      }
+      .trigger-list {
+        grid-template-rows:auto;
+        grid-auto-flow:row;
+      }
+      .cover-main { border-right:0; border-bottom:1px solid var(--line); }
+      .section-head { grid-template-columns:1fr; }
+      .signal-grid,
+      .need-grid,
+      .roadmap,
+      .policy-grid {
+        grid-template-columns:1fr;
+      }
+      .signal { border-right:0; border-bottom:1px solid var(--line); }
+      .signal:last-child { border-bottom:0; }
+      .pain { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .page { width:calc(100% - 20px); padding-top:14px; }
+      .cover-main, .side-body, .content { padding:16px; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="cover">
+      <header class="cover-main">
+        <div class="kicker">VOC analysis readout</div>
+        <h1>일시 정지 VoC 분석</h1>
+        <p class="lead">일시 정지 VoC의 핵심은 단일 기능 부족보다 고객이 처리 조건, 영향, 결과를 스스로 확인하지 못해 상담으로 전환되는 데 있다.<br/>가장 큰 병목은 일시정지 신청 방법 및 조건 혼란이며, 통합채널은 이를 탐색, 판단, 실행, 확인, 복구가 연결된 업무 경험으로 재설계해야 한다<br/></p>
+        <div class="chips">
+          <span>분석 기간 2026-03-10 ~ 2026-03-21 (10 일, 주말 제외 평일 기준)</span>
+          <span>보고서 10 건 (3/10~3/14, 3/17~3/21)</span>
+          <span>상담 약 24,170 건 (일별 최소 2,180 건 ~ 최대 2,680 건)</span>
+          <span>샘플 약 787 건 (일별 72~85 건 샘플)</span>
+        </div>
+      </header>
+      <aside class="cover-side">
+        <div class="side-head">
+          <b>Executive readout</b>
+          <span>인지 · 탐색 · 권한 · 복구</span>
+        </div>
+        <div class="side-body">
+          <strong>일시 정지 상담은 고객이 직접 끝내지 못하는 확인과 예외 처리 지점에서 반복된다.</strong>
+          <p>전 기간 평일 (월 ~ 금) 만 포함.<br/>3/15~3/16(주말) 제외.<br/>일별 상담 건수는 2,180 건 (3/12) ~ 2,680 건 (3/17) 범위로 비교적 안정적.<br/>3/17(월요일) 주간 최고치 (2,680건) 기록 후 주 후반 점진적 감소 패턴 반복.<br/>4 개 Pain Point이 전 기간 동일한 구조로 고착화되어 있으며, 개선 없이 반복 발생 중<br/></p>
+          <div class="metric-strip">
+            <div class="metric"><b>34.6~35.4%</b><span>일시정지 신청 방법 및 조건 혼란</span></div>
+<div class="metric"><b>26.9~28.2%</b><span>일시정지 중 요금 청구 혼란</span></div>
+<div class="metric"><b>22.1~23.1%</b><span>일시정지 해제 후 서비스 복구</span></div>
+<div class="metric"><b>14.1~15.6%</b><span>분실 / 도난 일시정지와 일반</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>1. 핵심 신호</h2>
+          <p>일시 정지 VoC는 고객이 업무를 시작하고, 조건을 이해하고, 결과를 확인하고, 실패를 복구하는 전체 흐름을 정책 기준으로 재설계해야 함을 보여준다.<br/></p>
+        </div>
+        <span class="section-label">Core signals</span>
+      </div>
+      <div class="content">
+        <div class="signal-grid">
+          <article class="signal">
+            <span>01</span>
+            <h3>일시정지 신청 방법 및 조건 혼란</h3>
+            <p>&quot; 내가 일시정지를 신청할 수 있는지, 어떤 조건인지, 언제부터 적용되는지, 몇 번 더 쓸 수 있는지 한 화면에서 바로 확인하고 싶다 &quot; — 조건 사전 확인 욕구 + 셀프 신청욕구 + 잔여 횟수 실시간 확인 욕구<br/></p>
+          </article>
+          <article class="signal t2">
+            <span>02</span>
+            <h3>일시정지 중 요금 청구 혼란</h3>
+            <p>&quot;일시정지 기간 동안 기본료 · 할부금 · 부가서비스 ·OTT 구독 · 멤버십 등 항목별로 얼마가 청구되는지 신청 전에 미리 알고 싶다 &quot; — 요금 예측 가능성 욕구 + 정책 투명성요구 + 항목별 요금 사전 안내 욕구<br/></p>
+          </article>
+          <article class="signal t3">
+            <span>03</span>
+            <h3>일시정지 해제 후 서비스 복구 지연</h3>
+            <p>&quot; 해제 신청 즉시 모든 서비스가 복구되어야 하며, 복구 완료 시 즉시 알림을 받고 싶다 &quot; — 즉각 복구 욕구 + 복구 상태 실시간 확인 욕구 + 기존 설정 유지 욕구<br/></p>
+          </article>
+          <article class="signal t4">
+            <span>04</span>
+            <h3>분실 / 도난 일시정지와 일반 일시정지 혼동</h3>
+            <p>&quot; 분실 신고 후 번호를 유지하면서 임시 기기를 즉시 사용하고, 보험 청구까지 한번에 처리하고 싶다 &quot; — 분실 후 원스톱 처리 욕구 + 번호 유지 + 대체 기기 사용 욕구 +기기 원격 제어 욕구<br/></p>
+          </article>
+          <article class="signal t5">
+            <span>05</span>
+            <h3>반복 상담 구조</h3>
+            <p>일시 정지 업무를 셀프 처리 가능한 흐름으로 전환해야 한다<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. Pain Point 포트폴리오</h2>
+          <p>상담 유형은 단순 문의가 아니라 탐색 실패, 이해 부족, 권한 제약, 시스템 단절, 처리 결과 불안으로 반복된다.<br/></p>
+        </div>
+        <span class="section-label">Pain portfolio</span>
+      </div>
+      <div class="content">
+        <table class="heat-table">
+          <thead>
+            <tr>
+              <th>유형</th>
+              <th>누적 비율</th>
+              <th>고객이 겪는 문제</th>
+              <th>통합채널 설계 의미</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>일시정지 신청 방법 및 조건 혼란</td>
+              <td><span class="rate">34.6~35.4%</span></td>
+              <td>일시정지 신청 가능 조건 (연체 없음, 후불 요금제, 최소 15 일 이상, 연 2 회 제한) 미인지로 신청 시도 후 거절T 월드 앱 내 일시정지 메뉴 위치 불명확 (3 단계 이상 탐색 필요), 메뉴 위치 변경 후 기존 경로 접근 실패신청 후 즉시 적용 vs 익일 적용 혼란 전 기간 반복신청 버튼 비활성화 시 사유 안내 없음연간 잔여 횟수 확인 방법 불명확신청 후 취소 가능 여부 및 방법 불명확법인폰 사용자 신청 권한 혼란 (법인 담당자만 가능)일시정지 만료 전<br/></td>
+              <td>일시 정지 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>일시정지 중 요금 청구 혼란</td>
+              <td><span class="rate">26.9~28.2%</span></td>
+              <td>일시정지 중 기본료 50% 청구 정책 미인지로 이의 제기 전 기간 반복단말기 할부금이 일시정지 중에도 청구되는 사실 미인지데이터 이월 혜택이 일시정지 기간 중 소멸되는 사실 미인지약정 할인 유지 여부, 약정 기간 포함 여부 혼란멤버십 포인트 적립 중단 · 등급 하락 우려OTT 구독 서비스 (웨이브 · 플로) 요금이 일시정지 중에도 청구되는 사실 미인지 (3/17 신규 부각)자동 이체 설정된 요금 청구 지속에 대한 혼란일시정지 해제 후 첫 청구서 금액 예측 불가<br/></td>
+              <td>일시 정지 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>일시정지 해제 후 서비스 복구 지연</td>
+              <td><span class="rate">22.1~23.1%</span></td>
+              <td>앱 해제 신청 후 통화 · 문자 · 데이터 서비스 복구까지 1~4 시간 소요 전 기간 반복복구 완료 알림 없어 반복 확인 전화 발생 전 기간 지속복구 지연 중 긴급 연락 · 업무 전화 · 모바일 뱅킹 인증 · 중요 인증 문자 수신 불가로 실질적 피해 발생해제 후 데이터 잔여량 초기화 여부 혼란해제 후 5G 서비스 자동 복구 여부 혼란해제 후 기존 착신 전환 설정 초기화 여부 혼란해외 로밍 중 해제 시 현지 통신사 연동 지연<br/></td>
+              <td>일시 정지 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+            <tr>
+              <td>분실 / 도난 일시정지와 일반 일시정지 혼동</td>
+              <td><span class="rate">14.1~15.6%</span></td>
+              <td>분실 신고 일시정지와 일반 일시정지의 차이 미인지로 잘못된 유형 신청 분실 일시정지 해제 시 경찰 신고 번호 요구에 당황 전 기간 반복분실 일시정지 신청 후 IMEI 잠금 · 기기 위치 추적 · 원격 초기화 가능 여부 혼란분실 일시정지 중 새 기기 개통 · 번호 이동 · 유심 재발급 가능 여부 문의분실 일시정지 후 가족 명의 기기로 임시 개통 가능 여부 문의 반복분실 일시정지와 보험 청구 연계 절차 혼란분실 일시정지 해제 후 기기 반환 · 데이터 복구 절차 혼란<br/></td>
+              <td>일시 정지 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>3. Hidden Needs</h2>
+          <p>표면 요청 뒤에는 고객이 직접 판단하고 처리 결과를 신뢰하고 싶은 요구가 숨어 있다.<br/></p>
+        </div>
+        <span class="section-label">Hidden needs</span>
+      </div>
+      <div class="content">
+        <div class="need-grid">
+          <article class="card">
+            <b>안심</b>
+            <h3>조건 · 적용 시점 통합 확인 욕구 (1 위): &quot;일시정지 신청 조건, 적용 시점, 잔여 횟수를 한 화면에서 바로 확인하고 싶다 &quot;</h3>
+            <p>일시정지 신청 원스톱 플로우 + 조건 자동 체크 기능 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>통제</b>
+            <h3>요금 예측 가능성 욕구 (2 위): &quot;일시정지 기간 동안 기본료 · 할부금 · 부가서비스 ·OTT· 멤버십 등 항목별로 얼마가 청구되는지 신청 전에 미리 알고 싶다 &quot;</h3>
+            <p>일시정지 기간별 총 청구 예상액시뮬레이터 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>즉시</b>
+            <h3>즉각 복구 + 실시간 알림 욕구 (3 위): &quot; 해제 신청 즉시 복구되어야 하며, 완료 시 즉시 알림을 받고 싶다 &quot;</h3>
+            <p>복구 완료 푸시 알림 + 복구 예상 시간 실시간 표시 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>이해</b>
+            <h3>분실 후 원스톱 처리 욕구 (4 위): &quot; 분실 신고 후 번호 유지 · 임시 기기 사용 · 보험 청구를 한번에 처리하고 싶다 &quot;</h3>
+            <p>분실 일시정지 + 보험 청구 + 임시 기기 개통 원스톱 플로우 대응 필요<br/></p>
+          </article>
+          <article class="card">
+            <b>연계</b>
+            <h3>만료 전 자동 알림 + 연장 욕구 (5 위): &quot;일시정지 만료 전에 알림을 받고 원터치로 재신청하고 싶다 &quot;</h3>
+            <p>일시정지 만료 D-7·D-3·D-0 알림 + 원터치 재신청 기능 대응 필요<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>4. Trigger Top 20</h2>
+          <p>아래 계기는 고객이 셀프 채널을 이탈해 상담으로 전환하는 실제 출발점이다.<br/></p>
+        </div>
+        <span class="section-label">Triggers</span>
+      </div>
+      <div class="content">
+        <ol class="trigger-list">
+          <li><b>01</b><span>해외 출국 전 로밍 대신 일시정지 고려 — 전 기간 1 위 Trigger (34.6~35.4%), 전 기간 일관</span></li>
+          <li><b>02</b><span>청구서에서 일시정지 중 요금 발견 — 전 기간 2 위 (26.9~28.2%), 전 기간 일관</span></li>
+          <li><b>03</b><span>장기 미사용 예정 (군입대 · 해외 장기 체류 등) — 전 기간 3 위 (22.1~23.1%), 전 기간 일관</span></li>
+          <li><b>04</b><span>분실 · 도난 발생 — 전 기간 4 위 (14.1~15.6%), 전 기간 일관</span></li>
+          <li><b>05</b><span>앱 내 일시정지 메뉴 탐색 실패 후 전화 이탈 — 전 기간 지속</span></li>
+          <li><b>06</b><span>일시정지 신청 버튼 비활성화 사유 미표시 후 전화 이탈 — 3/14 이후 반복</span></li>
+          <li><b>07</b><span>일시정지 만료 후 재신청 혼란 — 3/17 이후 신규 부각</span></li>
+          <li><b>08</b><span>해제 후 복구 지연 중 업무 · 금융 거래 차질 — 3/13 이후 반복</span></li>
+          <li><b>09</b><span>분실 일시정지 해제 시 경찰 신고 번호 요구에 당황 — 전 기간 반복</span></li>
+          <li><b>10</b><span>OTT 구독 서비스 요금이 일시정지 중에도 청구 — 3/17 이후 신규 부각</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>5. Quick Win</h2>
+          <p>즉시 개선 가능한 항목은 진입점 노출, 완료 안내, 상태 조회, 권한 처리, 실패 복구를 중심으로 정리된다.<br/></p>
+        </div>
+        <span class="section-label">Immediate actions</span>
+      </div>
+      <div class="content">
+        <table class="heat-table quick-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>개선 항목</th>
+              <th>등장 빈도</th>
+              <th>기대 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>일시정지 신청 화면에 조건 · 적용 시점 · 잔여 횟수 통합 안내</td>
+              <td>10 일 전체</td>
+              <td>신청 조건 혼란 전화 34~35% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>일시정지 신청 전 청구 항목 종합 안내 팝업 (기본료 · 할부금 · 부가서비스 ·OTT· 멤버십)</td>
+              <td>10 일 전체</td>
+              <td>요금 혼란 전화 27~28% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>해제 완료 후 서비스 복구 완료 푸시 알림 발송</td>
+              <td>10 일 전체</td>
+              <td>복구 확인 반복 전화 22~23% 즉시 감소</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>앱 내 일시정지 신청 메뉴 1 단계 접근 + 검색 노출 개선</td>
+              <td>10 일 전체</td>
+              <td>탐색 실패 전화 감소</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>신청 버튼 비활성화 시 사유 툴팁 즉시 표시</td>
+              <td>3/14 이후 매일</td>
+              <td>신청 불가 혼란 전화 감소</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>일시정지 만료 D-7·D-3·D-0 알림 + 원터치 재신청</td>
+              <td>3/17 이후 매일</td>
+              <td>만료 후 재신청 혼란 전화 감소</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>분실 일시정지 vs 일반 일시정지 선택 화면 명확화 + 분실 후 보험 청구 연계 안내 팝업</td>
+              <td>10 일 전체</td>
+              <td>분실 혼동 전화 14~16% 감소</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>복구 예상 완료 시간 실시간 표시</td>
+              <td>10 일 전체</td>
+              <td>복구 지연 불안 전화 감소</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>6. 요구사항·정책서 전환 질문</h2>
+          <p>VoC 분석 결과는 일시 정지 정책서에서 아래 질문에 답할 수 있는 기능과 정책 항목으로 전환되어야 한다.<br/></p>
+        </div>
+        <span class="section-label">Policy conversion</span>
+      </div>
+      <div class="content">
+        <div class="policy-grid">
+          <article class="card">
+            <b>상태</b>
+            <h3>처리 상태를 어디까지 보여줘야 하는가?</h3>
+            <p>일시 정지 업무의 접수, 진행, 완료, 실패, 취소 상태를 고객이 직접 확인하도록 정의해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>알림</b>
+            <h3>어떤 조건에서 고객에게 먼저 알려야 하는가?</h3>
+            <p>일시 정지 관련 변경, 실패, 혜택 영향, 추가 조치 필요 시점을 알림 기준으로 전환해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>이력</b>
+            <h3>고객과 운영자는 무엇을 추적해야 하는가?</h3>
+            <p>일시 정지 처리 이력과 고객 고지 이력을 남겨 재문의와 책임 공백을 줄여야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>예외</b>
+            <h3>처리 불가 상황에서 어떤 대체 행동을 제공하는가?</h3>
+            <p>업무 제한 조건을 단순 안내로 끝내지 않고 가능한 대체 처리, 예약, 상담 연결 기준으로 연결해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>일괄 처리</b>
+            <h3>반복 처리를 어떻게 줄이는가?</h3>
+            <p>동일 고객, 가족, 회선, 상품 단위 반복 업무는 묶음 처리와 공통 결과 확인 기준을 검토해야 한다<br/></p>
+          </article>
+          <article class="card">
+            <b>신뢰</b>
+            <h3>고객 불안을 어떻게 낮출 것인가?</h3>
+            <p>예상 결과, 영향 범위, 완료 증적, 실패 복구 경로를 한 흐름 안에 제시해야 한다<br/></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

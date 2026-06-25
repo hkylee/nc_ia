@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="멤버십카드관리 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_MBS_CARD_001" name="US-MBS-CARD-001 멤버십 카드 사용 가능성 확인">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_STA_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_STA_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_STA_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_MBS_CARD_002" name="US-MBS-CARD-002 디지털 카드 제시와 번호 사용">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_DIG_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_DIG_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_DIG_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_MBS_CARD_003" name="US-MBS-CARD-003 실물 카드 발급·재발급 요청">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_ISS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_ISS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_ISS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_ISS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_MBS_CARD_004" name="US-MBS-CARD-004 멤버십 상태 변경 영향 확인">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_CHG_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_CHG_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_CHG_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_CHG_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_MBS_CARD_005" name="US-MBS-CARD-005 대표 회선과 처리 이력 관리">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_LIN_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_LIN_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_LIN_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_005</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_MBS_CARD_006" name="US-MBS-CARD-006 카드 발급 예외와 상태 운영">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_OPS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_OPS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_OPS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_006</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_MBS_CARD_007" name="US-MBS-CARD-007 멤버십 카드 문의 문맥 지원">
+        <bpmn:flowNodeRef>Start_US_MBS_CARD_007</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_CS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_MBS_CS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_MBS_CARD_007</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_MBS_CARD_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_001_Task_PR_MBS_STA_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_STA_001" name="PR-MBS-STA-001 카드 자격·상태 조회">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_001_Task_PR_MBS_STA_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_STA_001_Task_PR_MBS_STA_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_STA_002" name="PR-MBS-STA-002 제한 사유와 반영 일정 안내">
+      <bpmn:incoming>Flow_Task_PR_MBS_STA_001_Task_PR_MBS_STA_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_STA_002_Task_PR_MBS_STA_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_STA_003" name="PR-MBS-STA-003 후속 행동 선택">
+      <bpmn:incoming>Flow_Task_PR_MBS_STA_002_Task_PR_MBS_STA_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_STA_003_End_US_MBS_CARD_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_STA_003_End_US_MBS_CARD_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_001_Task_PR_MBS_STA_001" sourceRef="Start_US_MBS_CARD_001" targetRef="Task_PR_MBS_STA_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_STA_001_Task_PR_MBS_STA_002" sourceRef="Task_PR_MBS_STA_001" targetRef="Task_PR_MBS_STA_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_STA_002_Task_PR_MBS_STA_003" sourceRef="Task_PR_MBS_STA_002" targetRef="Task_PR_MBS_STA_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_STA_003_End_US_MBS_CARD_001" sourceRef="Task_PR_MBS_STA_003" targetRef="End_US_MBS_CARD_001"/>
+    <bpmn:startEvent id="Start_US_MBS_CARD_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_002_Task_PR_MBS_DIG_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_DIG_001" name="PR-MBS-DIG-001 디지털 제시 수단 요청">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_002_Task_PR_MBS_DIG_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_DIG_001_Task_PR_MBS_DIG_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_DIG_002" name="PR-MBS-DIG-002 바코드·번호 보안 표시">
+      <bpmn:incoming>Flow_Task_PR_MBS_DIG_001_Task_PR_MBS_DIG_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_DIG_002_Task_PR_MBS_DIG_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_DIG_003" name="PR-MBS-DIG-003 복사·대체 제시 완료">
+      <bpmn:incoming>Flow_Task_PR_MBS_DIG_002_Task_PR_MBS_DIG_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_DIG_003_End_US_MBS_CARD_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_DIG_003_End_US_MBS_CARD_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_002_Task_PR_MBS_DIG_001" sourceRef="Start_US_MBS_CARD_002" targetRef="Task_PR_MBS_DIG_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_DIG_001_Task_PR_MBS_DIG_002" sourceRef="Task_PR_MBS_DIG_001" targetRef="Task_PR_MBS_DIG_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_DIG_002_Task_PR_MBS_DIG_003" sourceRef="Task_PR_MBS_DIG_002" targetRef="Task_PR_MBS_DIG_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_DIG_003_End_US_MBS_CARD_002" sourceRef="Task_PR_MBS_DIG_003" targetRef="End_US_MBS_CARD_002"/>
+    <bpmn:startEvent id="Start_US_MBS_CARD_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_003_Task_PR_MBS_ISS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_ISS_001" name="PR-MBS-ISS-001 발급 자격과 대체수단 확인">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_003_Task_PR_MBS_ISS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_ISS_001_Task_PR_MBS_ISS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_ISS_002" name="PR-MBS-ISS-002 발급 신청 접수">
+      <bpmn:incoming>Flow_Task_PR_MBS_ISS_001_Task_PR_MBS_ISS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_ISS_002_Task_PR_MBS_ISS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_ISS_003" name="PR-MBS-ISS-003 발급 상태 추적">
+      <bpmn:incoming>Flow_Task_PR_MBS_ISS_002_Task_PR_MBS_ISS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_ISS_003_Task_PR_MBS_ISS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_ISS_004" name="PR-MBS-ISS-004 재발급·분실·비활성 대응">
+      <bpmn:incoming>Flow_Task_PR_MBS_ISS_003_Task_PR_MBS_ISS_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_ISS_004_End_US_MBS_CARD_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_ISS_004_End_US_MBS_CARD_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_003_Task_PR_MBS_ISS_001" sourceRef="Start_US_MBS_CARD_003" targetRef="Task_PR_MBS_ISS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_ISS_001_Task_PR_MBS_ISS_002" sourceRef="Task_PR_MBS_ISS_001" targetRef="Task_PR_MBS_ISS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_ISS_002_Task_PR_MBS_ISS_003" sourceRef="Task_PR_MBS_ISS_002" targetRef="Task_PR_MBS_ISS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_ISS_003_Task_PR_MBS_ISS_004" sourceRef="Task_PR_MBS_ISS_003" targetRef="Task_PR_MBS_ISS_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_ISS_004_End_US_MBS_CARD_003" sourceRef="Task_PR_MBS_ISS_004" targetRef="End_US_MBS_CARD_003"/>
+    <bpmn:startEvent id="Start_US_MBS_CARD_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_004_Task_PR_MBS_CHG_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_CHG_001" name="PR-MBS-CHG-001 상태 변경 영향 산정">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_004_Task_PR_MBS_CHG_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_CHG_001_Task_PR_MBS_CHG_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_CHG_002" name="PR-MBS-CHG-002 처리 진입과 고객 확인">
+      <bpmn:incoming>Flow_Task_PR_MBS_CHG_001_Task_PR_MBS_CHG_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_CHG_002_Task_PR_MBS_CHG_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_CHG_003" name="PR-MBS-CHG-003 해지 유예와 복구 판정">
+      <bpmn:incoming>Flow_Task_PR_MBS_CHG_002_Task_PR_MBS_CHG_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_CHG_003_Task_PR_MBS_CHG_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_CHG_004" name="PR-MBS-CHG-004 해지 확정과 삭제 안내">
+      <bpmn:incoming>Flow_Task_PR_MBS_CHG_003_Task_PR_MBS_CHG_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_CHG_004_End_US_MBS_CARD_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_CHG_004_End_US_MBS_CARD_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_004_Task_PR_MBS_CHG_001" sourceRef="Start_US_MBS_CARD_004" targetRef="Task_PR_MBS_CHG_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_CHG_001_Task_PR_MBS_CHG_002" sourceRef="Task_PR_MBS_CHG_001" targetRef="Task_PR_MBS_CHG_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_CHG_002_Task_PR_MBS_CHG_003" sourceRef="Task_PR_MBS_CHG_002" targetRef="Task_PR_MBS_CHG_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_CHG_003_Task_PR_MBS_CHG_004" sourceRef="Task_PR_MBS_CHG_003" targetRef="Task_PR_MBS_CHG_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_CHG_004_End_US_MBS_CARD_004" sourceRef="Task_PR_MBS_CHG_004" targetRef="End_US_MBS_CARD_004"/>
+    <bpmn:startEvent id="Start_US_MBS_CARD_005" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_005_Task_PR_MBS_LIN_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_LIN_001" name="PR-MBS-LIN-001 대표 회선 조회">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_005_Task_PR_MBS_LIN_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_LIN_001_Task_PR_MBS_LIN_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_LIN_002" name="PR-MBS-LIN-002 대표 회선 변경 요청">
+      <bpmn:incoming>Flow_Task_PR_MBS_LIN_001_Task_PR_MBS_LIN_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_LIN_002_Task_PR_MBS_LIN_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_LIN_003" name="PR-MBS-LIN-003 처리 이력과 다음 행동 확인">
+      <bpmn:incoming>Flow_Task_PR_MBS_LIN_002_Task_PR_MBS_LIN_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_LIN_003_End_US_MBS_CARD_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_005" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_LIN_003_End_US_MBS_CARD_005</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_005_Task_PR_MBS_LIN_001" sourceRef="Start_US_MBS_CARD_005" targetRef="Task_PR_MBS_LIN_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_LIN_001_Task_PR_MBS_LIN_002" sourceRef="Task_PR_MBS_LIN_001" targetRef="Task_PR_MBS_LIN_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_LIN_002_Task_PR_MBS_LIN_003" sourceRef="Task_PR_MBS_LIN_002" targetRef="Task_PR_MBS_LIN_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_LIN_003_End_US_MBS_CARD_005" sourceRef="Task_PR_MBS_LIN_003" targetRef="End_US_MBS_CARD_005"/>
+    <bpmn:startEvent id="Start_US_MBS_CARD_006" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_006_Task_PR_MBS_OPS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_OPS_001" name="PR-MBS-OPS-001 예외 대상 조회와 승인 판단">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_006_Task_PR_MBS_OPS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_OPS_001_Task_PR_MBS_OPS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_OPS_002" name="PR-MBS-OPS-002 보류·반려·재처리 수행">
+      <bpmn:incoming>Flow_Task_PR_MBS_OPS_001_Task_PR_MBS_OPS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_OPS_002_Task_PR_MBS_OPS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_OPS_003" name="PR-MBS-OPS-003 운영 정책과 감사 이력 관리">
+      <bpmn:incoming>Flow_Task_PR_MBS_OPS_002_Task_PR_MBS_OPS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_OPS_003_End_US_MBS_CARD_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_006" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_OPS_003_End_US_MBS_CARD_006</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_006_Task_PR_MBS_OPS_001" sourceRef="Start_US_MBS_CARD_006" targetRef="Task_PR_MBS_OPS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_OPS_001_Task_PR_MBS_OPS_002" sourceRef="Task_PR_MBS_OPS_001" targetRef="Task_PR_MBS_OPS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_OPS_002_Task_PR_MBS_OPS_003" sourceRef="Task_PR_MBS_OPS_002" targetRef="Task_PR_MBS_OPS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_OPS_003_End_US_MBS_CARD_006" sourceRef="Task_PR_MBS_OPS_003" targetRef="End_US_MBS_CARD_006"/>
+    <bpmn:startEvent id="Start_US_MBS_CARD_007" name="시작">
+      <bpmn:outgoing>Flow_Start_US_MBS_CARD_007_Task_PR_MBS_CS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_MBS_CS_001" name="PR-MBS-CS-001 상담 문맥 조회">
+      <bpmn:incoming>Flow_Start_US_MBS_CARD_007_Task_PR_MBS_CS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_CS_001_Task_PR_MBS_CS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_MBS_CS_002" name="PR-MBS-CS-002 상담 후속 조치 안내">
+      <bpmn:incoming>Flow_Task_PR_MBS_CS_001_Task_PR_MBS_CS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_MBS_CS_002_End_US_MBS_CARD_007</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_MBS_CARD_007" name="종료">
+      <bpmn:incoming>Flow_Task_PR_MBS_CS_002_End_US_MBS_CARD_007</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_MBS_CARD_007_Task_PR_MBS_CS_001" sourceRef="Start_US_MBS_CARD_007" targetRef="Task_PR_MBS_CS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_CS_001_Task_PR_MBS_CS_002" sourceRef="Task_PR_MBS_CS_001" targetRef="Task_PR_MBS_CS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_MBS_CS_002_End_US_MBS_CARD_007" sourceRef="Task_PR_MBS_CS_002" targetRef="End_US_MBS_CARD_007"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_001_di" bpmnElement="Lane_US_MBS_CARD_001">
+        <dc:Bounds x="40" y="25" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_001_di" bpmnElement="Start_US_MBS_CARD_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_STA_001_di" bpmnElement="Task_PR_MBS_STA_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_STA_002_di" bpmnElement="Task_PR_MBS_STA_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_STA_003_di" bpmnElement="Task_PR_MBS_STA_003">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_001_di" bpmnElement="End_US_MBS_CARD_001">
+        <dc:Bounds x="900" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_002_di" bpmnElement="Lane_US_MBS_CARD_002">
+        <dc:Bounds x="40" y="195" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_002_di" bpmnElement="Start_US_MBS_CARD_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_DIG_001_di" bpmnElement="Task_PR_MBS_DIG_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_DIG_002_di" bpmnElement="Task_PR_MBS_DIG_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_DIG_003_di" bpmnElement="Task_PR_MBS_DIG_003">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_002_di" bpmnElement="End_US_MBS_CARD_002">
+        <dc:Bounds x="900" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_003_di" bpmnElement="Lane_US_MBS_CARD_003">
+        <dc:Bounds x="40" y="365" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_003_di" bpmnElement="Start_US_MBS_CARD_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_ISS_001_di" bpmnElement="Task_PR_MBS_ISS_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_ISS_002_di" bpmnElement="Task_PR_MBS_ISS_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_ISS_003_di" bpmnElement="Task_PR_MBS_ISS_003">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_ISS_004_di" bpmnElement="Task_PR_MBS_ISS_004">
+        <dc:Bounds x="900" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_003_di" bpmnElement="End_US_MBS_CARD_003">
+        <dc:Bounds x="1120" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_004_di" bpmnElement="Lane_US_MBS_CARD_004">
+        <dc:Bounds x="40" y="535" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_004_di" bpmnElement="Start_US_MBS_CARD_004">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_CHG_001_di" bpmnElement="Task_PR_MBS_CHG_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_CHG_002_di" bpmnElement="Task_PR_MBS_CHG_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_CHG_003_di" bpmnElement="Task_PR_MBS_CHG_003">
+        <dc:Bounds x="680" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_CHG_004_di" bpmnElement="Task_PR_MBS_CHG_004">
+        <dc:Bounds x="900" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_004_di" bpmnElement="End_US_MBS_CARD_004">
+        <dc:Bounds x="1120" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_005_di" bpmnElement="Lane_US_MBS_CARD_005">
+        <dc:Bounds x="40" y="705" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_005_di" bpmnElement="Start_US_MBS_CARD_005">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_LIN_001_di" bpmnElement="Task_PR_MBS_LIN_001">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_LIN_002_di" bpmnElement="Task_PR_MBS_LIN_002">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_LIN_003_di" bpmnElement="Task_PR_MBS_LIN_003">
+        <dc:Bounds x="680" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_005_di" bpmnElement="End_US_MBS_CARD_005">
+        <dc:Bounds x="900" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_006_di" bpmnElement="Lane_US_MBS_CARD_006">
+        <dc:Bounds x="40" y="875" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_006_di" bpmnElement="Start_US_MBS_CARD_006">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_OPS_001_di" bpmnElement="Task_PR_MBS_OPS_001">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_OPS_002_di" bpmnElement="Task_PR_MBS_OPS_002">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_OPS_003_di" bpmnElement="Task_PR_MBS_OPS_003">
+        <dc:Bounds x="680" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_006_di" bpmnElement="End_US_MBS_CARD_006">
+        <dc:Bounds x="900" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_MBS_CARD_007_di" bpmnElement="Lane_US_MBS_CARD_007">
+        <dc:Bounds x="40" y="1045" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_MBS_CARD_007_di" bpmnElement="Start_US_MBS_CARD_007">
+        <dc:Bounds x="112" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_CS_001_di" bpmnElement="Task_PR_MBS_CS_001">
+        <dc:Bounds x="240" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_MBS_CS_002_di" bpmnElement="Task_PR_MBS_CS_002">
+        <dc:Bounds x="460" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_MBS_CARD_007_di" bpmnElement="End_US_MBS_CARD_007">
+        <dc:Bounds x="680" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_001_Task_PR_MBS_STA_001_di" bpmnElement="Flow_Start_US_MBS_CARD_001_Task_PR_MBS_STA_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_STA_001_Task_PR_MBS_STA_002_di" bpmnElement="Flow_Task_PR_MBS_STA_001_Task_PR_MBS_STA_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_STA_002_Task_PR_MBS_STA_003_di" bpmnElement="Flow_Task_PR_MBS_STA_002_Task_PR_MBS_STA_003">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_STA_003_End_US_MBS_CARD_001_di" bpmnElement="Flow_Task_PR_MBS_STA_003_End_US_MBS_CARD_001">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_002_Task_PR_MBS_DIG_001_di" bpmnElement="Flow_Start_US_MBS_CARD_002_Task_PR_MBS_DIG_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_DIG_001_Task_PR_MBS_DIG_002_di" bpmnElement="Flow_Task_PR_MBS_DIG_001_Task_PR_MBS_DIG_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_DIG_002_Task_PR_MBS_DIG_003_di" bpmnElement="Flow_Task_PR_MBS_DIG_002_Task_PR_MBS_DIG_003">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_DIG_003_End_US_MBS_CARD_002_di" bpmnElement="Flow_Task_PR_MBS_DIG_003_End_US_MBS_CARD_002">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_003_Task_PR_MBS_ISS_001_di" bpmnElement="Flow_Start_US_MBS_CARD_003_Task_PR_MBS_ISS_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_ISS_001_Task_PR_MBS_ISS_002_di" bpmnElement="Flow_Task_PR_MBS_ISS_001_Task_PR_MBS_ISS_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_ISS_002_Task_PR_MBS_ISS_003_di" bpmnElement="Flow_Task_PR_MBS_ISS_002_Task_PR_MBS_ISS_003">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_ISS_003_Task_PR_MBS_ISS_004_di" bpmnElement="Flow_Task_PR_MBS_ISS_003_Task_PR_MBS_ISS_004">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_ISS_004_End_US_MBS_CARD_003_di" bpmnElement="Flow_Task_PR_MBS_ISS_004_End_US_MBS_CARD_003">
+        <di:waypoint x="1070" y="410"/>
+        <di:waypoint x="1120" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_004_Task_PR_MBS_CHG_001_di" bpmnElement="Flow_Start_US_MBS_CARD_004_Task_PR_MBS_CHG_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_CHG_001_Task_PR_MBS_CHG_002_di" bpmnElement="Flow_Task_PR_MBS_CHG_001_Task_PR_MBS_CHG_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_CHG_002_Task_PR_MBS_CHG_003_di" bpmnElement="Flow_Task_PR_MBS_CHG_002_Task_PR_MBS_CHG_003">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_CHG_003_Task_PR_MBS_CHG_004_di" bpmnElement="Flow_Task_PR_MBS_CHG_003_Task_PR_MBS_CHG_004">
+        <di:waypoint x="850" y="580"/>
+        <di:waypoint x="900" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_CHG_004_End_US_MBS_CARD_004_di" bpmnElement="Flow_Task_PR_MBS_CHG_004_End_US_MBS_CARD_004">
+        <di:waypoint x="1070" y="580"/>
+        <di:waypoint x="1120" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_005_Task_PR_MBS_LIN_001_di" bpmnElement="Flow_Start_US_MBS_CARD_005_Task_PR_MBS_LIN_001">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_LIN_001_Task_PR_MBS_LIN_002_di" bpmnElement="Flow_Task_PR_MBS_LIN_001_Task_PR_MBS_LIN_002">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_LIN_002_Task_PR_MBS_LIN_003_di" bpmnElement="Flow_Task_PR_MBS_LIN_002_Task_PR_MBS_LIN_003">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_LIN_003_End_US_MBS_CARD_005_di" bpmnElement="Flow_Task_PR_MBS_LIN_003_End_US_MBS_CARD_005">
+        <di:waypoint x="850" y="750"/>
+        <di:waypoint x="900" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_006_Task_PR_MBS_OPS_001_di" bpmnElement="Flow_Start_US_MBS_CARD_006_Task_PR_MBS_OPS_001">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_OPS_001_Task_PR_MBS_OPS_002_di" bpmnElement="Flow_Task_PR_MBS_OPS_001_Task_PR_MBS_OPS_002">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_OPS_002_Task_PR_MBS_OPS_003_di" bpmnElement="Flow_Task_PR_MBS_OPS_002_Task_PR_MBS_OPS_003">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_OPS_003_End_US_MBS_CARD_006_di" bpmnElement="Flow_Task_PR_MBS_OPS_003_End_US_MBS_CARD_006">
+        <di:waypoint x="850" y="920"/>
+        <di:waypoint x="900" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_MBS_CARD_007_Task_PR_MBS_CS_001_di" bpmnElement="Flow_Start_US_MBS_CARD_007_Task_PR_MBS_CS_001">
+        <di:waypoint x="148" y="1090"/>
+        <di:waypoint x="240" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_CS_001_Task_PR_MBS_CS_002_di" bpmnElement="Flow_Task_PR_MBS_CS_001_Task_PR_MBS_CS_002">
+        <di:waypoint x="410" y="1090"/>
+        <di:waypoint x="460" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_MBS_CS_002_End_US_MBS_CARD_007_di" bpmnElement="Flow_Task_PR_MBS_CS_002_End_US_MBS_CARD_007">
+        <di:waypoint x="630" y="1090"/>
+        <di:waypoint x="680" y="1090"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

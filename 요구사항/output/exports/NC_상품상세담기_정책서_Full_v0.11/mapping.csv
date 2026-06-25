@@ -1,0 +1,909 @@
+usecase_id,usecase_name,process_id,process_name,function_id,function_name,function_actor,policy_group_id,policy_group_name,policy_item_id,policy_item_name
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SCOPE-001,상품상세/담기 범위·경계 정책,PI-PDD-SCOPE-001-01,범위 경계
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SCOPE-001,상품상세/담기 범위·경계 정책,PI-PDD-SCOPE-001-02,담기 정의
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SCOPE-001,상품상세/담기 범위·경계 정책,PI-PDD-SCOPE-001-03,인접 정책서 경계
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-01,핵심 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-02,미디어 뷰어
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-03,스펙 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-04,상품 리뷰·평점·Q&A
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-05,브랜드·판매주체·이행방식
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-01,표준 섹션
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-02,상품군 특화
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-03,앵커 구조
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-04,공통 모듈
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-05,상품군별 필수 템플릿
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-06,플러스·구독 상품 안내
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-DTL-001,상품 요약·핵심 속성 표시,ACT-PDD-001,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-07,상품군 CTA 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SCOPE-001,상품상세/담기 범위·경계 정책,PI-PDD-SCOPE-001-01,범위 경계
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SCOPE-001,상품상세/담기 범위·경계 정책,PI-PDD-SCOPE-001-02,담기 정의
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SCOPE-001,상품상세/담기 범위·경계 정책,PI-PDD-SCOPE-001-03,인접 정책서 경계
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-01,핵심 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-02,미디어 뷰어
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-03,스펙 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-04,상품 리뷰·평점·Q&A
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-05,브랜드·판매주체·이행방식
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-01,표준 섹션
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-02,상품군 특화
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-03,앵커 구조
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-04,공통 모듈
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-05,상품군별 필수 템플릿
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-06,플러스·구독 상품 안내
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-001,상품 상세 핵심 요약 탐색,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-07,상품군 CTA 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-01,핵심 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-02,미디어 뷰어
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-03,스펙 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-04,상품 리뷰·평점·Q&A
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-05,브랜드·판매주체·이행방식
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-MEDIA-001,미디어·접근성 뷰어,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-01,핵심 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-02,미디어 뷰어
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-03,스펙 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-04,상품 리뷰·평점·Q&A
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-05,브랜드·판매주체·이행방식
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-SPEC-001,상품 설명·스펙 구조화,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-01,핵심 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-02,미디어 뷰어
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-03,스펙 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-04,상품 리뷰·평점·Q&A
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SUMMARY-001,상품 요약·미디어·스펙 표시 정책,PI-PDD-SUMMARY-001-05,브랜드·판매주체·이행방식
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-002,미디어·스펙·후기 이해,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-CUS-001,상품 가치 탐색과 이해,PR-PDD-DTL-003,혜택·가격·주의사항 확인,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-001,고객 상태 기반 적합성 파악,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-002,비교 컴포넌트로 대안 비교,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-CUS-002,상품 조건 비교와 맞춤 판단,PR-PDD-CMP-003,추천·AI 요약 근거 검토,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-01,옵션 선택
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-02,선택형 혜택
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-03,그룹 상품
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-04,가격 반영
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-05,로밍 시작 옵션
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-06,인기 옵션 적용
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-OPTION-001,옵션·구성 선택 처리,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-01,옵션 선택
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-02,선택형 혜택
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-03,그룹 상품
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-04,가격 반영
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-05,로밍 시작 옵션
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPTION-001,옵션·구성 선택 정책,PI-PDD-OPTION-001-06,인기 옵션 적용
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-001,옵션·구성 선택,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-ELIG-001,고객 상태·가입 조건 판정,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-002,가입·구매 조건 검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-PRICE-001,예상 부담·혜택 요약 계산,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-003,예상 비용·혜택 요약,FN-PDD-BENEFIT-001,혜택·가격·가치 산정 표시,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-003,상품 구성 선택과 담기 준비,PR-PDD-SEL-004,공유·딥링크·문의 맥락 유지,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-001,담기 전 유효성 재검증,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-002,담기 실행과 상태 저장,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-003,담기 완료 후 다음 행동 선택,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-NEXT-001,담기 완료 후 행동 분기,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-004,상품 담기 여정 완성,PR-PDD-SAVE-004,장바구니·주문 진입 연결,FN-PDD-CTA-001,담기·바로결제·구독 CTA 구분,ACT-PDD-001,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-001,선택 불가·충돌 사유 안내,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-AUTH-001,로그인·인증 필요 안내,ACT-PDD-001,PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-002,로그인·인증 후 원위치 복귀,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-CUS-005,담기 실패 복구와 상담 전환,PR-PDD-ERR-003,상담 전환과 실패 이력 전달,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-01,표준 섹션
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-02,상품군 특화
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-03,앵커 구조
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-04,공통 모듈
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-05,상품군별 필수 템플릿
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-06,플러스·구독 상품 안내
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-07,상품군 CTA 기준
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-01,표준 섹션
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-02,상품군 특화
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-03,앵커 구조
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-04,공통 모듈
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-05,상품군별 필수 템플릿
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-06,플러스·구독 상품 안내
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-TPL-001,상품 상세 표준 템플릿 정책,PI-PDD-TPL-001-07,상품군 CTA 기준
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-001,상품 상세 표준 템플릿 등록,FN-PDD-TEMPLATE-001,상품 상세 표준 템플릿 구성,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-002,상품군별 모듈·정책 문구 운영,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-003,원장·라이프사이클 연동 검수,FN-PDD-CODE-001,상품·서비스 코드 체계 관리,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-01,입력 검증
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-02,삭제 보호
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-03,일괄 변경 부분 실패
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-04,이미지 규격
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-05,변경 보호
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-06,관리자 승인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-ADMIN-001,운영 입력·검증·삭제 보호,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-01,입력 검증
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-02,삭제 보호
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-03,일괄 변경 부분 실패
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-04,이미지 규격
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-05,변경 보호
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-06,관리자 승인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-004,운영 입력·검증·삭제 보호,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-01,공통 컬럼
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-02,마스킹
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-03,답변 상태
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-04,결과 없음
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-05,후기 작성 유도
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-OPS-001,후기·Q&A 운영 관리,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-01,공통 컬럼
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-02,마스킹
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-03,답변 상태
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-04,결과 없음
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-REVIEW-001,후기·Q&A 운영 정책,PI-PDD-REVIEW-001-05,후기 작성 유도
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-001,상품 상세 템플릿과 원장 운영,PR-PDD-TPL-005,후기·Q&A 운영 기준 관리,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-COMPARE-001,상품 비교 기준 적용,"ACT-PDD-001,ACT-PDD-002",PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-001,비교 기준·속성 관리,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-AI-001,AI 요약·추천·atomic view,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-01,비교 기준
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-02,AI 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-03,추천 근거
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-04,후기 요약
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-05,atomic view
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-06,상품군별 비교 템플릿
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMPARE-001,비교·추천·AI 요약 정책,PI-PDD-COMPARE-001-07,대체 옵션 추천
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-002,AI 요약·후기·추천 운영,FN-PDD-REVIEW-001,상품 리뷰·평점·Q&A 제공,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-01,가격 기준
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-02,혜택 분리
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-03,공시지원금
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-04,마케팅 정보
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-05,실사용 빈도 가치
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-06,선물가 문구
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-PRICE-001,가격·혜택·가치 표시 정책,PI-PDD-PRICE-001-07,구독가 비교
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-REC-003,마케팅 정보·성과 개선,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-01,키워드 저장 단위
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-02,중복 제한
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-03,역할 구분
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-04,카테고리 종속
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-05,순서·이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-06,카테고리 삭제
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-01,입력 검증
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-02,삭제 보호
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-03,일괄 변경 부분 실패
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-04,이미지 규격
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-05,변경 보호
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-KEYWORD-001,키워드·카테고리 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-06,관리자 승인
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-01,키워드 저장 단위
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-02,중복 제한
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-03,역할 구분
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-04,카테고리 종속
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-05,순서·이력
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-KEYWORD-001,키워드·카테고리 운영 정책,PI-PDD-KEYWORD-001-06,카테고리 삭제
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-01,입력 검증
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-02,삭제 보호
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-03,일괄 변경 부분 실패
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-04,이미지 규격
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-05,변경 보호
+US-PDD-OPS-002,상품 비교·추천 기준 운영,PR-PDD-TPL-006,키워드·카테고리 운영 기준 관리,FN-PDD-TPL-OPS-001,템플릿·컴포넌트 운영 관리,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-06,관리자 승인
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-001,상품 관계·동시 주문 정책 관리,FN-PDD-COMBO-001,상품 조합·프로그램 유효성 검증,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-002,가입·유지·해지 조건 정책 관리,FN-PDD-LIFECYCLE-001,라이프사이클·상태 반영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-POLICY-001,가입·조합·혜택 정책 운영,ACT-PDD-002,PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-01,담기 저장
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-02,다음 행동
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-03,주문 전환
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-04,재검증
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-05,CTA 의미 구분
+US-PDD-OPS-003,상품 관계·담기 정책 운영,PR-PDD-RUL-003,담기 규칙·조합 정책 관리,FN-PDD-SAVE-001,담기 실행·상태 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-SAVE-001,담기 실행·다음 행동 정책,PI-PDD-SAVE-001-06,고객 표시 상태와 내부 상태 구분
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-001,재고·수량·판매 상태 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-01,사전 판정
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-02,불가 사유
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-03,비회원 전환
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-04,제한 고지
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-05,연령·기간 유효성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-002,배송·픽업 가능성 기준 운영,FN-PDD-INVENTORY-001,재고·수량·배송 가능성 조회,"ACT-PDD-001,ACT-PDD-002",PG-PDD-ELIG-001,가입·구매 가능성 사전 안내 정책,PI-PDD-ELIG-001-06,묶음 해지 제약
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MACRO-001,예약판매·시장 대응 자동화,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-01,재고 기준
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-02,배송 가능성
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-03,예약판매
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-STOCK-001,재고·배송·예약판매 운영 정책,PI-PDD-STOCK-001-04,시장 대응
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-01,버전 관리
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-02,영향도 확인
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-03,미리보기
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-003,예약판매·시장 대응 자동화,FN-PDD-MARKETING-001,마케팅·비교 콘텐츠 운영,ACT-PDD-002,PG-PDD-OPS-001,운영자 템플릿·정책문구 관리 정책,PI-PDD-OPS-001-04,변경 이력
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-01,디바이스 공개상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-02,등록 완료 산출
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-03,프론트 반영 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-04,삭제 영향 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-05,연동기기 라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-06,외부채널 설정
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-01,입력 검증
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-02,삭제 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-03,일괄 변경 부분 실패
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-04,이미지 규격
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-05,변경 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-06,관리자 승인
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-01,디바이스 공개상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-02,등록 완료 산출
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-03,프론트 반영 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-04,삭제 영향 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-05,연동기기 라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-06,외부채널 설정
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-01,라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-02,코드 체계
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-03,메타데이터
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-04,판매 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-LIFE-001,상품 라이프사이클·코드 체계 정책,PI-PDD-LIFE-001-05,전시 상태 코드
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-01,입력 검증
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-02,삭제 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-03,일괄 변경 부분 실패
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-04,이미지 규격
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-05,변경 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-004,디바이스·액세서리·연동기기 상태 운영,FN-PDD-STOCK-OPS-001,재고·판매 가능 상태 운영,ACT-PDD-002,PG-PDD-ADMIN-001,운영 입력·검증·삭제 보호 정책,PI-PDD-ADMIN-001-06,관리자 승인
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-01,디바이스 공개상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-02,등록 완료 산출
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-03,프론트 반영 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-04,삭제 영향 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-05,연동기기 라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-06,외부채널 설정
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-EXTERNAL-001,외부채널 상품 설정 관리,ACT-PDD-002,PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-01,디바이스 공개상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-02,등록 완료 산출
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-03,프론트 반영 상태
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-04,삭제 영향 보호
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-05,연동기기 라이프사이클
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-DEVICE-001,디바이스·액세서리·연동기기 운영 정책,PI-PDD-DEVICE-001-06,외부채널 설정
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-01,상품 I/F
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-02,Spec/Item
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-03,상품 관계
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-04,정책 수신
+US-PDD-OPS-004,재고·배송·판매 상태 운영,PR-PDD-STK-005,외부채널 상품 설정 운영,FN-PDD-CATALOG-001,Product Catalog I/F 수신,"ACT-PDD-001,ACT-PDD-002",PG-PDD-CATALOG-001,Product Catalog 연동 정책,PI-PDD-CATALOG-001-05,외부채널 연동
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-001,담기 활동·실시간 현황 조회,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-002,불편 이벤트 탐지 기준 관리,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-ALERT-001,불편 이벤트 알림·에스컬레이션,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-003,알림·에스컬레이션 조치,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-AUDIT-001,변경·판정·알림 이력 저장,"ACT-PDD-001,ACT-PDD-002",PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-01,판정 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-02,변경 이력
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-03,성과 리포트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-AUDIT-001,이력·성과·개선 정책,PI-PDD-AUDIT-001-04,개선 추적
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-01,활동 현황
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-02,불편 이벤트
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-03,실시간 알림
+US-PDD-OPS-005,담기 불편 모니터링과 조치 운영,PR-PDD-MON-004,알림 이력·개선 결과 추적,FN-PDD-MONITOR-001,담기 활동 모니터링,ACT-PDD-002,PG-PDD-MON-001,담기 모니터링·알림 정책,PI-PDD-MON-001-04,에스컬레이션
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-01,불가 안내
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-02,충돌 복구
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-03,인증 복귀
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-001,상품 선택 문맥 상담 진입,FN-PDD-SHARE-001,공유·딥링크·원위치 복귀,"ACT-PDD-001,ACT-PDD-003",PG-PDD-FAIL-001,불가·충돌·인증 복구 정책,PI-PDD-FAIL-001-04,대체 경로
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-CS-001,상품 문맥 상담 전달,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-01,상담 문맥
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-02,실패 이력
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-CS-001,상담·문의 맥락 전달 정책,PI-PDD-CS-001-03,대체 안내
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-01,동시 주문
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-02,중복가입 가능여부 확인
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-03,필수 구성
+US-PDD-CS-001,상품 문맥 기반 상담 지원,PR-PDD-CS-002,실패·충돌 상담 처리,FN-PDD-FAIL-001,선택 불가·충돌 복구 안내,"ACT-PDD-001,ACT-PDD-003",PG-PDD-COMBO-001,상품 조합·담기 가능성 정책,PI-PDD-COMBO-001-04,담기 판정

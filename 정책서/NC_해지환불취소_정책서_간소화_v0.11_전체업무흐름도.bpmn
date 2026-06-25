@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="해지·환불·취소 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_TRM_CUS_001" name="US-TRM-CUS-001 해지·취소·환불 처리 방향 결정">
+        <bpmn:flowNodeRef>Start_US_TRM_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS1_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS1_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS1_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_TRM_CUS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_TRM_CUS_002" name="US-TRM-CUS-002 해지·취소·환불 손실 영향 이해">
+        <bpmn:flowNodeRef>Start_US_TRM_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS2_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS2_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_TRM_CUS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_TRM_CUS_003" name="US-TRM-CUS-003 해지·취소·환불 신청 실행">
+        <bpmn:flowNodeRef>Start_US_TRM_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS3_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS3_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS3_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_TRM_CUS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_TRM_CUS_004" name="US-TRM-CUS-004 예약 해지 철회·복구 관리">
+        <bpmn:flowNodeRef>Start_US_TRM_CUS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS4_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_CUS4_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_TRM_CUS_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_TRM_OPR_001" name="US-TRM-OPR-001 예외·보정·정책 기준 관리">
+        <bpmn:flowNodeRef>Start_US_TRM_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_OPR1_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_TRM_OPR1_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_TRM_OPR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_TRM_CUS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_TRM_CUS_001_Task_PR_TRM_CUS1_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_TRM_CUS1_001" name="PR-TRM-CUS1-001 처리 대상 선택 및 상태 조회">
+      <bpmn:incoming>Flow_Start_US_TRM_CUS_001_Task_PR_TRM_CUS1_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS1_001_Task_PR_TRM_CUS1_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_CUS1_002" name="PR-TRM-CUS1-002 가능 여부 사전 판정">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS1_001_Task_PR_TRM_CUS1_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS1_002_Task_PR_TRM_CUS1_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_CUS1_003" name="PR-TRM-CUS1-003 불가 사유 및 대체 경로 안내">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS1_002_Task_PR_TRM_CUS1_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS1_003_End_US_TRM_CUS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_TRM_CUS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS1_003_End_US_TRM_CUS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_TRM_CUS_001_Task_PR_TRM_CUS1_001" sourceRef="Start_US_TRM_CUS_001" targetRef="Task_PR_TRM_CUS1_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS1_001_Task_PR_TRM_CUS1_002" sourceRef="Task_PR_TRM_CUS1_001" targetRef="Task_PR_TRM_CUS1_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS1_002_Task_PR_TRM_CUS1_003" sourceRef="Task_PR_TRM_CUS1_002" targetRef="Task_PR_TRM_CUS1_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS1_003_End_US_TRM_CUS_001" sourceRef="Task_PR_TRM_CUS1_003" targetRef="End_US_TRM_CUS_001"/>
+    <bpmn:startEvent id="Start_US_TRM_CUS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_TRM_CUS_002_Task_PR_TRM_CUS2_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_TRM_CUS2_001" name="PR-TRM-CUS2-001 환불·위약금·혜택 영향 산정">
+      <bpmn:incoming>Flow_Start_US_TRM_CUS_002_Task_PR_TRM_CUS2_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS2_001_Task_PR_TRM_CUS2_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_CUS2_002" name="PR-TRM-CUS2-002 핵심 영향 고지 및 최종 확인">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS2_001_Task_PR_TRM_CUS2_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS2_002_End_US_TRM_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_TRM_CUS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS2_002_End_US_TRM_CUS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_TRM_CUS_002_Task_PR_TRM_CUS2_001" sourceRef="Start_US_TRM_CUS_002" targetRef="Task_PR_TRM_CUS2_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS2_001_Task_PR_TRM_CUS2_002" sourceRef="Task_PR_TRM_CUS2_001" targetRef="Task_PR_TRM_CUS2_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS2_002_End_US_TRM_CUS_002" sourceRef="Task_PR_TRM_CUS2_002" targetRef="End_US_TRM_CUS_002"/>
+    <bpmn:startEvent id="Start_US_TRM_CUS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_TRM_CUS_003_Task_PR_TRM_CUS3_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_TRM_CUS3_001" name="PR-TRM-CUS3-001 인증·동의 및 요청 접수">
+      <bpmn:incoming>Flow_Start_US_TRM_CUS_003_Task_PR_TRM_CUS3_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS3_001_Task_PR_TRM_CUS3_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_CUS3_002" name="PR-TRM-CUS3-002 BSS·결제·제휴 처리 연동">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS3_001_Task_PR_TRM_CUS3_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS3_002_Task_PR_TRM_CUS3_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_CUS3_003" name="PR-TRM-CUS3-003 완료 결과 및 후속 경로 제공">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS3_002_Task_PR_TRM_CUS3_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS3_003_End_US_TRM_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_TRM_CUS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS3_003_End_US_TRM_CUS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_TRM_CUS_003_Task_PR_TRM_CUS3_001" sourceRef="Start_US_TRM_CUS_003" targetRef="Task_PR_TRM_CUS3_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS3_001_Task_PR_TRM_CUS3_002" sourceRef="Task_PR_TRM_CUS3_001" targetRef="Task_PR_TRM_CUS3_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS3_002_Task_PR_TRM_CUS3_003" sourceRef="Task_PR_TRM_CUS3_002" targetRef="Task_PR_TRM_CUS3_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS3_003_End_US_TRM_CUS_003" sourceRef="Task_PR_TRM_CUS3_003" targetRef="End_US_TRM_CUS_003"/>
+    <bpmn:startEvent id="Start_US_TRM_CUS_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_TRM_CUS_004_Task_PR_TRM_CUS4_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_TRM_CUS4_001" name="PR-TRM-CUS4-001 예약 해지 상태 관리">
+      <bpmn:incoming>Flow_Start_US_TRM_CUS_004_Task_PR_TRM_CUS4_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS4_001_Task_PR_TRM_CUS4_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_CUS4_002" name="PR-TRM-CUS4-002 철회·복구 요청 처리">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS4_001_Task_PR_TRM_CUS4_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_CUS4_002_End_US_TRM_CUS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_TRM_CUS_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_TRM_CUS4_002_End_US_TRM_CUS_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_TRM_CUS_004_Task_PR_TRM_CUS4_001" sourceRef="Start_US_TRM_CUS_004" targetRef="Task_PR_TRM_CUS4_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS4_001_Task_PR_TRM_CUS4_002" sourceRef="Task_PR_TRM_CUS4_001" targetRef="Task_PR_TRM_CUS4_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_CUS4_002_End_US_TRM_CUS_004" sourceRef="Task_PR_TRM_CUS4_002" targetRef="End_US_TRM_CUS_004"/>
+    <bpmn:startEvent id="Start_US_TRM_OPR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_TRM_OPR_001_Task_PR_TRM_OPR1_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_TRM_OPR1_001" name="PR-TRM-OPR1-001 정책 기준 및 예외 규칙 관리">
+      <bpmn:incoming>Flow_Start_US_TRM_OPR_001_Task_PR_TRM_OPR1_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_OPR1_001_Task_PR_TRM_OPR1_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_TRM_OPR1_002" name="PR-TRM-OPR1-002 지연·부분 실패·정산 불일치 보정">
+      <bpmn:incoming>Flow_Task_PR_TRM_OPR1_001_Task_PR_TRM_OPR1_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_TRM_OPR1_002_End_US_TRM_OPR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_TRM_OPR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_TRM_OPR1_002_End_US_TRM_OPR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_TRM_OPR_001_Task_PR_TRM_OPR1_001" sourceRef="Start_US_TRM_OPR_001" targetRef="Task_PR_TRM_OPR1_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_OPR1_001_Task_PR_TRM_OPR1_002" sourceRef="Task_PR_TRM_OPR1_001" targetRef="Task_PR_TRM_OPR1_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_TRM_OPR1_002_End_US_TRM_OPR_001" sourceRef="Task_PR_TRM_OPR1_002" targetRef="End_US_TRM_OPR_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_TRM_CUS_001_di" bpmnElement="Lane_US_TRM_CUS_001">
+        <dc:Bounds x="40" y="25" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_TRM_CUS_001_di" bpmnElement="Start_US_TRM_CUS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS1_001_di" bpmnElement="Task_PR_TRM_CUS1_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS1_002_di" bpmnElement="Task_PR_TRM_CUS1_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS1_003_di" bpmnElement="Task_PR_TRM_CUS1_003">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_TRM_CUS_001_di" bpmnElement="End_US_TRM_CUS_001">
+        <dc:Bounds x="900" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_TRM_CUS_002_di" bpmnElement="Lane_US_TRM_CUS_002">
+        <dc:Bounds x="40" y="195" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_TRM_CUS_002_di" bpmnElement="Start_US_TRM_CUS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS2_001_di" bpmnElement="Task_PR_TRM_CUS2_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS2_002_di" bpmnElement="Task_PR_TRM_CUS2_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_TRM_CUS_002_di" bpmnElement="End_US_TRM_CUS_002">
+        <dc:Bounds x="680" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_TRM_CUS_003_di" bpmnElement="Lane_US_TRM_CUS_003">
+        <dc:Bounds x="40" y="365" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_TRM_CUS_003_di" bpmnElement="Start_US_TRM_CUS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS3_001_di" bpmnElement="Task_PR_TRM_CUS3_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS3_002_di" bpmnElement="Task_PR_TRM_CUS3_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS3_003_di" bpmnElement="Task_PR_TRM_CUS3_003">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_TRM_CUS_003_di" bpmnElement="End_US_TRM_CUS_003">
+        <dc:Bounds x="900" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_TRM_CUS_004_di" bpmnElement="Lane_US_TRM_CUS_004">
+        <dc:Bounds x="40" y="535" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_TRM_CUS_004_di" bpmnElement="Start_US_TRM_CUS_004">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS4_001_di" bpmnElement="Task_PR_TRM_CUS4_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_CUS4_002_di" bpmnElement="Task_PR_TRM_CUS4_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_TRM_CUS_004_di" bpmnElement="End_US_TRM_CUS_004">
+        <dc:Bounds x="680" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_TRM_OPR_001_di" bpmnElement="Lane_US_TRM_OPR_001">
+        <dc:Bounds x="40" y="705" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_TRM_OPR_001_di" bpmnElement="Start_US_TRM_OPR_001">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_OPR1_001_di" bpmnElement="Task_PR_TRM_OPR1_001">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_TRM_OPR1_002_di" bpmnElement="Task_PR_TRM_OPR1_002">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_TRM_OPR_001_di" bpmnElement="End_US_TRM_OPR_001">
+        <dc:Bounds x="680" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_TRM_CUS_001_Task_PR_TRM_CUS1_001_di" bpmnElement="Flow_Start_US_TRM_CUS_001_Task_PR_TRM_CUS1_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS1_001_Task_PR_TRM_CUS1_002_di" bpmnElement="Flow_Task_PR_TRM_CUS1_001_Task_PR_TRM_CUS1_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS1_002_Task_PR_TRM_CUS1_003_di" bpmnElement="Flow_Task_PR_TRM_CUS1_002_Task_PR_TRM_CUS1_003">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS1_003_End_US_TRM_CUS_001_di" bpmnElement="Flow_Task_PR_TRM_CUS1_003_End_US_TRM_CUS_001">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_TRM_CUS_002_Task_PR_TRM_CUS2_001_di" bpmnElement="Flow_Start_US_TRM_CUS_002_Task_PR_TRM_CUS2_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS2_001_Task_PR_TRM_CUS2_002_di" bpmnElement="Flow_Task_PR_TRM_CUS2_001_Task_PR_TRM_CUS2_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS2_002_End_US_TRM_CUS_002_di" bpmnElement="Flow_Task_PR_TRM_CUS2_002_End_US_TRM_CUS_002">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_TRM_CUS_003_Task_PR_TRM_CUS3_001_di" bpmnElement="Flow_Start_US_TRM_CUS_003_Task_PR_TRM_CUS3_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS3_001_Task_PR_TRM_CUS3_002_di" bpmnElement="Flow_Task_PR_TRM_CUS3_001_Task_PR_TRM_CUS3_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS3_002_Task_PR_TRM_CUS3_003_di" bpmnElement="Flow_Task_PR_TRM_CUS3_002_Task_PR_TRM_CUS3_003">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS3_003_End_US_TRM_CUS_003_di" bpmnElement="Flow_Task_PR_TRM_CUS3_003_End_US_TRM_CUS_003">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_TRM_CUS_004_Task_PR_TRM_CUS4_001_di" bpmnElement="Flow_Start_US_TRM_CUS_004_Task_PR_TRM_CUS4_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS4_001_Task_PR_TRM_CUS4_002_di" bpmnElement="Flow_Task_PR_TRM_CUS4_001_Task_PR_TRM_CUS4_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_CUS4_002_End_US_TRM_CUS_004_di" bpmnElement="Flow_Task_PR_TRM_CUS4_002_End_US_TRM_CUS_004">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_TRM_OPR_001_Task_PR_TRM_OPR1_001_di" bpmnElement="Flow_Start_US_TRM_OPR_001_Task_PR_TRM_OPR1_001">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_OPR1_001_Task_PR_TRM_OPR1_002_di" bpmnElement="Flow_Task_PR_TRM_OPR1_001_Task_PR_TRM_OPR1_002">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_TRM_OPR1_002_End_US_TRM_OPR_001_di" bpmnElement="Flow_Task_PR_TRM_OPR1_002_End_US_TRM_OPR_001">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

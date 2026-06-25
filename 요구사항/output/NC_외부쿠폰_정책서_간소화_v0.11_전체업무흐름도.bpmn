@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="외부 쿠폰 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_CPN_CUS_001" name="US-CPN-CUS-001 외부 쿠폰 혜택 탐색과 발급 준비">
+        <bpmn:flowNodeRef>Start_US_CPN_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_CUS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_CUS_002" name="US-CPN-CUS-002 외부 쿠폰 발급 여정 완성">
+        <bpmn:flowNodeRef>Start_US_CPN_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_ISS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_ISS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_ISS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_CUS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_CUS_003" name="US-CPN-CUS-003 외부 쿠폰 사용 경험 완결">
+        <bpmn:flowNodeRef>Start_US_CPN_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_USE_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_USE_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_USE_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_CUS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_CUS_004" name="US-CPN-CUS-004 보유 외부 쿠폰 재사용 관리">
+        <bpmn:flowNodeRef>Start_US_CPN_CUS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_BOX_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_BOX_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_CUS_004</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_OPS_001" name="US-CPN-OPS-001 쿠폰 기준 등록·검수·배포">
+        <bpmn:flowNodeRef>Start_US_CPN_OPS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_OPS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_OPS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_OPS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_OPS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_OPS_002" name="US-CPN-OPS-002 쿠폰 코드·재고·연동 운영">
+        <bpmn:flowNodeRef>Start_US_CPN_OPS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_OPS_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_OPS_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_OPS_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_OPS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_OPS_003" name="US-CPN-OPS-003 쿠폰 중지·회수·재발급 및 고객 고지 관리">
+        <bpmn:flowNodeRef>Start_US_CPN_OPS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_CTL_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_CTL_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_CTL_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_OPS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_CPN_PTR_001" name="US-CPN-PTR-001 제휴처 정산·오류 확인">
+        <bpmn:flowNodeRef>Start_US_CPN_PTR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_PTR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_CPN_PTR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_CPN_PTR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_CPN_CUS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_CUS_001_Task_PR_CPN_CUS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_CUS_001" name="PR-CPN-CUS-001 외부 쿠폰 목록 탐색">
+      <bpmn:incoming>Flow_Start_US_CPN_CUS_001_Task_PR_CPN_CUS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_CUS_001_Task_PR_CPN_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_CUS_002" name="PR-CPN-CUS-002 상세 조건과 사용 가능성 확인">
+      <bpmn:incoming>Flow_Task_PR_CPN_CUS_001_Task_PR_CPN_CUS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_CUS_002_Task_PR_CPN_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_CUS_003" name="PR-CPN-CUS-003 오픈 예정·선착순 알림 설정">
+      <bpmn:incoming>Flow_Task_PR_CPN_CUS_002_Task_PR_CPN_CUS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_CUS_003_End_US_CPN_CUS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_CUS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_CUS_003_End_US_CPN_CUS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_CUS_001_Task_PR_CPN_CUS_001" sourceRef="Start_US_CPN_CUS_001" targetRef="Task_PR_CPN_CUS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_CUS_001_Task_PR_CPN_CUS_002" sourceRef="Task_PR_CPN_CUS_001" targetRef="Task_PR_CPN_CUS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_CUS_002_Task_PR_CPN_CUS_003" sourceRef="Task_PR_CPN_CUS_002" targetRef="Task_PR_CPN_CUS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_CUS_003_End_US_CPN_CUS_001" sourceRef="Task_PR_CPN_CUS_003" targetRef="End_US_CPN_CUS_001"/>
+    <bpmn:startEvent id="Start_US_CPN_CUS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_CUS_002_Task_PR_CPN_ISS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_ISS_001" name="PR-CPN-ISS-001 선택형 쿠폰 비교와 선택">
+      <bpmn:incoming>Flow_Start_US_CPN_CUS_002_Task_PR_CPN_ISS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_ISS_001_Task_PR_CPN_ISS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_ISS_002" name="PR-CPN-ISS-002 추가 인증·동의·외부 연결">
+      <bpmn:incoming>Flow_Task_PR_CPN_ISS_001_Task_PR_CPN_ISS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_ISS_002_Task_PR_CPN_ISS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_ISS_003" name="PR-CPN-ISS-003 발급·다운로드와 쿠폰함 저장">
+      <bpmn:incoming>Flow_Task_PR_CPN_ISS_002_Task_PR_CPN_ISS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_ISS_003_End_US_CPN_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_CUS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_ISS_003_End_US_CPN_CUS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_CUS_002_Task_PR_CPN_ISS_001" sourceRef="Start_US_CPN_CUS_002" targetRef="Task_PR_CPN_ISS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_ISS_001_Task_PR_CPN_ISS_002" sourceRef="Task_PR_CPN_ISS_001" targetRef="Task_PR_CPN_ISS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_ISS_002_Task_PR_CPN_ISS_003" sourceRef="Task_PR_CPN_ISS_002" targetRef="Task_PR_CPN_ISS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_ISS_003_End_US_CPN_CUS_002" sourceRef="Task_PR_CPN_ISS_003" targetRef="End_US_CPN_CUS_002"/>
+    <bpmn:startEvent id="Start_US_CPN_CUS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_CUS_003_Task_PR_CPN_USE_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_USE_001" name="PR-CPN-USE-001 사용수단 표시와 제휴처 제시">
+      <bpmn:incoming>Flow_Start_US_CPN_CUS_003_Task_PR_CPN_USE_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_USE_001_Task_PR_CPN_USE_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_USE_002" name="PR-CPN-USE-002 사용 결과 확인과 맥락 복귀">
+      <bpmn:incoming>Flow_Task_PR_CPN_USE_001_Task_PR_CPN_USE_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_USE_002_Task_PR_CPN_USE_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_USE_003" name="PR-CPN-USE-003 사용 실패 복구와 대체 행동 선택">
+      <bpmn:incoming>Flow_Task_PR_CPN_USE_002_Task_PR_CPN_USE_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_USE_003_End_US_CPN_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_CUS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_USE_003_End_US_CPN_CUS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_CUS_003_Task_PR_CPN_USE_001" sourceRef="Start_US_CPN_CUS_003" targetRef="Task_PR_CPN_USE_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_USE_001_Task_PR_CPN_USE_002" sourceRef="Task_PR_CPN_USE_001" targetRef="Task_PR_CPN_USE_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_USE_002_Task_PR_CPN_USE_003" sourceRef="Task_PR_CPN_USE_002" targetRef="Task_PR_CPN_USE_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_USE_003_End_US_CPN_CUS_003" sourceRef="Task_PR_CPN_USE_003" targetRef="End_US_CPN_CUS_003"/>
+    <bpmn:startEvent id="Start_US_CPN_CUS_004" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_CUS_004_Task_PR_CPN_BOX_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_BOX_001" name="PR-CPN-BOX-001 기보유·기발급 상태 확인">
+      <bpmn:incoming>Flow_Start_US_CPN_CUS_004_Task_PR_CPN_BOX_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_BOX_001_Task_PR_CPN_BOX_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_BOX_002" name="PR-CPN-BOX-002 이력·만료·재발급 확인">
+      <bpmn:incoming>Flow_Task_PR_CPN_BOX_001_Task_PR_CPN_BOX_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_BOX_002_End_US_CPN_CUS_004</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_CUS_004" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_BOX_002_End_US_CPN_CUS_004</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_CUS_004_Task_PR_CPN_BOX_001" sourceRef="Start_US_CPN_CUS_004" targetRef="Task_PR_CPN_BOX_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_BOX_001_Task_PR_CPN_BOX_002" sourceRef="Task_PR_CPN_BOX_001" targetRef="Task_PR_CPN_BOX_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_BOX_002_End_US_CPN_CUS_004" sourceRef="Task_PR_CPN_BOX_002" targetRef="End_US_CPN_CUS_004"/>
+    <bpmn:startEvent id="Start_US_CPN_OPS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_OPS_001_Task_PR_CPN_OPS_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_OPS_001" name="PR-CPN-OPS-001 기준정보 등록·복제·버전 작성">
+      <bpmn:incoming>Flow_Start_US_CPN_OPS_001_Task_PR_CPN_OPS_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_OPS_001_Task_PR_CPN_OPS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_OPS_002" name="PR-CPN-OPS-002 발급 정책·대상 조건 설정">
+      <bpmn:incoming>Flow_Task_PR_CPN_OPS_001_Task_PR_CPN_OPS_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_OPS_002_Task_PR_CPN_OPS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_OPS_003" name="PR-CPN-OPS-003 검수·승인·배포">
+      <bpmn:incoming>Flow_Task_PR_CPN_OPS_002_Task_PR_CPN_OPS_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_OPS_003_End_US_CPN_OPS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_OPS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_OPS_003_End_US_CPN_OPS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_OPS_001_Task_PR_CPN_OPS_001" sourceRef="Start_US_CPN_OPS_001" targetRef="Task_PR_CPN_OPS_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_OPS_001_Task_PR_CPN_OPS_002" sourceRef="Task_PR_CPN_OPS_001" targetRef="Task_PR_CPN_OPS_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_OPS_002_Task_PR_CPN_OPS_003" sourceRef="Task_PR_CPN_OPS_002" targetRef="Task_PR_CPN_OPS_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_OPS_003_End_US_CPN_OPS_001" sourceRef="Task_PR_CPN_OPS_003" targetRef="End_US_CPN_OPS_001"/>
+    <bpmn:startEvent id="Start_US_CPN_OPS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_OPS_002_Task_PR_CPN_OPS_004</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_OPS_004" name="PR-CPN-OPS-004 쿠폰 코드 업로드와 오류 검증">
+      <bpmn:incoming>Flow_Start_US_CPN_OPS_002_Task_PR_CPN_OPS_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_OPS_004_Task_PR_CPN_OPS_005</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_OPS_005" name="PR-CPN-OPS-005 제휴처 재고·상태 동기화">
+      <bpmn:incoming>Flow_Task_PR_CPN_OPS_004_Task_PR_CPN_OPS_005</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_OPS_005_Task_PR_CPN_OPS_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_OPS_006" name="PR-CPN-OPS-006 상태 자동 전환과 운영 알림 조정">
+      <bpmn:incoming>Flow_Task_PR_CPN_OPS_005_Task_PR_CPN_OPS_006</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_OPS_006_End_US_CPN_OPS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_OPS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_OPS_006_End_US_CPN_OPS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_OPS_002_Task_PR_CPN_OPS_004" sourceRef="Start_US_CPN_OPS_002" targetRef="Task_PR_CPN_OPS_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_OPS_004_Task_PR_CPN_OPS_005" sourceRef="Task_PR_CPN_OPS_004" targetRef="Task_PR_CPN_OPS_005"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_OPS_005_Task_PR_CPN_OPS_006" sourceRef="Task_PR_CPN_OPS_005" targetRef="Task_PR_CPN_OPS_006"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_OPS_006_End_US_CPN_OPS_002" sourceRef="Task_PR_CPN_OPS_006" targetRef="End_US_CPN_OPS_002"/>
+    <bpmn:startEvent id="Start_US_CPN_OPS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_OPS_003_Task_PR_CPN_CTL_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_CTL_001" name="PR-CPN-CTL-001 중지·회수 대상 확정">
+      <bpmn:incoming>Flow_Start_US_CPN_OPS_003_Task_PR_CPN_CTL_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_CTL_001_Task_PR_CPN_CTL_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_CTL_002" name="PR-CPN-CTL-002 재발급·대체 혜택 처리">
+      <bpmn:incoming>Flow_Task_PR_CPN_CTL_001_Task_PR_CPN_CTL_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_CTL_002_Task_PR_CPN_CTL_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_CTL_003" name="PR-CPN-CTL-003 고객 고지와 롤백 이력 저장">
+      <bpmn:incoming>Flow_Task_PR_CPN_CTL_002_Task_PR_CPN_CTL_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_CTL_003_End_US_CPN_OPS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_OPS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_CTL_003_End_US_CPN_OPS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_OPS_003_Task_PR_CPN_CTL_001" sourceRef="Start_US_CPN_OPS_003" targetRef="Task_PR_CPN_CTL_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_CTL_001_Task_PR_CPN_CTL_002" sourceRef="Task_PR_CPN_CTL_001" targetRef="Task_PR_CPN_CTL_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_CTL_002_Task_PR_CPN_CTL_003" sourceRef="Task_PR_CPN_CTL_002" targetRef="Task_PR_CPN_CTL_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_CTL_003_End_US_CPN_OPS_003" sourceRef="Task_PR_CPN_CTL_003" targetRef="End_US_CPN_OPS_003"/>
+    <bpmn:startEvent id="Start_US_CPN_PTR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_CPN_PTR_001_Task_PR_CPN_PTR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_CPN_PTR_001" name="PR-CPN-PTR-001 제휴처 사용 실적 확인">
+      <bpmn:incoming>Flow_Start_US_CPN_PTR_001_Task_PR_CPN_PTR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_PTR_001_Task_PR_CPN_PTR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_CPN_PTR_002" name="PR-CPN-PTR-002 정산·오류 보정 요청">
+      <bpmn:incoming>Flow_Task_PR_CPN_PTR_001_Task_PR_CPN_PTR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_CPN_PTR_002_End_US_CPN_PTR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_CPN_PTR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_CPN_PTR_002_End_US_CPN_PTR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_CPN_PTR_001_Task_PR_CPN_PTR_001" sourceRef="Start_US_CPN_PTR_001" targetRef="Task_PR_CPN_PTR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_PTR_001_Task_PR_CPN_PTR_002" sourceRef="Task_PR_CPN_PTR_001" targetRef="Task_PR_CPN_PTR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_CPN_PTR_002_End_US_CPN_PTR_001" sourceRef="Task_PR_CPN_PTR_002" targetRef="End_US_CPN_PTR_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_CPN_CUS_001_di" bpmnElement="Lane_US_CPN_CUS_001">
+        <dc:Bounds x="40" y="25" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_CUS_001_di" bpmnElement="Start_US_CPN_CUS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_CUS_001_di" bpmnElement="Task_PR_CPN_CUS_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_CUS_002_di" bpmnElement="Task_PR_CPN_CUS_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_CUS_003_di" bpmnElement="Task_PR_CPN_CUS_003">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_CUS_001_di" bpmnElement="End_US_CPN_CUS_001">
+        <dc:Bounds x="900" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_CUS_002_di" bpmnElement="Lane_US_CPN_CUS_002">
+        <dc:Bounds x="40" y="195" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_CUS_002_di" bpmnElement="Start_US_CPN_CUS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_ISS_001_di" bpmnElement="Task_PR_CPN_ISS_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_ISS_002_di" bpmnElement="Task_PR_CPN_ISS_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_ISS_003_di" bpmnElement="Task_PR_CPN_ISS_003">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_CUS_002_di" bpmnElement="End_US_CPN_CUS_002">
+        <dc:Bounds x="900" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_CUS_003_di" bpmnElement="Lane_US_CPN_CUS_003">
+        <dc:Bounds x="40" y="365" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_CUS_003_di" bpmnElement="Start_US_CPN_CUS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_USE_001_di" bpmnElement="Task_PR_CPN_USE_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_USE_002_di" bpmnElement="Task_PR_CPN_USE_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_USE_003_di" bpmnElement="Task_PR_CPN_USE_003">
+        <dc:Bounds x="680" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_CUS_003_di" bpmnElement="End_US_CPN_CUS_003">
+        <dc:Bounds x="900" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_CUS_004_di" bpmnElement="Lane_US_CPN_CUS_004">
+        <dc:Bounds x="40" y="535" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_CUS_004_di" bpmnElement="Start_US_CPN_CUS_004">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_BOX_001_di" bpmnElement="Task_PR_CPN_BOX_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_BOX_002_di" bpmnElement="Task_PR_CPN_BOX_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_CUS_004_di" bpmnElement="End_US_CPN_CUS_004">
+        <dc:Bounds x="680" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_OPS_001_di" bpmnElement="Lane_US_CPN_OPS_001">
+        <dc:Bounds x="40" y="705" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_OPS_001_di" bpmnElement="Start_US_CPN_OPS_001">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_OPS_001_di" bpmnElement="Task_PR_CPN_OPS_001">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_OPS_002_di" bpmnElement="Task_PR_CPN_OPS_002">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_OPS_003_di" bpmnElement="Task_PR_CPN_OPS_003">
+        <dc:Bounds x="680" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_OPS_001_di" bpmnElement="End_US_CPN_OPS_001">
+        <dc:Bounds x="900" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_OPS_002_di" bpmnElement="Lane_US_CPN_OPS_002">
+        <dc:Bounds x="40" y="875" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_OPS_002_di" bpmnElement="Start_US_CPN_OPS_002">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_OPS_004_di" bpmnElement="Task_PR_CPN_OPS_004">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_OPS_005_di" bpmnElement="Task_PR_CPN_OPS_005">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_OPS_006_di" bpmnElement="Task_PR_CPN_OPS_006">
+        <dc:Bounds x="680" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_OPS_002_di" bpmnElement="End_US_CPN_OPS_002">
+        <dc:Bounds x="900" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_OPS_003_di" bpmnElement="Lane_US_CPN_OPS_003">
+        <dc:Bounds x="40" y="1045" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_OPS_003_di" bpmnElement="Start_US_CPN_OPS_003">
+        <dc:Bounds x="112" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_CTL_001_di" bpmnElement="Task_PR_CPN_CTL_001">
+        <dc:Bounds x="240" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_CTL_002_di" bpmnElement="Task_PR_CPN_CTL_002">
+        <dc:Bounds x="460" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_CTL_003_di" bpmnElement="Task_PR_CPN_CTL_003">
+        <dc:Bounds x="680" y="1050" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_OPS_003_di" bpmnElement="End_US_CPN_OPS_003">
+        <dc:Bounds x="900" y="1072" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_CPN_PTR_001_di" bpmnElement="Lane_US_CPN_PTR_001">
+        <dc:Bounds x="40" y="1215" width="1140" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_CPN_PTR_001_di" bpmnElement="Start_US_CPN_PTR_001">
+        <dc:Bounds x="112" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_PTR_001_di" bpmnElement="Task_PR_CPN_PTR_001">
+        <dc:Bounds x="240" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_CPN_PTR_002_di" bpmnElement="Task_PR_CPN_PTR_002">
+        <dc:Bounds x="460" y="1220" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_CPN_PTR_001_di" bpmnElement="End_US_CPN_PTR_001">
+        <dc:Bounds x="680" y="1242" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_CUS_001_Task_PR_CPN_CUS_001_di" bpmnElement="Flow_Start_US_CPN_CUS_001_Task_PR_CPN_CUS_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_CUS_001_Task_PR_CPN_CUS_002_di" bpmnElement="Flow_Task_PR_CPN_CUS_001_Task_PR_CPN_CUS_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_CUS_002_Task_PR_CPN_CUS_003_di" bpmnElement="Flow_Task_PR_CPN_CUS_002_Task_PR_CPN_CUS_003">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_CUS_003_End_US_CPN_CUS_001_di" bpmnElement="Flow_Task_PR_CPN_CUS_003_End_US_CPN_CUS_001">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_CUS_002_Task_PR_CPN_ISS_001_di" bpmnElement="Flow_Start_US_CPN_CUS_002_Task_PR_CPN_ISS_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_ISS_001_Task_PR_CPN_ISS_002_di" bpmnElement="Flow_Task_PR_CPN_ISS_001_Task_PR_CPN_ISS_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_ISS_002_Task_PR_CPN_ISS_003_di" bpmnElement="Flow_Task_PR_CPN_ISS_002_Task_PR_CPN_ISS_003">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_ISS_003_End_US_CPN_CUS_002_di" bpmnElement="Flow_Task_PR_CPN_ISS_003_End_US_CPN_CUS_002">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_CUS_003_Task_PR_CPN_USE_001_di" bpmnElement="Flow_Start_US_CPN_CUS_003_Task_PR_CPN_USE_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_USE_001_Task_PR_CPN_USE_002_di" bpmnElement="Flow_Task_PR_CPN_USE_001_Task_PR_CPN_USE_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_USE_002_Task_PR_CPN_USE_003_di" bpmnElement="Flow_Task_PR_CPN_USE_002_Task_PR_CPN_USE_003">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_USE_003_End_US_CPN_CUS_003_di" bpmnElement="Flow_Task_PR_CPN_USE_003_End_US_CPN_CUS_003">
+        <di:waypoint x="850" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_CUS_004_Task_PR_CPN_BOX_001_di" bpmnElement="Flow_Start_US_CPN_CUS_004_Task_PR_CPN_BOX_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_BOX_001_Task_PR_CPN_BOX_002_di" bpmnElement="Flow_Task_PR_CPN_BOX_001_Task_PR_CPN_BOX_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_BOX_002_End_US_CPN_CUS_004_di" bpmnElement="Flow_Task_PR_CPN_BOX_002_End_US_CPN_CUS_004">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_OPS_001_Task_PR_CPN_OPS_001_di" bpmnElement="Flow_Start_US_CPN_OPS_001_Task_PR_CPN_OPS_001">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_OPS_001_Task_PR_CPN_OPS_002_di" bpmnElement="Flow_Task_PR_CPN_OPS_001_Task_PR_CPN_OPS_002">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_OPS_002_Task_PR_CPN_OPS_003_di" bpmnElement="Flow_Task_PR_CPN_OPS_002_Task_PR_CPN_OPS_003">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_OPS_003_End_US_CPN_OPS_001_di" bpmnElement="Flow_Task_PR_CPN_OPS_003_End_US_CPN_OPS_001">
+        <di:waypoint x="850" y="750"/>
+        <di:waypoint x="900" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_OPS_002_Task_PR_CPN_OPS_004_di" bpmnElement="Flow_Start_US_CPN_OPS_002_Task_PR_CPN_OPS_004">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_OPS_004_Task_PR_CPN_OPS_005_di" bpmnElement="Flow_Task_PR_CPN_OPS_004_Task_PR_CPN_OPS_005">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_OPS_005_Task_PR_CPN_OPS_006_di" bpmnElement="Flow_Task_PR_CPN_OPS_005_Task_PR_CPN_OPS_006">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_OPS_006_End_US_CPN_OPS_002_di" bpmnElement="Flow_Task_PR_CPN_OPS_006_End_US_CPN_OPS_002">
+        <di:waypoint x="850" y="920"/>
+        <di:waypoint x="900" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_OPS_003_Task_PR_CPN_CTL_001_di" bpmnElement="Flow_Start_US_CPN_OPS_003_Task_PR_CPN_CTL_001">
+        <di:waypoint x="148" y="1090"/>
+        <di:waypoint x="240" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_CTL_001_Task_PR_CPN_CTL_002_di" bpmnElement="Flow_Task_PR_CPN_CTL_001_Task_PR_CPN_CTL_002">
+        <di:waypoint x="410" y="1090"/>
+        <di:waypoint x="460" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_CTL_002_Task_PR_CPN_CTL_003_di" bpmnElement="Flow_Task_PR_CPN_CTL_002_Task_PR_CPN_CTL_003">
+        <di:waypoint x="630" y="1090"/>
+        <di:waypoint x="680" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_CTL_003_End_US_CPN_OPS_003_di" bpmnElement="Flow_Task_PR_CPN_CTL_003_End_US_CPN_OPS_003">
+        <di:waypoint x="850" y="1090"/>
+        <di:waypoint x="900" y="1090"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_CPN_PTR_001_Task_PR_CPN_PTR_001_di" bpmnElement="Flow_Start_US_CPN_PTR_001_Task_PR_CPN_PTR_001">
+        <di:waypoint x="148" y="1260"/>
+        <di:waypoint x="240" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_PTR_001_Task_PR_CPN_PTR_002_di" bpmnElement="Flow_Task_PR_CPN_PTR_001_Task_PR_CPN_PTR_002">
+        <di:waypoint x="410" y="1260"/>
+        <di:waypoint x="460" y="1260"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_CPN_PTR_002_End_US_CPN_PTR_001_di" bpmnElement="Flow_Task_PR_CPN_PTR_002_End_US_CPN_PTR_001">
+        <di:waypoint x="630" y="1260"/>
+        <di:waypoint x="680" y="1260"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

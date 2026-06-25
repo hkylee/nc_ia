@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Item" targetNamespace="https://nova-policy.local/bpmn">
+  <bpmn:process id="Process_Item" name="상품 목록 전체 업무 흐름" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_US_PRD_CUS_001" name="US-PRD-CUS-001 상품 후보 탐색 및 조건 선별">
+        <bpmn:flowNodeRef>Start_US_PRD_CUS_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_CAT_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_CAT_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_FLT_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_FLT_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PRD_CUS_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PRD_CUS_002" name="US-PRD-CUS-002 상품 후보 비교·저장 및 가입 가능성 확인">
+        <bpmn:flowNodeRef>Start_US_PRD_CUS_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_SAV_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_SAV_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_AVL_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_AVL_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PRD_CUS_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PRD_CUS_003" name="US-PRD-CUS-003 목록 결과 없음·오류 복구">
+        <bpmn:flowNodeRef>Start_US_PRD_CUS_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_ERR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_ERR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PRD_CUS_003</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PRD_OPR_001" name="US-PRD-OPR-001 상품 목록 기준 관리">
+        <bpmn:flowNodeRef>Start_US_PRD_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_003</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_006</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PRD_OPR_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PRD_OPR_002" name="US-PRD-OPR-002 목록 품질 검수·배포 처리">
+        <bpmn:flowNodeRef>Start_US_PRD_OPR_002</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_004</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_007</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PRD_OPR_002</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_US_PRD_PLN_001" name="US-PRD-PLN-001 상품 속성·전시 그룹 기준 제공">
+        <bpmn:flowNodeRef>Start_US_PRD_PLN_001</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_005</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PR_PRD_OPR_008</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_US_PRD_PLN_001</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_US_PRD_CUS_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PRD_CAT_001" name="PR-PRD-CAT-001 목록 진입 기준 확인">
+      <bpmn:incoming>Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_CAT_002" name="PR-PRD-CAT-002 상품 후보 기본 목록 구성">
+      <bpmn:incoming>Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_FLT_001" name="PR-PRD-FLT-001 필터·정렬 조건 적용">
+      <bpmn:incoming>Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_FLT_002" name="PR-PRD-FLT-002 목적형 후보 재선별">
+      <bpmn:incoming>Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PRD_CUS_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001" sourceRef="Start_US_PRD_CUS_001" targetRef="Task_PR_PRD_CAT_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002" sourceRef="Task_PR_PRD_CAT_001" targetRef="Task_PR_PRD_CAT_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001" sourceRef="Task_PR_PRD_CAT_002" targetRef="Task_PR_PRD_FLT_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002" sourceRef="Task_PR_PRD_FLT_001" targetRef="Task_PR_PRD_FLT_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001" sourceRef="Task_PR_PRD_FLT_002" targetRef="End_US_PRD_CUS_001"/>
+    <bpmn:startEvent id="Start_US_PRD_CUS_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PRD_SAV_001" name="PR-PRD-SAV-001 비교 후보 선택·유지">
+      <bpmn:incoming>Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_SAV_002" name="PR-PRD-SAV-002 찜·최근본 저장·삭제">
+      <bpmn:incoming>Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_AVL_001" name="PR-PRD-AVL-001 고객 조건 기반 가입 가능 판정">
+      <bpmn:incoming>Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_AVL_002" name="PR-PRD-AVL-002 제한 상품 구분·사유 안내">
+      <bpmn:incoming>Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PRD_CUS_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001" sourceRef="Start_US_PRD_CUS_002" targetRef="Task_PR_PRD_SAV_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002" sourceRef="Task_PR_PRD_SAV_001" targetRef="Task_PR_PRD_SAV_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001" sourceRef="Task_PR_PRD_SAV_002" targetRef="Task_PR_PRD_AVL_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002" sourceRef="Task_PR_PRD_AVL_001" targetRef="Task_PR_PRD_AVL_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002" sourceRef="Task_PR_PRD_AVL_002" targetRef="End_US_PRD_CUS_002"/>
+    <bpmn:startEvent id="Start_US_PRD_CUS_003" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PRD_ERR_001" name="PR-PRD-ERR-001 빈 결과 원인 분류">
+      <bpmn:incoming>Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_ERR_002" name="PR-PRD-ERR-002 대체 경로와 재시도 안내">
+      <bpmn:incoming>Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PRD_CUS_003" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001" sourceRef="Start_US_PRD_CUS_003" targetRef="Task_PR_PRD_ERR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002" sourceRef="Task_PR_PRD_ERR_001" targetRef="Task_PR_PRD_ERR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003" sourceRef="Task_PR_PRD_ERR_002" targetRef="End_US_PRD_CUS_003"/>
+    <bpmn:startEvent id="Start_US_PRD_OPR_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PRD_OPR_001" name="PR-PRD-OPR-001 카테고리 계층·전시 단위 등록">
+      <bpmn:incoming>Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_OPR_002" name="PR-PRD-OPR-002 채널별 수정·복사 범위 관리">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_OPR_003" name="PR-PRD-OPR-003 필터·정렬 기준 등록">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_OPR_006" name="PR-PRD-OPR-006 목록 카드·상태 배지 기준 검증">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PRD_OPR_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001" sourceRef="Start_US_PRD_OPR_001" targetRef="Task_PR_PRD_OPR_001"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002" sourceRef="Task_PR_PRD_OPR_001" targetRef="Task_PR_PRD_OPR_002"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003" sourceRef="Task_PR_PRD_OPR_002" targetRef="Task_PR_PRD_OPR_003"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006" sourceRef="Task_PR_PRD_OPR_003" targetRef="Task_PR_PRD_OPR_006"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001" sourceRef="Task_PR_PRD_OPR_006" targetRef="End_US_PRD_OPR_001"/>
+    <bpmn:startEvent id="Start_US_PRD_OPR_002" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PRD_OPR_004" name="PR-PRD-OPR-004 목록 품질 검수">
+      <bpmn:incoming>Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_OPR_007" name="PR-PRD-OPR-007 예약 배포·회수·복구 처리">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PRD_OPR_002" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004" sourceRef="Start_US_PRD_OPR_002" targetRef="Task_PR_PRD_OPR_004"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007" sourceRef="Task_PR_PRD_OPR_004" targetRef="Task_PR_PRD_OPR_007"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002" sourceRef="Task_PR_PRD_OPR_007" targetRef="End_US_PRD_OPR_002"/>
+    <bpmn:startEvent id="Start_US_PRD_PLN_001" name="시작">
+      <bpmn:outgoing>Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_PR_PRD_OPR_005" name="PR-PRD-OPR-005 상품 속성 기준 제공">
+      <bpmn:incoming>Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PR_PRD_OPR_008" name="PR-PRD-OPR-008 전시 그룹 매핑 기준 검증">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008</bpmn:incoming>
+      <bpmn:outgoing>Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_US_PRD_PLN_001" name="종료">
+      <bpmn:incoming>Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005" sourceRef="Start_US_PRD_PLN_001" targetRef="Task_PR_PRD_OPR_005"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008" sourceRef="Task_PR_PRD_OPR_005" targetRef="Task_PR_PRD_OPR_008"/>
+    <bpmn:sequenceFlow id="Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001" sourceRef="Task_PR_PRD_OPR_008" targetRef="End_US_PRD_PLN_001"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Item">
+      <bpmndi:BPMNShape id="Lane_US_PRD_CUS_001_di" bpmnElement="Lane_US_PRD_CUS_001">
+        <dc:Bounds x="40" y="25" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PRD_CUS_001_di" bpmnElement="Start_US_PRD_CUS_001">
+        <dc:Bounds x="112" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_CAT_001_di" bpmnElement="Task_PR_PRD_CAT_001">
+        <dc:Bounds x="240" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_CAT_002_di" bpmnElement="Task_PR_PRD_CAT_002">
+        <dc:Bounds x="460" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_FLT_001_di" bpmnElement="Task_PR_PRD_FLT_001">
+        <dc:Bounds x="680" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_FLT_002_di" bpmnElement="Task_PR_PRD_FLT_002">
+        <dc:Bounds x="900" y="30" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PRD_CUS_001_di" bpmnElement="End_US_PRD_CUS_001">
+        <dc:Bounds x="1120" y="52" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PRD_CUS_002_di" bpmnElement="Lane_US_PRD_CUS_002">
+        <dc:Bounds x="40" y="195" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PRD_CUS_002_di" bpmnElement="Start_US_PRD_CUS_002">
+        <dc:Bounds x="112" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_SAV_001_di" bpmnElement="Task_PR_PRD_SAV_001">
+        <dc:Bounds x="240" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_SAV_002_di" bpmnElement="Task_PR_PRD_SAV_002">
+        <dc:Bounds x="460" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_AVL_001_di" bpmnElement="Task_PR_PRD_AVL_001">
+        <dc:Bounds x="680" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_AVL_002_di" bpmnElement="Task_PR_PRD_AVL_002">
+        <dc:Bounds x="900" y="200" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PRD_CUS_002_di" bpmnElement="End_US_PRD_CUS_002">
+        <dc:Bounds x="1120" y="222" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PRD_CUS_003_di" bpmnElement="Lane_US_PRD_CUS_003">
+        <dc:Bounds x="40" y="365" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PRD_CUS_003_di" bpmnElement="Start_US_PRD_CUS_003">
+        <dc:Bounds x="112" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_ERR_001_di" bpmnElement="Task_PR_PRD_ERR_001">
+        <dc:Bounds x="240" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_ERR_002_di" bpmnElement="Task_PR_PRD_ERR_002">
+        <dc:Bounds x="460" y="370" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PRD_CUS_003_di" bpmnElement="End_US_PRD_CUS_003">
+        <dc:Bounds x="680" y="392" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PRD_OPR_001_di" bpmnElement="Lane_US_PRD_OPR_001">
+        <dc:Bounds x="40" y="535" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PRD_OPR_001_di" bpmnElement="Start_US_PRD_OPR_001">
+        <dc:Bounds x="112" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_001_di" bpmnElement="Task_PR_PRD_OPR_001">
+        <dc:Bounds x="240" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_002_di" bpmnElement="Task_PR_PRD_OPR_002">
+        <dc:Bounds x="460" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_003_di" bpmnElement="Task_PR_PRD_OPR_003">
+        <dc:Bounds x="680" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_006_di" bpmnElement="Task_PR_PRD_OPR_006">
+        <dc:Bounds x="900" y="540" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PRD_OPR_001_di" bpmnElement="End_US_PRD_OPR_001">
+        <dc:Bounds x="1120" y="562" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PRD_OPR_002_di" bpmnElement="Lane_US_PRD_OPR_002">
+        <dc:Bounds x="40" y="705" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PRD_OPR_002_di" bpmnElement="Start_US_PRD_OPR_002">
+        <dc:Bounds x="112" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_004_di" bpmnElement="Task_PR_PRD_OPR_004">
+        <dc:Bounds x="240" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_007_di" bpmnElement="Task_PR_PRD_OPR_007">
+        <dc:Bounds x="460" y="710" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PRD_OPR_002_di" bpmnElement="End_US_PRD_OPR_002">
+        <dc:Bounds x="680" y="732" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_US_PRD_PLN_001_di" bpmnElement="Lane_US_PRD_PLN_001">
+        <dc:Bounds x="40" y="875" width="1360" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_US_PRD_PLN_001_di" bpmnElement="Start_US_PRD_PLN_001">
+        <dc:Bounds x="112" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_005_di" bpmnElement="Task_PR_PRD_OPR_005">
+        <dc:Bounds x="240" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PR_PRD_OPR_008_di" bpmnElement="Task_PR_PRD_OPR_008">
+        <dc:Bounds x="460" y="880" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_US_PRD_PLN_001_di" bpmnElement="End_US_PRD_PLN_001">
+        <dc:Bounds x="680" y="902" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001_di" bpmnElement="Flow_Start_US_PRD_CUS_001_Task_PR_PRD_CAT_001">
+        <di:waypoint x="148" y="70"/>
+        <di:waypoint x="240" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002_di" bpmnElement="Flow_Task_PR_PRD_CAT_001_Task_PR_PRD_CAT_002">
+        <di:waypoint x="410" y="70"/>
+        <di:waypoint x="460" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001_di" bpmnElement="Flow_Task_PR_PRD_CAT_002_Task_PR_PRD_FLT_001">
+        <di:waypoint x="630" y="70"/>
+        <di:waypoint x="680" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002_di" bpmnElement="Flow_Task_PR_PRD_FLT_001_Task_PR_PRD_FLT_002">
+        <di:waypoint x="850" y="70"/>
+        <di:waypoint x="900" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001_di" bpmnElement="Flow_Task_PR_PRD_FLT_002_End_US_PRD_CUS_001">
+        <di:waypoint x="1070" y="70"/>
+        <di:waypoint x="1120" y="70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001_di" bpmnElement="Flow_Start_US_PRD_CUS_002_Task_PR_PRD_SAV_001">
+        <di:waypoint x="148" y="240"/>
+        <di:waypoint x="240" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002_di" bpmnElement="Flow_Task_PR_PRD_SAV_001_Task_PR_PRD_SAV_002">
+        <di:waypoint x="410" y="240"/>
+        <di:waypoint x="460" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001_di" bpmnElement="Flow_Task_PR_PRD_SAV_002_Task_PR_PRD_AVL_001">
+        <di:waypoint x="630" y="240"/>
+        <di:waypoint x="680" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002_di" bpmnElement="Flow_Task_PR_PRD_AVL_001_Task_PR_PRD_AVL_002">
+        <di:waypoint x="850" y="240"/>
+        <di:waypoint x="900" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002_di" bpmnElement="Flow_Task_PR_PRD_AVL_002_End_US_PRD_CUS_002">
+        <di:waypoint x="1070" y="240"/>
+        <di:waypoint x="1120" y="240"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001_di" bpmnElement="Flow_Start_US_PRD_CUS_003_Task_PR_PRD_ERR_001">
+        <di:waypoint x="148" y="410"/>
+        <di:waypoint x="240" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002_di" bpmnElement="Flow_Task_PR_PRD_ERR_001_Task_PR_PRD_ERR_002">
+        <di:waypoint x="410" y="410"/>
+        <di:waypoint x="460" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003_di" bpmnElement="Flow_Task_PR_PRD_ERR_002_End_US_PRD_CUS_003">
+        <di:waypoint x="630" y="410"/>
+        <di:waypoint x="680" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001_di" bpmnElement="Flow_Start_US_PRD_OPR_001_Task_PR_PRD_OPR_001">
+        <di:waypoint x="148" y="580"/>
+        <di:waypoint x="240" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002_di" bpmnElement="Flow_Task_PR_PRD_OPR_001_Task_PR_PRD_OPR_002">
+        <di:waypoint x="410" y="580"/>
+        <di:waypoint x="460" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003_di" bpmnElement="Flow_Task_PR_PRD_OPR_002_Task_PR_PRD_OPR_003">
+        <di:waypoint x="630" y="580"/>
+        <di:waypoint x="680" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006_di" bpmnElement="Flow_Task_PR_PRD_OPR_003_Task_PR_PRD_OPR_006">
+        <di:waypoint x="850" y="580"/>
+        <di:waypoint x="900" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001_di" bpmnElement="Flow_Task_PR_PRD_OPR_006_End_US_PRD_OPR_001">
+        <di:waypoint x="1070" y="580"/>
+        <di:waypoint x="1120" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004_di" bpmnElement="Flow_Start_US_PRD_OPR_002_Task_PR_PRD_OPR_004">
+        <di:waypoint x="148" y="750"/>
+        <di:waypoint x="240" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007_di" bpmnElement="Flow_Task_PR_PRD_OPR_004_Task_PR_PRD_OPR_007">
+        <di:waypoint x="410" y="750"/>
+        <di:waypoint x="460" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002_di" bpmnElement="Flow_Task_PR_PRD_OPR_007_End_US_PRD_OPR_002">
+        <di:waypoint x="630" y="750"/>
+        <di:waypoint x="680" y="750"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005_di" bpmnElement="Flow_Start_US_PRD_PLN_001_Task_PR_PRD_OPR_005">
+        <di:waypoint x="148" y="920"/>
+        <di:waypoint x="240" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008_di" bpmnElement="Flow_Task_PR_PRD_OPR_005_Task_PR_PRD_OPR_008">
+        <di:waypoint x="410" y="920"/>
+        <di:waypoint x="460" y="920"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001_di" bpmnElement="Flow_Task_PR_PRD_OPR_008_End_US_PRD_PLN_001">
+        <di:waypoint x="630" y="920"/>
+        <di:waypoint x="680" y="920"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
