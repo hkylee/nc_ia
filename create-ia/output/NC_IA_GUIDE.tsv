@@ -1,0 +1,12 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-001-0	고객센터	FAQ				PG	자주 묻는 질문 카테고리 목록 및 검색. 카테고리 선택 시 FAQ 목록 표시.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-034-PG-009; TD-MY-GUIDE-MOPC-13-PG-001; TM-MY-GUIDE-MO-19-TB-004; TU-MY-GUIDE-MO-17-TB-001	TD, TM, TU, TW	●	fadeout 검토대상
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-002-0	고객센터	FAQ	FAQ 목록			PG	카테고리별 FAQ 목록 표시. 필터(타입A 선택) 적용 가능.			✅	✅	TW-MY-GUIDE-MOPC-034-PG-011	TW		
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-003-0	고객센터	FAQ	검색 결과			PG	FAQ 검색어 입력 결과 표시. 결과 없음 상태 포함.			✅	✅	TW-MY-GUIDE-MOPC-034-PG-013	TW		
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-004-0	고객센터	이용안내				PG	서비스 이용안내 카테고리 목록. 가입·이용·부가서비스 안내 포함.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-026-PG-121	TW		fadeout 검토대상 (P3)
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-005-0	고객센터	이용안내	이용안내 상세			PG	서비스 이용안내 상세 콘텐츠 표시.			✅	✅	TW-MY-GUIDE-MOPC-026-PG-122	TW		fadeout 검토대상 (P3)
+앱-GUIDE	US-FAQ-CS-002	해결 가이드 실행·후속 연결	NOVA-GUIDE-PG-006-0	고객센터	FAQ	FAQ 상세			PG	FAQ 상세 내용 표시. 관련 업무 바로가기, 미해결 시 상담 연결 제공.	FAQ 목록; 검색 결과		✅	✅	TW-MY-CS-PC-084-PU-001	TW		
+앱-GUIDE	US-FAQ-CS-002	해결 가이드 실행·후속 연결	NOVA-GUIDE-PG-007-0	고객센터	이용안내	이용 가이드			PG	단계별 이용 가이드(예: USIM 설정, 폰 설정 방법). 스텝별 이미지·설명 표시.			✅	✅	TW-MY-GUIDE-MOPC-030-PG-111; TW-MY-GUIDE-MOPC-030-PG-112	TW		fadeout 검토대상 (P3)
+앱-GUIDE	US-FAQ-CS-002	해결 가이드 실행·후속 연결	NOVA-GUIDE-PG-008-0	고객센터	이용자 피해 예방 센터				PG	보이스피싱·스미싱 등 통신 사기 피해 예방 안내 목록.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-032-PG-072; TW-MY-GUIDE-MOPC-032-PG-073	TW		fadeout 검토대상 (P5)
+앱-GUIDE	US-FAQ-CS-003	공지·변경 안내 확인	NOVA-GUIDE-PG-009-0	고객센터	공지사항				PG	서비스 공지사항 목록. 정렬 필터 적용 가능. 일반·판매자 탭 구분.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-029-PG-107; TM-MY-GUIDE-MO-19-PG-008; TU-MY-GUIDE-MO-17-TB-003-1-2; TU-MY-GUIDE-MO-17-TB-003-2-1	TM, TU, TW	●	
+앱-GUIDE	US-FAQ-CS-003	공지·변경 안내 확인	NOVA-GUIDE-PG-010-0	고객센터	공지사항	공지 상세			PG	공지 제목·내용·등록일 표시. 관련 안내 링크 포함.			✅	✅	TM-MY-GUIDE-MO-19-PG-009; TU-MY-GUIDE-MO-17-PG-003	TM, TU	●	
+앱-GUIDE	US-FAQ-CS-003	공지·변경 안내 확인	NOVA-GUIDE-PG-011-0	고객센터	서비스 장애 안내				PG	현재 진행 중인 서비스 장애·점검 안내. 영향 서비스, 예상 복구 시간 표시.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-027-PG-119	TW		fadeout 검토대상 (P3)

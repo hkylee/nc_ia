@@ -1,0 +1,15 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PG-001-0	마이	납부 내역				PG	납부 유형별 내역 조회 진입	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-136	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PG-002-0	마이	납부 내역	납부영수증 재발행			PG	납부영수증 재발행 신청 화면	납부 내역		✅	✅	TW-MY-FEE-MOPC-045-PG-155	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-001-0	마이	납부 내역	요금납부 내역서 발급 예시			PU	납부내역서 예시 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-139	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-002-0	마이	납부 내역	요금납부 내역서 발급 완료			PU	납부내역서 발급 완료 안내	요금납부 내역서 발급 예시		✅	✅	TW-MY-FEE-MOPC-045-PU-138	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-003-0	마이	납부 내역	납부영수증 재발행 예시			PU	납부영수증 예시 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-156	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-004-0	마이	납부 내역	납부영수증 재발행 완료			PU	납부영수증 재발행 완료 안내	납부영수증 재발행 예시		✅	✅	TW-MY-FEE-MOPC-045-PU-157	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-005-0	마이	납부 내역	세금계산서 재발행 예시			PU	세금계산서 예시 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-159	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-006-0	마이	납부 내역	세금계산서 재발행 완료			PU	세금계산서 재발행 완료 안내	세금계산서 재발행 예시		✅	✅	TW-MY-FEE-MOPC-045-PU-160	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-BS-001-0	마이	납부 내역	조회 항목 선택			BS	납부 내역 조회 항목 필터 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-135	TW		
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-003-0	마이	실시간 이용요금				PG	실시간 이용요금 조회	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-059	TW		
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-004-0	마이	실시간 이용요금	자녀 실시간 이용요금			PG	자녀 회선 실시간 이용요금			✅	✅	TW-MY-FEE-MOPC-045-PG-061	TW		
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-005-0	마이	실시간 이용요금	Real-time Balance (English)			PG	영문 실시간 잔여량 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-022	TW		fadeout 검토대상
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-006-0	마이	실시간 이용요금	실시간 요금(PC)			PG	PC웹 실시간 이용요금 조회			✅	✅	TW-MY-FEE-PC-051-PG-011	TW		

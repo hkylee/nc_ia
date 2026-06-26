@@ -1,0 +1,14 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-CS	US-PIN-CS-001	고객센터 통합허브 셀프 해결 허브 이용	NOVA-CS-PG-001-0	고객센터					PG	고객센터 허브 진입. 셀프 해결 카드, 문제 유형 선택, 상담 채널 진입점 표시.	마이		✅	✅	TU-MY-CS-MO-17-PG-001; TM-MY-CS-MO-19-PG-003	TM, TU	●	fadeout 검토대상 (P8)
+앱-CS	US-PIN-CS-001	고객센터 통합허브 셀프 해결 허브 이용	NOVA-CS-PG-002-0	고객센터	설문조사				PG	고객 만족도 및 서비스 이용 관련 설문 목록. 진행중·종료 구분.			✅	✅	TW-MY-CS-MOPC-028-PG-044; TW-MY-CS-MOPC-028-PG-045	TW		fadeout 검토대상
+앱-CS	US-PIN-CS-001	고객센터 통합허브 셀프 해결 허브 이용	NOVA-CS-PG-003-0	고객센터	설문조사	설문 상세			PG	설문 문항 표시 및 응답 입력.			✅	✅	TW-MY-CS-MOPC-028-PG-047	TW		fadeout 검토대상
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PG-004-0	고객센터	1:1 문의				PG	1:1 문의 목록 (문의 내역 없음/있음). 신규 문의 작성 진입점.	고객센터		✅	✅	TW-MY-CS-MOPC-025-PG-010; TW-MY-CS-MOPC-025-PG-024	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PU-001-0	고객센터	1:1 문의	문의 작성			PU	문의 유형 선택, 내용 입력, 파일 첨부, 개인정보 수집·이용 동의 후 등록.			✅	✅	TU-MY-CS-MO-17-PU-001; TW-MY-CS-MOPC-025-PU-015; TW-MY-CS-MOPC-025-PU-016; TW-MY-CS-MOPC-025-PU-017	TU, TW	●	
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PG-005-0	고객센터	1:1 문의	등록 완료			PG	1:1 문의 등록 완료 안내 및 접수번호 표시.			✅	✅	TW-MY-CS-MOPC-025-PG-023	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PG-006-0	고객센터	전화 상담 예약				PG	전화 상담 예약 일시·유형 선택 및 접수. 상담 가능 시간대 안내.	고객센터		✅	✅	TW-MY-CS-MOPC-026-PG-002	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-BS-001-0	고객센터	전화 상담 예약	상담 유형 선택			BS	상담 유형·지역·시간 선택 필터 바텀시트.			✅	✅	TW-MY-CS-MOPC-026-BS-003; TW-MY-CS-MOPC-026-BS-004; TW-MY-CS-MOPC-026-BS-005	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PU-002-0	고객센터	칭찬하기				PU	직원 칭찬 작성. 담당자·내용 입력 후 등록.	고객센터		✅	✅	TW-MY-CS-MOPC-020-PU-034; TW-MY-CS-MOPC-020-PG-035	TW		fadeout 검토대상
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-007-0	고객센터	상담 내역				PG	1:1 문의 상담 내역 목록. 처리 상태(접수중·완료) 구분.	고객센터		✅	✅	TU-MY-CS-MO-17-TB-002-2	TU		
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-008-0	고객센터	상담 내역	상담 상세			PG	문의 내용, 처리 답변, 처리 일시 표시.			✅	✅	TW-MY-CS-MOPC-025-PG-027; TU-MY-CS-MO-17-PG-002	TU, TW	●	
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-009-0	고객센터	상담 내역	재문의			PG	기존 문의 건에 대한 추가 문의 작성.	상담 상세		✅	✅	TW-MY-CS-MOPC-025-PG-030; TU-MY-CS-MO-17-PU-004	TU, TW	●	
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-010-0	고객센터	칭찬 내역				PG	등록한 칭찬 내역 목록. 수정·삭제 가능.	고객센터		✅	✅	TW-MY-CS-MOPC-020-PG-041; TW-MY-CS-MOPC-020-PU-043	TW		fadeout 검토대상

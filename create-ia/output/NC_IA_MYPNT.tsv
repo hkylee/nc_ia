@@ -1,0 +1,34 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-001-0	마이	T 플러스포인트				PG	T 플러스포인트 홈. 잔액·소멸 예정·누적 적립 요약 표시			✅	✅	TM-MY-CPN-MO-07-PG-004; TM-MY-CPN-MO-17-PG-023	TM		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PU-001-0	마이	T 플러스포인트	이용 내역			PU	포인트 적립·사용 이력 목록(풀업)	T 플러스포인트		✅	✅	TM-MY-CPN-MO-17-PU-005	TM		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-002-0	마이	T 플러스포인트	레인보우포인트			PG	레인보우포인트 잔액·이력 상세			✅	✅	TW-MY-CPN-MOPC-038-PG-002	TW		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-003-0	마이	T 플러스포인트	무약정플랜 포인트			PG	무약정플랜 포인트 잔액·이력 상세			✅	✅	TW-MY-CPN-MOPC-038-PG-010	TW		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-004-0	마이	T 플러스포인트	현역플랜 포인트			PG	지켜줘서고마워 현역플랜 포인트 잔액·이력 상세			✅	✅	TW-MY-CPN-MOPC-038-PG-011	TW		
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-PG-005-0	마이	T 플러스포인트	포인트 비밀번호 입력			PG	포인트 사용 전 비밀번호 인증 화면	T 플러스포인트		✅	✅	TM-MY-CPN-MO-16-PG-047; TM-MY-CPN-MO-17-PG-013; TM-MY-CPN-MO-17-PG-014	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-PU-002-0	마이	T 플러스포인트	비밀번호 키패드			PU	포인트 비밀번호 랜덤 키패드 입력창	포인트 비밀번호 입력		✅	✅	TM-MY-CPN-MO-16-PU-048; TM-MY-CPN-MO-17-PG-018	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-001-0	마이	T 플러스포인트	비밀번호 미입력 안내			CP	비밀번호 미입력 시 얼럿	포인트 비밀번호 입력		✅	✅	TM-MY-CPN-MO-16-CP-049; TM-MY-CPN-MO-17-CP-015	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-002-0	마이	T 플러스포인트	비밀번호 불일치 안내			CP	비밀번호 틀렸을 경우 얼럿 (5회/10회 누적 포함)	T 플러스포인트	예외 1	✅	✅	TM-MY-CPN-MO-16-CP-050; TM-MY-CPN-MO-16-CP-051; TM-MY-CPN-MO-17-CP-016	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-003-0	마이	T 플러스포인트	비밀번호 분실 안내			CP	포인트 비밀번호 분실 시 안내 얼럿		예외 2	✅	✅	TM-MY-CPN-MO-16-CP-052; TM-MY-CPN-MO-17-CP-017	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-004-0	마이	T 플러스포인트	사용 가능 범위 초과 안내			CP	포인트 사용 범위 초과 또는 미입력 얼럿		예외 3	✅	✅	TM-MY-CPN-MO-16-CP-055; TM-MY-CPN-MO-16-CP-056	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-BS-001-0	마이	T 플러스포인트	포인트 요금납부			BS	보유 포인트로 요금 납부 바텀시트	T 플러스포인트		✅	✅	TW-MY-CPN-MOPC-038-BS-012	TW		
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-BS-002-0	마이	T 플러스포인트	회선 선택			BS	포인트 사용 시 회선 선택 바텀시트	포인트 요금납부		✅	✅	TW-MY-CPN-MOPC-038-BS-013	TW		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-PG-006-0	마이	T 플러스포인트	포인트 선물			PG	수신자 정보 입력 및 선물 포인트 입력	T 플러스포인트		✅	✅	TM-MY-CPN-MO-17-PG-003	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-005-0	마이	T 플러스포인트	미성년 회원 사용 불가			CP	미성년 회원 포인트 선물 불가 안내	포인트 선물	예외 1	✅	✅	TM-MY-CPN-MO-17-CP-001	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-006-0	마이	T 플러스포인트	이용 정지 회선 안내			CP	이용 정지 회선 선물 불가 안내	포인트 선물	예외 2	✅	✅	TM-MY-CPN-MO-17-CP-002	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-007-0	마이	T 플러스포인트	수신자 확인 팝업			CP	포인트 선물 수신 대상 회원 확인 얼럿	포인트 선물		✅	✅	TM-MY-ALM-MO-17-CP-010	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-008-0	마이	T 플러스포인트	선물 실패 안내			CP	수신자 비회원·이용정지·번호실명 미일치 등 선물 실패 안내	포인트 선물	예외 3	✅	✅	TM-MY-ALM-MO-17-CP-007; TM-MY-ALM-MO-17-CP-008; TM-MY-ALM-MO-17-CP-009	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-009-0	마이	T 플러스포인트	포인트 선물 확인 팝업			CP	선물하기 전 최종 확인 얼럿	포인트 선물		✅	✅	TM-MY-ALM-MO-17-CP-011	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-010-0	마이	T 플러스포인트	포인트 비밀번호 미설정 안내			CP	포인트 비밀번호 미설정 시 선물 불가 안내	포인트 선물	예외 4	✅	✅	TM-MY-ALM-MO-17-CP-012	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-PG-007-0	마이	T 플러스포인트	포인트 선물하기 완료			PG	선물 완료 결과 화면	포인트 선물		✅	✅	TM-MY-CPN-MO-17-PG-019	TM		fadeout 검토대상 (P2)
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-PG-008-0	마이	T 플러스포인트	포인트 통합			PG	복수 회선 포인트 통합 진입 화면	T 플러스포인트		✅	✅	TM-MY-CPN-MO-17-PG-020	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-PG-009-0	마이	T 플러스포인트	포인트 통합			PG	포인트 통합 이용 방법 안내		케이스 1	✅	✅	TM-MY-CPN-MO-17-PG-028	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-PG-010-0	마이	T 플러스포인트	포인트 통합 완료			PG	포인트 통합 처리 완료 화면	포인트 통합		✅	✅	TM-MY-CPN-MO-17-PG-022	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-CP-011-0	마이	T 플러스포인트	포인트 통합 불가 안내			CP	포인트 통합 불가 조건 안내 팝업	포인트 통합	예외 1	✅	✅	TM-MY-ALM-MO-17-CP-029; TM-MY-ALM-MO-17-CP-030	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-CP-012-0	마이	T 플러스포인트	포인트 통합 확인 팝업			CP	포인트 통합 전 회원 확인 얼럿	포인트 통합		✅	✅	TM-MY-ALM-MO-17-CP-021	TM		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-011-0	마이	T 플러스포인트	포인트 합산			PG	레인보우포인트 합산 진입 화면	레인보우포인트		✅	✅	TW-MY-CPN-MOPC-038-PG-003	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PU-003-0	마이	T 플러스포인트	합산하기 확인			PU	포인트 합산 전 최종 확인 팝업	포인트 합산		✅	✅	TW-MY-CPN-MOPC-038-PU-004	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-012-0	마이	T 플러스포인트	포인트 합산 완료			PG	포인트 합산 완료 결과 화면	포인트 합산		✅	✅	TW-MY-CPN-MOPC-038-PG-005	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-013-0	마이	T 플러스포인트	대리인간 양도			PG	레인보우포인트 대리인간 양도 진입 화면	레인보우포인트	케이스 1	✅	✅	TW-MY-CPN-MOPC-038-PG-006	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PU-004-0	마이	T 플러스포인트	양도하기 확인			PU	포인트 양도 전 최종 확인 팝업	대리인간 양도		✅	✅	TW-MY-CPN-MOPC-038-PU-007	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-CP-013-0	마이	T 플러스포인트	법정대리인 정보 없음 안내			CP	대리인 정보 미확인 시 양도 불가 안내	대리인간 양도	예외 1	✅	✅	TW-MY-CPN-MOPC-038-CP-009	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-014-0	마이	T 플러스포인트	포인트 양도 완료			PG	포인트 양도 완료 결과 화면	대리인간 양도		✅	✅	TW-MY-CPN-MOPC-038-PG-008			

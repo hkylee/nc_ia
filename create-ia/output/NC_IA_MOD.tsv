@@ -1,0 +1,59 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MOD	US-LCM-CUS-001	회선 변경 업무 진입과 처리 경로 결정	NOVA-MOD-PU-001-0	마이	회선 변경/관리	회선정보 변경			PU	조회 회선 변경 선택 팝업 (공통)			✅	✅	TW-MY-MOD-PC-52-LP-119	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-001-0	마이	회선 변경/관리	분실신고/해제			PG	휴대폰 분실신고 및 해제 메인	마이		✅	✅	TW-MY-MOD-PC-069-PG-070	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-002-0	마이	회선 변경/관리	분실신고/해제	1단계_상품 선택		PG	분실신고 1단계 - 상품 선택			✅	✅	TW-MY-MOD-PC-074-PG-071	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-003-0	마이	회선 변경/관리	분실신고/해제	2단계_정보 입력		PG	분실신고 2단계 - 정보 입력			✅	✅	TW-MY-MOD-PC-074-PG-072	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-004-0	마이	회선 변경/관리	분실신고/해제	3단계_분실신고 완료		PG	분실신고 3단계 - 완료			✅	✅	TW-MY-MOD-PC-074-PG-073	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-005-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청		PG	분실 후 임대폰 신청 메인	분실신고/해제		✅	✅	TW-MY-MOD-PC-074-PG-074	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-006-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	1단계_개인정보 활용 동의	PG	임대폰 신청 1단계 - 개인정보 동의			✅	✅	TW-MY-MOD-PC-074-PG-075	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-007-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	2단계_신청내용 작성	PG	임대폰 신청 2단계 - 내용 작성			✅	✅	TW-MY-MOD-PC-074-PG-076	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-008-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	3단계_완료	PG	임대폰 신청 3단계 - 완료			✅	✅	TW-MY-MOD-PC-074-PG-077	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-009-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	1단계_임대폰 선택	PG	임대폰 선택 단계		케이스 1	✅	✅	TW-MY-MOD-PC-074-PG-078	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-010-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	2단계_완료	PG	임대폰 선택 후 완료		케이스 1	✅	✅	TW-MY-MOD-PC-074-PG-079	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-011-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	임대폰 신청 실패	PG	임대폰 신청 실패		예외 1	✅	✅	TW-MY-MOD-PC-074-PG-080	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-012-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	신청내역	PG	임대폰 신청 내역 조회			✅	✅	TW-MY-MOD-PC-074-PG-081	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PU-002-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	신청현황_인쇄하기	PU	임대폰 신청 현황 인쇄			✅	✅	TW-MY-MOD-PC-074-LP-082	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-038-0	마이	회선 변경/관리	회선 해지			PG	회선 해지 진입 메인 (이동전화/인터넷/전화/B tv)	마이		✅	✅				
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-042-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청		PG	휴대폰 해지 신청 진입 메인	회선 해지		✅	✅		TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-013-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	1단계_해지 신청 안내	PG	휴대폰 해지 신청 1단계 - 해지 안내	마이		✅	✅	TW-MY-MOD-PC-074-PG-034	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-014-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	2단계_개인정보 및 해지 이유 입력	PG	휴대폰 해지 신청 2단계 - 개인정보 입력			✅	✅	TW-MY-MOD-PC-074-PG-035	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-015-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	3단계_휴대폰 할부금 납부 방법	PG	휴대폰 해지 신청 3단계 - 할부금 납부			✅	✅	TW-MY-MOD-PC-074-PG-036	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-016-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	4단계_해지 신청 완료	PG	휴대폰 해지 신청 4단계 - 완료			✅	✅	TW-MY-MOD-PC-074-PG-037	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-017-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	해지 신청 현황	PG	해지 신청 현황 조회			✅	✅	TW-MY-MOD-PC-074-PG-038	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-CP-001-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	해지 신청 취소 완료	CP	해지 신청 취소 완료 팝업			✅	✅	TW-MY-MOD-PC-074-CP-039	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-043-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청		PG	인터넷/전화/B tv 해지 신청 진입	회선 해지		✅	✅		TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-018-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	미로그인 Case	PG	인터넷/전화/B tv 해지 신청 진입 (미로그인)	마이		✅	✅	TW-MY-MOD-PC-074-PG-040	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-019-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	해지 상품 조회	PG	해지 대상 상품 조회			✅	✅	TW-MY-MOD-PC-074-PG-041	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-020-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	1단계_해지 신청 안내	PG	인터넷/전화/B tv 해지 신청 1단계			✅	✅	TW-MY-MOD-PC-074-PG-042	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-021-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	2단계_연락처 등록	PG	인터넷/전화/B tv 해지 신청 2단계			✅	✅	TW-MY-MOD-PC-074-PG-043	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-022-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	3단계_할인반환금 및 사용요금 확인	PG	인터넷/전화/B tv 해지 신청 3단계			✅	✅	TW-MY-MOD-PC-074-PG-044	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-023-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	4단계_해지 신청 완료	PG	인터넷/전화/B tv 해지 신청 4단계			✅	✅	TW-MY-MOD-PC-074-PG-045	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-024-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	해지 신청 현황	PG	인터넷/전화/B tv 해지 신청 현황			✅	✅	TW-MY-MOD-PC-074-PG-046	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-025-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	해지 신청 취소 완료	PG	인터넷/전화/B tv 해지 신청 취소 완료			✅	✅	TW-MY-MOD-PC-074-PG-047	TW		
+앱-MOD	US-LCM-CUS-005	계약자 변경·양도와 구성원 권한 관리	NOVA-MOD-PG-039-0	마이	회선 변경/관리	계약자 변경			PG	계약자 변경/양도 진입 메인	마이		✅	✅				
+앱-MOD	US-LCM-CUS-005	계약자 변경·양도와 구성원 권한 관리	NOVA-MOD-PG-026-0	마이	회선 변경/관리	계약자 변경	고객보호 비밀번호 서비스_해지		PG	고객보호 비밀번호 서비스 해지 화면	마이		✅	✅	TW-MY-MOD-PC-063-PG-001	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-040-0	마이	회선 변경/관리	기기변경			PG	기기 변경 업무 진입 메인 (기기갱신)	마이		✅	✅				
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-027-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력		PG	기기 갱신 신청 - IMEI 입력 화면	마이		✅	✅	TW-MY-MOD-PC-068-PG-048	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-003-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	EID 및 IMEI 번호 확인 방법	PU	EID/IMEI 확인 방법 안내 (도움말)			✅	✅	TW-MY-MOD-PC-068-LP-049	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-004-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	USIM 카드 모델/일련번호 확인	PU	USIM 카드 모델/일련번호 확인 안내			✅	✅	TW-MY-MOD-PC-068-LP-050	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-005-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	OMD단말 이용확인서	PU	OMD 단말 이용 확인서 동의		케이스 1	✅	✅	TW-MY-MOD-PC-068-LP-051	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-006-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	타사 단말기 개통 안내	PU	타사 단말기 SK텔레콤 개통 시 안내사항		케이스 2	✅	✅	TW-MY-MOD-PC-068-LP-052	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-028-0	마이	회선 변경/관리	기기변경	기기갱신 2단계_실패		PG	기기 갱신 2단계 실패 안내		예외 1	✅	✅	TW-MY-MOD-PC-068-PG-058	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-029-0	마이	회선 변경/관리	기기변경	기기갱신 불가_USIM 단독 상태		PG	USIM 단독 상태로 기기 갱신 불가 안내		예외 2	✅	✅	TW-MY-MOD-PC-068-PG-059	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-041-0	마이	회선 변경/관리	번호변경			PG	번호 변경 업무 진입 메인	마이		✅	✅				
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-044-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경		PG	휴대폰 번호 변경 진입 메인	번호변경		✅	✅	TW-MY-MOD-PC-070-PG-060	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-030-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	희망번호 조회 전	PG	휴대폰 번호 변경 - 희망번호 조회 전	마이		✅	✅	TW-MY-MOD-PC-070-PG-060	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-031-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	희망번호 조회 후	PG	휴대폰 번호 변경 - 희망번호 조회 후			✅	✅	TW-MY-MOD-PC-070-PG-088	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-007-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	해지 필요한 부가서비스 안내	PU	번호 변경 시 해지 필요한 부가서비스 안내			✅	✅	TW-MY-MOD-PC-070-LP-061	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-008-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	부가서비스 자동해지 안내	PU	번호 변경 시 자동 해지 부가서비스 안내			✅	✅	TW-MY-MOD-PC-070-LP-062	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-009-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	가입중인 로밍 상품 안내	PU	번호 변경 시 로밍 상품 안내			✅	✅	TW-MY-MOD-PC-070-LP-063	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-032-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 완료	PG	휴대폰 번호 변경 완료			✅	✅	TW-MY-MOD-PC-070-PG-063	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-033-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 실패	PG	휴대폰 번호 변경 실패		예외 1	✅	✅	TW-MY-MOD-PC-070-PG-064	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-034-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 불가_SMS 미수신 단말	PG	SMS 미수신 단말 번호 변경 불가 안내		예외 2	✅	✅	TW-MY-MOD-PC-070-PG-065	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-035-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 불가_해외 로밍 이용 중	PG	해외 로밍 이용 중 번호 변경 불가 안내		예외 3	✅	✅	TW-MY-MOD-PC-070-PG-066	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-010-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	휴대폰 세팅 방법 보기_모델명 검색	PU	번호 변경 후 휴대폰 세팅 방법 안내			✅	✅	TW-MY-MOD-PC-070-LP-067	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-011-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	나밍서비스	PU	나밍서비스 안내			✅	✅	TW-MY-MOD-PC-070-LP-068	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-012-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	글로벌OTA	PU	글로벌 OTA 안내			✅	✅	TW-MY-MOD-PC-070-LP-069	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-036-0	마이	회선 변경/관리	미환급금 조회			PG	미환급금 조회 - 미로그인 Case	마이		✅	✅	TW-MY-MOD-PC-083-PG-001	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-037-0	마이	회선 변경/관리	미환급금 조회	미환급금 조회 (로그인)		PG	미환급금 내역 조회 및 환불 계좌 등록	미환급금 조회		✅	✅	TW-MY-MOD-PC-083-PG-002	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-013-0	마이	회선 변경/관리	미환급금 조회	미환급금 조회 (로그인)	환불신청계좌 수정	PU	환불 신청 계좌 수정 팝업			✅	✅	TW-MY-MOD-PC-083-LP-003	TW		

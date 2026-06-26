@@ -1,0 +1,52 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MBR	US-MBR-CUS-001	통합회원 시작과 가입 유형 관리	NOVA-MBR-PG-001-0	로그인					PG	회원 모듈 진입 — 미로그인 시. T world 슈퍼앱 로그인/회원가입 선택	마이		✅	✅	TU-MY-MBR-MO-01-PU-002	TU		fadeout 검토대상 (P7)
+앱-MBR	US-MBR-CUS-001	통합회원 시작과 가입 유형 관리	NOVA-MBR-PG-002-0	로그인	회원가입				PG	회원가입 시작 — T우주 약관 동의 진입			✅	✅	TU-MY-MBR-MO-01-PG-004	TU		
+앱-MBR	US-MBR-CUS-001	통합회원 시작과 가입 유형 관리	NOVA-MBR-PU-001-0	로그인	T 우주 LITE 회원 전환				PU	LITE 회원을 정회원으로 전환하는 특별 약관 동의 팝업			✅	✅	TM-MY-MBR-MO-06-PU-031	TM		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-BS-001-0	로그인	회원가입	통신사 선택			BS	본인인증을 위한 통신사 선택			✅	✅	TU-MY-MBR-MO-01-BS-001	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-BS-002-0	로그인	회원가입	본인인증 약관 동의			BS	본인인증 서비스 이용 약관 동의			✅	✅	TU-MY-MBR-MO-01-BS-002	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-003-0	로그인	회원가입	휴대폰 본인인증			PG	휴대폰 번호 입력 및 인증 요청			✅	✅	TU-MY-MBR-MO-01-PG-001; TU-MY-MBR-MO-15-PG-007	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-004-0	로그인	회원가입	인증번호 입력			PG	SMS 인증번호 입력			✅	✅	TW-MY-MBR-MOPC-048-BS-038; TU-MY-MBR-MO-01-PG-003; TU-MY-MBR-MO-15-PG-008	TU, TW	●	
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PU-002-0	로그인	회원가입	고유식별정보 처리 동의			PU	본인확인 서비스 고유식별정보 처리 동의			✅	✅	TU-MY-MBR-MO-01-PG-002-3	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-005-0	로그인	회원가입	T 우주 서비스 이용약관 동의			PG	T 우주 서비스 이용약관 동의			✅	✅	TU-MY-MBR-MO-01-PG-004	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-006-0	로그인	회원가입	개인정보 수집 및 이용동의			PG	개인정보 수집 및 이용 동의			✅	✅	TU-MY-MBR-MO-01-PG-004-2	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-007-0	로그인	회원가입	개정 서비스 이용약관 동의			PG	개정 서비스 이용약관 동의			✅	✅	TU-MY-MBR-MO-01-PG-005	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-008-0	로그인	회원가입	정보 입력			PG	아이디·비밀번호·기본정보 입력	인증번호 입력		✅	✅				
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-009-0	로그인	회원가입	가입 완료			PG	가입 완료 안내	정보 입력		✅	✅				
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-BS-003-0	로그인	T 우주 LITE 회원 전환	약관 동의			BS	T 우주 LITE 회원 전환 약관 동의 — 본인인증 약관 동의 공통 사용			✅	✅	TU-MY-MBR-MO-01-BS-002	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PG-010-0	로그인	소셜 로그인				PG	소셜 로그인 선택 진입 — 카카오·네이버·Google			✅	✅				
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-003-0	로그인	소셜 로그인	카카오			PU	카카오 인증		케이스 1	✅	✅	TU-MY-MBR-MO-01-AL-001-1	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-004-0	로그인	소셜 로그인	네이버			PU	네이버 인증		케이스 2	✅	✅	TU-MY-MBR-MO-01-AL-001-2	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-005-0	로그인	소셜 로그인	Google			PU	Google 인증		케이스 3	✅	✅	TU-MY-MBR-MO-01-IB-001-4	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-006-0	로그인	소셜 로그인	휴대폰번호 확인			PU	소셜 로그인 후 휴대폰번호 확인			✅	✅	TU-MY-MBR-MO-01-PU-003	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PG-011-0	로그인	T 아이디 연동				PG	T아이디 연동 프로세스			✅	✅	TU-MY-MBR-MO-01-IB-002	TU		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-012-0	로그인	계정 보호				PG	계정 보호 설정 진입			✅	✅				
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-CP-001-0	로그인	계정 보호	로그아웃			CP	로그아웃 확인 팝업 (T world)			✅	✅	TW-MY-MBR-MOPC-049-CP-001	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-CP-002-0	로그인	계정 보호	로그아웃 (T멤버십)			CP	로그아웃 확인 팝업 (T멤버십)		케이스 1	✅	✅	TM-MY-MBR-MO-06-CP-100	TM		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-013-0	로그인	계정 보호	고객보호 비밀번호 서비스			PG	고객보호 비밀번호 입력 화면			✅	✅	TW-MY-MBR-MOPC-049-PG-026	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PU-007-0	로그인	계정 보호	고객보호 비밀번호 설정			PU	고객보호 비밀번호 서비스 설정			✅	✅	TW-MY-MBR-MOPC-049-PU-010	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-014-0	로그인	세션 관리				PG	세션 관리 — 세션 만료·로그아웃·로그인 제한 처리			✅	✅				
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-015-0	로그인	세션 관리	세션 만료			PG	세션 만료 안내			✅	✅	TW-MY-MBR-MOPC-049-PG-016	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-016-0	로그인	세션 관리	로그아웃 완료			PG	사용자 로그아웃 처리 완료 화면			✅	✅	TW-MY-MBR-MOPC-049-PG-014	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-017-0	로그인	세션 관리	로그인 허용횟수 초과			PG	일일 로그인 허용횟수 초과 안내		예외 1	✅	✅	TW-MY-MBR-MOPC-049-PG-003	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-018-0	로그인	세션 관리	5회 실패			PG	로그인 5회 실패 안내		예외 2	✅	✅	TW-MY-MBR-MOPC-049-PG-005	TW		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-019-0	로그인	회원탈퇴				PG	로그인 후 진입. 탈퇴 유의사항 안내			✅	✅	TW-MY-MBR-MOPC-049-PG-027	TW		fadeout 검토대상 (P1)
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-020-0	로그인	회원탈퇴	탈퇴 사유 선택			PG	탈퇴 사유 선택			✅	✅	TU-MY-MBR-MO-15-PG-004	TU		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-021-0	로그인	회원탈퇴	탈퇴 신청			PG	탈퇴 신청 확인	탈퇴 사유 선택		✅	✅	TU-MY-MBR-MO-15-PG-005	TU		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PU-008-0	로그인	회원탈퇴	본인인증 (내국인)			PU	탈퇴 본인확인 — 내국인 인증			✅	✅	TW-MY-MBR-MOPC-049-PU-028	TW		fadeout 검토대상
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PU-009-0	로그인	회원탈퇴	본인인증 (외국인)			PU	탈퇴 본인확인 — 외국인 인증		케이스 1	✅	✅	TW-MY-MBR-MOPC-049-PU-029	TW		fadeout 검토대상
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PU-010-0	로그인	회원탈퇴	설문조사			PU	탈퇴 후 만족도 설문조사			✅	✅	TW-MY-MBR-MOPC-049-PU-030	TW		fadeout 검토대상 (P3)
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-022-0	로그인	회원탈퇴	탈퇴 완료			PG	탈퇴 완료 안내	본인인증 (내국인)		✅	✅	TW-MY-MBR-MOPC-049-PG-025; TU-MY-MBR-MO-15-PG-009	TU, TW	●	
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-023-0	로그인	회원탈퇴	탈퇴 완료 (T world 단독 아닌 경우)			PG	T world 단독 계정이 아닌 경우 탈퇴 완료 안내		케이스 1	✅	✅	TW-MY-MBR-MOPC-049-PG-031	TW		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-024-0	로그인	회원탈퇴	탈퇴 불가능 안내			PG	탈퇴 불가 조건 시 안내		예외 1	✅	✅	TU-MY-MBR-MO-15-PG-006	TU		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-003-0	로그인	회원탈퇴	주의사항 팝업			CP	탈퇴 전 꼭 확인해주세요 팝업			✅	✅	TW-MY-MBR-MOPC-049-CP-013	TW		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-004-0	로그인	회원탈퇴	재가입 안내			CP	탈퇴 후 재가입 안내 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-013; TM-MY-MBR-MO-06-CP-015	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-005-0	로그인	회원탈퇴	기타 서비스 직접입력 없음 안내			CP	기타 서비스 개선 직접입력이 없을 경우 안내 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-010	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-025-0	로그인	멤버십 서비스 해지				PG	T멤버십 앱/웹 서비스 해지 진입			✅	✅	TM-MY-MBR-MO-06-PG-006	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-026-0	로그인	멤버십 서비스 해지	해지 인증 (내국인)			PG	T멤버십 앱/웹 서비스 해지 — 내국인 인증			✅	✅	TM-MY-MBR-MO-06-PG-007	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-027-0	로그인	멤버십 서비스 해지	해지 인증 (외국인)			PG	T멤버십 앱/웹 서비스 해지 — 외국인 인증		케이스 1	✅	✅	TM-MY-MBR-MO-06-PG-016	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-028-0	로그인	멤버십 서비스 해지	해지 사유			PG	T멤버십 해지 사유 입력			✅	✅	TM-MY-MBR-MO-06-PG-009	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-029-0	로그인	멤버십 서비스 해지	해지 완료			PG	T멤버십 해지 완료			✅	✅	TM-MY-MBR-MO-06-PG-012	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-030-0	로그인	멤버십 서비스 해지	해지 완료 오류			PG	T멤버십 해지 완료 오류 페이지		예외 1	✅	✅	TM-MY-MBR-MO-06-PG-014	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-006-0	로그인	멤버십 서비스 해지	해지 안내 얼럿			CP	앱/웹 서비스 해지 안내 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-011	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-007-0	로그인	멤버십 서비스 해지	정보불일치			CP	해지 인증 정보 불일치 얼럿 (내국인)		예외 2	✅	✅	TM-MY-MBR-MO-06-CP-008	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-008-0	로그인	멤버십 서비스 해지	정보불일치 (외국인)			CP	해지 인증 정보 불일치 얼럿 (외국인)		예외 3	✅	✅	TM-MY-MBR-MO-06-CP-104	TM		

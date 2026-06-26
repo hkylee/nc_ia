@@ -1,0 +1,54 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-001-0	마이	데이터·통화				PG	나의 데이터·통화 홈 — 잔량·소진 순서 조회	마이		✅	✅	TW-MY-DTC-MOPC-044-PG-001	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-002-0	마이	데이터·통화	나의 데이터/통화_선불폰(PPS) Case			PG	선불폰 고객 데이터·통화 현황		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PG-002	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PU-001-0	마이	데이터·통화	사용패턴			PU	사용패턴 분석 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-003	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-CP-001-0	마이	데이터·통화	실시간 잔여량 조회 횟수 제한 Case			CP	실시간 조회 횟수 초과 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-068	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-CP-002-0	마이	데이터·통화	실시간 잔여량 조회 불가 Case			CP	실시간 조회 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-069	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-003-0	마이	데이터·통화	실시간 잔여량			PG	실시간 잔량 상세 조회	데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-067	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-004-0	마이	데이터·통화	자녀 실시간 잔여량			PG	자녀 회선 실시간 잔량	데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-073	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-005-0	마이	데이터·통화	T 가족모아 데이터			PG	T 가족모아 데이터 현황 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-005	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-006-0	마이	데이터·통화	통합공유 데이터			PG	통합공유 데이터 현황 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-070	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-002-0	마이	데이터·통화	데이터 공유설정_바로공유			PU	바로공유 설정 팝업		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-006	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-003-0	마이	데이터·통화	데이터 바로공유 완료			PU	바로공유 완료 안내	데이터 공유설정_바로공유		✅	✅	TW-MY-DTC-MOPC-044-PU-008	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-003-0	마이	데이터·통화	데이터 바로공유 Confirm			CP	바로공유 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-007	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-004-0	마이	데이터·통화	데이터 공유설정_매달 자동공유			PU	매달 자동공유 설정 팝업		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-009	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-005-0	마이	데이터·통화	데이터 매달 자동공유 완료			PU	자동공유 완료 안내	데이터 공유설정_매달 자동공유		✅	✅	TW-MY-DTC-MOPC-044-PU-011	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-004-0	마이	데이터·통화	데이터 매달 자동공유 Confirm			CP	자동공유 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-010	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-006-0	마이	데이터·통화	데이터 매달 자동공유 해제 완료			PU	자동공유 해제 완료 안내			✅	✅	TW-MY-DTC-MOPC-044-PU-013	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-005-0	마이	데이터·통화	데이터 매달 자동공유 해제 Confirm			CP	자동공유 해제 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-012	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PG-007-0	마이	데이터·통화	이번 달 공유한 데이터 내역			PG	이번 달 공유 데이터 내역 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-014	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-007-0	마이	데이터·통화	공유한 데이터 변경하기			PU	공유 데이터 양 변경 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-015	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-006-0	마이	데이터·통화	공유한 데이터 변경하기 Confirm			CP	변경 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-016	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-008-0	마이	데이터·통화	데이터 변경 완료			PU	공유 데이터 변경 완료 안내	공유한 데이터 변경하기 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-017	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-007-0	마이	데이터·통화	데이터 변경 실패			CP	공유 데이터 변경 실패 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-018	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-009-0	마이	데이터·통화	이용한도 설정			PU	데이터 이용 한도 설정 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-019	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-010-0	마이	데이터·통화	데이터 함께쓰기			PU	T 데이터 셰어링 설정 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-071	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-011-0	마이	데이터·통화	T 데이터 셰어링 USIM 해지			PU	셰어링 USIM 해지 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-072	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-012-0	마이	데이터·통화	T 데이터 셰어링 USIM 해지 완료			PU	셰어링 USIM 해지 완료 안내	T 데이터 셰어링 USIM 해지		✅	✅	TW-MY-DTC-MOPC-044-PU-168	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-PU-013-0	마이	데이터·통화	자동 알람 서비스			PU	데이터·통화 알람 서비스 설정			✅	✅	TW-MY-DTC-MOPC-044-PU-058	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-PU-014-0	마이	데이터·통화	자동 알람 서비스 설정 완료			PU	알람 서비스 설정 완료 안내	자동 알람 서비스		✅	✅	TW-MY-DTC-MOPC-044-PU-059	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-CP-008-0	마이	데이터·통화	데이터 제한 설정 Confirm			CP	데이터 차단 설정 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-076	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-CP-009-0	마이	데이터·통화	알림_이용제한 안내(치팅)			CP	이용제한(치팅) 안내 팝업		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-100	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PG-008-0	마이	데이터·통화	충전 권한 변경 내역			PG	충전 허용 권한 변경 내역 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-034	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PU-015-0	마이	데이터·통화	충전 허용금액 변경			PU	충전 허용 금액 변경 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-074	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PU-016-0	마이	데이터·통화	충전 허용금액 변경 완료			PU	충전 허용금액 변경 완료 안내	충전 허용금액 변경		✅	✅	TW-MY-DTC-MOPC-044-PU-075	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-010-0	마이	데이터·통화	(공통) 데이터 조르기			CP	자녀가 데이터 조르기 요청 알림 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-004	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-BS-001-0	마이	데이터·통화	결합 가족			BS	결합 가족 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-087; TW-MY-DTC-MOPC-044-BS-088	TW	●	
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PG-009-0	마이	데이터·통화	팅 선물 차단 설정			PG	팅요금제 선물 차단 설정 페이지			✅	✅	TW-MY-DTC-MOPC-044-PG-022	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-011-0	마이	데이터·통화	팅 선물 차단 설정 Confirm			CP	팅 선물 차단 설정 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-023	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PU-017-0	마이	데이터·통화	ZEM플랜 요금제 지정번호 설정			PU	ZEM플랜 지정번호 등록·관리			✅	✅	TW-MY-DTC-MOPC-044-PU-077	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-012-0	마이	데이터·통화	지정번호 등록 Confirm			CP	지정번호 등록 확인 팝업		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-CP-079	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-AP-001-0	마이	데이터·통화	지정번호 등록 완료			AP	지정번호 등록 완료 토스트			✅	✅	TW-MY-DTC-MOPC-044-TP-080	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-013-0	마이	데이터·통화	지정번호 삭제 Confirm			CP	지정번호 삭제 확인 팝업		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-CP-082	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-AP-002-0	마이	데이터·통화	지정번호 삭제 성공			AP	지정번호 삭제 완료 토스트			✅	✅	TW-MY-DTC-MOPC-044-TP-083	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-014-0	마이	데이터·통화	알림_지정번호 등록 불가			CP	지정번호 등록 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-078	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-015-0	마이	데이터·통화	지정번호 등록 실패			CP	지정번호 등록 실패 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-081	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-016-0	마이	데이터·통화	지정번호 삭제 실패			CP	지정번호 삭제 실패 안내		예외 3	✅	✅	TW-MY-DTC-MOPC-044-CP-084	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-010-0	마이	데이터·통화	통화내역 조회(PC)			PG	PC웹 일반 통화내역 조회			✅	✅	TW-MY-DTC-PC-078-PG-027; TW-MY-DTC-PC-078-PG-084	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-011-0	마이	데이터·통화	글로벌로밍 통화내역(PC)			PG	PC웹 글로벌로밍 통화내역 조회			✅	✅	TW-MY-DTC-PC-078-PG-030; TW-MY-DTC-PC-078-PG-085	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-012-0	마이	데이터·통화	통화조회 내역(PC)			PG	PC웹 통화조회 내역 (본인인증 후)			✅	✅	TW-MY-DTC-PC-078-PG-033; TW-MY-DTC-PC-078-PG-086	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-013-0	마이	데이터·통화	통화조회 신청서 접수안내(PC)			PG	PC 통화내역 조회 신청서 접수안내			✅	✅	TW-MY-DTC-PC-078-PG-026	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-014-0	마이	데이터·통화	통화내역 인쇄(PC)			PG	PC웹 통화내역 인쇄 화면			✅	✅	TW-MY-DTC-PC-078-LP-028; TW-MY-DTC-PC-078-LP-029; TW-MY-DTC-PC-078-LP-031; TW-MY-DTC-PC-078-LP-032	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-015-0	마이	데이터·통화	통화이력 열람 동의(PC)			PG	PC 통화이력 열람 동의 안내			✅	✅	TW-MY-DTC-PC-074-LP-084	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-016-0	마이	데이터·통화	요금안내서 유형 갱신 안내(PC)			PG	PC 요금안내서 유형 갱신 안내			✅	✅	TW-MY-DTC-PC-074-LP-087	TW		

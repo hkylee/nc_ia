@@ -1,0 +1,19 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-PG-001-0	마이	알림함				PG	통합 알림함 목록. 알림 없는 경우/있는 경우 표시. 정보동의 미동의 항목 배너 포함			✅	✅	TW-MY-ALM-PC-075-PG-083; TU-MY-ALM-MO-16-PG-001-1-1; TU-MY-ALM-MO-16-PG-001-1-2; TU-MY-ALM-MO-16-PG-001-2	TU,TW	●	
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-001-0	마이	알림함	이벤트 댓글 안내			CP	이벤트 댓글 등록/삭제 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-16-CP-008; TM-MY-ALM-MO-16-CP-009	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-002-0	마이	알림함	T 멤버십 카드 안내			CP	T 멤버십 카드 신청/정지 상태 얼럿	알림함	예외 1	✅	✅	TM-MY-ALM-MO-16-CP-013; TM-MY-ALM-MO-16-CP-014; TM-MY-ALM-MO-14-CP-630; TM-MY-ALM-MO-14-CP-631	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-003-0	마이	알림함	구매 수량 초과 안내			CP	구매 가능 수량 초과 얼럿 (1회/월 수량 초과 케이스 포함)	알림함	예외 2	✅	✅	TM-MY-ALM-MO-16-CP-018; TM-MY-ALM-MO-16-CP-019; TM-MY-ALM-MO-16-CP-020	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-004-0	마이	알림함	상품 옵션 선택 안내			CP	상품 옵션 미선택/중복선택 얼럿	알림함	예외 3	✅	✅	TM-MY-ALM-MO-16-CP-022; TM-MY-ALM-MO-16-CP-026	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-005-0	마이	알림함	응모 완료 안내			CP	0day 이벤트 응모 완료 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-14-CP-626	TM		
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PU-001-0	마이	알림함	알림 수신 동의			PU	[필수] 개인정보 제3자 제공 동의 팝업 (참여적립)	알림함		✅	✅	TM-MY-ALM-MO-02-PU-040	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PG-002-0	마이	알림함	알림 수신 동의 안내			PG	개인정보 제공 동의 화면 (LP형, 추적허용 포함)	알림함		✅	✅	TM-MY-ALM-MO-02-LP-038; TM-MY-ALM-MO-02-LP-039	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-006-0	마이	알림함	알림 설정 오류 안내			CP	카메라/핸드폰번호/이메일 유효성/파일용량 초과/추적허용 관련 얼럿	알림함	예외 1	✅	✅	TM-MY-ALM-MO-02-CP-084; TM-MY-ALM-MO-02-CP-085; TM-MY-ALM-MO-02-CP-087; TM-MY-ALM-MO-02-CP-090; TM-MY-ALM-MO-02-CP-105	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-007-0	마이	알림함	적립 문의 등록 안내			CP	적립 문의 등록 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-086	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-008-0	마이	알림함	서비스 이용 해지 안내			CP	서비스 이용 해지 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-088	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-009-0	마이	알림함	정상 처리 안내			CP	정상 처리 완료 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-089	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-010-0	마이	알림함	영상 알림 안내			CP	영상 알림 관련 안내 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-108	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-011-0	마이	알림함	앱 업데이트 안내			CP	앱 최신 버전 업데이트 유도 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-137	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-012-0	마이	알림함	로그인 안내			CP	로그인 필요 안내 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-138	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PG-003-0	마이	알림함	돈 버는 교통 설정			PG	돈 버는 교통 서비스 알림·위치 기반 설정 화면	알림함		✅	✅	TM-MY-ALM-MO-02-PG-101	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PG-004-0	마이	알림함	시스템 알림 (IMAS 연동)			PG	유선/무선 요금안내서, 일시정지, 번호변경, 기기변경, 분실신고, 선불이동전화 충전·자동충전, 부가서비스, 개인정보, 본인인증 등 IMAS 연동 시스템 알림 상세	알림함		✅	✅	TW-MY-ALM-MOPC-082-SYS-006; TW-MY-ALM-MOPC-082-SYS-007; TW-MY-ALM-MOPC-082-SYS-008; TW-MY-ALM-MOPC-082-SYS-009; TW-MY-ALM-MOPC-082-SYS-010; TW-MY-ALM-MOPC-082-SYS-011; TW-MY-ALM-MOPC-082-SYS-012; TW-MY-ALM-MOPC-082-SYS-014; TW-MY-ALM-MOPC-082-SYS-015; TW-MY-ALM-MOPC-082-SYS-016; TW-MY-ALM-MOPC-082-SYS-017; TW-MY-ALM-MOPC-082-SYS-023; TW-MY-ALM-MOPC-082-SYS-024; TW-MY-ALM-MOPC-082-SYS-025; TW-MY-ALM-MOPC-082-SYS-026; TW-MY-ALM-MOPC-082-SYS-027; TW-MY-ALM-MOPC-082-SYS-028; TW-MY-ALM-MOPC-082-SYS-029; TW-MY-ALM-MOPC-082-SYS-030	TW		
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-013-0	마이	알림함	멤버십 카드 미보유 안내			CP	B.멤버십 카드 미보유 안내 얼럿	알림함	예외 4	✅	✅	TM-MY-ALM-MO-14-CP-065; TM-MY-ALM-MO-14-CP-066	TM		

@@ -1,0 +1,12 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PG-001-0	마이	혜택				PG	혜택 홈. T day/0day 혜택, T deal 추천, 이번달 혜택 요약 표시			✅	✅	TW-MY-BEN-MOPC-037-PG-001	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PG-002-0	마이	혜택	나의 혜택/할인			PG	나의 멤버십 등급, 포인트 요약, 이용 중인 혜택/할인 목록	혜택		✅	✅	TW-MY-BEN-MOPC-038-PG-001	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PG-003-0	마이	혜택	전체 혜택			PG	광고성 정보 수신동의 배너 포함. 태그 필터·혜택/할인 리스트	혜택		✅	✅	TW-MY-BEN-MOPC-039-PG-002	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PU-001-0	마이	혜택	최근 6개월 누적 혜택			PU	최근 6개월 누적 할인 혜택 금액 상세 팝업	혜택		✅	✅	TW-MY-BEN-MOPC-037-PU-001	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PU-002-0	마이	혜택	이번 달에 받은 혜택			PU	이번 달 혜택 금액 및 요금 할인 내역 팝업	혜택	케이스 1	✅	✅	TW-MY-BEN-MOPC-037-PU-002	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PU-003-0	마이	혜택	혜택 할인 상세			PU	혜택 할인 추가 설명(데이터 혜택/멤버십 업그레이드 탭 포함)	전체 혜택		✅	✅	TW-MY-BEN-MOPC-039-PU-001	TW		fadeout 검토대상
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-PU-004-0	마이	혜택	0day Tday 혜택			PU	0day/Tday 쿠폰 받기 상세. COMING SOON 배너·혜택 상세 노출	혜택		✅	✅	TW-MY-BEN-MO-037-PU-001	TW		
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-BS-001-0	마이	혜택	T deal 맞춤 상품 추천 동의			BS	T deal 맞춤 상품 추천 개인정보 동의 바텀시트	혜택		✅	✅	TW-MY-BEN-MO-037-BS-001	TW		
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-CP-001-0	마이	혜택	0day Tday 알림 설정			CP	0day/Tday 혜택 알림 수신 설정 확인 팝업	혜택		✅	✅	TW-MY-BEN-MO-037-CP-001	TW		
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-CP-002-0	마이	혜택	T 멤버십 서비스 이동 확인			CP	T 멤버십 서비스 외부 이동 전 확인 팝업	혜택		✅	✅	TW-MY-BEN-MO-037-CP-002	TW		
+앱-MYBEN	US-BEN-CUS-003	혜택 사용·공유·양도 실행	NOVA-MYBEN-BS-002-0	마이	혜택	할인혜택 적용			BS	구독 해지 과정 중 할인 혜택 적용 안내 바텀시트. 혜택 적용 또는 해지 계속 선택			✅	✅	TU-MY-BEN-MO-11-BS-005	TU		

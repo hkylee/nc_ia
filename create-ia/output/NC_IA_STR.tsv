@@ -1,0 +1,12 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-STR	US-YMX-CS-001	매장 탐색·방문 가능성 확인	NOVA-STR-PG-001-0	고객센터	매장/대리점 안내				PG	위치 기반 매장·대리점 지도 검색. 반경·매장 유형·정렬 필터 적용 가능.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-021-PG-153	TW		
+앱-STR	US-YMX-CS-001	매장 탐색·방문 가능성 확인	NOVA-STR-BS-001-0	고객센터	매장/대리점 안내	검색 조건 선택			BS	검색 반경, 매장 유형, 정렬 조건, 서비스 선택 바텀시트.			✅	✅	TW-MY-GUIDE-MOPC-021-BS-155; TW-MY-GUIDE-MOPC-021-BS-156; TW-MY-GUIDE-MOPC-021-BS-157; TW-MY-GUIDE-MOPC-021-BS-158; TW-MY-GUIDE-MOPC-021-BS-160	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-002-0	고객센터	매장/대리점 안내	매장 상세			PG	매장 기본정보(주소·전화·영업시간·처리 가능 업무), 지도, 길찾기 연결.	매장/대리점 안내		✅	✅	TW-MY-GUIDE-MOPC-021-PG-162	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-003-0	고객센터	매장/대리점 안내	매장 상담 예약			PG	방문 목적·일시 선택 후 매장 상담 예약 접수.	매장 상세		✅	✅	TW-MY-GUIDE-MOPC-021-PG-001	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-BS-002-0	고객센터	매장/대리점 안내	매장 상담 예약	날짜·시간 선택		BS	예약 날짜 및 시간 선택 바텀시트.			✅	✅	TW-MY-GUIDE-MOPC-021-BS-159	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PU-001-0	고객센터	매장/대리점 안내	매장 상담 예약	예약 완료		PU	상담 예약 완료 안내. 예약 일시·매장 정보 표시.			✅	✅	TW-MY-GUIDE-MOPC-021-PU-158	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-004-0	고객센터	매장/대리점 안내	상담 예약 내역			PG	나의 매장 상담 예약 내역 목록. 예약 상태(예약완료·완료·취소) 구분.	고객센터; 예약 완료		✅	✅	TW-MY-GUIDE-MOPC-022-PG-159; TW-MY-GUIDE-MOPC-022-PG-160	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-005-0	고객센터	가입 상담 예약				PG	가입 상담을 위한 매장 방문 예약. 상품·결합 유형 선택 후 예약 접수.	고객센터		✅	✅	TW-MY-CS-MOPC-013-BS-030; TW-MY-CS-MOPC-013-PU-033	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-006-0	고객센터	가입 상담 예약	가입 상담 예약 완료			PG	가입 상담 예약 완료 안내. 예약 일시, 상품 정보 확인.			✅	✅	TW-MY-CS-MOPC-013-PG-034	TW		
+앱-STR	US-YMX-CS-003	매장 이용 예외·대체 경로 확인	NOVA-STR-PG-007-0	고객센터	AS 센터 안내				PG	제조사별 AS센터 안내 및 행복 AS 안내. 방문 제한 시 대체 경로 제공.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-023-PG-161; TW-MY-GUIDE-MOPC-023-PG-162	TW		
+앱-STR	US-YMX-CS-003	매장 이용 예외·대체 경로 확인	NOVA-STR-PG-008-0	고객센터	임대폰 제공 매장				PG	임대폰 제공 가능 매장 목록. 지역 선택 필터 적용.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-024-PG-165	TW		

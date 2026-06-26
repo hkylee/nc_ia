@@ -1,0 +1,911 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-001-0	마이	나의 가입 정보	이동전화			PG	나의 가입 정보 메인 - 이동전화 회선	마이		✅	✅	TW-MY-INFO-MOPC-043-PG-001; TM-MY-INFO-MO-10-PG-001	TW, TM	●	
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-002-0	마이	나의 가입 정보	인터넷/전화/B tv			PG	나의 가입 정보 메인 - 인터넷/전화/B tv	나의 가입 정보_이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-050	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-003-0	마이	나의 가입 정보	MY CS Layer			PG	MY 서비스 서브메인 레이어	나의 가입 정보_이동전화		✅	✅	TW-MY-INFO-MOPC-046-PG-001	TW		fadeout 검토대상 (P8)
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-001-0	마이	나의 가입 정보	MY CS Layer	데이터 충전하기		BS	데이터 충전하기 바텀시트			✅	✅	TW-MY-INFO-MOPC-046-BS-002	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-002-0	마이	나의 가입 정보	MY CS Layer	데이터 선물하기		BS	데이터 선물하기 바텀시트			✅	✅	TW-MY-INFO-MOPC-046-BS-003	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-004-0	마이	나의 가입 정보	이동전화	회원정보 (조회 불가)		PG	회원정보 조회 불가 상태 (T멤버십)		예외 1	✅	✅	TM-MY-INFO-MO-10-PG-004	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-005-0	마이	나의 가입 정보	이동전화	회원정보 (회선명의자와 실사용자 다름)		PG	회선명의자와 실사용자가 다른 케이스 (T멤버십)		예외 2	✅	✅	TM-MY-INFO-MO-10-PG-005	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-006-0	마이	나의 가입 정보	이동전화	회원정보 (자사 LITE)		PG	자사 LITE 회원 정보 (T멤버십)		케이스 1	✅	✅	TM-MY-INFO-MO-10-PG-013	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-007-0	마이	나의 가입 정보	이동전화	회원정보 (타사 LITE)		PG	타사 LITE 회원 정보 (T멤버십)		케이스 2	✅	✅	TM-MY-INFO-MO-10-PG-014	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-008-0	마이	나의 가입 정보	이동전화	T 멤버십 예상 등급 안내		PG	VIP 예상 등급 안내 (T멤버십)		케이스 3	✅	✅	TM-MY-INFO-MO-10-PG-006	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-CP-001-0	마이	나의 가입 정보	이동전화	T 멤버십 카드 신청 얼럿		CP	T멤버십 카드 신청 유도 팝업			✅	✅	TM-MY-INFO-MO-10-CP-002	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-009-0	마이	나의 가입 정보	나의 캘린더			PG	나의 캘린더 메인	나의 가입 정보_이동전화		✅	✅	TW-MY-INFO-MOPC-040-PG-001	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PU-001-0	마이	나의 가입 정보	나의 캘린더	나의 캘린더 안내		PU	나의 캘린더 서비스 안내			✅	✅	TW-MY-INFO-MO-040-PU-004	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-010-0	마이	나의 가입 정보	나의 캘린더	일정 리스트		PG	일정 리스트 전체 보기			✅	✅	TW-MY-INFO-MOPC-040-PG-007	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-011-0	마이	나의 가입 정보	나의 캘린더	나의 캘린더 알림 설정		PG	캘린더 알림 설정			✅	✅	TW-MY-INFO-MO-040-PG-005	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-003-0	마이	나의 가입 정보	나의 캘린더	기간 선택		BS	캘린더 기간 선택 바텀시트			✅	✅	TW-MY-INFO-MO-040-BS-002	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-004-0	마이	나의 가입 정보	나의 캘린더	회선 선택		BS	캘린더 회선 선택 바텀시트			✅	✅	TW-MY-INFO-MO-040-BS-003	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-005-0	마이	나의 가입 정보	나의 캘린더	일정 모두 받기		BS	캘린더 일정 모두 받기 바텀시트			✅	✅	TW-MY-INFO-MOPC-040-BS-006	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-002-0	마이	나의 가입 정보	이동전화	개통정보 조회		PU	개통/변경 이력 및 최종 가입점 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PU-002	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-012-0	마이	나의 가입 정보	이동전화	무약정 플랜 포인트 내역		PG	무약정 플랜 포인트 적립/사용/소멸 내역	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-005	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-BS-006-0	마이	나의 가입 정보	이동전화	무약정 플랜 포인트 내역	포인트 사용 유형 선택	BS	포인트 사용 유형 필터 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-006	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-013-0	마이	나의 가입 정보	이동전화	나의 T로밍 이용현황		PG	T로밍 이용 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-43-PG-006	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-014-0	마이	나의 가입 정보	이동전화	나의 T로밍 이용현황	지난 여행정보	PG	T로밍 지난 여행 정보 조회			✅	✅	TW-MY-INFO-MOPC-43-PG-124	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-015-0	마이	나의 가입 정보	이동전화	예약 조회&취소		PG	baro Box 예약 조회 및 취소 (PC)	이동전화		✅	✅	TW-MY-INFO-PC-48-PG-087	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-016-0	마이	나의 가입 정보	이동전화	예약 조회&취소_인증 후		PG	baro Box 예약 조회 및 취소 - 인증 후 (PC)		예외 1	✅	✅	TW-MY-INFO-PC-48-PG-088	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-003-0	마이	나의 가입 정보	이동전화	baro Box 조회&취소		PU	baro Box 조회 및 취소 팝업	이동전화		✅	✅	TW-MY-INFO-MOPC-48-PU-072	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-004-0	마이	나의 가입 정보	이동전화	baro Box 조회&취소_인증 후		PU	baro Box 조회 및 취소 팝업 - 인증 후			✅	✅	TW-MY-INFO-MOPC-48-PU-074	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-054-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스		PG	번호변경 안내서비스 관리 진입	이동전화		✅	✅		TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-005-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	신청	PU	번호변경 안내서비스 신청 화면	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PU-007	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-AP-001-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	신청(연장) 완료	AP	번호변경 안내서비스 신청/연장 완료			✅	✅	TW-MY-INFO-MOPC-043-TP-008	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-006-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	신청 실패	PU	번호변경 안내서비스 신청 실패 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-009	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-007-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	연장 및 해지	PU	번호변경 안내서비스 연장/해지 설정	번호변경 안내서비스_신청		✅	✅	TW-MY-INFO-MOPC-043-TP-010	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-008-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	해지 완료	PU	번호변경 안내서비스 해지 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-011	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-009-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	해지 실패	PU	번호변경 안내서비스 해지 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-012	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-CP-002-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	이용 불가	CP	번호변경 안내서비스 이용 불가 안내		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-013	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-010-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	무료 사용 기간 종료	PU	무료 사용 기간 종료 안내		예외 3	✅	✅	TW-MY-INFO-MOPC-043-PU-014	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-017-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보		PG	약정 할인 및 기기 할부 정보 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-015	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-018-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	요금 약정할인_월별 상세 할인 내역	PG	요금 약정할인 월별 상세 할인 내역			✅	✅	TW-MY-INFO-MOPC-043-PG-016	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-019-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	기기 약정할인_월별 상세 할인 내역	PG	기기 약정할인 월별 상세 할인 내역			✅	✅	TW-MY-INFO-MOPC-043-PG-017	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-020-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	기기 할부 상세정보	PG	기기 할부 상세 정보 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-018	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PU-011-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	기기 할부 상세정보_인쇄하기	PU	기기 할부 상세정보 인쇄 (PC)			✅	✅	TW-MY-INFO-PC-062-LP-025	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PU-012-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	적용가입기간 상세정보	PU	적용 가입 기간 상세 정보			✅	✅	TW-MY-INFO-MOPC-043-PU-137	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PG-021-0	마이	나의 가입 정보	이동전화	일시정지		PG	회선 일시정지 신청 메인	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-020	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-013-0	마이	나의 가입 정보	이동전화	일시정지	정지(예약) or 심사 중 내역 있음	PU	기존 정지 예약 또는 심사 중 내역 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-019	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-014-0	마이	나의 가입 정보	이동전화	일시정지	해군 함정 근무 일시정지 안내	PU	해군 함정 근무 일시정지 안내		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-021	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-CP-003-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청 불가_횟수 초과	CP	월 5회 초과로 일시정지 신청 불가 안내		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-022	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-CP-004-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 Confirm	CP	일시정지 신청 확인 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-068	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-015-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청 완료	PU	일시정지 신청 완료 안내			✅	✅	TW-MY-INFO-MOPC-043-PU-023	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-016-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청 실패	PU	일시정지 신청 실패 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-024	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-017-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청현황	PU	일시정지 신청 현황 조회			✅	✅	TW-MY-INFO-MOPC-043-PU-036	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-018-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제	PU	일시정지 해제 신청			✅	✅	TW-MY-INFO-MOPC-043-PU-037	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-CP-005-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제 Confirm	CP	일시정지 해제 확인 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-072	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-019-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제 완료	PU	일시정지 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-038	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-020-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제 실패	PU	일시정지 해제 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-039	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-021-0	마이	나의 가입 정보	이동전화	일시정지	휴대폰 이용정지 안내	PU	이용정지 상태 안내		예외 3	✅	✅	TW-MY-INFO-MOPC-043-PU-049	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PG-022-0	마이	나의 가입 정보	이동전화	장기일시정지		PG	장기 일시정지 신청 메인 (입영/군복무 등)	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-025	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-022-0	마이	나의 가입 정보	이동전화	장기일시정지	입영일자 등록 방법	PU	입영일자 등록 방법 안내			✅	✅	TW-MY-INFO-MOPC-043-PU-026	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-023-0	마이	나의 가입 정보	이동전화	장기일시정지	밀리패스 정보 입력	PU	밀리패스 정보 입력			✅	✅	TW-MY-INFO-MOPC-043-PU-027	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-024-0	마이	나의 가입 정보	이동전화	장기일시정지	개인정보 제3자 제공 동의	PU	개인정보 제3자 제공 동의(필수)			✅	✅	TW-MY-INFO-MOPC-043-PU-028	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-BS-007-0	마이	나의 가입 정보	이동전화	장기일시정지	관계 선택	BS	가족 관계 선택 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-031	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-025-0	마이	나의 가입 정보	이동전화	장기일시정지	파일 첨부하기	PU	증빙 서류 파일 첨부			✅	✅	TW-MY-INFO-MOPC-043-PU-032	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-026-0	마이	나의 가입 정보	이동전화	장기일시정지	입영일자 등록 완료	PU	입영일자 등록 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-029	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-027-0	마이	나의 가입 정보	이동전화	장기일시정지	입영일자 등록 실패	PU	입영일자 등록 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-030	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-028-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 접수 완료	PU	장기 일시정지 접수 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-033	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-029-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 신청 완료	PU	장기 일시정지 신청 완료		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-034	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-030-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 접수/신청 실패	PU	장기 일시정지 접수/신청 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-035	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-031-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 해제	PU	장기 일시정지 해제 신청	장기일시정지		✅	✅	TW-MY-INFO-MOPC-043-PU-040	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-032-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 해제 완료	PU	장기 일시정지 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-041	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-033-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 해제 실패	PU	장기 일시정지 해제 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-042	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-034-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 예약 취소	PU	장기 일시정지 예약 취소	장기일시정지		✅	✅	TW-MY-INFO-MOPC-043-PU-043	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-035-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 예약 취소 완료	PU	장기 일시정지 예약 취소 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-044	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-036-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 예약 취소 실패	PU	장기 일시정지 예약 취소 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-045	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-037-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 재신청	PU	장기 일시정지 재신청	장기일시정지		✅	✅	TW-MY-INFO-MOPC-043-PU-046	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-038-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 재신청 완료	PU	장기 일시정지 재신청 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-047	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-039-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 재신청 실패	PU	장기 일시정지 재신청 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-048	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-023-0	마이	나의 가입 정보	이동전화	나의 요금제/부가서비스		PG	나의 요금제 및 부가서비스 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-093	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-024-0	마이	나의 가입 정보	이동전화	나의 요금제/부가서비스	나의 부가서비스	PG	부가서비스 가입 목록 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-098	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-025-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림		PG	요금제 변경 가능일 알림 설정 메인	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-094	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-CP-006-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림	신청 완료	CP	요금제 변경 가능일 알림 신청 완료			✅	✅	TW-MY-INFO-MOPC-043-CP-095	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PU-040-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림	신청 내역	PU	요금제 변경 가능일 알림 신청 내역			✅	✅	TW-MY-INFO-MOPC-043-PU-096	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-CP-007-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림	해지 완료	CP	요금제 변경 가능일 알림 해지 완료			✅	✅	TW-MY-INFO-MOPC-043-CP-097	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-026-0	마이	나의 가입 정보	이동전화	T high5 적금 현황 조회		PG	T high5 적금 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-099	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-027-0	마이	나의 가입 정보	이동전화	KDB x T high5 적금 현황 조회		PG	KDB x T high5 적금 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-100	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-028-0	마이	나의 가입 정보	이동전화	나의 결합상품		PG	결합 상품 가입 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-101	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-029-0	마이	나의 가입 정보	이동전화	나의 결합상품	T 끼리 온가족할인_결합 가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-127	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-030-0	마이	나의 가입 정보	이동전화	나의 결합상품	T+B인터넷 결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-138	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-031-0	마이	나의 가입 정보	이동전화	나의 결합상품	T+B전화/인터넷전화 결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-140	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-032-0	마이	나의 가입 정보	이동전화	나의 결합상품	온가족플랜_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-141	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-033-0	마이	나의 가입 정보	이동전화	나의 결합상품	NEW온가족플랜_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-142	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-034-0	마이	나의 가입 정보	이동전화	나의 결합상품	온가족행복플랜_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-143	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-035-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족프리_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-145	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-036-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족무료_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-148	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-037-0	마이	나의 가입 정보	이동전화	나의 결합상품	가족나눔데이터_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-149	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-038-0	마이	나의 가입 정보	이동전화	나의 결합상품	T가족결합(착한가족)_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-152	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-041-0	마이	나의 가입 정보	이동전화	나의 결합상품	요즘가족결합_결합 가족 보기	PU				✅	✅	TW-MY-INFO-MOPC-043-PU-102	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-097-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기		PU	결합 회선 추가 진입	나의 결합상품		✅	✅		TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-042-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	개인/가족 결합 유형 선택	PU	결합 회선 추가 - 결합 유형 선택	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-105	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-043-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 결합 안내	PU	가족 결합 안내 화면 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-106	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-044-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 결합 안내	PU	가족 결합 안내 화면 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-128	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-045-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 회선 추가	PU	결합 회선 추가 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-107	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-046-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 회선 추가	PU	결합 회선 추가 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-129	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-047-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 회선 추가하기	PU	가족 회선 추가			✅	✅	TW-MY-INFO-MOPC-043-PU-108	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-048-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	예상 할인 금액 확인	PU	예상 할인 금액 확인 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-109	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-049-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	예상 할인 금액 확인	PU	예상 할인 금액 확인 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-130	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-050-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 관계 증명 서류 제출	PU	가족 관계 증명 서류 제출 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-110	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-051-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 관계 증명 서류 제출	PU	가족 관계 증명 서류 제출 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-131	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-052-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가입정보 확인	PU	가입정보 확인 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-111	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-053-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가입정보 확인	PU	가입정보 확인 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-132	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-054-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	개인정보 처리 동의	PU	개인정보 처리 동의 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-112	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-055-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	개인정보 처리 동의	PU	개인정보 처리 동의 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-133	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-056-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 상품 추가 완료	PU	결합 상품 추가 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-113	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-057-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 상품 추가 신청 완료	PU	결합 상품 추가 신청 완료 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-114	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-058-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 상품 추가 신청 완료	PU	결합 상품 추가 신청 완료 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-134	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-059-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	심사 진행 현황	PU	결합 심사 진행 현황			✅	✅	TW-MY-INFO-MOPC-043-PU-115	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-CP-008-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	회선 추가 불가_최대 개수 초과	CP	결합 회선 최대 개수 초과 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-CP-103	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-CP-009-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	업무 처리 불가_미성년자 가족 대표	CP	미성년자가 가족 대표인 경우 업무 처리 불가		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-104	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-060-0	마이	나의 가입 정보	이동전화	결합 해제		PU	결합 해제 진입 및 안내	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-116	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-061-0	마이	나의 가입 정보	이동전화	결합 해제	안내사항 확인	PU	결합 해제 안내사항 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-117	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-062-0	마이	나의 가입 정보	이동전화	결합 해제	예상 할인 금액 확인	PU	결합 해제 시 예상 할인 금액 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-118	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-063-0	마이	나의 가입 정보	이동전화	결합 해제	가입정보 확인	PU	결합 해제 가입정보 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-119	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-064-0	마이	나의 가입 정보	이동전화	결합 해제	결합 해제 완료	PU	결합 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-120	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-065-0	마이	나의 가입 정보	이동전화	대표 회선 변경		PU	대표 회선 변경 (케이스1)	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-121	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-066-0	마이	나의 가입 정보	이동전화	대표 회선 변경		PU	대표 회선 변경 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-135	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-067-0	마이	나의 가입 정보	이동전화	대표 회선 변경	대표 회선 변경 완료	PU	대표 회선 변경 완료 (케이스1)			✅	✅	TW-MY-INFO-MOPC-043-PU-122	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-068-0	마이	나의 가입 정보	이동전화	대표 회선 변경	대표 회선 변경 완료	PU	대표 회선 변경 완료 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-136	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-069-0	마이	나의 가입 정보	이동전화	결합상품 해지		PU	결합상품 해지 진입	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-123	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-070-0	마이	나의 가입 정보	이동전화	결합상품 해지	결합상품 해지 완료	PU	결합상품 해지 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-124	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-071-0	마이	나의 가입 정보	이동전화	할인 방식 선택		PU	결합 할인 방식 선택	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-125	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-CP-010-0	마이	나의 가입 정보	이동전화	할인 방식 선택	할인 방식 변경 완료	CP	할인 방식 변경 완료 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-126	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-072-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족프리 데이터 혜택 변경	PU	TB끼리 온가족프리 데이터 혜택 변경			✅	✅	TW-MY-INFO-MOPC-043-PU-146	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-073-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족프리 지정회선 변경	PU	TB끼리 온가족프리 지정회선 변경			✅	✅	TW-MY-INFO-MOPC-043-PU-147	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-074-0	마이	나의 가입 정보	이동전화	나의 결합상품	데이터 나눠쓰기	PU	데이터 나눠쓰기 신청			✅	✅	TW-MY-INFO-MOPC-043-PU-150	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-075-0	마이	나의 가입 정보	이동전화	나의 결합상품	데이터 나눠쓰기 완료	PU	데이터 나눠쓰기 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-151	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-076-0	마이	나의 가입 정보	이동전화	이용계약 등록사항 증명서_인쇄하기		PU	이용계약 등록사항 증명서 인쇄 (PC)	이동전화		✅	✅	TW-MY-INFO-PC-062-LP-023	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-077-0	마이	나의 가입 정보	이동전화	SIM 잠금 해제코드(PUK 번호) 조회		PU	SIM 잠금 해제코드(PUK) 조회 (PC)	이동전화		✅	✅	TW-MY-INFO-PC-062-LP-024	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-039-0	마이	나의 가입 정보	나의 가입정보 (PC)			PG	나의 가입정보 PC 버전	이동전화		✅	✅	TW-MY-INFO-PC-062-PG-022	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-040-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 가입 내역		PG	인터넷/전화/B tv 가입 내역 조회	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-081	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-041-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 가입 내역	사은품 조회	PG	사은품 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-082	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-042-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 가입 내역	할인 반환금 조회	PG	할인 반환금 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-083	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-043-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황		PG	가입/변경 신청 현황 조회	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-084	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-044-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	신규가입 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-085	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-045-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	가입상품 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-086	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-046-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	약정기간 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-087	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-047-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	요금상품 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-088	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-048-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	설치장소 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-089	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-049-0	마이	나의 가입 정보	인터넷/전화/B tv	장애 A/S 신청현황		PG	장애/A/S 신청 현황	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-090	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-050-0	마이	나의 가입 정보	인터넷/전화/B tv	장애 A/S 신청현황	상세조회	PG	장애/A/S 신청 현황 상세 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-091	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-051-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷 전화 번호이동 신청 현황		PG	인터넷 전화 번호이동 신청 현황	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-092	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-078-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 이용계약 정보		PU	이용계약 정보 상세 조회	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-051	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-079-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 망 작업 SMS 알림 신청		PU	망 작업 SMS 알림 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-052	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-011-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 망 작업 SMS 알림 신청	망 작업 SMS 알림 차단	CP	망 작업 SMS 알림 차단 확인			✅	✅	TW-MY-INFO-MOPC-043-CP-053	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-012-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 망 작업 SMS 알림 신청	수신 거부 처리 완료	CP	수신 거부 처리 완료 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-054	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-080-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 상품 업그레이드 신청		PU	인터넷/전화/B tv 상품 업그레이드 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-055	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-BS-008-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 상품 업그레이드 신청	상품 선택	BS	업그레이드 상품 선택 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-056	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-BS-009-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 상품 업그레이드 신청	요금제 선택	BS	업그레이드 요금제 선택 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-057	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-081-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 명의변경 신청 방법		PU	명의변경 신청 방법 안내	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-058	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-052-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청		PG	서비스 해지 신청 메인	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-059	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-082-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	안내사항 확인	PU	해지 신청 전 안내사항 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-060	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-083-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	서비스 해지 신청 완료	PU	서비스 해지 신청 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-061	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-084-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	서비스 해지 신청 실패	PU	서비스 해지 신청 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-062	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-053-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	서비스 해지 신청 현황	PG	서비스 해지 신청 현황			✅	✅	TW-MY-INFO-MOPC-043-PG-063	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-013-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	해지 신청 취소 Confirm	CP	해지 신청 취소 확인 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-064	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-085-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	해지 신청 취소 완료	PU	해지 신청 취소 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-065	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-086-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	해지 신청 취소 실패	PU	해지 신청 취소 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-066	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-087-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제		PU	인터넷/전화/B tv 일시정지/해제 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-067	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-088-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 완료	PU	일시정지 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-069	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-089-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 실패	PU	일시정지 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-070	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-090-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 현황	PU	일시정지 현황 조회			✅	✅	TW-MY-INFO-MOPC-043-PU-071	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-091-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 해제 완료	PU	일시정지 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-073	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-092-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 해제 실패	PU	일시정지 해제 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-074	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-093-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경		PU	전화 번호 변경 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-075	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-094-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	전화 번호변경 확인	PU	전화 번호 변경 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-076	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-014-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	번호변경 불가_이미 접수중	CP	이미 접수 중 또는 취소 중인 경우 불가 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-CP-079	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-015-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	번호변경 불가_회선 정지 상태	CP	회선 정지 상태로 번호 변경 불가 안내		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-080	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-095-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	전화 번호변경 신청 완료	PU	전화 번호 변경 신청 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-077	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-096-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	전화 번호변경 실패	PU	전화 번호 변경 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-078	TW		
+앱-MOD	US-LCM-CUS-001	회선 변경 업무 진입과 처리 경로 결정	NOVA-MOD-PU-001-0	마이	회선 변경/관리	회선정보 변경			PU	조회 회선 변경 선택 팝업 (공통)			✅	✅	TW-MY-MOD-PC-52-LP-119	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-001-0	마이	회선 변경/관리	분실신고/해제			PG	휴대폰 분실신고 및 해제 메인	마이		✅	✅	TW-MY-MOD-PC-069-PG-070	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-002-0	마이	회선 변경/관리	분실신고/해제	1단계_상품 선택		PG	분실신고 1단계 - 상품 선택			✅	✅	TW-MY-MOD-PC-074-PG-071	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-003-0	마이	회선 변경/관리	분실신고/해제	2단계_정보 입력		PG	분실신고 2단계 - 정보 입력			✅	✅	TW-MY-MOD-PC-074-PG-072	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-004-0	마이	회선 변경/관리	분실신고/해제	3단계_분실신고 완료		PG	분실신고 3단계 - 완료			✅	✅	TW-MY-MOD-PC-074-PG-073	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-005-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청		PG	분실 후 임대폰 신청 메인	분실신고/해제		✅	✅	TW-MY-MOD-PC-074-PG-074	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-006-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	1단계_개인정보 활용 동의	PG	임대폰 신청 1단계 - 개인정보 동의			✅	✅	TW-MY-MOD-PC-074-PG-075	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-007-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	2단계_신청내용 작성	PG	임대폰 신청 2단계 - 내용 작성			✅	✅	TW-MY-MOD-PC-074-PG-076	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-008-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	3단계_완료	PG	임대폰 신청 3단계 - 완료			✅	✅	TW-MY-MOD-PC-074-PG-077	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-009-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	1단계_임대폰 선택	PG	임대폰 선택 단계		케이스 1	✅	✅	TW-MY-MOD-PC-074-PG-078	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-010-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	2단계_완료	PG	임대폰 선택 후 완료		케이스 1	✅	✅	TW-MY-MOD-PC-074-PG-079	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-011-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	임대폰 신청 실패	PG	임대폰 신청 실패		예외 1	✅	✅	TW-MY-MOD-PC-074-PG-080	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PG-012-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	신청내역	PG	임대폰 신청 내역 조회			✅	✅	TW-MY-MOD-PC-074-PG-081	TW		
+앱-MOD	US-LCM-CUS-003	분실·도난 긴급 차단과 복구 진행	NOVA-MOD-PU-002-0	마이	회선 변경/관리	분실신고/해제	휴대폰 임대 신청	신청현황_인쇄하기	PU	임대폰 신청 현황 인쇄			✅	✅	TW-MY-MOD-PC-074-LP-082	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-038-0	마이	회선 변경/관리	회선 해지			PG	회선 해지 진입 메인 (이동전화/인터넷/전화/B tv)	마이		✅	✅				
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-042-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청		PG	휴대폰 해지 신청 진입 메인	회선 해지		✅	✅		TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-013-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	1단계_해지 신청 안내	PG	휴대폰 해지 신청 1단계 - 해지 안내	마이		✅	✅	TW-MY-MOD-PC-074-PG-034	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-014-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	2단계_개인정보 및 해지 이유 입력	PG	휴대폰 해지 신청 2단계 - 개인정보 입력			✅	✅	TW-MY-MOD-PC-074-PG-035	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-015-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	3단계_휴대폰 할부금 납부 방법	PG	휴대폰 해지 신청 3단계 - 할부금 납부			✅	✅	TW-MY-MOD-PC-074-PG-036	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-016-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	4단계_해지 신청 완료	PG	휴대폰 해지 신청 4단계 - 완료			✅	✅	TW-MY-MOD-PC-074-PG-037	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-017-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	해지 신청 현황	PG	해지 신청 현황 조회			✅	✅	TW-MY-MOD-PC-074-PG-038	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-CP-001-0	마이	회선 변경/관리	회선 해지	휴대폰 해지 신청	해지 신청 취소 완료	CP	해지 신청 취소 완료 팝업			✅	✅	TW-MY-MOD-PC-074-CP-039	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-043-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청		PG	인터넷/전화/B tv 해지 신청 진입	회선 해지		✅	✅		TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-018-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	미로그인 Case	PG	인터넷/전화/B tv 해지 신청 진입 (미로그인)	마이		✅	✅	TW-MY-MOD-PC-074-PG-040	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-019-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	해지 상품 조회	PG	해지 대상 상품 조회			✅	✅	TW-MY-MOD-PC-074-PG-041	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-020-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	1단계_해지 신청 안내	PG	인터넷/전화/B tv 해지 신청 1단계			✅	✅	TW-MY-MOD-PC-074-PG-042	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-021-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	2단계_연락처 등록	PG	인터넷/전화/B tv 해지 신청 2단계			✅	✅	TW-MY-MOD-PC-074-PG-043	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-022-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	3단계_할인반환금 및 사용요금 확인	PG	인터넷/전화/B tv 해지 신청 3단계			✅	✅	TW-MY-MOD-PC-074-PG-044	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-023-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	4단계_해지 신청 완료	PG	인터넷/전화/B tv 해지 신청 4단계			✅	✅	TW-MY-MOD-PC-074-PG-045	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-024-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	해지 신청 현황	PG	인터넷/전화/B tv 해지 신청 현황			✅	✅	TW-MY-MOD-PC-074-PG-046	TW		
+앱-MOD	US-LCM-CUS-004	회선 해지·해지예약과 영향 확인	NOVA-MOD-PG-025-0	마이	회선 변경/관리	회선 해지	인터넷/전화/B tv 해지 신청	해지 신청 취소 완료	PG	인터넷/전화/B tv 해지 신청 취소 완료			✅	✅	TW-MY-MOD-PC-074-PG-047	TW		
+앱-MOD	US-LCM-CUS-005	계약자 변경·양도와 구성원 권한 관리	NOVA-MOD-PG-039-0	마이	회선 변경/관리	계약자 변경			PG	계약자 변경/양도 진입 메인	마이		✅	✅				
+앱-MOD	US-LCM-CUS-005	계약자 변경·양도와 구성원 권한 관리	NOVA-MOD-PG-026-0	마이	회선 변경/관리	계약자 변경	고객보호 비밀번호 서비스_해지		PG	고객보호 비밀번호 서비스 해지 화면	마이		✅	✅	TW-MY-MOD-PC-063-PG-001	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-040-0	마이	회선 변경/관리	기기변경			PG	기기 변경 업무 진입 메인 (기기갱신)	마이		✅	✅				
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-027-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력		PG	기기 갱신 신청 - IMEI 입력 화면	마이		✅	✅	TW-MY-MOD-PC-068-PG-048	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-003-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	EID 및 IMEI 번호 확인 방법	PU	EID/IMEI 확인 방법 안내 (도움말)			✅	✅	TW-MY-MOD-PC-068-LP-049	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-004-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	USIM 카드 모델/일련번호 확인	PU	USIM 카드 모델/일련번호 확인 안내			✅	✅	TW-MY-MOD-PC-068-LP-050	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-005-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	OMD단말 이용확인서	PU	OMD 단말 이용 확인서 동의		케이스 1	✅	✅	TW-MY-MOD-PC-068-LP-051	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-006-0	마이	회선 변경/관리	기기변경	기기갱신 신청화면_IMEI 입력	타사 단말기 개통 안내	PU	타사 단말기 SK텔레콤 개통 시 안내사항		케이스 2	✅	✅	TW-MY-MOD-PC-068-LP-052	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-028-0	마이	회선 변경/관리	기기변경	기기갱신 2단계_실패		PG	기기 갱신 2단계 실패 안내		예외 1	✅	✅	TW-MY-MOD-PC-068-PG-058	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-029-0	마이	회선 변경/관리	기기변경	기기갱신 불가_USIM 단독 상태		PG	USIM 단독 상태로 기기 갱신 불가 안내		예외 2	✅	✅	TW-MY-MOD-PC-068-PG-059	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-041-0	마이	회선 변경/관리	번호변경			PG	번호 변경 업무 진입 메인	마이		✅	✅				
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-044-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경		PG	휴대폰 번호 변경 진입 메인	번호변경		✅	✅	TW-MY-MOD-PC-070-PG-060	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-030-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	희망번호 조회 전	PG	휴대폰 번호 변경 - 희망번호 조회 전	마이		✅	✅	TW-MY-MOD-PC-070-PG-060	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-031-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	희망번호 조회 후	PG	휴대폰 번호 변경 - 희망번호 조회 후			✅	✅	TW-MY-MOD-PC-070-PG-088	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-007-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	해지 필요한 부가서비스 안내	PU	번호 변경 시 해지 필요한 부가서비스 안내			✅	✅	TW-MY-MOD-PC-070-LP-061	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-008-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	부가서비스 자동해지 안내	PU	번호 변경 시 자동 해지 부가서비스 안내			✅	✅	TW-MY-MOD-PC-070-LP-062	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-009-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	가입중인 로밍 상품 안내	PU	번호 변경 시 로밍 상품 안내			✅	✅	TW-MY-MOD-PC-070-LP-063	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-032-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 완료	PG	휴대폰 번호 변경 완료			✅	✅	TW-MY-MOD-PC-070-PG-063	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-033-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 실패	PG	휴대폰 번호 변경 실패		예외 1	✅	✅	TW-MY-MOD-PC-070-PG-064	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-034-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 불가_SMS 미수신 단말	PG	SMS 미수신 단말 번호 변경 불가 안내		예외 2	✅	✅	TW-MY-MOD-PC-070-PG-065	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-035-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	번호변경 불가_해외 로밍 이용 중	PG	해외 로밍 이용 중 번호 변경 불가 안내		예외 3	✅	✅	TW-MY-MOD-PC-070-PG-066	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-010-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	휴대폰 세팅 방법 보기_모델명 검색	PU	번호 변경 후 휴대폰 세팅 방법 안내			✅	✅	TW-MY-MOD-PC-070-LP-067	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-011-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	나밍서비스	PU	나밍서비스 안내			✅	✅	TW-MY-MOD-PC-070-LP-068	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-012-0	마이	회선 변경/관리	번호변경	휴대폰 번호변경	글로벌OTA	PU	글로벌 OTA 안내			✅	✅	TW-MY-MOD-PC-070-LP-069	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-036-0	마이	회선 변경/관리	미환급금 조회			PG	미환급금 조회 - 미로그인 Case	마이		✅	✅	TW-MY-MOD-PC-083-PG-001	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PG-037-0	마이	회선 변경/관리	미환급금 조회	미환급금 조회 (로그인)		PG	미환급금 내역 조회 및 환불 계좌 등록	미환급금 조회		✅	✅	TW-MY-MOD-PC-083-PG-002	TW		
+앱-MOD	US-LCM-CUS-007	회선 변경 신청 이력과 복구 행동 관리	NOVA-MOD-PU-013-0	마이	회선 변경/관리	미환급금 조회	미환급금 조회 (로그인)	환불신청계좌 수정	PU	환불 신청 계좌 수정 팝업			✅	✅	TW-MY-MOD-PC-083-LP-003	TW		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-001-0	마이	멤버십 카드 관리	회원 카드관리			PG	멤버십 카드 상태 확인 메인 화면. 정상 상태.	마이		✅	✅	TM-MY-MBS-MO-09-PG-001	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-002-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건1)		케이스 1	✅		TM-MY-MBS-MO-09-PG-035	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-003-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건2)		케이스 2	✅		TM-MY-MBS-MO-09-PG-036	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-004-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건3)		케이스 3	✅		TM-MY-MBS-MO-09-PG-037	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-005-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건4)		케이스 4	✅		TM-MY-MBS-MO-09-PG-047	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-006-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건5)		케이스 5	✅		TM-MY-MBS-MO-09-PG-049	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-007-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건6)		케이스 6	✅		TM-MY-MBS-MO-09-PG-050	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-008-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건7)		케이스 7	✅		TM-MY-MBS-MO-09-PG-051	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-009-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건8)		케이스 8	✅		TM-MY-MBS-MO-09-PG-010	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-010-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건9)		케이스 9	✅		TM-MY-MBS-MO-09-PG-026	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-011-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건10)		케이스 10	✅		TM-MY-MBS-MO-09-PG-060	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-012-0	마이	멤버십 카드 관리	회원 카드관리 (일시정지)			PG	카드 일시정지 상태		예외 1	✅	✅	TM-MY-MBS-MO-09-PG-053	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-013-0	마이	멤버십 카드 관리	회원 카드관리 (이용정지)			PG	카드 이용정지 상태		예외 2	✅	✅	TM-MY-MBS-MO-09-PG-055	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-014-0	마이	멤버십 카드 관리	회원 카드관리 (해지신청)			PG	카드 해지 신청 상태		예외 3	✅	✅	TM-MY-MBS-MO-09-PG-058	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-015-0	마이	멤버십 카드 관리	회원 카드관리 (해지신청_서비스해지 등)			PG	카드 해지신청_서비스해지·명의변경·번호이동해지 상태		예외 4	✅	✅	TM-MY-MBS-MO-09-PG-068	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-016-0	마이	멤버십 카드 관리	회원정보			PG	멤버십 회원 정보 조회 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-001; TM-MY-MBS-PC-56-TB-006; TM-MY-MBS-PC-56-TB-008; TM-MY-MBS-PC-56-TB-010	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-017-0	마이	멤버십 카드 관리	T 멤버십 카드 신청			PG	카드 신청 진입 (자사 SKT)			✅	✅	TM-MY-MBS-MO-09-PG-100	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-018-0	마이	멤버십 카드 관리	T 멤버십 카드 신청 (14세 미만-법정대리인 정보 없음)			PG	14세 미만 법정대리인 정보 없음 케이스		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-025	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-019-0	마이	멤버십 카드 관리	T 멤버십 카드 신청 (타사)			PG	타사 가입자 카드 신청		케이스 2	✅	✅	TM-MY-MBS-MO-09-PG-027	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-020-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	정보확인		PG	신청 정보 확인 단계			✅	✅	TM-MY-MBS-MO-09-PG-016	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-021-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	추가혜택		PG	추가 혜택 선택 단계			✅	✅	TM-MY-MBS-MO-09-PG-017	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-022-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	보호자 동의		PG	14세 미만 보호자 동의 단계		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-019	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-023-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	14세 미만 약관동의		PG	14세 미만 약관 동의 단계		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-020	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-024-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	신청완료		PG	카드 신청 완료			✅	✅	TM-MY-MBS-MO-09-PG-018	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-025-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	정보확인		PG	정보확인 화면 (대안 케이스)		케이스 3	✅	✅	TM-MY-MBS-MO-09-PG-032	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-026-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경			PG	PC 카드 신청/변경 진입			✅	✅	TM-MY-MBS-PC-56-PG-012	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-027-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	발급 회선 미보유		PG	신규 발급 - 발급 회선 미보유 케이스		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-015	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-028-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	약관동의		PG	신규 발급 약관 동의			✅	✅	TM-MY-MBS-PC-56-PG-016; TM-MY-MBS-PC-56-PG-024; TM-MY-MBS-PC-56-PG-029; TM-MY-MBS-PC-56-PG-040	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-029-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	정보확인		PG	신규 발급 정보 확인			✅	✅	TM-MY-MBS-PC-56-PG-017; TM-MY-MBS-PC-56-PG-030; TM-MY-MBS-PC-56-PG-041	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-030-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	추가혜택		PG	신규 발급 추가 혜택			✅	✅	TM-MY-MBS-PC-56-PG-018; TM-MY-MBS-PC-56-PG-031; TM-MY-MBS-PC-56-PG-042; TM-MY-MBS-PC-56-PG-080	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-031-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	신청완료		PG	신규 발급 신청 완료			✅	✅	TM-MY-MBS-PC-56-PG-019; TM-MY-MBS-PC-56-PG-032; TM-MY-MBS-PC-56-PG-043	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-032-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	신청실패		PG	신규 발급 신청 실패		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-020; TM-MY-MBS-PC-56-PG-033; TM-MY-MBS-PC-56-PG-044	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-033-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	보호자 동의		PG	14세 미만 보호자 동의 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-022; TM-MY-MBS-PC-56-PG-079	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-034-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	보호자 동의 (법정대리인 없음)		PG	14세 미만 보호자 동의 - 법정대리인 정보 없음 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-023	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-035-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	약관동의 (발급 가능 회선 미보유)		PG	발급 가능 회선 미보유 시 약관 동의		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-028	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-036-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	회선 번호 업데이트 필요		PG	신규 발급 - 회선 번호 업데이트 필요 케이스		예외 2	✅	✅	TM-MY-MBS-PC-56-PG-078	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-063-0	마이	멤버십 카드 관리	고객센터 카드신청			PG	고객센터 경유 카드 신청 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-037-0	마이	멤버십 카드 관리	고객센터 카드신청	약관동의		PG	고객센터 경유 카드신청 약관 동의 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-071; TM-MY-MBS-PC-56-PG-073	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-038-0	마이	멤버십 카드 관리	고객센터 카드신청	카드 입력 정보		PG	고객센터 경유 카드신청 스마트폰 입력 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-072	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-039-0	마이	멤버십 카드 관리	고객센터 카드신청	추가혜택		PG	고객센터 경유 카드신청 추가혜택 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-080	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-040-0	마이	멤버십 카드 관리	고객센터 카드신청	신청완료		PG	고객센터 경유 카드신청 완료 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-074	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-041-0	마이	멤버십 카드 관리	고객센터 카드신청	신청실패		PG	고객센터 경유 카드신청 실패 (PC)		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-075	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-042-0	마이	멤버십 카드 관리	해지 가능한 카드 미보유			PG	해지 가능한 카드가 없는 케이스 안내		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-077	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PU-001-0	마이	멤버십 카드 관리	T 멤버십 카드 해지			PU	카드 해지 진입 및 내용 확인			✅	✅	TM-MY-MBS-MO-09-PU-006	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-001-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	T 멤버십 카드 해지 안내 얼럿		CP	해지 진행 확인 팝업			✅	✅	TM-MY-MBS-MO-09-CP-007	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-002-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 실패 얼럿		CP	해지 신청 실패 안내 팝업		예외 1	✅	✅	TM-MY-MBS-MO-09-CP-008	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-043-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지완료		PG	카드 해지 완료			✅	✅	TM-MY-MBS-MO-09-PG-009	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-003-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	즉시 해지하기 얼럿		CP	즉시 해지 확인 팝업		케이스 1	✅	✅	TM-MY-MBS-MO-09-CP-060	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-004-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	즉시 해지 완료 얼럿		CP	즉시 해지 완료 팝업		케이스 1	✅	✅	TM-MY-MBS-MO-09-CP-061	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-005-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	즉시 해지 실패 얼럿		CP	즉시 해지 실패 팝업		예외 1	✅	✅	TM-MY-MBS-MO-09-CP-064	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-006-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 취소안내 얼럿		CP	해지 신청 취소 안내 팝업			✅	✅	TM-MY-MBS-MO-09-CP-065	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-007-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 취소완료 얼럿		CP	해지 신청 취소 완료 팝업			✅	✅	TM-MY-MBS-MO-09-CP-066	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-008-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 취소실패 얼럿		CP	해지 신청 취소 실패 팝업		예외 1	✅	✅	TM-MY-MBS-MO-09-CP-067	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-065-0	마이	멤버십 카드 관리	카드 해지 (PC)			PG	카드 해지 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-044-0	마이	멤버십 카드 관리	카드 해지 (PC)	카드해지_해지신청		PG				✅	✅	TM-MY-MBS-PC-56-PG-046; TM-MY-MBS-PC-56-PG-051; TM-MY-MBS-PC-56-PG-056	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-045-0	마이	멤버십 카드 관리	카드 해지 (PC)	카드해지_해지완료		PG				✅	✅	TM-MY-MBS-PC-56-PG-047; TM-MY-MBS-PC-56-PG-052; TM-MY-MBS-PC-56-PG-057	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-046-0	마이	멤버십 카드 관리	카드 해지 (PC)	카드해지_해지신청(해지 신청 상태)		PG			예외 1	✅	✅	TM-MY-MBS-PC-56-PG-048; TM-MY-MBS-PC-56-PG-053; TM-MY-MBS-PC-56-PG-058	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-067-0	마이	멤버십 카드 관리	카드 일시정지 (PC)			PG	카드 일시정지 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-047-0	마이	멤버십 카드 관리	카드 일시정지 (PC)	일시정지신청		PG	카드 일시정지 신청 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-062	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-048-0	마이	멤버십 카드 관리	카드 일시정지 (PC)	일시정지완료		PG	카드 일시정지 완료 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-063	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-049-0	마이	멤버십 카드 관리	카드 일시정지 (PC)	정지신청 가능한 회선 미보유		PG	카드 일시정지 - 정지 가능 회선 미보유		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-064	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-068-0	마이	멤버십 카드 관리	카드 이용정지 (PC)			PG	카드 이용정지 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-050-0	마이	멤버십 카드 관리	카드 이용정지 (PC)	정지신청		PG	카드 이용정지 신청 1 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-065; TM-MY-MBS-PC-56-PG-068	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-051-0	마이	멤버십 카드 관리	카드 이용정지 (PC)	정지신청 가능한 회선 미보유		PG	카드 이용정지 - 정지 가능 회선 미보유		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-066; TM-MY-MBS-PC-56-PG-069	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-052-0	마이	멤버십 카드 관리	카드 이용정지 (PC)	정지완료		PG	카드 이용정지 완료 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-067; TM-MY-MBS-PC-56-PG-070	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-066-0	마이	멤버십 카드 관리	카드 일시정지			PG	카드 일시정지 진입 (모바일)	멤버십 카드 관리		✅	✅	TM-MY-MBS-MO-09-PG-053	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-009-0	마이	멤버십 카드 관리	카드 일시정지	일시정지 안내 얼럿		CP	일시정지 진행 확인 팝업			✅	✅	TM-MY-MBS-MO-09-CP-004	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-010-0	마이	멤버십 카드 관리	카드 일시정지	일시정지 완료 얼럿		CP	일시정지 완료 팝업			✅	✅	TM-MY-MBS-MO-09-CP-005	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-053-0	마이	멤버십 카드 관리	등급 변경하기			PG	T멤버십 등급 변경 진입			✅	✅	TM-MY-MBS-MO-09-PG-038	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CP-011-0	마이	멤버십 카드 관리	등급 변경하기	등급 변경하기 얼럿		CP	등급 변경 확인 팝업			✅	✅	TM-MY-MBS-MO-09-CP-044	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-054-0	마이	멤버십 카드 관리	등급 변경하기	변경 완료		PG	등급 변경 완료			✅	✅	TM-MY-MBS-MO-09-PG-045	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-055-0	마이	멤버십 카드 관리	LITE 등급 신청			PG	LITE 등급 신청 (MNP-OUT)		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-061	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CP-012-0	마이	멤버십 카드 관리	LITE 등급 신청	LITE 등급 신청 얼럿		CP	LITE 등급 신청 확인 팝업		케이스 1	✅	✅	TM-MY-MBS-MO-09-CP-070	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-056-0	마이	멤버십 카드 관리	LITE 등급 신청	신청 완료		PG	LITE 등급 신청 완료		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-063	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-064-0	마이	멤버십 카드 관리	등급 변경하기 (PC)			PG	등급 변경하기 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-057-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	약관동의 (대표회선 미등록)		PG	등급 변경 - 대표 회선 미등록 시 약관 동의 (PC)		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-034	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-058-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	약관동의		PG	등급 변경 약관 동의 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-035	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-059-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	정보확인		PG	등급 변경 정보 확인 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-036	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-060-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	추가혜택		PG	등급 변경 추가 혜택 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-037	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-061-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	변경완료		PG	등급 변경 완료 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-038	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-062-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	변경실패		PG	등급 변경 실패 (PC)		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-039	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CP-013-0	마이	멤버십 카드 관리	로그인 얼럿			CP	로그인 필요 안내 팝업 (공통)			✅	✅	TM-MY-MBS-MO-09-CP-046; TM-MY-MBS-MO-09-CP-062	TM	●	
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CT-001-0	마이	멤버십 카드 관리	T-ID 링크			CT	T-ID 외부 링크			✅	✅	TM-MY-MBS-MO-09-LN-078	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-CP-014-0	마이	멤버십 카드 관리	카드 신청 필요 얼럿			CP	카드 미신청 상태 진입 시 안내 팝업			✅	✅	TM-MY-MBS-MO-02-CP-005; TM-MY-MBS-MO-02-CP-025; TM-MY-MBS-MO-02-CP-093; TM-MY-MBS-MO-02-CP-143	TM	●	fadeout 검토대상
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-CP-015-0	마이	멤버십 카드 관리	카드 이용 불가 얼럿			CP	카드 이용 불가 상태 안내 팝업			✅	✅	TM-MY-MBS-MO-02-CP-012; TM-MY-MBS-MO-02-CP-028; TM-MY-MBS-MO-02-CP-102; TM-MY-MBS-MO-02-CP-144	TM	●	fadeout 검토대상
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-001-0	마이	나의 요금				PG	요금 홈 — 당월 청구금액·납부예정일·납부상태 요약	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-001	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-002-0	마이	나의 요금	나의 요금_선불폰(PPS) Case			PG	선불폰 고객 진입 시 PPS 요금 표시		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PG-002	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-003-0	마이	나의 요금	미납 요금			PG	미납 요금 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-047	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-004-0	마이	나의 요금	미리납부하신 금액(MIRI)			PG	선납금액(MIRI) 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-057	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-005-0	마이	나의 요금	자녀 이용요금			PG	가족/자녀 회선 요금 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-058	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-006-0	마이	나의 요금	지난 달 요금 보기			PG	전월 요금 상세			✅	✅	TW-MY-FEE-MOPC-045-PG-060	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PU-001-0	마이	나의 요금	콜기프트 이용요금 조회			PU	콜기프트 이용료 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-054	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PU-002-0	마이	나의 요금	로밍 이용요금 조회			PU	로밍 요금 상세 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-055	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PU-003-0	마이	나의 요금	기부금/후원금 상세조회			PU	기부·후원금 내역 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-056	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-BS-001-0	마이	나의 요금	청구월 선택			BS	청구 기준월 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-003	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-BS-002-0	마이	나의 요금	조건 변경(청구월 변경)			BS	청구월 조건 변경 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-053	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-BS-003-0	마이	나의 요금	요금정보 선택			BS	요금 항목 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-167	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-007-0	마이	나의 요금	요금안내서			PG	청구서 상세 내용 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-051	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-008-0	마이	나의 요금	요금안내서_선불폰(PPS) Case			PG	PPS 고객 청구서 뷰		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PG-052	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-009-0	마이	나의 요금	Bills (English)			PG	영문 요금 홈 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-001; TW-MY-FEE-MOPC-055-PG-039	TW	●	fadeout 검토대상
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-010-0	마이	나의 요금	Miri (English)			PG	영문 MIRI 화면 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-021	TW		fadeout 검토대상
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-011-0	마이	나의 요금	View previous monthly fee (English)			PG	영문 전월 요금 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-023	TW		fadeout 검토대상
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-012-0	마이	나의 요금	이용요금(PC)			PG	PC웹 이용요금 조회			✅	✅	TW-MY-FEE-PC-059-PG-006	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-013-0	마이	나의 요금	사용량 조회(PC)			PG	PC웹 사용량 조회			✅	✅	TW-MY-FEE-PC-051-LP-012; TW-MY-FEE-PC-051-LP-015	TW	●	
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-014-0	마이	나의 요금	사용패턴(PC)			PG	PC웹 사용패턴 분석			✅	✅	TW-MY-FEE-PC-051-PG-013	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-015-0	마이	나의 요금	청구내역 인쇄(PC)			PG	PC 청구내역 인쇄 화면			✅	✅	TW-MY-FEE-PC-059-LP-007; TW-MY-FEE-PC-059-LP-008	TW	●	
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-016-0	마이	나의 요금	로밍·기부금 상세 인쇄(PC)			PG	PC 로밍/기부금 상세 인쇄			✅	✅	TW-MY-FEE-PC-059-LP-009; TW-MY-FEE-PC-059-LP-010	TW	●	
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PG-017-0	마이	요금안내서 설정				PG	청구서 수신방식 조회·변경 진입	나의 요금		✅	✅	TW-MY-FEE-MOPC-045-PG-062	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-004-0	마이	요금안내서 설정	청구지 주소/연락처 변경			PU	청구지 주소 및 연락처 변경 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-004	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-005-0	마이	요금안내서 설정	요금안내서 변경_T world 확인			PU	T world 확인 방식으로 수신 변경		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-063	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-006-0	마이	요금안내서 설정	요금안내서 변경_Bill Letter			PU	Bill Letter 방식으로 수신 변경		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-064	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-007-0	마이	요금안내서 설정	요금안내서 변경_문자			PU	문자 수신 방식으로 변경		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-065	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-008-0	마이	요금안내서 설정	요금안내서 변경_이메일			PU	이메일 수신 방식으로 변경		케이스 4	✅	✅	TW-MY-FEE-MOPC-045-PU-066	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-009-0	마이	요금안내서 설정	요금안내서 변경_우편			PU	우편 수신 방식으로 변경		케이스 5	✅	✅	TW-MY-FEE-MOPC-045-PU-067	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-010-0	마이	요금안내서 설정	요금안내서 변경 완료			PU	수신방식 변경 완료 안내			✅	✅	TW-MY-FEE-MOPC-045-PU-068	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-011-0	마이	요금안내서 설정	요금안내서 변경 실패			PU	수신방식 변경 실패 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-069	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-012-0	마이	요금안내서 설정	요금안내서 재발행			PU	요금안내서 재발행 신청			✅	✅	TW-MY-FEE-MOPC-045-PU-070	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-013-0	마이	요금안내서 설정	요금안내서 재발행 완료			PU	재발행 완료 안내	재발행		✅	✅	TW-MY-FEE-MOPC-045-PU-071	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-014-0	마이	요금안내서 설정	요금안내서 재발행 실패			PU	재발행 실패 안내	재발행	예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-072	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-015-0	마이	요금안내서 설정	요금안내서 반송내역			PU	우편 반송 이력 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-073	TW		
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PG-001-0	마이	즉시납부				PG	즉시납부 실행 진입	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-140	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PG-002-0	마이	즉시납부	즉시납부 상세내역			PG	즉시납부 거래 상세			✅	✅	TW-MY-FEE-MOPC-045-PG-141	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-001-0	마이	즉시납부	납부요금 선택			PU	납부할 요금 항목 선택 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-007	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-002-0	마이	즉시납부	기타 납부하기			PU	기타 납부 수단 선택 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-006	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-003-0	마이	즉시납부	납부 가능한 요금 없음 안내			PU	납부 가능 요금 없을 때 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-009	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-004-0	마이	즉시납부	계좌이체 납부			PU	계좌이체로 즉시납부		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-016	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-005-0	마이	즉시납부	카드 납부			PU	신용/체크카드로 즉시납부		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-018	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-006-0	마이	즉시납부	11pay 납부			PU	11pay 간편결제 즉시납부		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-021	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-007-0	마이	즉시납부	지로납부 정보 없을 경우			PU	지로납부 정보 없음 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-PU-011	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-001-0	마이	즉시납부	지로납부			CP	지로납부 안내 팝업		케이스 4	✅	✅	TW-MY-FEE-MOPC-045-CP-010	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-002-0	마이	즉시납부	납부가능일 선택 Confirm			CP	납부 가능 일자 선택 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-049	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-008-0	마이	즉시납부	납부가능일 선택			PU	납부 가능 일자 선택 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-048	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-003-0	마이	즉시납부	이용정지 해제			CP	미납 납부 후 이용정지 해제 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-050	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-AP-001-0	마이	즉시납부	간편송금으로 바로납부 하기			AP	간편송금 납부 링크 액션			✅	✅	TW-MY-FEE-MOPC-045-LN-029	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-004-0	마이	즉시납부	(공통) 간편결제사 화면으로 이동			CP	간편결제 외부 이동 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-166	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-009-0	마이	즉시납부	(공통) 납부내역 확인			PU	납부 확인 단계 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-040	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-010-0	마이	즉시납부	(공통) 납부 완료			PU	납부 완료 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-041	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-011-0	마이	즉시납부	(공통) 납부 실패			PU	납부 실패 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-044	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-005-0	마이	즉시납부	문자 전송 불가			CP	입금계좌 문자 발송 불가 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-028	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-012-0	마이	즉시납부	입금 전용계좌 문자 안내 받기			PU	입금 전용계좌 문자 안내			✅	✅	TW-MY-FEE-MOPC-045-PU-026	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-013-0	마이	즉시납부	문자 전송 완료			PU	문자 전송 완료 안내	입금 전용계좌 문자 안내 받기		✅	✅	TW-MY-FEE-MOPC-045-PU-027	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-014-0	마이	즉시납부	입금 전용계좌 신청하기			PU	입금 전용계좌 신청 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-032	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-001-0	마이	즉시납부	은행 선택			BS	은행 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-017	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-002-0	마이	즉시납부	할부기간 선택			BS	카드 할부기간 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-019	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-003-0	마이	즉시납부	입금전용계좌 선택			BS	입금 전용계좌 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-031	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-004-0	마이	즉시납부	요금 납부			BS	납부 수단 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-005	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-003-0	마이	자동납부				PG	자동납부 현황 조회	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-142	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-004-0	마이	자동납부	자동납부 상세내역			PG	자동납부 상세 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-143	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-005-0	마이	자동납부	자동납부 신청/변경			PG	자동납부 신청·변경 화면	자동납부		✅	✅	TW-MY-FEE-MOPC-045-PG-082	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-015-0	마이	자동납부	납부 방법_자동납부 해지 상태 Case			PU	자동납부 해지 상태일 때 납부방법 안내		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-075	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-016-0	마이	자동납부	납부 방법_자동납부 신청 상태 Case			PU	자동납부 신청 상태일 때 납부방법 안내		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-076	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-017-0	마이	자동납부	납부 방법_통합청구 대표 접근 불가 Case			PU	통합청구 대표 접근 제한 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-088	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-018-0	마이	자동납부	자동납부 인출기간 안내			PU	인출 기간 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-008	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-006-0	마이	자동납부	첫 인출(승인) 예정인 안내			CP	첫 자동납부 인출 예정 안내			✅	✅	TW-MY-FEE-MOPC-045-CP-085	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-007-0	마이	자동납부	(공통) 요금 납부 정보로 자동납부 변경 완료			CP	납부 정보로 자동납부 변경 완료 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-042	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-008-0	마이	자동납부	(공통) 요금 납부 정보로 자동납부 변경 실패			CP	납부 정보로 자동납부 변경 실패 팝업		예외 1	✅	✅	TW-MY-FEE-MOPC-045-CP-043	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-009-0	마이	자동납부	자동납부 신청/변경 실패			CP	자동납부 신청·변경 실패 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-086	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-019-0	마이	자동납부	자동납부 해지			PU	자동납부 해지 신청			✅	✅	TW-MY-FEE-MOPC-045-PU-079	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-020-0	마이	자동납부	자동납부 해지 완료			PU	자동납부 해지 완료 안내	자동납부 해지		✅	✅	TW-MY-FEE-MOPC-045-PU-080	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-021-0	마이	자동납부	제휴할인 카드 변경 안내			PU	제휴할인 카드 변경 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-084	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-006-0	마이	자동납부	자동 납부 통합인출			PG	통합인출 자동납부 현황	자동납부		✅	✅	TW-MY-FEE-MOPC-045-PG-144	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-007-0	마이	자동납부	자동 납부 통합인출 상세내역			PG	통합인출 상세 내역			✅	✅	TW-MY-FEE-MOPC-045-PG-145	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-022-0	마이	자동납부	자동납부 통합 인출 해지			PU	통합인출 해지 신청 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-146	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-010-0	마이	자동납부	요금납부일 변경 Confirm			CP	납부일 변경 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-078	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-BS-005-0	마이	자동납부	요금납부일 변경			BS	납부일 변경 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-077	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-BS-006-0	마이	자동납부	문자 받는 번호 선택			BS	문자 수신번호 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-030	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-023-0	마이	자동납부	문자 알림서비스			PU	자동납부 관련 문자 알림 설정			✅	✅	TW-MY-FEE-MOPC-045-PU-081	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-024-0	마이	포인트 납부	OK캐쉬백/T포인트 납부			PU	포인트로 즉시납부 팝업	마이		✅	✅	TW-MY-FEE-MOPC-045-PU-024	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-025-0	마이	포인트 납부	포인트 조회			PU	보유 포인트 조회 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-025	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-BS-007-0	마이	포인트 납부	납부할 포인트 선택			BS	납부 포인트 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-168	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-026-0	마이	포인트 납부	(공통) OK캐쉬백 제3자 제공 동의(필수)			PU	OK캐쉬백 동의 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-039	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-027-0	마이	포인트 납부	OK캐쉬백 납부 예약_1회			PU	OK캐쉬백 1회 납부 예약		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-033	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-028-0	마이	포인트 납부	OK캐쉬백 납부 예약_자동납부 신청			PU	OK캐쉬백 자동납부 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-034	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-029-0	마이	포인트 납부	T 포인트 납부 예약_1회			PU	T포인트 1회 납부 예약		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-035	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-030-0	마이	포인트 납부	T 포인트 납부 예약_자동납부 신청			PU	T포인트 자동납부 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-036	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-031-0	마이	포인트 납부	레인보우 포인트 납부 예약_1회			PU	레인보우포인트 1회 납부 예약		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-037	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-032-0	마이	포인트 납부	레인보우 포인트 납부 예약_자동납부 신청			PU	레인보우포인트 자동납부 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-038	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-033-0	마이	포인트 납부	(공통) 포인트 납부 예약 완료			PU	포인트 납부 예약 완료			✅	✅	TW-MY-FEE-MOPC-045-PU-045	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-034-0	마이	포인트 납부	(공통) 포인트 납부 예약 실패			PU	포인트 납부 예약 실패		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-046	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-008-0	마이	포인트 납부	포인트 납부 예약			PG	포인트 납부 예약 현황 페이지	포인트 납부		✅	✅	TW-MY-FEE-MOPC-045-PG-151	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-009-0	마이	포인트 납부	포인트 납부 예약 상세내역			PG	포인트 예약 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-152	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-010-0	마이	포인트 납부	포인트 자동 납부			PG	포인트 자동납부 현황	포인트 납부		✅	✅	TW-MY-FEE-MOPC-045-PG-153	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-011-0	마이	포인트 납부	포인트 자동 납부 상세내역			PG	포인트 자동납부 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-154	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-012-0	마이	휴대폰 결제				PG	휴대폰 결제·콘텐츠 이용료 관리 홈	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-089	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-035-0	마이	휴대폰 결제	휴대폰 결제 이용내역			PU	휴대폰 결제 이용 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-097	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-036-0	마이	휴대폰 결제	휴대폰 결제 이용내역 상세			PU	휴대폰 결제 이용 상세			✅	✅	TW-MY-FEE-MOPC-045-PU-098	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-037-0	마이	휴대폰 결제	콘텐츠 이용료 이용내역			PU	콘텐츠 이용료 이용 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-099	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-038-0	마이	휴대폰 결제	콘텐츠 이용료 이용내역 상세			PU	콘텐츠 이용료 이용 상세			✅	✅	TW-MY-FEE-MOPC-045-PU-100	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-039-0	마이	휴대폰 결제	휴대폰 결제 비밀번호 변경			PU	결제 비밀번호 변경			✅	✅	TW-MY-FEE-MOPC-045-PU-095	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-040-0	마이	휴대폰 결제	휴대폰 결제 자동결제 차단내역			PU	자동결제 차단 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-096	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-011-0	마이	휴대폰 결제	휴대폰 결제 이용동의 서비스 미가입자			CP	이용동의 미가입 안내 팝업		예외 1	✅	✅	TW-MY-FEE-MOPC-045-CP-090	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-012-0	마이	휴대폰 결제	휴대폰 결제 이용동의 서비스 미가입자_미성년자 Case			CP	미성년자 이용동의 미가입 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-091	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-041-0	마이	휴대폰 결제	휴대폰 결제 한도 변경			PU	휴대폰 결제 한도 변경 신청		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-101	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-042-0	마이	휴대폰 결제	콘텐츠 이용료 한도 변경			PU	콘텐츠 이용료 한도 변경 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-102	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-013-0	마이	휴대폰 결제	한도 변경 Confirm			CP	한도 변경 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-104	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-AP-002-0	마이	휴대폰 결제	한도 변경 완료			AP	한도 변경 완료 토스트			✅	✅	TW-MY-FEE-MOPC-045-TP-169	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-014-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 이용료 한도 변경 차단			CP	한도 변경 차단 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-CP-092	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-015-0	마이	휴대폰 결제	한도 변경 불가 안내_미납 Case			CP	미납으로 한도 변경 불가 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-105	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-016-0	마이	휴대폰 결제	한도 변경 불가 안내_변경 횟수 초과 Case			CP	변경 횟수 초과 안내		예외 3	✅	✅	TW-MY-FEE-MOPC-045-CP-106	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-017-0	마이	휴대폰 결제	한도 변경 불가 안내_SKT 부여한도 초과 Case			CP	SKT 부여한도 초과 안내		예외 4	✅	✅	TW-MY-FEE-MOPC-045-CP-107	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-BS-008-0	마이	휴대폰 결제	한도 변경 금액 선택			BS	한도 변경 금액 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-103	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-013-0	마이	휴대폰 결제	휴대폰 결제 선결제			PG	휴대폰 결제 선결제 현황			✅	✅	TW-MY-FEE-MOPC-045-PG-147	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-014-0	마이	휴대폰 결제	휴대폰 결제 선결제 상세내역			PG	선결제 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-148	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-015-0	마이	휴대폰 결제	콘텐츠 이용료 선결제			PG	콘텐츠 이용료 선결제 현황			✅	✅	TW-MY-FEE-MOPC-045-PG-149	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-016-0	마이	휴대폰 결제	콘텐츠 이용료 선결제 상세내역			PG	콘텐츠 선결제 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-150	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-043-0	마이	휴대폰 결제	휴대폰 결제 선결제_11pay			PU	11pay로 선결제		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-109	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-044-0	마이	휴대폰 결제	휴대폰 결제 선결제_계좌이체			PU	계좌이체로 선결제		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-110	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-045-0	마이	휴대폰 결제	휴대폰 결제 선결제_카드			PU	카드로 선결제		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-111	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-046-0	마이	휴대폰 결제	콘텐츠 이용료 선결제_11pay			PU	콘텐츠 이용료 11pay 선결제		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-112	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-047-0	마이	휴대폰 결제	콘텐츠 이용료 선결제_계좌이체			PU	콘텐츠 이용료 계좌이체 선결제		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-113	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-048-0	마이	휴대폰 결제	콘텐츠 이용료 선결제_카드			PU	콘텐츠 이용료 카드 선결제		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-114	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-049-0	마이	휴대폰 결제	선결제 내역 확인			PU	선결제 내역 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-117	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-050-0	마이	휴대폰 결제	선결제 완료			PU	선결제 완료 안내	선결제 내역 확인		✅	✅	TW-MY-FEE-MOPC-045-PU-119	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-051-0	마이	휴대폰 결제	선결제 실패			PU	선결제 실패 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-120	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-018-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 선결제 이용 불가_잔액 없음			CP	선결제 가능 금액 없음 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-093	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-019-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 선결제 이용 불가_시간 제한			CP	선결제 시간 제한 안내(23:50~)		예외 3	✅	✅	TW-MY-FEE-MOPC-045-CP-094	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-020-0	마이	휴대폰 결제	선결제 불가 안내_5만원 미만 할부 Case			CP	5만원 미만 일시불 외 불가 안내		예외 4	✅	✅	TW-MY-FEE-MOPC-045-CP-115	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-021-0	마이	휴대폰 결제	선결제 불가 안내_5분 경과 Case			CP	조회 후 5분 경과 안내		예외 5	✅	✅	TW-MY-FEE-MOPC-045-CP-116	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-022-0	마이	휴대폰 결제	선결제 불가 안내_월 99회 초과 Case			CP	월 99회 초과 안내		예외 6	✅	✅	TW-MY-FEE-MOPC-045-CP-118	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-BS-009-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 이용료 선결제 방법 선택			BS	선결제 수단 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-108	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-017-0	마이	휴대폰 결제	자동 선결제 신청 현황			PG	자동 선결제 신청 현황 페이지			✅	✅	TW-MY-FEE-MOPC-045-PG-121	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-052-0	마이	휴대폰 결제	휴대폰 결제 자동 선결제 신청			PU	휴대폰 결제 자동 선결제 신청		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-122	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-053-0	마이	휴대폰 결제	자동 선결제 신청 완료			PU	자동 선결제 신청 완료	자동 선결제 신청; 콘텐츠 자동 선결제 신청		✅	✅	TW-MY-FEE-MOPC-045-PU-123; TW-MY-FEE-MOPC-045-PU-130	TW	●	
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-054-0	마이	휴대폰 결제	휴대폰 결제 자동 선결제 변경			PU	자동 선결제 변경 신청			✅	✅	TW-MY-FEE-MOPC-045-PU-124	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-055-0	마이	휴대폰 결제	자동 선결제 변경 완료			PU	자동 선결제 변경 완료	자동 선결제 변경		✅	✅	TW-MY-FEE-MOPC-045-PU-125; TW-MY-FEE-MOPC-045-PU-132	TW	●	
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-023-0	마이	휴대폰 결제	휴대폰 결제 자동 선결제 해지			CP	자동 선결제 해지 확인 팝업		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-CP-126	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-024-0	마이	휴대폰 결제	콘텐츠 이용료 자동 선결제 해지			CP	콘텐츠 이용료 자동 선결제 해지 팝업		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-CP-133	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-025-0	마이	휴대폰 결제	자동 선결제 해지 완료			CP	자동 선결제 해지 완료 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-127; TW-MY-FEE-MOPC-045-PU-134	TW	●	
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-018-0	마이	휴대폰 결제	콘텐츠 이용료 자동 선결제 변경			PG	콘텐츠 이용료 자동 선결제 변경 페이지			✅	✅	TW-MY-FEE-MOPC-045-PG-131	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-056-0	마이	휴대폰 결제	콘텐츠 이용료 자동 선결제 신청			PU	콘텐츠 이용료 자동 선결제 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-129	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-057-0	마이	휴대폰 결제	자동 선결제 신청 현황(팝업)			PU	자동 선결제 신청 현황 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-128	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-019-0	마이	증빙 발급				PG	증빙 발급 진입 — 세금계산서·현금영수증·납부영수증	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-158	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-020-0	마이	증빙 발급	현금 영수증 발행 내역			PG	현금영수증 발행 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-161	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-021-0	마이	증빙 발급	과납 내역 환불 신청 처리내역			PG	과납 환불 처리 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-164	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-022-0	마이	증빙 발급	과납 내역 환불 신청 처리내역 상세			PG	과납 환불 처리 상세			✅	✅	TW-MY-FEE-MOPC-045-PG-165	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PU-058-0	마이	증빙 발급	과납 내역 환불 받기			PU	과납 환불 신청 팝업	과납 내역 환불 신청 처리내역		✅	✅	TW-MY-FEE-MOPC-045-PU-162	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-CP-026-0	마이	증빙 발급	환불 계좌 등록 완료			CP	환불 계좌 등록 완료 팝업	과납 내역 환불 받기		✅	✅	TW-MY-FEE-MOPC-045-CP-163	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-023-0	마이	증빙 발급	납부내역(PC)			PG	PC웹 납부 내역 조회			✅	✅	TW-MY-FEE-PC-057-PG-016	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-024-0	마이	증빙 발급	현금영수증 발급내역(PC)			PG	PC웹 현금영수증 발급 내역			✅	✅	TW-MY-FEE-PC-057-PG-018	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-025-0	마이	증빙 발급	납부내역 인쇄(PC)			PG	PC웹 납부내역 인쇄 화면			✅	✅	TW-MY-FEE-PC-057-LP-017; TW-MY-FEE-PC-057-LP-019; TW-MY-FEE-PC-057-LP-021	TW	●	
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PU-059-0	마이	증빙 발급	Print charges (PC)			PU	PC웹 요금 인쇄 화면 (영문)			✅	✅	TW-MY-FEE-PC-089-PU-001; TW-MY-FEE-PC-089-PU-002; TW-MY-FEE-PC-089-PU-003	TW	●	fadeout 검토대상
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PG-001-0	마이	납부 내역				PG	납부 유형별 내역 조회 진입	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-136	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PG-002-0	마이	납부 내역	납부영수증 재발행			PG	납부영수증 재발행 신청 화면	납부 내역		✅	✅	TW-MY-FEE-MOPC-045-PG-155	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-001-0	마이	납부 내역	요금납부 내역서 발급 예시			PU	납부내역서 예시 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-139	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-002-0	마이	납부 내역	요금납부 내역서 발급 완료			PU	납부내역서 발급 완료 안내	요금납부 내역서 발급 예시		✅	✅	TW-MY-FEE-MOPC-045-PU-138	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-003-0	마이	납부 내역	납부영수증 재발행 예시			PU	납부영수증 예시 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-156	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-004-0	마이	납부 내역	납부영수증 재발행 완료			PU	납부영수증 재발행 완료 안내	납부영수증 재발행 예시		✅	✅	TW-MY-FEE-MOPC-045-PU-157	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-005-0	마이	납부 내역	세금계산서 재발행 예시			PU	세금계산서 예시 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-159	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-PU-006-0	마이	납부 내역	세금계산서 재발행 완료			PU	세금계산서 재발행 완료 안내	세금계산서 재발행 예시		✅	✅	TW-MY-FEE-MOPC-045-PU-160	TW		
+앱-RTB	US-RTB-HIST-001	납부 내역 조회	NOVA-RTB-BS-001-0	마이	납부 내역	조회 항목 선택			BS	납부 내역 조회 항목 필터 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-135	TW		
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-003-0	마이	실시간 이용요금				PG	실시간 이용요금 조회	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-059	TW		
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-004-0	마이	실시간 이용요금	자녀 실시간 이용요금			PG	자녀 회선 실시간 이용요금			✅	✅	TW-MY-FEE-MOPC-045-PG-061	TW		
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-005-0	마이	실시간 이용요금	Real-time Balance (English)			PG	영문 실시간 잔여량 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-022	TW		fadeout 검토대상
+앱-RTB	US-RTB-REAL-002	실시간 이용요금·한도 관리	NOVA-RTB-PG-006-0	마이	실시간 이용요금	실시간 요금(PC)			PG	PC웹 실시간 이용요금 조회			✅	✅	TW-MY-FEE-PC-051-PG-011	TW		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-001-0	마이	T 플러스포인트				PG	T 플러스포인트 홈. 잔액·소멸 예정·누적 적립 요약 표시			✅	✅	TM-MY-CPN-MO-07-PG-004; TM-MY-CPN-MO-17-PG-023	TM		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PU-001-0	마이	T 플러스포인트	이용 내역			PU	포인트 적립·사용 이력 목록(풀업)	T 플러스포인트		✅	✅	TM-MY-CPN-MO-17-PU-005	TM		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-002-0	마이	T 플러스포인트	레인보우포인트			PG	레인보우포인트 잔액·이력 상세			✅	✅	TW-MY-CPN-MOPC-038-PG-002	TW		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-003-0	마이	T 플러스포인트	무약정플랜 포인트			PG	무약정플랜 포인트 잔액·이력 상세			✅	✅	TW-MY-CPN-MOPC-038-PG-010	TW		
+앱-MYPNT	US-MYPNT-PNT-001	T 플러스포인트 조회	NOVA-MYPNT-PG-004-0	마이	T 플러스포인트	현역플랜 포인트			PG	지켜줘서고마워 현역플랜 포인트 잔액·이력 상세			✅	✅	TW-MY-CPN-MOPC-038-PG-011	TW		
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-PG-005-0	마이	T 플러스포인트	포인트 비밀번호 입력			PG	포인트 사용 전 비밀번호 인증 화면	T 플러스포인트		✅	✅	TM-MY-CPN-MO-16-PG-047; TM-MY-CPN-MO-17-PG-013; TM-MY-CPN-MO-17-PG-014	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-PU-002-0	마이	T 플러스포인트	비밀번호 키패드			PU	포인트 비밀번호 랜덤 키패드 입력창	포인트 비밀번호 입력		✅	✅	TM-MY-CPN-MO-16-PU-048; TM-MY-CPN-MO-17-PG-018	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-001-0	마이	T 플러스포인트	비밀번호 미입력 안내			CP	비밀번호 미입력 시 얼럿	포인트 비밀번호 입력		✅	✅	TM-MY-CPN-MO-16-CP-049; TM-MY-CPN-MO-17-CP-015	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-002-0	마이	T 플러스포인트	비밀번호 불일치 안내			CP	비밀번호 틀렸을 경우 얼럿 (5회/10회 누적 포함)	T 플러스포인트	예외 1	✅	✅	TM-MY-CPN-MO-16-CP-050; TM-MY-CPN-MO-16-CP-051; TM-MY-CPN-MO-17-CP-016	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-003-0	마이	T 플러스포인트	비밀번호 분실 안내			CP	포인트 비밀번호 분실 시 안내 얼럿		예외 2	✅	✅	TM-MY-CPN-MO-16-CP-052; TM-MY-CPN-MO-17-CP-017	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-CP-004-0	마이	T 플러스포인트	사용 가능 범위 초과 안내			CP	포인트 사용 범위 초과 또는 미입력 얼럿		예외 3	✅	✅	TM-MY-CPN-MO-16-CP-055; TM-MY-CPN-MO-16-CP-056	TM		fadeout 검토대상
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-BS-001-0	마이	T 플러스포인트	포인트 요금납부			BS	보유 포인트로 요금 납부 바텀시트	T 플러스포인트		✅	✅	TW-MY-CPN-MOPC-038-BS-012	TW		
+앱-MYPNT	US-MYPNT-PNT-002	T 플러스포인트 사용	NOVA-MYPNT-BS-002-0	마이	T 플러스포인트	회선 선택			BS	포인트 사용 시 회선 선택 바텀시트	포인트 요금납부		✅	✅	TW-MY-CPN-MOPC-038-BS-013	TW		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-PG-006-0	마이	T 플러스포인트	포인트 선물			PG	수신자 정보 입력 및 선물 포인트 입력	T 플러스포인트		✅	✅	TM-MY-CPN-MO-17-PG-003	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-005-0	마이	T 플러스포인트	미성년 회원 사용 불가			CP	미성년 회원 포인트 선물 불가 안내	포인트 선물	예외 1	✅	✅	TM-MY-CPN-MO-17-CP-001	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-006-0	마이	T 플러스포인트	이용 정지 회선 안내			CP	이용 정지 회선 선물 불가 안내	포인트 선물	예외 2	✅	✅	TM-MY-CPN-MO-17-CP-002	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-007-0	마이	T 플러스포인트	수신자 확인 팝업			CP	포인트 선물 수신 대상 회원 확인 얼럿	포인트 선물		✅	✅	TM-MY-ALM-MO-17-CP-010	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-008-0	마이	T 플러스포인트	선물 실패 안내			CP	수신자 비회원·이용정지·번호실명 미일치 등 선물 실패 안내	포인트 선물	예외 3	✅	✅	TM-MY-ALM-MO-17-CP-007; TM-MY-ALM-MO-17-CP-008; TM-MY-ALM-MO-17-CP-009	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-009-0	마이	T 플러스포인트	포인트 선물 확인 팝업			CP	선물하기 전 최종 확인 얼럿	포인트 선물		✅	✅	TM-MY-ALM-MO-17-CP-011	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-CP-010-0	마이	T 플러스포인트	포인트 비밀번호 미설정 안내			CP	포인트 비밀번호 미설정 시 선물 불가 안내	포인트 선물	예외 4	✅	✅	TM-MY-ALM-MO-17-CP-012	TM		
+앱-MYPNT	US-MYPNT-PNT-003	T 플러스포인트 선물	NOVA-MYPNT-PG-007-0	마이	T 플러스포인트	포인트 선물하기 완료			PG	선물 완료 결과 화면	포인트 선물		✅	✅	TM-MY-CPN-MO-17-PG-019	TM		fadeout 검토대상 (P2)
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-PG-008-0	마이	T 플러스포인트	포인트 통합			PG	복수 회선 포인트 통합 진입 화면	T 플러스포인트		✅	✅	TM-MY-CPN-MO-17-PG-020	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-PG-009-0	마이	T 플러스포인트	포인트 통합			PG	포인트 통합 이용 방법 안내		케이스 1	✅	✅	TM-MY-CPN-MO-17-PG-028	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-PG-010-0	마이	T 플러스포인트	포인트 통합 완료			PG	포인트 통합 처리 완료 화면	포인트 통합		✅	✅	TM-MY-CPN-MO-17-PG-022	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-CP-011-0	마이	T 플러스포인트	포인트 통합 불가 안내			CP	포인트 통합 불가 조건 안내 팝업	포인트 통합	예외 1	✅	✅	TM-MY-ALM-MO-17-CP-029; TM-MY-ALM-MO-17-CP-030	TM		
+앱-MYPNT	US-MYPNT-PNT-004	T 플러스포인트 통합	NOVA-MYPNT-CP-012-0	마이	T 플러스포인트	포인트 통합 확인 팝업			CP	포인트 통합 전 회원 확인 얼럿	포인트 통합		✅	✅	TM-MY-ALM-MO-17-CP-021	TM		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-011-0	마이	T 플러스포인트	포인트 합산			PG	레인보우포인트 합산 진입 화면	레인보우포인트		✅	✅	TW-MY-CPN-MOPC-038-PG-003	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PU-003-0	마이	T 플러스포인트	합산하기 확인			PU	포인트 합산 전 최종 확인 팝업	포인트 합산		✅	✅	TW-MY-CPN-MOPC-038-PU-004	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-012-0	마이	T 플러스포인트	포인트 합산 완료			PG	포인트 합산 완료 결과 화면	포인트 합산		✅	✅	TW-MY-CPN-MOPC-038-PG-005	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-013-0	마이	T 플러스포인트	대리인간 양도			PG	레인보우포인트 대리인간 양도 진입 화면	레인보우포인트	케이스 1	✅	✅	TW-MY-CPN-MOPC-038-PG-006	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PU-004-0	마이	T 플러스포인트	양도하기 확인			PU	포인트 양도 전 최종 확인 팝업	대리인간 양도		✅	✅	TW-MY-CPN-MOPC-038-PU-007	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-CP-013-0	마이	T 플러스포인트	법정대리인 정보 없음 안내			CP	대리인 정보 미확인 시 양도 불가 안내	대리인간 양도	예외 1	✅	✅	TW-MY-CPN-MOPC-038-CP-009	TW		
+앱-MYPNT	US-MYPNT-PNT-005	포인트 합산 및 양도	NOVA-MYPNT-PG-014-0	마이	T 플러스포인트	포인트 양도 완료			PG	포인트 양도 완료 결과 화면	대리인간 양도		✅	✅	TW-MY-CPN-MOPC-038-PG-008			
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-001-0	마이	데이터·통화				PG	나의 데이터·통화 홈 — 잔량·소진 순서 조회	마이		✅	✅	TW-MY-DTC-MOPC-044-PG-001	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-002-0	마이	데이터·통화	나의 데이터/통화_선불폰(PPS) Case			PG	선불폰 고객 데이터·통화 현황		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PG-002	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PU-001-0	마이	데이터·통화	사용패턴			PU	사용패턴 분석 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-003	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-CP-001-0	마이	데이터·통화	실시간 잔여량 조회 횟수 제한 Case			CP	실시간 조회 횟수 초과 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-068	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-CP-002-0	마이	데이터·통화	실시간 잔여량 조회 불가 Case			CP	실시간 조회 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-069	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-003-0	마이	데이터·통화	실시간 잔여량			PG	실시간 잔량 상세 조회	데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-067	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-004-0	마이	데이터·통화	자녀 실시간 잔여량			PG	자녀 회선 실시간 잔량	데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-073	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-005-0	마이	데이터·통화	T 가족모아 데이터			PG	T 가족모아 데이터 현황 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-005	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-006-0	마이	데이터·통화	통합공유 데이터			PG	통합공유 데이터 현황 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-070	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-002-0	마이	데이터·통화	데이터 공유설정_바로공유			PU	바로공유 설정 팝업		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-006	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-003-0	마이	데이터·통화	데이터 바로공유 완료			PU	바로공유 완료 안내	데이터 공유설정_바로공유		✅	✅	TW-MY-DTC-MOPC-044-PU-008	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-003-0	마이	데이터·통화	데이터 바로공유 Confirm			CP	바로공유 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-007	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-004-0	마이	데이터·통화	데이터 공유설정_매달 자동공유			PU	매달 자동공유 설정 팝업		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-009	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-005-0	마이	데이터·통화	데이터 매달 자동공유 완료			PU	자동공유 완료 안내	데이터 공유설정_매달 자동공유		✅	✅	TW-MY-DTC-MOPC-044-PU-011	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-004-0	마이	데이터·통화	데이터 매달 자동공유 Confirm			CP	자동공유 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-010	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-006-0	마이	데이터·통화	데이터 매달 자동공유 해제 완료			PU	자동공유 해제 완료 안내			✅	✅	TW-MY-DTC-MOPC-044-PU-013	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-005-0	마이	데이터·통화	데이터 매달 자동공유 해제 Confirm			CP	자동공유 해제 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-012	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PG-007-0	마이	데이터·통화	이번 달 공유한 데이터 내역			PG	이번 달 공유 데이터 내역 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-014	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-007-0	마이	데이터·통화	공유한 데이터 변경하기			PU	공유 데이터 양 변경 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-015	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-006-0	마이	데이터·통화	공유한 데이터 변경하기 Confirm			CP	변경 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-016	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-008-0	마이	데이터·통화	데이터 변경 완료			PU	공유 데이터 변경 완료 안내	공유한 데이터 변경하기 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-017	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-CP-007-0	마이	데이터·통화	데이터 변경 실패			CP	공유 데이터 변경 실패 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-018	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-009-0	마이	데이터·통화	이용한도 설정			PU	데이터 이용 한도 설정 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-019	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-010-0	마이	데이터·통화	데이터 함께쓰기			PU	T 데이터 셰어링 설정 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-071	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-011-0	마이	데이터·통화	T 데이터 셰어링 USIM 해지			PU	셰어링 USIM 해지 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-072	TW		
+앱-MCS	US-MCS-SHARE-002	데이터 공유 설정	NOVA-MCS-PU-012-0	마이	데이터·통화	T 데이터 셰어링 USIM 해지 완료			PU	셰어링 USIM 해지 완료 안내	T 데이터 셰어링 USIM 해지		✅	✅	TW-MY-DTC-MOPC-044-PU-168	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-PU-013-0	마이	데이터·통화	자동 알람 서비스			PU	데이터·통화 알람 서비스 설정			✅	✅	TW-MY-DTC-MOPC-044-PU-058	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-PU-014-0	마이	데이터·통화	자동 알람 서비스 설정 완료			PU	알람 서비스 설정 완료 안내	자동 알람 서비스		✅	✅	TW-MY-DTC-MOPC-044-PU-059	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-CP-008-0	마이	데이터·통화	데이터 제한 설정 Confirm			CP	데이터 차단 설정 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-076	TW		
+앱-MCS	US-MCS-ALERT-003	사용량 알림·제한 설정	NOVA-MCS-CP-009-0	마이	데이터·통화	알림_이용제한 안내(치팅)			CP	이용제한(치팅) 안내 팝업		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-100	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PG-008-0	마이	데이터·통화	충전 권한 변경 내역			PG	충전 허용 권한 변경 내역 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-034	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PU-015-0	마이	데이터·통화	충전 허용금액 변경			PU	충전 허용 금액 변경 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-074	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PU-016-0	마이	데이터·통화	충전 허용금액 변경 완료			PU	충전 허용금액 변경 완료 안내	충전 허용금액 변경		✅	✅	TW-MY-DTC-MOPC-044-PU-075	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-010-0	마이	데이터·통화	(공통) 데이터 조르기			CP	자녀가 데이터 조르기 요청 알림 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-004	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-BS-001-0	마이	데이터·통화	결합 가족			BS	결합 가족 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-087; TW-MY-DTC-MOPC-044-BS-088	TW	●	
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PG-009-0	마이	데이터·통화	팅 선물 차단 설정			PG	팅요금제 선물 차단 설정 페이지			✅	✅	TW-MY-DTC-MOPC-044-PG-022	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-011-0	마이	데이터·통화	팅 선물 차단 설정 Confirm			CP	팅 선물 차단 설정 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-023	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-PU-017-0	마이	데이터·통화	ZEM플랜 요금제 지정번호 설정			PU	ZEM플랜 지정번호 등록·관리			✅	✅	TW-MY-DTC-MOPC-044-PU-077	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-012-0	마이	데이터·통화	지정번호 등록 Confirm			CP	지정번호 등록 확인 팝업		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-CP-079	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-AP-001-0	마이	데이터·통화	지정번호 등록 완료			AP	지정번호 등록 완료 토스트			✅	✅	TW-MY-DTC-MOPC-044-TP-080	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-013-0	마이	데이터·통화	지정번호 삭제 Confirm			CP	지정번호 삭제 확인 팝업		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-CP-082	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-AP-002-0	마이	데이터·통화	지정번호 삭제 성공			AP	지정번호 삭제 완료 토스트			✅	✅	TW-MY-DTC-MOPC-044-TP-083	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-014-0	마이	데이터·통화	알림_지정번호 등록 불가			CP	지정번호 등록 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-078	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-015-0	마이	데이터·통화	지정번호 등록 실패			CP	지정번호 등록 실패 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-081	TW		
+앱-MCS	US-MCS-FAM-004	가족·다회선 관리	NOVA-MCS-CP-016-0	마이	데이터·통화	지정번호 삭제 실패			CP	지정번호 삭제 실패 안내		예외 3	✅	✅	TW-MY-DTC-MOPC-044-CP-084	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-010-0	마이	데이터·통화	통화내역 조회(PC)			PG	PC웹 일반 통화내역 조회			✅	✅	TW-MY-DTC-PC-078-PG-027; TW-MY-DTC-PC-078-PG-084	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-011-0	마이	데이터·통화	글로벌로밍 통화내역(PC)			PG	PC웹 글로벌로밍 통화내역 조회			✅	✅	TW-MY-DTC-PC-078-PG-030; TW-MY-DTC-PC-078-PG-085	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-012-0	마이	데이터·통화	통화조회 내역(PC)			PG	PC웹 통화조회 내역 (본인인증 후)			✅	✅	TW-MY-DTC-PC-078-PG-033; TW-MY-DTC-PC-078-PG-086	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-013-0	마이	데이터·통화	통화조회 신청서 접수안내(PC)			PG	PC 통화내역 조회 신청서 접수안내			✅	✅	TW-MY-DTC-PC-078-PG-026	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-014-0	마이	데이터·통화	통화내역 인쇄(PC)			PG	PC웹 통화내역 인쇄 화면			✅	✅	TW-MY-DTC-PC-078-LP-028; TW-MY-DTC-PC-078-LP-029; TW-MY-DTC-PC-078-LP-031; TW-MY-DTC-PC-078-LP-032	TW	●	
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-015-0	마이	데이터·통화	통화이력 열람 동의(PC)			PG	PC 통화이력 열람 동의 안내			✅	✅	TW-MY-DTC-PC-074-LP-084	TW		
+앱-MCS	US-MCS-DASH-001	사용량 현황 조회	NOVA-MCS-PG-016-0	마이	데이터·통화	요금안내서 유형 갱신 안내(PC)			PG	PC 요금안내서 유형 갱신 안내			✅	✅	TW-MY-DTC-PC-074-LP-087	TW		
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-001-0	마이	데이터·통화	충전			PG	충전 진입 — 충전 가능 여부 진단	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-060	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-002-0	마이	데이터·통화	충전 내역			PG	충전 이력 조회	충전		✅	✅	TW-MY-DTC-MOPC-044-PG-060	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-001-0	마이	데이터·통화	충전 상세 내역			PU	충전 상세 내역 팝업	충전 내역		✅	✅	TW-MY-DTC-MOPC-044-PU-061	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-001-0	마이	데이터·통화	충전 데이터 선택			BS	충전 데이터 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-056	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-002-0	마이	데이터·통화	충전 금액 선택			BS	충전 금액 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-047	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-003-0	마이	데이터·통화	충전 날짜 선택			BS	자동충전 날짜 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-048	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-004-0	마이	데이터·통화	필터_충전 데이터 유형 선택			BS	충전 내역 필터 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-063	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-001-0	마이	데이터·통화	자동충전 해지 Confirm			CP	자동충전 해지 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-046; TW-MY-DTC-MOPC-044-CP-055	TW	●	
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-002-0	마이	데이터·통화	충전 취소			CP	충전 취소 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-062	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-003-0	마이	데이터·통화	알림_팅계열 한도요금 충전 불가			CP	팅 계열 한도요금제 충전 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-029	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-004-0	마이	데이터·통화	데이터 한도 요금제 충전 서비스 이용 불가			CP	데이터 한도요금 충전 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-030	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-002-0	마이	데이터·통화	데이터 한도 요금제 충전_이번 달 충전			PU	데이터 한도요금제 이번달 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-026	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-003-0	마이	데이터·통화	데이터 한도 요금제 충전_매달 자동충전			PU	데이터 한도요금제 자동충전 신청		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-027	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-004-0	마이	데이터·통화	데이터 한도 요금제 충전 완료			PU	데이터 한도요금 충전 완료			✅	✅	TW-MY-DTC-MOPC-044-PU-028	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-005-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_이번 달 충전			PU	팅/ZEM플랜 이번달 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-031	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-006-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_매달 자동충전			PU	팅/ZEM플랜 자동충전 신청		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-032	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-007-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전 완료			PU	팅/ZEM플랜 충전 완료			✅	✅	TW-MY-DTC-MOPC-044-PU-033	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-008-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_서비스 차단 Case			PU	서비스 차단으로 충전 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-035	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-009-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_서비스 이용 불가 Case			PU	서비스 이용 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-PU-036	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-010-0	마이	데이터·통화	팅요금제 충전 선물			PU	팅요금제 충전 선물 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-020	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-011-0	마이	데이터·통화	팅요금제 선물 완료			PU	팅요금제 선물 완료 안내	팅요금제 충전 선물		✅	✅	TW-MY-DTC-MOPC-044-PU-021	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-012-0	마이	데이터·통화	팅요금제 충전 선물_서비스 차단 Case			PU	서비스 차단 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-024	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-013-0	마이	데이터·통화	팅요금제 충전 선물_서비스 이용 불가 Case			PU	서비스 이용 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-PU-025	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-014-0	마이	데이터·통화	음성 1회 충전_11pay			PU	11pay로 음성 1회 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-037	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-015-0	마이	데이터·통화	음성 1회 충전_선불 이동전화 카드			PU	선불카드로 음성 1회 충전		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-038	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-016-0	마이	데이터·통화	카드번호 예시 보기			PU	선불카드 번호 예시 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-039	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-017-0	마이	데이터·통화	선불 이동전화 카드금액 안내			PU	선불카드 금액 안내 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-040	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-018-0	마이	데이터·통화	음성 1회 충전_신용카드			PU	신용카드로 음성 1회 충전		케이스 3	✅	✅	TW-MY-DTC-MOPC-044-PU-041	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-019-0	마이	데이터·통화	충전내역 확인			PU	충전 내역 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-042; TW-MY-DTC-MOPC-044-PU-051	TW	●	
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-020-0	마이	데이터·통화	음성 1회 충전 완료			PU	음성 충전 완료 안내	충전내역 확인		✅	✅	TW-MY-DTC-MOPC-044-PU-043	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-021-0	마이	데이터·통화	음성 자동충전			PU	음성 자동충전 신청·변경			✅	✅	TW-MY-DTC-MOPC-044-PU-044	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-022-0	마이	데이터·통화	음성 자동충전 신청·변경 완료			PU	음성 자동충전 신청·변경 완료	음성 자동충전		✅	✅	TW-MY-DTC-MOPC-044-PU-045	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-023-0	마이	데이터·통화	데이터 1회 충전_11pay			PU	11pay로 데이터 1회 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-049	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-024-0	마이	데이터·통화	데이터 1회 충전_신용카드			PU	신용카드로 데이터 1회 충전		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-050	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-025-0	마이	데이터·통화	데이터 1회 충전 완료			PU	데이터 충전 완료 안내	충전내역 확인		✅	✅	TW-MY-DTC-MOPC-044-PU-052	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-026-0	마이	데이터·통화	데이터 자동충전			PU	데이터 자동충전 신청·변경			✅	✅	TW-MY-DTC-MOPC-044-PU-053	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-027-0	마이	데이터·통화	데이터 자동충전 신청·변경 완료			PU	데이터 자동충전 완료	데이터 자동충전		✅	✅	TW-MY-DTC-MOPC-044-PU-054	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-028-0	마이	데이터·통화	개인정보 제3자 제공 동의_11pay			PU	11pay 개인정보 동의 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-057	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-003-0	마이	데이터·통화	데이터 함께쓰기 요금 충전(PC)			PG	PC웹 데이터 셰어링 충전			✅	✅	TW-MY-DTC-PC-047-PG-001; TW-MY-DTC-PC-047-PG-002; TW-MY-DTC-PC-047-PG-003; TW-MY-DTC-PC-047-PG-004	TW	●	
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-004-0	마이	데이터·통화	데이터 함께쓰기 요금 충전 내역(PC)			PG	PC웹 데이터 셰어링 충전 내역			✅	✅	TW-MY-DTC-PC-047-PG-005	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-029-0	마이	데이터·통화	데이터 선물하기 사전안내			PU	데이터 선물 진입 전 안내 팝업	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PU-090	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-030-0	마이	데이터·통화	데이터 선물하기 이용 제한 안내			PU	데이터 선물 이용 제한 안내 팝업		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-091	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-005-0	마이	데이터·통화	선물 가능한 대상자 요금제			BS	선물 가능 대상 요금제 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-106	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-006-0	마이	데이터·통화	선물할 데이터			BS	선물할 데이터 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-107	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-CP-005-0	마이	데이터·통화	알림_제공자&수혜자 유효성 체크			CP	선물 제공자/수혜자 유효성 오류 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-089	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-031-0	마이	데이터·통화	T 끼리 바로선물			PU	T끼리 바로선물 신청 팝업		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-085	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-032-0	마이	데이터·통화	T 끼리 바로선물_선물 불가 Case			PU	T끼리 바로선물 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-086	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-007-0	마이	데이터·통화	최근 선물한 번호			BS	최근 선물 수신번호 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-087	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-008-0	마이	데이터·통화	바로선물 신청 Confirm			BS	바로선물 신청 확인 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-092	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-033-0	마이	데이터·통화	데이터 바로선물 완료			PU	데이터 바로선물 완료 안내	바로선물 신청 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-093	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-034-0	마이	데이터·통화	문자 보내기			PU	선물 완료 후 문자 발송 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-094	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-035-0	마이	데이터·통화	선물 실패			PU	선물 실패 안내 팝업		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-095	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-CP-006-0	마이	데이터·통화	선물 불가_결합상품 미가입 Case			CP	결합상품 미가입으로 선물 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-116	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PG-005-0	마이	데이터·통화	가족끼리 자동선물			PG	가족 자동 데이터선물 설정 페이지	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-096	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PG-006-0	마이	데이터·통화	가족끼리 자동선물_가족 추가			PG	가족 자동선물 가족 추가 화면			✅	✅	TW-MY-DTC-MOPC-044-PG-167	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-036-0	마이	데이터·통화	가족끼리 자동선물_결합상품 미가입 Case			PU	결합상품 미가입으로 자동선물 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-097	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-BS-009-0	마이	데이터·통화	가족 추가			BS	가족 구성원 추가 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-098	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-BS-010-0	마이	데이터·통화	가족 추가_가족 구성원 호출 불가 Case			BS	가족 구성원 조회 불가 바텀시트		예외 1	✅	✅	TW-MY-DTC-MOPC-044-BS-099	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-BS-011-0	마이	데이터·통화	신청 실패			BS	자동선물 신청 실패 바텀시트		예외 2	✅	✅	TW-MY-DTC-MOPC-044-BS-103	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-037-0	마이	데이터·통화	자동선물 신청 Confirm			PU	자동선물 신청 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-101	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-038-0	마이	데이터·통화	신청 완료			PU	자동선물 신청 완료 안내	자동선물 신청 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-102	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-039-0	마이	데이터·통화	자동선물 해지 Confirm			PU	자동선물 해지 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-104	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-AP-001-0	마이	데이터·통화	자동선물 해지 완료/실패			AP	자동선물 해지 완료/실패 토스트	자동선물 해지 Confirm		✅	✅	TW-MY-DTC-MOPC-044-TP-105	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PG-007-0	마이	데이터·통화	최근 충전/선물 내역			PG	최근 충전·선물 이력 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-118	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PG-008-0	마이	데이터·통화	리필 쿠폰 사용 요금제 확인			PG	리필 쿠폰 사용 가능 요금제 조회	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-117	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-040-0	마이	데이터·통화	리필 쿠폰			PU	리필 쿠폰 목록 및 사용			✅	✅	TW-MY-DTC-MOPC-044-PU-108	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-041-0	마이	데이터·통화	나에게 리필하기			PU	본인에게 리필 쿠폰 적용		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-109	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-CP-007-0	마이	데이터·통화	나에게 리필하기 Confirm			CP	리필 쿠폰 사용 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-110	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-042-0	마이	데이터·통화	리필 완료			PU	리필 완료 안내	나에게 리필하기 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-111	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-043-0	마이	데이터·통화	리필 실패			PU	리필 실패 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-112	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-044-0	마이	데이터·통화	가족에게 선물하기			PU	가족에게 리필 쿠폰 선물		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-113	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-CP-008-0	마이	데이터·통화	가족에게 선물하기 Confirm			CP	가족 선물 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-114	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-045-0	마이	데이터·통화	선물 완료			PU	가족 선물 완료 안내	가족에게 선물하기 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-115	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-BS-012-0	마이	데이터·통화	필터_조회 항목 선택			BS	충전/선물 내역 조회 필터 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-123	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PG-001-0	마이	혜택				PG	혜택 홈. T day/0day 혜택, T deal 추천, 이번달 혜택 요약 표시			✅	✅	TW-MY-BEN-MOPC-037-PG-001	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PG-002-0	마이	혜택	나의 혜택/할인			PG	나의 멤버십 등급, 포인트 요약, 이용 중인 혜택/할인 목록	혜택		✅	✅	TW-MY-BEN-MOPC-038-PG-001	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PG-003-0	마이	혜택	전체 혜택			PG	광고성 정보 수신동의 배너 포함. 태그 필터·혜택/할인 리스트	혜택		✅	✅	TW-MY-BEN-MOPC-039-PG-002	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PU-001-0	마이	혜택	최근 6개월 누적 혜택			PU	최근 6개월 누적 할인 혜택 금액 상세 팝업	혜택		✅	✅	TW-MY-BEN-MOPC-037-PU-001	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PU-002-0	마이	혜택	이번 달에 받은 혜택			PU	이번 달 혜택 금액 및 요금 할인 내역 팝업	혜택	케이스 1	✅	✅	TW-MY-BEN-MOPC-037-PU-002	TW		
+앱-MYBEN	US-BEN-CUS-001	사용 가능한 혜택 확인 및 첫 이용 준비	NOVA-MYBEN-PU-003-0	마이	혜택	혜택 할인 상세			PU	혜택 할인 추가 설명(데이터 혜택/멤버십 업그레이드 탭 포함)	전체 혜택		✅	✅	TW-MY-BEN-MOPC-039-PU-001	TW		fadeout 검토대상
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-PU-004-0	마이	혜택	0day Tday 혜택			PU	0day/Tday 쿠폰 받기 상세. COMING SOON 배너·혜택 상세 노출	혜택		✅	✅	TW-MY-BEN-MO-037-PU-001	TW		
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-BS-001-0	마이	혜택	T deal 맞춤 상품 추천 동의			BS	T deal 맞춤 상품 추천 개인정보 동의 바텀시트	혜택		✅	✅	TW-MY-BEN-MO-037-BS-001	TW		
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-CP-001-0	마이	혜택	0day Tday 알림 설정			CP	0day/Tday 혜택 알림 수신 설정 확인 팝업	혜택		✅	✅	TW-MY-BEN-MO-037-CP-001	TW		
+앱-MYBEN	US-BEN-CUS-002	혜택 수령·연결 상태 관리	NOVA-MYBEN-CP-002-0	마이	혜택	T 멤버십 서비스 이동 확인			CP	T 멤버십 서비스 외부 이동 전 확인 팝업	혜택		✅	✅	TW-MY-BEN-MO-037-CP-002	TW		
+앱-MYBEN	US-BEN-CUS-003	혜택 사용·공유·양도 실행	NOVA-MYBEN-BS-002-0	마이	혜택	할인혜택 적용			BS	구독 해지 과정 중 할인 혜택 적용 안내 바텀시트. 혜택 적용 또는 해지 계속 선택			✅	✅	TU-MY-BEN-MO-11-BS-005	TU		
+앱-MYCPN	US-CPN-CUS-001	고객 통합 자산함 진입 및 보유 자산 확인	NOVA-MYCPN-PG-001-0	마이	쿠폰/이용권함				PG	통합 쿠폰·이용권 자산함 홈. T 멤버십 쿠폰 탭 기본 표시			✅	✅	TM-MY-CPN-MO-08-PG-002; TD-MY-CPN-MOPC-09-PG-036	TD,TM	●	
+앱-MYCPN	US-CPN-CUS-002	고객 사용 가능·미수령·예정 자산 구분 확인	NOVA-MYCPN-PU-001-0	마이	쿠폰/이용권함	쿠폰 등록			PU	쿠폰 번호 등록·조회·적용 팝업	쿠폰/이용권함		✅	✅	TD-MY-CPN-MOPC-09-PU-037	TD		
+앱-MYCPN	US-CPN-CUS-002	고객 사용 가능·미수령·예정 자산 구분 확인	NOVA-MYCPN-CP-001-0	마이	쿠폰/이용권함	쿠폰 다운로드 안내			CP	쿠폰 다운로드 관련 안내 얼럿	쿠폰/이용권함		✅	✅	TM-MY-CPN-MO-08-CP-216	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-002-0	마이	쿠폰/이용권함	쿠폰 상세			PG	보유 쿠폰 상세. 쿠폰 복사/바코드/직원확인/비밀번호 등 유형별 케이스 표시	쿠폰/이용권함		✅	✅	TM-MY-CPN-MO-08-PG-006; TM-MY-CPN-MO-08-PG-010; TM-MY-CPN-MO-08-PG-014; TM-MY-CPN-MO-08-PG-039; TM-MY-CPN-MO-08-PG-054; TM-MY-CPN-MO-08-PG-059; TM-MY-CPN-MO-08-PG-071	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-002-1	마이	쿠폰/이용권함	쿠폰 상세			PG	직원확인 type — 공통 비밀번호	쿠폰/이용권함	케이스 1	✅	✅	TM-MY-CPN-MO-08-PG-019; TM-MY-CPN-MO-08-PG-023	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-002-2	마이	쿠폰/이용권함	쿠폰 상세			PG	직원확인 type — 개별 비밀번호	쿠폰/이용권함	케이스 2	✅	✅	TM-MY-CPN-MO-08-PG-028; TM-MY-CPN-MO-08-PG-032	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-003-0	마이	쿠폰/이용권함	쿠폰 상세 - 바우처			PG	바우처 확인 쿠폰 상세	쿠폰/이용권함	케이스 3	✅	✅	TM-MY-CPN-MO-08-PG-044	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-004-0	마이	쿠폰/이용권함	쿠폰 상세 - 즐거운 연동			PG	즐거운 연동 쿠폰 상세 (정상/카드정지 케이스)	쿠폰/이용권함	케이스 4	✅	✅	TM-MY-CPN-MO-08-PG-047; TM-MY-CPN-MO-08-PG-049	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-005-0	마이	쿠폰/이용권함	쿠폰 상세 - 경품확인용			PG	경품확인용 쿠폰 상세	쿠폰/이용권함	케이스 5	✅	✅	TM-MY-CPN-MO-08-PG-050	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PG-006-0	마이	쿠폰/이용권함	쿠폰 상세 - 우주패스			PG	우주패스 상품용 쿠폰 상세(쿠폰 복사 type)	쿠폰/이용권함	케이스 6	✅	✅	TM-MY-CPN-MO-08-PG-051	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PU-002-0	마이	쿠폰/이용권함	비밀번호 입력			PU	쿠폰 비밀번호 입력 팝업 (공통/개별 비밀번호 케이스)	쿠폰 상세		✅	✅	TM-MY-CPN-MO-08-PU-021; TM-MY-CPN-MO-08-PU-025; TM-MY-CPN-MO-08-PU-030; TM-MY-CPN-MO-08-PU-034; TM-MY-CPN-MO-08-PU-060	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-PU-003-0	마이	쿠폰/이용권함	쿠폰 바코드			PU	쿠폰 바코드 제시 화면	쿠폰 상세		✅	✅	TM-MY-CPN-MO-08-PU-048; TM-MY-CPN-MO-08-PU-057	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-002-0	마이	쿠폰/이용권함	쿠폰 사용 불가 안내			CP	쿠폰 사용 불가 얼럿 (카드정지/일시정지 포함)	쿠폰 상세	예외 1	✅	✅	TM-MY-CPN-MO-08-CP-007; TM-MY-CPN-MO-08-CP-011; TM-MY-CPN-MO-08-CP-052; TM-MY-CPN-MO-08-CP-105	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-003-0	마이	쿠폰/이용권함	쿠폰번호 복사 안내			CP	쿠폰번호 복사 확인 얼럿 (외부링크 있는/없는 케이스)	쿠폰 상세		✅	✅	TM-MY-CPN-MO-08-CP-008; TM-MY-CPN-MO-08-CP-009; TM-MY-CPN-MO-08-CP-053	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-004-0	마이	쿠폰/이용권함	직원 확인 얼럿			CP	직원 확인용 쿠폰 사용 확인 얼럿 (정상 case)	쿠폰 상세		✅	✅	TM-MY-CPN-MO-08-CP-012; TM-MY-CPN-MO-08-CP-016	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-005-0	마이	쿠폰/이용권함	비밀번호 일치 안내			CP	쿠폰 비밀번호 일치 확인 얼럿 (공통/개별)	비밀번호 입력		✅	✅	TM-MY-CPN-MO-08-CP-061; TM-MY-CPN-MO-08-CP-062	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-006-0	마이	쿠폰/이용권함	비밀번호 불일치 안내			CP	쿠폰 비밀번호 불일치 얼럿	비밀번호 입력	예외 1	✅	✅	TM-MY-CPN-MO-08-CP-063	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-007-0	마이	쿠폰/이용권함	쿠폰 사용 처리 안내			CP	쿠폰 사용 처리 결과 안내 얼럿	쿠폰 상세		✅	✅	TM-MY-CPN-MO-08-CP-066	TM		
+앱-MYCPN	US-CPN-CUS-003	고객 쿠폰·이용권 사용 진입 및 제시 수단 확인	NOVA-MYCPN-CP-008-0	마이	쿠폰/이용권함	쿠폰 재전송 안내			CP	쿠폰 재전송 확인 얼럿 (잔여 횟수별 케이스)	쿠폰 상세		✅	✅	TM-MY-CPN-MO-07-CP-022; TM-MY-CPN-MO-07-CP-023; TM-MY-CPN-MO-07-CP-024; TM-MY-CPN-MO-07-CP-025	TM		
+앱-MYCPN	US-CPN-CUS-005	고객 만료·소멸·사용 이력 조회	NOVA-MYCPN-PG-007-0	마이	쿠폰/이용권함	맛있는 쿠폰			PG	맛있는 쿠폰 탭 및 Iframe 콘텐츠	쿠폰/이용권함		✅	✅	TM-MY-CPN-MO-08-PG-004; TM-MY-CPN-MO-08-PG-101	TM		
+앱-MYCPN	US-CPN-CUS-005	고객 만료·소멸·사용 이력 조회	NOVA-MYCPN-PG-008-0	마이	쿠폰/이용권함	사용/기간만료 쿠폰 목록			PG	사용 완료 및 기간 만료 쿠폰 목록 탭	쿠폰/이용권함		✅	✅	TM-MY-CPN-MO-08-TB-215	TM		
+앱-MYCPN	US-CPN-CUS-005	고객 만료·소멸·사용 이력 조회	NOVA-MYCPN-PU-004-0	마이	쿠폰/이용권함	구매후기 상세			PU	쿠폰 사용 관련 구매후기 상세 팝업	쿠폰/이용권함		✅	✅	TD-MY-CPN-MOPC-09-PG-036	TD		
+앱-MYCPN	US-CPN-CUS-007	고객 내 베네핏 공유 카드 생성	NOVA-MYCPN-PG-009-0	마이	쿠폰/이용권함	선물함			PG	받은 선물 쿠폰 내역 탭 (받은/보낸 선물 구분)	쿠폰/이용권함		✅	✅	TU-MY-CPN-MO-08-TB-001-1	TU		fadeout 검토대상
+앱-MYCPN	US-CPN-CUS-007	고객 내 베네핏 공유 카드 생성	NOVA-MYCPN-PG-010-0	마이	쿠폰/이용권함	보낸 선물내역 상세			PG	보낸 선물 상세 화면 (금액·리스트·안내)	선물함		✅	✅	TU-MY-CPN-MO-08-PG-001	TU		fadeout 검토대상
+앱-MBR	US-MBR-CUS-001	통합회원 시작과 가입 유형 관리	NOVA-MBR-PG-001-0	로그인					PG	회원 모듈 진입 — 미로그인 시. T world 슈퍼앱 로그인/회원가입 선택	마이		✅	✅	TU-MY-MBR-MO-01-PU-002	TU		fadeout 검토대상 (P7)
+앱-MBR	US-MBR-CUS-001	통합회원 시작과 가입 유형 관리	NOVA-MBR-PG-002-0	로그인	회원가입				PG	회원가입 시작 — T우주 약관 동의 진입			✅	✅	TU-MY-MBR-MO-01-PG-004	TU		
+앱-MBR	US-MBR-CUS-001	통합회원 시작과 가입 유형 관리	NOVA-MBR-PU-001-0	로그인	T 우주 LITE 회원 전환				PU	LITE 회원을 정회원으로 전환하는 특별 약관 동의 팝업			✅	✅	TM-MY-MBR-MO-06-PU-031	TM		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-BS-001-0	로그인	회원가입	통신사 선택			BS	본인인증을 위한 통신사 선택			✅	✅	TU-MY-MBR-MO-01-BS-001	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-BS-002-0	로그인	회원가입	본인인증 약관 동의			BS	본인인증 서비스 이용 약관 동의			✅	✅	TU-MY-MBR-MO-01-BS-002	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-003-0	로그인	회원가입	휴대폰 본인인증			PG	휴대폰 번호 입력 및 인증 요청			✅	✅	TU-MY-MBR-MO-01-PG-001; TU-MY-MBR-MO-15-PG-007	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-004-0	로그인	회원가입	인증번호 입력			PG	SMS 인증번호 입력			✅	✅	TW-MY-MBR-MOPC-048-BS-038; TU-MY-MBR-MO-01-PG-003; TU-MY-MBR-MO-15-PG-008	TU, TW	●	
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PU-002-0	로그인	회원가입	고유식별정보 처리 동의			PU	본인확인 서비스 고유식별정보 처리 동의			✅	✅	TU-MY-MBR-MO-01-PG-002-3	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-005-0	로그인	회원가입	T 우주 서비스 이용약관 동의			PG	T 우주 서비스 이용약관 동의			✅	✅	TU-MY-MBR-MO-01-PG-004	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-006-0	로그인	회원가입	개인정보 수집 및 이용동의			PG	개인정보 수집 및 이용 동의			✅	✅	TU-MY-MBR-MO-01-PG-004-2	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-007-0	로그인	회원가입	개정 서비스 이용약관 동의			PG	개정 서비스 이용약관 동의			✅	✅	TU-MY-MBR-MO-01-PG-005	TU		
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-008-0	로그인	회원가입	정보 입력			PG	아이디·비밀번호·기본정보 입력	인증번호 입력		✅	✅				
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-PG-009-0	로그인	회원가입	가입 완료			PG	가입 완료 안내	정보 입력		✅	✅				
+앱-MBR	US-MBR-CUS-002	가입 신뢰 확보와 동의 관리	NOVA-MBR-BS-003-0	로그인	T 우주 LITE 회원 전환	약관 동의			BS	T 우주 LITE 회원 전환 약관 동의 — 본인인증 약관 동의 공통 사용			✅	✅	TU-MY-MBR-MO-01-BS-002	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PG-010-0	로그인	소셜 로그인				PG	소셜 로그인 선택 진입 — 카카오·네이버·Google			✅	✅				
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-003-0	로그인	소셜 로그인	카카오			PU	카카오 인증		케이스 1	✅	✅	TU-MY-MBR-MO-01-AL-001-1	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-004-0	로그인	소셜 로그인	네이버			PU	네이버 인증		케이스 2	✅	✅	TU-MY-MBR-MO-01-AL-001-2	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-005-0	로그인	소셜 로그인	Google			PU	Google 인증		케이스 3	✅	✅	TU-MY-MBR-MO-01-IB-001-4	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PU-006-0	로그인	소셜 로그인	휴대폰번호 확인			PU	소셜 로그인 후 휴대폰번호 확인			✅	✅	TU-MY-MBR-MO-01-PU-003	TU		
+앱-MBR	US-MBR-CUS-003	통합 계정 생성과 로그인 연결	NOVA-MBR-PG-011-0	로그인	T 아이디 연동				PG	T아이디 연동 프로세스			✅	✅	TU-MY-MBR-MO-01-IB-002	TU		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-012-0	로그인	계정 보호				PG	계정 보호 설정 진입			✅	✅				
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-CP-001-0	로그인	계정 보호	로그아웃			CP	로그아웃 확인 팝업 (T world)			✅	✅	TW-MY-MBR-MOPC-049-CP-001	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-CP-002-0	로그인	계정 보호	로그아웃 (T멤버십)			CP	로그아웃 확인 팝업 (T멤버십)		케이스 1	✅	✅	TM-MY-MBR-MO-06-CP-100	TM		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-013-0	로그인	계정 보호	고객보호 비밀번호 서비스			PG	고객보호 비밀번호 입력 화면			✅	✅	TW-MY-MBR-MOPC-049-PG-026	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PU-007-0	로그인	계정 보호	고객보호 비밀번호 설정			PU	고객보호 비밀번호 서비스 설정			✅	✅	TW-MY-MBR-MOPC-049-PU-010	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-014-0	로그인	세션 관리				PG	세션 관리 — 세션 만료·로그아웃·로그인 제한 처리			✅	✅				
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-015-0	로그인	세션 관리	세션 만료			PG	세션 만료 안내			✅	✅	TW-MY-MBR-MOPC-049-PG-016	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-016-0	로그인	세션 관리	로그아웃 완료			PG	사용자 로그아웃 처리 완료 화면			✅	✅	TW-MY-MBR-MOPC-049-PG-014	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-017-0	로그인	세션 관리	로그인 허용횟수 초과			PG	일일 로그인 허용횟수 초과 안내		예외 1	✅	✅	TW-MY-MBR-MOPC-049-PG-003	TW		
+앱-MBR	US-MBR-CUS-004	계정 보호와 세션 관리	NOVA-MBR-PG-018-0	로그인	세션 관리	5회 실패			PG	로그인 5회 실패 안내		예외 2	✅	✅	TW-MY-MBR-MOPC-049-PG-005	TW		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-019-0	로그인	회원탈퇴				PG	로그인 후 진입. 탈퇴 유의사항 안내			✅	✅	TW-MY-MBR-MOPC-049-PG-027	TW		fadeout 검토대상 (P1)
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-020-0	로그인	회원탈퇴	탈퇴 사유 선택			PG	탈퇴 사유 선택			✅	✅	TU-MY-MBR-MO-15-PG-004	TU		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-021-0	로그인	회원탈퇴	탈퇴 신청			PG	탈퇴 신청 확인	탈퇴 사유 선택		✅	✅	TU-MY-MBR-MO-15-PG-005	TU		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PU-008-0	로그인	회원탈퇴	본인인증 (내국인)			PU	탈퇴 본인확인 — 내국인 인증			✅	✅	TW-MY-MBR-MOPC-049-PU-028	TW		fadeout 검토대상
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PU-009-0	로그인	회원탈퇴	본인인증 (외국인)			PU	탈퇴 본인확인 — 외국인 인증		케이스 1	✅	✅	TW-MY-MBR-MOPC-049-PU-029	TW		fadeout 검토대상
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PU-010-0	로그인	회원탈퇴	설문조사			PU	탈퇴 후 만족도 설문조사			✅	✅	TW-MY-MBR-MOPC-049-PU-030	TW		fadeout 검토대상 (P3)
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-022-0	로그인	회원탈퇴	탈퇴 완료			PG	탈퇴 완료 안내	본인인증 (내국인)		✅	✅	TW-MY-MBR-MOPC-049-PG-025; TU-MY-MBR-MO-15-PG-009	TU, TW	●	
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-023-0	로그인	회원탈퇴	탈퇴 완료 (T world 단독 아닌 경우)			PG	T world 단독 계정이 아닌 경우 탈퇴 완료 안내		케이스 1	✅	✅	TW-MY-MBR-MOPC-049-PG-031	TW		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-024-0	로그인	회원탈퇴	탈퇴 불가능 안내			PG	탈퇴 불가 조건 시 안내		예외 1	✅	✅	TU-MY-MBR-MO-15-PG-006	TU		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-003-0	로그인	회원탈퇴	주의사항 팝업			CP	탈퇴 전 꼭 확인해주세요 팝업			✅	✅	TW-MY-MBR-MOPC-049-CP-013	TW		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-004-0	로그인	회원탈퇴	재가입 안내			CP	탈퇴 후 재가입 안내 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-013; TM-MY-MBR-MO-06-CP-015	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-005-0	로그인	회원탈퇴	기타 서비스 직접입력 없음 안내			CP	기타 서비스 개선 직접입력이 없을 경우 안내 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-010	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-025-0	로그인	멤버십 서비스 해지				PG	T멤버십 앱/웹 서비스 해지 진입			✅	✅	TM-MY-MBR-MO-06-PG-006	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-026-0	로그인	멤버십 서비스 해지	해지 인증 (내국인)			PG	T멤버십 앱/웹 서비스 해지 — 내국인 인증			✅	✅	TM-MY-MBR-MO-06-PG-007	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-027-0	로그인	멤버십 서비스 해지	해지 인증 (외국인)			PG	T멤버십 앱/웹 서비스 해지 — 외국인 인증		케이스 1	✅	✅	TM-MY-MBR-MO-06-PG-016	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-028-0	로그인	멤버십 서비스 해지	해지 사유			PG	T멤버십 해지 사유 입력			✅	✅	TM-MY-MBR-MO-06-PG-009	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-029-0	로그인	멤버십 서비스 해지	해지 완료			PG	T멤버십 해지 완료			✅	✅	TM-MY-MBR-MO-06-PG-012	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-PG-030-0	로그인	멤버십 서비스 해지	해지 완료 오류			PG	T멤버십 해지 완료 오류 페이지		예외 1	✅	✅	TM-MY-MBR-MO-06-PG-014	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-006-0	로그인	멤버십 서비스 해지	해지 안내 얼럿			CP	앱/웹 서비스 해지 안내 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-011	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-007-0	로그인	멤버십 서비스 해지	정보불일치			CP	해지 인증 정보 불일치 얼럿 (내국인)		예외 2	✅	✅	TM-MY-MBR-MO-06-CP-008	TM		
+앱-MBR	US-MBR-CUS-005	회원탈퇴 결정과 복구 관리	NOVA-MBR-CP-008-0	로그인	멤버십 서비스 해지	정보불일치 (외국인)			CP	해지 인증 정보 불일치 얼럿 (외국인)		예외 3	✅	✅	TM-MY-MBR-MO-06-CP-104	TM		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MY-PG-001-0	마이					PG	마이 홈 — 회원정보·설정 진입점. MY 모듈 소유 공유 페이지.	홈							
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-001-0	마이	회원정보 관리				PG	회원정보 통합 조회 — 기본정보·로그인수단·설정 진입	마이		✅	✅	TU-MY-MBR-MO-15-PG-002	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-002-0	마이	회원정보 관리	로그인수단 관리			PG	로그인 수단 조회 및 관리			✅	✅	TU-MY-MBR-MO-15-PG-003	TU		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-003-0	마이	회원정보 관리	할인형/적립형 선택			PG	할인형 또는 적립형 서비스 선택			✅	✅	TM-MY-MBR-MO-06-PG-034	TM		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-004-0	마이	설정				PG	앱 설정 진입 (로그인 상태)			✅	✅	TM-MY-MBR-MO-06-PG-001; TW-MY-MBR-MO-002-PG-002	TM, TW	●	fadeout 검토대상 (P6)
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-005-0	마이	미환급금 조회				PG	미환급금 조회			✅	✅	TW-MY-MBR-MOPC-003-PG-001	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-BS-001-0	마이	미환급금 조회	미환급금 상세보기			BS	미환급금 상세 정보			✅	✅	TW-MY-MBR-MOPC-003-BS-004	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PU-016-0	마이	미환급금 조회	미환급금 없음 안내			PU	미환급금 내역이 없을 경우 안내 화면		예외 1	✅	✅	TW-MY-MBR-MOPC-003-PU-004	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PU-001-0	마이	미환급금 조회	계좌정보 수정			PU	환급 계좌정보 수정			✅	✅	TW-MY-MBR-MOPC-003-PU-002	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-BS-002-0	마이	미환급금 조회	은행 선택			BS	환급 은행 선택			✅	✅	TW-MY-MBR-MOPC-003-BS-003	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-006-0	마이	앱 정보				PG	앱 버전·라이선스·인증 정보 진입			✅	✅				
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PU-002-0	마이	앱 정보	오픈 소스 라이선스			PU	오픈 소스 라이선스 안내			✅	✅	TU-MY-MBR-MO-15-PU-004; TM-MY-MBR-MO-06-PU-068; TM-MY-MBR-MO-06-PU-067	TM, TU	●	
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-007-0	마이	앱 정보	인증 마크			PG	앱 인증 마크 안내			✅	✅	TW-MY-MBR-MOPC-002-PG-004	TW		fadeout 검토대상
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-008-0	마이	앱 정보	패밀리 사이트			PG	패밀리 사이트 링크			✅	✅	TW-MY-MBR-MOPC-002-PG-005	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-009-0	마이	앱 정보	버전 안내			PG	최신버전·현재버전·이전버전 안내			✅	✅	TM-MY-MBR-MO-06-PG-065; TM-MY-MBR-MO-06-TB-100; TM-MY-MBR-MO-06-TB-102; TM-MY-MBR-MO-06-TB-101; TM-MY-MBR-MO-06-TB-103	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-010-0	마이	설정	T id 본인인증			PG	T아이디 본인인증 설정			✅	✅	TM-MY-MBR-MO-06-PG-026	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-011-0	마이	설정	포인트 비밀번호 관리			PG	포인트 비밀번호 등록·변경 진입			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-012-0	마이	설정	포인트 비밀번호 관리	포인트 비밀번호 등록		PG	포인트 비밀번호 등록			✅	✅	TM-MY-MBR-MO-06-PG-022	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-013-0	마이	설정	포인트 비밀번호 관리	포인트 비밀번호 변경		PG	포인트 비밀번호 변경		케이스 1	✅	✅	TM-MY-MBR-MO-06-PG-025	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-003-0	마이	설정	포인트 비밀번호 관리	랜덤 키패드		PU	포인트 비밀번호 입력용 랜덤 키패드			✅	✅	TM-MY-MBR-MO-06-PU-023	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-004-0	마이	설정	포인트 비밀번호 관리	랜덤 키패드 확인		PU	포인트 비밀번호 확인용 랜덤 키패드			✅	✅	TM-MY-MBR-MO-06-PU-105	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-014-0	마이	설정	생체인증 설정			PG	지문·Face ID 잠금 설정			✅	✅	TM-MY-MBR-MO-06-PG-019	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-015-0	마이	설정	OK캐쉬백 설정			PG	OK캐쉬백 탑재·적립 동의 및 카드 서비스 이용약관			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-016-0	마이	설정	OK캐쉬백 설정	OK캐쉬백 탑재 및 적립 동의		PG	OK캐쉬백 탑재 및 적립 동의 설정			✅	✅	TM-MY-MBR-MO-06-PG-044	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-005-0	마이	설정	OK캐쉬백 설정	OK캐쉬백 카드 서비스 이용약관		PU	OK캐쉬백 카드 서비스 이용약관			✅	✅	TM-MY-MBR-MO-06-PU-045	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-006-0	마이	회원정보 관리	이메일 수정			PU	이메일 주소 수정 팝업			✅	✅	TU-MY-MBR-MO-15-PU-003	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-007-0	마이	회원정보 관리	휴대폰번호 변경			PU	휴대폰 번호 변경 팝업			✅	✅	TU-MY-MBR-MO-15-PU-001	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-008-0	마이	회원정보 관리	인증번호 입력			PU	회원정보 변경 인증번호 입력			✅	✅	TU-MY-MBR-MO-15-PU-002-1	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-017-0	마이	알림 설정				PG	알림 설정 진입			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-018-0	마이	알림 설정	혜택 알림 설정			PG	혜택 알림 설정			✅	✅	TM-MY-MBR-MO-06-PG-028	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-019-0	마이	알림 설정	앱 Push 알림 설정			PG	앱 Push 알림 설정			✅	✅	TM-MY-MBR-MO-06-PG-040	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-020-0	마이	알림 설정	T 알림 설정			PG	T 알림 설정 진입			✅	✅	TW-MY-MBR-MO-007-PG-001	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-021-0	마이	알림 설정	T 알림 설정	정보/혜택 알림 설정		PG	정보·혜택 알림 설정			✅	✅	TW-MY-MBR-MO-007-PG-002	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-022-0	마이	알림 설정	T 알림 설정	나의 캘린더 알림 설정		PG	나의 캘린더 알림 설정			✅	✅	TW-MY-MBR-MO-007-PG-003	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-003-0	마이	알림 설정	T 알림 설정	나의 캘린더 개인정보 동의		BS	나의 캘린더 개인정보 동의 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-006	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-004-0	마이	알림 설정	T 알림 설정	데이터 노출항목 선택		BS	데이터 노출항목 선택 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-003	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-005-0	마이	알림 설정	T 알림 설정	음성 노출항목 선택		BS	음성 노출항목 선택 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-004	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-006-0	마이	알림 설정	T 알림 설정	문자 노출항목 선택		BS	문자 노출항목 선택 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-005	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-023-0	마이	알림 설정	위치정보 사용 설정			PG	위치정보 사용 설정			✅	✅	TM-MY-MBR-MO-06-PG-055	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-024-0	마이	알림 설정	위치정보 사용 설정	위치정보 수집이용 약관 동의		PG	위치정보 수집이용 약관 동의			✅	✅	TM-MY-MBR-MO-06-PG-056	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-025-0	마이	알림 설정	위치정보 사용 설정	위치 기반 서비스 이용동의 설정		PG	위치 기반 서비스 이용동의 설정			✅	✅	TW-MY-MBR-MO-053-PG-001	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-026-0	마이	수신 동의 관리				PG	수신 동의 관리 진입			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-009-0	마이	수신 동의 관리	광고성 정보 수신 동의			PU	광고성 정보 수신 동의 팝업 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-PU-029	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-010-0	마이	수신 동의 관리	T world 광고성 정보 수신동의			PU	T world 광고성 정보 수신동의 (선택)			✅	✅	TW-MY-MBR-MO-007-PU-002	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-027-0	마이	수신 동의 관리	이메일수신거부			PG	이메일 수신 거부 설정			✅	✅	TW-MY-MBR-MOPC-082-PG-031	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-011-0	마이	수신 동의 관리	개인정보 수집/이용 동의			PU	개인정보 수집 및 이용 동의 팝업			✅	✅	TM-MY-MBR-MO-06-PU-030	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-012-0	마이	수신 동의 관리	암호화된 동일인 식별정보 제공동의			PU	암호화된 동일인 식별정보 제공동의			✅	✅	TM-MY-MBR-MO-06-PU-046	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-013-0	마이	수신 동의 관리	개인정보 제3자 제공동의			PU	개인정보 제3자 제공동의 풀팝업			✅	✅	TM-MY-MBR-MO-06-PU-052	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-007-0	마이	수신 동의 관리	개인정보 동의			BS	개인정보 동의 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-001	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-014-0	마이	위젯 설정				PU	위젯 설정			✅	✅	TW-MY-MBR-MO-007-PU-004	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-015-0	마이	11pay 설정				PU	11pay 설정			✅	✅	TW-MY-MBR-MO-007-PU-005	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-001-0	마이	설정	설정 변경 완료			CP	설정 항목 변경 완료 얼럿 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-CP-035; TM-MY-MBR-MO-06-CP-047; TM-MY-MBR-MO-06-CP-101	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-002-0	마이	설정	비밀번호 불일치			CP	포인트 비밀번호 불일치 얼럿		예외 1	✅	✅	TM-MY-MBR-MO-06-CP-024	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-003-0	마이	설정	연결 해제 확인			CP	T아이디 연결 해제 확인 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-050; TM-MY-MBR-MO-06-CP-051	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-004-0	마이	설정	처리 결과 얼럿			CP	정상처리·실패처리 얼럿 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-CP-053; TM-MY-MBR-MO-06-CP-054	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-005-0	마이	설정	해지신청 상태 안내			CP	해지신청 상태일 경우 설정 변경 불가 안내 얼럿		예외 2	✅	✅	TM-MY-MBR-MO-06-CP-033; TM-MY-MBR-MO-06-CP-039; TM-MY-MBR-MO-06-CP-049	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-AP-001-0	마이	설정	설정 변경 완료 토스트			AP	설정 항목 변경 완료 토스트 알림 시리즈 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-TP-036; TM-MY-MBR-MO-06-TP-037; TM-MY-MBR-MO-06-TP-021; TM-MY-MBR-MO-06-TP-106	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-AP-002-0	마이	알림 설정	알림 설정 변경 토스트			AP	알림 수신 설정 변경 완료 토스트 (Push 해제·위치 동의 등)			✅	✅	TM-MY-MBR-MO-06-TP-042; TM-MY-MBR-MO-06-TP-061; TM-MY-MBR-MO-06-TP-062	TM	●	
+앱-MBI	US-MBR-CS-003	회원정보 정정·복구 관리	NOVA-MBI-PG-028-0	마이	설정	설정 (비로그인)			PG	비로그인 시 설정 화면 (기능 제한)		예외 1	✅	✅	TU-MY-MBR-MO-15-PG-001-2	TU		
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-PG-001-0	마이	알림함				PG	통합 알림함 목록. 알림 없는 경우/있는 경우 표시. 정보동의 미동의 항목 배너 포함			✅	✅	TW-MY-ALM-PC-075-PG-083; TU-MY-ALM-MO-16-PG-001-1-1; TU-MY-ALM-MO-16-PG-001-1-2; TU-MY-ALM-MO-16-PG-001-2	TU,TW	●	
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-001-0	마이	알림함	이벤트 댓글 안내			CP	이벤트 댓글 등록/삭제 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-16-CP-008; TM-MY-ALM-MO-16-CP-009	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-002-0	마이	알림함	T 멤버십 카드 안내			CP	T 멤버십 카드 신청/정지 상태 얼럿	알림함	예외 1	✅	✅	TM-MY-ALM-MO-16-CP-013; TM-MY-ALM-MO-16-CP-014; TM-MY-ALM-MO-14-CP-630; TM-MY-ALM-MO-14-CP-631	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-003-0	마이	알림함	구매 수량 초과 안내			CP	구매 가능 수량 초과 얼럿 (1회/월 수량 초과 케이스 포함)	알림함	예외 2	✅	✅	TM-MY-ALM-MO-16-CP-018; TM-MY-ALM-MO-16-CP-019; TM-MY-ALM-MO-16-CP-020	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-004-0	마이	알림함	상품 옵션 선택 안내			CP	상품 옵션 미선택/중복선택 얼럿	알림함	예외 3	✅	✅	TM-MY-ALM-MO-16-CP-022; TM-MY-ALM-MO-16-CP-026	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-005-0	마이	알림함	응모 완료 안내			CP	0day 이벤트 응모 완료 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-14-CP-626	TM		
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PU-001-0	마이	알림함	알림 수신 동의			PU	[필수] 개인정보 제3자 제공 동의 팝업 (참여적립)	알림함		✅	✅	TM-MY-ALM-MO-02-PU-040	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PG-002-0	마이	알림함	알림 수신 동의 안내			PG	개인정보 제공 동의 화면 (LP형, 추적허용 포함)	알림함		✅	✅	TM-MY-ALM-MO-02-LP-038; TM-MY-ALM-MO-02-LP-039	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-006-0	마이	알림함	알림 설정 오류 안내			CP	카메라/핸드폰번호/이메일 유효성/파일용량 초과/추적허용 관련 얼럿	알림함	예외 1	✅	✅	TM-MY-ALM-MO-02-CP-084; TM-MY-ALM-MO-02-CP-085; TM-MY-ALM-MO-02-CP-087; TM-MY-ALM-MO-02-CP-090; TM-MY-ALM-MO-02-CP-105	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-007-0	마이	알림함	적립 문의 등록 안내			CP	적립 문의 등록 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-086	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-008-0	마이	알림함	서비스 이용 해지 안내			CP	서비스 이용 해지 확인 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-088	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-009-0	마이	알림함	정상 처리 안내			CP	정상 처리 완료 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-089	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-010-0	마이	알림함	영상 알림 안내			CP	영상 알림 관련 안내 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-108	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-011-0	마이	알림함	앱 업데이트 안내			CP	앱 최신 버전 업데이트 유도 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-137	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-CP-012-0	마이	알림함	로그인 안내			CP	로그인 필요 안내 얼럿	알림함		✅	✅	TM-MY-ALM-MO-02-CP-138	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PG-003-0	마이	알림함	돈 버는 교통 설정			PG	돈 버는 교통 서비스 알림·위치 기반 설정 화면	알림함		✅	✅	TM-MY-ALM-MO-02-PG-101	TM		fadeout 검토대상
+앱-ALM	US-ARZ-CS-002	통합 알림 수신 설정 실행	NOVA-ALM-PG-004-0	마이	알림함	시스템 알림 (IMAS 연동)			PG	유선/무선 요금안내서, 일시정지, 번호변경, 기기변경, 분실신고, 선불이동전화 충전·자동충전, 부가서비스, 개인정보, 본인인증 등 IMAS 연동 시스템 알림 상세	알림함		✅	✅	TW-MY-ALM-MOPC-082-SYS-006; TW-MY-ALM-MOPC-082-SYS-007; TW-MY-ALM-MOPC-082-SYS-008; TW-MY-ALM-MOPC-082-SYS-009; TW-MY-ALM-MOPC-082-SYS-010; TW-MY-ALM-MOPC-082-SYS-011; TW-MY-ALM-MOPC-082-SYS-012; TW-MY-ALM-MOPC-082-SYS-014; TW-MY-ALM-MOPC-082-SYS-015; TW-MY-ALM-MOPC-082-SYS-016; TW-MY-ALM-MOPC-082-SYS-017; TW-MY-ALM-MOPC-082-SYS-023; TW-MY-ALM-MOPC-082-SYS-024; TW-MY-ALM-MOPC-082-SYS-025; TW-MY-ALM-MOPC-082-SYS-026; TW-MY-ALM-MOPC-082-SYS-027; TW-MY-ALM-MOPC-082-SYS-028; TW-MY-ALM-MOPC-082-SYS-029; TW-MY-ALM-MOPC-082-SYS-030	TW		
+앱-ALM	US-ARZ-CS-001	통합 알림 확인	NOVA-ALM-CP-013-0	마이	알림함	멤버십 카드 미보유 안내			CP	B.멤버십 카드 미보유 안내 얼럿	알림함	예외 4	✅	✅	TM-MY-ALM-MO-14-CP-065; TM-MY-ALM-MO-14-CP-066	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-001-0	마이	약관				PG	이용약관 목록 진입 화면. 멤버십·우주 서비스 약관 분류			✅	✅	TW-MY-AGR-MOPC-002-PG-001; TU-MY-AGR-MO-12-PG-001			
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-002-0	마이	약관	이용약관 상세			PG	이용약관 상세 내용 화면	약관		✅	✅	TW-MY-AGR-MOPC-002-PG-002	TW		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-003-0	마이	약관	T 멤버십 회원약관			PG	T 멤버십 회원약관 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-041			
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-004-0	마이	약관	T 우주 LITE 회원약관			PG	T 우주 LITE 회원약관 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-042	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-005-0	마이	약관	멤버십 개인정보처리방침			PG	멤버십 통합 개인정보처리방침 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-043	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-006-0	마이	약관	T 멤버십 전자상거래 이용약관			PG	T 멤버십 전자상거래 이용약관 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-047	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-007-0	마이	약관	전자상거래 개인정보처리방침			PG	T 멤버십 전자상거래 개인정보처리방침 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-049	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-008-0	마이	약관	개인위치정보 이용동의			PG	개인위치정보 이용동의 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-052			
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-001-0	마이	약관	T 멤버십 서비스 약관 동의			PU	T 멤버십 서비스 약관 동의 팝업 (최초 1회 전체 약관 5개)	약관		✅	✅	TM-MY-AGR-MO-01-LP-002	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-001-0	마이	약관	T 멤버십 서비스 약관 동의			PU	선택 약관 동의 (2회 이후)	약관	케이스 1			TM-MY-AGR-MO-01-LP-007	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-002-0	마이	약관	앱 푸시 알림 약관 동의			PU	앱 푸시 알림 수신 약관 동의 화면	약관		✅	✅	TM-MY-AGR-MO-01-LP-010	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-003-0	마이	약관	개인정보 수집·이용 동의			PU	개인정보 수집·이용 동의 화면	약관		✅	✅	TM-MY-AGR-MO-01-LP-023	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-004-0	마이	약관	광고성 정보 수신 동의			PU	[선택] 광고성 정보 수신 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-01-PU-003	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-005-0	마이	약관	개인정보 수집·이용동의 (선택)			PU	[선택] 개인정보 수집·이용동의 팝업	약관	케이스 1	✅	✅	TM-MY-AGR-MO-01-PU-004	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-006-0	마이	약관	위치기반서비스 이용약관			PU	[선택] T 멤버십 위치기반서비스 이용약관 팝업. 상세(PG)도 포함	약관	케이스 2	✅	✅	TM-MY-AGR-MO-01-PU-005; TM-MY-AGR-MO-01-PU-051	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-007-0	마이	약관	개인위치정보 이용동의 (선택)			PU	[선택] T 멤버십 개인위치정보 이용동의 팝업	약관	케이스 3	✅	✅	TM-MY-AGR-MO-01-PU-006	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-008-0	마이	약관	전자상거래 이용 동의			PU	T 멤버십 전자상거래 이용 약관 동의 팝업 (필수/개인정보 포함)	약관		✅	✅	TM-MY-AGR-MO-16-PU-027; TM-MY-AGR-MO-16-PU-028; TM-MY-AGR-MO-16-PU-029	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-009-0	마이	약관	전자상거래 이용 동의 완료			PU	전자상거래 이용 동의 완료 화면	전자상거래 이용 동의		✅	✅	TM-MY-AGR-MO-16-PU-031	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-010-0	마이	약관	구매 약관 동의			PU	[필수] 구매약관·개인정보 수집·개인정보 판매자 제공 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-16-PU-044; TM-MY-AGR-MO-16-PU-045; TM-MY-AGR-MO-16-PU-046	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-009-0	마이	약관	약관 이전 버전			PG	이전 버전 약관 탭 조회 (전자상거래 이용약관/개인정보처리방침 이전 버전)	약관		✅	✅	TM-MY-AGR-MO-01-TB-044; TM-MY-AGR-MO-01-TB-048; TM-MY-AGR-MO-01-TB-050	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-CP-001-0	마이	약관	약관 미동의 안내			CP	필수 약관 미동의 시 안내 얼럿	약관	예외 1	✅	✅	TM-MY-AGR-MO-16-CP-063	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-010-0	마이	약관	온라인 회원 이용약관			PG	온라인 회원 이용약관 링크 페이지	약관		✅	✅	TM-MY-AGR-MO-01-LN-045	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-011-0	마이	약관	온라인 회원 개인정보처리방침			PG	온라인 회원 개인정보처리방침 링크 페이지	약관		✅	✅	TM-MY-AGR-MO-01-LN-046			
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-012-0	마이	약관	T우주 서비스 약관 동의			PG	T우주 서비스 이용약관 동의 진행 화면	약관	케이스 4	✅	✅	TU-MY-AGR-MO-12-PG-005; TU-MY-AGR-MO-12-PG-006	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-013-0	마이	약관	약관 동의 완료			PG	약관 동의 처리 완료 화면	T우주 서비스 약관 동의		✅	✅	TU-MY-AGR-MO-12-PG-007			
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-014-0	마이	약관	상품 이용약관 동의			PG	상품 가입 약관 동의 진행 화면 (고지/필수/복합 케이스)	약관	케이스 5	✅	✅	TU-MY-AGR-MO-12-PG-008; TU-MY-AGR-MO-12-PG-009-1; TU-MY-AGR-MO-12-PG-009-2; TU-MY-AGR-MO-12-PG-009-3	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-015-0	마이	약관	상품 이용약관 동의 완료			PG	상품 이용약관 동의 처리 완료	상품 이용약관 동의		✅	✅	TU-MY-AGR-MO-12-PG-010	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-011-0	마이	약관	T우주 구독서비스 이용약관			PU	[서비스 약관] T우주 구독서비스 이용약관·개인정보·제3자 제공·배송정보·혜택수신동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-001-1; TU-MY-AGR-MO-12-PU-001-2; TU-MY-AGR-MO-12-PU-001-3; TU-MY-AGR-MO-12-PU-001-4; TU-MY-AGR-MO-12-PU-001-5; TU-MY-AGR-MO-12-PU-001-6-1; TU-MY-AGR-MO-12-PU-001-6-2; TU-MY-AGR-MO-12-PU-001-7-1; TU-MY-AGR-MO-12-PU-001-7-2; TU-MY-AGR-MO-12-PU-001-8-1; TU-MY-AGR-MO-12-PU-001-8-2	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-012-0	마이	약관	상품 이용약관 팝업			PU	[상품 약관] 우주패스 상품약관·정기결제·제3자 제공·결제정보 동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-002-1-1; TU-MY-AGR-MO-12-PU-002-2; TU-MY-AGR-MO-12-PU-002-3; TU-MY-AGR-MO-12-PU-002-4; TU-MY-AGR-MO-12-PU-002-5	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-013-0	마이	약관	이벤트 개인정보 동의 팝업			PU	[이벤트&프로모션] 개인정보 처리 위탁·수집 이용 동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-003-1; TU-MY-AGR-MO-12-PU-003-2	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-014-0	마이	약관	개인정보 처리 동의 팝업			PU	[개인정보 약관] 개인정보 수집·이용·위탁·제3자 제공 동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-004-1; TU-MY-AGR-MO-12-PU-004-2	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-BS-001-0	마이	약관	이벤트 약관 동의			BS	이벤트 참여 약관 동의 바텀시트 (응모자/초대자/피초대자·약관 항목 수 케이스)	약관		✅	✅	TU-MY-AGR-MO-02-BS-001; TU-MY-AGR-MO-17-BS-003-1-1; TU-MY-AGR-MO-17-BS-003-1-2; TU-MY-AGR-MO-17-BS-003-2-1; TU-MY-AGR-MO-17-BS-003-2-2; TU-MY-AGR-MO-17-BS-003-3-1; TU-MY-AGR-MO-17-BS-003-3-2	TU		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-015-0	마이	약관	개인정보 수집과 혜택 알림 동의			PU	개인정보 수집과 혜택 알림 동의·이벤트 응모 참여 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-14-PU-005; TM-MY-AGR-MO-14-PU-621; TM-MY-AGR-MO-14-PU-622; TM-MY-AGR-MO-14-PU-624; TM-MY-AGR-MO-14-PU-625	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-016-0	마이	약관	수신동의 설정			PG	수신동의 설정 바로가기 (링크형)	약관		✅	✅	TM-MY-AGR-MO-16-LN-030	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-017-0	마이	약관	개인정보처리방침			PG	개인정보처리방침 상세 링크 페이지	약관		✅	✅	TM-MY-AGR-MO-02-LN-094			fadeout 검토대상
+앱-AGR	US-ZBC-CS-003	통합 약관 변경·철회 관리	NOVA-AGR-PG-018-0	마이	약관	약관변경 안내			PG	약관 변경 사항 안내 화면	약관		✅	✅	TU-MY-AGR-MO-12-PG-011			
+앱-AGR	US-ZBC-CS-003	통합 약관 변경·철회 관리	NOVA-AGR-PG-019-0	마이	약관	약관 동의 유효시간 만료			PG	약관 동의 유효시간 만료 안내 화면	약관	예외 1	✅	✅	TU-MY-AGR-MO-12-PG-014	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-016-0	마이	약관	쇼핑적립 서비스 동의			PU	쇼핑적립 서비스 이용약관·개인정보 수집·제3자 제공 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-02-PU-074; TM-MY-AGR-MO-02-PU-076; TM-MY-AGR-MO-02-PU-077; TM-MY-AGR-MO-02-PU-078	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-017-0	마이	약관	돈 버는 교통 동의			PU	[필수] 개인정보 제3자 제공 동의 (돈 버는 교통)	약관		✅	✅	TM-MY-AGR-MO-02-PU-144; TM-MY-AGR-MO-02-LN-098; TM-MY-AGR-MO-02-LN-099; TM-MY-AGR-MO-02-LN-100	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-018-0	마이	약관	혜택 알림 동의			PU	혜택 알림·개인정보 제공 동의 화면 (LP형)	약관		✅	✅	TM-MY-AGR-MO-02-LP-006; TM-MY-AGR-MO-02-LP-017; TM-MY-AGR-MO-02-LP-031; TM-MY-AGR-MO-02-LP-073; TM-MY-AGR-MO-02-LP-097; TM-MY-AGR-MO-02-LP-143	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-019-0	마이	약관	개인정보 수집이용동의 (PC)			PU	PC) 개인정보 수집이용동의 팝업	약관		✅	✅	TW-MY-AGR-MOPC-47-PU-050	TW		
+앱-SET	US-LWI-CS-001	설정 상태·권한 관리	NOVA-SET-PG-001-0	마이	설정				PG	설정 진입 화면. 로그인 상태, 시스템 권한 현황 표시. 미로그인 시 로그인 유도.	마이		✅	✅	TU-MY-SET-MO-15-PG-001-1; TW-MY-SET-MOPC-002-PG-001	TU, TW	●	fadeout 검토대상 (P6)
+앱-SET	US-LWI-CS-001	설정 상태·권한 관리	NOVA-SET-PG-002-0	마이	설정	앱 권한 설정			PG	카메라·위치·알림 등 OS 권한 목록 및 허용 상태 표시. 권한 변경 시 OS 설정 앱으로 유도.			✅	✅				
+앱-SET	US-LWI-CS-002	설정 개인화·알림 관리	NOVA-SET-PG-003-0	마이	설정	알림 설정			PG	앱 푸시 알림 채널별 수신 여부 설정. 마케팅 수신 동의 연동.			✅	✅	TU-MY-SET-MO-15-PG-002	TU		
+앱-SET	US-LWI-CS-002	설정 개인화·알림 관리	NOVA-SET-PU-001-0	마이	설정	알림함			PU	수신된 앱 알림 목록 표시. 미확인 알림 강조. 알림 상세 링크 이동.			✅	✅	TM-MY-SET-MO-12-PU-004	TM		
+앱-SET	US-LWI-CS-002	설정 개인화·알림 관리	NOVA-SET-PG-004-0	마이	설정	개인화 설정			PG	홈 화면 구성, 언어·테마, 데이터 절약 모드, 접근성 옵션 설정.			✅	✅				
+앱-SET	US-LWI-CS-002	설정 개인화·알림 관리	NOVA-SET-PG-005-0	마이	설정	이벤트			PG	설정 및 앱 내 이벤트·프로모션 알림 목록 표시.			✅	✅	TU-MY-SET-MO-17-PG-001	TU		fadeout 검토대상 (P2)
+앱-SET	US-LWI-CS-002	설정 개인화·알림 관리	NOVA-SET-PG-006-0	마이	설정	이벤트	이벤트 상세		PG	이벤트 상세 내용 표시.			✅	✅	TU-MY-SET-MO-17-PG-002	TU		
+앱-SET	US-LWI-CS-003	설정 초기화·삭제 관리	NOVA-SET-BS-001-0	마이	설정	기록 삭제			BS	검색 기록, 최근 본 상품 등 삭제 대상 선택 바텀시트. 삭제 영향 범위 고지.			✅	✅				
+앱-SET	US-LWI-CS-003	설정 초기화·삭제 관리	NOVA-SET-CP-001-0	마이	설정	초기화 확인			CP	설정값 초기화 실행 전 최종 확인 팝업. 초기화 영향 범위 고지.			✅	✅				fadeout 검토대상 (P6)
+앱-CS	US-PIN-CS-001	고객센터 통합허브 셀프 해결 허브 이용	NOVA-CS-PG-001-0	고객센터					PG	고객센터 허브 진입. 셀프 해결 카드, 문제 유형 선택, 상담 채널 진입점 표시.	마이		✅	✅	TU-MY-CS-MO-17-PG-001; TM-MY-CS-MO-19-PG-003	TM, TU	●	fadeout 검토대상 (P8)
+앱-CS	US-PIN-CS-001	고객센터 통합허브 셀프 해결 허브 이용	NOVA-CS-PG-002-0	고객센터	설문조사				PG	고객 만족도 및 서비스 이용 관련 설문 목록. 진행중·종료 구분.			✅	✅	TW-MY-CS-MOPC-028-PG-044; TW-MY-CS-MOPC-028-PG-045	TW		fadeout 검토대상
+앱-CS	US-PIN-CS-001	고객센터 통합허브 셀프 해결 허브 이용	NOVA-CS-PG-003-0	고객센터	설문조사	설문 상세			PG	설문 문항 표시 및 응답 입력.			✅	✅	TW-MY-CS-MOPC-028-PG-047	TW		fadeout 검토대상
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PG-004-0	고객센터	1:1 문의				PG	1:1 문의 목록 (문의 내역 없음/있음). 신규 문의 작성 진입점.	고객센터		✅	✅	TW-MY-CS-MOPC-025-PG-010; TW-MY-CS-MOPC-025-PG-024	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PU-001-0	고객센터	1:1 문의	문의 작성			PU	문의 유형 선택, 내용 입력, 파일 첨부, 개인정보 수집·이용 동의 후 등록.			✅	✅	TU-MY-CS-MO-17-PU-001; TW-MY-CS-MOPC-025-PU-015; TW-MY-CS-MOPC-025-PU-016; TW-MY-CS-MOPC-025-PU-017	TU, TW	●	
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PG-005-0	고객센터	1:1 문의	등록 완료			PG	1:1 문의 등록 완료 안내 및 접수번호 표시.			✅	✅	TW-MY-CS-MOPC-025-PG-023	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PG-006-0	고객센터	전화 상담 예약				PG	전화 상담 예약 일시·유형 선택 및 접수. 상담 가능 시간대 안내.	고객센터		✅	✅	TW-MY-CS-MOPC-026-PG-002	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-BS-001-0	고객센터	전화 상담 예약	상담 유형 선택			BS	상담 유형·지역·시간 선택 필터 바텀시트.			✅	✅	TW-MY-CS-MOPC-026-BS-003; TW-MY-CS-MOPC-026-BS-004; TW-MY-CS-MOPC-026-BS-005	TW		
+앱-CS	US-PIN-CS-002	고객센터 통합허브 상담·문의 접수 실행	NOVA-CS-PU-002-0	고객센터	칭찬하기				PU	직원 칭찬 작성. 담당자·내용 입력 후 등록.	고객센터		✅	✅	TW-MY-CS-MOPC-020-PU-034; TW-MY-CS-MOPC-020-PG-035	TW		fadeout 검토대상
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-007-0	고객센터	상담 내역				PG	1:1 문의 상담 내역 목록. 처리 상태(접수중·완료) 구분.	고객센터		✅	✅	TU-MY-CS-MO-17-TB-002-2	TU		
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-008-0	고객센터	상담 내역	상담 상세			PG	문의 내용, 처리 답변, 처리 일시 표시.			✅	✅	TW-MY-CS-MOPC-025-PG-027; TU-MY-CS-MO-17-PG-002	TU, TW	●	
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-009-0	고객센터	상담 내역	재문의			PG	기존 문의 건에 대한 추가 문의 작성.	상담 상세		✅	✅	TW-MY-CS-MOPC-025-PG-030; TU-MY-CS-MO-17-PU-004	TU, TW	●	
+앱-CS	US-PIN-CS-003	고객센터 통합허브 상담 전환·후속 관리	NOVA-CS-PG-010-0	고객센터	칭찬 내역				PG	등록한 칭찬 내역 목록. 수정·삭제 가능.	고객센터		✅	✅	TW-MY-CS-MOPC-020-PG-041; TW-MY-CS-MOPC-020-PU-043	TW		fadeout 검토대상
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-001-0	고객센터	FAQ				PG	자주 묻는 질문 카테고리 목록 및 검색. 카테고리 선택 시 FAQ 목록 표시.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-034-PG-009; TD-MY-GUIDE-MOPC-13-PG-001; TM-MY-GUIDE-MO-19-TB-004; TU-MY-GUIDE-MO-17-TB-001	TD, TM, TU, TW	●	fadeout 검토대상
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-002-0	고객센터	FAQ	FAQ 목록			PG	카테고리별 FAQ 목록 표시. 필터(타입A 선택) 적용 가능.			✅	✅	TW-MY-GUIDE-MOPC-034-PG-011	TW		
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-003-0	고객센터	FAQ	검색 결과			PG	FAQ 검색어 입력 결과 표시. 결과 없음 상태 포함.			✅	✅	TW-MY-GUIDE-MOPC-034-PG-013	TW		
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-004-0	고객센터	이용안내				PG	서비스 이용안내 카테고리 목록. 가입·이용·부가서비스 안내 포함.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-026-PG-121	TW		fadeout 검토대상 (P3)
+앱-GUIDE	US-FAQ-CS-001	FAQ·이용안내 탐색·확인	NOVA-GUIDE-PG-005-0	고객센터	이용안내	이용안내 상세			PG	서비스 이용안내 상세 콘텐츠 표시.			✅	✅	TW-MY-GUIDE-MOPC-026-PG-122	TW		fadeout 검토대상 (P3)
+앱-GUIDE	US-FAQ-CS-002	해결 가이드 실행·후속 연결	NOVA-GUIDE-PG-006-0	고객센터	FAQ	FAQ 상세			PG	FAQ 상세 내용 표시. 관련 업무 바로가기, 미해결 시 상담 연결 제공.	FAQ 목록; 검색 결과		✅	✅	TW-MY-CS-PC-084-PU-001	TW		
+앱-GUIDE	US-FAQ-CS-002	해결 가이드 실행·후속 연결	NOVA-GUIDE-PG-007-0	고객센터	이용안내	이용 가이드			PG	단계별 이용 가이드(예: USIM 설정, 폰 설정 방법). 스텝별 이미지·설명 표시.			✅	✅	TW-MY-GUIDE-MOPC-030-PG-111; TW-MY-GUIDE-MOPC-030-PG-112	TW		fadeout 검토대상 (P3)
+앱-GUIDE	US-FAQ-CS-002	해결 가이드 실행·후속 연결	NOVA-GUIDE-PG-008-0	고객센터	이용자 피해 예방 센터				PG	보이스피싱·스미싱 등 통신 사기 피해 예방 안내 목록.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-032-PG-072; TW-MY-GUIDE-MOPC-032-PG-073	TW		fadeout 검토대상 (P5)
+앱-GUIDE	US-FAQ-CS-003	공지·변경 안내 확인	NOVA-GUIDE-PG-009-0	고객센터	공지사항				PG	서비스 공지사항 목록. 정렬 필터 적용 가능. 일반·판매자 탭 구분.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-029-PG-107; TM-MY-GUIDE-MO-19-PG-008; TU-MY-GUIDE-MO-17-TB-003-1-2; TU-MY-GUIDE-MO-17-TB-003-2-1	TM, TU, TW	●	
+앱-GUIDE	US-FAQ-CS-003	공지·변경 안내 확인	NOVA-GUIDE-PG-010-0	고객센터	공지사항	공지 상세			PG	공지 제목·내용·등록일 표시. 관련 안내 링크 포함.			✅	✅	TM-MY-GUIDE-MO-19-PG-009; TU-MY-GUIDE-MO-17-PG-003	TM, TU	●	
+앱-GUIDE	US-FAQ-CS-003	공지·변경 안내 확인	NOVA-GUIDE-PG-011-0	고객센터	서비스 장애 안내				PG	현재 진행 중인 서비스 장애·점검 안내. 영향 서비스, 예상 복구 시간 표시.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-027-PG-119	TW		fadeout 검토대상 (P3)
+앱-STR	US-YMX-CS-001	매장 탐색·방문 가능성 확인	NOVA-STR-PG-001-0	고객센터	매장/대리점 안내				PG	위치 기반 매장·대리점 지도 검색. 반경·매장 유형·정렬 필터 적용 가능.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-021-PG-153	TW		
+앱-STR	US-YMX-CS-001	매장 탐색·방문 가능성 확인	NOVA-STR-BS-001-0	고객센터	매장/대리점 안내	검색 조건 선택			BS	검색 반경, 매장 유형, 정렬 조건, 서비스 선택 바텀시트.			✅	✅	TW-MY-GUIDE-MOPC-021-BS-155; TW-MY-GUIDE-MOPC-021-BS-156; TW-MY-GUIDE-MOPC-021-BS-157; TW-MY-GUIDE-MOPC-021-BS-158; TW-MY-GUIDE-MOPC-021-BS-160	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-002-0	고객센터	매장/대리점 안내	매장 상세			PG	매장 기본정보(주소·전화·영업시간·처리 가능 업무), 지도, 길찾기 연결.	매장/대리점 안내		✅	✅	TW-MY-GUIDE-MOPC-021-PG-162	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-003-0	고객센터	매장/대리점 안내	매장 상담 예약			PG	방문 목적·일시 선택 후 매장 상담 예약 접수.	매장 상세		✅	✅	TW-MY-GUIDE-MOPC-021-PG-001	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-BS-002-0	고객센터	매장/대리점 안내	매장 상담 예약	날짜·시간 선택		BS	예약 날짜 및 시간 선택 바텀시트.			✅	✅	TW-MY-GUIDE-MOPC-021-BS-159	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PU-001-0	고객센터	매장/대리점 안내	매장 상담 예약	예약 완료		PU	상담 예약 완료 안내. 예약 일시·매장 정보 표시.			✅	✅	TW-MY-GUIDE-MOPC-021-PU-158	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-004-0	고객센터	매장/대리점 안내	상담 예약 내역			PG	나의 매장 상담 예약 내역 목록. 예약 상태(예약완료·완료·취소) 구분.	고객센터; 예약 완료		✅	✅	TW-MY-GUIDE-MOPC-022-PG-159; TW-MY-GUIDE-MOPC-022-PG-160	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-005-0	고객센터	가입 상담 예약				PG	가입 상담을 위한 매장 방문 예약. 상품·결합 유형 선택 후 예약 접수.	고객센터		✅	✅	TW-MY-CS-MOPC-013-BS-030; TW-MY-CS-MOPC-013-PU-033	TW		
+앱-STR	US-YMX-CS-002	방문 준비·예약 실행	NOVA-STR-PG-006-0	고객센터	가입 상담 예약	가입 상담 예약 완료			PG	가입 상담 예약 완료 안내. 예약 일시, 상품 정보 확인.			✅	✅	TW-MY-CS-MOPC-013-PG-034	TW		
+앱-STR	US-YMX-CS-003	매장 이용 예외·대체 경로 확인	NOVA-STR-PG-007-0	고객센터	AS 센터 안내				PG	제조사별 AS센터 안내 및 행복 AS 안내. 방문 제한 시 대체 경로 제공.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-023-PG-161; TW-MY-GUIDE-MOPC-023-PG-162	TW		
+앱-STR	US-YMX-CS-003	매장 이용 예외·대체 경로 확인	NOVA-STR-PG-008-0	고객센터	임대폰 제공 매장				PG	임대폰 제공 가능 매장 목록. 지역 선택 필터 적용.	고객센터		✅	✅	TW-MY-GUIDE-MOPC-024-PG-165	TW		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PG-001-0	고객센터	주문 조회				PG	주문 내역 조회 진입. 로그인 회원/비회원 분기.	고객센터		✅	✅	TD-MY-OTH-MOPC-09-PG-001	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-001-0	고객센터	주문 조회	비회원 주문 조회			PU	비회원 주문 조회 팝업. 주문 번호·연락처 입력 후 SMS 인증.		케이스 1	✅	✅	TD-MY-OTH-MOPC-09-PU-003; TD-MY-OTH-MOPC-09-PU-004	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PG-002-0	고객센터	주문 조회	주문·배송 내역			PG	주문·배송 내역 목록 (휴대폰·액세서리·인터넷IPTV 탭). 주문 상태 구분.			✅	✅	TD-MY-OTH-MOPC-09-PG-005; TD-MY-OTH-MOPC-09-PG-007; TD-MY-OTH-MOPC-09-PU-025	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-002-0	고객센터	주문 조회	주문·배송 내역	주문 정보 확인		PU	주문 유형별(휴대폰·액세서리·USIM·eSIM) 주문 정보 상세 팝업.			✅	✅	TD-MY-OTH-MOPC-09-PU-009; TD-MY-OTH-MOPC-09-PU-010; TD-MY-OTH-MOPC-09-PU-011; TD-MY-OTH-MOPC-09-PU-012	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-003-0	고객센터	주문 조회	주문·배송 내역	배송 조회		PU	배송 현황 조회 팝업 (택배·바로도착·행복배송·바로픽업).			✅	✅	TD-MY-OTH-MOPC-09-PU-016; TD-MY-OTH-MOPC-09-PU-017	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-004-0	고객센터	주문 조회	주문·배송 내역	주문 취소		PU	주문 취소 요청 팝업. 취소 사유 입력 및 확인.			✅	✅	TD-MY-OTH-MOPC-09-PU-015; TD-MY-OTH-MOPC-09-PU-029; TD-MY-OTH-MOPC-09-PU-030	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PU-005-0	고객센터	주문 조회	주문·배송 내역	교환 신청		PU	교환 신청 팝업. 교환 사유 선택, 수거 방법 선택.			✅	✅	TD-MY-OTH-MOPC-09-PU-019; TD-MY-OTH-MOPC-09-PU-022	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PU-006-0	고객센터	주문 조회	주문·배송 내역	반품 신청		PU	반품 신청 팝업. 반품 사유 선택, Apple 기기·바로픽업 별도 처리.			✅	✅	TD-MY-OTH-MOPC-09-PU-021; TD-MY-OTH-MOPC-09-PU-022; TD-MY-OTH-MOPC-09-PU-023	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PG-003-0	고객센터	주문 조회	주문·배송 내역	반품·교환 내역		PG	스마트홈·보안·T기프트 반품·교환 신청 내역 상세 페이지.			✅	✅	TD-MY-OTH-MOPC-09-PG-024	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PG-004-0	고객센터	주문 조회	문의 내역			PG	주문 관련 문의 내역 조회.			✅	✅	TD-MY-OTH-MOPC-09-PG-040	TD		

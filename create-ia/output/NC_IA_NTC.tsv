@@ -1,0 +1,11 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PG-001-0	고객센터	주문 조회				PG	주문 내역 조회 진입. 로그인 회원/비회원 분기.	고객센터		✅	✅	TD-MY-OTH-MOPC-09-PG-001	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-001-0	고객센터	주문 조회	비회원 주문 조회			PU	비회원 주문 조회 팝업. 주문 번호·연락처 입력 후 SMS 인증.		케이스 1	✅	✅	TD-MY-OTH-MOPC-09-PU-003; TD-MY-OTH-MOPC-09-PU-004	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PG-002-0	고객센터	주문 조회	주문·배송 내역			PG	주문·배송 내역 목록 (휴대폰·액세서리·인터넷IPTV 탭). 주문 상태 구분.			✅	✅	TD-MY-OTH-MOPC-09-PG-005; TD-MY-OTH-MOPC-09-PG-007; TD-MY-OTH-MOPC-09-PU-025	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-002-0	고객센터	주문 조회	주문·배송 내역	주문 정보 확인		PU	주문 유형별(휴대폰·액세서리·USIM·eSIM) 주문 정보 상세 팝업.			✅	✅	TD-MY-OTH-MOPC-09-PU-009; TD-MY-OTH-MOPC-09-PU-010; TD-MY-OTH-MOPC-09-PU-011; TD-MY-OTH-MOPC-09-PU-012	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-003-0	고객센터	주문 조회	주문·배송 내역	배송 조회		PU	배송 현황 조회 팝업 (택배·바로도착·행복배송·바로픽업).			✅	✅	TD-MY-OTH-MOPC-09-PU-016; TD-MY-OTH-MOPC-09-PU-017	TD		
+앱-NTC	US-NTC-ORD-001	주문·배송 조회	NOVA-NTC-PU-004-0	고객센터	주문 조회	주문·배송 내역	주문 취소		PU	주문 취소 요청 팝업. 취소 사유 입력 및 확인.			✅	✅	TD-MY-OTH-MOPC-09-PU-015; TD-MY-OTH-MOPC-09-PU-029; TD-MY-OTH-MOPC-09-PU-030	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PU-005-0	고객센터	주문 조회	주문·배송 내역	교환 신청		PU	교환 신청 팝업. 교환 사유 선택, 수거 방법 선택.			✅	✅	TD-MY-OTH-MOPC-09-PU-019; TD-MY-OTH-MOPC-09-PU-022	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PU-006-0	고객센터	주문 조회	주문·배송 내역	반품 신청		PU	반품 신청 팝업. 반품 사유 선택, Apple 기기·바로픽업 별도 처리.			✅	✅	TD-MY-OTH-MOPC-09-PU-021; TD-MY-OTH-MOPC-09-PU-022; TD-MY-OTH-MOPC-09-PU-023	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PG-003-0	고객센터	주문 조회	주문·배송 내역	반품·교환 내역		PG	스마트홈·보안·T기프트 반품·교환 신청 내역 상세 페이지.			✅	✅	TD-MY-OTH-MOPC-09-PG-024	TD		
+앱-NTC	US-NTC-RET-001	반품·교환 신청	NOVA-NTC-PG-004-0	고객센터	주문 조회	문의 내역			PG	주문 관련 문의 내역 조회.			✅	✅	TD-MY-OTH-MOPC-09-PG-040	TD		

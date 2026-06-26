@@ -1,0 +1,86 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-001-0	마이	멤버십 카드 관리	회원 카드관리			PG	멤버십 카드 상태 확인 메인 화면. 정상 상태.	마이		✅	✅	TM-MY-MBS-MO-09-PG-001	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-002-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건1)		케이스 1	✅		TM-MY-MBS-MO-09-PG-035	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-003-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건2)		케이스 2	✅		TM-MY-MBS-MO-09-PG-036	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-004-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건3)		케이스 3	✅		TM-MY-MBS-MO-09-PG-037	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-005-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건4)		케이스 4	✅		TM-MY-MBS-MO-09-PG-047	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-006-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건5)		케이스 5	✅		TM-MY-MBS-MO-09-PG-049	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-007-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건6)		케이스 6	✅		TM-MY-MBS-MO-09-PG-050	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-008-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건7)		케이스 7	✅		TM-MY-MBS-MO-09-PG-051	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-009-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건8)		케이스 8	✅		TM-MY-MBS-MO-09-PG-010	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-010-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건9)		케이스 9	✅		TM-MY-MBS-MO-09-PG-026	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-011-0	마이	멤버십 카드 관리	회원 카드관리			PG	회원 카드관리 (조건10)		케이스 10	✅		TM-MY-MBS-MO-09-PG-060	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-012-0	마이	멤버십 카드 관리	회원 카드관리 (일시정지)			PG	카드 일시정지 상태		예외 1	✅	✅	TM-MY-MBS-MO-09-PG-053	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-013-0	마이	멤버십 카드 관리	회원 카드관리 (이용정지)			PG	카드 이용정지 상태		예외 2	✅	✅	TM-MY-MBS-MO-09-PG-055	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-014-0	마이	멤버십 카드 관리	회원 카드관리 (해지신청)			PG	카드 해지 신청 상태		예외 3	✅	✅	TM-MY-MBS-MO-09-PG-058	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-015-0	마이	멤버십 카드 관리	회원 카드관리 (해지신청_서비스해지 등)			PG	카드 해지신청_서비스해지·명의변경·번호이동해지 상태		예외 4	✅	✅	TM-MY-MBS-MO-09-PG-068	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-PG-016-0	마이	멤버십 카드 관리	회원정보			PG	멤버십 회원 정보 조회 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-001; TM-MY-MBS-PC-56-TB-006; TM-MY-MBS-PC-56-TB-008; TM-MY-MBS-PC-56-TB-010	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-017-0	마이	멤버십 카드 관리	T 멤버십 카드 신청			PG	카드 신청 진입 (자사 SKT)			✅	✅	TM-MY-MBS-MO-09-PG-100	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-018-0	마이	멤버십 카드 관리	T 멤버십 카드 신청 (14세 미만-법정대리인 정보 없음)			PG	14세 미만 법정대리인 정보 없음 케이스		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-025	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-019-0	마이	멤버십 카드 관리	T 멤버십 카드 신청 (타사)			PG	타사 가입자 카드 신청		케이스 2	✅	✅	TM-MY-MBS-MO-09-PG-027	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-020-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	정보확인		PG	신청 정보 확인 단계			✅	✅	TM-MY-MBS-MO-09-PG-016	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-021-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	추가혜택		PG	추가 혜택 선택 단계			✅	✅	TM-MY-MBS-MO-09-PG-017	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-022-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	보호자 동의		PG	14세 미만 보호자 동의 단계		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-019	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-023-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	14세 미만 약관동의		PG	14세 미만 약관 동의 단계		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-020	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-024-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	신청완료		PG	카드 신청 완료			✅	✅	TM-MY-MBS-MO-09-PG-018	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-025-0	마이	멤버십 카드 관리	T 멤버십 카드 신청	정보확인		PG	정보확인 화면 (대안 케이스)		케이스 3	✅	✅	TM-MY-MBS-MO-09-PG-032	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-026-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경			PG	PC 카드 신청/변경 진입			✅	✅	TM-MY-MBS-PC-56-PG-012	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-027-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	발급 회선 미보유		PG	신규 발급 - 발급 회선 미보유 케이스		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-015	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-028-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	약관동의		PG	신규 발급 약관 동의			✅	✅	TM-MY-MBS-PC-56-PG-016; TM-MY-MBS-PC-56-PG-024; TM-MY-MBS-PC-56-PG-029; TM-MY-MBS-PC-56-PG-040	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-029-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	정보확인		PG	신규 발급 정보 확인			✅	✅	TM-MY-MBS-PC-56-PG-017; TM-MY-MBS-PC-56-PG-030; TM-MY-MBS-PC-56-PG-041	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-030-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	추가혜택		PG	신규 발급 추가 혜택			✅	✅	TM-MY-MBS-PC-56-PG-018; TM-MY-MBS-PC-56-PG-031; TM-MY-MBS-PC-56-PG-042; TM-MY-MBS-PC-56-PG-080	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-031-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	신청완료		PG	신규 발급 신청 완료			✅	✅	TM-MY-MBS-PC-56-PG-019; TM-MY-MBS-PC-56-PG-032; TM-MY-MBS-PC-56-PG-043	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-032-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	신청실패		PG	신규 발급 신청 실패		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-020; TM-MY-MBS-PC-56-PG-033; TM-MY-MBS-PC-56-PG-044	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-033-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	보호자 동의		PG	14세 미만 보호자 동의 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-022; TM-MY-MBS-PC-56-PG-079	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-034-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	보호자 동의 (법정대리인 없음)		PG	14세 미만 보호자 동의 - 법정대리인 정보 없음 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-023	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-035-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	약관동의 (발급 가능 회선 미보유)		PG	발급 가능 회선 미보유 시 약관 동의		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-028	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-036-0	마이	멤버십 카드 관리	T 멤버십 카드 신청/변경	회선 번호 업데이트 필요		PG	신규 발급 - 회선 번호 업데이트 필요 케이스		예외 2	✅	✅	TM-MY-MBS-PC-56-PG-078	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-063-0	마이	멤버십 카드 관리	고객센터 카드신청			PG	고객센터 경유 카드 신청 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-037-0	마이	멤버십 카드 관리	고객센터 카드신청	약관동의		PG	고객센터 경유 카드신청 약관 동의 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-071; TM-MY-MBS-PC-56-PG-073	TM	●	
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-038-0	마이	멤버십 카드 관리	고객센터 카드신청	카드 입력 정보		PG	고객센터 경유 카드신청 스마트폰 입력 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-072	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-039-0	마이	멤버십 카드 관리	고객센터 카드신청	추가혜택		PG	고객센터 경유 카드신청 추가혜택 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-080	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-040-0	마이	멤버십 카드 관리	고객센터 카드신청	신청완료		PG	고객센터 경유 카드신청 완료 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-074	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-041-0	마이	멤버십 카드 관리	고객센터 카드신청	신청실패		PG	고객센터 경유 카드신청 실패 (PC)		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-075	TM		
+앱-MBS	US-MBS-CARD-003	실물 카드 발급·재발급 요청	NOVA-MBS-PG-042-0	마이	멤버십 카드 관리	해지 가능한 카드 미보유			PG	해지 가능한 카드가 없는 케이스 안내		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-077	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PU-001-0	마이	멤버십 카드 관리	T 멤버십 카드 해지			PU	카드 해지 진입 및 내용 확인			✅	✅	TM-MY-MBS-MO-09-PU-006	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-001-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	T 멤버십 카드 해지 안내 얼럿		CP	해지 진행 확인 팝업			✅	✅	TM-MY-MBS-MO-09-CP-007	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-002-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 실패 얼럿		CP	해지 신청 실패 안내 팝업		예외 1	✅	✅	TM-MY-MBS-MO-09-CP-008	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-043-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지완료		PG	카드 해지 완료			✅	✅	TM-MY-MBS-MO-09-PG-009	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-003-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	즉시 해지하기 얼럿		CP	즉시 해지 확인 팝업		케이스 1	✅	✅	TM-MY-MBS-MO-09-CP-060	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-004-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	즉시 해지 완료 얼럿		CP	즉시 해지 완료 팝업		케이스 1	✅	✅	TM-MY-MBS-MO-09-CP-061	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-005-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	즉시 해지 실패 얼럿		CP	즉시 해지 실패 팝업		예외 1	✅	✅	TM-MY-MBS-MO-09-CP-064	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-006-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 취소안내 얼럿		CP	해지 신청 취소 안내 팝업			✅	✅	TM-MY-MBS-MO-09-CP-065	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-007-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 취소완료 얼럿		CP	해지 신청 취소 완료 팝업			✅	✅	TM-MY-MBS-MO-09-CP-066	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-008-0	마이	멤버십 카드 관리	T 멤버십 카드 해지	해지신청 취소실패 얼럿		CP	해지 신청 취소 실패 팝업		예외 1	✅	✅	TM-MY-MBS-MO-09-CP-067	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-065-0	마이	멤버십 카드 관리	카드 해지 (PC)			PG	카드 해지 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-044-0	마이	멤버십 카드 관리	카드 해지 (PC)	카드해지_해지신청		PG				✅	✅	TM-MY-MBS-PC-56-PG-046; TM-MY-MBS-PC-56-PG-051; TM-MY-MBS-PC-56-PG-056	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-045-0	마이	멤버십 카드 관리	카드 해지 (PC)	카드해지_해지완료		PG				✅	✅	TM-MY-MBS-PC-56-PG-047; TM-MY-MBS-PC-56-PG-052; TM-MY-MBS-PC-56-PG-057	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-046-0	마이	멤버십 카드 관리	카드 해지 (PC)	카드해지_해지신청(해지 신청 상태)		PG			예외 1	✅	✅	TM-MY-MBS-PC-56-PG-048; TM-MY-MBS-PC-56-PG-053; TM-MY-MBS-PC-56-PG-058	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-067-0	마이	멤버십 카드 관리	카드 일시정지 (PC)			PG	카드 일시정지 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-047-0	마이	멤버십 카드 관리	카드 일시정지 (PC)	일시정지신청		PG	카드 일시정지 신청 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-062	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-048-0	마이	멤버십 카드 관리	카드 일시정지 (PC)	일시정지완료		PG	카드 일시정지 완료 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-063	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-049-0	마이	멤버십 카드 관리	카드 일시정지 (PC)	정지신청 가능한 회선 미보유		PG	카드 일시정지 - 정지 가능 회선 미보유		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-064	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-068-0	마이	멤버십 카드 관리	카드 이용정지 (PC)			PG	카드 이용정지 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-050-0	마이	멤버십 카드 관리	카드 이용정지 (PC)	정지신청		PG	카드 이용정지 신청 1 (PC)		케이스 1	✅	✅	TM-MY-MBS-PC-56-PG-065; TM-MY-MBS-PC-56-PG-068	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-051-0	마이	멤버십 카드 관리	카드 이용정지 (PC)	정지신청 가능한 회선 미보유		PG	카드 이용정지 - 정지 가능 회선 미보유		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-066; TM-MY-MBS-PC-56-PG-069	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-052-0	마이	멤버십 카드 관리	카드 이용정지 (PC)	정지완료		PG	카드 이용정지 완료 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-067; TM-MY-MBS-PC-56-PG-070	TM	●	
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-PG-066-0	마이	멤버십 카드 관리	카드 일시정지			PG	카드 일시정지 진입 (모바일)	멤버십 카드 관리		✅	✅	TM-MY-MBS-MO-09-PG-053	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-009-0	마이	멤버십 카드 관리	카드 일시정지	일시정지 안내 얼럿		CP	일시정지 진행 확인 팝업			✅	✅	TM-MY-MBS-MO-09-CP-004	TM		
+앱-MBS	US-MBS-CARD-004	멤버십 상태 변경 영향 확인	NOVA-MBS-CP-010-0	마이	멤버십 카드 관리	카드 일시정지	일시정지 완료 얼럿		CP	일시정지 완료 팝업			✅	✅	TM-MY-MBS-MO-09-CP-005	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-053-0	마이	멤버십 카드 관리	등급 변경하기			PG	T멤버십 등급 변경 진입			✅	✅	TM-MY-MBS-MO-09-PG-038	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CP-011-0	마이	멤버십 카드 관리	등급 변경하기	등급 변경하기 얼럿		CP	등급 변경 확인 팝업			✅	✅	TM-MY-MBS-MO-09-CP-044	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-054-0	마이	멤버십 카드 관리	등급 변경하기	변경 완료		PG	등급 변경 완료			✅	✅	TM-MY-MBS-MO-09-PG-045	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-055-0	마이	멤버십 카드 관리	LITE 등급 신청			PG	LITE 등급 신청 (MNP-OUT)		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-061	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CP-012-0	마이	멤버십 카드 관리	LITE 등급 신청	LITE 등급 신청 얼럿		CP	LITE 등급 신청 확인 팝업		케이스 1	✅	✅	TM-MY-MBS-MO-09-CP-070	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-056-0	마이	멤버십 카드 관리	LITE 등급 신청	신청 완료		PG	LITE 등급 신청 완료		케이스 1	✅	✅	TM-MY-MBS-MO-09-PG-063	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-064-0	마이	멤버십 카드 관리	등급 변경하기 (PC)			PG	등급 변경하기 진입 (PC)	멤버십 카드 관리		✅	✅		TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-057-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	약관동의 (대표회선 미등록)		PG	등급 변경 - 대표 회선 미등록 시 약관 동의 (PC)		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-034	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-058-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	약관동의		PG	등급 변경 약관 동의 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-035	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-059-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	정보확인		PG	등급 변경 정보 확인 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-036	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-060-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	추가혜택		PG	등급 변경 추가 혜택 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-037	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-061-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	변경완료		PG	등급 변경 완료 (PC)			✅	✅	TM-MY-MBS-PC-56-PG-038	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-PG-062-0	마이	멤버십 카드 관리	등급 변경하기 (PC)	변경실패		PG	등급 변경 실패 (PC)		예외 1	✅	✅	TM-MY-MBS-PC-56-PG-039	TM		
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CP-013-0	마이	멤버십 카드 관리	로그인 얼럿			CP	로그인 필요 안내 팝업 (공통)			✅	✅	TM-MY-MBS-MO-09-CP-046; TM-MY-MBS-MO-09-CP-062	TM	●	
+앱-MBS	US-MBS-CARD-005	대표 회선과 처리 이력 관리	NOVA-MBS-CT-001-0	마이	멤버십 카드 관리	T-ID 링크			CT	T-ID 외부 링크			✅	✅	TM-MY-MBS-MO-09-LN-078	TM		
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-CP-014-0	마이	멤버십 카드 관리	카드 신청 필요 얼럿			CP	카드 미신청 상태 진입 시 안내 팝업			✅	✅	TM-MY-MBS-MO-02-CP-005; TM-MY-MBS-MO-02-CP-025; TM-MY-MBS-MO-02-CP-093; TM-MY-MBS-MO-02-CP-143	TM	●	fadeout 검토대상
+앱-MBS	US-MBS-CARD-001	멤버십 카드 사용 가능성 확인	NOVA-MBS-CP-015-0	마이	멤버십 카드 관리	카드 이용 불가 얼럿			CP	카드 이용 불가 상태 안내 팝업			✅	✅	TM-MY-MBS-MO-02-CP-012; TM-MY-MBS-MO-02-CP-028; TM-MY-MBS-MO-02-CP-102; TM-MY-MBS-MO-02-CP-144	TM	●	fadeout 검토대상

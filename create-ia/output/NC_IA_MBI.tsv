@@ -1,0 +1,60 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MY-PG-001-0	마이					PG	마이 홈 — 회원정보·설정 진입점. MY 모듈 소유 공유 페이지.	홈							
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-001-0	마이	회원정보 관리				PG	회원정보 통합 조회 — 기본정보·로그인수단·설정 진입	마이		✅	✅	TU-MY-MBR-MO-15-PG-002	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-002-0	마이	회원정보 관리	로그인수단 관리			PG	로그인 수단 조회 및 관리			✅	✅	TU-MY-MBR-MO-15-PG-003	TU		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-003-0	마이	회원정보 관리	할인형/적립형 선택			PG	할인형 또는 적립형 서비스 선택			✅	✅	TM-MY-MBR-MO-06-PG-034	TM		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-004-0	마이	설정				PG	앱 설정 진입 (로그인 상태)			✅	✅	TM-MY-MBR-MO-06-PG-001; TW-MY-MBR-MO-002-PG-002	TM, TW	●	fadeout 검토대상 (P6)
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-005-0	마이	미환급금 조회				PG	미환급금 조회			✅	✅	TW-MY-MBR-MOPC-003-PG-001	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-BS-001-0	마이	미환급금 조회	미환급금 상세보기			BS	미환급금 상세 정보			✅	✅	TW-MY-MBR-MOPC-003-BS-004	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PU-016-0	마이	미환급금 조회	미환급금 없음 안내			PU	미환급금 내역이 없을 경우 안내 화면		예외 1	✅	✅	TW-MY-MBR-MOPC-003-PU-004	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PU-001-0	마이	미환급금 조회	계좌정보 수정			PU	환급 계좌정보 수정			✅	✅	TW-MY-MBR-MOPC-003-PU-002	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-BS-002-0	마이	미환급금 조회	은행 선택			BS	환급 은행 선택			✅	✅	TW-MY-MBR-MOPC-003-BS-003	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-006-0	마이	앱 정보				PG	앱 버전·라이선스·인증 정보 진입			✅	✅				
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PU-002-0	마이	앱 정보	오픈 소스 라이선스			PU	오픈 소스 라이선스 안내			✅	✅	TU-MY-MBR-MO-15-PU-004; TM-MY-MBR-MO-06-PU-068; TM-MY-MBR-MO-06-PU-067	TM, TU	●	
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-007-0	마이	앱 정보	인증 마크			PG	앱 인증 마크 안내			✅	✅	TW-MY-MBR-MOPC-002-PG-004	TW		fadeout 검토대상
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-008-0	마이	앱 정보	패밀리 사이트			PG	패밀리 사이트 링크			✅	✅	TW-MY-MBR-MOPC-002-PG-005	TW		
+앱-MBI	US-MBR-CS-001	회원정보 통합 조회·이해	NOVA-MBI-PG-009-0	마이	앱 정보	버전 안내			PG	최신버전·현재버전·이전버전 안내			✅	✅	TM-MY-MBR-MO-06-PG-065; TM-MY-MBR-MO-06-TB-100; TM-MY-MBR-MO-06-TB-102; TM-MY-MBR-MO-06-TB-101; TM-MY-MBR-MO-06-TB-103	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-010-0	마이	설정	T id 본인인증			PG	T아이디 본인인증 설정			✅	✅	TM-MY-MBR-MO-06-PG-026	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-011-0	마이	설정	포인트 비밀번호 관리			PG	포인트 비밀번호 등록·변경 진입			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-012-0	마이	설정	포인트 비밀번호 관리	포인트 비밀번호 등록		PG	포인트 비밀번호 등록			✅	✅	TM-MY-MBR-MO-06-PG-022	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-013-0	마이	설정	포인트 비밀번호 관리	포인트 비밀번호 변경		PG	포인트 비밀번호 변경		케이스 1	✅	✅	TM-MY-MBR-MO-06-PG-025	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-003-0	마이	설정	포인트 비밀번호 관리	랜덤 키패드		PU	포인트 비밀번호 입력용 랜덤 키패드			✅	✅	TM-MY-MBR-MO-06-PU-023	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-004-0	마이	설정	포인트 비밀번호 관리	랜덤 키패드 확인		PU	포인트 비밀번호 확인용 랜덤 키패드			✅	✅	TM-MY-MBR-MO-06-PU-105	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-014-0	마이	설정	생체인증 설정			PG	지문·Face ID 잠금 설정			✅	✅	TM-MY-MBR-MO-06-PG-019	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-015-0	마이	설정	OK캐쉬백 설정			PG	OK캐쉬백 탑재·적립 동의 및 카드 서비스 이용약관			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-016-0	마이	설정	OK캐쉬백 설정	OK캐쉬백 탑재 및 적립 동의		PG	OK캐쉬백 탑재 및 적립 동의 설정			✅	✅	TM-MY-MBR-MO-06-PG-044	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-005-0	마이	설정	OK캐쉬백 설정	OK캐쉬백 카드 서비스 이용약관		PU	OK캐쉬백 카드 서비스 이용약관			✅	✅	TM-MY-MBR-MO-06-PU-045	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-006-0	마이	회원정보 관리	이메일 수정			PU	이메일 주소 수정 팝업			✅	✅	TU-MY-MBR-MO-15-PU-003	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-007-0	마이	회원정보 관리	휴대폰번호 변경			PU	휴대폰 번호 변경 팝업			✅	✅	TU-MY-MBR-MO-15-PU-001	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-008-0	마이	회원정보 관리	인증번호 입력			PU	회원정보 변경 인증번호 입력			✅	✅	TU-MY-MBR-MO-15-PU-002-1	TU		fadeout 검토대상
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-017-0	마이	알림 설정				PG	알림 설정 진입			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-018-0	마이	알림 설정	혜택 알림 설정			PG	혜택 알림 설정			✅	✅	TM-MY-MBR-MO-06-PG-028	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-019-0	마이	알림 설정	앱 Push 알림 설정			PG	앱 Push 알림 설정			✅	✅	TM-MY-MBR-MO-06-PG-040	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-020-0	마이	알림 설정	T 알림 설정			PG	T 알림 설정 진입			✅	✅	TW-MY-MBR-MO-007-PG-001	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-021-0	마이	알림 설정	T 알림 설정	정보/혜택 알림 설정		PG	정보·혜택 알림 설정			✅	✅	TW-MY-MBR-MO-007-PG-002	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-022-0	마이	알림 설정	T 알림 설정	나의 캘린더 알림 설정		PG	나의 캘린더 알림 설정			✅	✅	TW-MY-MBR-MO-007-PG-003	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-003-0	마이	알림 설정	T 알림 설정	나의 캘린더 개인정보 동의		BS	나의 캘린더 개인정보 동의 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-006	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-004-0	마이	알림 설정	T 알림 설정	데이터 노출항목 선택		BS	데이터 노출항목 선택 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-003	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-005-0	마이	알림 설정	T 알림 설정	음성 노출항목 선택		BS	음성 노출항목 선택 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-004	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-006-0	마이	알림 설정	T 알림 설정	문자 노출항목 선택		BS	문자 노출항목 선택 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-005	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-023-0	마이	알림 설정	위치정보 사용 설정			PG	위치정보 사용 설정			✅	✅	TM-MY-MBR-MO-06-PG-055	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-024-0	마이	알림 설정	위치정보 사용 설정	위치정보 수집이용 약관 동의		PG	위치정보 수집이용 약관 동의			✅	✅	TM-MY-MBR-MO-06-PG-056	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-025-0	마이	알림 설정	위치정보 사용 설정	위치 기반 서비스 이용동의 설정		PG	위치 기반 서비스 이용동의 설정			✅	✅	TW-MY-MBR-MO-053-PG-001	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-026-0	마이	수신 동의 관리				PG	수신 동의 관리 진입			✅	✅				
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-009-0	마이	수신 동의 관리	광고성 정보 수신 동의			PU	광고성 정보 수신 동의 팝업 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-PU-029	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-010-0	마이	수신 동의 관리	T world 광고성 정보 수신동의			PU	T world 광고성 정보 수신동의 (선택)			✅	✅	TW-MY-MBR-MO-007-PU-002	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PG-027-0	마이	수신 동의 관리	이메일수신거부			PG	이메일 수신 거부 설정			✅	✅	TW-MY-MBR-MOPC-082-PG-031	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-011-0	마이	수신 동의 관리	개인정보 수집/이용 동의			PU	개인정보 수집 및 이용 동의 팝업			✅	✅	TM-MY-MBR-MO-06-PU-030	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-012-0	마이	수신 동의 관리	암호화된 동일인 식별정보 제공동의			PU	암호화된 동일인 식별정보 제공동의			✅	✅	TM-MY-MBR-MO-06-PU-046	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-013-0	마이	수신 동의 관리	개인정보 제3자 제공동의			PU	개인정보 제3자 제공동의 풀팝업			✅	✅	TM-MY-MBR-MO-06-PU-052	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-BS-007-0	마이	수신 동의 관리	개인정보 동의			BS	개인정보 동의 바텀시트			✅	✅	TW-MY-MBR-MO-007-BS-001	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-014-0	마이	위젯 설정				PU	위젯 설정			✅	✅	TW-MY-MBR-MO-007-PU-004	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-PU-015-0	마이	11pay 설정				PU	11pay 설정			✅	✅	TW-MY-MBR-MO-007-PU-005	TW		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-001-0	마이	설정	설정 변경 완료			CP	설정 항목 변경 완료 얼럿 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-CP-035; TM-MY-MBR-MO-06-CP-047; TM-MY-MBR-MO-06-CP-101	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-002-0	마이	설정	비밀번호 불일치			CP	포인트 비밀번호 불일치 얼럿		예외 1	✅	✅	TM-MY-MBR-MO-06-CP-024	TM		
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-003-0	마이	설정	연결 해제 확인			CP	T아이디 연결 해제 확인 얼럿			✅	✅	TM-MY-MBR-MO-06-CP-050; TM-MY-MBR-MO-06-CP-051	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-004-0	마이	설정	처리 결과 얼럿			CP	정상처리·실패처리 얼럿 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-CP-053; TM-MY-MBR-MO-06-CP-054	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-CP-005-0	마이	설정	해지신청 상태 안내			CP	해지신청 상태일 경우 설정 변경 불가 안내 얼럿		예외 2	✅	✅	TM-MY-MBR-MO-06-CP-033; TM-MY-MBR-MO-06-CP-039; TM-MY-MBR-MO-06-CP-049	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-AP-001-0	마이	설정	설정 변경 완료 토스트			AP	설정 항목 변경 완료 토스트 알림 시리즈 (T멤버십)			✅	✅	TM-MY-MBR-MO-06-TP-036; TM-MY-MBR-MO-06-TP-037; TM-MY-MBR-MO-06-TP-021; TM-MY-MBR-MO-06-TP-106	TM	●	
+앱-MBI	US-MBR-CS-002	회원정보 변경·검증 처리	NOVA-MBI-AP-002-0	마이	알림 설정	알림 설정 변경 토스트			AP	알림 수신 설정 변경 완료 토스트 (Push 해제·위치 동의 등)			✅	✅	TM-MY-MBR-MO-06-TP-042; TM-MY-MBR-MO-06-TP-061; TM-MY-MBR-MO-06-TP-062	TM	●	
+앱-MBI	US-MBR-CS-003	회원정보 정정·복구 관리	NOVA-MBI-PG-028-0	마이	설정	설정 (비로그인)			PG	비로그인 시 설정 화면 (기능 제한)		예외 1	✅	✅	TU-MY-MBR-MO-15-PG-001-2	TU		

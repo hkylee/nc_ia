@@ -1,0 +1,177 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-001-0	마이	나의 가입 정보	이동전화			PG	나의 가입 정보 메인 - 이동전화 회선	마이		✅	✅	TW-MY-INFO-MOPC-043-PG-001; TM-MY-INFO-MO-10-PG-001	TW, TM	●	
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-002-0	마이	나의 가입 정보	인터넷/전화/B tv			PG	나의 가입 정보 메인 - 인터넷/전화/B tv	나의 가입 정보_이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-050	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-003-0	마이	나의 가입 정보	MY CS Layer			PG	MY 서비스 서브메인 레이어	나의 가입 정보_이동전화		✅	✅	TW-MY-INFO-MOPC-046-PG-001	TW		fadeout 검토대상 (P8)
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-001-0	마이	나의 가입 정보	MY CS Layer	데이터 충전하기		BS	데이터 충전하기 바텀시트			✅	✅	TW-MY-INFO-MOPC-046-BS-002	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-002-0	마이	나의 가입 정보	MY CS Layer	데이터 선물하기		BS	데이터 선물하기 바텀시트			✅	✅	TW-MY-INFO-MOPC-046-BS-003	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-004-0	마이	나의 가입 정보	이동전화	회원정보 (조회 불가)		PG	회원정보 조회 불가 상태 (T멤버십)		예외 1	✅	✅	TM-MY-INFO-MO-10-PG-004	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-005-0	마이	나의 가입 정보	이동전화	회원정보 (회선명의자와 실사용자 다름)		PG	회선명의자와 실사용자가 다른 케이스 (T멤버십)		예외 2	✅	✅	TM-MY-INFO-MO-10-PG-005	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-006-0	마이	나의 가입 정보	이동전화	회원정보 (자사 LITE)		PG	자사 LITE 회원 정보 (T멤버십)		케이스 1	✅	✅	TM-MY-INFO-MO-10-PG-013	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-007-0	마이	나의 가입 정보	이동전화	회원정보 (타사 LITE)		PG	타사 LITE 회원 정보 (T멤버십)		케이스 2	✅	✅	TM-MY-INFO-MO-10-PG-014	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-008-0	마이	나의 가입 정보	이동전화	T 멤버십 예상 등급 안내		PG	VIP 예상 등급 안내 (T멤버십)		케이스 3	✅	✅	TM-MY-INFO-MO-10-PG-006	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-CP-001-0	마이	나의 가입 정보	이동전화	T 멤버십 카드 신청 얼럿		CP	T멤버십 카드 신청 유도 팝업			✅	✅	TM-MY-INFO-MO-10-CP-002	TM		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-009-0	마이	나의 가입 정보	나의 캘린더			PG	나의 캘린더 메인	나의 가입 정보_이동전화		✅	✅	TW-MY-INFO-MOPC-040-PG-001	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PU-001-0	마이	나의 가입 정보	나의 캘린더	나의 캘린더 안내		PU	나의 캘린더 서비스 안내			✅	✅	TW-MY-INFO-MO-040-PU-004	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-010-0	마이	나의 가입 정보	나의 캘린더	일정 리스트		PG	일정 리스트 전체 보기			✅	✅	TW-MY-INFO-MOPC-040-PG-007	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-PG-011-0	마이	나의 가입 정보	나의 캘린더	나의 캘린더 알림 설정		PG	캘린더 알림 설정			✅	✅	TW-MY-INFO-MO-040-PG-005	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-003-0	마이	나의 가입 정보	나의 캘린더	기간 선택		BS	캘린더 기간 선택 바텀시트			✅	✅	TW-MY-INFO-MO-040-BS-002	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-004-0	마이	나의 가입 정보	나의 캘린더	회선 선택		BS	캘린더 회선 선택 바텀시트			✅	✅	TW-MY-INFO-MO-040-BS-003	TW		
+앱-INFO	US-MYI-CUS-001	가입정보 통합 홈에서 보유 서비스 상태 확인	NOVA-INFO-BS-005-0	마이	나의 가입 정보	나의 캘린더	일정 모두 받기		BS	캘린더 일정 모두 받기 바텀시트			✅	✅	TW-MY-INFO-MOPC-040-BS-006	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-002-0	마이	나의 가입 정보	이동전화	개통정보 조회		PU	개통/변경 이력 및 최종 가입점 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PU-002	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-012-0	마이	나의 가입 정보	이동전화	무약정 플랜 포인트 내역		PG	무약정 플랜 포인트 적립/사용/소멸 내역	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-005	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-BS-006-0	마이	나의 가입 정보	이동전화	무약정 플랜 포인트 내역	포인트 사용 유형 선택	BS	포인트 사용 유형 필터 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-006	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-013-0	마이	나의 가입 정보	이동전화	나의 T로밍 이용현황		PG	T로밍 이용 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-43-PG-006	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-014-0	마이	나의 가입 정보	이동전화	나의 T로밍 이용현황	지난 여행정보	PG	T로밍 지난 여행 정보 조회			✅	✅	TW-MY-INFO-MOPC-43-PG-124	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-015-0	마이	나의 가입 정보	이동전화	예약 조회&취소		PG	baro Box 예약 조회 및 취소 (PC)	이동전화		✅	✅	TW-MY-INFO-PC-48-PG-087	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-016-0	마이	나의 가입 정보	이동전화	예약 조회&취소_인증 후		PG	baro Box 예약 조회 및 취소 - 인증 후 (PC)		예외 1	✅	✅	TW-MY-INFO-PC-48-PG-088	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-003-0	마이	나의 가입 정보	이동전화	baro Box 조회&취소		PU	baro Box 조회 및 취소 팝업	이동전화		✅	✅	TW-MY-INFO-MOPC-48-PU-072	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-004-0	마이	나의 가입 정보	이동전화	baro Box 조회&취소_인증 후		PU	baro Box 조회 및 취소 팝업 - 인증 후			✅	✅	TW-MY-INFO-MOPC-48-PU-074	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PG-054-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스		PG	번호변경 안내서비스 관리 진입	이동전화		✅	✅		TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-005-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	신청	PU	번호변경 안내서비스 신청 화면	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PU-007	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-AP-001-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	신청(연장) 완료	AP	번호변경 안내서비스 신청/연장 완료			✅	✅	TW-MY-INFO-MOPC-043-TP-008	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-006-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	신청 실패	PU	번호변경 안내서비스 신청 실패 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-009	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-007-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	연장 및 해지	PU	번호변경 안내서비스 연장/해지 설정	번호변경 안내서비스_신청		✅	✅	TW-MY-INFO-MOPC-043-TP-010	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-008-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	해지 완료	PU	번호변경 안내서비스 해지 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-011	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-009-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	해지 실패	PU	번호변경 안내서비스 해지 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-012	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-CP-002-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	이용 불가	CP	번호변경 안내서비스 이용 불가 안내		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-013	TW		
+앱-INFO	US-MYI-CUS-002	회선·서비스·계약 상세와 변경 가능 업무 선택	NOVA-INFO-PU-010-0	마이	나의 가입 정보	이동전화	번호변경 안내서비스	무료 사용 기간 종료	PU	무료 사용 기간 종료 안내		예외 3	✅	✅	TW-MY-INFO-MOPC-043-PU-014	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-017-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보		PG	약정 할인 및 기기 할부 정보 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-015	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-018-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	요금 약정할인_월별 상세 할인 내역	PG	요금 약정할인 월별 상세 할인 내역			✅	✅	TW-MY-INFO-MOPC-043-PG-016	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-019-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	기기 약정할인_월별 상세 할인 내역	PG	기기 약정할인 월별 상세 할인 내역			✅	✅	TW-MY-INFO-MOPC-043-PG-017	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PG-020-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	기기 할부 상세정보	PG	기기 할부 상세 정보 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-018	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PU-011-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	기기 할부 상세정보_인쇄하기	PU	기기 할부 상세정보 인쇄 (PC)			✅	✅	TW-MY-INFO-PC-062-LP-025	TW		
+앱-INFO	US-MYI-CUS-004	약정·할인·프로그램·혜택 만료 영향 확인	NOVA-INFO-PU-012-0	마이	나의 가입 정보	이동전화	약정할인/기기 할부 정보	적용가입기간 상세정보	PU	적용 가입 기간 상세 정보			✅	✅	TW-MY-INFO-MOPC-043-PU-137	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PG-021-0	마이	나의 가입 정보	이동전화	일시정지		PG	회선 일시정지 신청 메인	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-020	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-013-0	마이	나의 가입 정보	이동전화	일시정지	정지(예약) or 심사 중 내역 있음	PU	기존 정지 예약 또는 심사 중 내역 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-019	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-014-0	마이	나의 가입 정보	이동전화	일시정지	해군 함정 근무 일시정지 안내	PU	해군 함정 근무 일시정지 안내		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-021	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-CP-003-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청 불가_횟수 초과	CP	월 5회 초과로 일시정지 신청 불가 안내		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-022	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-CP-004-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 Confirm	CP	일시정지 신청 확인 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-068	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-015-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청 완료	PU	일시정지 신청 완료 안내			✅	✅	TW-MY-INFO-MOPC-043-PU-023	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-016-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청 실패	PU	일시정지 신청 실패 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-024	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-017-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 신청현황	PU	일시정지 신청 현황 조회			✅	✅	TW-MY-INFO-MOPC-043-PU-036	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-018-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제	PU	일시정지 해제 신청			✅	✅	TW-MY-INFO-MOPC-043-PU-037	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-CP-005-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제 Confirm	CP	일시정지 해제 확인 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-072	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-019-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제 완료	PU	일시정지 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-038	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-020-0	마이	나의 가입 정보	이동전화	일시정지	일시정지 해제 실패	PU	일시정지 해제 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-039	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-021-0	마이	나의 가입 정보	이동전화	일시정지	휴대폰 이용정지 안내	PU	이용정지 상태 안내		예외 3	✅	✅	TW-MY-INFO-MOPC-043-PU-049	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PG-022-0	마이	나의 가입 정보	이동전화	장기일시정지		PG	장기 일시정지 신청 메인 (입영/군복무 등)	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-025	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-022-0	마이	나의 가입 정보	이동전화	장기일시정지	입영일자 등록 방법	PU	입영일자 등록 방법 안내			✅	✅	TW-MY-INFO-MOPC-043-PU-026	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-023-0	마이	나의 가입 정보	이동전화	장기일시정지	밀리패스 정보 입력	PU	밀리패스 정보 입력			✅	✅	TW-MY-INFO-MOPC-043-PU-027	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-024-0	마이	나의 가입 정보	이동전화	장기일시정지	개인정보 제3자 제공 동의	PU	개인정보 제3자 제공 동의(필수)			✅	✅	TW-MY-INFO-MOPC-043-PU-028	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-BS-007-0	마이	나의 가입 정보	이동전화	장기일시정지	관계 선택	BS	가족 관계 선택 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-031	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-025-0	마이	나의 가입 정보	이동전화	장기일시정지	파일 첨부하기	PU	증빙 서류 파일 첨부			✅	✅	TW-MY-INFO-MOPC-043-PU-032	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-026-0	마이	나의 가입 정보	이동전화	장기일시정지	입영일자 등록 완료	PU	입영일자 등록 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-029	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-027-0	마이	나의 가입 정보	이동전화	장기일시정지	입영일자 등록 실패	PU	입영일자 등록 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-030	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-028-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 접수 완료	PU	장기 일시정지 접수 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-033	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-029-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 신청 완료	PU	장기 일시정지 신청 완료		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-034	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-030-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 접수/신청 실패	PU	장기 일시정지 접수/신청 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-035	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-031-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 해제	PU	장기 일시정지 해제 신청	장기일시정지		✅	✅	TW-MY-INFO-MOPC-043-PU-040	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-032-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 해제 완료	PU	장기 일시정지 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-041	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-033-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 해제 실패	PU	장기 일시정지 해제 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-042	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-034-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 예약 취소	PU	장기 일시정지 예약 취소	장기일시정지		✅	✅	TW-MY-INFO-MOPC-043-PU-043	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-035-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 예약 취소 완료	PU	장기 일시정지 예약 취소 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-044	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-036-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 예약 취소 실패	PU	장기 일시정지 예약 취소 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-045	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-037-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 재신청	PU	장기 일시정지 재신청	장기일시정지		✅	✅	TW-MY-INFO-MOPC-043-PU-046	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-038-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 재신청 완료	PU	장기 일시정지 재신청 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-047	TW		
+앱-INFO	US-MYI-CUS-006	긴급·제한·불일치 상황에서 조치 경로 선택	NOVA-INFO-PU-039-0	마이	나의 가입 정보	이동전화	장기일시정지	장기일시정지 재신청 실패	PU	장기 일시정지 재신청 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-048	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-023-0	마이	나의 가입 정보	이동전화	나의 요금제/부가서비스		PG	나의 요금제 및 부가서비스 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-093	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-024-0	마이	나의 가입 정보	이동전화	나의 요금제/부가서비스	나의 부가서비스	PG	부가서비스 가입 목록 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-098	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-025-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림		PG	요금제 변경 가능일 알림 설정 메인	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-094	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-CP-006-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림	신청 완료	CP	요금제 변경 가능일 알림 신청 완료			✅	✅	TW-MY-INFO-MOPC-043-CP-095	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PU-040-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림	신청 내역	PU	요금제 변경 가능일 알림 신청 내역			✅	✅	TW-MY-INFO-MOPC-043-PU-096	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-CP-007-0	마이	나의 가입 정보	이동전화	요금제 변경 가능일 알림	해지 완료	CP	요금제 변경 가능일 알림 해지 완료			✅	✅	TW-MY-INFO-MOPC-043-CP-097	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-026-0	마이	나의 가입 정보	이동전화	T high5 적금 현황 조회		PG	T high5 적금 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-099	TW		
+앱-INFO	US-MYI-CUS-005	부가서비스·구독·제휴서비스 보유 상태 확인	NOVA-INFO-PG-027-0	마이	나의 가입 정보	이동전화	KDB x T high5 적금 현황 조회		PG	KDB x T high5 적금 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-100	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-028-0	마이	나의 가입 정보	이동전화	나의 결합상품		PG	결합 상품 가입 현황 조회	이동전화		✅	✅	TW-MY-INFO-MOPC-043-PG-101	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-029-0	마이	나의 가입 정보	이동전화	나의 결합상품	T 끼리 온가족할인_결합 가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-127	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-030-0	마이	나의 가입 정보	이동전화	나의 결합상품	T+B인터넷 결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-138	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-031-0	마이	나의 가입 정보	이동전화	나의 결합상품	T+B전화/인터넷전화 결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-140	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-032-0	마이	나의 가입 정보	이동전화	나의 결합상품	온가족플랜_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-141	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-033-0	마이	나의 가입 정보	이동전화	나의 결합상품	NEW온가족플랜_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-142	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-034-0	마이	나의 가입 정보	이동전화	나의 결합상품	온가족행복플랜_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-143	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-035-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족프리_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-145	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-036-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족무료_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-148	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-037-0	마이	나의 가입 정보	이동전화	나의 결합상품	가족나눔데이터_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-149	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PG-038-0	마이	나의 가입 정보	이동전화	나의 결합상품	T가족결합(착한가족)_결합가족 보기	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-152	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-041-0	마이	나의 가입 정보	이동전화	나의 결합상품	요즘가족결합_결합 가족 보기	PU				✅	✅	TW-MY-INFO-MOPC-043-PU-102	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-097-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기		PU	결합 회선 추가 진입	나의 결합상품		✅	✅		TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-042-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	개인/가족 결합 유형 선택	PU	결합 회선 추가 - 결합 유형 선택	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-105	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-043-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 결합 안내	PU	가족 결합 안내 화면 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-106	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-044-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 결합 안내	PU	가족 결합 안내 화면 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-128	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-045-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 회선 추가	PU	결합 회선 추가 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-107	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-046-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 회선 추가	PU	결합 회선 추가 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-129	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-047-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 회선 추가하기	PU	가족 회선 추가			✅	✅	TW-MY-INFO-MOPC-043-PU-108	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-048-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	예상 할인 금액 확인	PU	예상 할인 금액 확인 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-109	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-049-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	예상 할인 금액 확인	PU	예상 할인 금액 확인 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-130	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-050-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 관계 증명 서류 제출	PU	가족 관계 증명 서류 제출 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-110	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-051-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가족 관계 증명 서류 제출	PU	가족 관계 증명 서류 제출 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-131	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-052-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가입정보 확인	PU	가입정보 확인 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-111	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-053-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	가입정보 확인	PU	가입정보 확인 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-132	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-054-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	개인정보 처리 동의	PU	개인정보 처리 동의 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-112	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-055-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	개인정보 처리 동의	PU	개인정보 처리 동의 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-133	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-056-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 상품 추가 완료	PU	결합 상품 추가 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-113	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-057-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 상품 추가 신청 완료	PU	결합 상품 추가 신청 완료 (케이스1)		케이스 1	✅	✅	TW-MY-INFO-MOPC-043-PU-114	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-058-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	결합 상품 추가 신청 완료	PU	결합 상품 추가 신청 완료 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-134	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-059-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	심사 진행 현황	PU	결합 심사 진행 현황			✅	✅	TW-MY-INFO-MOPC-043-PU-115	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-CP-008-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	회선 추가 불가_최대 개수 초과	CP	결합 회선 최대 개수 초과 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-CP-103	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-CP-009-0	마이	나의 가입 정보	이동전화	결합 회선 추가하기	업무 처리 불가_미성년자 가족 대표	CP	미성년자가 가족 대표인 경우 업무 처리 불가		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-104	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-060-0	마이	나의 가입 정보	이동전화	결합 해제		PU	결합 해제 진입 및 안내	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-116	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-061-0	마이	나의 가입 정보	이동전화	결합 해제	안내사항 확인	PU	결합 해제 안내사항 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-117	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-062-0	마이	나의 가입 정보	이동전화	결합 해제	예상 할인 금액 확인	PU	결합 해제 시 예상 할인 금액 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-118	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-063-0	마이	나의 가입 정보	이동전화	결합 해제	가입정보 확인	PU	결합 해제 가입정보 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-119	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-064-0	마이	나의 가입 정보	이동전화	결합 해제	결합 해제 완료	PU	결합 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-120	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-065-0	마이	나의 가입 정보	이동전화	대표 회선 변경		PU	대표 회선 변경 (케이스1)	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-121	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-066-0	마이	나의 가입 정보	이동전화	대표 회선 변경		PU	대표 회선 변경 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-135	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-067-0	마이	나의 가입 정보	이동전화	대표 회선 변경	대표 회선 변경 완료	PU	대표 회선 변경 완료 (케이스1)			✅	✅	TW-MY-INFO-MOPC-043-PU-122	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-068-0	마이	나의 가입 정보	이동전화	대표 회선 변경	대표 회선 변경 완료	PU	대표 회선 변경 완료 (케이스2)		케이스 2	✅	✅	TW-MY-INFO-MOPC-043-PU-136	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-069-0	마이	나의 가입 정보	이동전화	결합상품 해지		PU	결합상품 해지 진입	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-123	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-070-0	마이	나의 가입 정보	이동전화	결합상품 해지	결합상품 해지 완료	PU	결합상품 해지 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-124	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-071-0	마이	나의 가입 정보	이동전화	할인 방식 선택		PU	결합 할인 방식 선택	나의 결합상품		✅	✅	TW-MY-INFO-MOPC-043-PU-125	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-CP-010-0	마이	나의 가입 정보	이동전화	할인 방식 선택	할인 방식 변경 완료	CP	할인 방식 변경 완료 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-126	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-072-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족프리 데이터 혜택 변경	PU	TB끼리 온가족프리 데이터 혜택 변경			✅	✅	TW-MY-INFO-MOPC-043-PU-146	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-073-0	마이	나의 가입 정보	이동전화	나의 결합상품	TB끼리 온가족프리 지정회선 변경	PU	TB끼리 온가족프리 지정회선 변경			✅	✅	TW-MY-INFO-MOPC-043-PU-147	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-074-0	마이	나의 가입 정보	이동전화	나의 결합상품	데이터 나눠쓰기	PU	데이터 나눠쓰기 신청			✅	✅	TW-MY-INFO-MOPC-043-PU-150	TW		
+앱-INFO	US-MYI-CUS-003	결합·그룹·관리 대상 회선 권한 확인	NOVA-INFO-PU-075-0	마이	나의 가입 정보	이동전화	나의 결합상품	데이터 나눠쓰기 완료	PU	데이터 나눠쓰기 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-151	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-076-0	마이	나의 가입 정보	이동전화	이용계약 등록사항 증명서_인쇄하기		PU	이용계약 등록사항 증명서 인쇄 (PC)	이동전화		✅	✅	TW-MY-INFO-PC-062-LP-023	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-077-0	마이	나의 가입 정보	이동전화	SIM 잠금 해제코드(PUK 번호) 조회		PU	SIM 잠금 해제코드(PUK) 조회 (PC)	이동전화		✅	✅	TW-MY-INFO-PC-062-LP-024	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-039-0	마이	나의 가입 정보	나의 가입정보 (PC)			PG	나의 가입정보 PC 버전	이동전화		✅	✅	TW-MY-INFO-PC-062-PG-022	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-040-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 가입 내역		PG	인터넷/전화/B tv 가입 내역 조회	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-081	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-041-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 가입 내역	사은품 조회	PG	사은품 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-082	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-042-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 가입 내역	할인 반환금 조회	PG	할인 반환금 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-083	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-043-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황		PG	가입/변경 신청 현황 조회	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-084	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-044-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	신규가입 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-085	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-045-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	가입상품 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-086	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-046-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	약정기간 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-087	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-047-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	요금상품 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-088	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-048-0	마이	나의 가입 정보	인터넷/전화/B tv	가입/변경 신청현황	설치장소 변경 상세내역	PG				✅	✅	TW-MY-INFO-MOPC-043-PG-089	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-049-0	마이	나의 가입 정보	인터넷/전화/B tv	장애 A/S 신청현황		PG	장애/A/S 신청 현황	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-090	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-050-0	마이	나의 가입 정보	인터넷/전화/B tv	장애 A/S 신청현황	상세조회	PG	장애/A/S 신청 현황 상세 조회			✅	✅	TW-MY-INFO-MOPC-043-PG-091	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-051-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷 전화 번호이동 신청 현황		PG	인터넷 전화 번호이동 신청 현황	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-092	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-078-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 이용계약 정보		PU	이용계약 정보 상세 조회	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-051	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-079-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 망 작업 SMS 알림 신청		PU	망 작업 SMS 알림 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-052	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-011-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 망 작업 SMS 알림 신청	망 작업 SMS 알림 차단	CP	망 작업 SMS 알림 차단 확인			✅	✅	TW-MY-INFO-MOPC-043-CP-053	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-012-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 망 작업 SMS 알림 신청	수신 거부 처리 완료	CP	수신 거부 처리 완료 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-054	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-080-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 상품 업그레이드 신청		PU	인터넷/전화/B tv 상품 업그레이드 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-055	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-BS-008-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 상품 업그레이드 신청	상품 선택	BS	업그레이드 상품 선택 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-056	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-BS-009-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 상품 업그레이드 신청	요금제 선택	BS	업그레이드 요금제 선택 바텀시트			✅	✅	TW-MY-INFO-MOPC-043-BS-057	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-081-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 명의변경 신청 방법		PU	명의변경 신청 방법 안내	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-058	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-052-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청		PG	서비스 해지 신청 메인	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PG-059	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-082-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	안내사항 확인	PU	해지 신청 전 안내사항 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-060	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-083-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	서비스 해지 신청 완료	PU	서비스 해지 신청 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-061	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-084-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	서비스 해지 신청 실패	PU	서비스 해지 신청 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-062	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PG-053-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	서비스 해지 신청 현황	PG	서비스 해지 신청 현황			✅	✅	TW-MY-INFO-MOPC-043-PG-063	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-013-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	해지 신청 취소 Confirm	CP	해지 신청 취소 확인 팝업			✅	✅	TW-MY-INFO-MOPC-043-CP-064	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-085-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	해지 신청 취소 완료	PU	해지 신청 취소 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-065	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-086-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 서비스 해지 신청	해지 신청 취소 실패	PU	해지 신청 취소 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-066	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-087-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제		PU	인터넷/전화/B tv 일시정지/해제 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-067	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-088-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 완료	PU	일시정지 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-069	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-089-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 실패	PU	일시정지 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-070	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-090-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 현황	PU	일시정지 현황 조회			✅	✅	TW-MY-INFO-MOPC-043-PU-071	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-091-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 해제 완료	PU	일시정지 해제 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-073	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-092-0	마이	나의 가입 정보	인터넷/전화/B tv	인터넷/전화/B tv 일시정지/해제	일시정지 해제 실패	PU	일시정지 해제 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-074	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-093-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경		PU	전화 번호 변경 신청	인터넷/전화/B tv		✅	✅	TW-MY-INFO-MOPC-043-PU-075	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-094-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	전화 번호변경 확인	PU	전화 번호 변경 확인			✅	✅	TW-MY-INFO-MOPC-043-PU-076	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-014-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	번호변경 불가_이미 접수중	CP	이미 접수 중 또는 취소 중인 경우 불가 안내		예외 1	✅	✅	TW-MY-INFO-MOPC-043-CP-079	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-CP-015-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	번호변경 불가_회선 정지 상태	CP	회선 정지 상태로 번호 변경 불가 안내		예외 2	✅	✅	TW-MY-INFO-MOPC-043-CP-080	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-095-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	전화 번호변경 신청 완료	PU	전화 번호 변경 신청 완료			✅	✅	TW-MY-INFO-MOPC-043-PU-077	TW		
+앱-INFO	US-MYI-CUS-007	증빙·신청·변경 이력 확인	NOVA-INFO-PU-096-0	마이	나의 가입 정보	인터넷/전화/B tv	전화 번호변경	전화 번호변경 실패	PU	전화 번호 변경 실패		예외 1	✅	✅	TW-MY-INFO-MOPC-043-PU-078	TW		

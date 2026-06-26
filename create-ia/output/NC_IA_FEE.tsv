@@ -1,0 +1,37 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-001-0	마이	나의 요금				PG	요금 홈 — 당월 청구금액·납부예정일·납부상태 요약	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-001	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-002-0	마이	나의 요금	나의 요금_선불폰(PPS) Case			PG	선불폰 고객 진입 시 PPS 요금 표시		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PG-002	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-003-0	마이	나의 요금	미납 요금			PG	미납 요금 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-047	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-004-0	마이	나의 요금	미리납부하신 금액(MIRI)			PG	선납금액(MIRI) 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-057	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-005-0	마이	나의 요금	자녀 이용요금			PG	가족/자녀 회선 요금 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-058	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-006-0	마이	나의 요금	지난 달 요금 보기			PG	전월 요금 상세			✅	✅	TW-MY-FEE-MOPC-045-PG-060	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PU-001-0	마이	나의 요금	콜기프트 이용요금 조회			PU	콜기프트 이용료 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-054	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PU-002-0	마이	나의 요금	로밍 이용요금 조회			PU	로밍 요금 상세 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-055	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PU-003-0	마이	나의 요금	기부금/후원금 상세조회			PU	기부·후원금 내역 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-056	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-BS-001-0	마이	나의 요금	청구월 선택			BS	청구 기준월 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-003	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-BS-002-0	마이	나의 요금	조건 변경(청구월 변경)			BS	청구월 조건 변경 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-053	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-BS-003-0	마이	나의 요금	요금정보 선택			BS	요금 항목 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-167	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-007-0	마이	나의 요금	요금안내서			PG	청구서 상세 내용 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-051	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-008-0	마이	나의 요금	요금안내서_선불폰(PPS) Case			PG	PPS 고객 청구서 뷰		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PG-052	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-009-0	마이	나의 요금	Bills (English)			PG	영문 요금 홈 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-001; TW-MY-FEE-MOPC-055-PG-039	TW	●	fadeout 검토대상
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-010-0	마이	나의 요금	Miri (English)			PG	영문 MIRI 화면 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-021	TW		fadeout 검토대상
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-011-0	마이	나의 요금	View previous monthly fee (English)			PG	영문 전월 요금 (글로벌)			✅	✅	TW-MY-FEE-MOPC-055-PG-023	TW		fadeout 검토대상
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-012-0	마이	나의 요금	이용요금(PC)			PG	PC웹 이용요금 조회			✅	✅	TW-MY-FEE-PC-059-PG-006	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-013-0	마이	나의 요금	사용량 조회(PC)			PG	PC웹 사용량 조회			✅	✅	TW-MY-FEE-PC-051-LP-012; TW-MY-FEE-PC-051-LP-015	TW	●	
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-014-0	마이	나의 요금	사용패턴(PC)			PG	PC웹 사용패턴 분석			✅	✅	TW-MY-FEE-PC-051-PG-013	TW		
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-015-0	마이	나의 요금	청구내역 인쇄(PC)			PG	PC 청구내역 인쇄 화면			✅	✅	TW-MY-FEE-PC-059-LP-007; TW-MY-FEE-PC-059-LP-008	TW	●	
+앱-FEE	US-FEE-SUM-001	청구 요약·상세 조회	NOVA-FEE-PG-016-0	마이	나의 요금	로밍·기부금 상세 인쇄(PC)			PG	PC 로밍/기부금 상세 인쇄			✅	✅	TW-MY-FEE-PC-059-LP-009; TW-MY-FEE-PC-059-LP-010	TW	●	
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PG-017-0	마이	요금안내서 설정				PG	청구서 수신방식 조회·변경 진입	나의 요금		✅	✅	TW-MY-FEE-MOPC-045-PG-062	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-004-0	마이	요금안내서 설정	청구지 주소/연락처 변경			PU	청구지 주소 및 연락처 변경 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-004	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-005-0	마이	요금안내서 설정	요금안내서 변경_T world 확인			PU	T world 확인 방식으로 수신 변경		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-063	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-006-0	마이	요금안내서 설정	요금안내서 변경_Bill Letter			PU	Bill Letter 방식으로 수신 변경		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-064	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-007-0	마이	요금안내서 설정	요금안내서 변경_문자			PU	문자 수신 방식으로 변경		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-065	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-008-0	마이	요금안내서 설정	요금안내서 변경_이메일			PU	이메일 수신 방식으로 변경		케이스 4	✅	✅	TW-MY-FEE-MOPC-045-PU-066	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-009-0	마이	요금안내서 설정	요금안내서 변경_우편			PU	우편 수신 방식으로 변경		케이스 5	✅	✅	TW-MY-FEE-MOPC-045-PU-067	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-010-0	마이	요금안내서 설정	요금안내서 변경 완료			PU	수신방식 변경 완료 안내			✅	✅	TW-MY-FEE-MOPC-045-PU-068	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-011-0	마이	요금안내서 설정	요금안내서 변경 실패			PU	수신방식 변경 실패 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-069	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-012-0	마이	요금안내서 설정	요금안내서 재발행			PU	요금안내서 재발행 신청			✅	✅	TW-MY-FEE-MOPC-045-PU-070	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-013-0	마이	요금안내서 설정	요금안내서 재발행 완료			PU	재발행 완료 안내	재발행		✅	✅	TW-MY-FEE-MOPC-045-PU-071	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-014-0	마이	요금안내서 설정	요금안내서 재발행 실패			PU	재발행 실패 안내	재발행	예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-072	TW		
+앱-FEE	US-FEE-RCV-002	요금안내서 수신·증빙 관리	NOVA-FEE-PU-015-0	마이	요금안내서 설정	요금안내서 반송내역			PU	우편 반송 이력 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-073	TW		

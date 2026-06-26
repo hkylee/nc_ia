@@ -1,0 +1,123 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PG-001-0	마이	즉시납부				PG	즉시납부 실행 진입	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-140	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PG-002-0	마이	즉시납부	즉시납부 상세내역			PG	즉시납부 거래 상세			✅	✅	TW-MY-FEE-MOPC-045-PG-141	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-001-0	마이	즉시납부	납부요금 선택			PU	납부할 요금 항목 선택 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-007	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-002-0	마이	즉시납부	기타 납부하기			PU	기타 납부 수단 선택 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-006	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-003-0	마이	즉시납부	납부 가능한 요금 없음 안내			PU	납부 가능 요금 없을 때 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-009	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-004-0	마이	즉시납부	계좌이체 납부			PU	계좌이체로 즉시납부		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-016	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-005-0	마이	즉시납부	카드 납부			PU	신용/체크카드로 즉시납부		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-018	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-006-0	마이	즉시납부	11pay 납부			PU	11pay 간편결제 즉시납부		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-021	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-007-0	마이	즉시납부	지로납부 정보 없을 경우			PU	지로납부 정보 없음 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-PU-011	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-001-0	마이	즉시납부	지로납부			CP	지로납부 안내 팝업		케이스 4	✅	✅	TW-MY-FEE-MOPC-045-CP-010	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-002-0	마이	즉시납부	납부가능일 선택 Confirm			CP	납부 가능 일자 선택 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-049	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-008-0	마이	즉시납부	납부가능일 선택			PU	납부 가능 일자 선택 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-048	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-003-0	마이	즉시납부	이용정지 해제			CP	미납 납부 후 이용정지 해제 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-050	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-AP-001-0	마이	즉시납부	간편송금으로 바로납부 하기			AP	간편송금 납부 링크 액션			✅	✅	TW-MY-FEE-MOPC-045-LN-029	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-004-0	마이	즉시납부	(공통) 간편결제사 화면으로 이동			CP	간편결제 외부 이동 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-166	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-009-0	마이	즉시납부	(공통) 납부내역 확인			PU	납부 확인 단계 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-040	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-010-0	마이	즉시납부	(공통) 납부 완료			PU	납부 완료 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-041	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-011-0	마이	즉시납부	(공통) 납부 실패			PU	납부 실패 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-044	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-CP-005-0	마이	즉시납부	문자 전송 불가			CP	입금계좌 문자 발송 불가 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-028	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-012-0	마이	즉시납부	입금 전용계좌 문자 안내 받기			PU	입금 전용계좌 문자 안내			✅	✅	TW-MY-FEE-MOPC-045-PU-026	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-013-0	마이	즉시납부	문자 전송 완료			PU	문자 전송 완료 안내	입금 전용계좌 문자 안내 받기		✅	✅	TW-MY-FEE-MOPC-045-PU-027	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-PU-014-0	마이	즉시납부	입금 전용계좌 신청하기			PU	입금 전용계좌 신청 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-032	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-001-0	마이	즉시납부	은행 선택			BS	은행 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-017	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-002-0	마이	즉시납부	할부기간 선택			BS	카드 할부기간 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-019	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-003-0	마이	즉시납부	입금전용계좌 선택			BS	입금 전용계좌 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-031	TW		
+앱-BIL	US-BIL-PAY-001	즉시납부	NOVA-BIL-BS-004-0	마이	즉시납부	요금 납부			BS	납부 수단 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-005	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-003-0	마이	자동납부				PG	자동납부 현황 조회	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-142	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-004-0	마이	자동납부	자동납부 상세내역			PG	자동납부 상세 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-143	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-005-0	마이	자동납부	자동납부 신청/변경			PG	자동납부 신청·변경 화면	자동납부		✅	✅	TW-MY-FEE-MOPC-045-PG-082	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-015-0	마이	자동납부	납부 방법_자동납부 해지 상태 Case			PU	자동납부 해지 상태일 때 납부방법 안내		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-075	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-016-0	마이	자동납부	납부 방법_자동납부 신청 상태 Case			PU	자동납부 신청 상태일 때 납부방법 안내		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-076	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-017-0	마이	자동납부	납부 방법_통합청구 대표 접근 불가 Case			PU	통합청구 대표 접근 제한 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-088	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-018-0	마이	자동납부	자동납부 인출기간 안내			PU	인출 기간 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-008	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-006-0	마이	자동납부	첫 인출(승인) 예정인 안내			CP	첫 자동납부 인출 예정 안내			✅	✅	TW-MY-FEE-MOPC-045-CP-085	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-007-0	마이	자동납부	(공통) 요금 납부 정보로 자동납부 변경 완료			CP	납부 정보로 자동납부 변경 완료 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-042	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-008-0	마이	자동납부	(공통) 요금 납부 정보로 자동납부 변경 실패			CP	납부 정보로 자동납부 변경 실패 팝업		예외 1	✅	✅	TW-MY-FEE-MOPC-045-CP-043	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-009-0	마이	자동납부	자동납부 신청/변경 실패			CP	자동납부 신청·변경 실패 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-086	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-019-0	마이	자동납부	자동납부 해지			PU	자동납부 해지 신청			✅	✅	TW-MY-FEE-MOPC-045-PU-079	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-020-0	마이	자동납부	자동납부 해지 완료			PU	자동납부 해지 완료 안내	자동납부 해지		✅	✅	TW-MY-FEE-MOPC-045-PU-080	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-021-0	마이	자동납부	제휴할인 카드 변경 안내			PU	제휴할인 카드 변경 안내 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-084	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-006-0	마이	자동납부	자동 납부 통합인출			PG	통합인출 자동납부 현황	자동납부		✅	✅	TW-MY-FEE-MOPC-045-PG-144	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PG-007-0	마이	자동납부	자동 납부 통합인출 상세내역			PG	통합인출 상세 내역			✅	✅	TW-MY-FEE-MOPC-045-PG-145	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-022-0	마이	자동납부	자동납부 통합 인출 해지			PU	통합인출 해지 신청 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-146	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-CP-010-0	마이	자동납부	요금납부일 변경 Confirm			CP	납부일 변경 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-078	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-BS-005-0	마이	자동납부	요금납부일 변경			BS	납부일 변경 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-077	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-BS-006-0	마이	자동납부	문자 받는 번호 선택			BS	문자 수신번호 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-030	TW		
+앱-BIL	US-BIL-AUTO-002	자동납부 관리	NOVA-BIL-PU-023-0	마이	자동납부	문자 알림서비스			PU	자동납부 관련 문자 알림 설정			✅	✅	TW-MY-FEE-MOPC-045-PU-081	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-024-0	마이	포인트 납부	OK캐쉬백/T포인트 납부			PU	포인트로 즉시납부 팝업	마이		✅	✅	TW-MY-FEE-MOPC-045-PU-024	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-025-0	마이	포인트 납부	포인트 조회			PU	보유 포인트 조회 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-025	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-BS-007-0	마이	포인트 납부	납부할 포인트 선택			BS	납부 포인트 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-168	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-026-0	마이	포인트 납부	(공통) OK캐쉬백 제3자 제공 동의(필수)			PU	OK캐쉬백 동의 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-039	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-027-0	마이	포인트 납부	OK캐쉬백 납부 예약_1회			PU	OK캐쉬백 1회 납부 예약		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-033	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-028-0	마이	포인트 납부	OK캐쉬백 납부 예약_자동납부 신청			PU	OK캐쉬백 자동납부 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-034	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-029-0	마이	포인트 납부	T 포인트 납부 예약_1회			PU	T포인트 1회 납부 예약		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-035	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-030-0	마이	포인트 납부	T 포인트 납부 예약_자동납부 신청			PU	T포인트 자동납부 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-036	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-031-0	마이	포인트 납부	레인보우 포인트 납부 예약_1회			PU	레인보우포인트 1회 납부 예약		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-037	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-032-0	마이	포인트 납부	레인보우 포인트 납부 예약_자동납부 신청			PU	레인보우포인트 자동납부 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-038	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-033-0	마이	포인트 납부	(공통) 포인트 납부 예약 완료			PU	포인트 납부 예약 완료			✅	✅	TW-MY-FEE-MOPC-045-PU-045	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PU-034-0	마이	포인트 납부	(공통) 포인트 납부 예약 실패			PU	포인트 납부 예약 실패		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-046	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-008-0	마이	포인트 납부	포인트 납부 예약			PG	포인트 납부 예약 현황 페이지	포인트 납부		✅	✅	TW-MY-FEE-MOPC-045-PG-151	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-009-0	마이	포인트 납부	포인트 납부 예약 상세내역			PG	포인트 예약 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-152	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-010-0	마이	포인트 납부	포인트 자동 납부			PG	포인트 자동납부 현황	포인트 납부		✅	✅	TW-MY-FEE-MOPC-045-PG-153	TW		
+앱-BIL	US-BIL-PNT-003	포인트 납부	NOVA-BIL-PG-011-0	마이	포인트 납부	포인트 자동 납부 상세내역			PG	포인트 자동납부 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-154	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-012-0	마이	휴대폰 결제				PG	휴대폰 결제·콘텐츠 이용료 관리 홈	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-089	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-035-0	마이	휴대폰 결제	휴대폰 결제 이용내역			PU	휴대폰 결제 이용 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-097	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-036-0	마이	휴대폰 결제	휴대폰 결제 이용내역 상세			PU	휴대폰 결제 이용 상세			✅	✅	TW-MY-FEE-MOPC-045-PU-098	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-037-0	마이	휴대폰 결제	콘텐츠 이용료 이용내역			PU	콘텐츠 이용료 이용 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-099	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-038-0	마이	휴대폰 결제	콘텐츠 이용료 이용내역 상세			PU	콘텐츠 이용료 이용 상세			✅	✅	TW-MY-FEE-MOPC-045-PU-100	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-039-0	마이	휴대폰 결제	휴대폰 결제 비밀번호 변경			PU	결제 비밀번호 변경			✅	✅	TW-MY-FEE-MOPC-045-PU-095	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-040-0	마이	휴대폰 결제	휴대폰 결제 자동결제 차단내역			PU	자동결제 차단 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PU-096	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-011-0	마이	휴대폰 결제	휴대폰 결제 이용동의 서비스 미가입자			CP	이용동의 미가입 안내 팝업		예외 1	✅	✅	TW-MY-FEE-MOPC-045-CP-090	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-012-0	마이	휴대폰 결제	휴대폰 결제 이용동의 서비스 미가입자_미성년자 Case			CP	미성년자 이용동의 미가입 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-091	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-041-0	마이	휴대폰 결제	휴대폰 결제 한도 변경			PU	휴대폰 결제 한도 변경 신청		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-101	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-042-0	마이	휴대폰 결제	콘텐츠 이용료 한도 변경			PU	콘텐츠 이용료 한도 변경 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-102	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-013-0	마이	휴대폰 결제	한도 변경 Confirm			CP	한도 변경 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-104	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-AP-002-0	마이	휴대폰 결제	한도 변경 완료			AP	한도 변경 완료 토스트			✅	✅	TW-MY-FEE-MOPC-045-TP-169	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-014-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 이용료 한도 변경 차단			CP	한도 변경 차단 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-CP-092	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-015-0	마이	휴대폰 결제	한도 변경 불가 안내_미납 Case			CP	미납으로 한도 변경 불가 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-105	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-016-0	마이	휴대폰 결제	한도 변경 불가 안내_변경 횟수 초과 Case			CP	변경 횟수 초과 안내		예외 3	✅	✅	TW-MY-FEE-MOPC-045-CP-106	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-017-0	마이	휴대폰 결제	한도 변경 불가 안내_SKT 부여한도 초과 Case			CP	SKT 부여한도 초과 안내		예외 4	✅	✅	TW-MY-FEE-MOPC-045-CP-107	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-BS-008-0	마이	휴대폰 결제	한도 변경 금액 선택			BS	한도 변경 금액 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-103	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-013-0	마이	휴대폰 결제	휴대폰 결제 선결제			PG	휴대폰 결제 선결제 현황			✅	✅	TW-MY-FEE-MOPC-045-PG-147	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-014-0	마이	휴대폰 결제	휴대폰 결제 선결제 상세내역			PG	선결제 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-148	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-015-0	마이	휴대폰 결제	콘텐츠 이용료 선결제			PG	콘텐츠 이용료 선결제 현황			✅	✅	TW-MY-FEE-MOPC-045-PG-149	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-016-0	마이	휴대폰 결제	콘텐츠 이용료 선결제 상세내역			PG	콘텐츠 선결제 상세 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-150	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-043-0	마이	휴대폰 결제	휴대폰 결제 선결제_11pay			PU	11pay로 선결제		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-109	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-044-0	마이	휴대폰 결제	휴대폰 결제 선결제_계좌이체			PU	계좌이체로 선결제		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-110	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-045-0	마이	휴대폰 결제	휴대폰 결제 선결제_카드			PU	카드로 선결제		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-111	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-046-0	마이	휴대폰 결제	콘텐츠 이용료 선결제_11pay			PU	콘텐츠 이용료 11pay 선결제		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-112	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-047-0	마이	휴대폰 결제	콘텐츠 이용료 선결제_계좌이체			PU	콘텐츠 이용료 계좌이체 선결제		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-113	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-048-0	마이	휴대폰 결제	콘텐츠 이용료 선결제_카드			PU	콘텐츠 이용료 카드 선결제		케이스 3	✅	✅	TW-MY-FEE-MOPC-045-PU-114	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-049-0	마이	휴대폰 결제	선결제 내역 확인			PU	선결제 내역 확인 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-117	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-050-0	마이	휴대폰 결제	선결제 완료			PU	선결제 완료 안내	선결제 내역 확인		✅	✅	TW-MY-FEE-MOPC-045-PU-119	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-051-0	마이	휴대폰 결제	선결제 실패			PU	선결제 실패 안내		예외 1	✅	✅	TW-MY-FEE-MOPC-045-PU-120	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-018-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 선결제 이용 불가_잔액 없음			CP	선결제 가능 금액 없음 안내		예외 2	✅	✅	TW-MY-FEE-MOPC-045-CP-093	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-019-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 선결제 이용 불가_시간 제한			CP	선결제 시간 제한 안내(23:50~)		예외 3	✅	✅	TW-MY-FEE-MOPC-045-CP-094	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-020-0	마이	휴대폰 결제	선결제 불가 안내_5만원 미만 할부 Case			CP	5만원 미만 일시불 외 불가 안내		예외 4	✅	✅	TW-MY-FEE-MOPC-045-CP-115	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-021-0	마이	휴대폰 결제	선결제 불가 안내_5분 경과 Case			CP	조회 후 5분 경과 안내		예외 5	✅	✅	TW-MY-FEE-MOPC-045-CP-116	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-022-0	마이	휴대폰 결제	선결제 불가 안내_월 99회 초과 Case			CP	월 99회 초과 안내		예외 6	✅	✅	TW-MY-FEE-MOPC-045-CP-118	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-BS-009-0	마이	휴대폰 결제	휴대폰 결제/콘텐츠 이용료 선결제 방법 선택			BS	선결제 수단 선택 바텀시트			✅	✅	TW-MY-FEE-MOPC-045-BS-108	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-017-0	마이	휴대폰 결제	자동 선결제 신청 현황			PG	자동 선결제 신청 현황 페이지			✅	✅	TW-MY-FEE-MOPC-045-PG-121	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-052-0	마이	휴대폰 결제	휴대폰 결제 자동 선결제 신청			PU	휴대폰 결제 자동 선결제 신청		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-PU-122	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-053-0	마이	휴대폰 결제	자동 선결제 신청 완료			PU	자동 선결제 신청 완료	자동 선결제 신청; 콘텐츠 자동 선결제 신청		✅	✅	TW-MY-FEE-MOPC-045-PU-123; TW-MY-FEE-MOPC-045-PU-130	TW	●	
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-054-0	마이	휴대폰 결제	휴대폰 결제 자동 선결제 변경			PU	자동 선결제 변경 신청			✅	✅	TW-MY-FEE-MOPC-045-PU-124	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-055-0	마이	휴대폰 결제	자동 선결제 변경 완료			PU	자동 선결제 변경 완료	자동 선결제 변경		✅	✅	TW-MY-FEE-MOPC-045-PU-125; TW-MY-FEE-MOPC-045-PU-132	TW	●	
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-023-0	마이	휴대폰 결제	휴대폰 결제 자동 선결제 해지			CP	자동 선결제 해지 확인 팝업		케이스 1	✅	✅	TW-MY-FEE-MOPC-045-CP-126	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-024-0	마이	휴대폰 결제	콘텐츠 이용료 자동 선결제 해지			CP	콘텐츠 이용료 자동 선결제 해지 팝업		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-CP-133	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-CP-025-0	마이	휴대폰 결제	자동 선결제 해지 완료			CP	자동 선결제 해지 완료 팝업			✅	✅	TW-MY-FEE-MOPC-045-CP-127; TW-MY-FEE-MOPC-045-PU-134	TW	●	
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PG-018-0	마이	휴대폰 결제	콘텐츠 이용료 자동 선결제 변경			PG	콘텐츠 이용료 자동 선결제 변경 페이지			✅	✅	TW-MY-FEE-MOPC-045-PG-131	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-056-0	마이	휴대폰 결제	콘텐츠 이용료 자동 선결제 신청			PU	콘텐츠 이용료 자동 선결제 신청		케이스 2	✅	✅	TW-MY-FEE-MOPC-045-PU-129	TW		
+앱-BIL	US-BIL-PHN-004	휴대폰 결제 관리	NOVA-BIL-PU-057-0	마이	휴대폰 결제	자동 선결제 신청 현황(팝업)			PU	자동 선결제 신청 현황 팝업			✅	✅	TW-MY-FEE-MOPC-045-PU-128	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-019-0	마이	증빙 발급				PG	증빙 발급 진입 — 세금계산서·현금영수증·납부영수증	마이		✅	✅	TW-MY-FEE-MOPC-045-PG-158	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-020-0	마이	증빙 발급	현금 영수증 발행 내역			PG	현금영수증 발행 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-161	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-021-0	마이	증빙 발급	과납 내역 환불 신청 처리내역			PG	과납 환불 처리 내역 조회			✅	✅	TW-MY-FEE-MOPC-045-PG-164	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-022-0	마이	증빙 발급	과납 내역 환불 신청 처리내역 상세			PG	과납 환불 처리 상세			✅	✅	TW-MY-FEE-MOPC-045-PG-165	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PU-058-0	마이	증빙 발급	과납 내역 환불 받기			PU	과납 환불 신청 팝업	과납 내역 환불 신청 처리내역		✅	✅	TW-MY-FEE-MOPC-045-PU-162	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-CP-026-0	마이	증빙 발급	환불 계좌 등록 완료			CP	환불 계좌 등록 완료 팝업	과납 내역 환불 받기		✅	✅	TW-MY-FEE-MOPC-045-CP-163	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-023-0	마이	증빙 발급	납부내역(PC)			PG	PC웹 납부 내역 조회			✅	✅	TW-MY-FEE-PC-057-PG-016	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-024-0	마이	증빙 발급	현금영수증 발급내역(PC)			PG	PC웹 현금영수증 발급 내역			✅	✅	TW-MY-FEE-PC-057-PG-018	TW		
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PG-025-0	마이	증빙 발급	납부내역 인쇄(PC)			PG	PC웹 납부내역 인쇄 화면			✅	✅	TW-MY-FEE-PC-057-LP-017; TW-MY-FEE-PC-057-LP-019; TW-MY-FEE-PC-057-LP-021	TW	●	
+앱-BIL	US-BIL-DOC-005	증빙 발급 관리	NOVA-BIL-PU-059-0	마이	증빙 발급	Print charges (PC)			PU	PC웹 요금 인쇄 화면 (영문)			✅	✅	TW-MY-FEE-PC-089-PU-001; TW-MY-FEE-PC-089-PU-002; TW-MY-FEE-PC-089-PU-003	TW	●	fadeout 검토대상

@@ -1,0 +1,42 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-001-0	마이	약관				PG	이용약관 목록 진입 화면. 멤버십·우주 서비스 약관 분류			✅	✅	TW-MY-AGR-MOPC-002-PG-001; TU-MY-AGR-MO-12-PG-001			
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-002-0	마이	약관	이용약관 상세			PG	이용약관 상세 내용 화면	약관		✅	✅	TW-MY-AGR-MOPC-002-PG-002	TW		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-003-0	마이	약관	T 멤버십 회원약관			PG	T 멤버십 회원약관 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-041			
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-004-0	마이	약관	T 우주 LITE 회원약관			PG	T 우주 LITE 회원약관 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-042	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-005-0	마이	약관	멤버십 개인정보처리방침			PG	멤버십 통합 개인정보처리방침 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-043	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-006-0	마이	약관	T 멤버십 전자상거래 이용약관			PG	T 멤버십 전자상거래 이용약관 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-047	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-007-0	마이	약관	전자상거래 개인정보처리방침			PG	T 멤버십 전자상거래 개인정보처리방침 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-049	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-008-0	마이	약관	개인위치정보 이용동의			PG	개인위치정보 이용동의 상세	약관		✅	✅	TM-MY-AGR-MO-01-PG-052			
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-001-0	마이	약관	T 멤버십 서비스 약관 동의			PU	T 멤버십 서비스 약관 동의 팝업 (최초 1회 전체 약관 5개)	약관		✅	✅	TM-MY-AGR-MO-01-LP-002	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-001-0	마이	약관	T 멤버십 서비스 약관 동의			PU	선택 약관 동의 (2회 이후)	약관	케이스 1			TM-MY-AGR-MO-01-LP-007	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-002-0	마이	약관	앱 푸시 알림 약관 동의			PU	앱 푸시 알림 수신 약관 동의 화면	약관		✅	✅	TM-MY-AGR-MO-01-LP-010	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-003-0	마이	약관	개인정보 수집·이용 동의			PU	개인정보 수집·이용 동의 화면	약관		✅	✅	TM-MY-AGR-MO-01-LP-023	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-004-0	마이	약관	광고성 정보 수신 동의			PU	[선택] 광고성 정보 수신 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-01-PU-003	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-005-0	마이	약관	개인정보 수집·이용동의 (선택)			PU	[선택] 개인정보 수집·이용동의 팝업	약관	케이스 1	✅	✅	TM-MY-AGR-MO-01-PU-004	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-006-0	마이	약관	위치기반서비스 이용약관			PU	[선택] T 멤버십 위치기반서비스 이용약관 팝업. 상세(PG)도 포함	약관	케이스 2	✅	✅	TM-MY-AGR-MO-01-PU-005; TM-MY-AGR-MO-01-PU-051	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-007-0	마이	약관	개인위치정보 이용동의 (선택)			PU	[선택] T 멤버십 개인위치정보 이용동의 팝업	약관	케이스 3	✅	✅	TM-MY-AGR-MO-01-PU-006	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-008-0	마이	약관	전자상거래 이용 동의			PU	T 멤버십 전자상거래 이용 약관 동의 팝업 (필수/개인정보 포함)	약관		✅	✅	TM-MY-AGR-MO-16-PU-027; TM-MY-AGR-MO-16-PU-028; TM-MY-AGR-MO-16-PU-029	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-009-0	마이	약관	전자상거래 이용 동의 완료			PU	전자상거래 이용 동의 완료 화면	전자상거래 이용 동의		✅	✅	TM-MY-AGR-MO-16-PU-031	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-010-0	마이	약관	구매 약관 동의			PU	[필수] 구매약관·개인정보 수집·개인정보 판매자 제공 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-16-PU-044; TM-MY-AGR-MO-16-PU-045; TM-MY-AGR-MO-16-PU-046	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-009-0	마이	약관	약관 이전 버전			PG	이전 버전 약관 탭 조회 (전자상거래 이용약관/개인정보처리방침 이전 버전)	약관		✅	✅	TM-MY-AGR-MO-01-TB-044; TM-MY-AGR-MO-01-TB-048; TM-MY-AGR-MO-01-TB-050	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-CP-001-0	마이	약관	약관 미동의 안내			CP	필수 약관 미동의 시 안내 얼럿	약관	예외 1	✅	✅	TM-MY-AGR-MO-16-CP-063	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-010-0	마이	약관	온라인 회원 이용약관			PG	온라인 회원 이용약관 링크 페이지	약관		✅	✅	TM-MY-AGR-MO-01-LN-045	TM		
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-011-0	마이	약관	온라인 회원 개인정보처리방침			PG	온라인 회원 개인정보처리방침 링크 페이지	약관		✅	✅	TM-MY-AGR-MO-01-LN-046			
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-012-0	마이	약관	T우주 서비스 약관 동의			PG	T우주 서비스 이용약관 동의 진행 화면	약관	케이스 4	✅	✅	TU-MY-AGR-MO-12-PG-005; TU-MY-AGR-MO-12-PG-006	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-013-0	마이	약관	약관 동의 완료			PG	약관 동의 처리 완료 화면	T우주 서비스 약관 동의		✅	✅	TU-MY-AGR-MO-12-PG-007			
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-014-0	마이	약관	상품 이용약관 동의			PG	상품 가입 약관 동의 진행 화면 (고지/필수/복합 케이스)	약관	케이스 5	✅	✅	TU-MY-AGR-MO-12-PG-008; TU-MY-AGR-MO-12-PG-009-1; TU-MY-AGR-MO-12-PG-009-2; TU-MY-AGR-MO-12-PG-009-3	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-015-0	마이	약관	상품 이용약관 동의 완료			PG	상품 이용약관 동의 처리 완료	상품 이용약관 동의		✅	✅	TU-MY-AGR-MO-12-PG-010	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-011-0	마이	약관	T우주 구독서비스 이용약관			PU	[서비스 약관] T우주 구독서비스 이용약관·개인정보·제3자 제공·배송정보·혜택수신동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-001-1; TU-MY-AGR-MO-12-PU-001-2; TU-MY-AGR-MO-12-PU-001-3; TU-MY-AGR-MO-12-PU-001-4; TU-MY-AGR-MO-12-PU-001-5; TU-MY-AGR-MO-12-PU-001-6-1; TU-MY-AGR-MO-12-PU-001-6-2; TU-MY-AGR-MO-12-PU-001-7-1; TU-MY-AGR-MO-12-PU-001-7-2; TU-MY-AGR-MO-12-PU-001-8-1; TU-MY-AGR-MO-12-PU-001-8-2	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-012-0	마이	약관	상품 이용약관 팝업			PU	[상품 약관] 우주패스 상품약관·정기결제·제3자 제공·결제정보 동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-002-1-1; TU-MY-AGR-MO-12-PU-002-2; TU-MY-AGR-MO-12-PU-002-3; TU-MY-AGR-MO-12-PU-002-4; TU-MY-AGR-MO-12-PU-002-5	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-013-0	마이	약관	이벤트 개인정보 동의 팝업			PU	[이벤트&프로모션] 개인정보 처리 위탁·수집 이용 동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-003-1; TU-MY-AGR-MO-12-PU-003-2	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-014-0	마이	약관	개인정보 처리 동의 팝업			PU	[개인정보 약관] 개인정보 수집·이용·위탁·제3자 제공 동의 팝업	약관		✅	✅	TU-MY-AGR-MO-12-PU-004-1; TU-MY-AGR-MO-12-PU-004-2	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-BS-001-0	마이	약관	이벤트 약관 동의			BS	이벤트 참여 약관 동의 바텀시트 (응모자/초대자/피초대자·약관 항목 수 케이스)	약관		✅	✅	TU-MY-AGR-MO-02-BS-001; TU-MY-AGR-MO-17-BS-003-1-1; TU-MY-AGR-MO-17-BS-003-1-2; TU-MY-AGR-MO-17-BS-003-2-1; TU-MY-AGR-MO-17-BS-003-2-2; TU-MY-AGR-MO-17-BS-003-3-1; TU-MY-AGR-MO-17-BS-003-3-2	TU		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-015-0	마이	약관	개인정보 수집과 혜택 알림 동의			PU	개인정보 수집과 혜택 알림 동의·이벤트 응모 참여 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-14-PU-005; TM-MY-AGR-MO-14-PU-621; TM-MY-AGR-MO-14-PU-622; TM-MY-AGR-MO-14-PU-624; TM-MY-AGR-MO-14-PU-625	TM		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PG-016-0	마이	약관	수신동의 설정			PG	수신동의 설정 바로가기 (링크형)	약관		✅	✅	TM-MY-AGR-MO-16-LN-030	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-001	통합 약관 권리 관리	NOVA-AGR-PG-017-0	마이	약관	개인정보처리방침			PG	개인정보처리방침 상세 링크 페이지	약관		✅	✅	TM-MY-AGR-MO-02-LN-094			fadeout 검토대상
+앱-AGR	US-ZBC-CS-003	통합 약관 변경·철회 관리	NOVA-AGR-PG-018-0	마이	약관	약관변경 안내			PG	약관 변경 사항 안내 화면	약관		✅	✅	TU-MY-AGR-MO-12-PG-011			
+앱-AGR	US-ZBC-CS-003	통합 약관 변경·철회 관리	NOVA-AGR-PG-019-0	마이	약관	약관 동의 유효시간 만료			PG	약관 동의 유효시간 만료 안내 화면	약관	예외 1	✅	✅	TU-MY-AGR-MO-12-PG-014	TU		
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-016-0	마이	약관	쇼핑적립 서비스 동의			PU	쇼핑적립 서비스 이용약관·개인정보 수집·제3자 제공 동의 팝업	약관		✅	✅	TM-MY-AGR-MO-02-PU-074; TM-MY-AGR-MO-02-PU-076; TM-MY-AGR-MO-02-PU-077; TM-MY-AGR-MO-02-PU-078	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-017-0	마이	약관	돈 버는 교통 동의			PU	[필수] 개인정보 제3자 제공 동의 (돈 버는 교통)	약관		✅	✅	TM-MY-AGR-MO-02-PU-144; TM-MY-AGR-MO-02-LN-098; TM-MY-AGR-MO-02-LN-099; TM-MY-AGR-MO-02-LN-100	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-018-0	마이	약관	혜택 알림 동의			PU	혜택 알림·개인정보 제공 동의 화면 (LP형)	약관		✅	✅	TM-MY-AGR-MO-02-LP-006; TM-MY-AGR-MO-02-LP-017; TM-MY-AGR-MO-02-LP-031; TM-MY-AGR-MO-02-LP-073; TM-MY-AGR-MO-02-LP-097; TM-MY-AGR-MO-02-LP-143	TM		fadeout 검토대상
+앱-AGR	US-ZBC-CS-002	통합 약관 필수·선택 동의 관리	NOVA-AGR-PU-019-0	마이	약관	개인정보 수집이용동의 (PC)			PU	PC) 개인정보 수집이용동의 팝업	약관		✅	✅	TW-MY-AGR-MOPC-47-PU-050	TW		

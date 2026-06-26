@@ -1,0 +1,76 @@
+domain	uc_code	uc_name	page_id	depth1	depth2	depth3	depth4	depth5	dev_type	description	from	flow_type	owner_page	owner_uc	legacy_screen_id	출처서비스	통합여부	비고
+앱-MY	US-MY-MYP-001	마이	NOVA-MY-PG-001-0	마이					PG	마이 홈						TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-001-0	마이	데이터·통화	충전			PG	충전 진입 — 충전 가능 여부 진단	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-060	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-002-0	마이	데이터·통화	충전 내역			PG	충전 이력 조회	충전		✅	✅	TW-MY-DTC-MOPC-044-PG-060	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-001-0	마이	데이터·통화	충전 상세 내역			PU	충전 상세 내역 팝업	충전 내역		✅	✅	TW-MY-DTC-MOPC-044-PU-061	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-001-0	마이	데이터·통화	충전 데이터 선택			BS	충전 데이터 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-056	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-002-0	마이	데이터·통화	충전 금액 선택			BS	충전 금액 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-047	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-003-0	마이	데이터·통화	충전 날짜 선택			BS	자동충전 날짜 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-048	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-BS-004-0	마이	데이터·통화	필터_충전 데이터 유형 선택			BS	충전 내역 필터 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-063	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-001-0	마이	데이터·통화	자동충전 해지 Confirm			CP	자동충전 해지 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-046; TW-MY-DTC-MOPC-044-CP-055	TW	●	
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-002-0	마이	데이터·통화	충전 취소			CP	충전 취소 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-062	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-003-0	마이	데이터·통화	알림_팅계열 한도요금 충전 불가			CP	팅 계열 한도요금제 충전 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-029	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-CP-004-0	마이	데이터·통화	데이터 한도 요금제 충전 서비스 이용 불가			CP	데이터 한도요금 충전 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-030	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-002-0	마이	데이터·통화	데이터 한도 요금제 충전_이번 달 충전			PU	데이터 한도요금제 이번달 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-026	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-003-0	마이	데이터·통화	데이터 한도 요금제 충전_매달 자동충전			PU	데이터 한도요금제 자동충전 신청		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-027	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-004-0	마이	데이터·통화	데이터 한도 요금제 충전 완료			PU	데이터 한도요금 충전 완료			✅	✅	TW-MY-DTC-MOPC-044-PU-028	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-005-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_이번 달 충전			PU	팅/ZEM플랜 이번달 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-031	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-006-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_매달 자동충전			PU	팅/ZEM플랜 자동충전 신청		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-032	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-007-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전 완료			PU	팅/ZEM플랜 충전 완료			✅	✅	TW-MY-DTC-MOPC-044-PU-033	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-008-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_서비스 차단 Case			PU	서비스 차단으로 충전 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-035	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-009-0	마이	데이터·통화	팅/ZEM플랜/안심음성 요금 충전_서비스 이용 불가 Case			PU	서비스 이용 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-PU-036	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-010-0	마이	데이터·통화	팅요금제 충전 선물			PU	팅요금제 충전 선물 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-020	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-011-0	마이	데이터·통화	팅요금제 선물 완료			PU	팅요금제 선물 완료 안내	팅요금제 충전 선물		✅	✅	TW-MY-DTC-MOPC-044-PU-021	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-012-0	마이	데이터·통화	팅요금제 충전 선물_서비스 차단 Case			PU	서비스 차단 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-024	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-013-0	마이	데이터·통화	팅요금제 충전 선물_서비스 이용 불가 Case			PU	서비스 이용 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-PU-025	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-014-0	마이	데이터·통화	음성 1회 충전_11pay			PU	11pay로 음성 1회 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-037	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-015-0	마이	데이터·통화	음성 1회 충전_선불 이동전화 카드			PU	선불카드로 음성 1회 충전		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-038	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-016-0	마이	데이터·통화	카드번호 예시 보기			PU	선불카드 번호 예시 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-039	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-017-0	마이	데이터·통화	선불 이동전화 카드금액 안내			PU	선불카드 금액 안내 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-040	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-018-0	마이	데이터·통화	음성 1회 충전_신용카드			PU	신용카드로 음성 1회 충전		케이스 3	✅	✅	TW-MY-DTC-MOPC-044-PU-041	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-019-0	마이	데이터·통화	충전내역 확인			PU	충전 내역 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-042; TW-MY-DTC-MOPC-044-PU-051	TW	●	
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-020-0	마이	데이터·통화	음성 1회 충전 완료			PU	음성 충전 완료 안내	충전내역 확인		✅	✅	TW-MY-DTC-MOPC-044-PU-043	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-021-0	마이	데이터·통화	음성 자동충전			PU	음성 자동충전 신청·변경			✅	✅	TW-MY-DTC-MOPC-044-PU-044	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-022-0	마이	데이터·통화	음성 자동충전 신청·변경 완료			PU	음성 자동충전 신청·변경 완료	음성 자동충전		✅	✅	TW-MY-DTC-MOPC-044-PU-045	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-023-0	마이	데이터·통화	데이터 1회 충전_11pay			PU	11pay로 데이터 1회 충전		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-049	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-024-0	마이	데이터·통화	데이터 1회 충전_신용카드			PU	신용카드로 데이터 1회 충전		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-050	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-025-0	마이	데이터·통화	데이터 1회 충전 완료			PU	데이터 충전 완료 안내	충전내역 확인		✅	✅	TW-MY-DTC-MOPC-044-PU-052	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-026-0	마이	데이터·통화	데이터 자동충전			PU	데이터 자동충전 신청·변경			✅	✅	TW-MY-DTC-MOPC-044-PU-053	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-027-0	마이	데이터·통화	데이터 자동충전 신청·변경 완료			PU	데이터 자동충전 완료	데이터 자동충전		✅	✅	TW-MY-DTC-MOPC-044-PU-054	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PU-028-0	마이	데이터·통화	개인정보 제3자 제공 동의_11pay			PU	11pay 개인정보 동의 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-057	TW		
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-003-0	마이	데이터·통화	데이터 함께쓰기 요금 충전(PC)			PG	PC웹 데이터 셰어링 충전			✅	✅	TW-MY-DTC-PC-047-PG-001; TW-MY-DTC-PC-047-PG-002; TW-MY-DTC-PC-047-PG-003; TW-MY-DTC-PC-047-PG-004	TW	●	
+앱-MCT	US-MCT-CHG-001	데이터·통화 충전	NOVA-MCT-PG-004-0	마이	데이터·통화	데이터 함께쓰기 요금 충전 내역(PC)			PG	PC웹 데이터 셰어링 충전 내역			✅	✅	TW-MY-DTC-PC-047-PG-005	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-029-0	마이	데이터·통화	데이터 선물하기 사전안내			PU	데이터 선물 진입 전 안내 팝업	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PU-090	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-030-0	마이	데이터·통화	데이터 선물하기 이용 제한 안내			PU	데이터 선물 이용 제한 안내 팝업		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-091	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-005-0	마이	데이터·통화	선물 가능한 대상자 요금제			BS	선물 가능 대상 요금제 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-106	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-006-0	마이	데이터·통화	선물할 데이터			BS	선물할 데이터 선택 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-107	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-CP-005-0	마이	데이터·통화	알림_제공자&수혜자 유효성 체크			CP	선물 제공자/수혜자 유효성 오류 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-CP-089	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-031-0	마이	데이터·통화	T 끼리 바로선물			PU	T끼리 바로선물 신청 팝업		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-085	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-032-0	마이	데이터·통화	T 끼리 바로선물_선물 불가 Case			PU	T끼리 바로선물 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-086	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-007-0	마이	데이터·통화	최근 선물한 번호			BS	최근 선물 수신번호 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-087	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-BS-008-0	마이	데이터·통화	바로선물 신청 Confirm			BS	바로선물 신청 확인 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-092	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-033-0	마이	데이터·통화	데이터 바로선물 완료			PU	데이터 바로선물 완료 안내	바로선물 신청 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-093	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-034-0	마이	데이터·통화	문자 보내기			PU	선물 완료 후 문자 발송 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-094	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-PU-035-0	마이	데이터·통화	선물 실패			PU	선물 실패 안내 팝업		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-095	TW		
+앱-MCT	US-MCT-GFT-002	데이터·통화 선물	NOVA-MCT-CP-006-0	마이	데이터·통화	선물 불가_결합상품 미가입 Case			CP	결합상품 미가입으로 선물 불가 안내		예외 2	✅	✅	TW-MY-DTC-MOPC-044-CP-116	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PG-005-0	마이	데이터·통화	가족끼리 자동선물			PG	가족 자동 데이터선물 설정 페이지	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-096	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PG-006-0	마이	데이터·통화	가족끼리 자동선물_가족 추가			PG	가족 자동선물 가족 추가 화면			✅	✅	TW-MY-DTC-MOPC-044-PG-167	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-036-0	마이	데이터·통화	가족끼리 자동선물_결합상품 미가입 Case			PU	결합상품 미가입으로 자동선물 불가 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-097	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-BS-009-0	마이	데이터·통화	가족 추가			BS	가족 구성원 추가 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-098	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-BS-010-0	마이	데이터·통화	가족 추가_가족 구성원 호출 불가 Case			BS	가족 구성원 조회 불가 바텀시트		예외 1	✅	✅	TW-MY-DTC-MOPC-044-BS-099	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-BS-011-0	마이	데이터·통화	신청 실패			BS	자동선물 신청 실패 바텀시트		예외 2	✅	✅	TW-MY-DTC-MOPC-044-BS-103	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-037-0	마이	데이터·통화	자동선물 신청 Confirm			PU	자동선물 신청 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-101	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-038-0	마이	데이터·통화	신청 완료			PU	자동선물 신청 완료 안내	자동선물 신청 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-102	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PU-039-0	마이	데이터·통화	자동선물 해지 Confirm			PU	자동선물 해지 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-PU-104	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-AP-001-0	마이	데이터·통화	자동선물 해지 완료/실패			AP	자동선물 해지 완료/실패 토스트	자동선물 해지 Confirm		✅	✅	TW-MY-DTC-MOPC-044-TP-105	TW		
+앱-MCT	US-MCT-AUTO-003	자동 선물·충전 설정	NOVA-MCT-PG-007-0	마이	데이터·통화	최근 충전/선물 내역			PG	최근 충전·선물 이력 조회			✅	✅	TW-MY-DTC-MOPC-044-PG-118	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PG-008-0	마이	데이터·통화	리필 쿠폰 사용 요금제 확인			PG	리필 쿠폰 사용 가능 요금제 조회	마이; 데이터·통화		✅	✅	TW-MY-DTC-MOPC-044-PG-117	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-040-0	마이	데이터·통화	리필 쿠폰			PU	리필 쿠폰 목록 및 사용			✅	✅	TW-MY-DTC-MOPC-044-PU-108	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-041-0	마이	데이터·통화	나에게 리필하기			PU	본인에게 리필 쿠폰 적용		케이스 1	✅	✅	TW-MY-DTC-MOPC-044-PU-109	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-CP-007-0	마이	데이터·통화	나에게 리필하기 Confirm			CP	리필 쿠폰 사용 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-110	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-042-0	마이	데이터·통화	리필 완료			PU	리필 완료 안내	나에게 리필하기 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-111	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-043-0	마이	데이터·통화	리필 실패			PU	리필 실패 안내		예외 1	✅	✅	TW-MY-DTC-MOPC-044-PU-112	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-044-0	마이	데이터·통화	가족에게 선물하기			PU	가족에게 리필 쿠폰 선물		케이스 2	✅	✅	TW-MY-DTC-MOPC-044-PU-113	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-CP-008-0	마이	데이터·통화	가족에게 선물하기 Confirm			CP	가족 선물 확인 팝업			✅	✅	TW-MY-DTC-MOPC-044-CP-114	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-PU-045-0	마이	데이터·통화	선물 완료			PU	가족 선물 완료 안내	가족에게 선물하기 Confirm		✅	✅	TW-MY-DTC-MOPC-044-PU-115	TW		
+앱-MCT	US-MCT-REFIL-004	리필 쿠폰 사용	NOVA-MCT-BS-012-0	마이	데이터·통화	필터_조회 항목 선택			BS	충전/선물 내역 조회 필터 바텀시트			✅	✅	TW-MY-DTC-MOPC-044-BS-123	TW		
