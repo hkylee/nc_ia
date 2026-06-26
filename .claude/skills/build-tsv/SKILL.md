@@ -19,6 +19,8 @@
 | ia-writing-rules.md | `.claude/rules/ia-writing-rules.md` | 행 정렬·flow_type 규칙 |
 | ia-column-spec.md | `.claude/rules/ia-column-spec.md` | TSV 헤더·컬럼 순서 |
 | context-ia-example.tsv | `.claude/contexts/context-ia-example.tsv` | **TSV 출력 포맷 레퍼런스** — 실제 값·탭 구분자·빈칸 처리 확인용 |
+| T4S_IA.tsv | `create-ia/input/ia/T4S_IA.tsv` | 레거시 IA 전체. `screen_id_new`(col 15) + `fadeout 권고 대상`(col 41) 컬럼으로 fadeout 판정 |
+| T4S_IA_fadeout.tsv | `create-ia/input/ia/T4S_IA_fadeout.tsv` | fadeout 검토 목록. `기능`(col 2, 화면명) + `우선순위`(col 7, P1~P9) 컬럼 활용 |
 
 ---
 
@@ -29,8 +31,27 @@
 ### TSV 헤더 (고정 컬럼 순서)
 
 ```
-domain\tuc_code\tuc_name\tpage_id\tdepth1\tdepth2\tdepth3\tdev_type\tdescription\tfrom\tflow_type\towner_page\towner_uc\tlegacy_screen_id\t출처서비스\t통합여부
+domain\tuc_code\tuc_name\tpage_id\tdepth1\tdepth2\tdepth3\tdev_type\tdescription\tfrom\tflow_type\towner_page\towner_uc\tlegacy_screen_id\t출처서비스\t통합여부\t비고
 ```
+
+---
+
+## 비고 컬럼 — fadeout 검토대상 표기
+
+각 행의 `legacy_screen_id`에 포함된 ID를 `T4S_IA.tsv`의 `screen_id_new`(col 15)와 대조하고,
+화면 이름(마지막 depth 값)을 `T4S_IA_fadeout.tsv`의 `기능`(col 2)과 비교해 아래 규칙으로 `비고`를 채운다.
+
+| 조건 | 비고 값 |
+|------|---------|
+| `T4S_IA_fadeout.tsv`에 화면명 매칭 (기능 컬럼) | `fadeout 검토대상 ({우선순위})` 예: `fadeout 검토대상 (P1)` |
+| `T4S_IA.tsv`의 `fadeout 권고 대상` = "강력 권고" | `fadeout 검토대상 (강력 권고)` |
+| `T4S_IA.tsv`의 `fadeout 권고 대상` = "검토 포함" | `fadeout 검토대상` |
+| 두 소스 모두 매칭 | `T4S_IA_fadeout.tsv` 우선순위 표기 사용 |
+| 해당 없음 | (빈칸) |
+
+**매칭 기준:**
+1. `legacy_screen_id` ↔ `screen_id_new` 정확 일치 (`;`로 구분된 각 ID를 개별 비교)
+2. 화면명(마지막 depth) ↔ `기능` 컬럼 — 공백·괄호 제거 후 포함 여부 비교 (fuzzy)
 
 ---
 
