@@ -31,8 +31,10 @@
 ### TSV 헤더 (고정 컬럼 순서)
 
 ```
-domain\tuc_code\tuc_name\tpage_id\tdepth1\tdepth2\tdepth3\tdev_type\tdescription\tfrom\tflow_type\towner_page\towner_uc\tlegacy_screen_id\t출처서비스\t통합여부\t비고
+domain\tuc_code\tuc_name\tpage_id\tdepth1\tdepth2\tdepth3\tdepth4\tdepth5\tdev_type\tdescription\tfrom\tflow_type\towner_page\towner_uc\tlegacy_screen_id\t출처서비스\t통합여부\t비고
 ```
+
+> depth 컬럼은 필요한 만큼 사용한다. 화면 계층이 3단계를 넘으면 depth4, depth5까지 확장. 사용하지 않는 depth는 빈칸. depth3에 언더스코어(`_`) 등으로 계층을 이어붙이지 말 것.
 
 ---
 
