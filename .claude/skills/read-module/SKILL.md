@@ -4,22 +4,15 @@
 
 ---
 
-## 트리거
-
-- `/create-ia` 내부 호출 (Step 1)
-- `/read-module {module_id}` — 단독 재실행
-
----
-
 ## 인풋
 
 | 파일 | 경로 | 용도 |
 |------|------|------|
 | NC_IA_NOVA.tsv | `create-ia/output/NC_IA_NOVA.tsv` | 크로스모듈 참조 (from 링크·depth1 기준). 생성 결과물이라 output에 위치 |
 | T4S_기능내역서.tsv | `create-ia/input/ia/T4S_기능내역서.tsv` | 레거시 채널(TW/TM/TU/TD) 화면 목록 및 ID |
-| {module_id}_policy_spec.json | `create-ia/input/policy/` | 정책 프로세스·그룹·비즈니스 규칙 |
-| {module_id}_prd.md | `create-ia/input/prd/` | PRD 있으면 참조 (없으면 스킵) |
-| context-module.tsv | `.claude/contexts/context-module.tsv` | 모듈 메타 (ref-policy, ref-ia, depth1) |
+| {ref-policy}_policy_spec.json | `create-ia/input/policy/` | 정책 프로세스·그룹·비즈니스 규칙. 파일명은 context-module.tsv의 `ref-policy` 컬럼 값 사용 |
+| T4S_요구사항정의서.tsv | `create-ia/input/prd/T4S_요구사항정의서.tsv` | PRD. 단일 파일로 모듈 코드로 필터링해 참조 (없으면 스킵) |
+| context-module.tsv | `.claude/contexts/context-module.tsv` | 모듈 메타 (`module`, `etc`, `ref-policy` 컬럼) |
 
 ### T4S_기능내역서.tsv 컬럼 구조
 
@@ -36,9 +29,13 @@
 > **TU 채널 주의:** TU QA 행은 `기능그룹_1~3Depth`가 QA 메타데이터(점수·카테고리)로 채워지고, 실제 기능그룹은 `기능그룹_4Depth`부터 시작한다. description 재료로 쓸 때는 TU 행의 `기능그룹_1~3Depth`를 무시하고 `4Depth`부터 참조.
 
 ### 인풋 파일 식별 규칙
-1. `context-module.tsv`에서 해당 `module_id` 행의 `ref-policy` 컬럼 값으로 policy 파일명 목록 추출
-2. `create-ia/input/policy/` 에서 해당 파일들 로드 (존재하지 않는 파일은 경고 후 스킵)
-3. T4S 기능내역서에서 `module` 컬럼이 `{module_id}-`로 시작하는 행 필터링 (예: `DSP` → `DSP-PRDD`, `DSP-BPS` 등 포함)
+1. `context-module.tsv`에서 해당 `module_id` 행의 `ref-policy` 컬럼 값 추출
+   - 값이 있으면: `create-ia/input/policy/{ref-policy}_policy_spec.json` 로드
+   - 값이 없으면: `⚠️ policy 없음 — 스킵` 메모 후 T4S 기반으로만 진행
+2. `create-ia/input/prd/T4S_요구사항정의서.tsv` 에서 `상위 요구사항 ID` 컬럼이 `{module_id}`를 포함하는 행 필터링
+   - 예: `MBR` → `13MBR-H01-001` 형식의 행. 파일 없으면 스킵
+3. `create-ia/input/ia/T4S_기능내역서.tsv` 에서 `module` 컬럼이 `-{module_id}`로 끝나는 행 필터링
+   - 예: `MBR` → `MY-MBR`, `PRDD` → `DSP-PRDD`, `CARD` → `ORD-CARD`
 
 ---
 
@@ -81,7 +78,7 @@
 
 - **UC 목록**: policy_spec.json의 processes 또는 policies 기반. 너무 세분화하지 말고 사용자 시나리오 단위로 묶는다.
 - **화면 목록**: UC별 주요 화면만 (helper 팝업 등 소규모 UI는 description으로 대신).
-- **depth 구조**: `context-module.tsv`의 `depth1` 값이 루트. 정책서 프로세스 흐름 기반으로 depth2~3 구성.
+- **depth 구조**: 정책서 프로세스 흐름 기반으로 depth1~3 구성. depth1은 해당 모듈의 앱 내 루트 네비게이션명 (예: `마이`, `홈`, `고객센터`)으로 정책서 context에서 판단.
 - **from 링크**: 크로스모듈 진입만 (예: 마이에서 로그인 진입). depth 내 이동은 기재 안 함.
 - **공유 페이지 후보**: 본인인증 CP처럼 여러 UC가 공유할 화면을 미리 식별.
 

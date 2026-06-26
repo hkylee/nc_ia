@@ -1,7 +1,48 @@
-module_id	module_name	module_name_en	depth1	ref-policy	ref-ia	description
-MBR	로그인/회원	Member	로그인	회원가입탈퇴_policy_spec.json; 회원정보조회변경_policy_spec.json; 회원가입_policy_spec.json	NC_IA_MBR.tsv	회원가입·T-ID 로그인·소셜 로그인·계정 찾기·휴면 해제·탈퇴 전 과정
-PRD	상품	Product	상품	상품목록_policy_spec.json; 상품상세담기_policy_spec.json; 상품서비스혜택이용공유_policy_spec.json	(미생성)	상품 목록·상세 조회·담기·공유. DSP-PRDL(상품목록) + DSP-PRDD(상품상세) 통합
-MY	마이	My	마이	나의가입정보_policy_spec.json; 나의데이터통화_policy_spec.json; 멤버십카드관리_policy_spec.json; 멤버십혜택T플러스포인트_policy_spec.json; 설정_policy_spec.json	NC_IA_MY.tsv	마이 홈·나의가입정보·요금·혜택·멤버십·회선관리·설정
-ORD	주문/장바구니	Order	장바구니	카트장바구니_policy_spec.json; 주문계약가입_policy_spec.json; 주문상태사후관리_policy_spec.json; 선물주문_policy_spec.json; 해지환불취소_policy_spec.json	NC_IA_ORD.tsv	장바구니·주문/가입·배송·교환/반품·선물주문·해지/환불
-SCH	AI 검색	Search	AI 검색	AI검색_policy_spec.json	NC_IA_SCH.tsv	AI 검색 질의·결과·비교추천·오타보정·상담전환
-DSP	홈/전시	Display	홈	전시관리기능_policy_spec.json; 이벤트미션프로그램_policy_spec.json; 추천_policy_spec.json	NC_IA_DSP.tsv	앱 홈·쇼핑·바코드·메뉴·배너·추천·이벤트·전시 관리
+group-module	module	etc	ref-policy
+AI&Marketing	UXP	01 가이드라인	가이드라인공통품질적응형
+AI&Marketing	APP	02 공통	가이드라인공통품질적응형
+AI&Marketing	QLT	03 품질/적응형	가이드라인공통품질적응형
+AI&Marketing	MAIN	04 전시/관리 기능	전시관리기능
+AI&Marketing	PRDL	05 상품 목록	상품목록
+AI&Marketing	BPS	06 외부 BP 서비스 관리 체계	외부BP서비스관리체계
+AI&Marketing	AIA	07 AI Agent
+AI&Marketing	RCM	08 추천	추천
+AI&Marketing	ANA	09 데이터 트래킹 체계	데이터트래킹체계
+AI&Marketing	EVT/MSN	10 이벤트/미션 프로그램	이벤트미션프로그램
+AI&Marketing	CPN	11 외부 쿠폰	외부쿠폰
+AI&Marketing	SCH	12 AI 검색	AI검색
+AI&Marketing	BEN/TPNT	13 멤버십 혜택/T 플러스포인트	멤버십혜택T플러스포인트
+Shop	PRDD	15 상품 상세	상품상세담기
+Shop	CART	16 담기	상품상세담기
+Shop	CARD	17 카트/장바구니	카트장바구니
+Shop	SIM	18 할인/시뮬레이션	할인시뮬레이션
+Shop	JOIN	19 주문/계약/가입	주문계약가입
+Shop	GFT	20 선물주문	선물주문
+Shop	CHG	21 상품변경	상품변경
+Shop	PAY	22 결제 처리	결제
+Shop	DIS	23 할인 적용	할인시뮬레이션
+Shop	PMT	24 결제 수단	결제
+Shop	ORH	25 주문 내역 관리	주문상태사후관리
+Shop	DLV	26 배송/교환/반품	주문상태사후관리
+Shop	AUTH	27 상품 연동/인증
+Shop	CCL	28 해지/환불/취소	해지환불취소
+Manage	INFO	29 나의 가입 정보	나의가입정보
+Manage	MOD	30 회선 변경/관리	회선변경관리
+Manage	MBS	31 멤버십 카드 관리	멤버십카드관리
+Manage	FEE	32 요금 안내서	청구및수납관리
+Manage	BIL	33 요금 납부/ 납부 수단 관리	청구및수납관리
+Manage	RTB	35 요금 납부 내역/ 실시간 이용 요금	청구및수납관리
+Manage	MYPNT	36 통합 포인트	멤버십혜택T플러스포인트
+Manage	MCS	37 데이터·통화 조회/설정	나의데이터통화
+Manage	MCT	38 데이터·통화 선물/충전	나의데이터통화
+Manage	MYBEN	39 상품·서비스 혜택 이용/공유	상품서비스혜택이용공유
+Manage	MYCPN	40 통합 쿠폰/이용권함	통합쿠폰이용권함
+Manage	MBR	41 회원 가입/탈퇴	회원가입탈퇴
+Manage	MBI	42 회원정보 조회/변경	회원정보조회변경
+Manage	ALM	43 통합 알림	통합알림
+Manage	AGR	44 통합 약관	통합약관
+Manage	SET	45 설정	설정
+Manage	CS	46 상담/문의/CS	고객센터_통합허브
+Manage	GUIDE	47 이용안내/FAQ/공지	고객센터_FAQ공지이용안내
+Manage	STR	48 매장/대리점	고객센터_매장안내
+Manage	NTC	49 운영 관리

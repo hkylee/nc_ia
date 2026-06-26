@@ -1,8 +1,0 @@
-{
-  "purpose": "Refresh persisted 회원가입탈퇴 Full v0.2 document artifacts from repository seed during Render bootstrap.",
-  "removed": [
-    "output/NC_회원가입탈퇴_정책서_Full_v0.11.html",
-    "output/NC_회원가입탈퇴_정책서_Full_v0.11_spec.json",
-    "output/회원가입탈퇴_policy_spec.json"
-  ]
-}

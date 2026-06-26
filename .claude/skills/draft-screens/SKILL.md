@@ -17,6 +17,7 @@
 |------|------|------|
 | context_{module_id}.md | `create-ia/output/context_{module_id}.md` | 화면·UC 목록, depth 구조 |
 | ia-column-spec.md | `.claude/rules/ia-column-spec.md` | page_id·UC code 채번 규칙 |
+| ia-dev-type.md | `.claude/rules/ia-dev-type.md` | dev_type 분류 기준·판단 흐름·예시 |
 | ia-writing-rules.md | `.claude/rules/ia-writing-rules.md` | flow_type·shared page 규칙 |
 | context-ia-example.tsv | `.claude/contexts/context-ia-example.tsv` | 컬럼 구조·값 형식 레퍼런스 |
 
@@ -62,16 +63,6 @@
   ]
 }
 ```
-
-### dev_type 분류 기준
-
-| 화면 특성 | dev_type |
-|----------|----------|
-| 독립 전체 화면, 뒤로가기 존재 | `PG` |
-| 화면 전체를 덮는 모달 (독립 라우트) | `PU` |
-| 화면 하단에서 올라오는 시트 | `BS` |
-| 화면 중앙 팝업 (확인/취소) | `CP` |
-| 하단 미니 팝업, 스낵바형 | `AP` |
 
 ### page_id 채번 규칙
 

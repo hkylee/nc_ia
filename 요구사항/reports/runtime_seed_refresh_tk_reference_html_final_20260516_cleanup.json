@@ -1,6 +1,0 @@
-{
-  "purpose": "Refresh Render persistent seed files for TK reference HTML final 12-document set.",
-  "removed": [
-    "output/reference_html"
-  ]
-}
